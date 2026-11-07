@@ -195,13 +195,14 @@ a { color: var(--link); }
   .panel-bridges li { display: flex; gap: 10px; align-items: center; }
   .panel-bridges .split { --s: 30px; }
 
-  /* The listing: one column of entries, each department's name in the
-     margin beside its own, so entries of any length stack evenly. */
-  .listing { margin-top: 30px; }
-  .listing .department { display: grid; grid-template-columns: 200px minmax(0, 700px); gap: 0 40px; margin-top: 0; padding: 26px 0 8px; border-top: 2px solid var(--head); }
-  .listing .department > h2 { border: 0; padding: 4px 0 0; position: sticky; top: 16px; align-self: start; }
-  .listing .entries > .course:first-child { padding-top: 0; }
+  /* The listing in two columns. The descriptions differ in length, so the
+     entries are of varied heights; no top margin on whatever heads a column. */
+  .listing { columns: 2; column-gap: 48px; margin-top: 30px; }
+  .listing > .department { margin-top: 0; padding-bottom: 30px; }
+  .listing .department > h2 { break-after: avoid; }
+  .listing .course { break-inside: avoid; }
 }
+
 /* ---------- The front page (home.ts): courses as books on shelves ---------- */
 .catalog.home { max-width: 1180px; padding-top: 0; }
 .home .ico { display: block; flex: none; width: 56px; height: 56px; border-radius: 12px; }
