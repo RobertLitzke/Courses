@@ -33,6 +33,11 @@
   "candidates": {
     "salish-sea": { "title": "People of the Salish Sea", "icon": "icons/candidates/salish-sea.svg" },
     "music-theory": { "title": "Music Theory", "icon": "icons/candidates/music-theory.svg" },
-    "pnw-forests": { "title": "PNW Forests", "icon": "icons/candidates/pnw-forests.svg" }
+    "pnw-forests": { "title": "PNW Forests", "icon": "icons/candidates/pnw-forests.svg" },
+    "water-life": { "title": "Water Life", "icon": "icons/candidates/water-life.svg" },
+    "home": { "title": "The Home", "icon": "icons/candidates/home.svg" },
+    "bicycles": { "title": "The Bicycle", "icon": "icons/candidates/bicycles.svg" },
+    "radio": { "title": "Radio", "icon": "icons/candidates/radio.svg" },
+    "cities": { "title": "Cities", "icon": "icons/candidates/cities.svg" }
   }
 }

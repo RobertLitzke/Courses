@@ -505,3 +505,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | People of the Salish Sea | candidate course (icon only) |  |
 | Music Theory | candidate course (icon only) |  |
 | PNW Forests | candidate course (icon only) |  |
+| Water Life | candidate course (icon only) |  |
+| The Home | candidate course (icon only) |  |
+| The Bicycle | candidate course (icon only) |  |
+| Radio | candidate course (icon only) |  |
+| Cities | candidate course (icon only) |  |

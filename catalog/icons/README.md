@@ -1,7 +1,7 @@
 # Course icons
 
 Every course's icon, the catalog's own, and icons for courses not yet
-written, all cut from two painted sheets.
+written, all cut from painted sheets (and a few single images).
 
 - `sources/`: the sheets as they were made (Gemini, 2026-11-03). Keep them;
   a new or revised icon is a new sheet or a single image dropped here.
@@ -11,7 +11,8 @@ written, all cut from two painted sheets.
   `catalog`) is live: its `public/icons/` is written. One without is a
   candidate and lands in `candidates/` as `<name>.svg` and `<name>-192.png`.
 - `candidates/`: icons waiting for their course. `catalog/map.json` lists
-  them under `candidates` with their titles.
+  them under `candidates` with their titles. `coming-soon` is not a course:
+  it is the generic tile for a course that has no icon of its own yet.
 
 ## Making them
 

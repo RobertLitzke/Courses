@@ -3,7 +3,8 @@
   "sheets": {
     "course-icons": { "file": "sources/course-icons.jpg", "note": "Gemini, 2026-11-03: Clouds, Geology, Dirt, Circuitry (unused), Out of Auto, Astronomy, Botany, Ecology, Overall course" },
     "more-course-icons": { "file": "sources/more-course-icons.jpg", "note": "Gemini, 2026-11-03: Circuitry, People of the Salish Sea, Music Theory, Fungi, PNW Forests, Overall course (unused)" },
-    "course-icons-2": { "file": "sources/course-icons-2.jpg", "note": "Gemini, 2026-11-03, revisions: Geology, Circuitry, Astronomy, Ecology, Music Theory are used; the others on it are not" }
+    "course-icons-2": { "file": "sources/course-icons-2.jpg", "note": "Gemini, 2026-11-03, revisions: Geology, Circuitry, Astronomy, Ecology, Music Theory are used; the others on it are not" },
+    "more-course-icons-2": { "file": "sources/more-course-icons-2.jpg", "note": "Rob, 2026-11-07: Bats, Rivers & Sea, Water Life, The Home, Bicycles, Radio, Cities, Coming Soon (bats.png and rivers.png were the stand-ins before it)" }
   },
   "icons": {
     "clouds": { "sheet": "course-icons", "box": [113, 350, 466, 466], "to": "courses/clouds" },
@@ -17,13 +18,19 @@
     "ecology": { "sheet": "course-icons-2", "box": [660, 1688, 469, 469], "to": "courses/ecology" },
     "synthesizers": { "sheet": "course-icons-2", "box": [1211, 1688, 470, 469], "to": "courses/synthesizers" },
     "finance": { "file": "sources/finance.png", "to": "courses/finance" },
-    "bats": { "file": "sources/bats.png", "to": "courses/bats" },
-    "rivers": { "file": "sources/rivers.png", "to": "courses/rivers" },
+    "bats": { "sheet": "more-course-icons-2", "box": [111, 317, 483, 483], "to": "courses/bats" },
+    "rivers": { "sheet": "more-course-icons-2", "box": [676, 317, 483, 483], "to": "courses/rivers" },
     "salish-sea": { "sheet": "more-course-icons", "box": [990, 289, 548, 548] },
     "music-theory": { "sheet": "course-icons-2", "box": [1211, 1688, 470, 469] },
     "fungi": { "sheet": "more-course-icons", "box": [219, 1014, 548, 548], "to": "courses/fungi" },
     "pnw-forests": { "sheet": "more-course-icons", "box": [990, 1014, 548, 548] },
     "electronics-alt": { "sheet": "course-icons", "box": [113, 1016, 466, 466] },
-    "catalog-alt": { "sheet": "more-course-icons", "box": [1762, 1014, 548, 548] }
+    "catalog-alt": { "sheet": "more-course-icons", "box": [1762, 1014, 548, 548] },
+    "water-life": { "sheet": "more-course-icons-2", "box": [1241, 317, 483, 483] },
+    "home": { "sheet": "more-course-icons-2", "box": [1806, 317, 483, 483] },
+    "bicycles": { "sheet": "more-course-icons-2", "box": [111, 1020, 483, 483] },
+    "radio": { "sheet": "more-course-icons-2", "box": [676, 1020, 483, 483] },
+    "cities": { "sheet": "more-course-icons-2", "box": [1241, 1020, 483, 483] },
+    "coming-soon": { "sheet": "more-course-icons-2", "box": [1806, 1020, 483, 483] }
   }
 }
