@@ -5,7 +5,7 @@
 import { svg } from 'didactics/dom';
 import { arrow, line, note, redraw, small, still } from 'didactics/draw';
 import { makeRng, shuffle } from 'didactics/rng';
-import { axes, COL, figure, frame, guessFirst, legend, pick, player, slider, tint, toggles, wrapped, type FigureFactory } from './kit';
+import { axes, COL, figure, frame, guessFirst, legend, named, pick, player, slider, tint, toggles, wrapped, type FigureFactory } from './kit';
 
 const W = 400;
 
@@ -233,13 +233,15 @@ export const shareFigure = figure(['cheats'], (ctx, t) => {
     const m = mean();
     const pct = (v: number) => `${Math.round(v * 100)}%`;
     const head = `${RULE_NAMES[RULES.indexOf(rule)]}, night ${night}: ${now.alive.filter(Boolean).length} of 30 alive, ${now.gifts.length} gift${now.gifts.length === 1 ? '' : 's'} tonight.`;
-    const end = night < 365
+    const end = night === 0
+      ? ' Press Play to run the year.'
+      : night < 365
       ? ' Play on to the end of the year.'
       : ` Averaged over 40 roosts a year: ${pct(m.honest)} of honest adults survive${cheats ? `, ${pct(m.cheats)} of cheats` : ''}, ${pct(m.young)} of young.${rule === 'never' ? ' Two missed nights in a row kill a bat.' : rule === 'everyone' && cheats ? ' The cheats take and never pay, and do as well as anyone.' : rule === 'payback' && cheats ? ' Once the old debts run out, no bat gives to a cheat, and a cheat starves as if nobody shared.' : rule === 'kin' ? ' Families keep their own alive, cheats included.' : ''}`;
     f.readout.textContent = head + end;
     if (night >= 365 && rule === 'payback' && cheats && m.cheats < m.honest) t.done();
   };
-  const rules = pick(RULE_NAMES, 0, (i) => { rule = RULES[i]; paint(); });
+  const rules = named(pick(RULE_NAMES, 0, (i) => { rule = RULES[i]; paint(); }), 'Rule:');
   const cheatChip = toggles(['Add six cheats'], [false], (on) => { cheats = on[0]; paint(); });
   const ns = slider('Night', 0, 365, 1, night, (v) => `${v}`, (v) => { night = v; paint(); }, 'bat');
   const play = player(ns, ctx, { seconds: 14 });
@@ -250,6 +252,7 @@ export const shareFigure = figure(['cheats'], (ctx, t) => {
     answer: 2,
     sliders: [ns],
     buttons: [...rules.buttons, ...cheatChip.buttons],
+    hidden: [rules.node, cheatChip.node, play.node],
     after: () => paint(),
   });
   paint();
@@ -281,7 +284,7 @@ export const cover = (d: number, years: number, o: Parameters<typeof seedRate>[1
 };
 
 export const seedFigure = figure(['far'], (ctx, t) => {
-  const f = frame(W, 214, 3);
+  const f = frame(W, 214, 4);
   const g = svg('g');
   f.svg.append(g);
   let years = 0;
@@ -325,8 +328,8 @@ export const seedFigure = figure(['far'], (ctx, t) => {
       note(x0, 204, `Seeds landing 250 m out: ${r.bats + r.birds > 0 ? Math.round((r.bats / (r.bats + r.birds)) * 100) : 0}% from bats`, { soft: true }),
     );
     f.readout.textContent = years === 0
-      ? 'A strip of forest cleared for pasture and then left alone. Press Play to watch twenty years.'
-      : `Year ${years}: ${Math.round(near * 100)}% of the ground covered 30 m from the edge, ${Math.round(mid * 100)}% at 150 m, ${Math.round(far * 100)}% at the far side.${!on.bats && years >= 15 ? ' Without bats the far side stays almost bare: birds seldom cross open ground.' : on.bats && years >= 15 ? ' The far side fills from seeds bats dropped in flight.' : ''}`;
+      ? `A strip of forest cleared for pasture and then left alone. Press Play to watch twenty years${on.bats ? ' with the bats' : ' without the bats'}.`
+      : `Year ${years}: ${Math.round(near * 100)}% of the ground covered 30 m from the edge, ${Math.round(mid * 100)}% at 150 m, ${Math.round(far * 100)}% at the far side.${!on.bats && years >= 15 ? ' Without bats the far side stays almost bare: birds seldom cross open ground.' : on.bats && years >= 15 ? ` The far side fills from seeds bats dropped in flight.${sawWithout ? '' : ' Now tap Fruit bats off and play again.'}` : ''}`;
     if (years >= 15 && on.bats) sawWith = true;
     if (years >= 15 && !on.bats) sawWithout = true;
     if (sawWith && sawWithout) t.done();

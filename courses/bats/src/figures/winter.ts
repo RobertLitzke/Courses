@@ -160,7 +160,7 @@ export const fatFigure = figure(['starve'], (ctx, t) => {
     f.readout.textContent = dead
       ? `${dateOf(run.diedOn!)}: the fat is gone after ${run.wakings} wakings, the last ones every ${last.interval.toFixed(1)} days. The bat flies out to look for insects that are not there.`
       : now >= BUDGET.days
-        ? `Spring (${dateOf(now)}): ${(last.fat / 1000).toFixed(2)} g of fat left after ${run.wakings} wakings, which used ${share}% of the fat burned. In torpor the bat burned ${torporCost(temp).toFixed(1)} mg a day.`
+        ? `Spring (${dateOf(now)}): ${(last.fat / 1000).toFixed(2)} g of fat left after ${run.wakings} wakings, which used ${share}% of the fat burned. In torpor the bat burned ${torporCost(temp).toFixed(1)} mg a day.${wns ? '' : ' Now tap White-nose.'}`
         : `${dateOf(now)}: ${(last.fat / 1000).toFixed(2)} g left after ${shown.filter((d) => d.woke).length} wakings. ${wns ? `The fungus now wakes the bat every ${last.interval.toFixed(1)} days.` : `It wakes about every ${interval} days.`}`;
     if (wns && dead) t.done();
   };
@@ -176,6 +176,7 @@ export const fatFigure = figure(['starve'], (ctx, t) => {
     answer: 1,
     sliders: [ts, is, ds],
     buttons: sick.buttons,
+    hidden: [sick.node, play.node],
     after: () => paint(),
   });
   paint();

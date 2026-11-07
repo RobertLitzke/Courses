@@ -38,7 +38,7 @@
       "title": "Which sense?",
       "blocks": [
         {"type": "text", "text": "The wire room also lets you do what nobody in the 1790s did: tie the bat's mouth shut and leave its ears open. A bat treated so still hears the room around it, the rustle of its own wings and any sound the wires make in the draught, yet it hits wire after wire, as the plugged bats did. That test was made in 1940, and it separates two ideas about hearing: that the bat listens to sounds already in the room, or that it listens to echoes of sounds it makes itself."},
-        {"type": "interactive_diagram", "id": "clue-board", "caption": "Five ideas about how a bat finds its way in the dark, and three experiments that bear on them.", "task": "Guess, then turn on every clue", "goal": "clues", "aspect_ratio": 1.1, "options": {
+        {"type": "interactive_diagram", "id": "clue-board", "caption": "Five ideas about how a bat finds its way in the dark, and three experiments that bear on them.", "task": "Guess, then show the clues one by one", "goal": "clues", "aspect_ratio": 1.1, "options": {
           "ideas": [
             {"name": "Sight", "text": "It sees by the faintest light"},
             {"name": "Touch", "text": "Its wings feel the air pushed back off things"},

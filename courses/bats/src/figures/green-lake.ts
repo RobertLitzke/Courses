@@ -5,7 +5,7 @@
 
 import { svg } from 'didactics/dom';
 import { label, redraw, small } from 'didactics/draw';
-import { COL, animate, figure, frame, guessFirst, pick, player, slider, tint, big, count, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, guessFirst, named, pick, player, slider, tint, big, count, type FigureFactory } from './kit';
 
 const W = 400;
 
@@ -123,15 +123,15 @@ export const duskFigure = figure(['hoary'], (ctx, t) => {
     const m = MONTHS[month];
     let text: string;
     if (month === 3) text = minute < 15 ? 'January. The Myotis are asleep in torpor, and most nights nothing flies.' : 'On a mild January night a big brown or a silver-haired bat may wake and hunt briefly along the trees. No Myotis: they are deep in torpor.';
-    else if (minute < 15) text = `${m}, ${minute < 0 ? 'before sunset' : 'just after sunset'}. Swifts and swallows have the insects. Midges begin to rise from the water.`;
+    else if (minute < 15) text = `${m}, ${minute < 0 ? 'before sunset' : 'just after sunset'}. Swifts and swallows have the insects. Midges begin to rise from the water.${minute <= -5 ? ' Press Play to run the evening.' : ''}`;
     else if (!has('Yuma myotis')) text = `${m}, ${minute} minutes after sunset. The first bats: big browns and silver-haired bats along the tops of the trees, 10 to 20 m up, calls near 25 to 28 kHz.`;
-    else if (!has('Hoary')) text = `${m}, ${minute} minutes. Myotis drop to the water: Yuma and little brown bats skim a metre over the lake, calls ending near 50 and 40 kHz.${month === 1 ? ' This is the busiest month: the pups born in June are flying now.' : ''}`;
+    else if (!has('Hoary')) text = `${m}, ${minute} minutes. Myotis drop to the water: Yuma and little brown bats skim a metre over the lake, calls ending near 50 and 40 kHz.${month === 1 ? ' This is the busiest month: the pups born in June are flying now.' : ''}${minute >= 60 ? ' No hoary bat tonight: try another month.' : ''}`;
     else text = `${minute} minutes, ${m}: the hoary bat, Washington's largest, fast and high, calling near 20 kHz. Some people can just hear its lowest calls.`;
     f.readout.textContent = text;
     if (has('Hoary')) t.done();
   };
 
-  const months = pick(MONTHS, month, (i) => { month = i; paintBack(); paintFront(); say(); });
+  const months = named(pick(MONTHS, month, (i) => { month = i; paintBack(); paintFront(); say(); }), 'Month:');
   const time = slider('Minutes after sunset', -10, 70, 1, minute, (v) => `${v}`, (v) => { minute = v; paintBack(); paintFront(); say(); }, 'ink');
   const play = player(time, ctx, { seconds: 16 });
   f.controls.append(months.node, play.node, time.node);
@@ -180,7 +180,7 @@ export const dietFigure = figure(['diet'], (_ctx, t) => {
     }).flat();
     redraw(g, small(4, 12, open() ? `${names[bat]}: what turns up in its droppings` : 'What the bats over the water eat', { bold: true }), ...rows);
   };
-  const bats = pick(names, 0, (i) => {
+  const bats = named(pick(names, 0, (i) => {
     bat = i;
     seen.add(i);
     paint();
@@ -191,7 +191,7 @@ export const dietFigure = figure(['diet'], (_ctx, t) => {
         ? 'The Yuma myotis takes midges and caddisflies as they rise off the water, with mayflies when they hatch. Mosquitoes turn up, but as a small share.'
         : 'Little browns take the same aquatic insects, with more moths. A nursing female can eat close to her own weight in a night.';
     if (seen.has(2)) t.done();
-  });
+  }), 'Bat:');
   for (const b of bats.buttons) b.disabled = true;
   f.controls.append(bats.node);
   const open = guessFirst(t, f, {
@@ -200,7 +200,8 @@ export const dietFigure = figure(['diet'], (_ctx, t) => {
     answer: 1,
     sliders: [],
     buttons: bats.buttons,
-    after: () => { seen.add(0); paint(); f.readout.textContent = 'Mostly midges, small non-biting flies that rise from the lake bottom in huge numbers, and caddisflies. Now look at the big brown, which hunts above the trees.'; },
+    hidden: [bats.node],
+    after: () => { seen.add(0); paint(); f.readout.textContent = 'Mostly midges, small non-biting flies that rise from the lake bottom in huge numbers, and caddisflies. Now tap Big brown, a bat that hunts above the trees.'; },
   });
   paint();
   return f.node;
@@ -247,13 +248,13 @@ export const colonyFigure = figure(['million'], (_ctx, t) => {
     );
     f.readout.textContent = n >= 1e6
       ? `${big(bats)} bats eating ${Math.round(share * 100)}% of their weight in ${prey.toLowerCase()}s: ${count(n)} insects, ${sig1(bats * grams * share / 1000)} kg, in one night.`
-      : `${big(bats)} bats, each eating ${(grams * share).toFixed(1)} g of ${prey.toLowerCase()}s: ${count(n)} insects in a night. ${prey === 'Moth' ? 'A moth weighs as much as twenty midges, so the count falls.' : ''}`;
+      : `${big(bats)} bats, each eating ${(grams * share).toFixed(1)} g of ${prey.toLowerCase()}s: ${count(n)} insects in a night. ${prey === 'Moth' ? 'A moth weighs as much as twenty midges, so the count falls.' : 'Raise the colony or what each eats to fill all 100 squares.'}`;
     if (n >= 1e6) t.done();
   };
   const sig1 = (v: number) => (v < 10 ? v.toFixed(1) : String(Math.round(v)));
   const colony = slider('Colony', { steps: [20, 50, 100, 200, 300, 500, 1000], value: bats, show: (v) => `${v} bats`, onInput: (v) => { bats = v; paint(); }, color: 'bat' });
   const eat = slider('Eaten each night', 20, 100, 5, share * 100, (v) => `${v}% of her weight`, (v) => { share = v / 100; paint(); }, 'fat');
-  const kind = pick(Object.keys(INSECT_MG), 0, (i) => { prey = Object.keys(INSECT_MG)[i]; paint(); });
+  const kind = named(pick(Object.keys(INSECT_MG), 0, (i) => { prey = Object.keys(INSECT_MG)[i]; paint(); }), 'Insect:');
   f.controls.append(kind.node, colony.node, eat.node);
   paint();
   return f.node;

@@ -85,7 +85,7 @@ export const rateFigure = figure(['near'], (_ctx, t) => {
   f.svg.append(g);
   let d = 10;
   const ax = axes({
-    x: 46, y: 26, w: 330, h: 160, xmin: 10, xmax: 0, ymin: 0, ymax: 220,
+    x: 46, y: 26, w: 330, h: 160, xmin: 10, xmax: 0, ymin: 0, ymax: 240,
     xticks: [10, 8, 6, 4, 2, 0], yticks: [0, 50, 100, 150, 200], xlabel: 'metres to the moth', ylabel: 'calls a second, at most',
     ink: COL.ink, grid: COL.grid,
   });
@@ -103,17 +103,20 @@ export const rateFigure = figure(['near'], (_ctx, t) => {
       ...band(DETECT, 0.8, 'approach', COL.call),
       ...band(0.8, 0, 'buzz', COL.cost),
       ...ax.parts,
-      ax.path(curve, COL.model, 2.2),
+      // Traced only as far as the moth has come, so the guess is not given away.
+      open() ? ax.path(curve.filter(([x]) => x >= d), COL.model, 2.2) : null,
       ...(open() ? [
         line(ax.X(d), ax.Y(0), ax.X(d), ax.Y(r), COL.moth, 1, { 'stroke-dasharray': '3 2' }),
         svg('circle', { cx: ax.X(d), cy: ax.Y(r), r: 5, fill: COL.moth, stroke: COL.ink, 'stroke-width': 0.8 }),
-        small(Math.min(ax.X(d) + 8, 330), Math.max(ax.Y(r) - 8, 56), `${Math.round(r)} a second`, { bold: true }),
+        ax.X(d) > 300
+          ? small(ax.X(d) - 9, Math.max(ax.Y(r) + 4, 60), `${Math.round(r)} a second`, { bold: true, anchor: 'end' })
+          : small(ax.X(d) + 8, Math.max(ax.Y(r) - 8, 60), `${Math.round(r)} a second`, { bold: true }),
       ] : []),
     );
     if (!open()) return;
     f.readout.textContent = p === 'search'
-      ? `At ${metres(d)} the bat has not found the moth yet. It calls once a wingbeat, about ${WINGBEAT} times a second, and listens for anything at all.`
-      : `At ${metres(d)} each echo is back ${ms(roundTrip(d))} after its call, and the call itself lasts ${ms(callLength(d))}, so the bat can call at most ${Math.round(r)} times a second.${p === 'buzz' ? ' That is the buzz.' : ''}`;
+      ? `At ${metres(d)} the bat has not found the moth yet. It calls once a wingbeat, about ${WINGBEAT} times a second. Drag the slider to bring the moth in.`
+      : `At ${metres(d)} each echo is back ${ms(roundTrip(d))} after its call, and the call itself lasts ${ms(callLength(d))}, so the bat can call at most ${Math.round(r)} times a second.${p === 'buzz' ? ' That is the buzz.' : d > 1 ? ' Keep going, to within a metre.' : ''}`;
     if (d <= 1) t.done();
   };
   const s = slider('Moth distance', 0.2, 10, 0.1, d, (v) => metres(v), (v) => { d = v; paint(); }, 'moth');
@@ -194,7 +197,9 @@ export const approachFigure = figure(['catch'], (ctx, t) => {
       small(390, 22, `${recent * 10} calls a second now`, { anchor: 'end', fill: COL.call }),
     );
     const p = phase(d);
-    f.readout.textContent = now >= end - 1e-6
+    f.readout.textContent = now === 0
+      ? `The bat starts ${metres(d0)} from the moth. Press Play to run the hunt, or drag Time. Every call of the hunt is marked on the strip below.`
+      : now >= end - 1e-6
       ? `Caught. From ${metres(d0)} the hunt took ${end.toFixed(1)} seconds and ${pulses.length} calls; ${pulses.filter((q) => phase(q.d) === 'buzz').length} of them came in the last ${metres(0.8)}, the buzz.`
       : p === 'search'
         ? `Searching: the moth is ${metres(d)} away, too far to return an echo the bat can hear. One call a wingbeat, about ${WINGBEAT} a second.`

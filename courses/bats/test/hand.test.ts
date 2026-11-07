@@ -56,7 +56,7 @@ describe('lesson 2: hand', () => {
 
   it('every clue about Onychonycteris on leaves the question open', async () => {
     const f = FIGURES['clue-board'](context(), 'clues', own('clue-board'));
-    for (const c of ['1. Flapping wings', '2. A small inner ear', '3. Joined throat and ear bones']) click(f.node, c);
+    for (const c of ['Show clue 1: Flapping wings', 'Show clue 2: A small inner ear', 'Show clue 3: Joined throat and ear bones']) click(f.node, c);
     expect(f.node.querySelector('.fig-readout')!.textContent).toMatch(/question is open/);
     await expect(f.done).resolves.toBeUndefined();
   });

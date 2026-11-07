@@ -136,7 +136,7 @@ export const wingSize = (ar: number, wl: number) => {
 };
 
 export const wingShapeFigure = figure(['clutter', 'open', 'both'], (_ctx, t) => {
-  const f = frame(W, 250, 3);
+  const f = frame(W, 250, 4);
   const g = svg('g');
   f.svg.append(g);
   let ar = 7;
@@ -182,8 +182,8 @@ export const wingShapeFigure = figure(['clutter', 'open', 'both'], (_ctx, t) => 
       svg('rect', { x: X(7.5), y: Y(18), width: X(10) - X(7.5), height: Y(12) - Y(18), fill: tint(COL.water, 0.14) }),
       line(mx, my + mh, mx + mw, my + mh, COL.ink, 1.2),
       line(mx, my, mx, my + mh, COL.ink, 1.2),
-      small(X(5) + 3, Y(5) - 4, 'clutter', { bold: true, fill: COL.plant }),
-      small(X(10) - 3, Y(18) + 11, 'open sky', { bold: true, fill: COL.water, anchor: 'end' }),
+      small(X(5) + 3, Y(8) - 4, seen.has('clutter') ? 'clutter ✓' : 'clutter', { bold: true, fill: COL.plant }),
+      small(X(10) - 3, Y(18) + 11, seen.has('open') ? 'open sky ✓' : 'open sky', { bold: true, fill: COL.water, anchor: 'end' }),
       small(X(8.7), Y(9), 'edges', { soft: true, anchor: 'middle' }),
       small(mx + mw, my + mh + 14, 'aspect ratio: long, narrow →', { anchor: 'end', soft: true }),
       small(mx - 4, my - 4, 'wing loading ↑', { soft: true }),
@@ -197,11 +197,16 @@ export const wingShapeFigure = figure(['clutter', 'open', 'both'], (_ctx, t) => 
       small(X(BATS[3].ar) + 5, Y(BATS[3].wl) + 3, 'big brown', { soft: true }),
       svg('circle', { cx: X(ar), cy: Y(wl), r: 6, fill: 'none', stroke: COL.bat, 'stroke-width': 2.5 }),
       svg('circle', { cx: X(ar), cy: Y(wl), r: 2, fill: COL.bat }),
-      ...wrapped(mx, my + mh + 30, `Your wing hunts: ${NICHE[n].toLowerCase()}.`, 38, { bold: true }),
+      ...wrapped(mx, my + mh + 30, `Your wing hunts: ${NICHE[n].toLowerCase()}.`, 32, { bold: true }),
     );
     redraw(g, ...parts);
     const c = costPerKm(ar);
-    f.readout.textContent = `Slowest flight ${slowest(wl).toFixed(1)} m/s, best cruising ${cruise(ar, wl).toFixed(1)} m/s. A kilometre costs ${c <= 1.005 ? 'the least energy of any wing here' : `${Math.round((c - 1) * 100)}% more energy than the longest, narrowest wing`}.`;
+    const next = !seen.has('clutter')
+      ? 'Lower both sliders to move the ring into the green clutter box. '
+      : !seen.has('open')
+        ? `${n === 'clutter' ? 'That wing can hunt among branches. ' : ''}Now raise both to reach the blue open-sky box. `
+        : n === 'open' ? 'That wing is built for open sky. ' : '';
+    f.readout.textContent = `${next}Slowest flight ${slowest(wl).toFixed(1)} m/s, best cruising ${cruise(ar, wl).toFixed(1)} m/s. A kilometre costs ${c <= 1.005 ? 'the least energy of any wing here' : `${Math.round((c - 1) * 100)}% more energy than the longest, narrowest wing`}.`;
     if (t.goal === 'clutter' && n === 'clutter') t.done();
     if (t.goal === 'open' && n === 'open') t.done();
     if (t.goal === 'both' && seen.has('clutter') && seen.has('open')) t.done();

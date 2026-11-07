@@ -38,7 +38,7 @@ describe('lesson 1: dark', () => {
   it('the clue board leaves hearing its own calls', async () => {
     const f = FIGURES['clue-board'](context(), 'clues', own('clue-board'));
     guess(f.node, 'Hearing its own calls');
-    for (const c of ['1. Blinded', '2. Ears plugged', '3. Mouth tied']) click(f.node, c);
+    for (const c of ['Show clue 1: Blinded', 'Show clue 2: Ears plugged', 'Show clue 3: Mouth tied']) click(f.node, c);
     expect(f.node.querySelector('.fig-readout')!.textContent).toMatch(/Only one idea fits/);
     await expect(f.done).resolves.toBeUndefined();
   });

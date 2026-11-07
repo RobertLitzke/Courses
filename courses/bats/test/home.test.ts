@@ -49,7 +49,7 @@ describe('lesson 10, The way home', () => {
 
   it('the GPS figure: guess, then play all four flights', async () => {
     const f = FIGURES['fruitbat-gps'](context(), 'all');
-    guess(f.node, 'Fly in loops for a long time, then head home');
+    guess(f.node, 'Fly in loops, then head home');
     for (const fl of FLIGHTS) {
       click(f.node, fl.name);
       setSlider(f.node, 0, 100);
@@ -76,7 +76,7 @@ describe('lesson 10, The way home', () => {
   it('the clue board, from the lesson\'s JSON, leaves only the map', async () => {
     const f = FIGURES['clue-board'](context(), 'clues', ownOptions('clue-board'));
     guess(f.node, 'A map of distant landmarks');
-    for (const c of ['1. Echoes are short', '2. A closed box', '3. Straight home from new ground', '4. Lost in the crater']) click(f.node, c);
+    for (const c of ['Show clue 1: Echoes are short', 'Show clue 2: A closed box', 'Show clue 3: Straight home from new ground', 'Show clue 4: Lost in the crater']) click(f.node, c);
     await expect(f.done).resolves.toBeUndefined();
   });
 });

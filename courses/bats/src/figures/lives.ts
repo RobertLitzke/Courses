@@ -117,6 +117,7 @@ export const lifespanFigure = figure(['placed'], (_ctx, t) => {
     answer: 2,
     sliders: [],
     buttons: which.buttons,
+    hidden: [which.node],
     after: () => paint(),
   });
   paint();
@@ -176,7 +177,7 @@ export function mouseMonths(loss: number): number {
 }
 
 export const colonyFigure = figure(['fail'], (_ctx, t) => {
-  const f = frame(W, 220, 3);
+  const f = frame(W, 220, 4);
   const g = svg('g');
   f.svg.append(g);
   let pups = 1;
@@ -196,19 +197,21 @@ export const colonyFigure = figure(['fail'], (_ctx, t) => {
     redraw(g,
       ...ax.parts,
       ax.path(mousePts, COL.soft, 1.6, { 'stroke-dasharray': '4 3' }),
-      ax.path(run.map((v, y) => [y, v] as const), COL.bat, 2.6),
+      // Before the guess, only the years up to the loss: the recovery is the answer.
+      ax.path(run.slice(0, open() ? run.length : COLONY.lossAt + 1).map((v, y) => [y, v] as const), COL.bat, 2.6),
       line(ax.X(COLONY.lossAt), ax.Y(0), ax.X(COLONY.lossAt), ax.Y(1.1), COL.fungus, 1, { 'stroke-dasharray': '2 3' }),
       small(ax.X(COLONY.lossAt) + 4, ax.Y(1.06), `loss of ${Math.round(loss * 100)}%`, { fill: COL.fungus }),
-      back !== null ? svg('circle', { cx: ax.X(COLONY.lossAt + back), cy: ax.Y(run[COLONY.lossAt + back]), r: 3.5, fill: COL.good }) : null,
+      open() && back !== null ? svg('circle', { cx: ax.X(COLONY.lossAt + back), cy: ax.Y(run[COLONY.lossAt + back]), r: 3.5, fill: COL.good }) : null,
       ...legend(44, 212, [{ text: 'bat colony', color: COL.bat }, { text: 'mice', color: COL.soft, dash: true }]),
     );
     if (!open()) return;
     const fails = extra >= r;
+    const next = extra === 0 ? ' Now raise the extra deaths each year until it never comes back.' : '';
     f.readout.textContent = fails
       ? `The colony can add at most ${Math.round(r * 100)}% a year, and ${Math.round(extra * 100)}% more die every year: it dwindles away however long you wait.`
       : back === null
-        ? `With ${pups} pup${pups === 1 ? '' : 's'} a year and ${Math.round(extra * 100)}% extra deaths, the colony is still below 90% after ${COLONY.years - COLONY.lossAt} years. Mice are back in ${mouse} months.`
-        : `Back to 90% after ${back} years${extra > 0 ? `, settling lower because of the extra deaths` : ''}. Mice, with litters every month, are back in ${mouse} month${mouse === 1 ? '' : 's'}.`;
+        ? `With ${pups} pup${pups === 1 ? '' : 's'} a year and ${Math.round(extra * 100)}% extra deaths, the colony is still below 90% after ${COLONY.years - COLONY.lossAt} years. Mice are back in ${mouse} months.${next}`
+        : `Back to 90% after ${back} years${extra > 0 ? `, settling lower because of the extra deaths` : ''}. Mice, with litters every month, are back in ${mouse} month${mouse === 1 ? '' : 's'}.${next}`;
     if (fails) t.done();
   };
   const ps = slider('Pups per female a year', 1, 4, 0.5, pups, (v) => `${v}`, (v) => { pups = v; paint(); }, 'bat');

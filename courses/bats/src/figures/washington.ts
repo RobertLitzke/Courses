@@ -6,7 +6,7 @@
 
 import { svg } from 'didactics/dom';
 import { line, redraw, small } from 'didactics/draw';
-import { COL, axes, figure, frame, pick, slider, tint, type FigureFactory } from './kit';
+import { COL, axes, figure, frame, named, pick, slider, tint, type FigureFactory } from './kit';
 
 const W = 400;
 
@@ -104,7 +104,7 @@ export const houseFigure = figure(['warm'], (_ctx, t) => {
       ...ruler,
       ...support,
       svg('rect', { x: 46, y: boxY - 34, width: 28, height: 34, fill: boxFill, stroke: COL.ink, 'stroke-width': 1 }),
-      ...(height < 3 ? [small(104, groundY - 8, 'cats and', { anchor: 'middle', fill: COL.bad }), small(104, groundY + 4 - 0, 'raccoons reach', { anchor: 'middle', fill: COL.bad })] : []),
+      ...(height < 3 ? [small(108, groundY - 20, 'cats and', { anchor: 'middle', fill: COL.bad }), small(108, groundY - 8, 'raccoons reach', { anchor: 'middle', fill: COL.bad })] : []),
       ...(sunHours > 0 ? [svg('circle', { cx: 140, cy: 20, r: 9, fill: COL.fat, opacity: mount === 2 ? 0.4 : 1 })] : []),
       ...A.parts,
       svg('rect', { x: A.X(0), y: A.Y(COMFORT.hi), width: A.X(23) - A.X(0), height: A.Y(COMFORT.lo) - A.Y(COMFORT.hi), fill: tint(COL.heat, 0.12) }),
@@ -114,7 +114,7 @@ export const houseFigure = figure(['warm'], (_ctx, t) => {
       ...(sunHours > 0 ? [svg('rect', { x: A.X(6), y: A.Y(46), width: A.X(Math.min(23, 6 + sunHours)) - A.X(6), height: 4, fill: COL.fat })] : []),
       A.path(air.map((v, h) => [h, v] as const), COL.soft, 1.5, { 'stroke-dasharray': '4 3' }),
       A.path(temps.map((v, h) => [h, v] as const), COL.heat, 2.5),
-      small(A.X(1), A.Y(airTemp(1, place)) + 12, `air, ${place.name}`, { soft: true }),
+      small(A.X(0) + 2, A.Y(airTemp(0, place)) + 16, `air, ${place.name}`, { soft: true }),
     );
     const hrs = comfyHours(temps);
     const ok = suits(PAINTS[paint].absorb, sunHours, m, height, place);
@@ -123,13 +123,13 @@ export const houseFigure = figure(['warm'], (_ctx, t) => {
       : peak > COMFORT.tooHot
         ? `It reaches ${Math.round(peak)} °C by mid afternoon. Bats leave a box that hot, or die in it. East of the Cascades a box needs a lighter colour or less sun.`
         : hrs < 6
-          ? `Only ${hrs} hours in the band mothers need; the box peaks at ${Math.round(peak)} °C. Pups grow slowly in a cool roost, and the colony goes elsewhere.`
+          ? `Only ${hrs} hours in the band mothers need; the box peaks at ${Math.round(peak)} °C. Pups grow slowly in a cool roost. Try a darker paint, more sun or a house wall.`
           : `Warm enough, but at ${height} m a box is within reach of cats and raccoons and hard for bats to drop from into flight. Raise it to 3 to 5 m.`;
     if (ok) t.done();
   };
-  const town = pick(PLACES.map((p) => p.name), where, (i) => { where = i; draw(); });
-  const colour = pick(PAINTS.map((p) => p.name), paint, (i) => { paint = i; draw(); });
-  const on = pick(MOUNTS.map((m) => m.name), mount, (i) => { mount = i; draw(); });
+  const town = named(pick(PLACES.map((p) => p.name), where, (i) => { where = i; draw(); }), 'Town:');
+  const colour = named(pick(PAINTS.map((p) => p.name), paint, (i) => { paint = i; draw(); }), 'Paint:');
+  const on = named(pick(MOUNTS.map((m) => m.name), mount, (i) => { mount = i; draw(); }), 'On a:');
   const sun = slider('Direct sun from 6 am', 0, 10, 1, sunHours, (v) => `${v} hours`, (v) => { sunHours = v; draw(); }, 'fat');
   const high = slider('Mounted', 1, 6, 0.5, height, (v) => `${v} m up`, (v) => { height = v; draw(); }, 'rock');
   f.controls.append(town.node, colour.node, on.node, sun.node, high.node);

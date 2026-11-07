@@ -52,7 +52,7 @@ export const touches = (s: Senses, n = 20): number => flights(s, n).reduce((a, f
 const NAMES = ['Eyes covered', 'Ears plugged', 'Mouth tied shut'] as const;
 
 export const wireRoomFigure = figure(['senses'], (ctx, t) => {
-  const f = frame(W, 250, 3);
+  const f = frame(W, 250, 4);
   const room = { x: 10, y: 10, w: 380, h: 160 };
   const cols = [150, 215, 280];
   const gap = 32;
@@ -157,6 +157,15 @@ export const wireRoomFigure = figure(['senses'], (ctx, t) => {
     return `${head}${n} wires touched in 20 flights. ${senses.mouth && !senses.ears ? 'Its ears are open, yet it flies almost as if blind.' : 'It flies on, but blunders into wire after wire.'}`;
   };
 
+  /** What to do next: each sense on its own, until all three are in the table. */
+  const next = (on: boolean[]) => {
+    const n = on.filter(Boolean).length;
+    if (n > 1) return 'Only one sense taken away at a time goes in the table.';
+    const left = NAMES.filter((_, i) => alone[i] === null);
+    if (!left.length) return '';
+    return n ? `Tap it again to undo, then try ${left.map((w) => w.toLowerCase()).join(' or ')}.` : `Next: ${left.map((w) => w.toLowerCase()).join(' or ')}.`;
+  };
+
   const set = (on: boolean[]) => {
     senses = { eyes: on[0], ears: on[1], mouth: on[2] };
     run = flights(senses);
@@ -168,7 +177,7 @@ export const wireRoomFigure = figure(['senses'], (ctx, t) => {
     if (only >= 0) alone[only] = touches(senses);
     paintTable();
     paintBat();
-    f.readout.textContent = describe();
+    f.readout.textContent = `${describe()} ${next(on)}`;
     if (alone.every((v) => v !== null)) t.done();
   };
 
@@ -176,7 +185,7 @@ export const wireRoomFigure = figure(['senses'], (ctx, t) => {
   f.controls.append(tg.node);
   paintTable();
   paintBat();
-  f.readout.textContent = `${describe()} Take away one sense at a time.`;
+  f.readout.textContent = `${describe()} Tap a button below to take away one sense.`;
 
   animate(f.node, ctx, (dt) => {
     x += 110 * dt;

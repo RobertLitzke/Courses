@@ -6,7 +6,7 @@
 
 import { svg } from 'didactics/dom';
 import { arrow, label, line, polyline, redraw, small, still, type P } from 'didactics/draw';
-import { COL, animate, figure, type FigureFactory, frame, guessFirst, pick, slider, tint, wrapped } from './kit';
+import { COL, animate, figure, type FigureFactory, frame, guessFirst, named, pick, slider, tint, wrapped } from './kit';
 import { playButton, type Call } from './sound';
 
 const W = 400;
@@ -106,7 +106,7 @@ function scope(x0: number, x1: number, y: number, khz: number, amp: number, colo
 }
 
 export const detectorFigure = figure(['myotis'], (ctx, t) => {
-  const f = frame(W, 262, 3);
+  const f = frame(W, 262, 4);
   const base = svg('g');
   const live = svg('g');
   f.svg.append(base, live);
@@ -161,18 +161,17 @@ export const detectorFigure = figure(['myotis'], (ctx, t) => {
   const say = () => {
     const s = sweepOf();
     const d = dwell(s, lo);
-    const name = DETECTOR_BATS[bat].name.toLowerCase();
     if (d === 0) {
-      f.readout.textContent = `Dial at ${lo} kHz. The ${name}'s call runs from ${s.start} down to ${s.end} kHz and never comes within ${BAND} kHz of the dial, so the speaker stays silent.`;
+      f.readout.textContent = `Dial at ${lo} kHz. The call runs from ${s.start} down to ${s.end} kHz and never comes within ${BAND} kHz of the dial, so the speaker stays silent. Drag the dial into the call's range.`;
     } else {
       const ms = d * s.dur;
       const sound = d >= 0.45 ? 'a full, wet "tock"' : d >= 0.2 ? 'a short "chip"' : 'a dry tick';
-      f.readout.textContent = `Dial at ${lo} kHz. ${ms.toFixed(1)} ms of the ${s.dur} ms call falls inside the window: ${sound} on each call.${d >= 0.45 ? ' The call lingers near its end frequency, so this is where it sounds loudest.' : ''}`;
+      f.readout.textContent = `Dial at ${lo} kHz. ${ms.toFixed(1)} ms of the ${s.dur} ms call falls inside the window: ${sound} on each call.${d >= 0.45 ? ' The call lingers near its end frequency, so this is where it sounds loudest.' : ' Keep tuning: find where the call lingers longest in the green window.'}`;
     }
     if (bat === 0 && d >= 0.45) t.done();
   };
 
-  const species = pick(DETECTOR_BATS.map((b) => b.name), 0, (i) => { bat = i; paintBase(); say(); });
+  const species = named(pick(DETECTOR_BATS.map((b) => b.name), 0, (i) => { bat = i; paintBase(); say(); }), 'Bat:');
   const dial = slider('Dial', 15, 100, 1, lo, (v) => `${v} kHz`, (v) => { lo = v; paintBase(); say(); }, 'ink');
   const listen = playButton('Listen, real time', () => {
     const b = DETECTOR_BATS[bat];
@@ -195,7 +194,7 @@ export const HORSESHOE = { cf: 83, dur: 50, tailTo: 68, tail: 3 } as const;
 export const cfTone = (cf: number, lo: number, band = BAND): number | null => (beat(cf, lo) <= band ? beat(cf, lo) : null);
 
 export const steadyFigure = figure(['zero'], (_ctx, t) => {
-  const f = frame(W, 214, 3);
+  const f = frame(W, 214, 4);
   const g = svg('g');
   f.svg.append(g);
   let lo = 80;
@@ -219,12 +218,14 @@ export const steadyFigure = figure(['zero'], (_ctx, t) => {
       small(T1, 126, 'ms', { anchor: 'end', soft: true }),
       small(4, 146, 'Out of the speaker, 2 ms of it', { bold: true }),
       line(T0, 180, T1, 180, COL.grid, 1),
-      tone === null
+      !open()
+        ? small(W / 2, 184, '? make your guess first', { anchor: 'middle', soft: true })
+        : tone === null
         ? small(W / 2, 184, 'silence: the call is outside the window', { anchor: 'middle', soft: true })
         : tone < 0.25
           ? small(W / 2, 184, 'almost nothing: zero beat', { anchor: 'middle', fill: COL.good })
           : scope(T0, T1, 180, tone, 1, COL.good),
-      ...(tone !== null && tone >= 0.25 ? [small(T1, 206, `a steady whistle at ${tone.toFixed(1)} kHz`, { anchor: 'end', fill: COL.good })] : []),
+      ...(open() && tone !== null && tone >= 0.25 ? [small(T1, 206, `a steady whistle at ${tone.toFixed(1)} kHz`, { anchor: 'end', fill: COL.good })] : []),
     );
     if (!open()) return;
     f.readout.textContent = tone === null
@@ -252,6 +253,7 @@ export const steadyFigure = figure(['zero'], (_ctx, t) => {
     answer: 0,
     sliders: [dial],
     buttons: [listen],
+    hidden: [listen],
     after: () => paint(),
   });
   paint();

@@ -65,3 +65,12 @@ export function count(n: number): string {
   if (n >= 1e6) return `${sig(n / 1e6, 2)} million`;
   return big(n);
 }
+
+/** Put a short name in front of a row of chips ("Rule:"), so it does not pass for a row of guesses. Returns the row. */
+export function named<T extends { node: HTMLElement }>(row: T, name: string): T {
+  const tag = document.createElement('span');
+  tag.className = 'chip-label';
+  tag.textContent = name;
+  row.node.prepend(tag);
+  return row;
+}

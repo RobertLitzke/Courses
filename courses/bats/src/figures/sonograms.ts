@@ -173,7 +173,7 @@ export const passesForYuma = (s: Sweep): boolean =>
   Math.abs(s.end - YUMA.endNear) <= YUMA.endBy && s.start >= YUMA.startAtLeast && s.dur <= YUMA.durAtMost;
 
 export const buildFigure = figure(['yuma'], (_ctx, t) => {
-  const f = frame(W, 200, 3);
+  const f = frame(W, 200, 4);
   const g = svg('g');
   f.svg.append(g);
   const s: Sweep = { start: 50, end: 25, dur: 12, bend: 2.5 };
@@ -198,9 +198,9 @@ export const buildFigure = figure(['yuma'], (_ctx, t) => {
     );
     f.readout.textContent = passesForYuma(s)
       ? `That would pass for a Yuma myotis: a ${s.dur} ms sweep from ${s.start} kHz to ${s.end}, ${sl.toFixed(0)} kHz each millisecond. A short, steep call that ends high suits a small bat working close to water and trees.`
-      : s.dur > 8
-        ? `A ${s.dur} ms call is long: long calls put more sound on a distant target, and suit bats hunting in open air, but their echoes from anything close overlap the call itself.`
-        : `A ${s.dur} ms sweep from ${s.start} to ${s.end} kHz. A Yuma myotis's search call ends near 50 kHz, starts above 80 and lasts under 6 ms.`;
+      : `${s.dur > 8
+        ? `A ${s.dur} ms call is long: it puts more sound on a distant target, for hunting in open air, but echoes from anything close overlap it.`
+        : `A ${s.dur} ms sweep from ${s.start} to ${s.end} kHz.`} For a Yuma: ${s.start >= YUMA.startAtLeast ? '✓' : '○'} start above 80 kHz, ${Math.abs(s.end - YUMA.endNear) <= YUMA.endBy ? '✓' : '○'} end near 50, ${s.dur <= YUMA.durAtMost ? '✓' : '○'} last 6 ms or less.`;
     if (passesForYuma(s)) t.done();
   };
   const a = slider('Starts at', 20, 110, 1, s.start, (v) => `${v} kHz`, (v) => { s.start = v; paint(); }, 'call');

@@ -28,7 +28,7 @@ export const spikes = (db: number, threshold: number, max: number) => (db < thre
 export const response = (d: number): 'nothing' | 'turn' | 'dive' => (d <= A2_RANGE ? 'dive' : d <= A1_RANGE ? 'turn' : 'nothing');
 
 export const cellsFigure = figure(['both'], (_ctx, t) => {
-  const f = frame(W, 236, 3);
+  const f = frame(W, 236, 4);
   const g = svg('g');
   f.svg.append(g);
   let d = 50;
@@ -86,9 +86,9 @@ export const cellsFigure = figure(['both'], (_ctx, t) => {
     if (what === 'turn') sawTurn = true;
     if (what === 'dive') sawDive = true;
     f.readout.textContent = what === 'nothing'
-      ? `At ${d} m the call has spread and faded below what even A1 can hear. The moth flies on, unaware; the bat cannot detect it either.`
+      ? `At ${d} m the call has spread and faded below what even A1 can hear. The moth flies on, unaware; the bat cannot detect it either.${sawTurn ? '' : ' Drag the slider to bring the bat closer.'}`
       : what === 'turn'
-        ? `At ${d} m A1 fires a few spikes per call and A2 is silent. The moth turns away from the side whose ear fires more, while the bat is still too far off to have found it.`
+        ? `At ${d} m A1 fires a few spikes per call and A2 is silent. The moth turns away from the side whose ear fires more, while the bat is still too far off to have found it.${sawDive ? '' : ' Bring the bat closer still.'}`
         : `At ${d} m A1 fires all it can and A2 has joined in. The bat may already have found the moth, and turning cannot outrun it; the moth folds its wings and drops in loops.`;
     if (sawTurn && sawDive) t.done();
   };
@@ -182,13 +182,15 @@ export const gameFigure = figure(['escape'], (ctx, t) => {
       ...(state === 'flying' && d <= b.finds ? [svg('path', { d: `M${x + 18},92 Q${x + 26},98 ${x + 18},104`, fill: 'none', stroke: COL.call, 'stroke-width': 1.5 })] : []),
       mothShape(366, state === 'escaped' ? 112 : 98, state === 'caught'),
       ...results.map((ok, i) => svg('circle', { cx: 20 + i * 16, cy: 196, r: 6, fill: ok ? COL.good : COL.bad })),
-      small(20 + results.length * 16 + 4, 200, results.length ? `escaped ${results.filter(Boolean).length} of ${results.length}` : 'your rounds', { soft: true }),
+      small(20 + results.length * 16 + 4, 200, `${results.filter(Boolean).length} of 3 escapes needed${results.length ? `, in ${results.length} round${results.length === 1 ? '' : 's'}` : ''}`, { soft: true }),
     );
     f.readout.textContent = state === 'waiting'
-      ? `You are the moth. ${b.name} is coming; the round starts when your A1 cell first hears it, ${b.heard} m away. Choose your move in time.`
+      ? `You are the moth. ${b.name} is coming. Press Start: your A1 cell hears it at ${b.heard} m. Then tap Turn away or Dive in time.`
       : state === 'flying'
         ? note || (d > b.finds ? 'A1 is firing: a bat is out there, but it has not found you yet.' : 'It has found you and is closing in.')
-        : note;
+        : `${note}${results.filter(Boolean).length >= 3 ? '' : ' Press Next bat.'}`;
+    for (const m of [turnB, diveB, clickB]) m.disabled = state !== 'flying';
+    next.disabled = state === 'flying';
   };
   const end = (escaped: boolean, why: string) => {
     state = escaped ? 'escaped' : 'caught';

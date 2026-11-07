@@ -77,7 +77,7 @@
           "type": "interactive_diagram",
           "id": "clue-board",
           "caption": "Four ideas about what Prototaxites was (the lichen idea is a kind of fungus), and the clues that bear on them.",
-          "task": "Turn on every clue",
+          "task": "Show the clues one by one",
           "goal": "clues",
           "options": {
             "ideas": [
@@ -125,7 +125,7 @@
                 ]
               }
             ],
-            "intro": "Four ideas Prototaxites has been taken for. Turn on the clues one at a time and see which survive.",
+            "intro": "Four ideas Prototaxites has been taken for. Show the clues one at a time with the button below and see which survive.",
             "end": "Only the last idea survives every clue: something that is neither plant, seaweed nor fungus, a branch of life with no living members."
           }
         }

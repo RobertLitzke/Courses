@@ -143,7 +143,7 @@
       "title": "Flight or sound first?",
       "blocks": [
         {"type": "text", "text": "Back to the fossil. Every living insect-eating bat both flies and echolocates, and each skill helps the other: echolocation is what lets a bat hunt insects in the dark, and flight is what takes it to them. Which came first has been argued for decades. One idea is that the ancestors of bats were climbers that glided from tree to tree, became fliers, and only later learned to hunt by sound. Another is that a small climbing mammal first used calls to find insects close by, and flight followed. A third is that the two grew up together. *Onychonycteris* is the oldest bat preserved well enough to test them."},
-        {"type": "interactive_diagram", "id": "clue-board", "caption": "Three things *Onychonycteris* might have been, and three clues from its skeleton. If it flew without echolocating, flight came first.", "task": "Turn on every clue", "goal": "clues", "aspect_ratio": 1.4, "options": {
+        {"type": "interactive_diagram", "id": "clue-board", "caption": "Three things *Onychonycteris* might have been, and three clues from its skeleton. If it flew without echolocating, flight came first.", "task": "Show the clues one by one", "goal": "clues", "aspect_ratio": 1.4, "options": {
           "ideas": [
             {"name": "A glider only", "text": "It glided but could not flap"},
             {"name": "A silent flier", "text": "It flew but did not echolocate"},
@@ -154,7 +154,7 @@
             {"name": "A small inner ear", "text": "Its inner ear is the size of a fruit bat's, smaller than in bats that echolocate (Simmons and others, 2008)", "rules": ["An echolocating flier"]},
             {"name": "Joined throat and ear bones", "text": "A bone at the top of its throat seems to touch the ear bone, as only in echolocating bats, though the fossil is crushed (Veselka and others, 2010)", "rules": ["A silent flier"]}
           ],
-          "intro": "Three ideas about what Onychonycteris could do. Turn on the clues in any order.",
+          "intro": "Three ideas about what Onychonycteris could do. Show the clues one at a time with the button below.",
           "end": "No idea survives every clue. It flapped, though it may also have glided at times; its ear says it did not echolocate, its throat bones that it did. The question is open.",
           "textLines": 3
         }},

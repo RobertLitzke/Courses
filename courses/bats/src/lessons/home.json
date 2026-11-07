@@ -45,7 +45,7 @@
       "blocks": [
         {"type": "text", "text": "Finding home from a strange place takes two things, and it helps to keep them apart. A **compass** tells an animal which way it is facing: north is that way. A **map** tells it where it is relative to home: home is to the north of here. A compass alone is no help to a bat dropped somewhere new, because it cannot know which way to turn until it knows where it is. Carried to an unknown place in a closed box, unable to count the turns on the way, a bat that flies straight home must have something like a map."},
         {"type": "text", "text": "Echolocation can be ruled out at once. Egyptian fruit bats do echolocate, unusually, with clicks of the tongue rather than calls from the larynx, the voice box, but they use it in dark caves and close to obstacles. An echo comes back from tens of metres at most, and from the crater the cave was about 80 kilometres away."},
-        {"type": "interactive_diagram", "id": "clue-board", "caption": "How did the fruit bats know which way home lay? Turn on each piece of evidence and see which ideas it rules out.", "task": "Turn on every clue", "goal": "clues", "options": {
+        {"type": "interactive_diagram", "id": "clue-board", "caption": "How did the fruit bats know which way home lay? Show each piece of evidence in turn and see which ideas it rules out.", "task": "Show the clues one by one", "goal": "clues", "options": {
           "ideas": [
             {"name": "Echolocation", "text": "Listening to echoes of tongue clicks."},
             {"name": "Retracing the trip out", "text": "Remembering each turn of the trip south."},

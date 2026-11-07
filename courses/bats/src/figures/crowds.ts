@@ -28,7 +28,7 @@ export const inFovea = (f: number) => Math.abs(f - FOVEA.centre) <= FOVEA.half;
 let clipIds = 0;
 
 export const wavesFigure = figure(['all'], (ctx, t) => {
-  const f = frame(W, 214, 3);
+  const f = frame(W, 214, 4);
   const g = svg('g');
   const id = `crowds-clip-${++clipIds}`;
   const WALL = 340;
@@ -93,12 +93,14 @@ export const wavesFigure = figure(['all'], (ctx, t) => {
       small(392, 14, mode === 2 ? 'call violet, echo teal' : 'crests of the call', { anchor: 'end', soft: true }),
     );
     if (share > 0.05) seen[mode] = true;
+    const left = seen.filter((v) => !v);
+    g.append(small(8, 208, `tried: ${['source', 'listener', 'wall'].map((n, k) => `${seen[k] ? '✓' : '○'} ${n}`).join('   ')}`, { soft: !seen.every(Boolean), bold: true, fill: seen.every(Boolean) ? COL.good : undefined }));
     const heard = (r: number) => `a 40 kHz call heard at ${(40 * r).toFixed(1)} kHz`;
     f.readout.textContent = [
       `The bat chases its own crests ahead and leaves them behind, so they bunch up in front. Ahead: ${heard(ratio)}. Behind: ${heard(1 / (1 + share))}.`,
       `The crests are evenly spaced, but a listener running into them meets them more often than they were sent: ${heard(ratio)}.`,
       `The wall hears bunched crests and sends them back; the bat then runs into the echo. Shifted twice: ${heard(ratio)}, ${Math.round((ratio - 1) * 100)}% higher.`,
-    ][mode] + (share > 0 ? ` A real bat at 5 m/s goes 1.5% of the speed of sound.` : '');
+    ][mode] + (share <= 0.05 ? ' Raise the speed to see the crests bunch.' : left.length ? '' : ' A real bat at 5 m/s goes 1.5% of the speed of sound.');
     if (seen.every(Boolean)) t.done();
   };
   const chips = pick(['Moving source', 'Moving listener', 'Echo from a wall'], 0, (i) => { mode = i; paint(); });
@@ -166,7 +168,7 @@ export const compensationFigure = figure(['fovea'], (_ctx, t) => {
       ? `Flying at ${speed} m/s, the bat calls at ${(call / 1000).toFixed(2)} kHz, ${((FOVEA.centre - call) / 1000).toFixed(2)} kHz below its usual note, and the echo comes back at ${(echo / 1000).toFixed(2)} kHz, in its sharpest hearing.`
       : speed === 0
         ? 'Hanging still, the bat calls at 83 kHz and the echo of anything still comes back at 83 kHz, in the fovea.'
-        : `Flying at ${speed} m/s and calling at 83 kHz, the echo comes back ${off} Hz higher, outside a band only a few hundred hertz wide.`;
+        : `Flying at ${speed} m/s and calling at 83 kHz, the echo comes back ${off} Hz higher, outside a band only a few hundred hertz wide. Tap Lower the call.`;
     if (sawMiss && lower && hit && speed >= 2) t.done();
   };
   const s = slider('Bat speed', 0, 8, 0.5, speed, (v) => `${v} m/s`, (v) => { speed = v; paint(); }, 'bat');
@@ -178,6 +180,7 @@ export const compensationFigure = figure(['fovea'], (_ctx, t) => {
     answer: 2,
     sliders: [s],
     buttons: comp.buttons,
+    hidden: [comp.node],
     after: () => paint(),
   });
   paint();
@@ -192,7 +195,7 @@ export const BAND = 2000;
 export const overlap = (a: number, b: number, band = BAND) => Math.max(0, Math.min(1, 1 - Math.abs(a - b) / band));
 
 export const jamFigure = figure(['clear'], (_ctx, t) => {
-  const f = frame(W, 220, 3);
+  const f = frame(W, 220, 4);
   const g = svg('g');
   f.svg.append(g);
   let A = 26400;
@@ -206,11 +209,13 @@ export const jamFigure = figure(['clear'], (_ctx, t) => {
   const paint = () => {
     const o = jamCall ? 1 : overlap(A, b);
     const jammed = o > 0;
-    const bandRect = (centre: number, color: string, top: number, words: string, side = false) => [
+    // Labels beside each band, on the side away from the other bat's, so they never overlap.
+    const aRight = A >= b;
+    const beside = (centre: number, right: boolean, y: number, words: string, color: string, bold = true) =>
+      small(right ? X(centre + BAND / 2) + 4 : X(centre - BAND / 2) - 4, y, words, { anchor: right ? undefined : 'end', fill: color, bold });
+    const bandRect = (centre: number, color: string, top: number, words: string, right: boolean) => [
       svg('rect', { x: X(centre - BAND / 2), y: top, width: X(centre + BAND / 2) - X(centre - BAND / 2), height: BASE - top, fill: tint(color, 0.35), stroke: color, 'stroke-width': 1.2 }),
-      side
-        ? small(X(centre - BAND / 2) - 4, top + 12, words, { anchor: 'end', fill: color, bold: true })
-        : small(X(centre), top - 4, words, { anchor: 'middle', fill: color, bold: true }),
+      beside(centre, right, top + 12, words, color),
     ];
     // B's jamming call: a wavering sweep across A's band.
     const sweep: string[] = [];
@@ -231,22 +236,22 @@ export const jamFigure = figure(['clear'], (_ctx, t) => {
       ...[18, 22, 26, 30, 34].map((k) => small(X(k * 1000), BASE + 13, `${k}`, { anchor: 'middle', soft: true })),
       small(392, BASE + 13, 'kHz', { anchor: 'end', soft: true }),
       svg('rect', { x: X(A - BAND / 2), y: 100, width: X(A + BAND / 2) - X(A - BAND / 2), height: BASE - 100, fill: 'none', stroke: COL.call, 'stroke-width': 1.5, 'stroke-dasharray': '4 3' }),
-      small(X(A - BAND / 2) - 4, 108, 'A listens here', { anchor: 'end', fill: COL.call }),
-      ...bandRect(A, COL.echo, 176, 'A’s echo', true),
+      beside(A, aRight, 108, 'A listens here', COL.call, false),
+      ...bandRect(A, COL.echo, 176, 'A’s echo', aRight),
       ...(jamCall
-        ? [svg('polyline', { points: sweep.join(' '), fill: 'none', stroke: COL.noise, 'stroke-width': 3 }), small(X(Math.min(A + 5000, 33000)), 108, 'B’s jamming call', { anchor: 'middle', fill: COL.noise, bold: true })]
-        : bandRect(b, COL.noise, 128, 'B’s call')),
+        ? [svg('polyline', { points: sweep.join(' '), fill: 'none', stroke: COL.noise, 'stroke-width': 3 }), small(X(Math.min(A + 5000, 33000)), 92, 'B’s jamming call', { anchor: 'middle', fill: COL.noise, bold: true })]
+        : bandRect(b, COL.noise, 128, 'B’s call', !aRight)),
     );
     if (!jamCall && o === 0) cleared = true;
     f.readout.textContent = jamCall
       ? 'Mexican free-tailed bats have a call for this: a wavering sweep that covers the pitches of a rival\'s buzz just as it closes on a moth. The rival misses far more often.'
       : jammed
-        ? `A calls at ${(A / 1000).toFixed(1)} kHz, and B's call at ${(b / 1000).toFixed(1)} kHz falls inside the band A listens in. B's call reaches A far louder than A's own echo from the moth, which is lost under it.`
+        ? `A calls at ${(A / 1000).toFixed(1)} kHz and B at ${(b / 1000).toFixed(1)}, inside the band A listens in. B's call is far louder than A's echo from the moth, which is lost under it. Slide A's call away from B's.`
         : `A has moved its call to ${(A / 1000).toFixed(1)} kHz, clear of B's. A's faint echo is now the loudest thing in the band it listens in, and the two bats can hunt side by side.`;
     if (cleared) t.done();
   };
   const s = slider('Bat A’s call', 20000, 32000, 100, A, (v) => `${(v / 1000).toFixed(1)} kHz`, (v) => { A = v; paint(); }, 'call');
-  const jc = toggles(['B jams A’s buzz'], [false], (on) => { jamCall = on[0]; paint(); });
+  const jc = toggles(['Show B’s jamming call'], [false], (on) => { jamCall = on[0]; paint(); });
   f.controls.append(s.node, jc.node);
   paint();
   return f.node;

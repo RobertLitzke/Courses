@@ -4,7 +4,7 @@
 
 import { svg } from 'didactics/dom';
 import { arrow, line, note, polyline, redraw, small, type P } from 'didactics/draw';
-import { animate, axes, button, COL, figure, frame, guessFirst, legend, pick, player, slider, tint, wrapped, type FigureFactory } from './kit';
+import { animate, axes, button, COL, figure, frame, guessFirst, legend, named, pick, player, slider, tint, wrapped, type FigureFactory } from './kit';
 
 const W = 400;
 
@@ -90,7 +90,7 @@ export const FLIGHTS: readonly { name: string; track: Km[]; text: string }[] = [
 ];
 
 export const gpsFigure = figure(['all'], (ctx, t) => {
-  const f = frame(W, 300, 3);
+  const f = frame(W, 300, 4);
   const g = svg('g');
   f.svg.append(g);
   // 2.55 px a kilometre; the cave at (180, 56).
@@ -129,22 +129,24 @@ export const gpsFigure = figure(['all'], (ctx, t) => {
       line(380, 40, 380, 16, COL.ink, 1.5), small(380, 12, 'N', { anchor: 'middle', bold: true }),
       line(300, 290, 300 + 20 * S, 290, COL.ink, 2), small(300 + 10 * S, 284, '20 km', { anchor: 'middle', soft: true }),
       ...legend(12, 290, [{ text: 'fruit tree', color: COL.plant, dot: true }, { text: 'GPS track (schematic)', color: COL.bat }]),
+      open() ? small(12, 16, `${seen.filter(Boolean).length + (progress >= 1 && !seen[which] ? 1 : 0)} of 4 flights played${seen.every(Boolean) ? '' : ': play each to its end'}`, { bold: true }) : null,
     );
     if (!open()) return;
     f.readout.textContent = progress === 0 ? `${fl.name}: press Play.` : fl.text;
     if (progress >= 1) seen[which] = true;
     if (seen.every(Boolean)) t.done();
   };
-  const flights = pick(FLIGHTS.map((x) => x.name), which, (i) => { which = i; prog.set(0); });
-  const prog = slider('Flight', 0, 100, 1, 0, (v) => `${v}%`, (v) => { progress = v / 100; paint(); }, 'bat');
+  const flights = named(pick(FLIGHTS.map((x) => x.name), which, (i) => { which = i; prog.set(0); }), 'Flight:');
+  const prog = slider('Progress', 0, 100, 1, 0, (v) => `${v}%`, (v) => { progress = v / 100; paint(); }, 'bat');
   const play = player(prog, ctx, { seconds: 6 });
   f.controls.append(flights.node, play.node, prog.node);
   const open = guessFirst(t, f, {
     ask: 'Bats are carried in a closed box to the floor of a deep crater 84 km from home, a place they have never been, and let go at night. What do they do?',
-    options: ['Fly straight home', 'Fly in loops for a long time, then head home', 'Never find their way back'],
+    options: ['Fly straight home', 'Fly in loops, then head home', 'Never find their way back'],
     answer: 1,
     sliders: [prog],
     buttons: flights.buttons,
+    hidden: [flights.node, play.node],
     after: () => paint(),
   });
   paint();
@@ -182,7 +184,7 @@ export function homeHeading(shift: number, atSunset: boolean): number {
 const compassWord = (deg: number) => ['north', 'north-east', 'east', 'south-east', 'south', 'south-west', 'west', 'north-west'][Math.round(deg / 45) % 8];
 
 export const sunsetFigure = figure(['both'], (ctx, t) => {
-  const f = frame(W, 230, 4);
+  const f = frame(W, 230, 5);
   const g = svg('g');
   const flyer = svg('g');
   f.svg.append(g, flyer);
@@ -208,7 +210,7 @@ export const sunsetFigure = figure(['both'], (ctx, t) => {
       svg('circle', { cx, cy, r: 46, fill: tint(sunset ? COL.fat : COL.cold, 0.15), stroke: COL.grid }),
       line(cx - 46, cy + 30, cx + 46, cy + 30, COL.rock, 1.5),
       sunset ? svg('circle', { cx: cx - 38, cy: cy + 28, r: 7, fill: COL.fat }) : null,
-      sunset ? note(cx - 38, cy + 48, 'sun sets in the west', { anchor: 'middle', fill: COL.fat }) : note(cx, cy + 48, 'after dark', { anchor: 'middle', fill: COL.cold }),
+      sunset ? note(8, cy + 48, 'sun sets in the west', { fill: COL.fat }) : note(cx, cy + 48, 'after dark', { anchor: 'middle', fill: COL.cold }),
       arrow(cx - nx * 0.4, cy - ny * 0.4, cx + nx, cy + ny, COL.bad, 2.5),
       note(cx + nx * 1.25, cy + ny * 1.25 + 3, 'N', { anchor: 'middle', fill: COL.bad, bold: true }),
       ...wrapped(14, 22, sunset ? `In the box at sunset, the field turned ${Math.abs(shift)}° ${shift >= 0 ? 'clockwise' : 'anticlockwise'}` : `Field turned ${Math.abs(shift)}° only after dark`, 26, { bold: true }),
@@ -221,13 +223,14 @@ export const sunsetFigure = figure(['both'], (ctx, t) => {
       svg('circle', { cx: RX, cy: RY, r: 4, fill: COL.paper, stroke: COL.bat, 'stroke-width': 1.5 }),
       small(RX + 8, RY - 6, 'released here', { soft: true }),
       line(388, 36, 388, 14, COL.ink, 1.5), small(388, 10, 'N', { anchor: 'middle', bold: true }),
+      open() ? small(RX, 224, `90° turn: ${sawSunset ? '✓' : '○'} at sunset   ${sawDark ? '✓' : '○'} after dark`, { anchor: 'middle', bold: true, fill: sawSunset && sawDark ? COL.good : COL.ink }) : null,
       ...tracks.slice(0, -1).map((tr) => polyline([[RX, RY], end(tr.heading, 1)], tint(COL.bat, 0.35), 1.5)),
     );
     const last = tracks.at(-1);
     redraw(flyer, ...(last ? [polyline([[RX, RY], end(last.heading, progress)], COL.bat, 2.2), svg('circle', { cx: end(last.heading, progress)[0], cy: end(last.heading, progress)[1], r: 3.5, fill: COL.bat })] : []));
     if (!open()) return;
     if (!last) {
-      f.readout.textContent = 'Set the turn of the field and when it was turned, then let the bat go. The real field is back to normal when it flies.';
+      f.readout.textContent = 'Set how far the field was turned and when, then tap Let it go. The real field is back to normal when it flies. Try a 90° turn at sunset and one after dark.';
       return;
     }
     f.readout.textContent = !last.sunset || last.shift === 0
@@ -235,7 +238,7 @@ export const sunsetFigure = figure(['both'], (ctx, t) => {
       : `It flies ${compassWord(last.heading)}, ${Math.abs(last.shift)}° off course. At sunset the field told it north lay ${Math.abs(last.shift)}° ${last.shift > 0 ? 'clockwise' : 'anticlockwise'} of true north, and it set its compass against the setting sun by that. In the true field later, every heading it chose came out turned the other way.`;
   };
   const turn = slider('Field turned', -90, 90, 15, shift, (v) => (v === 0 ? 'not turned' : `${Math.abs(v)}° ${v > 0 ? 'clockwise' : 'anticlockwise'}`), (v) => { shift = v; paint(); }, 'bad');
-  const when = pick(['At sunset', 'After dark'], 0, (i) => { sunset = i === 0; paint(); });
+  const when = named(pick(['At sunset', 'After dark'], 0, (i) => { sunset = i === 0; paint(); }), 'Turned:');
   const go = button('Let it go', () => {
     tracks = [...tracks.slice(-3), { heading: homeHeading(shift, sunset), sunset, shift }];
     progress = 0;
@@ -256,6 +259,7 @@ export const sunsetFigure = figure(['both'], (ctx, t) => {
     answer: 1,
     sliders: [turn],
     buttons: [...when.buttons, go],
+    hidden: [when.node, go],
     after: () => paint(),
   });
   paint();

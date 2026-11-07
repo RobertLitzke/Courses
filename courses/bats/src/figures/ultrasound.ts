@@ -5,7 +5,7 @@
 
 import { svg } from 'didactics/dom';
 import { label, line, redraw, small } from 'didactics/draw';
-import { COL, animate, axes, figure, frame, guessFirst, pick, slider, tint, toggles, type FigureFactory } from './kit';
+import { COL, animate, axes, figure, frame, guessFirst, named, pick, slider, tint, toggles, type FigureFactory } from './kit';
 import { playButton, type Call } from './sound';
 
 const W = 400;
@@ -92,7 +92,7 @@ export const echoShare = (khz: number, tg: Target): number => Math.min(1, Math.p
 // ---- Waves past a small insect ---------------------------------------------------------------------
 
 export const wavesFigure = figure(['bounce'], (ctx, t) => {
-  const f = frame(W, 200, 3);
+  const f = frame(W, 200, 4);
   const g = svg('g');
   f.svg.append(g);
   let khz = 20;
@@ -155,12 +155,15 @@ export const wavesFigure = figure(['bounce'], (ctx, t) => {
     if (target === MIDGE && share < 0.05) sawWeak = true;
     if (target === MIDGE && share >= 0.5) sawStrong = true;
     paint();
-    f.readout.textContent = describe();
+    const next = target !== MIDGE || (sawWeak && sawStrong) ? ''
+      : !sawStrong ? ' Raise the pitch until the midge echoes strongly.'
+        : ' Now lower the pitch until the echo almost vanishes.';
+    f.readout.textContent = describe() + next;
     if (sawWeak && sawStrong) t.done();
   };
 
   const fs = slider('Pitch of the call', 10, 120, 1, khz, (v) => `${v} kHz`, (v) => { khz = v; update(); }, 'call');
-  const which = pick(['Midge', 'Moth'], 0, (i) => { target = i === 0 ? MIDGE : MOTH; update(); });
+  const which = named(pick(['Midge', 'Moth'], 0, (i) => { target = i === 0 ? MIDGE : MOTH; update(); }), 'Insect:');
   f.controls.append(fs.node, which.node);
   update();
   animate(f.node, ctx, (dt) => {
@@ -265,7 +268,7 @@ export const dutyCycle = (b: BatCall): number => b.length / b.every;
 export const glints = (dur: number, hz = 40): number => Math.floor(dur * hz);
 
 export const callsFigure = figure(['compare'], (_ctx, t) => {
-  const f = frame(W, 226, 3);
+  const f = frame(W, 226, 4);
   const g = svg('g');
   f.svg.append(g);
   let which = 0;
@@ -318,9 +321,13 @@ export const callsFigure = figure(['compare'], (_ctx, t) => {
       ? `Each call sweeps from ${b.calls[0].from / 1000} down to ${b.calls[0].to / 1000} kHz in ${callMs} ms, and the bat is calling ${duty}% of the time. ${echo ? `An echo this short catches at most ${Math.max(1, glints(b.length))} glint from the wings, or none.` : ''}`
       : `Each call holds 83 kHz for about ${callMs} ms, and the bat is calling ${duty}% of the time. ${echo ? `Its long echo catches ${glints(b.length)} glints as the wings beat: the mark of a flying insect.` : ''}`;
     if (echo) seen[b.kind] = true;
+    f.readout.textContent = (f.readout.textContent ?? '').trimEnd();
+    if (!echo) f.readout.textContent += ' Tap Moth echo to add the echo.';
+    else if (!seen.CF) f.readout.textContent += ' Now pick the greater horseshoe bat.';
+    else if (!seen.FM) f.readout.textContent += ' Now pick a bat that sweeps.';
     if (seen.FM && seen.CF) t.done();
   };
-  const bats = pick(CALLS.map((b) => b.name), 0, (i) => { which = i; paint(); });
+  const bats = named(pick(CALLS.map((b) => b.name), 0, (i) => { which = i; paint(); }), 'Bat:');
   const tg = toggles(['Moth echo'], [false], (on) => { echo = on[0]; paint(); });
   const play = playButton('Play slowed ten times', () => CALLS[which].calls);
   const row = document.createElement('div');

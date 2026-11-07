@@ -102,7 +102,7 @@ export const bridgeFigure = figure(['peak'], (ctx, t) => {
     );
     if (!open()) return;
     const tonnes = tonight.kg / 1000;
-    f.readout.textContent = `${seasonDate(now)}: about ${count(Math.round(tonight.bats / 10000) * 10000)} bats eat ${tonnes.toFixed(1)} tonnes (${count(Math.round(tonight.kg * 2.2046 / 100) * 100)} lb) of insects tonight. ${phase(now)}`;
+    f.readout.textContent = `${seasonDate(now)}: about ${count(Math.round(tonight.bats / 10000) * 10000)} bats eat ${tonnes.toFixed(1)} tonnes (${count(Math.round(tonight.kg * 2.2046 / 100) * 100)} lb) of insects tonight. ${phase(now)}${now === 0 ? ' Press Play to run the season.' : ''}`;
     if (now >= peakNight(mothers)) passed = true;
     if (passed) t.done();
   };
@@ -116,6 +116,7 @@ export const bridgeFigure = figure(['peak'], (ctx, t) => {
     answer: 2,
     sliders: [ds, ms],
     reveal: 'done',
+    hidden: [play.node],
     after: () => paint(),
   });
   paint();

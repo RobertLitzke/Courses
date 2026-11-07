@@ -239,7 +239,7 @@ describe('figures', () => {
 
   it('lesson 15: every clue together leaves only the lost lineage', async () => {
     const f = FIGURES['clue-board'](context(), 'clues', blockOptions('clue-board'));
-    for (const c of ['1. Tubes, not wood', '2. Grew on land', '3. Carbon varies', '4. No chitin traces']) click(f.node, c);
+    for (const c of ['Show clue 1: Tubes, not wood', 'Show clue 2: Grew on land', 'Show clue 3: Carbon varies', 'Show clue 4: No chitin traces']) click(f.node, c);
     expect(f.node.querySelector('.fig-readout')!.textContent).toMatch(/Only the last idea survives/);
     await expect(f.done).resolves.toBeUndefined();
   });
