@@ -5,6 +5,8 @@
 import { svg } from 'didactics/dom';
 import { line, redraw, small } from 'didactics/draw';
 import { length } from 'didactics/units';
+import { Replay, Table, noise } from 'sandtable/table';
+import { laidDown, sandLapse, type SandLapse } from './sand';
 import { big, COL, figure, frame, guessFirst, pick, sig, slider, type FigureFactory } from './kit';
 
 const W = 400;
@@ -165,6 +167,100 @@ export const channelFigure = figure(['compare'], (ctx, t) => {
   return f.node;
 });
 
+// ---- The tide on the flats, and the turning basin (the sand table) ---------------------------------
+
+/** An estuary on the sand table: a valley of tideflats with a river winding across them to a bay that rises and falls with the tide (a model, sped up). */
+export const FLATS = { nx: 96, ny: 64, mouth: 44, tide: 0.6, period: 40, end: 160, basin: 12 } as const;
+const flatsNoise = noise(5, 8, 2);
+const windAt = (j: number) => 48 + 10 * Math.sin(j / 5);
+export type Estuary = 'flats' | 'waterway';
+export const flatsBed = (c: Estuary) => (i: number, j: number): number => {
+  if (j > FLATS.mouth) return -1.5 - (j - FLATS.mouth) * 0.05;
+  const side = Math.abs(i - 48);
+  // The valley's sides, rising gently from the flats.
+  if (side > 28) return 0.8 + (side - 28) * 0.12;
+  if (c === 'waterway') {
+    // The dredged waterway, its turning basin at the top, and fill on either side.
+    if (side <= 3 || (j < FLATS.basin - 2 && j > 3 && side <= 8)) return -1.4;
+    return 1;
+  }
+  const r = (flatsNoise(i, j) - 0.5) * 0.15;
+  if (Math.abs(i - windAt(j)) <= 1.5) return -0.5 + r;
+  return -0.25 + (FLATS.mouth - j) * 0.01 + r;
+};
+
+export function flatsTable(c: Estuary): Table {
+  const t = new Table({
+    nx: FLATS.nx, ny: FLATS.ny, bed: flatsBed(c),
+    sea: (_i, j) => j === FLATS.ny - 1,
+    erodibility: () => 0.3,
+    params: { tide: FLATS.tide, tidePeriod: FLATS.period, drag: 0.15, carry: 0.6, pickUp: 0.4, settle: 1.5, start: 0.2 },
+  });
+  t.sources.push({ k: t.k(48, 0), flow: 0.6, sand: 0.05 });
+  return t;
+}
+
+/** Sand laid down at the head of the estuary (where the turning basin is dug) and on the rest of it. */
+export function flatsStock(t: Table): { head: number; rest: number } {
+  return {
+    head: laidDown(t, (_i, j) => j < FLATS.basin),
+    rest: laidDown(t, (_i, j) => j >= FLATS.basin && j <= FLATS.mouth),
+  };
+}
+
+export function flatsRun(c: Estuary, to: number = FLATS.end): { head: number; rest: number } {
+  return flatsStock(new Replay(() => flatsTable(c), { every: 1000 }).to(to));
+}
+
+export const flatsFigure = figure(['basin'], (ctx, t) => {
+  let which: Estuary = 'flats';
+  const marks = svg('g');
+  let lapse: SandLapse;
+  const paint = (tb: Table) => {
+    const v = lapse.view;
+    const now = lapse.now();
+    const phase = Math.sin((2 * Math.PI * now) / FLATS.period);
+    const rising = Math.cos((2 * Math.PI * now) / FLATS.period) > 0;
+    const tide = phase > 0.8 ? 'high tide' : phase < -0.8 ? 'low tide' : rising ? 'the tide rising' : 'the tide falling';
+    const { head, rest } = flatsStock(tb);
+    const [bx, by] = v.xy(48, FLATS.basin / 2);
+    redraw(marks,
+      small(v.w / 2, v.h - 8, 'the bay', { anchor: 'middle', bold: true, fill: COL.paper }),
+      small(v.w / 2, 10, 'the river comes in', { anchor: 'middle', halo: COL.paper }),
+      which === 'waterway' ? small(bx + 40, by + 4, 'turning basin', { bold: true, halo: COL.paper }) : null,
+      small(8, 14, tide, { bold: true, halo: COL.paper }),
+    );
+    lapse.readout.textContent = now < 2
+      ? (which === 'flats'
+        ? 'The river winds across wide, low tideflats to the bay. The tide is rising. Press Play.'
+        : 'The flats are filled above the tide, and a straight, deep waterway runs from the bay to a turning basin at its head. Press Play.')
+      : which === 'flats'
+        ? `At high tide the sea spreads over the flats; at low tide they drain and the river winds across them. The river's mud settles over the flats and in the old channel (${Math.round((rest / Math.max(0.01, head + rest)) * 100)}% of it below the head of the estuary).`
+        : `The tide rises and falls in the waterway, but has no flats to spread over. The river meets deep, slow water in the turning basin and drops ${Math.round((head / Math.max(0.01, head + rest)) * 100)}% of its mud there.`;
+    if (which === 'waterway' && now >= FLATS.end - 0.5 && t.goal === 'basin') t.done();
+  };
+  lapse = sandLapse(ctx, {
+    make: () => flatsTable(which),
+    end: FLATS.end,
+    lines: 4,
+    label: 'Tides',
+    show: (x) => `${Math.floor(x / FLATS.period)}`,
+    paint: (tb) => paint(tb),
+    heights: [-0.5, 2.5],
+    salt: true,
+    seconds: 16,
+  });
+  lapse.view.overlay.append(marks);
+  const choose = pick(['Tideflats (1900)', 'Waterway (1920)'], 0, (i) => {
+    which = i === 0 ? 'flats' : 'waterway';
+    lapse.restart();
+  });
+  lapse.controls.append(choose.node);
+  lapse.draw();
+  return lapse.node;
+});
+
 export const figures: Record<string, FigureFactory> = {
   'duwamish-channel': channelFigure,
+  'duwamish-flats': flatsFigure,
 };

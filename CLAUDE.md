@@ -78,6 +78,15 @@ in Settings under About (Didactics `release`).
 pointer: the steps are kept once, in Didactics' `.claude/skills/`, beside
 Didactics' own CLAUDE.md (module layout, releasing and pinning).
 
+## Shared models
+
+`models/<name>/` holds simulations that more than one course runs but that
+are too specific for Didactics (Rob's call, 2026-11-07): `models/sandtable`
+is the water and erosion sand table used by Rivers and Geology. Each is a
+workspace package with its own `test/`; it never names a course, and the
+course passes in its colours and sliders. Its README says what it models and
+what it leaves out.
+
 ## Elsewhere
 
 - Layout, commands and how the site fits together: [README.md](README.md).

@@ -19,6 +19,10 @@ courses/<folder>/   one course, everything of its own: lessons, quizzes,
   course.json       what the catalog shows: title, department, summary,
                     icon, where its lessons are, its save's key, and its
                     release (version, beta or released)
+models/<name>/      a simulation more than one course runs, too specific for
+                    Didactics: a workspace package courses import by name
+  sandtable/        rain, rivers, tides and waves over a grid of heights,
+                    wearing ground away and laying sand down (Rivers, Geology)
 tools/              what every course shares at the command line:
   build-site.mjs      builds every course into dist/<folder>/, then the catalog
   photos.mjs          fetches a course's photos from its tools/photo-picks.json
@@ -35,7 +39,12 @@ tsconfig.base.json  the compiler options every workspace extends
 ```
 
 The rule: anything that names a course lives in its folder. Anything two
-courses need goes into Didactics, as a small module that knows neither.
+courses need goes into Didactics, as a small module that knows neither,
+unless it is a subject's own simulation (a water and erosion model, say):
+that goes in `models/`, as a workspace package with its own tests, which a
+course lists in its package.json (`"sandtable": "*"`) and imports by name
+(`sandtable/table`). The course passes in its own colours and sliders, so a
+colour keeps its meaning there.
 
 A course's folder is its address on the site (`/clouds/`) and is a plain
 lowercase word or two naming its subject (the catalog's test checks this).

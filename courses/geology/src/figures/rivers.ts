@@ -4,6 +4,8 @@
 
 import { svg } from 'didactics/dom';
 import { arrow, label, line, redraw, small, type P } from 'didactics/draw';
+import { Replay, Table } from 'sandtable/table';
+import { mixHex, sandLapse, type SandLapse } from 'sandtable/lapse';
 import { COL, figure, frame, player, slider } from './kit';
 
 const W = 400;
@@ -155,4 +157,105 @@ export const knickFigure = figure(['knick'], (ctx, t) => {
   f.controls.append(ds.node, player(ts, ctx).node, ts.node);
   paint();
   return f.node;
+});
+
+// ---- Powell's saw on the sand table --------------------------------------------------------
+
+/** A plain sloping down the page with a river in a shallow valley, the land lower to the east, and a ridge rising across it (a model, sped up). */
+export const SAW = { nx: 96, ny: 64, row: 32, end: 76, stop: 150, slow: 0.004, fast: 0.012 } as const;
+const sawBase = (j: number) => 1.6 - j * 0.025;
+export function sawBed(i: number, j: number): number {
+  return sawBase(j) + 0.008 * (48 - i) + 0.01 * Math.max(0, 48 - i) - 0.25 * Math.exp(-(((i - 48) / 3) ** 2)) + 0.008 * Math.sin(i * 0.7 + j * 0.3);
+}
+/** How much of the uplift each cell takes: a ridge across the page that ends at column `SAW.end`. */
+export const sawRise = (i: number, j: number) =>
+  Math.exp(-(((j - SAW.row) / 4) ** 2)) * (i < SAW.end ? 1 : Math.max(0, 1 - (i - SAW.end) / 4)) * (i < 8 ? i / 8 : 1);
+
+export function sawTable(uplift: number): Table {
+  const t = new Table({
+    nx: SAW.nx, ny: SAW.ny, bed: sawBed, rises: sawRise,
+    edges: { bottom: 'open' },
+    params: { uplift, drag: 0.15, carry: 0.8, pickUp: 0.6, settle: 1, start: 0.1 },
+  });
+  t.sources.push({ k: t.k(48, 0), flow: 0.8 });
+  return t;
+}
+
+/** Water crossing a line below the ridge: through the ridge, or around its eastern end. */
+export function sawFlow(t: Table): { through: number; around: number } {
+  let through = 0;
+  let around = 0;
+  const j = SAW.row + 6;
+  for (let i = 0; i < t.nx; i++) {
+    const k = t.k(i, j);
+    const q = t.fb[k] - t.ft[k + t.nx];
+    if (i < SAW.end) through += q;
+    else around += q;
+  }
+  return { through, around };
+}
+
+export function sawRun(uplift: number, to: number = SAW.stop): { through: number; around: number; lake: number; cut: number } {
+  const t = new Replay(() => sawTable(uplift), { every: 1000 }).to(to);
+  let lake = 0;
+  for (let k = 0; k < t.n; k++) if (Math.floor(k / t.nx) < SAW.row && t.h[k] > 0.15) lake++;
+  const g = t.k(48, SAW.row);
+  return { ...sawFlow(t), lake, cut: t.z0[g] - t.z[g] };
+}
+
+export const sawFigure = figure(['through', 'around'], (ctx, t) => {
+  let uplift: number = t.goal === 'around' ? SAW.fast : SAW.slow;
+  const marks = svg('g');
+  let lapse: SandLapse;
+  const paint = (tb: Table) => {
+    const v = lapse.view;
+    const now = lapse.now();
+    const rose = uplift * tb.t * sawRise(30, SAW.row);
+    const gap = tb.k(48, SAW.row);
+    const cut = tb.z0[gap] - tb.z[gap];
+    const { through, around } = sawFlow(tb);
+    const [rx, ry] = v.xy(14, SAW.row);
+    redraw(marks,
+      small(v.w / 2 + 8, 12, 'the river', { halo: COL.paper }),
+      rose > 0.2 ? small(rx, ry + 3, 'the ridge', { bold: true, halo: COL.paper }) : null,
+      small(v.w - 6, v.h - 8, 'lower ground', { anchor: 'end', soft: true, halo: COL.paper }),
+    );
+    lapse.readout.textContent = now < 2
+      ? 'A river runs down a plain in a shallow valley. A ridge is about to rise across its path. Press Play.'
+      : rose < 0.15
+        ? 'The ridge begins to rise across the river.'
+        : through > 0.3 && cut > 0.5 * rose
+          ? `The river saws down as fast as the ridge rises: it keeps its course and cuts a gorge through the ridge.`
+          : around > 0.02
+            ? 'The ridge rose faster than the river could cut. A lake fills behind it, spills over the low ground to the east, and the river goes around the ridge\'s end.'
+            : 'The ridge is rising faster than the river can cut. The water ponds behind it in a lake that keeps rising.';
+    if (now >= SAW.stop - 0.5) {
+      if (t.goal === 'through' && uplift === SAW.slow) t.done();
+      if (t.goal === 'around' && uplift === SAW.fast) t.done();
+    }
+  };
+  lapse = sandLapse(ctx, {
+    slider: (label, min, max, step, value, show, onInput) => slider(label, min, max, step, value, show, onInput, 'water'),
+    colors: { low: mixHex(COL.landCrust, COL.paper, 0.35), high: mixHex(COL.mud, COL.ink, 0.25), sand: COL.sand, water: COL.water, salt: COL.pressure, works: COL.rose },
+    make: () => sawTable(uplift),
+    end: SAW.stop,
+    lines: 3,
+    show: (x) => `${Math.round(x)}`,
+    paint: (tb) => paint(tb),
+    heights: [-0.5, 3],
+  });
+  lapse.view.overlay.append(marks);
+  const rate = slider('Uplift', {
+    steps: [SAW.slow, SAW.fast],
+    value: uplift,
+    show: (u) => (u === SAW.slow ? 'slow' : 'three times faster'),
+    onInput: (u) => {
+      uplift = u;
+      lapse.restart();
+    },
+    color: 'mud',
+  });
+  lapse.controls.append(rate.node);
+  lapse.draw();
+  return lapse.node;
 });

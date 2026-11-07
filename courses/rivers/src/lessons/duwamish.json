@@ -148,6 +148,8 @@
           "type": "text",
           "text": "The waterway still has to be kept open. Lesson 4 described what a river does when it slows: it drops what it carries. The Green brings sand and silt down from the hills, and the turning basin is the first deep, wide, slow water it meets, so it lets most of its load fall there. The Army Corps of Engineers dredges the basin every few years."
         },
+        {"type": "text", "text": "The sand table below compares the two estuaries as models, with the tide rising and falling in the bay at the bottom and the river coming in at the top. On the old flats, watch the sea spread across them at high tide and drain away at low tide. Then switch to the waterway and see where the river's mud goes."},
+        {"type": "interactive_diagram", "id": "duwamish-flats", "caption": "A model estuary seen from above, with time sped up enormously. Dark blue is sea water and lighter blue river water; new mud on the bed shows sandy brown. The chips switch between the tideflats of 1900 and the dredged waterway with its turning basin.", "task": "Run the waterway through four tides", "goal": "basin", "aspect_ratio": 1.5},
         {
           "type": "text",
           "text": "**Go and look.** Herring's House Park, on the west bank of the waterway a little south of the West Seattle bridges, looks across at Kellogg Island, one of the last pieces of the old estuary, with tidal marsh restored along the shore. Come at a low tide and again at a high one: the water rises and falls here by several metres, as much as at the Seattle waterfront, because as far as the tide is concerned the waterway is an arm of the sea. The Duwamish Longhouse, across West Marginal Way, tells the river's story from the Duwamish people's side."

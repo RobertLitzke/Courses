@@ -7,6 +7,7 @@
   "homepage": "https://robertlitzke.github.io/Courses/",
   "workspaces": [
     "catalog",
+    "models/*",
     "courses/*",
     "courses/*/packages/*"
   ],
