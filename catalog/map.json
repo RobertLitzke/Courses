@@ -1,31 +1,31 @@
 {
-  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-950. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists. `shelves`: the front page's rows, top to bottom, each a title, a few words and its courses left to right; every course but a bridge's own sits on one.",
+  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-1000, at least 190 apart (catalog/src/map-size.ts). Each shelf is drawn as a region round its courses, so keep a shelf's courses together and its region clear of the others'. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists. `shelves`: the front page's rows, top to bottom, each a title, a few words and its courses left to right; every course but a bridge's own sits on one.",
   "courses": {
-    "photography": [150, 80],
-    "astronomy": [870, 80],
-    "clouds": [390, 330],
-    "geology": [780, 420],
-    "electronics": [110, 560],
-    "soil": [470, 650],
-    "botany": [260, 840],
-    "ecology": [760, 840],
-    "synthesizers": [130, 320],
-    "finance": [910, 640],
-    "fungi": [510, 890],
-    "rivers": [630, 570],
-    "bats": [640, 720]
+    "photography": [130, 110],
+    "electronics": [130, 380],
+    "synthesizers": [130, 650],
+    "finance": [130, 890],
+    "clouds": [470, 110],
+    "astronomy": [870, 110],
+    "geology": [670, 330],
+    "rivers": [870, 330],
+    "botany": [470, 600],
+    "soil": [670, 600],
+    "bats": [870, 600],
+    "fungi": [570, 830],
+    "ecology": [770, 830]
   },
   "shelves": [
-    { "title": "Sky and Earth", "note": "Weather, rocks and the stars", "courses": ["clouds", "geology", "astronomy", "rivers"] },
-    { "title": "Living things", "note": "Plants, soil and who eats whom", "courses": ["botany", "ecology", "fungi", "soil", "bats"] },
-    { "title": "Making things", "note": "Circuits, sound and pictures", "courses": ["electronics", "synthesizers", "photography"] },
-    { "title": "Money", "note": "Saving, spending and tax", "courses": ["finance"] }
+    { "title": "Sky and Earth", "note": "Weather, water, rock and the stars", "courses": ["clouds", "astronomy", "geology", "rivers"] },
+    { "title": "Living things", "note": "Plants, fungi, bats and the ground under them", "courses": ["botany", "soil", "bats", "fungi", "ecology"] },
+    { "title": "Making things", "note": "Machines to understand and use well", "courses": ["photography", "electronics", "synthesizers"] },
+    { "title": "Money", "note": "Making savings last", "courses": ["finance"] }
   ],
   "bridges": [
-    { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash.", "at": 0.45 },
+    { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash." },
     { "id": "sky-photos", "title": "Photographing the sky", "between": ["clouds", "photography"], "promise": "Exposing for clouds, polarisers, the light near sunset, time lapses." },
     { "id": "old-weather", "title": "Old weather in the rocks", "between": ["clouds", "geology"], "promise": "Fossil dunes, ice-age winds and rain shadows written in stone." },
-    { "id": "sky-rocks", "title": "Rocks from the sky", "between": ["geology", "astronomy"], "promise": "Meteorites, craters and where the Moon came from.", "at": 0.55 },
+    { "id": "sky-rocks", "title": "Rocks from the sky", "between": ["geology", "astronomy"], "promise": "Meteorites, craters and where the Moon came from." },
     { "id": "rock-soil", "title": "From rock to soil", "between": ["geology", "soil"], "promise": "Weathering, wind-blown loess and the till the glaciers left." },
     { "id": "sensor", "title": "How a sensor counts light", "between": ["electronics", "photography"], "promise": "Photodiodes, gain and where noise comes from." },
     { "id": "oscillator", "title": "Building an oscillator", "between": ["electronics", "synthesizers"], "promise": "A 555 timer, a capacitor and a speaker: the synth's first two modules on a breadboard." }

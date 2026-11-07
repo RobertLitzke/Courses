@@ -3,7 +3,7 @@
   "subtitle": "Threads in the dark",
   "department": "Life Sciences",
   "order": 11,
-  "summary": "A mushroom is only the fruit. The fungus itself is a net of threads in soil and wood, eating from the outside, and it runs much of the living world: it rots the forest floor, feeds the roots of trees, farms algae as lichens, glows in the dark and makes antibiotics. Each lesson opens on a real puzzle, a ring in a meadow, a spoiled plate in Fleming's lab, a fossil trunk eight metres tall, and follows the evidence, with live figures you can push. Not a guide to eating anything.",
+  "summary": "A mushroom is the fruit. The fungus is the mat of threads underneath, spread through soil and wood and digesting its food outside its body. These lessons follow the threads into tree roots and rotting logs, and to the mould on Fleming's plate.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "fungi.save",

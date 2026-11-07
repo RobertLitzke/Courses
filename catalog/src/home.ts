@@ -11,6 +11,7 @@
 import { el } from 'didactics/dom';
 import type { Bridge, CatalogEntry, CatalogMap, LessonInfo } from '../registry';
 import { installSlip } from './install';
+import { splitIcon } from './split';
 import { BETA_NOTE, dueEverywhere, progress } from './page';
 
 type Read = (key: string) => string | null;
@@ -146,7 +147,7 @@ function welcome(courses: readonly CatalogEntry[], pick: () => number): HTMLElem
       'div',
       {},
       el('h2', {}, 'Take any book off the shelf.'),
-      el('p', {}, `${spell(courses.length)} illustrated workbooks with figures you push and a short quiz at the end of each lesson. Start anywhere: no course needs another first, and your place is kept on this device.`),
+      el('p', {}, `${spell(courses.length)} illustrated workbooks, each lesson ending in a short quiz. Start anywhere: no course needs another first, and your place is kept on this device.`),
       el('p.facts', {}, el('span', {}, '15 to 25 minutes a lesson'), el('span', {}, 'works offline'), el('span', {}, 'no account')),
     ),
     one ? el('a.btn.gold', { href: lessonHref(one, one.lessonList[0]), title: `${one.title}: ${one.lessonList[0].title}` }, 'Show me one') : null,
@@ -188,7 +189,7 @@ function bridgeCover(b: Bridge, byFolder: ReadonlyMap<string, CatalogEntry>): HT
   return el(
     own ? 'a.cover.bridge' : 'a.cover.bridge.coming',
     { href: own ? `./${own.folder}/` : `#bridge-${b.id}`, title: b.promise },
-    el('span.pair', { 'aria-hidden': 'true' }, el('img', { src: a.icon, alt: '' }), el('img', { src: z.icon, alt: '' })),
+    splitIcon(a, z, !own),
     el('span.bridge-text', {}, el('b', {}, b.title), el('span.cover-foot', {}, own ? `${a.title} + ${z.title}` : `${a.title} + ${z.title} · being written`)),
   );
 }

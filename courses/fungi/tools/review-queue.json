@@ -13,5 +13,6 @@
     "lesson": "kingdom",
     "added": "2026-11-06",
     "what": "two sortings now a regroup block: readouts and guess moved into JSON, leaf notes reworded"
-  }
+  },
+ { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
 ]

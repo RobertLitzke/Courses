@@ -3,7 +3,7 @@
   "subtitle": "A soil workbook",
   "department": "Agriculture",
   "order": 2,
-  "summary": "A gardener's course on soil: what it is made of, how it holds water and air, what lives in it, and how to feed it and build it up, from compost and seasons to pots and raised beds. Live diagrams, a reference to look things up in the garden, and photos to test yourself on.",
+  "summary": "For the bed out back. Squeeze a handful and you can tell how much sand and clay is in it; time a puddle and you learn about its pores. From there the course goes to compost, feeding, raised beds and pots, with tests you can run with a jar of water and a trowel.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "dirt.save",

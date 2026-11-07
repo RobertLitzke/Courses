@@ -158,5 +158,6 @@
     "lesson": "housing",
     "added": "2026-11-07",
     "what": "student read-through revisions (definitions, numbers checked against the code and the rules data, clearer tasks and references); needs a Gemini copy edit"
-  }
+  },
+ { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
 ]

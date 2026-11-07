@@ -3,7 +3,7 @@
   "subtitle": "Who lives where, and why",
   "department": "Life Sciences",
   "order": 6,
-  "summary": "How many kinds of living things there are, why no population grows for ever, and what happens when you take a predator away. Each lesson opens on a real puzzle (an island of starving reindeer, a drought on a Galápagos rock, a beach where one man threw sea stars into the sea) and follows the people who worked it out, with live models you can run. Carbon and nitrogen cycles, succession, islands and losing species are to come.",
+  "summary": "Twenty-nine reindeer were put on St Matthew Island in 1944. By 1963 there were six thousand, and three years later forty-two. Ecology is about numbers like those, and the course works through the classic cases that explain them: hares and lynx, Paine's sea stars, the finches of Daphne Major in a drought, the cod off Newfoundland. Branches go to ant colonies, the Salish Sea shore, Mount St Helens after 1980, and the dry side of the Cascades.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "ecology.save",

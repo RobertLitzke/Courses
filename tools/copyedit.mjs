@@ -29,6 +29,16 @@
 // every course's). With --write each lesson that comes back cleanly is taken
 // off the queue.
 //
+// The course's catalog description (subtitle and summary in its course.json)
+// takes the same pass with --description, or when its queue holds an entry
+// { "description": true, added, what, notes? }. The editor gets it beside the
+// whole lesson list (tools/lib/outline.mjs: every lesson's title and teaches
+// line, written or planned) and the other courses' descriptions, and may
+// rework it more freely than a lesson: it must match what the lessons cover
+// and must not sound like the descriptions beside it. The report is
+// tools/copyedit-out/description.md; with --write the words go back into
+// course.json.
+//
 // Reports go to courses/<course>/tools/copyedit-out/<lesson>.md (not
 // committed). With --write the new words go into the lesson's file, in the
 // layout it had (didactics/course formatJson).
@@ -44,7 +54,7 @@ const KEY = process.env.OPENROUTER_API_KEY;
 const args = process.argv.slice(2);
 const write = args.includes('--write');
 const [course, ...rest] = args.filter((a) => !a.startsWith('--'));
-const usage = 'usage: OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> <lesson-id …> | --queue [--write]';
+const usage = 'usage: OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> <lesson-id …> | --queue | --description [--write]';
 
 const dir = course && join(root, 'courses', course);
 if (!course || !existsSync(join(dir, 'course.json'))) {
@@ -52,21 +62,23 @@ if (!course || !existsSync(join(dir, 'course.json'))) {
   process.exit(1);
 }
 const briefFile = join(dir, 'tools/copyedit.json');
-if (!existsSync(briefFile)) {
-  console.error(`${course} has no tools/copyedit.json: write one ({ course, intro, voice?, spellings }) for it to take the copy edit`);
-  process.exit(1);
-}
 const OUT = join(dir, 'tools/copyedit-out');
 const QUEUE = join(dir, 'tools/review-queue.json');
 const LESSONS = join(dir, JSON.parse(readFileSync(join(dir, 'course.json'), 'utf8')).lessons);
 const queued = args.includes('--queue') && existsSync(QUEUE) ? JSON.parse(readFileSync(QUEUE, 'utf8')) : [];
-const ids = [...new Set([...rest, ...queued.map((q) => q.lesson)])];
-if (!KEY || !ids.length) {
+const ids = [...new Set([...rest, ...queued.flatMap((q) => (q.lesson ? [q.lesson] : []))])];
+const describe = args.includes('--description') || queued.some((q) => q.description);
+if (!KEY || (!ids.length && !describe)) {
   console.error(KEY ? 'nothing to edit: name lessons, or the queue is empty' : usage);
   process.exit(1);
 }
 
-const own = JSON.parse(readFileSync(briefFile, 'utf8'));
+// A course with no brief of its own can still have its description edited, under its title.
+if (!existsSync(briefFile) && ids.length) {
+  console.error(`${course} has no tools/copyedit.json: write one ({ course, intro, voice?, spellings }) for its lessons to take the copy edit`);
+  process.exit(1);
+}
+const own = existsSync(briefFile) ? JSON.parse(readFileSync(briefFile, 'utf8')) : { course: `the illustrated online course "${JSON.parse(readFileSync(join(dir, 'course.json'), 'utf8')).title}"`, intro: '' };
 const BRIEF = `You are the final copy editor and fact checker for ${own.course}. Readers are smart high schoolers and curious adults: don't talk down to them, and don't swing academic (say "underwater", not "subaqueous"). ${own.intro}
 ${own.voice ? `\n${own.voice}\n` : ''}
 The most important thing is that nothing reads as if a language model wrote it. Rob, who reads every lesson, notices the tells of machine-written text at once and finds them grating: the list under "Avoid" gives specific examples, but avoid any habit of LLM prose, listed or not.
@@ -153,7 +165,77 @@ function problem(before, after, added = new Set(), canMark = false) {
 /** Every footnote id the lesson's prose marks. */
 const lessonMarks = (lesson) => pieces(lesson).flatMap((p) => marks(p.text));
 
+/** Asks the model for one JSON reply. */
+async function ask(system, user) {
+  const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: MODEL, messages: [{ role: 'system', content: system }, { role: 'user', content: user }], response_format: { type: 'json_object' }, temperature: 0.3 }),
+  });
+  const d = await r.json();
+  const raw = d.choices?.[0]?.message?.content ?? '';
+  try {
+    return { reply: JSON.parse(raw.replace(/^```json\s*|```\s*$/g, '')), tokens: d.usage?.total_tokens };
+  } catch {
+    return { error: `${raw.slice(0, 400)} ${JSON.stringify(d.error ?? '')}` };
+  }
+}
+
+/** The catalog description: subtitle and summary, edited beside the lesson list and the other courses' descriptions. */
+async function editDescription() {
+  const { courseOutline, outlineMarkdown } = await import('./lib/outline.mjs');
+  const infoFile = join(dir, 'course.json');
+  const source = readFileSync(infoFile, 'utf8');
+  const info = JSON.parse(source);
+  const outline = courseOutline(course);
+  const others = outline.others.map((f) => JSON.parse(readFileSync(join(root, 'courses', f, 'course.json'), 'utf8'))).map((o) => `- ${o.title}: ${o.summary}`);
+  const notes = queued.filter((q) => q.description).flatMap((q) => q.notes ?? []);
+  const system = `You revise the catalog description of ${own.course}: the paragraph a reader sees on the site's list of courses before opening it, and the course's subtitle. Readers are smart high schoolers and curious adults.
+
+The description should tell a reader what the course is about and who it is for, in concrete terms taken from its lessons: real names, places, numbers, puzzles. It must not promise anything the lesson list doesn't cover, and it should mention lessons marked "not written yet" only as branches or as still being written, if at all. Its length suits the course: a small course can take two sentences, a large one a paragraph; never more than half again as long as it is now.
+
+It must not sound like the other courses' descriptions, which you are given. Don't reuse their openings, their sentence shapes or their stock phrases. In particular avoid formulas about how lessons are built ("Each lesson opens on...", "follows the evidence", "live figures you can push", "with real photos to test yourself on") and closing disclaimers that are there for rhythm.
+
+${own.voice ?? ''}
+
+Rob, who reads every word, notices the tells of machine-written text at once. No em or en dashes as punctuation; no "not just X, it's Y"; no triplets for rhythm; no rhetorical questions; no aphoristic closing line; none of: delve, tapestry, crucial, vital, key (as an adjective), fascinating, remarkable, incredible, journey, unlock, harness, robust, seamless, landscape (as a metaphor), realm, testament. No exclamation marks. British-leaning spelling (${(own.spellings ?? ['metres', 'colour']).join(', ')}). Fix any fact that is wrong.
+
+If the description is already good, return it unchanged.
+
+Reply with JSON only: {"subtitle": "...", "summary": "...", "facts": ["one line per fact you changed or doubt"], "why": "a sentence on what you changed and why"}`;
+  const user = `${notes.length ? `Notes from the course's writers, to act on:\n${notes.map((n) => `- ${n}`).join('\n')}\n\n` : ''}${outlineMarkdown(outline, info)}\n## The other courses' descriptions\n\n${others.join('\n')}\n`;
+  const { reply, tokens, error } = await ask(system, user);
+  if (error) {
+    console.error(`description: no JSON back`, error);
+    process.exitCode = 1;
+    return;
+  }
+  const report = [`# ${info.title}: description`, '', reply.why ?? '', '', '## Facts', ...(reply.facts ?? []).map((f) => `- ${f}`), '', '## Changes', ''];
+  let changed = 0;
+  for (const [key, limit] of [['subtitle', 2], ['summary', 1.5]]) {
+    const before = info[key] ?? '';
+    const after = reply[key];
+    if (typeof after !== 'string' || after === before) continue;
+    const bad = !after.trim() ? 'empty' : /[—–]/.test(after) ? 'uses a dash' : before && after.length > before.length * limit + 25 ? `grew from ${before.length} to ${after.length} characters` : null;
+    report.push(`### ${key}${bad ? ` (KEPT: ${bad})` : ''}`, '', `- ${before}`, `+ ${after}`, '');
+    if (!bad) {
+      info[key] = after;
+      changed++;
+    }
+  }
+  writeFileSync(join(OUT, 'description.md'), report.join('\n'));
+  if (write) {
+    writeFileSync(infoFile, formatJson(info, source));
+    if (queued.some((q) => q.description)) {
+      const left = JSON.parse(readFileSync(QUEUE, 'utf8')).filter((q) => !q.description);
+      writeFileSync(QUEUE, `${JSON.stringify(left, null, 1)}\n`);
+    }
+  }
+  console.log(`description: ${changed} of 2 changed, ${(reply.facts ?? []).length} fact notes${write ? ', written' : ''} (${tokens ?? '?'} tokens)`);
+}
+
 mkdirSync(OUT, { recursive: true });
+if (describe) await editDescription();
 for (const id of ids) {
   const file = join(LESSONS, `${id}.json`);
   if (!existsSync(file)) { console.error(`${id}: no such lesson in ${LESSONS}`); process.exitCode = 1; continue; }

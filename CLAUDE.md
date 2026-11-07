@@ -33,6 +33,9 @@ stand-in images, lessons planned in an outline but not yet in
 When a thread finishes work on a lesson:
 
 - Wrote or changed prose: add it to the course's review queue.
+- Added or reshaped lessons enough that the catalog description no longer
+  fits: rewrite `summary` in `course.json` against `npm run outline -- <course>`
+  and queue `{ "description": true, ... }` for Gemini (README, review queue).
 - Ran a student read-through: if the queue entry said "no student review",
   update it, or set `"student": "done"` for the lesson in
   `tools/lesson-status.json`.

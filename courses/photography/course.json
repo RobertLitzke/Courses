@@ -3,7 +3,7 @@
   "subtitle": "A field workbook",
   "department": "Visual Arts",
   "order": 4,
-  "summary": "Photography for someone who owns a long zoom and leaves it on automatic: what the camera is deciding for you and how to take each decision back, from light and exposure to sharpness, movement, grain, reach, focus and colour. The figures re-expose real photographs as each setting changes.",
+  "summary": "Written for one camera and one habit: a superzoom with a 2000 mm lens, left on its bird mode because the dials are confusing. Each setting the camera was choosing is handed back to you in turn, and the figures re-expose real photographs as you change it. By the end you should be able to stand in a marsh at dusk and pick the shutter speed yourself.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "outofauto.save",

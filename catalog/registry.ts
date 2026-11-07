@@ -5,7 +5,7 @@
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { MAP_HEIGHT, MAP_WIDTH } from './src/map-size';
+import { MAP_HEIGHT, MAP_WIDTH, MIN_GAP } from './src/map-size';
 
 /** What a course says about itself, in its course.json. */
 export interface CourseInfo {
@@ -173,6 +173,11 @@ export function mapProblems(map: CatalogMap, folders: readonly string[]): string
     if (!folders.includes(f)) out.push(`catalog/map.json: no course in courses/${f}`);
     if (!Array.isArray(xy) || xy.length !== 2 || !(xy[0] >= 0 && xy[0] <= MAP_WIDTH && xy[1] >= 0 && xy[1] <= MAP_HEIGHT)) out.push(`catalog/map.json: ${f}'s place should be [x, y] inside ${MAP_WIDTH} by ${MAP_HEIGHT}`);
   }
+  // Room for each course's title: no two courses closer than MIN_GAP.
+  const spots = Object.entries(map.courses ?? {});
+  spots.forEach(([f, [x, y]], i) => {
+    for (const [g, [u, v]] of spots.slice(i + 1)) if (Math.hypot(x - u, y - v) < MIN_GAP) out.push(`catalog/map.json: ${f} and ${g} are closer than ${MIN_GAP}, so their titles would collide`);
+  });
   const ids = new Set<string>();
   for (const b of map.bridges ?? []) {
     if (ids.has(b.id)) out.push(`catalog/map.json: two bridges are called "${b.id}"`);

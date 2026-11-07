@@ -116,7 +116,9 @@ export function collect() {
     const planned = [...comingLessons(src), ...(m.planned ?? []).map((p) => ({ ...p, coming: true, fromOutline: true }))].filter((l) => !done.has(l.id));
     const queue = readJson(join(dir, 'tools/review-queue.json'), []);
     const queued = new Map();
-    for (const q of queue) queued.set(q.lesson, [...(queued.get(q.lesson) ?? []), q]);
+    for (const q of queue) if (q.lesson) queued.set(q.lesson, [...(queued.get(q.lesson) ?? []), q]);
+    // The course's catalog description, when it waits for its Gemini pass (tools/copyedit.mjs --description).
+    const described = queue.find((q) => q.description);
     const parked = new Map();
     for (const p of readJson(join(dir, 'tools/pending-photos.json'), [])) parked.set(p.lesson, (parked.get(p.lesson) ?? 0) + 1);
 
@@ -175,7 +177,8 @@ export function collect() {
     // Trunk first, then each branch in the order the tree lists them.
     const order = (r) => (r.branch ? 1 + tree.findIndex((b) => b.title === r.branch || b.id === r.branch) : 0);
     lessons.sort((a, b) => order(a) - order(b));
-    courses.push({ folder, title: course.title, order: course.order ?? 99, note: m.note ?? '', release: course.release, lessons });
+    const note = [m.note, described ? `Its catalog description waits for Gemini (queued ${described.added ?? ''}).`.replace(' ()', '') : ''].filter(Boolean).join(' ');
+    courses.push({ folder, title: course.title, order: course.order ?? 99, note, release: course.release, lessons });
   }
   // Courses planned in an outline with no folder yet: a title and planned lessons in tools/lesson-status.json.
   for (const [folder, m] of Object.entries(meta.courses ?? {})) {

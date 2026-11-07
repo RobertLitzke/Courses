@@ -7,7 +7,7 @@ import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { infoProblems, mapProblems, readCatalog, readMap, type CatalogEntry, type CatalogMap } from '../registry';
 import { begun, homePage, places } from '../src/home';
-import { mapPage as catalogPage, standing } from '../src/page';
+import { mapPage as catalogPage, regionBox, standing } from '../src/page';
 
 const courses = resolve(__dirname, '../../courses');
 const BETA = { version: '0.1', stage: 'beta', date: '2026-11-04' } as const;
@@ -42,6 +42,14 @@ describe('the courses on the site', () => {
     expect(infoProblems('soil', info).join('\n')).toMatch(/"release" should be/);
     expect(infoProblems('soil', { ...info, release: { version: '1.0', stage: 'beta', date: '2026-11-04' } }).join('\n')).toMatch(/a beta is 0.x/);
     expect(infoProblems('soil', { ...info, release: BETA })).toEqual([]);
+  });
+
+  it('describes each course in its own words, without the stock phrases they once shared', () => {
+    const stock = [/each lesson (opens|starts)/i, /live (figures|diagrams|models)/i, /you can push/i, /follows? the evidence/i, /[—–]/, /\b(delve|tapestry|crucial|vital|fascinating|remarkable|incredible|journey|unlock|harness|robust|seamless|realm|testament)\b/i, /!/];
+    for (const c of all) for (const re of stock) expect(c.summary, `${c.folder}: ${re}`).not.toMatch(re);
+    // No two open the same way.
+    const openings = all.map((c) => c.summary.split(/\s+/).slice(0, 3).join(' ').toLowerCase());
+    expect(new Set(openings).size).toBe(openings.length);
   });
 
   it('lists courses by their order', () => {
@@ -94,6 +102,15 @@ describe('the map', () => {
     expect(map.bridges.length).toBeGreaterThan(0);
   });
 
+  it('draws each shelf as a region round its courses, and refuses two courses too close to label', () => {
+    expect(regionBox([[300, 200], [500, 400]])).toEqual({ x: 200, y: 115, w: 400, h: 385 });
+    expect(regionBox([[20, 20]]).x).toBe(0);
+    expect(mapProblems({ courses: { soil: [100, 100], clouds: [150, 120] }, bridges: [] }, ['soil', 'clouds']).join('\n')).toMatch(/soil and clouds are closer/);
+    const real = readMap(resolve(__dirname, '../map.json'), all);
+    const page = catalogPage(all, () => null, real);
+    expect(page.querySelectorAll('.map-region').length).toBe(real.shelves!.length);
+  });
+
   it('refuses a bridge to a course not on the map, a place off the map, or a folder with no course', () => {
     const bad: CatalogMap = {
       courses: { soil: [100, 100], clouds: [2000, 100] },
@@ -121,8 +138,16 @@ describe('the map', () => {
     expect(page.querySelectorAll('line.edge.coming').length).toBe(1);
     expect(page.querySelector('#bridges .course h3')!.textContent).toMatch(/Muddy circuits.*between Soil and Electronics/);
     expect(page.querySelector('#course-soil .course-bridges')!.textContent).toBe('Bridges: Muddy circuits (with Electronics)');
-    // The panel starts on a course and its bridge's line is lit.
+    // A bridge is one icon, cut in two, each course's picture on its side of the cut.
+    const split = bridge.querySelector('.split.coming')!;
+    expect(split.getAttribute('aria-label')).toBe('Soil and Electronics');
+    expect(split.querySelectorAll('img.split-a, img.split-b').length).toBe(2);
+    expect(page.querySelector('#bridges .course .split')).not.toBeNull();
+    // The panel starts on a course.
     expect(page.querySelector('.map-panel h3')!.textContent).toBe('Soil');
+    // Nothing is dimmed until the reader points at something; then its line lights.
+    expect(page.querySelectorAll('line.lit, .far').length).toBe(0);
+    page.querySelector('.map-course')!.dispatchEvent(new Event('mouseenter'));
     expect(page.querySelectorAll('line.lit').length).toBe(1);
   });
 });

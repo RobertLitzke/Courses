@@ -3,7 +3,7 @@
   "subtitle": "Why the water does what it does",
   "department": "Earth Sciences",
   "order": 12,
-  "summary": "Rain lands on the Cascades and the Olympics, sinks into gravel, gathers into rivers, fills lakes and pours into a fjord of salt water that rises and falls twice a day. Each lesson opens on something you can see from a bank, a bridge or a ferry in western Washington, a river running brown in November, a low tide far lower than the one before it, a pass where the water runs faster than you can swim, and follows the physics to why, with live figures you can push: floods, meanders, layered lakes, tides as a sum of waves, the two-layer Sound and the drift that builds a spit.",
+  "summary": "Where the water goes in western Washington, from a raindrop on the Cascade divide to the tide race at Deception Pass. Half the course is rivers and lakes: floods, groundwater, the brown water of November, and why the bottom of Lake Washington stays cold all summer. The other half is the Sound, with two tides a day of different heights, a layer of river water floating on the salt, and Hood Canal, whose deep water runs short of oxygen. If you live here, most of it can be checked from a bridge or a ferry.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "rivers.save",
