@@ -4,7 +4,9 @@
 
 import { svg } from 'didactics/dom';
 import { arrow, line, redraw, small, still } from 'didactics/draw';
-import { COL, figure, frame, guessFirst, player, slider, tint, toggles, wrapped, type FigureFactory } from './kit';
+import { Replay, Table } from 'sandtable/table';
+import { laidDown, sandLapse, type SandLapse } from './sand';
+import { COL, figure, frame, guessFirst, pick, player, slider, tint, toggles, wrapped, type FigureFactory } from './kit';
 
 const W = 400;
 
@@ -254,7 +256,113 @@ const cellFigure = figure(['starve'], (ctx, t) => {
   return f.node;
 });
 
+// ---- A drift cell on the sand table --------------------------------------------------------------
+
+/** A straight coast of feeder bluffs between two sheltered bays, waves coming in at an angle (a model). */
+export const COAST = { nx: 96, ny: 64, west: 22, east: 74, shore: 24, end: 120 } as const;
+export const coastShore = (i: number) => (i < COAST.west ? COAST.shore - (COAST.west - i) * 0.9 : i > COAST.east ? COAST.shore - (i - COAST.east) * 0.9 : COAST.shore);
+export function coastBed(i: number, j: number): number {
+  const s = coastShore(i);
+  if (j < s) return Math.min(1.4, 0.2 + (s - j) * 0.35);
+  const bay = i < COAST.west ? COAST.west - i : i > COAST.east ? i - COAST.east : 0;
+  return -0.05 - Math.min(2, (j - s) * 0.08) - Math.min(1, bay * 0.05);
+}
+
+export type WavesFrom = 'west' | 'east';
+
+export function coastTable(from: WavesFrom): Table {
+  const { nx, ny } = COAST;
+  const t = new Table({
+    nx, ny, bed: coastBed,
+    sea: (_i, j) => j === ny - 1,
+    // The bluffs are loose glacial sand and gravel; the sea floor is harder.
+    erodibility: (i, j) => (j >= coastShore(i) ? 0.15 : 1),
+    params: { waves: 0.6, surf: 0.5, driftTo: [from === 'west' ? 1 : -1, 0], drift: 1.2, cliff: 0.15, carry: 0.6, pickUp: 0.5, settle: 1, start: 0.1, swash: 2 },
+  });
+  // The bays are sheltered: the waves reach only their mouths.
+  t.waveOn = new Float32Array(nx * ny).map((_, k) => {
+    const i = k % nx;
+    const j = Math.floor(k / nx);
+    return (i > COAST.east || i < COAST.west) && j < COAST.shore ? Math.max(0, 1 - (COAST.shore - j) / 4) : 1;
+  });
+  return t;
+}
+
+/** Sand laid down in each bay so far. */
+export function bays(t: Table): { west: number; east: number } {
+  return { west: laidDown(t, (i) => i < COAST.west), east: laidDown(t, (i) => i > COAST.east) };
+}
+
+export function coastRun(from: WavesFrom, to: number = COAST.end): { west: number; east: number } {
+  return bays(new Replay(() => coastTable(from), { every: 1000 }).to(to));
+}
+
+export const coastFigure = figure(['downdrift'], (ctx, t) => {
+  let from: WavesFrom = 'west';
+  let open = false;
+  const marks = svg('g');
+  let lapse: SandLapse;
+  const paint = (tb: Table) => {
+    const v = lapse.view;
+    const { west, east } = bays(tb);
+    const dir = from === 'west' ? 1 : -1;
+    const sy = v.xy(0, COAST.shore + 6)[1];
+    // Crests square to the waves' travel, which is up the page and slanting downdrift.
+    const tx = dir * 0.45;
+    const ty = -1;
+    const crest = (cx: number, cy: number) => svg('line', { x1: cx - 22, y1: cy - 22 * tx, x2: cx + 22, y2: cy + 22 * tx, stroke: COL.paper, 'stroke-width': 2, 'stroke-linecap': 'round', opacity: 0.9 });
+    const x0 = from === 'west' ? 110 : 290;
+    redraw(marks,
+      // Wave crests marching in at an angle from offshore.
+      ...[0, 1, 2, 3].map((n) => crest(x0 + n * 18 * tx, v.h - 22 + n * 18 * ty)),
+      small(from === 'west' ? 10 : v.w - 10, v.h - 10, `waves from the ${from}`, { anchor: from === 'west' ? undefined : 'end', bold: true, fill: COL.paper }),
+      arrow(v.w / 2 - dir * 50, sy, v.w / 2 + dir * 50, sy, COL.flow, 2),
+      small(v.w / 2, sy + 14, 'drift', { anchor: 'middle', bold: true, fill: COL.paper }),
+      small(v.w / 2, v.xy(0, 6)[1], 'feeder bluffs', { anchor: 'middle', bold: true, halo: COL.paper }),
+      small(v.xy(6, 0)[0], v.xy(0, 4)[1], 'bay', { anchor: 'middle', fill: COL.paper }),
+      small(v.xy(89, 0)[0], v.xy(0, 4)[1], 'bay', { anchor: 'middle', fill: COL.paper }),
+    );
+    if (!open) return;
+    const now = lapse.now();
+    const ends = west + east;
+    lapse.readout.textContent = now < 2
+      ? `Waves from the ${from} wear at the bluffs and wash their sand along the shore. Press Play.`
+      : ends < 3
+        ? 'The waves cut into the foot of the bluffs, and a beach of their sand and gravel forms along the shore.'
+        : `Sand laid down at the ${from === 'west' ? 'east' : 'west'} end so far: ${Math.round((Math.max(west, east) / ends) * 100)}% of what reached either bay. It builds out across the bay mouth as a bar, the start of a spit.`;
+    if (now >= COAST.end - 0.5 && t.goal === 'downdrift') t.done();
+  };
+  lapse = sandLapse(ctx, {
+    make: () => coastTable(from),
+    end: COAST.end,
+    lines: 3,
+    show: (x) => `${Math.round(x)}`,
+    paint: (tb) => paint(tb),
+    heights: [0, 1.4],
+  });
+  lapse.view.overlay.append(marks);
+  const which = pick(['Waves from the west', 'Waves from the east'], 0, (i) => {
+    from = i === 0 ? 'west' : 'east';
+    lapse.restart();
+  });
+  lapse.controls.append(which.node);
+  guessFirst(t, { controls: lapse.controls, readout: lapse.readout }, {
+    ask: 'Waves come in from the west, at an angle to the shore, day after day. Where does the sand from the bluffs end up?',
+    options: ['Spread evenly along the beach', 'Piled up at the east end', 'Carried out to deep water'],
+    answer: 1,
+    sliders: [lapse.time],
+    buttons: which.buttons,
+    after: () => {
+      open = true;
+      lapse.draw();
+    },
+  });
+  lapse.draw();
+  return lapse.node;
+});
+
 export const figures: Record<string, FigureFactory> = {
   'beach-swash': swashStill,
   'beach-cell': cellFigure,
+  'beach-table': coastFigure,
 };

@@ -8,7 +8,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
 | [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 7 | 0 | 1 | 39 |
+| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 8 | 0 | 1 | 38 |
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 2 | 25 | 15 | 0 |
@@ -26,7 +26,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- |
 | Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
 | Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
-| Geology | 1.0 released | 2026-11-04 | released; still to do: 7 to copy-edit, 1 awaiting photos |
+| Geology | 1.0 released | 2026-11-04 | released; still to do: 8 to copy-edit, 1 awaiting photos |
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
 | Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 2 to copy-edit, 25 to fact-check, 15 awaiting photos |
@@ -98,7 +98,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 11 | Where the Earth shakes (`quakes`) |  | done |  | How earthquakes outline the plates, and how the angle of a sinking slab of ocean floor sets where volcanoes rise. |
 | 12 | Islands that get older in a line (`hotspot`) |  | awaiting Gemini review (queued 2026-11-06) |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
 | 13 | The ocean before the Atlantic (`supercontinents`) |  | done |  | How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today. |
-| 14 | A river that cuts through a mountain (`rivers`) |  | done |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
+| 14 | A river that cuts through a mountain (`rivers`) |  | awaiting Gemini review (queued 2026-11-07) |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
 | 15 | Boulders where they don't belong (`erratics`) |  | done |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
 | 16 | The pacemaker of the ice ages (`pacemaker`) |  | done |  | How slow changes in the Earth's orbit time the ice ages, and how the record was read from deep-sea mud. |
 | 17 | A lake with no river (`kettles`) |  | done |  | The landforms an ice sheet leaves behind, how shaded relief reveals them, and how the land rises once the ice is gone. |

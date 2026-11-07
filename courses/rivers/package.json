@@ -20,5 +20,8 @@
     "vite-plugin-pwa": "^1.0.0",
     "vite-plugin-singlefile": "^2.3.0",
     "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "sandtable": "*"
   }
 }

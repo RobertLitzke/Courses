@@ -23,7 +23,7 @@ import { ridgeFigure } from './stripes';
 import { platesMap, slabFigure } from './quakes';
 import { atollFigure, driftMapFigure, plumeFigure } from './hotspot';
 import { dipFigure, iapetusFigure, seaLevelFigure, supercontinentsFigure, wilsonStill } from './supercontinents';
-import { knickFigure, raceFigure } from './rivers';
+import { knickFigure, raceFigure, sawFigure } from './rivers';
 import { glacierFigure } from './ice';
 import { iceSheetsFigure, rhoneMapFigure } from './iceage';
 import { cyclesFigure, orbitFigure, recordFigure } from './pacemaker';
@@ -97,6 +97,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 14
   race: raceFigure,
   knick: knickFigure,
+  saw: sawFigure,
   // Lesson 15
   glacier: glacierFigure,
   'rhone-ice': rhoneMapFigure,

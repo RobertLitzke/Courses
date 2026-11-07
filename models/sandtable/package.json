@@ -1,0 +1,13 @@
+{
+  "name": "sandtable",
+  "version": "0.1.0",
+  "description": "A sand table for live lesson figures: rain, rivers, tides and waves running over a grid of heights, cutting where the water runs fast and dropping sand where it slows. Shared by courses (Rivers, Geology).",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}

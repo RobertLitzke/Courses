@@ -95,6 +95,9 @@
           "type": "text",
           "text": "Where the shore turns away, at the mouth of a bay or the end of a headland, the drift does not turn with it. The waves that drive it still come from the same direction, so they keep pushing sand and gravel the same way, straight on past the corner into deeper water, where it builds a ridge that grows out from the land: a **spit**. Waves bending around its end curl the tip back toward the shore, so many spits end in a hook."
         },
+        {"type": "text", "text": "The sand table below runs a drift cell as a model: a straight coast of feeder bluffs with a sheltered bay at each end, and waves coming in at an angle day after day. The waves wear at the foot of the bluffs and move what falls along the shore. Before you run it, guess where the bluffs' sand ends up."},
+        {"type": "interactive_diagram", "id": "beach-table", "caption": "A model drift cell seen from above, with time sped up enormously. Waves (white crests) wear back the bluffs, and the drift (orange arrow) carries their sand along the shore. Sand laid down shows sandy brown under the water. The chips turn the waves round.", "task": "Guess, then run it to the end", "goal": "downdrift", "aspect_ratio": 1.5},
+        {"type": "text", "text": "In the model the sand piles up in a bar across the mouth of the down-drift bay, the start of a spit, and most of it stays under water. A real spit is built up above the tide by storm waves throwing sand and gravel onto its crest, which the model leaves out."},
         {
           "type": "diagram",
           "id": "map",

@@ -4,6 +4,8 @@
 
 import { svg } from 'didactics/dom';
 import { arrow, line, redraw, small, still } from 'didactics/draw';
+import { Replay, Table, noise } from 'sandtable/table';
+import { sandLapse, type SandLapse } from './sand';
 import { COL, type FigureFactory, figure, frame, guessFirst, player, slider, tint, toggles } from './kit';
 
 const W = 400;
@@ -258,7 +260,115 @@ export const yearFigure = figure(['warm'], (ctx, t) => {
   return f.node;
 });
 
+// ---- A shower on the divide (the sand table) -------------------------------------------------------
+
+/** A range of mountains on the sand table: Puget Sound off the left edge, the dry side running off the right toward the Columbia, and a pass in the middle. */
+export const RANGE = { nx: 96, ny: 60, end: 70, rain: 8 } as const;
+const rangeNoise = noise(11, 9, 3);
+/** Where the crest runs, row by row. */
+export const crestAt = (j: number) => 52 + 5 * Math.sin(j / 7) + 2 * Math.sin(j / 3.1);
+/** The pass: the crest dips here. */
+export const PASS_ROW = 31;
+export function rangeBed(i: number, j: number): number {
+  const c = crestAt(j);
+  const top = 3.4 - 1.4 * Math.exp(-(((j - PASS_ROW) / 6) ** 2));
+  // West of the crest the land falls to the sea (the first few columns are under it); east of it, to the high dry country.
+  const west = i < c;
+  const w = west ? (c - i) / (c - 7) : (i - c) / (RANGE.nx - 1 - c);
+  if (west && i < 7) return -0.4 - (7 - i) * 0.1;
+  const low = west ? 0.1 : 0.6;
+  // Spurs and valleys running down from the crest, wandering a little.
+  const valleys = 0.35 * Math.sin(j / 2.4 + 2.5 * rangeNoise(i * 0.5, j)) * Math.min(1, w * 3) * Math.min(1, (1 - w) * 4);
+  return low + (top - low) * Math.max(0, 1 - w) ** 1.15 + valleys;
+}
+
+export function rangeTable(drop: [number, number] | null): Table {
+  const t = new Table({
+    nx: RANGE.nx, ny: RANGE.ny, bed: rangeBed,
+    sea: (i) => i < 7,
+    rises: () => 0,
+    edges: { right: 'open' },
+    params: { pickUp: 0, slump: 0, drag: 0.15, sea: 0 },
+  });
+  if (drop) t.sources.push({ k: t.k(drop[0], drop[1]), flow: 1, dye: 1 });
+  return t;
+}
+
+/** The shower lasts `RANGE.rain` time units. */
+export const rangeSchedule = (tb: Table, time: number) => {
+  if (time >= RANGE.rain && tb.sources.length) tb.sources = [];
+};
+
+/** How much of a shower at (i, j) reaches Puget Sound and how much runs off east, after `to`. */
+export function showerGoes(i: number, j: number, to: number = RANGE.end): { west: number; east: number } {
+  const r = new Replay(() => rangeTable([i, j]), { every: 1000, schedule: rangeSchedule });
+  const t = r.to(to);
+  return { west: t.totals.dye / RANGE.rain, east: t.totals.outDye / RANGE.rain };
+}
+
+export const rangeFigure = figure(['both'], (ctx, t) => {
+  let drop: [number, number] = [30, 18];
+  let west = false;
+  let east = false;
+  const marks = svg('g');
+  let lapse: SandLapse;
+  const paint = (tb: Table) => {
+    const w = tb.totals.dye / RANGE.rain;
+    const e = tb.totals.outDye / RANGE.rain;
+    if (w > 0.3) west = true;
+    if (e > 0.3) east = true;
+    const v = lapse.view;
+    const [dx, dy] = v.xy(drop[0], drop[1]);
+    const [px, py] = v.xy(Math.round(crestAt(PASS_ROW)), PASS_ROW);
+    const crest: [number, number][] = Array.from({ length: RANGE.ny }, (_, j) => v.xy(crestAt(j), j));
+    redraw(marks,
+      west && east ? svg('polyline', { points: crest.map((p) => p.join(',')).join(' '), fill: 'none', stroke: COL.ink, 'stroke-width': 1.2, 'stroke-dasharray': '4 3' }) : null,
+      west && east ? small(crest[6][0] + 6, crest[6][1], 'the divide', { bold: true, halo: COL.paper }) : null,
+      small(6, v.h / 2 - 8, 'Puget', { bold: true, fill: COL.paper }),
+      small(6, v.h / 2 + 4, 'Sound', { bold: true, fill: COL.paper }),
+      small(v.w - 6, v.h / 2 - 8, 'toward the', { anchor: 'end', halo: COL.paper }),
+      small(v.w - 6, v.h / 2 + 4, 'Columbia', { anchor: 'end', bold: true, halo: COL.paper }),
+      small(px, py + 16, 'the pass', { anchor: 'middle', halo: COL.paper }),
+      svg('circle', { cx: dx, cy: dy, r: 6, fill: 'none', stroke: COL.flow, 'stroke-width': 2 }),
+    );
+    const now = lapse.now();
+    lapse.readout.textContent = now < 1
+      ? 'Tap anywhere on the mountains to let a shower fall there (the ring), then press Play. The shower\'s water is dyed so you can follow it.'
+      : w + e < 0.15
+        ? 'The shower\'s water runs off downhill, gathering in the valleys.'
+        : w > 4 * e
+          ? `${Math.round(w * 100)}% of the shower has reached Puget Sound so far: it fell west of the divide.`
+          : e > 4 * w
+            ? `${Math.round(e * 100)}% of the shower has run off east so far, toward the Columbia: it fell east of the divide.`
+            : `This shower fell almost on the divide: ${Math.round(w * 100)}% has gone west and ${Math.round(e * 100)}% east.`;
+    if (west && east && t.goal === 'both') t.done();
+  };
+  lapse = sandLapse(ctx, {
+    make: () => rangeTable(drop),
+    schedule: rangeSchedule,
+    end: RANGE.end,
+    lines: 3,
+    label: 'Hours',
+    show: (v) => `${Math.round(v * 0.6)}`,
+    paint: (tb) => paint(tb),
+    heights: [0, 3.6],
+    seconds: 10,
+  });
+  lapse.view.overlay.append(marks);
+  lapse.view.canvas.addEventListener('pointerdown', (ev) => {
+    const at = lapse.view.cellAt(ev.clientX, ev.clientY);
+    if (!at) return;
+    drop = at;
+    lapse.time.set(0);
+    lapse.restart();
+    lapse.play.play();
+  });
+  lapse.draw();
+  return lapse.node;
+});
+
 export const figures: Record<string, FigureFactory> = {
   'watershed-paths': pathsStill,
   'watershed-year': yearFigure,
+  'watershed-table': rangeFigure,
 };

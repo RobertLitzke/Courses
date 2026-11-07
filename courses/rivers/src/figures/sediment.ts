@@ -7,6 +7,8 @@
 import { svg } from 'didactics/dom';
 import { arrow, curve, label, line, polyline, redraw, small, still, type P } from 'didactics/draw';
 import { makeRng } from 'didactics/rng';
+import { Replay, Table, noise } from 'sandtable/table';
+import { laidDown, sandLapse, type SandLapse } from './sand';
 import { animate, axes, COL, figure, frame, guessFirst, pick, player, sig, slider, tint, type FigureFactory } from './kit';
 
 const W = 400;
@@ -362,8 +364,128 @@ export const deltaFigure = figure(['grown'], (ctx, t) => {
   return f.node;
 });
 
+// ---- A dam on a sand table ---------------------------------------------------------------------
+
+/** The valley on the sand table: mountains at the top, a winding valley, a coast and a sea below. */
+export const DAM = { nx: 96, ny: 64, shore: 44, row: 18, out: 50, end: 120, sea: 0.5 } as const;
+const damNoise = noise(3, 10, 3);
+const valleyAt = (j: number) => 48 + 6 * Math.sin(j / 8);
+export function damBed(i: number, j: number): number {
+  const r = damNoise(i, j);
+  const d = Math.abs(i - valleyAt(j));
+  if (j > DAM.shore) return 0.4 - (j - DAM.shore) * 0.08 + (r - 0.5) * 0.15;
+  const u = Math.min(1, (DAM.shore - j) / 16);
+  const fade = u * u * (3 - 2 * u);
+  return 0.4 + (DAM.shore - j) * 0.04 + fade * Math.min(2.5, Math.max(0, d - 3) * 0.15) + (r - 0.5) * 0.3 + 0.05 * Math.min(d, 3);
+}
+/** The dam's crest, and the cells it stands on (across the valley floor, wherever the ground is lower than the crest). */
+export const DAM_TOP = damBed(Math.round(valleyAt(DAM.row)), DAM.row) + 1.2;
+const damCells = (t: Table) => {
+  const out: number[] = [];
+  for (let i = 0; i < DAM.nx; i++) if (damBed(i, DAM.row) < DAM_TOP + 0.2) out.push(t.k(i, DAM.row));
+  return out;
+};
+
+export type DamCase = 'none' | 'stays' | 'out';
+
+/** The table for one case: the river comes in at the top carrying sand, and a dam (if any) stands from the start with its lake full. */
+export function damTable(c: DamCase): Table {
+  const t = new Table({ nx: DAM.nx, ny: DAM.ny, bed: damBed,
+    // Below the dam the river runs on cobbles and rock: it can cut only a little way into its bed.
+    floor: (i, j) => (j > DAM.row ? damBed(i, j) - 0.02 : -1e9),
+    erodibility: () => 0.12,
+    sea: (_i, j) => j === DAM.ny - 1, params: { carry: 0.6, pickUp: 0.4, settle: 1.5, start: 0.2, sea: DAM.sea, drag: 0.15 } });
+  t.sources.push({ k: t.k(Math.round(valleyAt(0)), 0), flow: 1, sand: 0.04 });
+  if (c !== 'none') {
+    t.build(damCells(t), DAM_TOP);
+    for (let j = 0; j < DAM.row; j++) for (let i = 0; i < DAM.nx; i++) {
+      const k = t.k(i, j);
+      if (t.z[k] < DAM_TOP && Math.abs(i - valleyAt(j)) < 20) t.h[k] = DAM_TOP - t.z[k];
+    }
+  }
+  return t;
+}
+
+/** What changes with time: the dam comes out halfway through, in the "out" case. */
+export const damSchedule = (c: DamCase) => (t: Table, time: number) => {
+  if (c === 'out' && time >= DAM.out && t.works.some((w) => w > 0)) t.remove(damCells(t));
+};
+
+/** Sand laid down behind the dam (in its lake) and beyond the old shore (the delta). */
+export function damStock(t: Table): { behind: number; delta: number } {
+  return {
+    behind: laidDown(t, (i, j) => j < DAM.row && Math.abs(i - valleyAt(j)) < 20),
+    delta: laidDown(t, (_i, j) => j > DAM.shore - 2),
+  };
+}
+
+/** Run a case to model time `to` and say what is where. */
+export function damRun(c: DamCase, to: number = DAM.end): { behind: number; delta: number } {
+  const r = new Replay(() => damTable(c), { every: 1000, schedule: damSchedule(c) });
+  return damStock(r.to(to));
+}
+
+export const damFigure = figure(['trap', 'release'], (ctx, t) => {
+  let which: DamCase = t.goal === 'release' ? 'out' : 'stays';
+  const bars = svg('g');
+  let lapse: SandLapse;
+  const paint = (tb: Table) => {
+    const { behind, delta } = damStock(tb);
+    const now = lapse.now();
+    const top = 12;
+    const full = 60;
+    const scale = (v: number) => Math.min(full, (v / 30) * full);
+    const bx = 330;
+    const dam = tb.works.some((w) => w > 0);
+    const [lx, ly] = lapse.view.xy(Math.round(valleyAt(DAM.row)) + 10, DAM.row);
+    redraw(bars,
+      svg('rect', { x: bx - 8, y: top - 4, width: 78, height: full + 34, rx: 4, fill: COL.paper, opacity: 0.88 }),
+      svg('rect', { x: bx, y: top + full - scale(behind), width: 22, height: scale(behind), fill: COL.sediment }),
+      svg('rect', { x: bx + 38, y: top + full - scale(delta), width: 22, height: scale(delta), fill: COL.sediment }),
+      line(bx - 4, top + full, bx + 64, top + full, COL.ink, 1),
+      small(bx + 11, top + full + 11, 'lake', { anchor: 'middle' }),
+      small(bx + 49, top + full + 11, 'delta', { anchor: 'middle' }),
+      small(bx + 30, top + full + 22, 'sand laid down', { anchor: 'middle', soft: true }),
+      dam ? small(lx, ly + 3, 'dam', { bold: true, fill: COL.works, halo: COL.paper }) : null,
+    );
+    const share = behind + delta > 0.5 ? behind / (behind + delta) : 0;
+    lapse.readout.textContent = now < 2
+      ? (which === 'none'
+        ? 'No dam: the river runs from the mountains to the sea, carrying sand. Press Play.'
+        : 'The dam stands across the valley and its lake is full of water. The river brings sand down from the mountains. Press Play.')
+      : !dam && which === 'out' && now >= DAM.out
+        ? `The dam is out. The river cuts down through the sand that filled the lake and carries it on, and the delta ${delta > 60 ? 'grows fast' : 'starts to grow'}.`
+        : which === 'none'
+          ? `With nothing in the way, the river lays its sand down where it slows, at the sea: a delta builds out from the shore.`
+          : `The river slows in the lake and drops its sand there (${Math.round(share * 100)}% of all the sand laid down so far). Below the dam it runs clear, and the delta ${delta < 5 ? 'gets almost nothing' : 'grows only slowly'}.`;
+    if (now >= DAM.end - 0.5) {
+      if (t.goal === 'trap' && which === 'stays') t.done();
+      if (t.goal === 'release' && which === 'out') t.done();
+    }
+  };
+  lapse = sandLapse(ctx, {
+    make: () => damTable(which),
+    schedule: (tb, time) => damSchedule(which)(tb, time),
+    end: DAM.end,
+    lines: 3,
+    show: (v) => (v >= DAM.out && which === 'out' ? `${Math.round(v)} (dam out)` : `${Math.round(v)}`),
+    paint: (tb) => paint(tb),
+    heights: [0, 3],
+  });
+  lapse.view.overlay.append(bars);
+  const cases: DamCase[] = ['none', 'stays', 'out'];
+  const choose = pick(['No dam', 'Dam stays', 'Dam comes out'], cases.indexOf(which), (i) => {
+    which = cases[i];
+    lapse.restart();
+  });
+  lapse.controls.append(choose.node);
+  lapse.draw();
+  return lapse.node;
+});
+
 export const figures: Record<string, FigureFactory> = {
   'sediment-loads': loadsStill,
   'sediment-hjulstrom': hjulstromFigure,
   'sediment-delta': deltaFigure,
+  'sediment-table': damFigure,
 };
