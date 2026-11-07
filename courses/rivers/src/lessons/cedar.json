@@ -30,6 +30,15 @@
           "text": "Boxley Creek is a small stream draining a small patch of hillside, and no rain on that hillside could have made a flood like this. The water had come from just over a low ridge to the south, from the reservoir Seattle had built in the Cedar River's valley, behind a concrete wall called the Masonry Dam. The dam itself held. It never cracked or spilled over. The water went another way, through the hill beside it."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Masonry Dam on the Cedar River, finished in 1914. The dam held; the water left through the ridge beside it.",
+          "options": {
+            "photo": "masonry-dam",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "Before reading on, look at the map below and see if you can work out how water held behind a solid dam in one valley could come out in another valley, more than a kilometre away and well downhill. Lesson 3, on groundwater and Darcy's law, holds the answer."
         },
@@ -196,6 +205,15 @@
         {
           "type": "text",
           "text": "**Go and look.** Rattlesnake Lake, a short drive past North Bend beside the Cedar River Watershed Education Center, is open to everyone. Walk its shore and look for a surface stream big enough to fill it; there is none that could. In a dry autumn, when the lake is low, stumps of the forest that stood there before 1915 stand out of the water and the mud. The climb to Rattlesnake Ledge looks down over the lake and across the low, wooded moraine toward the Cedar valley on the other side."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Rattlesnake Lake at low water, with the stumps of the forest that stood there before the reservoir's seepage raised it.",
+          "options": {
+            "photo": "rattlesnake-lake-stumps",
+            "aspect": 1.5
+          }
         }
       ]
     },

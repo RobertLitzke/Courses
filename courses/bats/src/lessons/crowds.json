@@ -19,8 +19,21 @@
       "blocks": [
         {"type": "text", "text": "Bracken Cave lies in the dry limestone hills north-east of San Antonio, Texas. Each spring female Mexican free-tailed bats, *Tadarida brasiliensis*, fly up from Mexico to bear their pups in it, and by midsummer it holds what is often put at 15 to 20 million bats, the largest gathering of mammals known anywhere. Counts made with thermal cameras in the 2000s came in lower, but even the low counts are in the millions.[^counts]"},
         {"type": "text", "text": "Toward evening the bats begin to spiral up out of the cave mouth in a dense column, and they keep coming for two to three hours. They climb a kilometre or more and fan out across south Texas to feed on moths through the night. The column is thick enough to show on the National Weather Service's radar at New Braunfels, some 30 km away, as a patch of echo that swells from the cave and widens into a ring as the bats fly off in every direction, much like a small storm that appears out of a clear sky.[^radar]"},
+        {"type": "diagram", "id": "photo", "caption": "Mexican free-tailed bats pouring out of Bracken Cave, Texas, at dusk.", "options": {"photo": "bracken-cave-emergence", "aspect": 1.5}},
         {"type": "interactive_diagram", "id": "crowds-radar", "caption": "An evening emergence from Bracken Cave as the radar would see it, in a simple model: bats leave over two and a half hours and spread from the cave at about 30 km an hour. Darker means more bats in the air. Not real radar data.", "task": "Play the evening through", "goal": "end", "aspect_ratio": 1.6},
-        {"type": "text", "text": "Every one of those bats is calling. A free-tailed bat in open air gives long, nearly steady calls of about 25 kHz, and in the column it has many neighbours within a few metres, all calling at much the same pitch. Each must pick its own faint echoes out of that din. That is the second of two problems in this lesson. The first concerns a single bat, flying alone, whose own speed puts its echoes out of tune."}
+        {
+          "type": "text",
+          "text": "Every one of those bats is calling. A free-tailed bat in open air gives long, nearly steady calls of about 25 kHz, and in the column it has many neighbours within a few metres, all calling at much the same pitch. Each must pick its own faint echoes out of that din. That is the second of two problems in this lesson. The first concerns a single bat, flying alone, whose own speed puts its echoes out of tune."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Mexican free-tailed bat, *Tadarida brasiliensis*: long narrow wings for fast flight in open air, and a tail that sticks out beyond the membrane.",
+          "options": {
+            "photo": "mexican-free-tailed-bat",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {
@@ -36,9 +49,13 @@
       "title": "A bat that sings flat",
       "blocks": [
         {"type": "text", "text": "To most bats 2.4 kHz hardly matters. A big brown bat's call sweeps across tens of kilohertz, and its ear hears all of them about equally well. The greater horseshoe bat, *Rhinolophus ferrumequinum*, is different. As lesson 3 showed, it gives long calls held on one steady note, near 83 kHz, and its ear is built around that note. A stretch of its inner ear many times longer than any other band of the same width gets is given over to a band only a few hundred hertz wide just above the note, and the nerve cells there are very sharply tuned. This band is the bat's **acoustic fovea**, named after the small spot in the centre of our eye where we see most sharply.[^fovea]"},
+        {"type": "diagram", "id": "photo", "caption": "A greater horseshoe bat, *Rhinolophus ferrumequinum*. The horseshoe-shaped flaps around its nostrils shape the beam of a call sent out through the nose.", "options": {"photo": "greater-horseshoe-bat", "aspect": 1.5}},
         {"type": "text", "text": "Hans-Ulrich Schnitzler, a young German zoologist, recorded greater horseshoe bats in flight and published what he found in 1968. Hanging still, a bat called at its usual note. In flight it called lower, and the faster it flew the lower it called, by just enough that the echo came back at the note it used when still. The bats were keeping their echoes inside the fovea, to within about 0.1 to 0.2 kHz, adjusting call by call as their speed changed. This is **Doppler shift compensation**."},
         {"type": "interactive_diagram", "id": "crowds-compensation", "caption": "A greater horseshoe bat's hearing across the pitches near its call, with the acoustic fovea shaded. Set the bat's speed and turn its compensation on and off.", "task": "Guess, see the echo miss, then bring it back", "goal": "fovea", "aspect_ratio": 2},
-        {"type": "text", "text": "The prize is a sharp view of anything that flutters. Against a steady echo from leaves and twigs, an insect's beating wings add tiny, rhythmic flickers to the echo. Each wingbeat swings the wing toward the bat and away, so the echo from it rises and falls in pitch by its own Doppler shift, and it flashes louder when the wing faces the bat. An ear tuned this finely picks the flickers out. A horseshoe bat hanging on a twig, scanning for passing insects, can tell a moth from a leaf by its wingbeat alone. In the mustached bat, which also lowers its call this way, Suga found brain cells tuned to particular Doppler shifts beside the delay-tuned cells of the last lesson, so the same strip of cortex reports how far away a target is and how fast it is closing."}
+        {
+          "type": "text",
+          "text": "The prize is a sharp view of anything that flutters. Against a steady echo from leaves and twigs, an insect's beating wings add tiny, rhythmic flickers to the echo. Each wingbeat swings the wing toward the bat and away, so the echo from it rises and falls in pitch by its own Doppler shift, and it flashes louder when the wing faces the bat. An ear tuned this finely picks the flickers out. A horseshoe bat hanging on a twig, scanning for passing insects, can tell a moth from a leaf by its wingbeat alone. In the mustached bat, which also lowers its call this way, Suga found brain cells tuned to particular Doppler shifts beside the delay-tuned cells of the last lesson, so the same strip of cortex reports how far away a target is and how fast it is closing."
+        }
       ]
     },
     {

@@ -20,19 +20,76 @@
       "title": "Bats over Carlsbad",
       "blocks": [
         {"type": "text", "text": "Lytle S. Adams was a dentist from Irwin, Pennsylvania, with a taste for inventions. Late in 1941 he stood at the mouth of Carlsbad Caverns in New Mexico and watched hundreds of thousands of Mexican free-tailed bats pour out into the evening. A few weeks later Japan attacked Pearl Harbor. In January 1942 Adams wrote to the White House with a plan to attack Japan's cities with bats."},
+        {"type": "diagram", "id": "photo", "caption": "Mexican free-tailed bats leaving Carlsbad Caverns at dusk. National Park Service photograph.", "options": {"photo": "carlsbad-bat-flight", "aspect": 1.5}},
         {"type": "text", "text": "Before reading on, it is worth asking what Adams had seen that made bats look like a weapon. Think about where a bat goes at dawn, and what Japanese cities of the 1940s were mostly built of."},
         {"type": "text", "text": "Adams's idea was that bats released over a city at night would, as dawn came, look for places to hide: under eaves, in attics, in the gaps of walls. Japanese houses were built largely of wood and paper. If each bat carried a small firebomb on a timer, thousands of fires would start at once in places no one could see, all over the city. Roosevelt passed the letter on with a note that reportedly called it a perfectly wild idea, but worth looking into."},
         {"type": "text", "text": "The work that followed, later named Project X-Ray, ran for more than two years. Louis Fieser, the Harvard chemist who had just invented napalm, designed firebombs of 17 to 28 g with a delay fuse, small enough to clip to the loose skin of a bat's chest.[^fieser] Donald Griffin, whose detector work lesson 1 followed, was brought in as an adviser. The bats were cooled into torpor, the same state as the hibernating bats of lesson 7, The winter fat budget, so they could be handled and packed: over a thousand bats in trays inside a bomb casing. Dropped at night, it would open on a parachute high over the target; the bats, warming as they fell, would fly off and find roosts as day broke."},
-        {"type": "text", "text": "On 15 May 1943, at an auxiliary base of the Carlsbad Army Airfield, some armed bats got loose before anyone could stop them. They did exactly what Adams had predicted, and roosted in the nearest buildings, under a fuel tank among them. The fires burned much of the test range.[^general] Later in 1943 the Navy took over, then the Marines, and in a test at Dugway Proving Ground in Utah bats set a mock Japanese village alight, and observers judged it a success. But the project would not be ready for battle before the middle of 1945, and in 1944 Admiral Ernest King cancelled it. By then the atomic bomb was far further along, and in August 1945 the war ended with the bombs dropped on Hiroshima and Nagasaki."},
-        {"type": "interactive_diagram", "id": "timeline-live", "caption": "Project X-Ray, from Adams's letter to the end of the war. Each event goes on the line as it is picked.", "task": "Put the events in order", "goal": "order", "options": {"spacing": "even", "events": [
-          {"at": 1941.9, "when": "1941", "label": "Adams watches the bats leave Carlsbad Caverns", "color": "bat", "text": "A Pennsylvania dentist on a trip west watches the evening emergence of Mexican free-tailed bats."},
-          {"at": 1942.05, "when": "Jan 1942", "label": "Adams writes to the White House", "color": "bat", "text": "Weeks after Pearl Harbor, Adams proposes bats carrying firebombs; Roosevelt sends the letter on."},
-          {"at": 1943.1, "when": "1943", "label": "Napalm bombs small enough for a bat", "color": "heat", "text": "Louis Fieser designs incendiaries of 17 to 28 g with delay fuses."},
-          {"at": 1943.37, "when": "May 1943", "label": "Escaped bats set fire to a Carlsbad air base", "color": "heat", "text": "Armed bats roost under a fuel tank and in buildings, and the test range burns."},
-          {"at": 1943.96, "when": "Dec 1943", "label": "Bats burn a mock village at Dugway, Utah", "color": "heat", "text": "Under the Marines, a test on a mock Japanese village is judged a success."},
-          {"at": 1944.4, "when": "1944", "label": "Admiral King cancels the project", "color": "cost", "text": "It could not be ready for use before the middle of 1945."},
-          {"at": 1945.6, "when": "Aug 1945", "label": "Atomic bombs end the war", "color": "cost", "text": "Hiroshima and Nagasaki; Japan surrenders in August 1945."}
-        ]}}
+        {"type": "diagram", "id": "photo", "caption": "The bat bomb casing, with its stacked trays for over a thousand bats.", "options": {"photo": "bat-bomb-casing", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "On 15 May 1943, at an auxiliary base of the Carlsbad Army Airfield, some armed bats got loose before anyone could stop them. They did exactly what Adams had predicted, and roosted in the nearest buildings, under a fuel tank among them. The fires burned much of the test range.[^general] Later in 1943 the Navy took over, then the Marines, and in a test at Dugway Proving Ground in Utah bats set a mock Japanese village alight, and observers judged it a success. But the project would not be ready for battle before the middle of 1945, and in 1944 Admiral Ernest King cancelled it. By then the atomic bomb was far further along, and in August 1945 the war ended with the bombs dropped on Hiroshima and Nagasaki."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "timeline-live",
+          "caption": "Project X-Ray, from Adams's letter to the end of the war. Each event goes on the line as it is picked.",
+          "task": "Put the events in order",
+          "goal": "order",
+          "options": {
+            "spacing": "even",
+            "events": [
+              {
+                "at": 1941.9,
+                "when": "1941",
+                "label": "Adams watches the bats leave Carlsbad Caverns",
+                "color": "bat",
+                "text": "A Pennsylvania dentist on a trip west watches the evening emergence of Mexican free-tailed bats."
+              },
+              {
+                "at": 1942.05,
+                "when": "Jan 1942",
+                "label": "Adams writes to the White House",
+                "color": "bat",
+                "text": "Weeks after Pearl Harbor, Adams proposes bats carrying firebombs; Roosevelt sends the letter on."
+              },
+              {
+                "at": 1943.1,
+                "when": "1943",
+                "label": "Napalm bombs small enough for a bat",
+                "color": "heat",
+                "text": "Louis Fieser designs incendiaries of 17 to 28 g with delay fuses."
+              },
+              {
+                "at": 1943.37,
+                "when": "May 1943",
+                "label": "Escaped bats set fire to a Carlsbad air base",
+                "color": "heat",
+                "text": "Armed bats roost under a fuel tank and in buildings, and the test range burns."
+              },
+              {
+                "at": 1943.96,
+                "when": "Dec 1943",
+                "label": "Bats burn a mock village at Dugway, Utah",
+                "color": "heat",
+                "text": "Under the Marines, a test on a mock Japanese village is judged a success."
+              },
+              {
+                "at": 1944.4,
+                "when": "1944",
+                "label": "Admiral King cancels the project",
+                "color": "cost",
+                "text": "It could not be ready for use before the middle of 1945."
+              },
+              {
+                "at": 1945.6,
+                "when": "Aug 1945",
+                "label": "Atomic bombs end the war",
+                "color": "cost",
+                "text": "Hiroshima and Nagasaki; Japan surrenders in August 1945."
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -41,15 +98,23 @@
         {"type": "text", "text": "Mexican free-tailed bats roost in great crowds in caves across Texas and northern Mexico, and they will take any dark, narrow crevice that stays warm. In 1980 the city of Austin rebuilt the deck of the Congress Avenue Bridge over the Colorado River in the middle of town. Underneath, the new concrete left long slots between the beams, a couple of centimetres wide and some 40 cm deep. To a free-tailed bat these were perfect, and within a few years the bridge held hundreds of thousands of them."},
         {"type": "text", "text": "The city was alarmed. Newspapers reported bats invading Austin, people worried about rabies, and there were calls to get rid of the colony. In 1986 Merlin Tuttle, a bat biologist then at the Milwaukee Public Museum, moved his young charity, Bat Conservation International, to Austin and set about changing minds. His argument was the one in the last lesson: bats that are left alone are harmless and very few carry rabies; the danger is in handling one, or in a bite nobody noticed. And these bats ate insects, a great many of them, every night.[^bumsteer]"},
         {"type": "text", "text": "It worked. The bridge colony is now among the city's sights, with somewhere between 750,000 and 1.5 million bats each summer, and up to 100,000 people a year come to watch the emergence at dusk, a dark ribbon of bats pouring out from under the bridge and heading off over the river. Most of the bats are females. They arrive pregnant from Mexico in spring, give birth in June, raise their pups in the crevices, and leave again in autumn."},
+        {"type": "diagram", "id": "photo", "caption": "Mexican free-tailed bats streaming out from under the Congress Avenue Bridge, Austin, at dusk.", "options": {"photo": "congress-avenue-bats", "aspect": 1.5}},
         {"type": "interactive_diagram", "id": "bridge-insects", "caption": "The bridge colony through one season: how many bats (dashed) and how many tonnes of insects they eat a night (shaded). A model built from round numbers: free-tailed bats weigh about 12 g, and a mother nursing in June and July eats some 70% of her weight a night (Kunz and colleagues, 1995), less before and after.", "task": "Guess, then play the season through its peak", "goal": "peak", "aspect_ratio": 1.82},
-        {"type": "text", "text": "Each mother eats the most while she is nursing, in June and July, but the colony as a whole eats most in August, when the young are flying and hunting for themselves and the number of mouths nearly doubles. In the model a full colony eats seven to nine tonnes of insects a night at its peak, close to the 10,000 to 30,000 pounds (about 5 to 14 tonnes) often quoted in Austin. Many are moths flying high over the farms of central Texas."}
+        {
+          "type": "text",
+          "text": "Each mother eats the most while she is nursing, in June and July, but the colony as a whole eats most in August, when the young are flying and hunting for themselves and the number of mouths nearly doubles. In the model a full colony eats seven to nine tonnes of insects a night at its peak, close to the 10,000 to 30,000 pounds (about 5 to 14 tonnes) often quoted in Austin. Many are moths flying high over the farms of central Texas."
+        }
       ]
     },
     {
       "title": "Guano and gunpowder",
       "blocks": [
         {"type": "text", "text": "A big colony leaves a lot behind. **Guano**, from a Quechua word by way of Spanish, is the droppings of bats or seabirds, and in a cave used for centuries it can lie metres deep. It is rich in nitrogen and phosphorus, the main things a crop needs from a fertiliser, and caves such as Bracken Cave near San Antonio and Frio Cave in Uvalde County were dug for guano from the nineteenth century on, and sold to farmers."},
-        {"type": "text", "text": "The nitrogen in old guano has a second use. Over time it turns into nitrates, salts that dissolve in water. Soaked out of guano or cave earth with water, then boiled with wood ash, whose potash supplies the potassium, they give saltpetre, potassium nitrate. Saltpetre is three quarters of black gunpowder by weight.[^saltpetre] During the Civil War the blockaded Confederacy was short of saltpetre and mined caves across the South for it. Texas historical markers record two such places: near Concan, in Uvalde County, Confederate gunpowder was made from a bat cave's guano, and a saltpetre works near New Braunfels supplied the Confederate government."}
+        {"type": "diagram", "id": "photo", "caption": "The evening emergence at Bracken Cave, Texas, a summer home of millions of free-tailed bats and a guano mine since the nineteenth century.", "options": {"photo": "bracken-cave-emergence", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "The nitrogen in old guano has a second use. Over time it turns into nitrates, salts that dissolve in water. Soaked out of guano or cave earth with water, then boiled with wood ash, whose potash supplies the potassium, they give saltpetre, potassium nitrate. Saltpetre is three quarters of black gunpowder by weight.[^saltpetre] During the Civil War the blockaded Confederacy was short of saltpetre and mined caves across the South for it. Texas historical markers record two such places: near Concan, in Uvalde County, Confederate gunpowder was made from a bat cave's guano, and a saltpetre works near New Braunfels supplied the Confederate government."
+        }
       ]
     },
     {

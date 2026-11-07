@@ -20,7 +20,11 @@
       "title": "Two ticks over the water",
       "blocks": [
         {"type": "text", "text": "Two bats cross the light of a lamp on the shore, a few seconds apart, both skimming low over the water. A heterodyne detector set to 45 kHz ticks for each of them. Surveys of Seattle's lakes find two species far commoner than any other low over the water, the Yuma myotis and the little brown myotis (lesson N1 follows them), so one is probably each. The detector cannot say which is which. It hears only the slice of each call that passes within 5 kHz of its dial, and both calls pass through that slice."},
-        {"type": "text", "text": "What tells them apart is the rest of the call: where its sweep starts and ends, how steeply it falls and how long it lasts. A Yuma myotis's call ends near 50 kHz, a little brown's near 40. To see that, a listener needs the whole call, from top to bottom, and a way to look at it."}
+        {"type": "diagram", "id": "photo", "caption": "A Yuma myotis, the commonest bat over Seattle's lakes.", "options": {"photo": "yuma-myotis", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "What tells them apart is the rest of the call: where its sweep starts and ends, how steeply it falls and how long it lasts. A Yuma myotis's call ends near 50 kHz, a little brown's near 40. To see that, a listener needs the whole call, from top to bottom, and a way to look at it."
+        }
       ]
     },
     {
@@ -51,8 +55,25 @@
       "title": "Washington's voices",
       "blocks": [
         {"type": "text", "text": "Washington's commonest bats fall into groups by the frequency where their search calls end. The **hoary bat**, the state's heaviest, calls lowest: long, shallow calls near 20 kHz, often 10 ms or more, with long gaps between them, sometimes low enough for a young listener to hear the bottom of the call. The **big brown** and **silver-haired bats** call near 25 to 28 kHz, a steep start bending into a long flat tail; they are hard to separate from one call, and an experienced listener uses the whole sequence and still often leaves them together."},
+        {"type": "diagram", "id": "photo", "caption": "A hoary bat, Washington's largest bat and its lowest caller.", "options": {"photo": "hoary-bat", "aspect": 1.5}},
         {"type": "text", "text": "The Myotis call higher and shorter. The **little brown myotis** ends near 40 kHz after a steep sweep of about 5 ms. The **Yuma myotis** ends near 50 kHz, short and steep; the **California myotis** calls near 50 kHz too, often a little shorter and steeper, and the two overlap so much that many surveys record them only as \"50 kHz myotis\". **Townsend's big-eared bat** is the whisperer. It hunts close to vegetation and listens with its huge ears, and its calls are so faint, with a second harmonic as strong as the first, that a detector picks it up only within a few metres, where a big brown bat can be heard at 20 or 30."},
-        {"type": "interactive_diagram", "id": "sono-drill", "caption": "Search calls of five of Washington's bat groups on a sonogram: hoary; big brown or silver-haired; little brown; 50 kHz myotis (Yuma or California); and Townsend's. One call stretched out on the left, a second of calls on the right. Play them slowed ten times. The calls are synthesised from typical values; real calls vary more.", "task": "Name each of the five groups correctly", "goal": "named", "aspect_ratio": 2.04}
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Townsend's big-eared bat, the whisperer, with its ears raised.",
+          "options": {
+            "photo": "townsends-big-eared-bat",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sono-drill",
+          "caption": "Search calls of five of Washington's bat groups on a sonogram: hoary; big brown or silver-haired; little brown; 50 kHz myotis (Yuma or California); and Townsend's. One call stretched out on the left, a second of calls on the right. Play them slowed ten times. The calls are synthesised from typical values; real calls vary more.",
+          "task": "Name each of the five groups correctly",
+          "goal": "named",
+          "aspect_ratio": 2.04
+        }
       ]
     },
     {

@@ -265,5 +265,17 @@
     "license": "PD",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:I-90_bridge_across_Lake_Washington_in_Seattle.jpg",
     "source": "Wikimedia Commons"
+  },
+  {
+    "id": "muir-glacier-repeat",
+    "kind": "photo",
+    "about": "Muir Inlet in 2004 (Bruce Molnia, USGS, via NPS)",
+    "file": "photos/muir-glacier-repeat.webp",
+    "width": 622,
+    "height": 412,
+    "author": "National Park Service, Alaska Region",
+    "license": "PD",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muir_Glacier,_2004,_Glacier_Bay_National_Park_%26_Preserve_(6808651941).jpg",
+    "source": "Wikimedia Commons"
   }
 ]

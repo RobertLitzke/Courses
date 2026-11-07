@@ -20,17 +20,50 @@
       "title": "How much water is that?",
       "blocks": [
         {"type": "text", "text": "Piper's Creek runs down a wooded ravine in Carkeek Park, in north Seattle, to the Sound. On a summer afternoon it is a few strides wide and ankle deep in most places, clear over gravel. How much water goes past, in litres every second? That number is the creek's **discharge**, from lesson 2: the volume of water crossing a line across the stream each second."},
+        {"type": "diagram", "id": "photo", "caption": "Piper's Creek in Carkeek Park, a small creek a few strides wide.", "options": {"photo": "pipers-creek", "aspect": 1.5}},
         {"type": "text", "text": "A **gauge** is a station on a river that records its level through the day. The United States Geological Survey (USGS) runs gauges on many Washington rivers and works out from each level a discharge every fifteen minutes. You can measure a creek's discharge yourself with an orange, a stopwatch, a tape measure and a metre stick, and get close enough to be useful. This lesson does that, then reads a USGS gauge page to see how the same job is done on the Cedar River at Renton and the Snoqualmie near Carnation."},
-        {"type": "interactive_diagram", "id": "map-live", "caption": "Three Seattle creeks that suit a measurement, and the USGS gauge on the Cedar River near its mouth.", "task": "Tap each ringed place", "goal": "explore", "aspect_ratio": 0.6, "options": {
-          "relief": "maps/lakewashington", "water": 5,
-          "sun": {"azimuth": 300, "altitude": 35},
-          "spots": [
-            {"lon": -122.3760, "lat": 47.7115, "name": "Piper's Creek, Carkeek Park", "text": "A small creek in a wooded ravine, reaching the Sound at Carkeek Park's beach."},
-            {"lon": -122.2850, "lat": 47.6985, "name": "Thornton Creek", "text": "Seattle's largest creek system by basin, draining much of north Seattle into Lake Washington at Matthews Beach."},
-            {"lon": -122.3640, "lat": 47.5560, "name": "Longfellow Creek", "text": "A creek in the Delridge valley of West Seattle, with a trail along much of its length."},
-            {"lon": -122.2037, "lat": 47.4831, "name": "Cedar River at Renton, USGS 12119000", "text": "A USGS gauge near the Cedar's mouth at Lake Washington. Upstream, Seattle's Masonry Dam holds the river in a reservoir in the Cascades."}
-          ]
-        }}
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "Three Seattle creeks that suit a measurement, and the USGS gauge on the Cedar River near its mouth.",
+          "task": "Tap each ringed place",
+          "goal": "explore",
+          "aspect_ratio": 0.6,
+          "options": {
+            "relief": "maps/lakewashington",
+            "water": 5,
+            "sun": {
+              "azimuth": 300,
+              "altitude": 35
+            },
+            "spots": [
+              {
+                "lon": -122.376,
+                "lat": 47.7115,
+                "name": "Piper's Creek, Carkeek Park",
+                "text": "A small creek in a wooded ravine, reaching the Sound at Carkeek Park's beach."
+              },
+              {
+                "lon": -122.285,
+                "lat": 47.6985,
+                "name": "Thornton Creek",
+                "text": "Seattle's largest creek system by basin, draining much of north Seattle into Lake Washington at Matthews Beach."
+              },
+              {
+                "lon": -122.364,
+                "lat": 47.556,
+                "name": "Longfellow Creek",
+                "text": "A creek in the Delridge valley of West Seattle, with a trail along much of its length."
+              },
+              {
+                "lon": -122.2037,
+                "lat": 47.4831,
+                "name": "Cedar River at Renton, USGS 12119000",
+                "text": "A USGS gauge near the Cedar's mouth at Lake Washington. Upstream, Seattle's Masonry Dam holds the river in a reservoir in the Cascades."
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -58,11 +91,19 @@
       "title": "What a gauge measures",
       "blocks": [
         {"type": "text", "text": "The USGS gauge on the Cedar River at Renton, station 12119000, stands near the river's mouth at Lake Washington, downstream of Seattle's Masonry Dam. Like most USGS gauges it does not measure discharge directly. It measures **stage**: the height of the water surface above a fixed zero of the gauge's own, which is not the depth of the river. Every fifteen minutes it reads the stage, with a float in a stilling well,[^well] a pressure sensor in the water or a radar looking down from a bridge, and sends the readings out by satellite."},
+        {"type": "diagram", "id": "photo", "caption": "A USGS streamgage: the shelter on the bank that holds the instruments and the satellite radio.", "options": {"photo": "usgs-streamgage", "aspect": 1.5}},
         {"type": "text", "text": "To see them, go to USGS Water Data, waterdata.usgs.gov, and search for the station number, 12119000 for the Cedar at Renton or 12149000 for the Snoqualmie near Carnation. The page shows two lines: **gage height** in feet, and discharge in cubic feet per second. The USGS spells the word gage, an older American spelling the agency has kept in its official names; it is the same thing as a gauge."},
         {"type": "text", "text": "The discharge on that page comes from the stage through a **rating curve**. Every month or two, and during floods when they can, hydrographers go to the gauge and measure the discharge the long way: wading across with a current meter, point by point as you did with the metre stick, or crossing from a bridge or a boat with an acoustic instrument that reads the speed of the water at every depth. Each visit gives one point, a stage and a discharge measured together. Over the years the points trace a curve, and every fifteen minutes the new stage is looked up on the curve to give that moment's discharge."},
+        {"type": "diagram", "id": "photo", "caption": "A USGS hydrographer measuring a river's discharge by hand, wading across with a current meter.", "options": {"photo": "usgs-streamflow-measurement", "aspect": 1.5}},
         {"type": "interactive_diagram", "id": "gauge-rating", "caption": "A model rating curve for a large river: the channel at the gauge above, and below it the discharge for each stage, with the curve drawn through the hydrographers' measurements. The switch shows the gauge after a flood has piled gravel on the bar below it.", "task": "Guess how the discharge changes from 4 ft to 8 ft, then take the river to 8 ft and switch on the flood's gravel", "goal": "rating", "aspect_ratio": 1.38},
-        {"type": "text", "text": "The curve bends upward for the reason the creek showed: as the water rises it gets wider and deeper and faster, so each foot of stage adds more flow than the foot before. On this model gauge the water stops flowing at a stage of 2 ft, so a rise from 4 ft to 8 ft triples the depth of water flowing over the bar, from 2 ft to 6 ft, and the discharge grows about eight times."},
-        {"type": "text", "text": "A rating curve is only as good as the channel is steady. The stage at a gauge is set by its **control**: whatever just downstream holds the water back, such as a gravel bar, a rock ledge or a narrowing. A flood can scour the bar away or pile more gravel on it. A higher bar holds the water up, so the same stage then comes with less flow, and until hydrographers measure again the old curve reports too much water. They look for these shifts at every visit and correct the record, which is why the newest readings on a gauge page are marked provisional until someone has checked them."}
+        {
+          "type": "text",
+          "text": "The curve bends upward for the reason the creek showed: as the water rises it gets wider and deeper and faster, so each foot of stage adds more flow than the foot before. On this model gauge the water stops flowing at a stage of 2 ft, so a rise from 4 ft to 8 ft triples the depth of water flowing over the bar, from 2 ft to 6 ft, and the discharge grows about eight times."
+        },
+        {
+          "type": "text",
+          "text": "A rating curve is only as good as the channel is steady. The stage at a gauge is set by its **control**: whatever just downstream holds the water back, such as a gravel bar, a rock ledge or a narrowing. A flood can scour the bar away or pile more gravel on it. A higher bar holds the water up, so the same stage then comes with less flow, and until hydrographers measure again the old curve reports too much water. They look for these shifts at every visit and correct the record, which is why the newest readings on a gauge page are marked provisional until someone has checked them."
+        }
       ]
     },
     {

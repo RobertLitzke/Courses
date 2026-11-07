@@ -22,12 +22,30 @@
           "text": "In the spring of 1792 George Vancouver's two ships, HMS *Discovery* and HMS *Chatham*, spent weeks charting the inland waters behind the Strait of Juan de Fuca. The ships anchored and the work was done from open boats, rowed and sailed for days at a time into every inlet. Early in June one of those boat parties, led by Joseph Whidbey, the *Discovery*'s master, worked north up the long channel east of a large wooded shore that Vancouver had taken to be a peninsula joined to the mainland. Near its northern end the channel did not close. It led into a narrow, rock-walled gap, and through the gap to the open water of the Strait.[^whidbey]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Part of Vancouver's chart of the inland waters, published in 1798. Whidbey's Island and Deception Passage carry the names he gave them.",
+          "options": {
+            "photo": "vancouver-chart-1792",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "The \"peninsula\" was an island. Vancouver named it Whidbey's Island for the man who had found the way round it, and he named the gap Deception Passage, because the coast had fooled them: from the west, among the rocks and islets, the opening is easy to take for a small bay. Today it is called Deception Pass."
         },
         {
           "type": "text",
           "text": "Since 1935 a bridge has crossed the pass high above the water. Stand on it near the strongest flow of a big tide and the water below runs like a river in flood, with standing waves, boils and whirlpools, at up to eight **knots**. A knot is one nautical mile an hour, about half a metre a second, so eight knots is about 15 km/h or 9 mph, a fast running pace.[^knot] Many small boats cannot make headway against it. An hour or two later the same water lies still. That pause, when the current stops before it turns and runs the other way, is called **slack water**, or slack."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Deception Pass from the bridge on a running tide, with eddies and boils in the current.",
+          "options": {
+            "photo": "deception-pass-current",
+            "aspect": 1.5
+          }
         },
         {
           "type": "text",
@@ -156,7 +174,7 @@
                         48.27
                       ],
                       [
-                        -123.0,
+                        -123,
                         48.25
                       ],
                       [
@@ -188,7 +206,7 @@
                         48.27
                       ],
                       [
-                        -123.0,
+                        -123,
                         48.25
                       ],
                       [
@@ -231,7 +249,7 @@
                       ],
                       [
                         -122.3,
-                        48.0
+                        48
                       ],
                       [
                         -122.36,
@@ -307,7 +325,7 @@
                         48.27
                       ],
                       [
-                        -123.0,
+                        -123,
                         48.25
                       ],
                       [
@@ -358,7 +376,7 @@
                       ],
                       [
                         -122.3,
-                        48.0
+                        48
                       ],
                       [
                         -122.36,
@@ -510,6 +528,15 @@
         {
           "type": "text",
           "text": "**Tacoma Narrows** is the door to South Sound. Everything south of it, from Carr Inlet to Olympia's Budd Inlet, fills and empties through a channel about a mile wide. South Sound is large and its tide is the biggest in the region (lesson 10), so a great deal of water must pass each tide, and the Narrows runs at several knots. **Rich Passage**, the winding gap the Bremerton ferries take, is a smaller case of the same kind: Sinclair and Dyes Inlets behind it fill and empty through it."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Tacoma Narrows and its two bridges, the door to South Sound.",
+          "options": {
+            "photo": "tacoma-narrows",
+            "aspect": 1.5
+          }
         },
         {
           "type": "text",

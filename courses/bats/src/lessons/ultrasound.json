@@ -18,7 +18,11 @@
       "title": "Two hunters, two pitches",
       "blocks": [
         {"type": "text", "text": "On a summer evening over a street in Seattle, a big brown bat flies along the line of the treetops. Its calls start near 50 kilohertz and sweep down to about 25, ten or so a second. Seven thousand kilometres away, over a hedge in southern England, a greater horseshoe bat hangs from a twig and turns about, calling through its nose on a single steady note of 83 kilohertz. Both are hunting insects. Neither call can be heard by a person standing underneath."},
-        {"type": "text", "text": "The first lesson ended with the bat listening to echoes of its own calls, and those calls are far higher than they seem to need to be. A bat could call at 2 kilohertz, a sharp whistle anyone can hear, and the echoes would come back off walls and trees just as well; people find their way along a dark corridor by the echo of their own footsteps. Yet hardly any bat that hunts insects calls below about 10 kilohertz, and most call far higher. Before reading on, think about what an insect a few millimetres long might do to a sound."}
+        {"type": "diagram", "id": "photo", "caption": "A greater horseshoe bat, showing the horseshoe-shaped noseleaf through which it calls.", "options": {"photo": "greater-horseshoe-noseleaf", "aspect": 1.33}},
+        {
+          "type": "text",
+          "text": "The first lesson ended with the bat listening to echoes of its own calls, and those calls are far higher than they seem to need to be. A bat could call at 2 kilohertz, a sharp whistle anyone can hear, and the echoes would come back off walls and trees just as well; people find their way along a dark corridor by the echo of their own footsteps. Yet hardly any bat that hunts insects calls below about 10 kilohertz, and most call far higher. Before reading on, think about what an insect a few millimetres long might do to a sound."
+        }
       ]
     },
     {
@@ -43,18 +47,53 @@
         {"type": "text", "text": "An echo has to go out and come back, so it pays twice. To a target 10 metres away and back, a 20 kilohertz call loses about 10 decibels to the air, a tenth of its power. A 100 kilohertz call loses about 66 decibels, leaving a few ten-millionths. To make up for all this, bats call very loudly: 120 to 140 decibels measured 10 cm from the mouth, as loud as a jet engine heard from nearby. A bat tightens small muscles in its middle ear at the instant it calls, damping its own hearing so as not to deafen itself."},
         {"type": "interactive_diagram", "id": "ultra-tradeoff", "caption": "How far away a bat can hear a midge (dashed) and a moth (solid), by the pitch of its call. A model: the call is 130 dB at 10 cm, the bat detects echoes down to 20 dB, and each insect is treated as a small ball, a simplification.", "task": "Guess, then find a pitch for the midge and one for the moth", "goal": "both", "aspect_ratio": 1.7},
         {"type": "text", "text": "No pitch does everything. A low call carries to a moth 10 metres off, but finds a midge only when it is too close to catch; a high call finds the midge, but the air swallows it before it gets far. Each kind of bat strikes its own bargain. Big brown and hoary bats, which hunt moths and beetles in open air, call low, putting most of each call's energy near 20 to 28 kilohertz, and can hear a big insect many metres off. The Yuma myotis, which skims the water of Seattle's lakes for midges and caddisflies, calls near 50 kilohertz and works close in. The horseshoe bats of the Old World, calling at 80 kilohertz and above, hunt among leaves at a few metres' range."},
-        {"type": "diagram", "id": "scale", "caption": "The pitch at which some bats put most of their call's energy, against the top of a young person's hearing. Rounded values; each species varies.", "aspect_ratio": 2, "options": {
-          "title": "Where the call is loudest, kHz",
-          "unit": "kHz",
-          "items": [
-            {"label": "Top of human hearing", "value": 20, "color": "soft"},
-            {"label": "Hoary bat", "value": 20, "color": "call"},
-            {"label": "Big brown bat", "value": 28, "color": "call"},
-            {"label": "Little brown bat", "value": 40, "color": "call"},
-            {"label": "Yuma myotis", "value": 50, "color": "call"},
-            {"label": "Greater horseshoe bat", "value": 83, "color": "call", "bold": true}
-          ]
-        }}
+        {"type": "diagram", "id": "photo", "caption": "A Yuma myotis, the small bat that skims Seattle's lakes for midges and caddisflies, calling near 50 kHz.", "options": {
+          "photo": "yuma-myotis",
+          "aspect": 1.5
+        }},
+        {
+          "type": "diagram",
+          "id": "scale",
+          "caption": "The pitch at which some bats put most of their call's energy, against the top of a young person's hearing. Rounded values; each species varies.",
+          "aspect_ratio": 2,
+          "options": {
+            "title": "Where the call is loudest, kHz",
+            "unit": "kHz",
+            "items": [
+              {
+                "label": "Top of human hearing",
+                "value": 20,
+                "color": "soft"
+              },
+              {
+                "label": "Hoary bat",
+                "value": 20,
+                "color": "call"
+              },
+              {
+                "label": "Big brown bat",
+                "value": 28,
+                "color": "call"
+              },
+              {
+                "label": "Little brown bat",
+                "value": 40,
+                "color": "call"
+              },
+              {
+                "label": "Yuma myotis",
+                "value": 50,
+                "color": "call"
+              },
+              {
+                "label": "Greater horseshoe bat",
+                "value": 83,
+                "color": "call",
+                "bold": true
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -70,7 +109,16 @@
       "title": "Sonar, not radar",
       "blocks": [
         {"type": "text", "text": "Finding things by their echoes is called **sonar** when it uses sound, as ships and dolphins do under water,[^dolphins] and **radar** when it uses radio waves. Bats are often said to have radar, but their sound moves nearly a million times slower than radio waves, which is part of what makes the bat's problem possible: the delays it has to time are thousandths of a second, not millionths. Nor does a bat hold a picture of the world the way a screen does. Each call brings back a handful of echoes, and the bat builds its sense of what is ahead from many calls, one after another, as the next lessons show."},
-        {"type": "text", "text": "A few bats call low enough to be heard. The spotted bat of eastern Washington's canyons calls near 10 kilohertz, a plain high tick to anyone listening. The hoary bat's lowest notes, near 18 or 20 kilohertz, are at the top of a young person's hearing, and on a still evening in late summer some people can hear one pass. For the rest, a **bat detector** turns the calls into sounds we can hear; an optional lesson later in the course builds one."}
+        {"type": "text", "text": "A few bats call low enough to be heard. The spotted bat of eastern Washington's canyons calls near 10 kilohertz, a plain high tick to anyone listening. The hoary bat's lowest notes, near 18 or 20 kilohertz, are at the top of a young person's hearing, and on a still evening in late summer some people can hear one pass. For the rest, a **bat detector** turns the calls into sounds we can hear; an optional lesson later in the course builds one."},
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A spotted bat, of the dry canyons of eastern Washington and the West, whose low calls near 10 kHz people can hear.",
+          "options": {
+            "photo": "spotted-bat",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {

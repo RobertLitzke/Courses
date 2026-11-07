@@ -36,18 +36,57 @@
       "title": "Darcy's sand column",
       "blocks": [
         {"type": "text", "text": "Henry Darcy was the chief engineer of Dijon, in Burgundy, a town that had long been short of clean water. In the 1830s and 1840s he brought it spring water through a covered aqueduct about 12 kilometres long, piped to fountains in the streets. In 1856 he described the system in a long book, *Les Fontaines publiques de la ville de Dijon* (The Public Fountains of the City of Dijon). The part that made his name is in an appendix."},
+        {"type": "diagram", "id": "photo", "caption": "Henry Darcy (1803 to 1858), the engineer who gave Dijon its water and, in an appendix, groundwater its law.", "options": {"photo": "henry-darcy", "aspect": 0.8}},
         {"type": "text", "text": "The town wanted to filter its water through beds of sand, and Darcy needed to know how big a filter would have to be. In 1855, with the engineer Charles Ritter, he set up an upright iron pipe about 2.5 metres tall and 35 centimetres across, put a layer of sand in it, and ran water down through the sand. Two gauges, glass tubes part filled with mercury that the water pressure pushed up, showed the pressure above and below the sand. He changed how thick the sand was and how hard the water was pushed, and timed how much came out at the bottom."},
         {"type": "text", "text": "What drives the water is best measured as **head**: the height to which water would rise in an open tube connected to that point.[^head] Water underground always moves from high head to low. The figure is Darcy's column, starting with a 1 metre drop in head across a metre of coarse sand. Its slider sets the drop, from 0.2 to 3 metres, and chips choose the grain. Before you move it, guess what doubling the drop to 2 metres does to the flow out of the bottom."},
         {"type": "interactive_diagram", "id": "baseflow-darcy", "caption": "Darcy's column: water runs down through a metre of sand, pushed by the drop in head between the gauge above the sand and the gauge below it. The plot shows the flow out of the bottom. Choose the grain and set the drop.", "task": "Guess, then set the drop to 2 m", "goal": "double", "aspect_ratio": 1.74},
         {"type": "text", "text": "Darcy's result was that simple. The flow is proportional to the drop in head across the sand, and inversely proportional to the sand's thickness: double the drop and the flow doubles, double the thickness and it halves. A wider pipe passes more, in proportion to its area. And each material has its own number for how easily water passes through it, its **hydraulic conductivity**, written K. In symbols, flow = K × area × drop in head ÷ thickness. This is **Darcy's law**, and every groundwater calculation since rests on it.[^law]"},
         {"type": "text", "text": "Switch the grain chips from gravel to clay. Water passes through clean gravel about ten million times more easily than through clay. Clay is porous, often more so than sand, but its pores are so small that the water clings to the flakes and barely moves.[^clay] That is why a layer of clay or till can hold up the water in the sand above it, or seal in an aquifer below."},
         {"type": "text", "text": "**How fast is groundwater?** The water table usually slopes gently, a metre or so of drop in every hundred metres. Put that slope into Darcy's law for clean sand, with K about a ten-thousandth of a metre a second, and divide by the share of the ground that is open pore, about a third, since the water only moves through the pores. It creeps along at about a third of a metre a day, roughly 100 metres a year. Rain that soaks in two kilometres from a river can take twenty years to reach it. The river carries the same water two kilometres in under an hour."},
-        {"type": "interactive_diagram", "id": "scale-guess", "caption": "How far water moves in a day: typical groundwater for a water table sloping 1 metre in 100, and a lowland river for comparison. Each step on the scale is ten times the last; real aquifers vary several times either way.", "task": "Guess how far water moves through clean sand in a day", "goal": "guess", "options": {"title": "How far water moves in a day", "unit": "m", "log": true, "items": [
-          {"label": "Groundwater in silty sand", "value": 0.003, "color": "ground"},
-          {"label": "Groundwater in clean sand", "value": 0.3, "color": "ground"},
-          {"label": "Groundwater in clean gravel", "value": 30, "color": "ground"},
-          {"label": "A lowland river", "value": 50000, "color": "water"}
-        ], "guess": {"item": 1, "ask": "How many metres does groundwater move in a day through clean sand?", "options": [0.03, 0.3, 30]}}, "aspect_ratio": 1.6}
+        {
+          "type": "interactive_diagram",
+          "id": "scale-guess",
+          "caption": "How far water moves in a day: typical groundwater for a water table sloping 1 metre in 100, and a lowland river for comparison. Each step on the scale is ten times the last; real aquifers vary several times either way.",
+          "task": "Guess how far water moves through clean sand in a day",
+          "goal": "guess",
+          "options": {
+            "title": "How far water moves in a day",
+            "unit": "m",
+            "log": true,
+            "items": [
+              {
+                "label": "Groundwater in silty sand",
+                "value": 0.003,
+                "color": "ground"
+              },
+              {
+                "label": "Groundwater in clean sand",
+                "value": 0.3,
+                "color": "ground"
+              },
+              {
+                "label": "Groundwater in clean gravel",
+                "value": 30,
+                "color": "ground"
+              },
+              {
+                "label": "A lowland river",
+                "value": 50000,
+                "color": "water"
+              }
+            ],
+            "guess": {
+              "item": 1,
+              "ask": "How many metres does groundwater move in a day through clean sand?",
+              "options": [
+                0.03,
+                0.3,
+                30
+              ]
+            }
+          },
+          "aspect_ratio": 1.6
+        }
       ]
     },
     {

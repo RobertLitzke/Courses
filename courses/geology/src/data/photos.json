@@ -1786,5 +1786,17 @@
     "license": "PD",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:RD_Oldham.gif",
     "source": "Wikimedia Commons"
+  },
+  {
+    "id": "restoration-point",
+    "kind": "photo",
+    "about": "Restoration Point from the air",
+    "file": "photos/restoration-point.webp",
+    "width": 1024,
+    "height": 721,
+    "author": "Dicklyon",
+    "license": "CC-BY-SA-4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Country_Club_of_Seattle,_Bainbridge_Island.jpg",
+    "source": "Wikimedia Commons"
   }
 ]

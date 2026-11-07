@@ -13,20 +13,5 @@
    }
   },
   "search": "Nothing free on Commons or USGS (searched Nov 2026). The only known free photo is NOAA's 1920 wire-drag shot of a crew hauling a drowned tree out of the lake (NOAA Photo Library theb2440, Coast and Geodetic Survey, public domain), but noaa.gov's photo pages sit behind a human check, so it has to be downloaded by hand; add it as a { url, page, source, author, license } pick and adjust the caption. Otherwise drop the block."
- },
- {
-  "lesson": "drowned",
-  "part": "Seven metres in a moment",
-  "after": "Across Puget Sound, at Restoration Point on the south end of Bainbridge Island, ",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "The raised wave-cut platform at Restoration Point, Bainbridge Island, lifted about 7 metres in the Seattle fault earthquake about 1,100 years ago.",
-   "options": {
-    "photo": "restoration-point",
-    "aspect": 1.5
-   }
-  },
-  "search": "Nothing on Commons or the USGS photo library (searched Nov 2026: Commons 'Restoration Point', 'Bainbridge Island'; ScienceBase USGS library). Try Flickr CC for a photo of the raised platform at low tide, or drop the block."
  }
 ]

@@ -21,17 +21,50 @@
       "title": "A reef at lunchtime",
       "blocks": [
         {"type": "text", "text": "At Constellation Park, on the West Seattle shore just south of Alki Point, a broad shelf of rock and cobble runs out under the Sound. On most days the water covers its outer edge. On a few days each spring and summer the water draws back far enough to bare the whole shelf, and people walk out among the pools to find sea stars, anemones and crabs that spend nearly all their lives under water. The days and the minutes when that happens are published more than a year ahead."},
+        {"type": "diagram", "id": "photo", "caption": "A minus tide on a Seattle beach: rock, pools and seaweed that are under water most of the year.", "options": {"photo": "seattle-minus-tide", "aspect": 1.5}},
         {"type": "text", "text": "They come from the National Oceanic and Atmospheric Administration (NOAA), the federal agency that, among much else, predicts the tides and currents of every American coast. This lesson reads two of its tables and plans by them. The first target is a walk at a **minus tide**, at noon on a day you are free. The second is the moment the current under the Deception Pass bridge stops, which a different table gives. Lessons 8 to 11 explained why the water rises, falls and runs as it does: the two daily bulges (lesson 8), the unequal lows (lesson 9), the tide as a wave in the basin (lesson 10) and the current through a narrows (lesson 11). Here the tables do the predicting, and the skill is reading them."},
-        {"type": "interactive_diagram", "id": "map-live", "caption": "Where the tables apply in Seattle: the tide station on the downtown waterfront, and three beaches that uncover on the lowest tides.", "task": "Tap each ringed place", "goal": "explore", "aspect_ratio": 0.75, "options": {
-          "relief": "maps/seattle", "water": 0,
-          "sun": {"azimuth": 300, "altitude": 35},
-          "spots": [
-            {"lon": -122.3393, "lat": 47.6026, "name": "Seattle tide station", "text": "NOAA station 9447130, on the downtown waterfront. Its record goes back to 1898, and the Seattle tide table is computed from it."},
-            {"lon": -122.4135, "lat": 47.5735, "name": "Constellation Park", "text": "A rocky shelf south of Alki Point, bared on the lowest tides of spring and summer."},
-            {"lon": -122.3985, "lat": 47.5300, "name": "Lincoln Park", "text": "A long beach below a wooded bluff in West Seattle, with rock and cobble uncovered at minus tides."},
-            {"lon": -122.4230, "lat": 47.6655, "name": "Discovery Park, North Beach", "text": "The beach below the bluffs north of West Point, where a low tide uncovers sand, cobble and pools."}
-          ]
-        }}
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "Where the tables apply in Seattle: the tide station on the downtown waterfront, and three beaches that uncover on the lowest tides.",
+          "task": "Tap each ringed place",
+          "goal": "explore",
+          "aspect_ratio": 0.75,
+          "options": {
+            "relief": "maps/seattle",
+            "water": 0,
+            "sun": {
+              "azimuth": 300,
+              "altitude": 35
+            },
+            "spots": [
+              {
+                "lon": -122.3393,
+                "lat": 47.6026,
+                "name": "Seattle tide station",
+                "text": "NOAA station 9447130, on the downtown waterfront. Its record goes back to 1898, and the Seattle tide table is computed from it."
+              },
+              {
+                "lon": -122.4135,
+                "lat": 47.5735,
+                "name": "Constellation Park",
+                "text": "A rocky shelf south of Alki Point, bared on the lowest tides of spring and summer."
+              },
+              {
+                "lon": -122.3985,
+                "lat": 47.53,
+                "name": "Lincoln Park",
+                "text": "A long beach below a wooded bluff in West Seattle, with rock and cobble uncovered at minus tides."
+              },
+              {
+                "lon": -122.423,
+                "lat": 47.6655,
+                "name": "Discovery Park, North Beach",
+                "text": "The beach below the bluffs north of West Point, where a low tide uncovers sand, cobble and pools."
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -62,21 +95,18 @@
       "blocks": [
         {"type": "text", "text": "A tide table says how high the water stands. A **current table** says how fast it moves, and which way, at one place: Deception Pass, Admiralty Inlet, the Tacoma Narrows, Rich Passage. NOAA's Tides and Currents site lists these too, under current predictions. For each day the table gives the times of **slack water**, when the current stops and turns, and between each pair of slacks the time and speed of the strongest current: **maximum flood**, running in from the sea, and **maximum ebb**, running out. Speeds are in **knots**: a knot is one nautical mile an hour,[^knot] about 1.85 km/h or half a metre a second, a slow walk. Ebb speeds are often printed with a minus sign."},
         {"type": "text", "text": "Deception Pass is the narrow gap between Whidbey Island and Fidalgo Island, at the north end of Whidbey, with a high bridge across it. The flood runs east through it, from Rosario Strait into Skagit Bay, and the ebb runs west. On the biggest tides the current peaks at 6 to 8 knots, faster than a kayaker can paddle, and the water below the bridge breaks into whirlpools and standing waves. On an ordinary day it may peak at 4 or 5 knots. In a pass like this the water is moving almost all the time, and the table's slacks are short breaks in it."},
-        {"type": "diagram", "id": "map", "caption": "Deception Pass, between Whidbey and Fidalgo Islands. On the flood the water runs east through the gap from Rosario Strait toward Skagit Bay; on the ebb, west.", "aspect_ratio": 1.25, "options": {
-          "relief": "maps/deception", "water": 0,
-          "sun": {"azimuth": 315, "altitude": 40},
-          "labels": [
-            {"lon": -122.6437, "lat": 48.4065, "text": "Deception Pass bridge", "side": "above"},
-            {"lon": -122.660, "lat": 48.385, "text": "Whidbey Island", "area": true},
-            {"lon": -122.620, "lat": 48.440, "text": "Fidalgo Island", "area": true},
-            {"lon": -122.705, "lat": 48.420, "text": "Rosario Strait", "area": true},
-            {"lon": -122.585, "lat": 48.402, "text": "Skagit Bay", "area": true}
-          ]
+        {"type": "diagram", "id": "photo", "caption": "Deception Pass from the bridge with the current running: eddies and standing waves in the narrows.", "options": {
+          "photo": "deception-pass-current",
+          "aspect": 1.5
         }},
+        {"type": "diagram", "id": "map", "caption": "Deception Pass, between Whidbey and Fidalgo Islands. On the flood the water runs east through the gap from Rosario Strait toward Skagit Bay; on the ebb, west.", "aspect_ratio": 1.25, "options": {"relief": "maps/deception", "water": 0, "sun": {"azimuth": 315, "altitude": 40}, "labels": [{"lon": -122.6437, "lat": 48.4065, "text": "Deception Pass bridge", "side": "above"}, {"lon": -122.66, "lat": 48.385, "text": "Whidbey Island", "area": true}, {"lon": -122.62, "lat": 48.44, "text": "Fidalgo Island", "area": true}, {"lon": -122.705, "lat": 48.42, "text": "Rosario Strait", "area": true}, {"lon": -122.585, "lat": 48.402, "text": "Skagit Bay", "area": true}]}},
         {"type": "text", "text": "Look at when the slacks come. Lesson 11 explained why, in a narrows, the current keeps running after the tide outside reaches its high: the current follows the difference in level between the two sides, and the basin inside is still lower, still filling, when the water outside has peaked. Slack at Deception Pass can come an hour or more after high water at the nearest tide station. That is why the current is predicted for the pass itself and printed in its own table: the height of the tide nearby does not tell you when the water in the pass will stop."},
         {"type": "interactive_diagram", "id": "tables-current", "caption": "Saturday in the model: the tide outside, the current it drives in a fast pass (Deception Pass) or in a wide, slow inlet, and the current table that results. Flood is up, ebb down; dots mark the slacks, and the shaded band is slower than 1 knot.", "task": "Guess how long the slow water lasts, then find a slack in each of the two channels", "goal": "slack", "aspect_ratio": 1.21},
         {"type": "text", "text": "In a fast pass the slack is short. A flood and the ebb after it take about twelve and a half hours together, so the current swings from about 7 knots one way to 7 knots the other in some six hours. It passes through the slow speeds quickly, and around the biggest slacks it runs under a knot for well under an hour. In a wide inlet where the current peaks at 2 or 3 knots, the slow water lasts two hours or more. Divers, kayakers and boats with small engines plan around the slack windows of the passes and are ready to go before the predicted slack, since wind and a river in flood can move the real slack away from the predicted one."},
-        {"type": "text", "text": "**Watching it stop.** Look up the Deception Pass current predictions for a day with a big tide. Park in one of the state park's lots near either end of the bridge (they ask for a Washington Discover Pass), walk out on the bridge's walkway, and keep off the roadway, which is narrow and busy. Stand there at the time of maximum current and watch the water: whirlpools, standing waves and a sharp line where fast water meets slow. Then come back to the bridge at the slack the table gives. The swirls fade and the surface goes smooth, and within the next half hour the floating weed and foam begin to drift the other way."}
+        {
+          "type": "text",
+          "text": "**Watching it stop.** Look up the Deception Pass current predictions for a day with a big tide. Park in one of the state park's lots near either end of the bridge (they ask for a Washington Discover Pass), walk out on the bridge's walkway, and keep off the roadway, which is narrow and busy. Stand there at the time of maximum current and watch the water: whirlpools, standing waves and a sharp line where fast water meets slow. Then come back to the bridge at the slack the table gives. The swirls fade and the surface goes smooth, and within the next half hour the floating weed and foam begin to drift the other way."
+        }
       ]
     },
     {

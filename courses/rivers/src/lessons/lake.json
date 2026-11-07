@@ -1,257 +1,284 @@
 {
- "id": "lake",
- "n": 6,
- "title": "Why the bottom of the lake stays cold",
- "teaches": "Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches",
- "summary": [
-  "**Heat barely moves through still water.** Conduction alone would take centuries to carry the summer's warmth 30 metres down, so a lake warms at depth only when its water is stirred.",
-  "**Fresh water is densest near 4 °C.** Warmer water is lighter and floats; below 4 °C water grows lighter again, so ice and near-freezing water float on top.",
-  "**The warmer the water, the more each degree changes its density.** Between 21 and 22 °C the change is about thirty times what it is between 4 and 5 °C, so a summer lake is layered firmly.",
-  "**A lake in summer has three layers.** A warm, wind-stirred top layer (the epilimnion), a thin layer where the temperature drops fast (the thermocline), and cold, still water below (the hypolimnion).",
-  "**The wind cannot lift heavy water through light.** A summer wind churns the top layer but not the cold water under it, which keeps last winter's temperature, about 7 °C in Lake Washington.",
-  "**Lake Washington mixes once a year, in early winter.** As the top cools to the bottom's temperature, the layers stop resisting, the wind stirs the whole lake, and it stays mixed until spring.",
-  "**Turnover is mixing, not rolling over.** The cooling top layer sinks and is stirred deeper until the lake is one temperature; lakes that freeze mix twice, in spring and autumn.",
-  "**A seiche is a lake sloshing.** Wind piles water at one end; when it drops, the lake swings back and forth at its own natural period, set by its length and depth.",
-  "**The thermocline sloshes too, the opposite way and slower.** Wind tilts it against the surface's tilt by more than a thousand times as much, and it swings back over about two days."
- ],
- "parts": [
-  {
-   "title": "Seven degrees in August",
-   "blocks": [
+  "id": "lake",
+  "n": 6,
+  "title": "Why the bottom of the lake stays cold",
+  "teaches": "Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches",
+  "summary": [
+    "**Heat barely moves through still water.** Conduction alone would take centuries to carry the summer's warmth 30 metres down, so a lake warms at depth only when its water is stirred.",
+    "**Fresh water is densest near 4 °C.** Warmer water is lighter and floats; below 4 °C water grows lighter again, so ice and near-freezing water float on top.",
+    "**The warmer the water, the more each degree changes its density.** Between 21 and 22 °C the change is about thirty times what it is between 4 and 5 °C, so a summer lake is layered firmly.",
+    "**A lake in summer has three layers.** A warm, wind-stirred top layer (the epilimnion), a thin layer where the temperature drops fast (the thermocline), and cold, still water below (the hypolimnion).",
+    "**The wind cannot lift heavy water through light.** A summer wind churns the top layer but not the cold water under it, which keeps last winter's temperature, about 7 °C in Lake Washington.",
+    "**Lake Washington mixes once a year, in early winter.** As the top cools to the bottom's temperature, the layers stop resisting, the wind stirs the whole lake, and it stays mixed until spring.",
+    "**Turnover is mixing, not rolling over.** The cooling top layer sinks and is stirred deeper until the lake is one temperature; lakes that freeze mix twice, in spring and autumn.",
+    "**A seiche is a lake sloshing.** Wind piles water at one end; when it drops, the lake swings back and forth at its own natural period, set by its length and depth.",
+    "**The thermocline sloshes too, the opposite way and slower.** Wind tilts it against the surface's tilt by more than a thousand times as much, and it swings back over about two days."
+  ],
+  "parts": [
     {
-     "type": "text",
-     "text": "On a hot afternoon in August the top of Lake Washington is as warm as it gets all year, around 21 to 23 °C (70 to 73 °F), and swimmers at Madison Park and Matthews Beach stay in for an hour. At the bottom of the lake, 65 metres (214 feet) down at its deepest today, the water is about 7 °C (45 °F), barely warmer than it was in February. It stays that cold all summer.[^level]"
-    },
-    {
-     "type": "text",
-     "text": "It has been sunny for three months, heat flows from warm to cold, and warm water lies right on top of cold water across the whole lake. The summer should be seeping down. Before reading on, try to think of what stops it."
-    },
-    {
-     "type": "text",
-     "text": "Sunlight is not the whole answer. It is soaked up in the top few metres, but that only says where the heat goes in; in a stirred lake it would soon be carried down. Heat also creeps through still water on its own, by **conduction**, each molecule jostling the next, but very slowly. The time it takes goes with the square of the distance. Heat soaks through a centimetre of still water in about 12 minutes, so 10 centimetres take a hundred times as long, about 20 hours, and a metre ten thousand times as long, about 80 days. Thirty metres would take some two hundred years.[^conduction] A storm, by comparison, can stir the top ten metres of a lake overnight. So nearly all the heat that moves through a lake is carried by moving water: the wind stirring it, currents, and water sinking. The question becomes why the stirring stops partway down."
-    }
-   ]
-  },
-  {
-   "title": "Heaviest at four degrees",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**Density** is how much a given volume of something weighs, here in grams per litre. A litre of fresh water at 20 °C weighs 998.2 grams; at 4 °C it weighs 999.97 grams, very nearly a kilogram. Like nearly everything, water expands as it warms, so warm water is lighter than cold and floats on it. Unlike nearly everything, fresh water stops shrinking near 4 °C and expands again as it cools further.[^four] Water at 1 °C floats on water at 4 °C, and ice, at 917 grams a litre, floats on all of it. Fresh water is densest near 4 °C."
-    },
-    {
-     "type": "diagram",
-     "id": "lake-density",
-     "caption": "The weight of a litre of fresh water at each temperature from 0 to 25 °C, on a scale from 997 to 1,000 grams. Lake Washington's bottom (blue) and top (orange) in August are marked: the bottom sits near the peak, the top far down the steep part. Ice, at 917 grams a litre, would be far below this scale.",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "text",
-     "text": "The curve has a second feature that matters as much as its peak: it gets steeper the warmer the water. A litre at 4 °C weighs 999.972 grams and at 5 °C 999.964, so it gets lighter by less than a hundredth of a gram. At 21 °C it weighs 997.99 grams and at 22 °C 997.77, a difference of about a fifth of a gram, nearly thirty times as much. Warm water on top of cold water is a firmly layered stack in summer, while in winter, with the whole lake between 6 and 8 °C, top and bottom differ hardly at all. Salt makes water heavier too, and lesson 12 adds it to the same idea for the Sound."
-    }
-   ]
-  },
-  {
-   "title": "Three layers in summer",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "François-Alphonse Forel, a professor of medicine at Lausanne who lived at Morges on the shore of Lake Geneva, spent the 1870s to the 1900s measuring that lake in every way he could think of.[^forel] Among other things he and his colleagues lowered thermometers on lines from boats, month after month, and found what every deep lake in a mild climate shows in summer: the temperature does not fall smoothly with depth. It holds steady near the warm surface for a while, plunges within a few metres, and then stays cold and nearly uniform all the way down."
-    },
-    {
-     "type": "text",
-     "text": "Limnologists, the scientists of lakes, name the three layers. The warm top layer, stirred by the wind, is the **epilimnion**; in Lake Washington in midsummer it is roughly the top ten metres. Below it, the thin layer where the temperature drops fast is the **thermocline**. Under that lies the cold, still **hypolimnion**, the bulk of the lake."
-    },
-    {
-     "type": "text",
-     "text": "The wind stirs the top layer easily, because the water in it is all at nearly the same temperature: a parcel of it pushed down is no heavier than the water around it, so nothing resists. To stir the cold water up, the wind would have to push heavy water up through lighter water and light water down, and that takes energy, much as it takes effort to hold a beach ball under water. A summer breeze has enough to churn the top layer and drag its bottom edge a little deeper, but nowhere near enough to lift the layer below. The bottom water is left alone, at the temperature it had when the lake was last stirred right through, in late winter. Before you play the figure below, guess when after August the whole lake mixes again."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "lake-year",
-     "caption": "Lake Washington through a year: a slice down the lake (left) coloured by temperature, blue for cold and orange for warm, and the temperature at each depth as a line (right). Play runs the months; the lower slider sets the wind. A model, calibrated roughly to the lake's measured temperatures: the surface follows the season, and the wind mixes down as far as its strength and the layers' difference in density allow.",
-     "task": "Guess when the lake next mixes, then play the year",
-     "goal": "mixed",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "key_ideas",
-     "title": "Look it up",
-     "points": [
-      "King County keeps moored buoys on Lake Washington and Lake Sammamish that measure the temperature at a string of depths. Search for King County's Lake Washington buoy data to find them.",
-      "Plotted as a line of temperature against depth, a profile from August shows a jump of several degrees over a few metres: the thermocline. One from January runs straight down at a single temperature."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "One mixing a year",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In September the days shorten, the nights cool, and the top of the lake loses more heat each night than it gains each day. Cooled surface water is denser than the warmer water just under it, so it sinks, and the stirred top layer thickens, eating down into the thermocline. Autumn storms add their wind. Each degree the top loses shrinks the difference in weight that holds the layers apart. The early degrees, from 20 °C down, take away the most, because the curve is steepest there; by November the top is only a few degrees warmer than the bottom and weighs only a little less, and storms reach deeper and deeper."
-    },
-    {
-     "type": "text",
-     "text": "By December the top has cooled to within a fraction of a degree of the bottom, the two weigh the same, and the next storm stirs Lake Washington from top to bottom. Through the winter the whole lake cools together, to about 6 or 7 °C, and the wind keeps all 65 metres moving. In spring the sun warms the top again. As soon as the top is a degree or two warmer than the bottom, the lake is layered again and the wind can no longer reach down, and the bottom water is held near its late-winter temperature until the lake mixes again in December. That is the 7 °C in August."
-    },
-    {
-     "type": "text",
-     "text": "A lake that mixes top to bottom once a year is **monomictic**. Lake Washington is a warm monomictic lake, warm meaning that its top stays above 4 °C all winter, so it never layers the other way and it does not freeze over.[^mictic] Mixing also carries oxygen from the air down to the bottom water. Without that, the bottom water slowly runs short of oxygen as dead plankton decay there, which a later course on life in the water follows."
-    },
-    {
-     "type": "text",
-     "text": "A lake in a colder place, such as a mountain lake that freezes each winter, mixes twice. It mixes in autumn as its top cools to 4 °C. Then, under the ice, it layers upside down: the coldest water, near 0 °C, is the lightest and lies just under the ice, while 4 °C water fills the bottom. In spring, once the ice melts and the top warms to 4 °C, it mixes again before the summer layers form. This twice-mixed lake is the one most textbooks draw."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Misconception: the bottom water comes up",
-     "points": [
-      "Limnologists call the autumn mixing the **turnover**, and diagrams sometimes draw it as the bottom water rising to the top while the top water drops, as if the lake rolled over like a pancake.",
-      "What happens is gentler. The top layer cools, sinks and is stirred deeper, until the lake is one body of water at one temperature, and then the wind mixes all of it. The word turnover describes the result, a lake mixed through."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "A lake that sloshes",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Forel was also curious about something people on Lake Geneva had noticed for centuries. On calm days the water at Geneva, at the narrow western end of the lake, would rise and fall by a few centimetres, sometimes much more, over an hour or so, with no wind and no tide to explain it. Locals called it a **seiche**. Forel set up recording gauges at several places around the lake and showed that the whole lake was sloshing from end to end, like water in a bathtub, with one end high while the other was low, and a swing that took a little over an hour."
-    },
-    {
-     "type": "text",
-     "text": "Wind starts it. A steady wind blowing along a lake drags the surface water with it and piles it up at the downwind end, a little like blowing across a bowl of soup. The **upwind** end, where the wind comes from, drops a little. When the wind stops, the piled water runs back, overshoots, and runs back again. The lake rocks about its middle, which barely moves, while the ends swing up and down. A wave that runs back and forth between two ends like this, with places that stay still and places that swing, is a **standing wave**."
-    },
-    {
-     "type": "text",
-     "text": "The time for one full swing, there and back, is the seiche's **period**. It is the time a wave takes to run the length of the lake and back. A wave much longer than the water is deep, as this one is, goes faster in deeper water, about 18 metres a second in water as deep as Lake Washington's average of 33 metres; lesson 7 explains why depth sets the speed. There and back along the lake, about 35 kilometres (22 miles) long, is 70 kilometres, which at 18 metres a second takes about 65 minutes. So Lake Washington sloshes about once an hour.[^quake]"
-    },
-    {
-     "type": "text",
-     "text": "The same wind does something larger and slower out of sight. Pushing the warm top layer to the downwind end piles warm water up there, so the thermocline sinks at that end and rises at the upwind end. Because the warm and cold layers differ in density by only about two parts in a thousand, it takes very little push to tilt the boundary between them. In the figure's model, a day of 5 m/s wind (about 11 mph) raises the surface at the downwind end by about 2 millimetres and pushes the thermocline down there by nearly 4 metres, the opposite way and well over a thousand times as far. After a strong wind that blows along the lake for a day, the thermocline at the upwind end can rise all the way to the surface, and swimmers there find the lake suddenly cold. Before you play the figure, guess which end the thermocline sits deeper at while the wind blows."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "lake-seiche",
-     "caption": "A summer lake cut along its length: orange warm water over blue cold, with the thermocline the boundary between them. The chips choose to watch the first 3 hours or the first 4 days; the sliders set the wind that blew for a day and the time since it dropped. The surface's tilt is drawn 200 times larger than it is; the thermocline's is drawn true. A model of a box 35 km long and 33 m deep, with a warm layer 10 m thick.",
-     "task": "Guess, then watch the thermocline swing back over four days",
-     "goal": "slosh",
-     "aspect_ratio": 1.74
-    },
-    {
-     "type": "text",
-     "text": "When the wind drops, the thermocline sloshes too, as an **internal seiche**, a standing wave on the boundary between the layers. With so little difference in weight to pull it back, it swings slowly: in a lake the size of Lake Washington, about once every two days, while the surface above has long since settled. Lesson 10 comes back to the seiche: Puget Sound has its own sloshing period too, and the tide pushes the Sound at nearly that rhythm."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on lakes",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "In August the bottom of Lake Washington is about 7 °C while the top is above 20 °C. Which explanation is best?",
-        "choices": [
-         "The warm top floats on the cold water, and the wind cannot stir heavy water up through light",
-         "Sunlight is soaked up in the top few metres, so no heat can ever reach the bottom water",
-         "Cold groundwater seeps up through the lake floor all summer and keeps the bottom cold"
-        ],
-        "answer": 0,
-        "why": "Heat moves through a lake mainly by stirring, and stable layers stop the stirring. Sunlight does warm only the top, but in winter the stirring carries that heat down; conduction alone would take centuries to reach 30 metres."
-       },
-       {
-        "ask": "In a lake that freezes, the water just under the ice is near 0 °C and the bottom is near 4 °C. Why?",
-        "choices": [
-         "Fresh water is densest near 4 °C, so that water sinks and colder water stays on top",
-         "The lake floor gives off heat from the rock below, which keeps the bottom water warmer",
-         "The ice keeps the wind off, so the lake is never stirred deeply enough to cool the bottom"
-        ],
-        "answer": 0,
-        "why": "Below 4 °C fresh water expands as it cools, so near-freezing water and ice are lighter and float on 4 °C water."
-       },
-       {
-        "ask": "Why does a summer lake resist mixing far more strongly than the same lake does in winter?",
-        "choices": [
-         "Water's density changes more per degree when warm, so warm over cold differs a lot in weight",
-         "The summer sun warms the bottom water too, so it rises and holds the top layer in place",
-         "In winter the lake is shallower, so the wind has a smaller amount of water to stir up"
-        ],
-        "answer": 0,
-        "why": "The density curve is steep at warm temperatures and nearly flat near 4 °C. A summer lake's layers differ a lot in weight; a winter lake's hardly at all."
-       },
-       {
-        "ask": "When does Lake Washington mix from top to bottom?",
-        "choices": [
-         "Once a year, around December, when its top has cooled to the bottom's temperature",
-         "Twice a year, in spring and in autumn, each time its top passes through 4 °C",
-         "Once a year, in late summer, when the top layer is at its warmest and lightest"
-        ],
-        "answer": 0,
-        "why": "Lake Washington is warm monomictic: its top never cools below 4 °C and it never freezes, so it mixes once, in early winter, and stays mixed until spring. Twice-a-year mixing belongs to lakes that freeze."
-       },
-       {
-        "ask": "Why does the stirred top layer of a lake grow thicker through the autumn?",
-        "choices": [
-         "Cooled surface water is denser than the water under it, so it sinks and storms stir deeper",
-         "Autumn rain adds water to the top of the lake, so the top layer grows thicker each week",
-         "The bottom water warms slowly all summer until it rises up to meet the top layer"
-        ],
-        "answer": 0,
-        "why": "As nights cool the top, its water sinks into the layer below, and with less difference in weight to fight, storms stir it deeper, until in December they reach the bottom."
-       },
-       {
-        "ask": "A steady wind blows along a layered lake for a day. What happens at the upwind end?",
-        "choices": [
-         "The surface drops slightly and the thermocline rises, sometimes bringing cold water up",
-         "The surface drops slightly and the thermocline drops with it, by about the same amount",
-         "The surface rises and the thermocline rises with it, both piling up against the wind"
-        ],
-        "answer": 0,
-        "why": "The wind pushes the warm top layer downwind. The surface tilts up toward the downwind end by millimetres; the thermocline tilts the opposite way by metres, because the two layers differ so little in weight."
-       }
+      "title": "Seven degrees in August",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On a hot afternoon in August the top of Lake Washington is as warm as it gets all year, around 21 to 23 °C (70 to 73 °F), and swimmers at Madison Park and Matthews Beach stay in for an hour. At the bottom of the lake, 65 metres (214 feet) down at its deepest today, the water is about 7 °C (45 °F), barely warmer than it was in February. It stays that cold all summer.[^level]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Lake Washington from the air, about 35 km long, with Seattle on its western shore.",
+          "options": {
+            "photo": "lake-washington-aerial",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "It has been sunny for three months, heat flows from warm to cold, and warm water lies right on top of cold water across the whole lake. The summer should be seeping down. Before reading on, try to think of what stops it."
+        },
+        {
+          "type": "text",
+          "text": "Sunlight is not the whole answer. It is soaked up in the top few metres, but that only says where the heat goes in; in a stirred lake it would soon be carried down. Heat also creeps through still water on its own, by **conduction**, each molecule jostling the next, but very slowly. The time it takes goes with the square of the distance. Heat soaks through a centimetre of still water in about 12 minutes, so 10 centimetres take a hundred times as long, about 20 hours, and a metre ten thousand times as long, about 80 days. Thirty metres would take some two hundred years.[^conduction] A storm, by comparison, can stir the top ten metres of a lake overnight. So nearly all the heat that moves through a lake is carried by moving water: the wind stirring it, currents, and water sinking. The question becomes why the stirring stops partway down."
+        }
       ]
-     }
+    },
+    {
+      "title": "Heaviest at four degrees",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Density** is how much a given volume of something weighs, here in grams per litre. A litre of fresh water at 20 °C weighs 998.2 grams; at 4 °C it weighs 999.97 grams, very nearly a kilogram. Like nearly everything, water expands as it warms, so warm water is lighter than cold and floats on it. Unlike nearly everything, fresh water stops shrinking near 4 °C and expands again as it cools further.[^four] Water at 1 °C floats on water at 4 °C, and ice, at 917 grams a litre, floats on all of it. Fresh water is densest near 4 °C."
+        },
+        {
+          "type": "diagram",
+          "id": "lake-density",
+          "caption": "The weight of a litre of fresh water at each temperature from 0 to 25 °C, on a scale from 997 to 1,000 grams. Lake Washington's bottom (blue) and top (orange) in August are marked: the bottom sits near the peak, the top far down the steep part. Ice, at 917 grams a litre, would be far below this scale.",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "The curve has a second feature that matters as much as its peak: it gets steeper the warmer the water. A litre at 4 °C weighs 999.972 grams and at 5 °C 999.964, so it gets lighter by less than a hundredth of a gram. At 21 °C it weighs 997.99 grams and at 22 °C 997.77, a difference of about a fifth of a gram, nearly thirty times as much. Warm water on top of cold water is a firmly layered stack in summer, while in winter, with the whole lake between 6 and 8 °C, top and bottom differ hardly at all. Salt makes water heavier too, and lesson 12 adds it to the same idea for the Sound."
+        }
+      ]
+    },
+    {
+      "title": "Three layers in summer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "François-Alphonse Forel, a professor of medicine at Lausanne who lived at Morges on the shore of Lake Geneva, spent the 1870s to the 1900s measuring that lake in every way he could think of.[^forel] Among other things he and his colleagues lowered thermometers on lines from boats, month after month, and found what every deep lake in a mild climate shows in summer: the temperature does not fall smoothly with depth. It holds steady near the warm surface for a while, plunges within a few metres, and then stays cold and nearly uniform all the way down."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "François-Alphonse Forel, who measured Lake Geneva for decades and named the science of lakes, limnology.",
+          "options": {
+            "photo": "forel-portrait",
+            "aspect": 0.8
+          }
+        },
+        {
+          "type": "text",
+          "text": "Limnologists, the scientists of lakes, name the three layers. The warm top layer, stirred by the wind, is the **epilimnion**; in Lake Washington in midsummer it is roughly the top ten metres. Below it, the thin layer where the temperature drops fast is the **thermocline**. Under that lies the cold, still **hypolimnion**, the bulk of the lake."
+        },
+        {
+          "type": "text",
+          "text": "The wind stirs the top layer easily, because the water in it is all at nearly the same temperature: a parcel of it pushed down is no heavier than the water around it, so nothing resists. To stir the cold water up, the wind would have to push heavy water up through lighter water and light water down, and that takes energy, much as it takes effort to hold a beach ball under water. A summer breeze has enough to churn the top layer and drag its bottom edge a little deeper, but nowhere near enough to lift the layer below. The bottom water is left alone, at the temperature it had when the lake was last stirred right through, in late winter. Before you play the figure below, guess when after August the whole lake mixes again."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "lake-year",
+          "caption": "Lake Washington through a year: a slice down the lake (left) coloured by temperature, blue for cold and orange for warm, and the temperature at each depth as a line (right). Play runs the months; the lower slider sets the wind. A model, calibrated roughly to the lake's measured temperatures: the surface follows the season, and the wind mixes down as far as its strength and the layers' difference in density allow.",
+          "task": "Guess when the lake next mixes, then play the year",
+          "goal": "mixed",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "key_ideas",
+          "title": "Look it up",
+          "points": [
+            "King County keeps moored buoys on Lake Washington and Lake Sammamish that measure the temperature at a string of depths. Search for King County's Lake Washington buoy data to find them.",
+            "Plotted as a line of temperature against depth, a profile from August shows a jump of several degrees over a few metres: the thermocline. One from January runs straight down at a single temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "One mixing a year",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In September the days shorten, the nights cool, and the top of the lake loses more heat each night than it gains each day. Cooled surface water is denser than the warmer water just under it, so it sinks, and the stirred top layer thickens, eating down into the thermocline. Autumn storms add their wind. Each degree the top loses shrinks the difference in weight that holds the layers apart. The early degrees, from 20 °C down, take away the most, because the curve is steepest there; by November the top is only a few degrees warmer than the bottom and weighs only a little less, and storms reach deeper and deeper."
+        },
+        {
+          "type": "text",
+          "text": "By December the top has cooled to within a fraction of a degree of the bottom, the two weigh the same, and the next storm stirs Lake Washington from top to bottom. Through the winter the whole lake cools together, to about 6 or 7 °C, and the wind keeps all 65 metres moving. In spring the sun warms the top again. As soon as the top is a degree or two warmer than the bottom, the lake is layered again and the wind can no longer reach down, and the bottom water is held near its late-winter temperature until the lake mixes again in December. That is the 7 °C in August."
+        },
+        {
+          "type": "text",
+          "text": "A lake that mixes top to bottom once a year is **monomictic**. Lake Washington is a warm monomictic lake, warm meaning that its top stays above 4 °C all winter, so it never layers the other way and it does not freeze over.[^mictic] Mixing also carries oxygen from the air down to the bottom water. Without that, the bottom water slowly runs short of oxygen as dead plankton decay there, which a later course on life in the water follows."
+        },
+        {
+          "type": "text",
+          "text": "A lake in a colder place, such as a mountain lake that freezes each winter, mixes twice. It mixes in autumn as its top cools to 4 °C. Then, under the ice, it layers upside down: the coldest water, near 0 °C, is the lightest and lies just under the ice, while 4 °C water fills the bottom. In spring, once the ice melts and the top warms to 4 °C, it mixes again before the summer layers form. This twice-mixed lake is the one most textbooks draw."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Misconception: the bottom water comes up",
+          "points": [
+            "Limnologists call the autumn mixing the **turnover**, and diagrams sometimes draw it as the bottom water rising to the top while the top water drops, as if the lake rolled over like a pancake.",
+            "What happens is gentler. The top layer cools, sinks and is stirred deeper, until the lake is one body of water at one temperature, and then the wind mixes all of it. The word turnover describes the result, a lake mixed through."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A lake that sloshes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Forel was also curious about something people on Lake Geneva had noticed for centuries. On calm days the water at Geneva, at the narrow western end of the lake, would rise and fall by a few centimetres, sometimes much more, over an hour or so, with no wind and no tide to explain it. Locals called it a **seiche**. Forel set up recording gauges at several places around the lake and showed that the whole lake was sloshing from end to end, like water in a bathtub, with one end high while the other was low, and a swing that took a little over an hour."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Lake Geneva from Morges, where Forel lived and studied the lake's seiches.",
+          "options": {
+            "photo": "lake-geneva-morges",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Wind starts it. A steady wind blowing along a lake drags the surface water with it and piles it up at the downwind end, a little like blowing across a bowl of soup. The **upwind** end, where the wind comes from, drops a little. When the wind stops, the piled water runs back, overshoots, and runs back again. The lake rocks about its middle, which barely moves, while the ends swing up and down. A wave that runs back and forth between two ends like this, with places that stay still and places that swing, is a **standing wave**."
+        },
+        {
+          "type": "text",
+          "text": "The time for one full swing, there and back, is the seiche's **period**. It is the time a wave takes to run the length of the lake and back. A wave much longer than the water is deep, as this one is, goes faster in deeper water, about 18 metres a second in water as deep as Lake Washington's average of 33 metres; lesson 7 explains why depth sets the speed. There and back along the lake, about 35 kilometres (22 miles) long, is 70 kilometres, which at 18 metres a second takes about 65 minutes. So Lake Washington sloshes about once an hour.[^quake]"
+        },
+        {
+          "type": "text",
+          "text": "The same wind does something larger and slower out of sight. Pushing the warm top layer to the downwind end piles warm water up there, so the thermocline sinks at that end and rises at the upwind end. Because the warm and cold layers differ in density by only about two parts in a thousand, it takes very little push to tilt the boundary between them. In the figure's model, a day of 5 m/s wind (about 11 mph) raises the surface at the downwind end by about 2 millimetres and pushes the thermocline down there by nearly 4 metres, the opposite way and well over a thousand times as far. After a strong wind that blows along the lake for a day, the thermocline at the upwind end can rise all the way to the surface, and swimmers there find the lake suddenly cold. Before you play the figure, guess which end the thermocline sits deeper at while the wind blows."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "lake-seiche",
+          "caption": "A summer lake cut along its length: orange warm water over blue cold, with the thermocline the boundary between them. The chips choose to watch the first 3 hours or the first 4 days; the sliders set the wind that blew for a day and the time since it dropped. The surface's tilt is drawn 200 times larger than it is; the thermocline's is drawn true. A model of a box 35 km long and 33 m deep, with a warm layer 10 m thick.",
+          "task": "Guess, then watch the thermocline swing back over four days",
+          "goal": "slosh",
+          "aspect_ratio": 1.74
+        },
+        {
+          "type": "text",
+          "text": "When the wind drops, the thermocline sloshes too, as an **internal seiche**, a standing wave on the boundary between the layers. With so little difference in weight to pull it back, it swings slowly: in a lake the size of Lake Washington, about once every two days, while the surface above has long since settled. Lesson 10 comes back to the seiche: Puget Sound has its own sloshing period too, and the tide pushes the Sound at nearly that rhythm."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on lakes",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "In August the bottom of Lake Washington is about 7 °C while the top is above 20 °C. Which explanation is best?",
+                "choices": [
+                  "The warm top floats on the cold water, and the wind cannot stir heavy water up through light",
+                  "Sunlight is soaked up in the top few metres, so no heat can ever reach the bottom water",
+                  "Cold groundwater seeps up through the lake floor all summer and keeps the bottom cold"
+                ],
+                "answer": 0,
+                "why": "Heat moves through a lake mainly by stirring, and stable layers stop the stirring. Sunlight does warm only the top, but in winter the stirring carries that heat down; conduction alone would take centuries to reach 30 metres."
+              },
+              {
+                "ask": "In a lake that freezes, the water just under the ice is near 0 °C and the bottom is near 4 °C. Why?",
+                "choices": [
+                  "Fresh water is densest near 4 °C, so that water sinks and colder water stays on top",
+                  "The lake floor gives off heat from the rock below, which keeps the bottom water warmer",
+                  "The ice keeps the wind off, so the lake is never stirred deeply enough to cool the bottom"
+                ],
+                "answer": 0,
+                "why": "Below 4 °C fresh water expands as it cools, so near-freezing water and ice are lighter and float on 4 °C water."
+              },
+              {
+                "ask": "Why does a summer lake resist mixing far more strongly than the same lake does in winter?",
+                "choices": [
+                  "Water's density changes more per degree when warm, so warm over cold differs a lot in weight",
+                  "The summer sun warms the bottom water too, so it rises and holds the top layer in place",
+                  "In winter the lake is shallower, so the wind has a smaller amount of water to stir up"
+                ],
+                "answer": 0,
+                "why": "The density curve is steep at warm temperatures and nearly flat near 4 °C. A summer lake's layers differ a lot in weight; a winter lake's hardly at all."
+              },
+              {
+                "ask": "When does Lake Washington mix from top to bottom?",
+                "choices": [
+                  "Once a year, around December, when its top has cooled to the bottom's temperature",
+                  "Twice a year, in spring and in autumn, each time its top passes through 4 °C",
+                  "Once a year, in late summer, when the top layer is at its warmest and lightest"
+                ],
+                "answer": 0,
+                "why": "Lake Washington is warm monomictic: its top never cools below 4 °C and it never freezes, so it mixes once, in early winter, and stays mixed until spring. Twice-a-year mixing belongs to lakes that freeze."
+              },
+              {
+                "ask": "Why does the stirred top layer of a lake grow thicker through the autumn?",
+                "choices": [
+                  "Cooled surface water is denser than the water under it, so it sinks and storms stir deeper",
+                  "Autumn rain adds water to the top of the lake, so the top layer grows thicker each week",
+                  "The bottom water warms slowly all summer until it rises up to meet the top layer"
+                ],
+                "answer": 0,
+                "why": "As nights cool the top, its water sinks into the layer below, and with less difference in weight to fight, storms stir it deeper, until in December they reach the bottom."
+              },
+              {
+                "ask": "A steady wind blows along a layered lake for a day. What happens at the upwind end?",
+                "choices": [
+                  "The surface drops slightly and the thermocline rises, sometimes bringing cold water up",
+                  "The surface drops slightly and the thermocline drops with it, by about the same amount",
+                  "The surface rises and the thermocline rises with it, both piling up against the wind"
+                ],
+                "answer": 0,
+                "why": "The wind pushes the warm top layer downwind. The surface tilts up toward the downwind end by millimetres; the thermocline tilts the opposite way by metres, because the two layers differ so little in weight."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "footnotes": {
+    "level": {
+      "kind": "digression",
+      "title": "A lowered lake",
+      "text": "The 65 metres is today's depth. The lake's surface was lowered by about 2.7 metres (nearly 9 feet) in 1916, when the ship canal opened, so it was a little deeper before; the Seattle branch (S2) tells that story."
+    },
+    "conduction": {
+      "kind": "technical",
+      "title": "How slow conduction is",
+      "text": "How fast heat spreads by conduction is measured by a number called the **diffusivity**, for water about 0.14 square millimetres a second. The time to spread a distance is roughly that distance squared divided by the diffusivity: for a centimetre (100 square millimetres), 100 / 0.14 seconds, about 12 minutes; for a metre, 10,000 times that, about 80 days; for 30 metres, about 200 years."
+    },
+    "four": {
+      "kind": "technical",
+      "title": "Why 4 °C",
+      "text": "Each water molecule has two hydrogen atoms that cling weakly to the oxygen atoms of neighbouring molecules, links called **hydrogen bonds**. They pull molecules into an open, spacious lattice, the one locked in place in ice. Below about 4 °C, more and more of the water forms short-lived patches of that open lattice, and the water expands even as it cools. Above 4 °C ordinary expansion with heat wins. Salt water behaves differently: sea water gets denser all the way down to freezing, which lesson 12 needs."
+    },
+    "forel": {
+      "kind": "digression",
+      "title": "Forel",
+      "text": "François-Alphonse Forel (1841 to 1912) wrote his findings into *Le Léman*, three volumes published from 1892 to 1904, and named the science of lakes **limnology**. His colour scale, a row of numbered tubes of tinted liquid to hold against a lake, is still used to describe the colour of natural waters."
+    },
+    "mictic": {
+      "kind": "technical",
+      "title": "Mixing types",
+      "text": "Limnologists sort lakes by how often they mix top to bottom: **monomictic** once a year, **dimictic** twice (spring and autumn, in lakes that freeze), **polymictic** many times (shallow lakes the wind can stir to the bottom in any season), and **meromictic** never, where a dense, often salty bottom layer is never stirred."
+    },
+    "quake": {
+      "kind": "digression",
+      "title": "Seiches from earthquakes",
+      "text": "Lakes can be set sloshing by distant earthquakes too. The great Alaska earthquake of March 1964 and the Denali earthquake of November 2002 set Lake Union swinging; in 2002 houseboats there broke moorings and pipes, more than 2,000 kilometres from the earthquake."
+    }
   }
- ],
- "footnotes": {
-  "level": {
-   "kind": "digression",
-   "title": "A lowered lake",
-   "text": "The 65 metres is today's depth. The lake's surface was lowered by about 2.7 metres (nearly 9 feet) in 1916, when the ship canal opened, so it was a little deeper before; the Seattle branch (S2) tells that story."
-  },
-  "conduction": {
-   "kind": "technical",
-   "title": "How slow conduction is",
-   "text": "How fast heat spreads by conduction is measured by a number called the **diffusivity**, for water about 0.14 square millimetres a second. The time to spread a distance is roughly that distance squared divided by the diffusivity: for a centimetre (100 square millimetres), 100 / 0.14 seconds, about 12 minutes; for a metre, 10,000 times that, about 80 days; for 30 metres, about 200 years."
-  },
-  "four": {
-   "kind": "technical",
-   "title": "Why 4 °C",
-   "text": "Each water molecule has two hydrogen atoms that cling weakly to the oxygen atoms of neighbouring molecules, links called **hydrogen bonds**. They pull molecules into an open, spacious lattice, the one locked in place in ice. Below about 4 °C, more and more of the water forms short-lived patches of that open lattice, and the water expands even as it cools. Above 4 °C ordinary expansion with heat wins. Salt water behaves differently: sea water gets denser all the way down to freezing, which lesson 12 needs."
-  },
-  "forel": {
-   "kind": "digression",
-   "title": "Forel",
-   "text": "François-Alphonse Forel (1841 to 1912) wrote his findings into *Le Léman*, three volumes published from 1892 to 1904, and named the science of lakes **limnology**. His colour scale, a row of numbered tubes of tinted liquid to hold against a lake, is still used to describe the colour of natural waters."
-  },
-  "mictic": {
-   "kind": "technical",
-   "title": "Mixing types",
-   "text": "Limnologists sort lakes by how often they mix top to bottom: **monomictic** once a year, **dimictic** twice (spring and autumn, in lakes that freeze), **polymictic** many times (shallow lakes the wind can stir to the bottom in any season), and **meromictic** never, where a dense, often salty bottom layer is never stirred."
-  },
-  "quake": {
-   "kind": "digression",
-   "title": "Seiches from earthquakes",
-   "text": "Lakes can be set sloshing by distant earthquakes too. The great Alaska earthquake of March 1964 and the Denali earthquake of November 2002 set Lake Union swinging; in 2002 houseboats there broke moorings and pipes, more than 2,000 kilometres from the earthquake."
-  }
- }
 }

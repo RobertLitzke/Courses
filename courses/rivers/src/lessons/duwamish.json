@@ -26,6 +26,15 @@
           "text": "In 1900 the Duwamish wound north across a flat valley floor of farms and marsh, swinging in long loops from Tukwila to the head of Elliott Bay, where it spread out over a wide sheet of tideflats. At low tide the flats ran from the foot of Beacon Hill almost to West Seattle, mud and eelgrass with channels through them, and Seattle's waterfront ended at their edge."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Duwamish's tideflats at the head of Elliott Bay before they were filled.",
+          "options": {
+            "photo": "duwamish-tideflats",
+            "aspect": 1.6
+          }
+        },
+        {
           "type": "text",
           "text": "That river was the meeting of several. The White River came down from Mount Rainier's glaciers, picked up the Green at Auburn and ran north; near Tukwila the Black River joined it, carrying the outflow of Lake Washington and, below the lake, the Cedar. Together they made the Duwamish. Today the river through the same valley carries the Green River and the creeks of its own valley, a fraction of what it carried a century ago.[^green] Before reading on, try to say where the White, the Cedar and the Black went. The White's story is in lesson 5, and the Cedar's and the Black's in S2."
         }
@@ -102,6 +111,15 @@
           "text": "Seattle's business people wanted a port where ships could reach the valley's flat land, and the Duwamish's shallow loops were no use to a ship. From about 1913 to 1920, dredges, floating machines that scoop or suck mud and sand from a river's bed, cut a new channel straight up the lower valley for a public waterway district set up to build it and pay for it. The new channel was about 8 km (5 miles) long, in place of some 14 km (9 miles) of winding river.[^miles] It was dug several metres deeper than the old river's bed and much wider, with a turning basin at its upper end, a wide pool where ships can turn round. The dredges pumped the mud and sand they raised onto the flats and into the old loops, which disappeared under fill."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A dredge cutting the Duwamish Waterway, about 1914 to 1920.",
+          "options": {
+            "photo": "duwamish-dredging",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "Lesson 5 showed what straightening does to a river. The fall from the valley to the sea stays the same, but the path is shorter, so the river is steeper along it and runs faster. On the Duwamish that matters less than it might, because the lower river's fall is small and the tide reaches far up it. The bigger change was in depth: the straight channel is a deep trench open to the sea, with much less river running down it."
         },
@@ -133,6 +151,15 @@
         {
           "type": "text",
           "text": "**Go and look.** Herring's House Park, on the west bank of the waterway a little south of the West Seattle bridges, looks across at Kellogg Island, one of the last pieces of the old estuary, with tidal marsh restored along the shore. Come at a low tide and again at a high one: the water rises and falls here by several metres, as much as at the Seattle waterfront, because as far as the tide is concerned the waterway is an arm of the sea. The Duwamish Longhouse, across West Marginal Way, tells the river's story from the Duwamish people's side."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Kellogg Island and the restored marsh at Herring's House Park on the Duwamish Waterway.",
+          "options": {
+            "photo": "kellogg-island",
+            "aspect": 1.5
+          }
         }
       ]
     },

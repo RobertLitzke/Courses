@@ -17,8 +17,12 @@
       "title": "Two cells in a garden",
       "blocks": [
         {"type": "text", "text": "In the 1950s Kenneth Roeder, a physiologist at Tufts University near Boston, and his colleague Asher Treat set out to learn what a moth hears. Treat had been studying the ears of noctuid moths, the large family of drab, stout-bodied night fliers that bang against porch lights all summer. Each has a small eardrum in a hollow on either side of its thorax, the middle section of the body that carries the wings. Roeder hooked fine wires to the nerve from one ear and played sounds at it."},
+        {"type": "diagram", "id": "photo", "caption": "A noctuid moth, one of the large family of stout night fliers whose ears Roeder and Treat studied. The eardrum sits in a hollow at the side of the thorax, behind the wing base.", "options": {"photo": "noctuid-moth", "aspect": 1.5}},
         {"type": "text", "text": "The ear was answering ultrasound: it fired to pitches from about 20 kHz up to well over 50, the range of hunting bats, and the ultrasound in a jingle of keys or in fingers rubbed together near it made the nerve crackle. Behind the eardrum he found only two cells that respond to sound. He called them **A1** and **A2**.[^treat] A human ear has about fifteen thousand sensing hair cells. With two, a moth cannot tell one pitch from another or recognise a song, and Roeder wondered what such an ear could possibly be for."},
-        {"type": "text", "text": "He took the question outdoors. On summer nights he set up floodlights and a camera and filmed moths flying through the light, some of them chased by wild bats, others played pulses of ultrasound from a loudspeaker. The films show what the two cells are for."}
+        {
+          "type": "text",
+          "text": "He took the question outdoors. On summer nights he set up floodlights and a camera and filmed moths flying through the light, some of them chased by wild bats, others played pulses of ultrasound from a loudspeaker. The films show what the two cells are for."
+        }
       ]
     },
     {
@@ -49,27 +53,133 @@
       "blocks": [
         {"type": "text", "text": "Tiger moths, a group of often brightly patterned moths related to the noctuids, do more than listen. On each side of the thorax many of them carry a **tymbal**, a patch of thin, ridged cuticle that buckles in and springs back like the lid of a tin, giving a burst of ultrasonic clicks as it buckles in and another as it springs back.[^tymbal] They click when a bat attacks."},
         {"type": "text", "text": "In 1965 Dorothy Dunning and Roeder showed that the clicks make bats break off. Why bats break off, for many tiger moths, is taste. As caterpillars they feed on milkweeds and other poisonous plants and keep the poisons in their bodies, and a bat that bites one drops it. Bats learn quickly: a bat that has tasted a clicking moth pulls out of its next attack on the sound alone, much as a bird learns to leave a black and yellow wasp alone. The clicks are a warning, the sound of being bad to eat."},
-        {"type": "text", "text": "One tiger moth does something stranger. *Bertholdia trigona*, a small tawny moth of the Arizona desert, is not distasteful, yet it clicks thousands of times a second just as an attacking bat speeds up its calls. In 2009 Aaron Corcoran, Jesse Barber and William Conner flew big brown bats at these moths in a flight room. Moths whose tymbals had been silenced were caught easily. Against clicking moths they mostly missed, often by a few centimetres. A bat judges distance by the delay between each call and its echo. The moth's clicks reach the bat's ears in among the real echoes of the buzz, so the bat hears what sound like echoes at the wrong delays and cannot tell how far away the moth is; it strikes at empty air beside it. This was the first clear evidence of an animal jamming the sonar of a predator hunting it. Switch on the tiger moth in the game and click once the bat has found you and is closing in: the moth that jams escapes."}
+        {"type": "diagram", "id": "photo", "caption": "A tiger moth caterpillar feeding on milkweed, whose poisons it keeps. The adult moth clicks a warning at attacking bats.", "options": {"photo": "tiger-moth-milkweed", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "One tiger moth does something stranger. *Bertholdia trigona*, a small tawny moth of the Arizona desert, is not distasteful, yet it clicks thousands of times a second just as an attacking bat speeds up its calls. In 2009 Aaron Corcoran, Jesse Barber and William Conner flew big brown bats at these moths in a flight room. Moths whose tymbals had been silenced were caught easily. Against clicking moths they mostly missed, often by a few centimetres. A bat judges distance by the delay between each call and its echo. The moth's clicks reach the bat's ears in among the real echoes of the buzz, so the bat hears what sound like echoes at the wrong delays and cannot tell how far away the moth is; it strikes at empty air beside it. This was the first clear evidence of an animal jamming the sonar of a predator hunting it. Switch on the tiger moth in the game and click once the bat has found you and is closing in: the moth that jams escapes."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "*Bertholdia trigona*, the tiger moth that jams bat sonar, from the deserts of Arizona and Mexico.",
+          "options": {
+            "photo": "bertholdia-trigona",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {
       "title": "Fur, tails and whispers",
       "blocks": [
         {"type": "text", "text": "Not every defence is a sound or a reflex. The thick fur on a moth's body and the fine, layered scales on its wings soak up part of each call, so the echo comes back weaker and the moth is found later. The luna moth, a big pale green silk moth of eastern North America, has no ears at all, but its hindwings end in long twisted tails that spin as it flies. In 2015 Jesse Barber and his colleagues found that big brown bats aimed about half their attacks at the tails, which tear off, and the moth flies on. The spinning tail returns a strong, fluttering echo that the bat takes for the target.[^luna] Other night insects have evolved ears of their own for bats: green lacewings in the veins of their wings, praying mantises in a groove under the body."},
+        {"type": "diagram", "id": "photo", "caption": "A luna moth, *Actias luna*, with the long twisted tails that spin as it flies and draw a bat's strike.", "options": {"photo": "luna-moth", "aspect": 1.5}},
         {"type": "text", "text": "Ears, clicks, fur and tails are all answers to bats, and bats have answered back. The barbastelle, a small dark bat of European woods, hunts eared moths with calls whose sound pressure is ten to a hundred times lower than those of other bats that hunt in the open. In 2010 Holger Goerlitz and colleagues showed that moths hear a barbastelle only when it is a few metres away, after it has already found them, and that eared moths make up most of its diet. Others call at pitches moths hear poorly: the spotted bat of the dry American West calls near 10 kHz, so low that people can hear it. And bats that pick insects off leaves often call very quietly or not at all, and listen for the insect's own rustle instead."},
-        {"type": "interactive_diagram", "id": "groups", "caption": "Moves in the long contest between bats and the insects they hunt. File each by what it does.", "task": "File all eleven", "goal": "sorted", "options": {"ask": "What kind of move is it?", "groups": [{"name": "Hear the bat", "color": "moth"}, {"name": "Answer with sound", "color": "noise"}, {"name": "Hide or mislead"}, {"name": "The bat's reply", "color": "bat"}], "items": [
-          {"name": "A noctuid moth", "clue": "Two cells in an ear on each side; it turns from faint calls and drops at loud ones.", "group": "Hear the bat", "why": "Roeder's moth: everything it does starts with hearing the bat first."},
-          {"name": "A bad-tasting tiger moth", "clue": "Clicks back at an attacking bat, and bats that have bitten one learn to pull away.", "group": "Answer with sound", "why": "Its clicks are a warning: they tell the bat it tastes of the poisons the caterpillar ate."},
-          {"name": "A luna moth", "clue": "Earless, with long twisted hindwing tails that spin as it flies.", "group": "Hide or mislead", "why": "The tails send back a strong echo and draw the bat's strike away from the body."},
-          {"name": "A barbastelle", "clue": "Hunts eared moths with calls far quieter than other bats'.", "group": "The bat's reply", "why": "Moths hear it only after it has found them, too late to turn away."},
-          {"name": "A green lacewing", "clue": "Has ears in the veins of its wings, and folds them and drops when a bat closes in.", "group": "Hear the bat", "why": "Lacewings evolved ears of their own, in a different place, for the same job."},
-          {"name": "Bertholdia trigona", "clue": "Tastes fine, yet clicks thousands of times a second as the bat's calls speed up.", "group": "Answer with sound", "why": "Its clicks are not a warning but a jammer: they spoil the bat's buzz."},
-          {"name": "A furry-bodied moth", "clue": "Dense fur on the body and layered scales on the wings.", "group": "Hide or mislead", "why": "Fur and scales soak up part of each call, so the echo is weaker and the moth is found later."},
-          {"name": "A spotted bat", "clue": "Calls near 10 kHz, low enough for people to hear.", "group": "The bat's reply", "why": "Many moths' ears are dull at such low pitches, so they hear it late."},
-          {"name": "A praying mantis", "clue": "One ear in a groove on the underside of its body; in flight it swerves and dives at bat calls.", "group": "Hear the bat", "why": "A third insect with its own bat detector, a sign of how hard bats press on night fliers."},
-          {"name": "A hawkmoth", "clue": "Rubs scales at the tip of its abdomen to make ultrasound when attacked.", "group": "Answer with sound", "why": "Hawkmoths answer bats with sound too, by a different trick from the tiger moths' tymbals."},
-          {"name": "A long-eared bat", "clue": "Picks insects off leaves, often with its sonar turned down, listening for rustling.", "group": "The bat's reply", "why": "An insect cannot hear sonar that is not being used."}
-        ]}, "aspect_ratio": 1.2}
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A barbastelle, *Barbastella barbastellus*, the European bat that hunts eared moths with whispered calls.",
+          "options": {
+            "photo": "barbastelle",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Moves in the long contest between bats and the insects they hunt. File each by what it does.",
+          "task": "File all eleven",
+          "goal": "sorted",
+          "options": {
+            "ask": "What kind of move is it?",
+            "groups": [
+              {
+                "name": "Hear the bat",
+                "color": "moth"
+              },
+              {
+                "name": "Answer with sound",
+                "color": "noise"
+              },
+              {
+                "name": "Hide or mislead"
+              },
+              {
+                "name": "The bat's reply",
+                "color": "bat"
+              }
+            ],
+            "items": [
+              {
+                "name": "A noctuid moth",
+                "clue": "Two cells in an ear on each side; it turns from faint calls and drops at loud ones.",
+                "group": "Hear the bat",
+                "why": "Roeder's moth: everything it does starts with hearing the bat first."
+              },
+              {
+                "name": "A bad-tasting tiger moth",
+                "clue": "Clicks back at an attacking bat, and bats that have bitten one learn to pull away.",
+                "group": "Answer with sound",
+                "why": "Its clicks are a warning: they tell the bat it tastes of the poisons the caterpillar ate."
+              },
+              {
+                "name": "A luna moth",
+                "clue": "Earless, with long twisted hindwing tails that spin as it flies.",
+                "group": "Hide or mislead",
+                "why": "The tails send back a strong echo and draw the bat's strike away from the body."
+              },
+              {
+                "name": "A barbastelle",
+                "clue": "Hunts eared moths with calls far quieter than other bats'.",
+                "group": "The bat's reply",
+                "why": "Moths hear it only after it has found them, too late to turn away."
+              },
+              {
+                "name": "A green lacewing",
+                "clue": "Has ears in the veins of its wings, and folds them and drops when a bat closes in.",
+                "group": "Hear the bat",
+                "why": "Lacewings evolved ears of their own, in a different place, for the same job."
+              },
+              {
+                "name": "Bertholdia trigona",
+                "clue": "Tastes fine, yet clicks thousands of times a second as the bat's calls speed up.",
+                "group": "Answer with sound",
+                "why": "Its clicks are not a warning but a jammer: they spoil the bat's buzz."
+              },
+              {
+                "name": "A furry-bodied moth",
+                "clue": "Dense fur on the body and layered scales on the wings.",
+                "group": "Hide or mislead",
+                "why": "Fur and scales soak up part of each call, so the echo is weaker and the moth is found later."
+              },
+              {
+                "name": "A spotted bat",
+                "clue": "Calls near 10 kHz, low enough for people to hear.",
+                "group": "The bat's reply",
+                "why": "Many moths' ears are dull at such low pitches, so they hear it late."
+              },
+              {
+                "name": "A praying mantis",
+                "clue": "One ear in a groove on the underside of its body; in flight it swerves and dives at bat calls.",
+                "group": "Hear the bat",
+                "why": "A third insect with its own bat detector, a sign of how hard bats press on night fliers."
+              },
+              {
+                "name": "A hawkmoth",
+                "clue": "Rubs scales at the tip of its abdomen to make ultrasound when attacked.",
+                "group": "Answer with sound",
+                "why": "Hawkmoths answer bats with sound too, by a different trick from the tiger moths' tymbals."
+              },
+              {
+                "name": "A long-eared bat",
+                "clue": "Picks insects off leaves, often with its sonar turned down, listening for rustling.",
+                "group": "The bat's reply",
+                "why": "An insect cannot hear sonar that is not being used."
+              }
+            ]
+          },
+          "aspect_ratio": 1.2
+        }
       ]
     },
     {

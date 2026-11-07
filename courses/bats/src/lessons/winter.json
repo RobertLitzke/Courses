@@ -19,7 +19,11 @@
       "blocks": [
         {"type": "text", "text": "In February 2006 a caver in Howes Cave, a limestone cave in Schoharie County some 50 km west of Albany, New York, photographed a cluster of hibernating little brown bats. Several had a white fuzz on their muzzles, as if they had pushed their faces into icing sugar. Caves are full of moulds, and nobody who saw the pictures that year thought them worth much."},
         {"type": "text", "text": "The next winter was different. In January 2007 Al Hicks, the bat specialist of the New York State Department of Environmental Conservation, and his team went into caves near Albany to count the hibernating bats. They found dead bats scattered across the floors, and many of the living ones had the same white noses. That winter bats were also seen flying in daylight over the snow, when there was not an insect in the air.[^hicks]"},
-        {"type": "text", "text": "The dead bats had almost no fat left, at a time of year when a healthy bat still carries a good part of the store it started the winter with. They had starved. The white fuzz turned out to be a fungus growing in the skin of their muzzles and wings. That is this lesson's puzzle: a mould on the skin does not eat an animal's fat, yet these bats were emptied. The answer is in how a small bat gets through a northern winter at all, and it can be worked out with a little arithmetic."}
+        {"type": "diagram", "id": "photo", "caption": "A little brown bat with white-nose syndrome: the white fuzz on its muzzle is the fungus. US Fish and Wildlife Service photograph.", "options": {"photo": "little-brown-bat-white-nose", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "The dead bats had almost no fat left, at a time of year when a healthy bat still carries a good part of the store it started the winter with. They had starved. The white fuzz turned out to be a fungus growing in the skin of their muzzles and wings. That is this lesson's puzzle: a mould on the skin does not eat an animal's fat, yet these bats were emptied. The answer is in how a small bat gets through a northern winter at all, and it can be worked out with a little arithmetic."
+        }
       ]
     },
     {
@@ -29,7 +33,16 @@
         {"type": "text", "text": "A little brown bat weighs about 8 g. A body that small has a great deal of skin for its bulk and loses heat fast. In winter there are no flying insects in New York or Washington State for five or six months. Kept at 37 °C in a cave a few degrees above freezing, a bat that size would burn something like half a gram of fat a day, a rough estimate, and get through its whole winter store in a few days."},
         {"type": "text", "text": "So it lets itself go cold. In **torpor** a bat turns down the set point of its internal thermostat, the temperature its body defends, until its body sits a degree or two above the air around it. Its heart slows from a few hundred beats a minute to ten or twenty, it breathes in short bursts with long pauses between them, and its metabolism falls to a few per cent of what it uses awake and resting. Torpor is not sleep. A sleeping animal stays warm and its brain runs through the stages of sleep; a torpid bat is cold, slow and hard to rouse. It is still under control, though. If the cave nears freezing, a torpid bat burns a little more fuel to stay above it, or wakes and moves somewhere better."},
         {"type": "diagram", "id": "torpor-still", "caption": "A little brown bat awake at rest and in torpor in a 5 °C cave: body temperature, ten seconds of heartbeats (each tick is one beat), and the energy it uses. Round numbers; the heart of a torpid bat also stops for seconds at a time.", "aspect_ratio": 1.72},
-        {"type": "text", "text": "**Hibernation** is a winter of torpor taken in long bouts, each lasting from days to a few weeks, separated by short wakings. Many bats of the northern United States and Canada hibernate in caves and old mines, where the temperature stays nearly steady all winter. Others, such as the hoary bat, migrate south instead, as lesson 10, The way home, follows."}
+        {"type": "text", "text": "**Hibernation** is a winter of torpor taken in long bouts, each lasting from days to a few weeks, separated by short wakings. Many bats of the northern United States and Canada hibernate in caves and old mines, where the temperature stays nearly steady all winter. Others, such as the hoary bat, migrate south instead, as lesson 10, The way home, follows."},
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Little brown bats hibernating in a cluster on a cave ceiling, beaded with condensation.",
+          "options": {
+            "photo": "hibernating-little-brown-bats",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {

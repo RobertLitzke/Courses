@@ -22,7 +22,16 @@
         {"type": "text", "text": "By the spring of 1948 the war was over and about 18,000 people still lived in Vanport. The site had been chosen because it was cheap and empty, and it was empty because it was wetland that flooded. Embankments surrounded it on every side: the river's dike to the north, a raised road to the east, and to the west the embankment of a railway, built to carry the tracks across wet ground, which in a flood ended up holding back water too."},
         {"type": "diagram", "id": "vanport-bowl", "caption": "Vanport in its bowl. The plan at the top is a sketch, not a map: the river's dike runs along the north, the road fill along the east and the railway embankment along the west, where the break came. The section at the bottom shows how the river in flood stood above the streets, with only an embankment between.", "aspect_ratio": 1.33},
         {"type": "text", "text": "Through the second half of May the Columbia rose and stayed high. The lowland west of the railway filled with water. On the morning of Sunday 30 May, Memorial Day, the Housing Authority put a notice under every door saying that the dikes were safe for now and that residents would be warned in time if they had to leave."},
-        {"type": "text", "text": "A little after four in the afternoon the railway embankment gave way. A gap opened, widened quickly, and the water on the far side poured into the bowl. Within an hour or two the town was under water to its upper floors, and buildings floated off their foundations and broke up against one another. Fifteen people are known to have died. Vanport was never rebuilt, and its families, Black families above all, had to find homes in a city that had kept many of them out. The site is now Delta Park, a golf course and a racetrack."}
+        {"type": "text", "text": "A little after four in the afternoon the railway embankment gave way. A gap opened, widened quickly, and the water on the far side poured into the bowl. Within an hour or two the town was under water to its upper floors, and buildings floated off their foundations and broke up against one another. Fifteen people are known to have died. Vanport was never rebuilt, and its families, Black families above all, had to find homes in a city that had kept many of them out. The site is now Delta Park, a golf course and a racetrack."},
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Vanport under water after the railway embankment broke on 30 May 1948.",
+          "options": {
+            "photo": "vanport-flood",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {

@@ -30,6 +30,15 @@
         {
           "type": "text",
           "text": "The first good look at the Sound's depths came from the United States Exploring Expedition under Lieutenant Charles Wilkes, whose boats spent the summer of 1841 charting the Sound with the lead line, a weight on a marked rope dropped to the bottom.[^wilkes] Their charts, and every chart since, show a sea far deeper than a river valley: long basins more than 200 metres deep in places, each cut off from the next by a shallower rise in the floor at its entrance. Those rises, the **sills** of lesson 11, and the deep water behind them, are where the answer lies."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Part of the Exploring Expedition's chart of Admiralty Inlet and Puget Sound, from the 1841 survey.",
+          "options": {
+            "photo": "wilkes-chart-1841",
+            "aspect": 1.5
+          }
         }
       ]
     },
@@ -68,6 +77,15 @@
         {
           "type": "text",
           "text": "The biggest river of all doesn't enter the Sound. The Fraser, which drains much of interior British Columbia, reaches the sea at Vancouver and brings more fresh water on average than all of Puget Sound's rivers together, with a great flood of snowmelt from late May into July. Its water spreads across the Strait of Georgia and works south and west through the San Juan Islands to the Strait of Juan de Fuca, where it heads out to the Pacific on top. On the way it mixes with the salty water below, and some of that mixed water is drawn back east in the Strait's deep inflow and through Admiralty Inlet into the Sound. No one in Seattle sees the Fraser's water as such, but it freshens the whole system."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Fraser River's muddy plume spreading over the Strait of Georgia, seen from orbit.",
+          "options": {
+            "photo": "fraser-plume",
+            "aspect": 1.5
+          }
         },
         {
           "type": "diagram",
@@ -116,7 +134,7 @@
               {
                 "points": [
                   [
-                    -125.0,
+                    -125,
                     48.45
                   ],
                   [
@@ -128,7 +146,7 @@
                     48.22
                   ],
                   [
-                    -123.0,
+                    -123,
                     48.2
                   ],
                   [
@@ -175,7 +193,7 @@
                     48.3
                   ],
                   [
-                    -124.0,
+                    -124,
                     48.4
                   ],
                   [
@@ -401,6 +419,15 @@
           "text": "The two layers can hold apart where little stirs them. At the mouth of a river that enters through a narrow, dredged channel, the Duwamish Waterway through Seattle's industrial district for one, salt water pushes upstream along the bottom as a thin, tapering layer under the fresh water flowing out on top. This is a **salt wedge**. Its front, where it thins to nothing on the riverbed, is called the toe, and it can be several kilometres from the mouth. The heavy salt water would creep all the way upstream if nothing held it back; what holds it back is the river, dragging on the top of the wedge as it flows out over it. In the figure below, the slider sets the river's flow in cubic metres a second: a strong river pushes the wedge back toward the sea, and a weak one lets it in."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Duwamish Waterway, a dredged river channel where a salt wedge runs upstream under the river water.",
+          "options": {
+            "photo": "duwamish-waterway",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "interactive_diagram",
           "id": "estuary-wedge",
           "caption": "A salt wedge in a river channel 10 metres deep, held back by the river's flow. A model of a wedge with no tide; a real wedge also moves in and out with the tide.",
@@ -411,6 +438,15 @@
         {
           "type": "text",
           "text": "The best-known wedge in Seattle is one people made. The Ballard Locks, opened in 1917, lift ships from the salt water of Salmon Bay to the fresh water of the Lake Washington Ship Canal and Lake Union. Every time the large lock opens to the canal it lets out a lock full of salt water, which slides along the canal bed toward Lake Union like a wedge with no river strong enough to stop it. Left alone, the salt would build up in the bottom of Lake Union and beyond. The engineers' answer uses the same physics as the glass in the kitchen: salt water lies on the bottom, so it can be caught there. A barrier on the floor of the large lock holds much of it back, and a drain in the canal bed just above the locks collects salt water that gets past and pipes it back to Salmon Bay below the locks. The Seattle branch (S2) tells the story of the locks."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Ballard Locks (the Hiram M. Chittenden Locks) between Salmon Bay and the Lake Washington Ship Canal.",
+          "options": {
+            "photo": "ballard-locks",
+            "aspect": 1.5
+          }
         },
         {
           "type": "diagram",

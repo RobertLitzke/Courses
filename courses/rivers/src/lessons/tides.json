@@ -17,7 +17,16 @@
       "title": "A tide on the far side",
       "blocks": [
         {"type": "text", "text": "Anyone who lives by the sea learns the tide's rhythm. The water rises for about six hours to **high water** (high tide), falls for about six to **low water**, and the whole pattern comes about fifty minutes later each day, keeping time with the Moon rather than the Sun. Writers in the ancient world already tied the tide to the Moon. How the Moon did it stayed a puzzle for two thousand years. In 1609 Johannes Kepler suggested that the Moon draws the water toward it, much as a magnet draws iron, and Galileo scoffed at the idea; Isaac Newton gave the answer in 1687, in the *Principia*, the book in which he set out his law of gravity."},
-        {"type": "text", "text": "Kepler was partly right: the Moon's gravity does raise the tide. But his picture fails a simple test. If the Moon only pulled the water toward it, the sea would heap up on the side of the Earth facing the Moon, and every coast would have one high tide a day, when the Moon was overhead. Instead most coasts have two, about twelve and a half hours apart, and the second comes when the Moon is on the opposite side of the Earth, out of sight. Something raises the water on the side facing away from the Moon. This is still the common misconception about tides, and the far bulge is what Newton explained."}
+        {"type": "text", "text": "Kepler was partly right: the Moon's gravity does raise the tide. But his picture fails a simple test. If the Moon only pulled the water toward it, the sea would heap up on the side of the Earth facing the Moon, and every coast would have one high tide a day, when the Moon was overhead. Instead most coasts have two, about twelve and a half hours apart, and the second comes when the Moon is on the opposite side of the Earth, out of sight. Something raises the water on the side facing away from the Moon. This is still the common misconception about tides, and the far bulge is what Newton explained."},
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The title page of the first edition of Newton's *Principia*, London, 1687. Its third book explains the tides.",
+          "options": {
+            "photo": "principia-title",
+            "aspect": 0.75
+          }
+        }
       ]
     },
     {
@@ -58,7 +67,16 @@
         {"type": "text", "text": "So the Earth carries two pairs of bulges: the Moon's, and the Sun's, a bit under half as tall. Each pair points along a line through the Earth: the Moon's toward the Moon and directly away from it, the Sun's toward the Sun and directly away. The Moon goes round the Earth once a month, 29.5 days from one new moon to the next, so the angle between the two lines goes round too. At new moon the Moon lies between the Earth and the Sun, at full moon on the far side of the Earth from the Sun, and at the first and last quarters it is at right angles to the Sun. (Why that gives the Moon's phases is in the Astronomy course.) With that, the figure's question can be worked out before the month is played through."},
         {"type": "interactive_diagram", "id": "tides-month", "caption": "A month of the Moon's bulge (purple, dashed), the Sun's (gold, dashed) and their sum (blue), seen from above the North Pole with the Sun far off to the left. The Play button runs the month; the slider moves through it by hand. Below, the tide they raise at one place on the equator, in units of the Moon's tide alone. The equilibrium tide, a model; the real ocean answers later and unequally.", "task": "Guess, then play the month through", "goal": "month", "aspect_ratio": 1.49},
         {"type": "text", "text": "At new moon and at full moon the two lines are the same line, and the bulges add: the highs are higher and the lows lower. These are **spring tides**, with a range about 1.46 times the Moon's own in this picture (1 plus the Sun's 0.46).[^spring] At the first and last quarter moons the Sun's bulges lie across the Moon's and fill in its lows, and the range drops to about 0.54 of the Moon's own (1 less 0.46): the **neap tides**. Springs and neaps take turns, about 7.4 days apart, so springs come round every two weeks."},
-        {"type": "text", "text": "**Out in the field.** NOAA's tide predictions for Seattle (station 9447130) are free online and take a few minutes to read. Look up the ranges for the days around a full or new moon, and for the days around a quarter moon a week later. The biggest ranges do cluster near new and full moon. The pattern is untidier than the figure: some springs are much bigger than others,[^perigee] the biggest ranges come a day or two after the new or full moon, not on it, and the two tides on the same day are often far from equal."}
+        {"type": "text", "text": "**Out in the field.** NOAA's tide predictions for Seattle (station 9447130) are free online and take a few minutes to read. Look up the ranges for the days around a full or new moon, and for the days around a quarter moon a week later. The biggest ranges do cluster near new and full moon. The pattern is untidier than the figure: some springs are much bigger than others,[^perigee] the biggest ranges come a day or two after the new or full moon, not on it, and the two tides on the same day are often far from equal."},
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A low spring tide on a Seattle beach, uncovering the tide flats that most of the month lie under water.",
+          "options": {
+            "photo": "seattle-low-tide",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {

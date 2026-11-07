@@ -1,239 +1,248 @@
 {
- "id": "drowned",
- "n": 202,
- "branch": "seattle",
- "needs": [
-  "faults"
- ],
- "title": "Drowned forests in Lake Washington",
- "teaches": "How tree rings, a raised beach, a tsunami sand and underwater landslides together revealed a large earthquake on the Seattle fault about 1,100 years ago",
- "parts": [
-  {
-   "title": "Trees standing in the lake",
-   "blocks": [
+  "id": "drowned",
+  "n": 202,
+  "branch": "seattle",
+  "needs": [
+    "faults"
+  ],
+  "title": "Drowned forests in Lake Washington",
+  "teaches": "How tree rings, a raised beach, a tsunami sand and underwater landslides together revealed a large earthquake on the Seattle fault about 1,100 years ago",
+  "parts": [
     {
-     "type": "text",
-     "text": "On the floor of Lake Washington, in water tens of metres deep, stand trees. They are Douglas firs, upright, some still with their bark, rooted not in the lake floor but in blocks of hillside that slid into the lake with the trees still standing on them. Divers had known about them for decades. In the 1980s and early 1990s, Robert Karlin and Sally Abella mapped the lake floor with sound and found the slides that carried them: several large landslides, all from the steep shores, all lying on the same layer of lake mud."
-    },
-    {
-     "type": "text",
-     "text": "Hillsides slide for many reasons, as the next lesson shows. But the radiocarbon dates of the trees clustered around 1,000 years ago, and several separate slides at once suggested a single cause. Something had shaken the whole lake."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Upright Douglas firs stand on the floor of Lake Washington, carried in on landslide blocks.",
-      "Several slides of the same age suggested one strong shaking about 1,000 years ago."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Seven metres in a moment",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Across Puget Sound, at Restoration Point on the south end of Bainbridge Island, Robert Bucknam and his colleagues at the US Geological Survey looked at a flat bench of rock along the shore. It was a **wave-cut platform**, the kind of flat the waves grind into rock at the level of the tide. But this one stood about 7 metres above the tide that cuts today’s platform below it. Marsh peat and buried shoreline plants showed when it had been lifted: about 1,000 years ago, and all at once, because there was no ladder of beaches in between, as there would be had the land risen slowly."
-    },
-    {
-     "type": "text",
-     "text": "Alki Point in West Seattle, just across the water, had a raised bench too. Others found the rest. At West Point on the Seattle shore and at Cultus Bay on Whidbey Island, Brian Atwater and Andrew Moore found a sheet of sand that a wave had washed over a marsh: a **tsunami**, a wave raised when the seafloor itself moves, in Puget Sound. And Gordon Jacoby and his colleagues counted rings in the drowned lake trees and in a tree buried by the tsunami sand at West Point. They had died in the same season, after one summer’s growth and before the next. In December 1992 five papers in the same issue of the journal *Science* put the pieces together: about 1,100 years ago, between about 900 and 930 CE, a large earthquake on the **Seattle fault** raised the land south of it, sent a tsunami up the Sound and shook the hillsides into Lake Washington.[^five]"
-    },
-    {
-     "type": "diagram",
-     "id": "map",
-     "caption": "Seattle, with the approximate line where the Seattle fault reaches the surface. Restoration Point and Alki rose; the tsunami sand is at West Point.",
-     "options": {
-      "relief": "maps/seattle",
-      "title": "The Seattle fault",
-      "ground": "height",
-      "water": 0,
-      "exaggeration": 3,
-      "alt": "A shaded relief map of Seattle with a red dashed line running east–west across Bainbridge Island’s south end, under the south of downtown and across Mercer Island. Restoration Point and Alki Point lie just south of it; West Point lies to the north.",
-      "labels": [
-       {
-        "lon": -122.483,
-        "lat": 47.584,
-        "text": "Restoration Point",
-        "side": "right"
-       },
-       {
-        "lon": -122.42,
-        "lat": 47.576,
-        "text": "Alki Point",
-        "side": "below"
-       },
-       {
-        "lon": -122.435,
-        "lat": 47.662,
-        "text": "West Point",
-        "side": "right"
-       },
-       {
-        "lon": -122.225,
-        "lat": 47.565,
-        "text": "Mercer Island",
-        "side": "left"
-       }
-      ],
-      "lines": [
-       {
-        "points": [
-         [
-          -122.5,
-          47.596
-         ],
-         [
-          -122.44,
-          47.59
-         ],
-         [
-          -122.38,
-          47.588
-         ],
-         [
-          -122.33,
-          47.585
-         ],
-         [
-          -122.27,
-          47.584
-         ],
-         [
-          -122.2,
-          47.58
-         ]
-        ],
-        "color": "heat",
-        "width": 3,
-        "dashed": true
-       }
-      ],
-      "scale": "right"
-     }
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "seattle-fault",
-     "caption": "A cross-section of the fault, south on the left. The heights are greatly exaggerated: the uplift was about 7 m, over a fault that goes down many kilometres.",
-     "task": "Run the quake until the wave reaches the north shore",
-     "goal": "raised",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Restoration Point’s wave-cut platform was raised about 7 m in one moment.",
-      "A tsunami sand at West Point and Cultus Bay, and tree rings that stopped in the same season, date the same event.",
-      "About 900–930 CE, the Seattle fault broke, raising the south side, sending a wave up the Sound and shaking slides into the lake."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "A thrust under the city",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The Seattle fault is a **thrust**: a fault that slopes down beneath the land, here to the south, along which the block above the slope (the south side) is pushed up and over the block below it (the north side; lesson 18). The plates around Washington squeeze the region north–south, and the Seattle fault is one of the places where that squeezing is taken up. South of it, the hills of West Seattle and Bainbridge have been lifted; north of it, under downtown, lies a deep basin filled with soft sediment."
-    },
-    {
-     "type": "text",
-     "text": "Lidar, which sees through forest (lesson 17), has since found low **scarps**, steps in the ground where a fault broke the surface, across Bainbridge Island. Trenches dug across them show earthquakes there more than once in the past few thousand years, though none since 900 CE was as big. A repeat, perhaps around magnitude 7, would start only a few to perhaps 20 kilometres down, right under the city, much closer than the deep earthquakes Seattle is used to, which start 50 kilometres or more down. That is why the city’s building codes, and its plans for the bridges and the waterfront, now take the fault into account."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The Seattle fault is a south-dipping thrust that takes up north–south squeezing.",
-      "Lidar scarps and trenches show earlier quakes; a repeat of 900 CE would strike right under the city."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on the Seattle fault",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "What made the drowned forests in Lake Washington?",
-        "choices": [
-         "Landslide blocks that slid into the lake with the trees still standing",
-         "A rise in the lake level that flooded a forest",
-         "Trees that fell in and sank upright"
-        ],
-        "answer": 0,
-        "why": "The trees stand on blocks of hillside that slid in during strong shaking."
-       },
-       {
-        "ask": "Why did the bench at Restoration Point show sudden uplift rather than slow rise?",
-        "choices": [
-         "There was one raised platform, with no ladder of beaches between it and today’s",
-         "It was cracked",
-         "It was covered in trees"
-        ],
-        "answer": 0,
-        "why": "Slow uplift would leave a series of beaches at many levels; one jump leaves a single raised platform."
-       },
-       {
-        "ask": "What did the tree rings show?",
-        "choices": [
-         "The drowned lake trees and a tree buried by the tsunami died in the same season",
-         "The trees were 10,000 years old",
-         "The trees died in a drought"
-        ],
-        "answer": 0,
-        "why": "All of them stopped growing between one summer and the next, so the events were the same."
-       },
-       {
-        "ask": "On a thrust fault that slopes down to the south, which side rises in a quake?",
-        "choices": [
-         "The south side",
-         "The north side",
-         "Neither"
-        ],
-        "answer": 0,
-        "why": "The upper block rides up the slope of the fault; here that is the south side, with Restoration Point and Alki on it."
-       },
-       {
-        "ask": "Why is the Seattle fault more dangerous to Seattle than many larger quakes elsewhere?",
-        "choices": [
-         "It is shallow and directly under the city",
-         "It is the biggest fault in the world",
-         "It happens every year"
-        ],
-        "answer": 0,
-        "why": "A shallow quake right under the city shakes it much harder than a bigger one far away or deep down."
-       }
+      "title": "Trees standing in the lake",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On the floor of Lake Washington, in water tens of metres deep, stand trees. They are Douglas firs, upright, some still with their bark, rooted not in the lake floor but in blocks of hillside that slid into the lake with the trees still standing on them. Divers had known about them for decades. In the 1980s and early 1990s, Robert Karlin and Sally Abella mapped the lake floor with sound and found the slides that carried them: several large landslides, all from the steep shores, all lying on the same layer of lake mud."
+        },
+        {
+          "type": "text",
+          "text": "Hillsides slide for many reasons, as the next lesson shows. But the radiocarbon dates of the trees clustered around 1,000 years ago, and several separate slides at once suggested a single cause. Something had shaken the whole lake."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Upright Douglas firs stand on the floor of Lake Washington, carried in on landslide blocks.",
+            "Several slides of the same age suggested one strong shaking about 1,000 years ago."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "Seven metres in a moment",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Across Puget Sound, at Restoration Point on the south end of Bainbridge Island, Robert Bucknam and his colleagues at the US Geological Survey looked at a flat bench of rock along the shore. It was a **wave-cut platform**, the kind of flat the waves grind into rock at the level of the tide. But this one stood about 7 metres above the tide that cuts today’s platform below it. Marsh peat and buried shoreline plants showed when it had been lifted: about 1,000 years ago, and all at once, because there was no ladder of beaches in between, as there would be had the land risen slowly."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Restoration Point, Bainbridge Island, from the air. The flat ground at its tip is a wave-cut platform, lifted about 7 metres in the Seattle fault earthquake about 1,100 years ago.",
+          "options": {
+            "photo": "restoration-point",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Alki Point in West Seattle, just across the water, had a raised bench too. Others found the rest. At West Point on the Seattle shore and at Cultus Bay on Whidbey Island, Brian Atwater and Andrew Moore found a sheet of sand that a wave had washed over a marsh: a **tsunami**, a wave raised when the seafloor itself moves, in Puget Sound. And Gordon Jacoby and his colleagues counted rings in the drowned lake trees and in a tree buried by the tsunami sand at West Point. They had died in the same season, after one summer’s growth and before the next. In December 1992 five papers in the same issue of the journal *Science* put the pieces together: about 1,100 years ago, between about 900 and 930 CE, a large earthquake on the **Seattle fault** raised the land south of it, sent a tsunami up the Sound and shook the hillsides into Lake Washington.[^five]"
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Seattle, with the approximate line where the Seattle fault reaches the surface. Restoration Point and Alki rose; the tsunami sand is at West Point.",
+          "options": {
+            "relief": "maps/seattle",
+            "title": "The Seattle fault",
+            "ground": "height",
+            "water": 0,
+            "exaggeration": 3,
+            "alt": "A shaded relief map of Seattle with a red dashed line running east–west across Bainbridge Island’s south end, under the south of downtown and across Mercer Island. Restoration Point and Alki Point lie just south of it; West Point lies to the north.",
+            "labels": [
+              {
+                "lon": -122.483,
+                "lat": 47.584,
+                "text": "Restoration Point",
+                "side": "right"
+              },
+              {
+                "lon": -122.42,
+                "lat": 47.576,
+                "text": "Alki Point",
+                "side": "below"
+              },
+              {
+                "lon": -122.435,
+                "lat": 47.662,
+                "text": "West Point",
+                "side": "right"
+              },
+              {
+                "lon": -122.225,
+                "lat": 47.565,
+                "text": "Mercer Island",
+                "side": "left"
+              }
+            ],
+            "lines": [
+              {
+                "points": [
+                  [
+                    -122.5,
+                    47.596
+                  ],
+                  [
+                    -122.44,
+                    47.59
+                  ],
+                  [
+                    -122.38,
+                    47.588
+                  ],
+                  [
+                    -122.33,
+                    47.585
+                  ],
+                  [
+                    -122.27,
+                    47.584
+                  ],
+                  [
+                    -122.2,
+                    47.58
+                  ]
+                ],
+                "color": "heat",
+                "width": 3,
+                "dashed": true
+              }
+            ],
+            "scale": "right"
+          }
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "seattle-fault",
+          "caption": "A cross-section of the fault, south on the left. The heights are greatly exaggerated: the uplift was about 7 m, over a fault that goes down many kilometres.",
+          "task": "Run the quake until the wave reaches the north shore",
+          "goal": "raised",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Restoration Point’s wave-cut platform was raised about 7 m in one moment.",
+            "A tsunami sand at West Point and Cultus Bay, and tree rings that stopped in the same season, date the same event.",
+            "About 900–930 CE, the Seattle fault broke, raising the south side, sending a wave up the Sound and shaking slides into the lake."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A thrust under the city",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Seattle fault is a **thrust**: a fault that slopes down beneath the land, here to the south, along which the block above the slope (the south side) is pushed up and over the block below it (the north side; lesson 18). The plates around Washington squeeze the region north–south, and the Seattle fault is one of the places where that squeezing is taken up. South of it, the hills of West Seattle and Bainbridge have been lifted; north of it, under downtown, lies a deep basin filled with soft sediment."
+        },
+        {
+          "type": "text",
+          "text": "Lidar, which sees through forest (lesson 17), has since found low **scarps**, steps in the ground where a fault broke the surface, across Bainbridge Island. Trenches dug across them show earthquakes there more than once in the past few thousand years, though none since 900 CE was as big. A repeat, perhaps around magnitude 7, would start only a few to perhaps 20 kilometres down, right under the city, much closer than the deep earthquakes Seattle is used to, which start 50 kilometres or more down. That is why the city’s building codes, and its plans for the bridges and the waterfront, now take the fault into account."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The Seattle fault is a south-dipping thrust that takes up north–south squeezing.",
+            "Lidar scarps and trenches show earlier quakes; a repeat of 900 CE would strike right under the city."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the Seattle fault",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "What made the drowned forests in Lake Washington?",
+                "choices": [
+                  "Landslide blocks that slid into the lake with the trees still standing",
+                  "A rise in the lake level that flooded a forest",
+                  "Trees that fell in and sank upright"
+                ],
+                "answer": 0,
+                "why": "The trees stand on blocks of hillside that slid in during strong shaking."
+              },
+              {
+                "ask": "Why did the bench at Restoration Point show sudden uplift rather than slow rise?",
+                "choices": [
+                  "There was one raised platform, with no ladder of beaches between it and today’s",
+                  "It was cracked",
+                  "It was covered in trees"
+                ],
+                "answer": 0,
+                "why": "Slow uplift would leave a series of beaches at many levels; one jump leaves a single raised platform."
+              },
+              {
+                "ask": "What did the tree rings show?",
+                "choices": [
+                  "The drowned lake trees and a tree buried by the tsunami died in the same season",
+                  "The trees were 10,000 years old",
+                  "The trees died in a drought"
+                ],
+                "answer": 0,
+                "why": "All of them stopped growing between one summer and the next, so the events were the same."
+              },
+              {
+                "ask": "On a thrust fault that slopes down to the south, which side rises in a quake?",
+                "choices": [
+                  "The south side",
+                  "The north side",
+                  "Neither"
+                ],
+                "answer": 0,
+                "why": "The upper block rides up the slope of the fault; here that is the south side, with Restoration Point and Alki on it."
+              },
+              {
+                "ask": "Why is the Seattle fault more dangerous to Seattle than many larger quakes elsewhere?",
+                "choices": [
+                  "It is shallow and directly under the city",
+                  "It is the biggest fault in the world",
+                  "It happens every year"
+                ],
+                "answer": 0,
+                "why": "A shallow quake right under the city shakes it much harder than a bigger one far away or deep down."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Upright firs stand on the lake floor.** They rode in on landslide blocks.",
+    "**The slides were one event.** They date to about the same time, about 1,000 years ago.",
+    "**Restoration Point jumped about 7 m.** One raised wave-cut platform, no beaches between.",
+    "**A tsunami crossed the Sound.** Sand washed over marshes at West Point and Cultus Bay.",
+    "**Tree rings tie it together.** Everything died in the same season, about 900–930 CE.",
+    "**The Seattle fault is a thrust.** It slopes south, and the south side rises.",
+    "**It will break again.** A repeat would strike directly under the city."
+  ],
+  "journal": [],
+  "footnotes": {
+    "five": {
+      "kind": "digression",
+      "title": "Five papers, one issue",
+      "text": "The December 1992 issue of Science carried papers by Bucknam, Hemphill-Haley and Leopold (the raised platform), Atwater and Moore (the tsunami), Jacoby, Williams and Buckley (the tree rings), Karlin and Abella (the lake slides), and Schuster, Logan and Pringle (rock avalanches in the Olympics). It is a rare case of a whole earthquake reconstructed at once from several independent kinds of evidence."
+    }
   }
- ],
- "summary": [
-  "**Upright firs stand on the lake floor.** They rode in on landslide blocks.",
-  "**The slides were one event.** They date to about the same time, about 1,000 years ago.",
-  "**Restoration Point jumped about 7 m.** One raised wave-cut platform, no beaches between.",
-  "**A tsunami crossed the Sound.** Sand washed over marshes at West Point and Cultus Bay.",
-  "**Tree rings tie it together.** Everything died in the same season, about 900–930 CE.",
-  "**The Seattle fault is a thrust.** It slopes south, and the south side rises.",
-  "**It will break again.** A repeat would strike directly under the city."
- ],
- "journal": [],
- "footnotes": {
-  "five": {
-   "kind": "digression",
-   "title": "Five papers, one issue",
-   "text": "The December 1992 issue of Science carried papers by Bucknam, Hemphill-Haley and Leopold (the raised platform), Atwater and Moore (the tsunami), Jacoby, Williams and Buckley (the tree rings), Karlin and Abella (the lake slides), and Schuster, Logan and Pringle (rock avalanches in the Olympics). It is a rare case of a whole earthquake reconstructed at once from several independent kinds of evidence."
-  }
- }
 }

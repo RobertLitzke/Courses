@@ -138,6 +138,15 @@
           "text": "So in 1872 Kelvin designed a machine to do the adding. Each constituent got a crank that turns once per period, set to its port's timing, and on the crank a pulley that rises and falls by that constituent's size. A single wire is fixed at one end, runs over the first moving pulley, under a fixed one, over the next moving pulley, and so on, and carries the pen at its free end. When a moving pulley rises it takes up a loop of wire, which pulls the free end and lifts the pen; when it falls it gives the wire back. Each pulley's movement passes straight along the wire, so the pen moves by the sum of all of them and draws the tide on a roll of paper as the handle turns."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Kelvin's first tide-predicting machine, built in 1872 and 1873, now in the Science Museum in London. Each pulley stands for one constituent; the wire over them carries the sum to the pen.",
+          "options": {
+            "photo": "kelvin-tide-machine",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "interactive_diagram",
           "id": "inequality-machine",
           "caption": "A tide-predicting machine with Seattle's four largest constituents. Each crank turns at its own constituent's rate, the wire over the pulleys adds their movements, and the pen draws the sum on paper that moves to the left.",
@@ -148,6 +157,15 @@
         {
           "type": "text",
           "text": "The first machine, built in 1872 and 1873, had ten cranks and could draw a year of tides for a port in a few hours. Others followed in several countries. The US Coast and Geodetic Survey's Tide Predicting Machine No. 2, a brass machine that added 37 constituents, made the country's tide tables, Seattle's among them, from about 1912 until the mid-1960s, when electronic computers took over the same sums.[^brass] The counts differ because more constituents only refine the sum: the four or five largest give Seattle's tide its shape, and the small ones adjust it by inches."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "US Tide Predicting Machine No. 2, Old Brass Brains, which made the country's tide tables from about 1912 until the mid-1960s.",
+          "options": {
+            "photo": "tide-machine-no2",
+            "aspect": 1.5
+          }
         },
         {
           "type": "diagram",
@@ -197,6 +215,15 @@
         {
           "type": "text",
           "text": "The zero of the tide tables, promised at the start, is **mean lower low water**: the average, over many years, of the lower of each day's two lows.[^datum] A low below it is a **minus tide**, and the lowest of them uncover sea stars, moon snails and eelgrass that are under water most of the year. Seattle's naturalists plan their summer around them, and in June and July the best come in the middle of the day. In December and January the same deep lows come in the middle of the night."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A summer minus tide on a Seattle beach: the water far out, the lower beach and its sea life uncovered for an hour or two.",
+          "options": {
+            "photo": "seattle-minus-tide",
+            "aspect": 1.5
+          }
         },
         {
           "type": "text",

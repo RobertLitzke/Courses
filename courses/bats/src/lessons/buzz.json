@@ -18,7 +18,11 @@
       "blocks": [
         {"type": "text", "text": "In the summers of the early 1950s Donald Griffin took his ultrasonic microphone outdoors. A dozen years earlier, as an undergraduate, he had carried a cage of bats to a physicist's detector and heard their calls for the first time; now, at Cornell University in upstate New York, he wanted to know what bats did with those calls when nobody was holding them. He set up beside ponds and over fields at dusk, and listened to wild bats hunting."},
         {"type": "text", "text": "A bat cruising over the water gave a steady patter of [[calls|call]], about ten a second. Every so often the patter quickened, ran together, and ended in a burst so fast that the separate ticks fused into one short rasp, like a zipper pulled shut. Then the bat went back to its patter. The bursts came when a bat swerved after something. Bat watchers have long known that a small pebble tossed into the air near a hunting bat draws the same burst: the bat turns after the pebble, then veers away. He called the sound the **feeding buzz**.[^griffin]"},
-        {"type": "text", "text": "More calls mean more frequent updates on where an insect is, so a bat might be expected to call fast all the time. It does not. It saves its fastest calling for the last fraction of a second, and the reason is how long sound takes to come back."}
+        {"type": "diagram", "id": "photo", "caption": "A big brown bat in flight, wings on the downstroke. Big brown bats hunt over ponds and along tree lines across North America, Seattle included.", "options": {"photo": "big-brown-bat-flight", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "More calls mean more frequent updates on where an insect is, so a bat might be expected to call fast all the time. It does not. It saves its fastest calling for the last fraction of a second, and the reason is how long sound takes to come back."
+        }
       ]
     },
     {
@@ -47,10 +51,14 @@
       "title": "A map of distance",
       "blocks": [
         {"type": "text", "text": "In the buzz a bat gets a fresh reading of range every five milliseconds or so, and something in its brain must turn each delay into a distance. The clearest picture of how the brain does this came from Nobuo Suga, at Washington University in St. Louis from the 1970s onward, working on the mustached bat, *Pteronotus parnellii*, an insect-eater of Central and South America and the Caribbean. Its call is a long steady tone followed by a short downward sweep, sounded in several harmonics at once: copies of the same call at two, three and four times its pitch.[^harmonics]"},
+        {"type": "diagram", "id": "photo", "caption": "The mustached bat, *Pteronotus parnellii*, whose brain gave the first map of range. It lives from Mexico to Brazil and in the Caribbean.", "options": {"photo": "mustached-bat", "aspect": 1.5}},
         {"type": "text", "text": "Suga and his colleagues played pairs of sounds to bats while recording from single cells in the **auditory cortex**, the part of the brain's outer layer that handles hearing: first a sweep like the bat's call, then a fainter sweep like its echo, with a gap between. Many cells ignored a call alone and an echo alone, and fired strongly to the pair only when the gap was right. One cell answered best to a gap of 2 ms, another to 8 ms. A gap of 2 ms is an object 34 cm away, so each such cell stands for a range."},
         {"type": "text", "text": "In 1979 Suga and William O'Neill showed that these **delay-tuned cells** are not scattered at random. Along a strip of cortex, cells tuned to short delays sit at one end and cells tuned to long delays at the other, from about 0.4 ms to 18 ms, objects from 7 cm to about 3 metres away. A target's distance becomes a place in the brain: which cells along the strip are firing."},
         {"type": "diagram", "id": "buzz-delay-map", "caption": "Delay-tuned cells as Suga found them in the mustached bat, much simplified. Each target sends back an echo after its own delay, and the cells tuned to that delay fire. The near end of the strip, short delays, is on the left.", "aspect_ratio": 1.72},
-        {"type": "text", "text": "In the buzz, as the moth closes, the firing slides along the strip toward the near end. Other strips of the same cortex hold cells tuned to small changes in the pitch of the echo, the Doppler shift of the next lesson, which tell the bat how fast a target is closing. Delay-tuned cells were found in the 1990s in big brown bats too, which do not make the mustached bat's harmonics, so this way of reading range is not one species' peculiarity."}
+        {
+          "type": "text",
+          "text": "In the buzz, as the moth closes, the firing slides along the strip toward the near end. Other strips of the same cortex hold cells tuned to small changes in the pitch of the echo, the Doppler shift of the next lesson, which tell the bat how fast a target is closing. Delay-tuned cells were found in the 1990s in big brown bats too, which do not make the mustached bat's harmonics, so this way of reading range is not one species' peculiarity."
+        }
       ]
     },
     {

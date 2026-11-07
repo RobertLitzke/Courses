@@ -18,7 +18,11 @@
       "title": "A plume off Port Angeles",
       "blocks": [
         {"type": "text", "text": "In September 2011 crews began taking apart two concrete dams on the Elwha River, on the north side of the Olympic Peninsula. Through 2012 the river below them ran the colour of milky coffee, and a brown plume spread from its mouth into the Strait of Juan de Fuca, a cloud of muddy water drifting out over the blue-grey sea, plain to see from the hills above Port Angeles and from satellites. Within a few years a new beach and a broad fan of sand and gravel had built out at the river mouth, where for decades there had been only a narrow, eroding strip of cobbles."},
-        {"type": "text", "text": "The mud, sand and gravel came out of the two lakes behind the dams, where the river had been dropping them for nearly a century. To see why it dropped them there, and why the same river that runs clear in August runs brown in November, start with what a river carries and what it takes to move a grain."}
+        {"type": "diagram", "id": "photo", "caption": "The Elwha's sediment plume spreading into the Strait of Juan de Fuca during the dam removal.", "options": {"photo": "elwha-plume", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "The mud, sand and gravel came out of the two lakes behind the dams, where the river had been dropping them for nearly a century. To see why it dropped them there, and why the same river that runs clear in August runs brown in November, start with what a river carries and what it takes to move a grain."
+        }
       ]
     },
     {
@@ -47,7 +51,11 @@
       "blocks": [
         {"type": "text", "text": "A river in August is mostly baseflow (lesson 3), low and slow, and clear. Its current is too slow to lift anything but the finest silt, and there is little to lift, because nothing new has reached the channel for weeks. The first big storms of autumn change both. The river rises from its August trickle, and lesson 2's discharge goes up tenfold or a hundredfold; deeper water also runs faster, so the current climbs Hjulström's chart into sand and then gravel. At the same time rain washes soil off bare ground and road cuts, floods undercut the banks, and in steep valleys saturated slopes slide, tipping fresh mud straight into the channel. November's brown is soil the storm has just delivered, carried by a current fast enough to keep it up."},
         {"type": "text", "text": "Glacier-fed rivers have a second colour. Under a moving glacier, stones frozen into the ice grind the bedrock to a powder of silt and clay called **glacial flour**. Meltwater carries it out mainly in summer, when the glaciers melt fastest, so rivers draining Mount Rainier, Mount Baker and the North Cascades run milky grey through July and August, even in dry weather. The flour is so fine that it barely settles even in still water. In Diablo Lake on the Skagit, the grains still hanging in the water scatter sunlight and turn the lake an opaque turquoise."},
-        {"type": "text", "text": "Volcanoes add their own supply. The rivers off Mount Rainier, the Puyallup, Carbon and White, carry so much sand and gravel from the mountain's loose slopes and old mudflows that their beds have been building upward for decades, raising the flood risk in the valleys below. The Geology course follows the mudflows themselves."}
+        {"type": "diagram", "id": "photo", "caption": "Diablo Lake on the Skagit, turned turquoise by glacial flour still hanging in the water.", "options": {"photo": "diablo-lake", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "Volcanoes add their own supply. The rivers off Mount Rainier, the Puyallup, Carbon and White, carry so much sand and gravel from the mountain's loose slopes and old mudflows that their beds have been building upward for decades, raising the flood risk in the valleys below. The Geology course follows the mudflows themselves."
+        }
       ]
     },
     {
@@ -57,19 +65,306 @@
         {"type": "text", "text": "A reservoir is a river slowed almost to stillness, and Hjulström's chart says what happens next. Where the Elwha's current died at the head of each lake, its gravel and sand dropped at once and built a delta out into the lake, and the finer silt settled over the lake floor beyond it. Only some of the finest mud got through. For close to a century the dams held back nearly all the river's sand and gravel. By the 2000s about 20 million cubic metres of sediment had piled up in the two lakes, enough to cover a football pitch nearly three kilometres deep. A cubic metre of it weighs about a tonne and a half, so that is something like 30 million tonnes."},
         {"type": "text", "text": "Below the dams the river was starved. With no new gravel coming down, floods kept carrying away what was in the channel and left it scoured to large cobbles. At the coast the waves kept taking sand away along the shore, and the river no longer replaced it. The beach at the mouth wore back to cobbles, and the long spit that shelters Port Angeles harbour, Ediz Hook, began to waste away (lesson 14). The dams also blocked salmon from all but the lowest 8 kilometres (5 miles) of the river, a story for the next course."},
         {"type": "text", "text": "After decades of pressure, much of it from the Lower Elwha Klallam Tribe, Congress passed a law in 1992 to restore the river, and in September 2011 both dams began to come down. Crews took them down in stages, cutting and blasting away a few metres of concrete at a time and then pausing, so the river could carry off the stored sediment gradually rather than all at once.[^condit] The Elwha Dam was gone by the spring of 2012. The last piece of Glines Canyon, at 64 metres (210 feet) the tallest dam ever removed until then, was blasted out in August 2014."},
-        {"type": "interactive_diagram", "id": "map-live", "caption": "The lower Elwha and the coast at Port Angeles, through four stages. The reservoirs and the plume are drawn roughly.", "task": "Press Play, or drag the step slider, through all four stages", "goal": "end", "aspect_ratio": 0.87, "options": {
-          "relief": "maps/elwha", "water": 0, "sun": {"azimuth": 315, "altitude": 35}, "scale": "right", "seconds": 8,
-          "labels": [
-            {"lon": -123.430, "lat": 48.116, "text": "Port Angeles", "side": "below"},
-            {"lon": -123.640, "lat": 48.160, "text": "Strait of Juan de Fuca", "area": true},
-            {"lon": -123.405, "lat": 48.141, "text": "Ediz Hook", "side": "above"}
-          ],
-          "stages": [
-            {"label": "Before 1913", "text": "The river carries sand and gravel down to its mouth, and waves move some of it east along the shore toward Ediz Hook.", "lines": [{"points": [[-123.552, 48.153], [-123.50, 48.151], [-123.46, 48.147]], "color": "flow", "width": 2.5}], "labels": [{"lon": -123.561, "lat": 48.147, "text": "Elwha mouth", "side": "left"}]},
-            {"label": "1913 to 2011", "text": "Two dams and their lakes trap the river's sand and gravel. The channel below them scours to cobbles, and the delta and the beach east of it wear back.", "areas": [{"points": [[-123.565, 48.094], [-123.575, 48.080], [-123.583, 48.066], [-123.578, 48.066], [-123.569, 48.080], [-123.559, 48.094]], "color": "water", "opacity": 0.8}, {"points": [[-123.608, 48.001], [-123.605, 47.990], [-123.601, 47.974], [-123.593, 47.974], [-123.597, 47.990], [-123.600, 48.001]], "color": "water", "opacity": 0.8}], "lines": [{"points": [[-123.567, 48.0935], [-123.553, 48.0935]], "color": "works", "width": 4}, {"points": [[-123.611, 48.0015], [-123.597, 48.0015]], "color": "works", "width": 4}], "labels": [{"lon": -123.553, "lat": 48.0935, "text": "Elwha Dam, 1913"}, {"lon": -123.597, "lat": 48.0015, "text": "Glines Canyon Dam, 1927"}, {"lon": -123.592, "lat": 48.072, "text": "Lake Aldwell", "side": "left"}, {"lon": -123.608, "lat": 47.982, "text": "Lake Mills", "side": "left"}]},
-            {"label": "2012", "text": "With the dams coming down, the river cuts into the old lake beds. The mud goes out to sea in a brown plume; the sand and gravel follow more slowly along the bed.", "areas": [{"points": [[-123.600, 48.155], [-123.566, 48.148], [-123.52, 48.150], [-123.48, 48.158], [-123.50, 48.168], [-123.56, 48.169], [-123.61, 48.166]], "color": "sediment", "opacity": 0.55}], "labels": [{"lon": -123.53, "lat": 48.160, "text": "brown plume", "area": true}]},
-            {"label": "2015", "text": "A new delta and sand beach have built out at the mouth, and some of the sand is drifting east toward Ediz Hook.", "areas": [{"points": [[-123.570, 48.1465], [-123.565, 48.1505], [-123.556, 48.1505], [-123.551, 48.1465]], "color": "sediment", "opacity": 0.7}], "lines": [{"points": [[-123.548, 48.152], [-123.50, 48.151], [-123.46, 48.147]], "color": "flow", "width": 2.5, "dashed": true}], "labels": [{"lon": -123.561, "lat": 48.1505, "text": "new delta", "side": "above"}]}
-          ]}}
+        {"type": "diagram", "id": "photo", "caption": "Glines Canyon Dam partly removed, with the drained bed of Lake Mills behind it.", "options": {
+          "photo": "glines-canyon-removal",
+          "aspect": 1.5}},
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "The lower Elwha and the coast at Port Angeles, through four stages. The reservoirs and the plume are drawn roughly.",
+          "task": "Press Play, or drag the step slider, through all four stages",
+          "goal": "end",
+          "aspect_ratio": 0.87,
+          "options": {
+            "relief": "maps/elwha",
+            "water": 0,
+            "sun": {
+              "azimuth": 315,
+              "altitude": 35
+            },
+            "scale": "right",
+            "seconds": 8,
+            "labels": [
+              {
+                "lon": -123.43,
+                "lat": 48.116,
+                "text": "Port Angeles",
+                "side": "below"
+              },
+              {
+                "lon": -123.64,
+                "lat": 48.16,
+                "text": "Strait of Juan de Fuca",
+                "area": true
+              },
+              {
+                "lon": -123.405,
+                "lat": 48.141,
+                "text": "Ediz Hook",
+                "side": "above"
+              }
+            ],
+            "stages": [
+              {
+                "label": "Before 1913",
+                "text": "The river carries sand and gravel down to its mouth, and waves move some of it east along the shore toward Ediz Hook.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.552,
+                        48.153
+                      ],
+                      [
+                        -123.5,
+                        48.151
+                      ],
+                      [
+                        -123.46,
+                        48.147
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 2.5
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -123.561,
+                    "lat": 48.147,
+                    "text": "Elwha mouth",
+                    "side": "left"
+                  }
+                ]
+              },
+              {
+                "label": "1913 to 2011",
+                "text": "Two dams and their lakes trap the river's sand and gravel. The channel below them scours to cobbles, and the delta and the beach east of it wear back.",
+                "areas": [
+                  {
+                    "points": [
+                      [
+                        -123.565,
+                        48.094
+                      ],
+                      [
+                        -123.575,
+                        48.08
+                      ],
+                      [
+                        -123.583,
+                        48.066
+                      ],
+                      [
+                        -123.578,
+                        48.066
+                      ],
+                      [
+                        -123.569,
+                        48.08
+                      ],
+                      [
+                        -123.559,
+                        48.094
+                      ]
+                    ],
+                    "color": "water",
+                    "opacity": 0.8
+                  },
+                  {
+                    "points": [
+                      [
+                        -123.608,
+                        48.001
+                      ],
+                      [
+                        -123.605,
+                        47.99
+                      ],
+                      [
+                        -123.601,
+                        47.974
+                      ],
+                      [
+                        -123.593,
+                        47.974
+                      ],
+                      [
+                        -123.597,
+                        47.99
+                      ],
+                      [
+                        -123.6,
+                        48.001
+                      ]
+                    ],
+                    "color": "water",
+                    "opacity": 0.8
+                  }
+                ],
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.567,
+                        48.0935
+                      ],
+                      [
+                        -123.553,
+                        48.0935
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 4
+                  },
+                  {
+                    "points": [
+                      [
+                        -123.611,
+                        48.0015
+                      ],
+                      [
+                        -123.597,
+                        48.0015
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 4
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -123.553,
+                    "lat": 48.0935,
+                    "text": "Elwha Dam, 1913"
+                  },
+                  {
+                    "lon": -123.597,
+                    "lat": 48.0015,
+                    "text": "Glines Canyon Dam, 1927"
+                  },
+                  {
+                    "lon": -123.592,
+                    "lat": 48.072,
+                    "text": "Lake Aldwell",
+                    "side": "left"
+                  },
+                  {
+                    "lon": -123.608,
+                    "lat": 47.982,
+                    "text": "Lake Mills",
+                    "side": "left"
+                  }
+                ]
+              },
+              {
+                "label": "2012",
+                "text": "With the dams coming down, the river cuts into the old lake beds. The mud goes out to sea in a brown plume; the sand and gravel follow more slowly along the bed.",
+                "areas": [
+                  {
+                    "points": [
+                      [
+                        -123.6,
+                        48.155
+                      ],
+                      [
+                        -123.566,
+                        48.148
+                      ],
+                      [
+                        -123.52,
+                        48.15
+                      ],
+                      [
+                        -123.48,
+                        48.158
+                      ],
+                      [
+                        -123.5,
+                        48.168
+                      ],
+                      [
+                        -123.56,
+                        48.169
+                      ],
+                      [
+                        -123.61,
+                        48.166
+                      ]
+                    ],
+                    "color": "sediment",
+                    "opacity": 0.55
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -123.53,
+                    "lat": 48.16,
+                    "text": "brown plume",
+                    "area": true
+                  }
+                ]
+              },
+              {
+                "label": "2015",
+                "text": "A new delta and sand beach have built out at the mouth, and some of the sand is drifting east toward Ediz Hook.",
+                "areas": [
+                  {
+                    "points": [
+                      [
+                        -123.57,
+                        48.1465
+                      ],
+                      [
+                        -123.565,
+                        48.1505
+                      ],
+                      [
+                        -123.556,
+                        48.1505
+                      ],
+                      [
+                        -123.551,
+                        48.1465
+                      ]
+                    ],
+                    "color": "sediment",
+                    "opacity": 0.7
+                  }
+                ],
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.548,
+                        48.152
+                      ],
+                      [
+                        -123.5,
+                        48.151
+                      ],
+                      [
+                        -123.46,
+                        48.147
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 2.5,
+                    "dashed": true
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -123.561,
+                    "lat": 48.1505,
+                    "text": "new delta",
+                    "side": "above"
+                  }
+                ]
+              }
+            ]
+          }
+        }
       ]
     },
     {

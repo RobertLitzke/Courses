@@ -22,6 +22,15 @@
           "text": "The shellfish growers of the South Sound work the tide. In the long, shallow inlets west of Olympia, at the southern end of Puget Sound, oysters and clams grow on flats that the water leaves bare at the lowest tides, and the crews go out on foot when it does, in summer often in the middle of the day. A gently sloping shore under a large tide uncovers a wide strip, and the tide here is large. Its **range**, the drop from an ordinary day's higher high water to its lower low water, is about 14.6 feet (4.5 m) at Olympia, at the head of Budd Inlet. At Port Townsend, where the Sound opens to the Strait of Juan de Fuca, the range is about 8.5 feet (2.6 m)."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Oyster beds on a South Sound inlet at low tide, where a range of about 14 feet leaves wide flats bare.",
+          "options": {
+            "photo": "south-sound-oyster-flats",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "That is backwards from what most people expect. All of Puget Sound's tide comes in from the Strait through **Admiralty Inlet**, the channel that starts beside Port Townsend and runs south past Whidbey Island. Nothing pulls harder on the South Sound than on the north; the Moon is the same Moon. Yet the water at the far end of this long dead-end sea rises and falls 1.7 times as much as the water at its entrance."
         },

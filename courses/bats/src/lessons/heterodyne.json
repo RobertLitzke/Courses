@@ -21,15 +21,23 @@
       "blocks": [
         {"type": "text", "text": "Stand on the path around a lake at dusk in July and the air over the water is full of bats, turning and dropping a metre above the surface. They are shouting. A hunting bat's call, measured ten centimetres in front of its mouth, can pass 120 decibels, as loud as a smoke alarm right beside your ear. Yet the lake is quiet. A small bat's calls are at 40,000 to 90,000 vibrations a second, written 40 to 90 **kilohertz** (kHz), and human hearing stops at about 20 kHz in a child and lower with every decade after.[^hearing]"},
         {"type": "text", "text": "Lesson 1 told how G. W. Pierce's apparatus at Harvard turned the calls of Donald Griffin's bats into clicks in 1938. Today a pocket box does the same job for less than a pair of binoculars, and most of the bat detectors carried on bat walks work the same way: the **heterodyne** detector. It does not record anything and does not slow anything down. It takes a call at 45 kHz and, as the bat flies, turns it into a tone at 3 kHz, using only a few components and a dial."},
-        {"type": "text", "text": "It is worth a minute's thought before reading on. Playing a recording slowly lowers its pitch, but a live sound cannot be slowed down without falling ever further behind the bat, so the detector needs some other way to turn one frequency into another."}
+        {"type": "diagram", "id": "photo", "caption": "A hand-held heterodyne bat detector. The dial on top sets the frequency it listens to.", "options": {"photo": "heterodyne-bat-detector", "aspect": 1.33}},
+        {
+          "type": "text",
+          "text": "It is worth a minute's thought before reading on. Playing a recording slowly lowers its pitch, but a live sound cannot be slowed down without falling ever further behind the bat, so the detector needs some other way to turn one frequency into another."
+        }
       ]
     },
     {
       "title": "Fessenden's whistle",
       "blocks": [
         {"type": "text", "text": "The answer was found for radio, nearly forty years before anyone listened to a bat. In 1901 Reginald Fessenden, a Canadian engineer working on wireless telegraphy, faced the same problem. A transmitter that sends a smooth, continuous radio wave is easier to build and tune than the spark transmitters of the day, but its wave oscillates tens of thousands of times a second or more, and switching it on and off for Morse code gives an operator's headphones nothing to sound but a faint thump at each dot and dash. His problem was the bat listener's in another form: a signal arriving far too fast for an ear or a headphone to follow."},
+        {"type": "diagram", "id": "photo", "caption": "Reginald Fessenden, who invented the heterodyne receiver and gave it its name.", "options": {"photo": "reginald-fessenden", "aspect": 0.8}},
         {"type": "text", "text": "Fessenden's idea was to make a second wave inside the receiver, at a slightly different frequency, and mix the two in a way the next part explains. Out of the mixing comes a new wave at the difference between them. Set the receiver's own wave 1,000 cycles a second away from the station's and the headphones sing at 1,000 cycles a second, a clear tone that starts and stops with the code. He called the method **heterodyne**, from the Greek for \"other\" and \"force\", and patented it in 1902.[^fessenden] It became practical once vacuum tubes could make a steady wave in the receiver, in the 1910s, and through Edwin Armstrong's superheterodyne of 1918 it went into most of the radio sets made in the twentieth century."},
-        {"type": "text", "text": "A heterodyne bat detector is Fessenden's receiver with a microphone in place of the aerial. The bat sends the wave; the detector makes the other one, at a frequency set by its dial."}
+        {
+          "type": "text",
+          "text": "A heterodyne bat detector is Fessenden's receiver with a microphone in place of the aerial. The bat sends the wave; the detector makes the other one, at a frequency set by its dial."
+        }
       ]
     },
     {
@@ -61,10 +69,14 @@
       "title": "A detector on the breadboard",
       "blocks": [
         {"type": "text", "text": "Every piece of a heterodyne detector is an ordinary part, and the whole thing fits on a small breadboard, the plug-in board for building circuits without solder that the Circuitry course uses throughout. In order from the bat:"},
+        {"type": "diagram", "id": "photo", "caption": "A solderless breadboard: parts push into rows of connected holes, so a circuit can be built and changed without a soldering iron.", "options": {"photo": "solderless-breadboard", "aspect": 1.5}},
         {"type": "diagram", "id": "het-blocks", "caption": "A heterodyne bat detector as six blocks, with the signal at each step for a 45 kHz call and the dial at 48 kHz. Purple marks the call, green what it becomes after mixing.", "aspect_ratio": 1.6},
         {"type": "text", "text": "The **microphone** has to hear ultrasound. Electret capsules, the cheap small microphones in headsets, are made for speech and lose sensitivity above about 20 kHz, but still pick up a loud bat at a few metres. MEMS microphones, etched into a silicon chip for phones, are sold on breakout boards (small circuit boards that bring a chip's tiny pins out to ones that plug into a breadboard), and some types hear well into bat frequencies; check the maker's figures before buying. The **preamplifier** is an op-amp or two, amplifiers on a chip. A bat a few metres away gives the microphone about a thousandth of a volt, far too little to drive anything, and the preamp raises it a hundred times or more; the op-amp has to be fast enough to do that at 50 kHz, which rules out the slowest old types."},
         {"type": "text", "text": "The **mixer** can be a single chip. The NE602, also sold as the SA612, was made for radio receivers and holds a multiplier and its own oscillator in eight pins; that oscillator, tuned by a variable capacitor, can serve as the dial, or the chip can take its wave from a separate oscillator. A cheaper route uses a CD4066 analogue switch, which connects and disconnects the signal in time with a **square wave**, a wave that jumps between two levels instead of rising and falling smoothly. Switching a signal on and off is multiplying it by one and zero, so the switch mixes too, though it also listens faintly at three times its dial.[^square] The **oscillator** for it can be a 555 timer or the voltage-controlled oscillator in a CD4046, whose frequency follows a voltage set by a potentiometer, which becomes the dial; it needs to cover about 15 to 100 kHz, which both chips manage. The Synthesizers course explains how such oscillators work. A resistor and a capacitor make the **low-pass filter**: 3.3 kilohms and 10 nanofarads put its cut-off near 5 kHz.[^rc] An LM386, a small amplifier chip that runs from a 9-volt battery, drives a speaker or headphones."},
-        {"type": "text", "text": "The dial needs marking in kilohertz, on a paper scale glued behind the knob. A multimeter whose frequency range reaches 100 kHz, clipped to the oscillator's output, does it in a few minutes: turn the knob in steps, read the frequency at each and mark it. Many cheap meters stop at 10 kHz; a frequency counter or an oscilloscope does the job instead."}
+        {
+          "type": "text",
+          "text": "The dial needs marking in kilohertz, on a paper scale glued behind the knob. A multimeter whose frequency range reaches 100 kHz, clipped to the oscillator's output, does it in a few minutes: turn the knob in steps, read the frequency at each and mark it. Many cheap meters stop at 10 kHz; a frequency counter or an oscilloscope does the job instead."
+        }
       ]
     },
     {

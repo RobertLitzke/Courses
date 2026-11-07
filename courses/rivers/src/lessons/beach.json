@@ -23,6 +23,15 @@
           "text": "Port Angeles has one of the best harbours on the Strait of Juan de Fuca, and it did not have to build it. A narrow, curving bar of sand and gravel called Ediz Hook reaches about 5 km (3 miles) east from the shore just west of town, and the harbour lies in its shelter. The Pacific swell that runs down the Strait breaks on its outer side. Inside, ships load in calm water. A road runs out along it, a mill stands at its base, and the Coast Guard flies its rescue helicopters from an air station at its tip."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Ediz Hook curving around Port Angeles harbour, seen from the air.",
+          "options": {
+            "photo": "ediz-hook-aerial",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "Through the twentieth century the Hook began to waste away. Its outer beach narrowed and storm waves ate at the road along its spine, and the people who depended on it feared it could be cut through. Since the 1970s the Army Corps of Engineers has lined its outer side with heavy rock and dumped gravel on its beach to make up for what the sea takes.[^corps]"
         },
@@ -248,7 +257,7 @@
               },
               {
                 "lon": -123.599,
-                "lat": 48.0,
+                "lat": 48,
                 "text": "Glines Canyon Dam",
                 "side": "right"
               }

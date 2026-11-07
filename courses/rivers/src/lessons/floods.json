@@ -65,8 +65,26 @@
           "text": "Nobody can measure width, depth and speed across a big river in flood every fifteen minutes. What a river gauge measures instead is the water's height, its **stage**, which is easy. A classic gauge is a small house on the bank over a well fed by a pipe from the river, so the water inside rises and falls with the river but without its waves, and a float in the well drives a recorder. Newer gauges sense the pressure of the water over a sensor on the bed, or bounce radar off the surface. The US Geological Survey runs thousands of them, and their readings, every fifteen minutes, go out over the internet within the hour.[^gauge]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A USGS stream gauge: the house on the bank holds the recorder, over a well or pressure line connected to the river.",
+          "options": {
+            "photo": "usgs-streamgage",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "Turning height into flow takes work by hand. Several times a year, and especially during floods, a **hydrographer**, as the people who measure rivers are called, goes out and measures the discharge the slow way, strip by strip across the river. The speed in each strip comes from a current meter, a small propeller or a sound sensor held in the water; the hydrographer wades across, or works from a bridge, a boat, or a cableway, a small car hung from a cable strung over the river. Each measurement gives one point: at this stage, this discharge. Enough points at enough stages make a **rating curve**, and from then on every reading of the gauge can be turned into a discharge. A river carves and fills its own bed, so the curve drifts, and the measuring never stops."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A USGS hydrographer measuring discharge from a cableway or by wading with a current meter.",
+          "options": {
+            "photo": "usgs-measuring",
+            "aspect": 1.5
+          }
         },
         {
           "type": "diagram",

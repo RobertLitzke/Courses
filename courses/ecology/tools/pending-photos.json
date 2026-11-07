@@ -30,21 +30,6 @@
   "search": "No free copy found on Commons (searched Nov 2026). The 1973 aerial is Fisheries and Oceans Canada's; ask IISD-ELA or redraw it as a figure, else drop the block."
  },
  {
-  "lesson": "glacier-bay",
-  "part": "A bay emptied by ice",
-  "after": "In 1916 the ecologist William S. Cooper, who had studied under Cowles, came to G",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "Muir Glacier in 1941 and the same view in 2004, from the same spot. The ice has gone and the slopes are green.",
-   "options": {
-    "photo": "muir-glacier-repeat",
-    "aspect": 1.5
-   }
-  },
-  "search": "Only half the pair is on Commons (searched Nov 2026): Molnia's 2004 view is File:Muir Glacier, 2004, Glacier Bay National Park & Preserve (6808651941).jpg (NPS, PD, 622 px). Field's 1941 view is on usgs.gov and nsidc.org, both behind a bot check: download it by hand as a { url, page, source, author, license } pick and join the two, or use the 2004 photo alone with a new caption."
- },
- {
   "lesson": "half",
   "part": "Squares in the forest",
   "after": "In the 1970s cattle ranches were being cut out of the Amazon rainforest north of",

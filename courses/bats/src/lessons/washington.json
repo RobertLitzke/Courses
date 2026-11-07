@@ -21,26 +21,114 @@
       "blocks": [
         {"type": "text", "text": "Camp below the basalt cliffs along the Columbia River in central Washington on a still night in July, and an hour after dark something overhead starts to tick: a sharp, high, metallic click, a few times a second, moving along the cliff and out over the sagebrush. It is a bat, and you are hearing its echolocation calls with your own ears. Nothing like it happens at Green Lake."},
         {"type": "text", "text": "The bat is a **spotted bat**, black with three white spots on its back and pink ears 4 to 5 cm long, the largest ears of any bat in North America. It calls near 10 kHz, low enough for human hearing, and hunts moths over open ground. It lives only on the dry side of the state, among cliffs and canyons. The Washington Department of Fish and Wildlife counts fifteen species of bat in the state, and the spotted bat is one of several that a Seattle bat watcher will never see at home."},
-        {"type": "text", "text": "The fifteen are eight Myotis (the little brown, Yuma, California, western small-footed, long-eared, long-legged, fringed and Keen's), and seven others: the big brown, silver-haired, hoary, Townsend's big-eared, pallid, spotted and canyon bats. The long-eared, long-legged and fringed myotis are forest and woodland bats, seldom seen and hard to tell from other Myotis, so this lesson leaves them aside. All of them eat insects or other small invertebrates, and all belong to one family, the Vespertilionidae, the evening bats."}
+        {"type": "diagram", "id": "photo", "caption": "A spotted bat, with its three white spots and enormous pink ears.", "options": {"photo": "spotted-bat", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "The fifteen are eight Myotis (the little brown, Yuma, California, western small-footed, long-eared, long-legged, fringed and Keen's), and seven others: the big brown, silver-haired, hoary, Townsend's big-eared, pallid, spotted and canyon bats. The long-eared, long-legged and fringed myotis are forest and woodland bats, seldom seen and hard to tell from other Myotis, so this lesson leaves them aside. All of them eat insects or other small invertebrates, and all belong to one family, the Vespertilionidae, the evening bats."
+        }
       ]
     },
     {
       "title": "Two Washingtons",
       "blocks": [
         {"type": "text", "text": "The Cascade Range divides Washington in two. Wet air from the Pacific drops its rain on the western slopes, so western Washington is forest: Douglas fir, western hemlock and red cedar, with lakes and rivers everywhere. East of the crest lies the rain shadow: shrub-steppe of sagebrush and bunchgrass, cut by canyons and coulees, steep-walled dry channels that the Ice Age floods scoured into the basalt, with pine forest on the mountain flanks. A few bats belong to one half only."},
+        {"type": "diagram", "id": "photo", "caption": "Basalt cliffs at Frenchman Coulee near Vantage, on the dry side of the Cascades.", "options": {"photo": "frenchman-coulee-basalt", "aspect": 1.6}},
         {"type": "text", "text": "Most of the fifteen live on both sides. The little brown, Yuma and big brown bats turn up from Seattle attics to barns near Spokane. But four belong to the dry east: the spotted bat; the **pallid bat**, pale cream with big ears, which lands to take crickets, beetles and even scorpions from the ground, finding them by the sound of the prey's footsteps, its own calls kept quiet;[^pallid] the **canyon bat**, the smallest bat in the state at 3 to 6 grams, against 5 to 9 for most Myotis, which often starts hunting before sunset; and the **western small-footed myotis** of rocky outcrops. One is known only from the west: **Keen's myotis**, found in Washington mainly in the old forests of the Olympic Peninsula, at the southern end of a range that runs up the coast to Alaska."},
-        {"type": "interactive_diagram", "id": "groups", "caption": "Ten of Washington's bats, by where in the state they live. Ranges are simplified; a few individuals turn up outside them.", "task": "Sort all ten", "goal": "sorted", "aspect_ratio": 1.5, "options": {"ask": "Where in Washington?", "groups": [{"name": "West only"}, {"name": "Dry east", "color": "fat"}, {"name": "Both sides", "color": "plant"}], "items": [
-          {"name": "Little brown myotis", "group": "Both sides", "clue": "attics, lakes", "why": "Statewide, from city attics to mountain lakes, wherever there is water and insects."},
-          {"name": "Spotted bat", "group": "Dry east", "clue": "cliffs, audible call", "why": "Basalt cliffs and canyons of the Columbia country; it needs cliff cracks to roost and open ground to hunt."},
-          {"name": "Keen's myotis", "group": "West only", "clue": "old forest", "why": "Known in Washington mainly from the Olympic Peninsula, at the south end of a range that runs up the coast to Alaska."},
-          {"name": "Big brown bat", "group": "Both sides", "clue": "buildings, beetles", "why": "One of the commonest bats in the state, in buildings, bridges and trees on both sides."},
-          {"name": "Pallid bat", "group": "Dry east", "clue": "ground hunter", "why": "Shrub-steppe and rock outcrops, where it hunts large insects and scorpions on the ground."},
-          {"name": "Hoary bat", "group": "Both sides", "clue": "tree foliage", "why": "A tree bat of forests across the state, roosting alone among leaves, most often seen as it migrates in late summer."},
-          {"name": "Canyon bat", "group": "Dry east", "clue": "tiny, early", "why": "Rocky canyons of the dry east, often flying before dark."},
-          {"name": "Yuma myotis", "group": "Both sides", "clue": "over water", "why": "Over lakes and rivers on both sides; the commonest bat over Seattle's lakes."},
-          {"name": "Western small-footed myotis", "group": "Dry east", "clue": "rock outcrops", "why": "Cliffs, talus and outcrops in dry country, roosting in rock crevices."},
-          {"name": "Townsend's big-eared bat", "group": "Both sides", "clue": "caves, mines", "why": "Caves, mines and old buildings on both sides of the mountains, wherever it can find a large, quiet space."}
-        ]}}
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A pallid bat, pale and big-eared, which hunts on the ground.",
+          "options": {
+            "photo": "pallid-bat",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Ten of Washington's bats, by where in the state they live. Ranges are simplified; a few individuals turn up outside them.",
+          "task": "Sort all ten",
+          "goal": "sorted",
+          "aspect_ratio": 1.5,
+          "options": {
+            "ask": "Where in Washington?",
+            "groups": [
+              {
+                "name": "West only"
+              },
+              {
+                "name": "Dry east",
+                "color": "fat"
+              },
+              {
+                "name": "Both sides",
+                "color": "plant"
+              }
+            ],
+            "items": [
+              {
+                "name": "Little brown myotis",
+                "group": "Both sides",
+                "clue": "attics, lakes",
+                "why": "Statewide, from city attics to mountain lakes, wherever there is water and insects."
+              },
+              {
+                "name": "Spotted bat",
+                "group": "Dry east",
+                "clue": "cliffs, audible call",
+                "why": "Basalt cliffs and canyons of the Columbia country; it needs cliff cracks to roost and open ground to hunt."
+              },
+              {
+                "name": "Keen's myotis",
+                "group": "West only",
+                "clue": "old forest",
+                "why": "Known in Washington mainly from the Olympic Peninsula, at the south end of a range that runs up the coast to Alaska."
+              },
+              {
+                "name": "Big brown bat",
+                "group": "Both sides",
+                "clue": "buildings, beetles",
+                "why": "One of the commonest bats in the state, in buildings, bridges and trees on both sides."
+              },
+              {
+                "name": "Pallid bat",
+                "group": "Dry east",
+                "clue": "ground hunter",
+                "why": "Shrub-steppe and rock outcrops, where it hunts large insects and scorpions on the ground."
+              },
+              {
+                "name": "Hoary bat",
+                "group": "Both sides",
+                "clue": "tree foliage",
+                "why": "A tree bat of forests across the state, roosting alone among leaves, most often seen as it migrates in late summer."
+              },
+              {
+                "name": "Canyon bat",
+                "group": "Dry east",
+                "clue": "tiny, early",
+                "why": "Rocky canyons of the dry east, often flying before dark."
+              },
+              {
+                "name": "Yuma myotis",
+                "group": "Both sides",
+                "clue": "over water",
+                "why": "Over lakes and rivers on both sides; the commonest bat over Seattle's lakes."
+              },
+              {
+                "name": "Western small-footed myotis",
+                "group": "Dry east",
+                "clue": "rock outcrops",
+                "why": "Cliffs, talus and outcrops in dry country, roosting in rock crevices."
+              },
+              {
+                "name": "Townsend's big-eared bat",
+                "group": "Both sides",
+                "clue": "caves, mines",
+                "why": "Caves, mines and old buildings on both sides of the mountains, wherever it can find a large, quiet space."
+              }
+            ]
+          }
+        }
       ]
     },
     {
@@ -82,9 +170,13 @@
       "blocks": [
         {"type": "text", "text": "Many of the crevices bats used are going: dead trees are cut, old barns come down, and attics are sealed. A **bat house** is a substitute crevice, a flat wooden box open at the bottom, and its design has been worked out by trial over decades, much of it by Bat Conservation International in the United States, which compared the houses that bats moved into with those they ignored."},
         {"type": "text", "text": "A good one is tall and narrow: chambers 50 to 80 cm tall and about 2 cm wide, so bats can crawl up and down to find the temperature they want. The wood inside is roughened or grooved, and a rough landing pad extends below the opening, because a bat lands and climbs in; it does not fly in like a bird. It goes on a pole or a building wall 3 to 5 metres up, clear of branches, where bats can drop from it into flight, cats cannot reach it and raccoons find it hard to. Water within a few hundred metres helps: a lake, a stream, a large pond."},
+        {"type": "diagram", "id": "photo", "caption": "A bat house on a pole in the open, high enough to be out of reach of cats.", "options": {"photo": "bat-house-on-pole", "aspect": 1}},
         {"type": "text", "text": "The hardest part is warmth. The houses that fill are the summer nurseries, and the mothers and pups in them do best at about 27 to 38 °C. A pup grows fast in a warm roost and slowly in a cool one, and a mother saves the energy she would spend keeping it warm. Paint matters: a black box absorbs nearly all the sunlight that falls on it, a white one about a quarter. In Seattle's mild summers that means a dark house in the sun for six hours or more; east of the mountains, where July afternoons pass 30 °C, the same house in full sun passes 40 °C inside, which can kill the bats, and a pale one is better."},
         {"type": "interactive_diagram", "id": "wa-house", "caption": "The temperature inside a bat house over a fair July day, by town, paint, what it is mounted on, hours of direct sun and height. A simple model of a single-chamber house; real houses vary with their wood and how many bats are inside.", "task": "Find a house a Seattle nursery colony could use", "goal": "warm", "aspect_ratio": 1.87},
-        {"type": "text", "text": "Even a good house may stand empty for a year or two before bats find it, and many never fill. They are most likely to be taken where bats are already common and short of roosts, such as near a building from which a colony has been excluded. A bat house on a tree trunk, in shade and within easy reach of predators, is a common mistake."}
+        {
+          "type": "text",
+          "text": "Even a good house may stand empty for a year or two before bats find it, and many never fill. They are most likely to be taken where bats are already common and short of roosts, such as near a building from which a colony has been excluded. A bat house on a tree trunk, in shade and within easy reach of predators, is a common mistake."
+        }
       ]
     },
     {

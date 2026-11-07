@@ -21,9 +21,22 @@
       "blocks": [
         {"type": "text", "text": "About 20 km upstream of the town of The Dalles, Oregon, the Columbia used to fall over a ledge of black basalt. It was all of the river at once: the water gathered from British Columbia, Montana, Idaho and most of Washington and Oregon, dropping into a jumble of channels and eddies cut in the rock. The people who lived beside it called the falls Wyam. Most maps called them Celilo Falls."},
         {"type": "text", "text": "Salmon heading upriver to spawn had to get past the falls, and they gathered in the eddies below them to rest before they tried. Fishers stood on wooden platforms built out over the white water and swept long-handled dip nets through those eddies. How long people have fished here is told by a dig at Five Mile Rapids, a few kilometres downstream of the falls, where salmon bones lie in layers about ten thousand years old. Celilo itself was a fishing and trading place for the peoples of the river for as long as anyone's records and stories reach.[^treaty]"},
+        {"type": "diagram", "id": "photo", "caption": "Fishing from wooden platforms at Celilo Falls with long-handled dip nets, before 1957.", "options": {"photo": "celilo-platforms", "aspect": 1.5}},
         {"type": "text", "text": "In 1855 the Yakama, the Warm Springs, the Umatilla and the Nez Perce nations signed treaties with the United States. They gave up most of their land, and the treaties promised in writing that they kept the right to fish \"at all usual and accustomed places\": wherever they had always fished, on or off their reservations. Celilo was the best known of those places. A century later it was still fished the same way, from platforms, with dip nets, by families who had fished it for generations."},
         {"type": "text", "text": "On 10 March 1957 the Army Corps of Engineers closed the gates of The Dalles Dam, which stands just upstream of the town and about 15 km downstream of the falls. Crowds gathered on the banks to watch, many of them families who fished there. Through the day the water below the falls rose to meet the water above, the noise of the falls faded, and by evening Celilo was under a lake."},
-        {"type": "text", "text": "Two things about this are puzzling. The dam was 15 km away, yet it drowned the falls in a day. And the falls had a habit of shrinking every summer, long before any dam was built. The second puzzle is the place to start, and it answers the first."}
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Dalles Dam, whose lake has covered Celilo Falls since 10 March 1957.",
+          "options": {
+            "photo": "the-dalles-dam",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Two things about this are puzzling. The dam was 15 km away, yet it drowned the falls in a day. And the falls had a habit of shrinking every summer, long before any dam was built. The second puzzle is the place to start, and it answers the first."
+        }
       ]
     },
     {
@@ -43,7 +56,11 @@
         {"type": "text", "text": "Put enough dams in a row and each lake reaches back to the foot of the next dam. The river becomes a stair: flat treads of still water, with the whole drop taken in steps at the dams, where it turns the turbines.[^power] Eleven dams now stand on the Columbia between the border and the tide, the lowest of them Bonneville. The figure adds them in the years they filled, and the slider under it runs through the years from 1930 to 1975."},
         {"type": "interactive_diagram", "id": "celilo-stair", "caption": "The Columbia from the sea to the Canadian border, as the dams went in, drawn as height against distance. The heights are stretched about 1,400 times against the distances, so the steps look like cliffs; really the river slopes gently. Pool heights are rounded, and the river between dam sites is drawn as a straight slope, so the old falls at Celilo is marked with a dot.", "task": "Guess how much of the river above the tide still runs free, then play the years to 1975", "goal": "end", "aspect_ratio": 1.69},
         {"type": "text", "text": "Bonneville, in the Columbia Gorge, came first of the big dams, in 1938, and was built with fish ladders: staircases of pools that salmon can climb one pool at a time.[^ladders] Grand Coulee, finished in 1942, is the tallest step, about 100 m from its lake down to the river below, and the largest power station in the United States. A ladder that high was beyond anything built then, and Grand Coulee was built with no way for salmon to pass. The runs to the upper Columbia and into Canada ended there. Its lake, Lake Roosevelt, runs about 240 km back to the border, and as it filled it drowned Kettle Falls, another great fishing place of the upper river.[^kettle]"},
-        {"type": "text", "text": "The Snake, the Columbia's biggest tributary, joins it at the Tri-Cities, inside the lake behind McNary Dam. By 1968, when John Day Dam filled the last gap between the Gorge and the Snake, the treads met almost everywhere. Of the roughly 960 km of the Columbia above the tide in the United States, the only stretch still running as a river is the Hanford Reach, about 80 km between Priest Rapids Dam and the head of the lake behind McNary. The dams on the Snake and in Canada are not drawn here; they are steps on the same stair."}
+        {"type": "diagram", "id": "photo", "caption": "Grand Coulee Dam, the tallest step on the Columbia, finished in 1942.", "options": {"photo": "grand-coulee", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "The Snake, the Columbia's biggest tributary, joins it at the Tri-Cities, inside the lake behind McNary Dam. By 1968, when John Day Dam filled the last gap between the Gorge and the Snake, the treads met almost everywhere. Of the roughly 960 km of the Columbia above the tide in the United States, the only stretch still running as a river is the Hanford Reach, about 80 km between Priest Rapids Dam and the head of the lake behind McNary. The dams on the Snake and in Canada are not drawn here; they are steps on the same stair."
+        }
       ]
     },
     {

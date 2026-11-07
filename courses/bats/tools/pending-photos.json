@@ -1,932 +1,137 @@
 [
-  {
-    "lesson": "buzz",
-    "part": "A zipper in the dark",
-    "after": "A bat cruising over the water gave a steady patter of [[calls|call]], about ten ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A big brown bat in flight, wings on the downstroke. Big brown bats hunt over ponds and along tree lines across North America, Seattle included.",
-      "options": {
-        "photo": "big-brown-bat-flight",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Eptesicus fuscus (flight shots; USFWS and NPS images there are public domain). Flickr CC BY: 'big brown bat flight'. Unverified which files exist."
+ {
+  "lesson": "buzz",
+  "part": "Search, approach, buzz",
+  "after": "Once an echo shows something worth chasing, typically a moth at 5 to 10 m, the b",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A bat in the last moment of a catch, its tail membrane curled forward to scoop the insect.",
+   "options": {
+    "photo": "bat-catching-insect",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "buzz",
-    "part": "Search, approach, buzz",
-    "after": "Once an echo shows something worth chasing, typically a moth at 5 to 10 m, the b",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A bat in the last moment of a catch, its tail membrane curled forward to scoop the insect.",
-      "options": {
-        "photo": "bat-catching-insect",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, search 'bat catching insect', 'Myotis catching moth', Category:Bats in flight; Flickr CC BY/BY-SA 'bat catching moth' (high-speed flash shots). Unverified."
+  "search": "Wikimedia Commons, search 'bat catching insect', 'Myotis catching moth', Category:Bats in flight; Flickr CC BY/BY-SA 'bat catching moth' (high-speed flash shots). Unverified."
+ },
+ {
+  "lesson": "buzz",
+  "part": "A zipper in the dark",
+  "after": "In the summers of the early 1950s Donald Griffin took his ultrasonic microphone ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Donald Griffin, who first heard bats' ultrasonic calls as a student and later named the feeding buzz.",
+   "options": {
+    "photo": "donald-griffin",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "buzz",
-    "part": "A map of distance",
-    "after": "In the buzz a bat gets a fresh reading of range every five milliseconds or so, a",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The mustached bat, *Pteronotus parnellii*, whose brain gave the first map of range. It lives from Mexico to Brazil and in the Caribbean.",
-      "options": {
-        "photo": "mustached-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Pteronotus parnellii (or Pteronotus mesoamericanus after the split); iNaturalist CC BY photos of Pteronotus. Unverified."
+  "search": "Wikimedia Commons 'Donald Griffin' (Category:Donald Griffin, zoologist); Smithsonian Open Access. Unverified that a free photo exists; skip if none."
+ },
+ {
+  "lesson": "crowds",
+  "part": "A ring on the radar",
+  "after": "Bracken Cave lies in the dry limestone hills north-east of San Antonio, Texas. E",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Bats leaving caves near San Antonio, as they appeared on the National Weather Service radar one summer evening.",
+   "options": {
+    "photo": "nexrad-bat-emergence",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "buzz",
-    "part": "A zipper in the dark",
-    "after": "In the summers of the early 1950s Donald Griffin took his ultrasonic microphone ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Donald Griffin, who first heard bats' ultrasonic calls as a student and later named the feeding buzz.",
-      "options": {
-        "photo": "donald-griffin",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons 'Donald Griffin' (Category:Donald Griffin, zoologist); Smithsonian Open Access. Unverified that a free photo exists; skip if none."
+  "search": "NOAA/NWS public domain: NWS Austin/San Antonio (EWX) pages or NOAA Weather and Climate Toolkit images of 'bat emergence radar'; Wikimedia Commons search 'NEXRAD bats'. Unverified; use only a NOAA/NWS image."
+ },
+ {
+  "lesson": "diets",
+  "part": "Other menus",
+  "after": "A few eat larger animals. The greater bulldog bat of tropical America, *Noctilio",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A greater bulldog bat, Noctilio leporinus, trailing its long clawed feet through the water to gaff a fish.",
+   "options": {
+    "photo": "greater-bulldog-bat-fishing",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "crowds",
-    "part": "A ring on the radar",
-    "after": "Toward evening the bats begin to spiral up out of the cave mouth in a dense colu",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Mexican free-tailed bats pouring out of Bracken Cave, Texas, at dusk.",
-      "options": {
-        "photo": "bracken-cave-emergence",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Bracken Cave (USFWS photos of the emergence are public domain); Flickr CC BY 'Bracken Cave bats'. Unverified file names."
+  "search": "Commons: Category:Noctilio leporinus (flight or fishing photos; check licence). Flickr CC BY \"Noctilio leporinus fishing\". Unverified."
+ },
+ {
+  "lesson": "diets",
+  "part": "Flowers that open at night",
+  "after": "The bat hovers, pushes its head into a cluster of flowers and laps, and comes aw",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A lesser long-nosed bat at an agave flower, its face dusted with pollen.",
+   "options": {
+    "photo": "lesser-long-nosed-bat-agave",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "crowds",
-    "part": "A ring on the radar",
-    "after": "Every one of those bats is calling. A free-tailed bat in open air gives long, ne",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A Mexican free-tailed bat, *Tadarida brasiliensis*: long narrow wings for fast flight in open air, and a tail that sticks out beyond the membrane.",
-      "options": {
-        "photo": "mexican-free-tailed-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Tadarida brasiliensis (USFWS and NPS portraits, public domain)."
+  "search": "USFWS public domain photos on Commons, e.g. Category:Leptonycteris yerbabuenae (\"Lesser long-nosed bat feeding on agave\", Merlin Tuttle? check licence: Tuttle photos are usually NOT free; prefer USFWS/NPS). Unverified."
+ },
+ {
+  "lesson": "heterodyne",
+  "part": "Loud, and silent",
+  "after": "Stand on the path around a lake at dusk in July and the air over the water is fu",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Myotis hunting low over water at dusk, calling far above the range of human hearing.",
+   "options": {
+    "photo": "myotis-in-flight-over-water",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "crowds",
-    "part": "A ring on the radar",
-    "after": "Bracken Cave lies in the dry limestone hills north-east of San Antonio, Texas. E",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Bats leaving caves near San Antonio, as they appeared on the National Weather Service radar one summer evening.",
-      "options": {
-        "photo": "nexrad-bat-emergence",
-        "aspect": 1.5
-      }
-    },
-    "search": "NOAA/NWS public domain: NWS Austin/San Antonio (EWX) pages or NOAA Weather and Climate Toolkit images of 'bat emergence radar'; Wikimedia Commons search 'NEXRAD bats'. Unverified; use only a NOAA/NWS image."
+  "search": "Wikimedia Commons: Category:Myotis daubentonii in flight or Category:Myotis lucifugus (flight shots); USFWS photos on Commons are public domain; Flickr CC BY: 'Myotis flight'. Unverified."
+ },
+ {
+  "lesson": "sonograms",
+  "part": "A picture of sound",
+  "after": "Hearing a slowed call is a start, but bat workers read calls by eye. The picture",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A sound spectrograph of the kind Bell Labs built in the 1940s, drawing speech as a picture.",
+   "options": {
+    "photo": "sound-spectrograph-bell-labs",
+    "aspect": 1.33
+   }
   },
-  {
-    "lesson": "crowds",
-    "part": "A bat that sings flat",
-    "after": "To most bats 2.4 kHz hardly matters. A big brown bat's call sweeps across tens o",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A greater horseshoe bat, *Rhinolophus ferrumequinum*. The horseshoe-shaped flaps around its nostrils shape the beam of a call sent out through the nose.",
-      "options": {
-        "photo": "greater-horseshoe-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Rhinolophus ferrumequinum (several CC BY-SA portraits, e.g. by Gilles San Martin on Flickr CC BY-SA). Unverified file names."
+  "search": "Wikimedia Commons: Category:Spectrographs (sound) or 'Kay Sona-Graph' photos; Smithsonian Open Access 'sound spectrograph'. Unverified; skip if nothing licensed."
+ },
+ {
+  "lesson": "winter",
+  "part": "A fungus that likes the cold",
+  "after": "The disease it causes is called **white-nose syndrome** after the fuzz on the mu",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A little brown bat's wing held up to ultraviolet light: the glowing spots are pits where the white-nose fungus has eaten into the skin. US Geological Survey photograph.",
+   "options": {
+    "photo": "white-nose-wing-damage",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "dark",
-    "part": "Pavia, 1793",
-    "after": "In the summer of 1793 Lazzaro Spallanzani, professor of natural history at the U",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Lazzaro Spallanzani, professor of natural history at Pavia, in a portrait engraving.",
-      "options": {
-        "photo": "lazzaro-spallanzani",
-        "aspect": 0.8
-      }
-    },
-    "search": "Wikimedia Commons, Category:Lazzaro Spallanzani (old engravings and paintings, public domain). Unverified which file is best; prefer a clean engraving."
+  "search": "USGS National Wildlife Health Center or Commons 'White-nose syndrome UV fluorescence' (Turner et al. 2014, USGS, public domain); or USFWS 'wing damage from white-nose syndrome'. Unverified."
+ },
+ {
+  "lesson": "winter",
+  "part": "From Albany to North Bend",
+  "after": "On 11 March 2016 hikers near North Bend, on the edge of the Cascades in King Cou",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The little brown bat found near North Bend, Washington, in March 2016, the first case of white-nose syndrome in western North America.",
+   "options": {
+    "photo": "washington-wns-bat",
+    "aspect": 1.5
+   }
   },
-  {
-    "lesson": "dark",
-    "part": "Cuvier's sixth sense",
-    "after": "They preferred an idea put forward in Paris by Georges Cuvier, the most respecte",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Georges Cuvier, the anatomist whose idea of touch at a distance stood for more than a century.",
-      "options": {
-        "photo": "georges-cuvier",
-        "aspect": 0.8
-      }
-    },
-    "search": "Wikimedia Commons, Category:Georges Cuvier (portraits, public domain), e.g. the portrait by Mathieu-Ignace van Brée. Unverified file names."
-  },
-  {
-    "lesson": "dark",
-    "part": "Harvard, 1938",
-    "after": "In 1938 one existed. G. W. Pierce, a physicist at Harvard, had built a detector ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A little brown bat, the species Griffin carried to Pierce's laboratory, held in a gloved hand for banding.",
-      "options": {
-        "photo": "little-brown-bat-hand",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Myotis lucifugus (USFWS and NPS photos are public domain; look for 'little brown bat' in a gloved hand or on a band survey). Flickr USFWS Headquarters / USFWS Midwest (public domain or CC BY). Unverified."
-  },
-  {
-    "lesson": "dark",
-    "part": "Blind as a bat?",
-    "after": "Nor does every bat echolocate. The big fruit bats and flying foxes of the Old Wo",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "An Egyptian fruit bat, one of the rousette bats that echolocate with tongue clicks. Like other fruit bats it has large eyes.",
-      "options": {
-        "photo": "egyptian-fruit-bat-eyes",
-        "aspect": 1.33
-      }
-    },
-    "search": "Wikimedia Commons, Category:Rousettus aegyptiacus (several CC BY-SA close-ups showing the eyes). Unverified."
-  },
-  {
-    "lesson": "diets",
-    "part": "A gift of blood",
-    "after": "Many came home heavy. A few came home light, having found no animal to bite or b",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Common vampire bats, Desmodus rotundus, in a roost. They spend the day packed together in hollow trees, caves and old buildings.",
-      "options": {
-        "photo": "common-vampire-bat-roost",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons: Category:Desmodus rotundus (roost or group photos; several CC BY / CC BY-SA). Also USFWS or Smithsonian Open Access \"Desmodus rotundus\". Unverified file names."
-  },
-  {
-    "lesson": "diets",
-    "part": "Living on blood",
-    "after": "A common vampire usually lands on the ground beside a sleeping animal and walks,",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The face of a common vampire bat: the short, flattened nose with its heat-sensing pits, and the blade-like upper incisors.",
-      "options": {
-        "photo": "common-vampire-bat-face",
-        "aspect": 1.33
-      }
-    },
-    "search": "Commons: Category:Desmodus rotundus, a close-up of the face showing nose leaf and incisors (e.g. Uwe Schmidt photos, CC BY-SA, unverified). iNaturalist CC BY research-grade Desmodus rotundus close-ups."
-  },
-  {
-    "lesson": "diets",
-    "part": "Other menus",
-    "after": "A few eat larger animals. The greater bulldog bat of tropical America, *Noctilio",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A greater bulldog bat, Noctilio leporinus, trailing its long clawed feet through the water to gaff a fish.",
-      "options": {
-        "photo": "greater-bulldog-bat-fishing",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons: Category:Noctilio leporinus (flight or fishing photos; check licence). Flickr CC BY \"Noctilio leporinus fishing\". Unverified."
-  },
-  {
-    "lesson": "diets",
-    "part": "Flowers that open at night",
-    "after": "The bat hovers, pushes its head into a cluster of flowers and laps, and comes aw",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A lesser long-nosed bat at an agave flower, its face dusted with pollen.",
-      "options": {
-        "photo": "lesser-long-nosed-bat-agave",
-        "aspect": 1.5
-      }
-    },
-    "search": "USFWS public domain photos on Commons, e.g. Category:Leptonycteris yerbabuenae (\"Lesser long-nosed bat feeding on agave\", Merlin Tuttle? check licence: Tuttle photos are usually NOT free; prefer USFWS/NPS). Unverified."
-  },
-  {
-    "lesson": "diets",
-    "part": "Flowers that open at night",
-    "after": "Tequila is distilled from one agave, the blue agave of Jalisco. Growers do not l",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A field of blue agave near Tequila, Jalisco. Every plant is a clone, and none is allowed to flower.",
-      "options": {
-        "photo": "blue-agave-field-jalisco",
-        "aspect": 1.78
-      }
-    },
-    "search": "Commons: Category:Agave tequilana or Category:Agave Landscape and Ancient Industrial Facilities of Tequila (World Heritage site; many CC BY-SA field photos)."
-  },
-  {
-    "lesson": "green-lake",
-    "part": "Twenty minutes after sunset",
-    "after": "Green Lake fills a hollow left by the ice sheet in north Seattle, about a kilome",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Green Lake in north Seattle at dusk.",
-      "options": {
-        "photo": "green-lake-dusk",
-        "aspect": 1.6
-      }
-    },
-    "search": "Wikimedia Commons: Category:Green Lake (Seattle) (sunset or evening views, CC BY-SA); Seattle Municipal Archives Flickr for older views. Likely to exist."
-  },
-  {
-    "lesson": "green-lake",
-    "part": "Two layers",
-    "after": "The high, early bats are mostly **big brown bats** and **silver-haired bats**, w",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A big brown bat in flight, one of the first bats out over Seattle's lakes.",
-      "options": {
-        "photo": "big-brown-bat-flight",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Eptesicus fuscus (flight shots; USFWS/NPS public domain); Flickr CC BY 'big brown bat flight'. Unverified."
-  },
-  {
-    "lesson": "green-lake",
-    "part": "What comes out of the lake",
-    "after": "For the Yuma and the little brown the answer is mostly **midges**, the small fli",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A non-biting midge, family Chironomidae: the feathery antennae mark a male.",
-      "options": {
-        "photo": "chironomid-midge",
-        "aspect": 1.33
-      }
-    },
-    "search": "Wikimedia Commons: Category:Chironomidae (many macro photos, CC BY-SA), e.g. Chironomus plumosus male. Likely to exist."
-  },
-  {
-    "lesson": "green-lake",
-    "part": "The season",
-    "after": "In late summer the **hoary bat** comes through, the heaviest bat in Washington a",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A hoary bat roosting alone among leaves, its frosted fur blending with bark and lichen.",
-      "options": {
-        "photo": "hoary-bat-roosting",
-        "aspect": 1.33
-      }
-    },
-    "search": "Wikimedia Commons: Category:Lasiurus cinereus (USGS/USFWS public domain; a different file from hoary-bat in L2). Unverified."
-  },
-  {
-    "lesson": "hand",
-    "part": "A fossil from Wyoming",
-    "after": "They named it *Onychonycteris finneyi*, the clawed bat, because it had a claw on",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "*Onychonycteris finneyi*, about 52 million years old, from the Green River Formation of Wyoming: the earliest bat known from a whole skeleton.",
-      "options": {
-        "photo": "onychonycteris-fossil",
-        "aspect": 1.0
-      }
-    },
-    "search": "Wikimedia Commons, Category:Onychonycteris (photos of the ROM cast or specimen, CC BY or CC BY-SA). Unverified; check the licence."
-  },
-  {
-    "lesson": "hand",
-    "part": "A hand for a wing",
-    "after": "Between the fingers, and from the last finger back to the leg, runs the flying s",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A bat's wing spread against the light, showing the long finger bones and the thin living skin between them.",
-      "options": {
-        "photo": "bat-wing-backlit",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, search 'bat wing bones', 'bat wing translucent', 'Fledermausflügel'; USFWS photos of spread wings during white-nose syndrome checks (public domain, e.g. wing damage surveys). Unverified."
-  },
-  {
-    "lesson": "hand",
-    "part": "One mammal in five",
-    "after": "There are about 1,480 species of bat, and new ones are named every year. Out of ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Flying foxes roosting by day, the largest bats, with wings up to a metre and a half across.",
-      "options": {
-        "photo": "flying-fox-roost",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Pteropus (roost photos, CC BY-SA), e.g. Pteropus giganteus or Pteropus poliocephalus colonies. Unverified."
-  },
-  {
-    "lesson": "hand",
-    "part": "Wings for clutter, wings for sky",
-    "after": "The long-eared myotis, a 6 g bat of western forests, sits low on both counts, wi",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A hoary bat, the largest bat in Washington, with long narrow wings for fast flight in open sky.",
-      "options": {
-        "photo": "hoary-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Lasiurus cinereus (USFWS and NPS photos public domain; Paul Cryan USGS photos public domain). Unverified."
-  },
-  {
-    "lesson": "hand",
-    "part": "Wings for clutter, wings for sky",
-    "after": "The long-eared myotis, a 6 g bat of western forests, sits low on both counts, wi",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A long-eared myotis, a small gleaner of western forests, with short broad wings and huge ears.",
-      "options": {
-        "photo": "long-eared-myotis",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Myotis evotis (NPS or USFWS photos, public domain). Unverified."
-  },
-  {
-    "lesson": "heterodyne",
-    "part": "Loud, and silent",
-    "after": "Stand on the path around a lake at dusk in July and the air over the water is fu",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A Myotis hunting low over water at dusk, calling far above the range of human hearing.",
-      "options": {
-        "photo": "myotis-in-flight-over-water",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Myotis daubentonii in flight or Category:Myotis lucifugus (flight shots); USFWS photos on Commons are public domain; Flickr CC BY: 'Myotis flight'. Unverified."
-  },
-  {
-    "lesson": "heterodyne",
-    "part": "Loud, and silent",
-    "after": "Lesson 1 told how G. W. Pierce's apparatus at Harvard turned the calls of Donald",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A hand-held heterodyne bat detector. The dial on top sets the frequency it listens to.",
-      "options": {
-        "photo": "heterodyne-bat-detector",
-        "aspect": 1.33
-      }
-    },
-    "search": "Wikimedia Commons: Category:Bat detectors (e.g. files of Magenta or Batbox heterodyne detectors). Unverified."
-  },
-  {
-    "lesson": "heterodyne",
-    "part": "Fessenden's whistle",
-    "after": "The answer was found for radio, nearly forty years before anyone listened to a b",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Reginald Fessenden, who invented the heterodyne receiver and gave it its name.",
-      "options": {
-        "photo": "reginald-fessenden",
-        "aspect": 0.8
-      }
-    },
-    "search": "Wikimedia Commons: Category:Reginald Fessenden (portraits around 1906, public domain). Likely to exist."
-  },
-  {
-    "lesson": "heterodyne",
-    "part": "A detector on the breadboard",
-    "after": "Every piece of a heterodyne detector is an ordinary part, and the whole thing fi",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A solderless breadboard: parts push into rows of connected holes, so a circuit can be built and changed without a soldering iron.",
-      "options": {
-        "photo": "solderless-breadboard",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Breadboards (e.g. 'Breadboard counter.jpg' or a 400-point breadboard with an IC). Likely to exist."
-  },
-  {
-    "lesson": "home",
-    "part": "A crater in the Negev",
-    "after": "In a cave in the low hills west of Jerusalem lived a colony of a few hundred Egy",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "An Egyptian fruit bat, Rousettus aegyptiacus, in flight. Its large eyes see well in dim light.",
-      "options": {
-        "photo": "egyptian-fruit-bat-flight",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons: Category:Rousettus aegyptiacus (flight photos; several CC BY-SA, e.g. from zoos). Unverified file names."
-  },
-  {
-    "lesson": "home",
-    "part": "A crater in the Negev",
-    "after": "Straight lines over familiar ground could just mean the bats knew the way. So th",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "HaMakhtesh HaGadol in the Negev Desert, the crater where Tsoar's bats were let go. Its walls hide the land beyond from anything on the floor.",
-      "options": {
-        "photo": "hamakhtesh-hagadol-crater",
-        "aspect": 1.78
-      }
-    },
-    "search": "Commons: Category:HaMakhtesh HaGadol (many CC BY-SA panoramas). Prefer a view from the rim across the floor."
-  },
-  {
-    "lesson": "home",
-    "part": "A compass set by the sunset",
-    "after": "A map still needs a compass: an animal that knows home is to the north has to te",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A big brown bat, Eptesicus fuscus, a common bat across North America and over Seattle's lakes.",
-      "options": {
-        "photo": "big-brown-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons: Category:Eptesicus fuscus; USFWS / NPS public domain photos (e.g. \"Big brown bat\" by Ann Froschauer, USFWS). Flight shot preferred."
-  },
-  {
-    "lesson": "home",
-    "part": "Bats that leave",
-    "after": "Most bats in cold countries stay put for the winter and hibernate in caves, mine",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A hoary bat, Lasiurus cinereus, roosting alone in a tree. Its frosted fur gives it its name.",
-      "options": {
-        "photo": "hoary-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons: Category:Lasiurus cinereus; USFWS / NPS public domain (e.g. Paul Cryan, USGS public domain hoary bat photos). Unverified."
-  },
-  {
-    "lesson": "home",
-    "part": "Turbines on the route",
-    "after": "When wind farms spread across North America in the 2000s, people searching under",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Wind turbines on a ridge in the eastern United States. Most bats killed at turbines die on calm nights in late summer and autumn.",
-      "options": {
-        "photo": "wind-farm-ridge",
-        "aspect": 1.78
-      }
-    },
-    "search": "Commons: Category:Wind farms in Pennsylvania (e.g. Casselman Wind Project if present, CC BY-SA), or USGS/NREL public domain turbine photos."
-  },
-  {
-    "lesson": "lives",
-    "part": "Forty-one years in a Siberian cave",
-    "after": "In 2005 bat researchers working in the caves of southern Siberia caught a male B",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Brandt's bat, *Myotis brandtii*, a 7 g bat of Europe and Asia and the longest-lived bat known.",
-      "options": {
-        "photo": "brandts-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Myotis brandtii (several CC BY-SA photos by European bat workers). Unverified which files."
-  },
-  {
-    "lesson": "lives",
-    "part": "Forty-one years in a Siberian cave",
-    "after": "A house mouse weighs about three times as much. In a laboratory, with food, warm",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A little brown bat with a numbered band on its forearm, the only way to know how old a wild bat is.",
-      "options": {
-        "photo": "banded-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons or Flickr USFWS (public domain / CC BY): 'banded bat', 'bat band forearm', Category:Bird and bat banding. Unverified."
-  },
-  {
-    "lesson": "lives",
-    "part": "One pup a year",
-    "after": "Her timetable is odd. Little brown bats mate in late summer and autumn, at the e",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A mother bat with her pup, which at birth weighs a quarter to a third as much as she does.",
-      "options": {
-        "photo": "bat-mother-pup",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons, Category:Myotis lucifugus or Category:Bat pups; USFWS/NPS public domain, or Flickr CC BY 'bat pup mother'. Prefer a vespertilionid. Unverified."
-  },
-  {
-    "lesson": "moths",
-    "part": "Two cells in a garden",
-    "after": "In the 1950s Kenneth Roeder, a physiologist at Tufts University near Boston, and",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A noctuid moth, one of the large family of stout night fliers whose ears Roeder and Treat studied. The eardrum sits in a hollow at the side of the thorax, behind the wing base.",
-      "options": {
-        "photo": "noctuid-moth",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Noctuidae, e.g. Noctua pronuba or Agrotis ipsilon portraits (many CC BY-SA); USGS Bee Inventory (public domain, Flickr) also has noctuid moths. Unverified file names."
-  },
-  {
-    "lesson": "moths",
-    "part": "Moths that answer back",
-    "after": "One tiger moth does something stranger. *Bertholdia trigona*, a small tawny moth",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "*Bertholdia trigona*, the tiger moth that jams bat sonar, from the deserts of Arizona and Mexico.",
-      "options": {
-        "photo": "bertholdia-trigona",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons 'Bertholdia trigona'; iNaturalist observations of Bertholdia trigona with CC BY or CC0 photos (not NC). Unverified."
-  },
-  {
-    "lesson": "moths",
-    "part": "Moths that answer back",
-    "after": "In 1965 Dorothy Dunning and Roeder showed that the clicks make bats break off. W",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A tiger moth caterpillar feeding on milkweed, whose poisons it keeps. The adult moth clicks a warning at attacking bats.",
-      "options": {
-        "photo": "tiger-moth-milkweed",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Euchaetes egle (milkweed tussock moth) caterpillars on milkweed, or Cycnia tenera on dogbane; USFWS/NPS or CC BY photos. Unverified."
-  },
-  {
-    "lesson": "moths",
-    "part": "Fur, tails and whispers",
-    "after": "Not every defence is a sound or a reflex. The thick fur on a moth's body and the",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A luna moth, *Actias luna*, with the long twisted tails that spin as it flies and draw a bat's strike.",
-      "options": {
-        "photo": "luna-moth",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Actias luna (many public domain and CC BY-SA photos, including USFWS)."
-  },
-  {
-    "lesson": "moths",
-    "part": "Fur, tails and whispers",
-    "after": "Ears, clicks, fur and tails are all answers to bats, and bats have answered back",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A barbastelle, *Barbastella barbastellus*, the European bat that hunts eared moths with whispered calls.",
-      "options": {
-        "photo": "barbastelle",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Barbastella barbastellus (CC BY-SA portraits). Unverified file names."
-  },
-  {
-    "lesson": "people",
-    "part": "Bats over Carlsbad",
-    "after": "Lytle S. Adams was a dentist from Irwin, Pennsylvania, with a taste for inventio",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Mexican free-tailed bats leaving Carlsbad Caverns at dusk. National Park Service photograph.",
-      "options": {
-        "photo": "carlsbad-bat-flight",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons, Category:Carlsbad Caverns National Park or Category:Tadarida brasiliensis; NPS photos public domain ('Bat flight at Carlsbad Caverns'). Unverified."
-  },
-  {
-    "lesson": "people",
-    "part": "Bats over Carlsbad",
-    "after": "The work that followed, later named Project X-Ray, ran for more than two years. ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The bat bomb casing, with its stacked trays for over a thousand bats.",
-      "options": {
-        "photo": "bat-bomb-casing",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons, Category:Bat bomb (US military photo of the X-Ray canister, public domain). Unverified file name."
-  },
-  {
-    "lesson": "people",
-    "part": "A bridge full of bats",
-    "after": "It worked. The bridge colony is now among the city's sights, with somewhere betw",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Mexican free-tailed bats streaming out from under the Congress Avenue Bridge, Austin, at dusk.",
-      "options": {
-        "photo": "congress-avenue-bats",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons, Category:Ann W. Richards Congress Avenue Bridge (several CC BY-SA emergence photos); Flickr CC BY 'Congress Avenue bridge bats'. Unverified."
-  },
-  {
-    "lesson": "people",
-    "part": "Guano and gunpowder",
-    "after": "A big colony leaves a lot behind. **Guano**, from a Quechua word by way of Spani",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The evening emergence at Bracken Cave, Texas, a summer home of millions of free-tailed bats and a guano mine since the nineteenth century.",
-      "options": {
-        "photo": "bracken-cave-emergence",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons, Category:Bracken Cave; USFWS public domain photos of the Bracken emergence (e.g. Ann Froschauer/USFWS). Unverified."
-  },
-  {
-    "lesson": "sonograms",
-    "part": "Two ticks over the water",
-    "after": "Two bats cross the light of a lamp on the shore, a few seconds apart, both skimm",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A Yuma myotis, the commonest bat over Seattle's lakes.",
-      "options": {
-        "photo": "yuma-myotis",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Myotis yumanensis (NPS or USFWS photos, public domain); iNaturalist CC BY research-grade photos of Myotis yumanensis. Unverified."
-  },
-  {
-    "lesson": "sonograms",
-    "part": "A picture of sound",
-    "after": "Hearing a slowed call is a start, but bat workers read calls by eye. The picture",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A sound spectrograph of the kind Bell Labs built in the 1940s, drawing speech as a picture.",
-      "options": {
-        "photo": "sound-spectrograph-bell-labs",
-        "aspect": 1.33
-      }
-    },
-    "search": "Wikimedia Commons: Category:Spectrographs (sound) or 'Kay Sona-Graph' photos; Smithsonian Open Access 'sound spectrograph'. Unverified; skip if nothing licensed."
-  },
-  {
-    "lesson": "sonograms",
-    "part": "Washington's voices",
-    "after": "Washington's commonest bats fall into groups by the frequency where their search",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A hoary bat, Washington's largest bat and its lowest caller.",
-      "options": {
-        "photo": "hoary-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Lasiurus cinereus; USGS photo by Paul Cryan (public domain) of a hoary bat on bark. Likely to exist."
-  },
-  {
-    "lesson": "sonograms",
-    "part": "Washington's voices",
-    "after": "The Myotis call higher and shorter. The **little brown myotis** ends near 40 kHz",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Townsend's big-eared bat, the whisperer, with its ears raised.",
-      "options": {
-        "photo": "townsends-big-eared-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Corynorhinus townsendii (NPS and USFWS photos, public domain). Likely to exist."
-  },
-  {
-    "lesson": "ultrasound",
-    "part": "Two hunters, two pitches",
-    "after": "On a summer evening over a street in Seattle, a big brown bat flies along the li",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A greater horseshoe bat, showing the horseshoe-shaped noseleaf through which it calls.",
-      "options": {
-        "photo": "greater-horseshoe-noseleaf",
-        "aspect": 1.33
-      }
-    },
-    "search": "Wikimedia Commons, Category:Rhinolophus ferrumequinum (several CC BY-SA close-ups). Unverified."
-  },
-  {
-    "lesson": "ultrasound",
-    "part": "The air takes its share",
-    "after": "No pitch does everything. A low call carries to a moth 10 metres off, but finds ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A Yuma myotis, the small bat that skims Seattle's lakes for midges and caddisflies, calling near 50 kHz.",
-      "options": {
-        "photo": "yuma-myotis",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Myotis yumanensis (USFWS or NPS public domain, or CC BY). Unverified."
-  },
-  {
-    "lesson": "ultrasound",
-    "part": "Sonar, not radar",
-    "after": "A few bats call low enough to be heard. The spotted bat of eastern Washington's ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A spotted bat, of the dry canyons of eastern Washington and the West, whose low calls near 10 kHz people can hear.",
-      "options": {
-        "photo": "spotted-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Euderma maculatum (NPS or USFWS photos, public domain). Unverified."
-  },
-  {
-    "lesson": "washington",
-    "part": "A bat you can hear",
-    "after": "The bat is a **spotted bat**, black with three white spots on its back and pink ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A spotted bat, with its three white spots and enormous pink ears.",
-      "options": {
-        "photo": "spotted-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Euderma maculatum (NPS or BLM photos, public domain; e.g. Paul Cryan USGS). Unverified."
-  },
-  {
-    "lesson": "washington",
-    "part": "Two Washingtons",
-    "after": "The Cascade Range divides Washington in two. Wet air from the Pacific drops its ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Basalt cliffs at Frenchman Coulee near Vantage, on the dry side of the Cascades.",
-      "options": {
-        "photo": "frenchman-coulee-basalt",
-        "aspect": 1.6
-      }
-    },
-    "search": "Wikimedia Commons: Category:Frenchman Coulee (CC BY-SA). Likely to exist."
-  },
-  {
-    "lesson": "washington",
-    "part": "Two Washingtons",
-    "after": "Most of the fifteen live on both sides. The little brown, Yuma and big brown bat",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A pallid bat, pale and big-eared, which hunts on the ground.",
-      "options": {
-        "photo": "pallid-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Antrozous pallidus (NPS photos, public domain). Likely to exist."
-  },
-  {
-    "lesson": "washington",
-    "part": "A house for bats",
-    "after": "A good one is tall and narrow: chambers 50 to 80 cm tall and about 2 cm wide, so",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A bat house on a pole in the open, high enough to be out of reach of cats.",
-      "options": {
-        "photo": "bat-house-on-pole",
-        "aspect": 1.0
-      }
-    },
-    "search": "Wikimedia Commons: Category:Bat boxes or Category:Bat houses (USFWS public domain photos exist, e.g. bat house at a refuge). Unverified."
-  },
-  {
-    "lesson": "winter",
-    "part": "White noses near Albany",
-    "after": "The next winter was different. In January 2007 Al Hicks, the bat specialist of t",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A little brown bat with white-nose syndrome: the white fuzz on its muzzle is the fungus. US Fish and Wildlife Service photograph.",
-      "options": {
-        "photo": "little-brown-bat-white-nose",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:White-nose syndrome; USFWS photos there are public domain, e.g. 'Little brown bat; close up of nose with fungus' (Marvin Moriarty/USFWS, Greeley Mine, Vermont, 2009). Unverified exact file name."
-  },
-  {
-    "lesson": "winter",
-    "part": "A thermostat turned down",
-    "after": "**Hibernation** is a winter of torpor taken in long bouts, each lasting from day",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Little brown bats hibernating in a cluster on a cave ceiling, beaded with condensation.",
-      "options": {
-        "photo": "hibernating-little-brown-bats",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons, Category:Myotis lucifugus or Category:Hibernation of bats; USFWS/NPS public domain cluster photos (e.g. Ann Froschauer/USFWS). Flickr USFWS Headquarters (CC BY / public domain): 'hibernating bats'. Unverified."
-  },
-  {
-    "lesson": "winter",
-    "part": "A fungus that likes the cold",
-    "after": "The disease it causes is called **white-nose syndrome** after the fuzz on the mu",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A little brown bat's wing held up to ultraviolet light: the glowing spots are pits where the white-nose fungus has eaten into the skin. US Geological Survey photograph.",
-      "options": {
-        "photo": "white-nose-wing-damage",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS National Wildlife Health Center or Commons 'White-nose syndrome UV fluorescence' (Turner et al. 2014, USGS, public domain); or USFWS 'wing damage from white-nose syndrome'. Unverified."
-  },
-  {
-    "lesson": "winter",
-    "part": "From Albany to North Bend",
-    "after": "On 11 March 2016 hikers near North Bend, on the edge of the Cascades in King Cou",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The little brown bat found near North Bend, Washington, in March 2016, the first case of white-nose syndrome in western North America.",
-      "options": {
-        "photo": "washington-wns-bat",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS or USFWS press photos of the North Bend bat (March 2016, public domain if USGS/USFWS staff); check Commons Category:White-nose syndrome in Washington. Unverified; skip if only a PAWS (non-free) photo exists."
-  }
+  "search": "USGS or USFWS press photos of the North Bend bat (March 2016, public domain if USGS/USFWS staff); check Commons Category:White-nose syndrome in Washington. Unverified; skip if only a PAWS (non-free) photo exists."
+ }
 ]

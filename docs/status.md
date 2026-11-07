@@ -12,13 +12,13 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 2 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 4 | 37 | 16 | 0 |
+| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 4 | 37 | 15 | 0 |
 | [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 2 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 0.2 beta | 30 | 0 | 0 | 30 | 30 | 0 | 0 |
 | [Money That Lasts](#finance) | 0.2 beta | 32 | 0 | 0 | 32 | 32 | 0 | 0 |
 | [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 3 | 25 | 24 | 0 |
-| [Rivers and the Salish Sea](#rivers) | 0.1 beta | 22 | 0 | 0 | 22 | 22 | 22 | 0 |
-| [Bats](#bats) | 0.1 beta | 15 | 0 | 0 | 15 | 15 | 15 | 0 |
+| [Rivers and the Salish Sea](#rivers) | 0.1 beta | 22 | 0 | 0 | 22 | 22 | 13 | 0 |
+| [Bats](#bats) | 0.1 beta | 15 | 0 | 0 | 15 | 15 | 6 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -30,13 +30,13 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
 | Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 2 to copy-edit, 25 to fact-check, 15 awaiting photos |
-| Ecology | 0.1 beta | 2026-11-04 | no: 4 to copy-edit, 37 to fact-check, 16 awaiting photos |
+| Ecology | 0.1 beta | 2026-11-04 | no: 4 to copy-edit, 37 to fact-check, 15 awaiting photos |
 | Botany | 0.1 beta | 2026-11-04 | no: 2 to copy-edit, 33 to fact-check, 33 awaiting photos |
 | Synthesizers | 0.2 beta | 2026-11-07 | no: 30 to copy-edit, 30 to fact-check |
 | Money That Lasts | 0.2 beta | 2026-11-07 | no: 32 to copy-edit, 32 to fact-check |
 | Fungi | 0.2 beta | 2026-11-04 | no: 3 to copy-edit, 25 to fact-check, 24 awaiting photos |
-| Rivers and the Salish Sea | 0.1 beta | 2026-11-07 | no: 22 to copy-edit, 22 to fact-check, 22 awaiting photos |
-| Bats | 0.1 beta | 2026-11-07 | no: 15 to copy-edit, 15 to fact-check, 15 awaiting photos |
+| Rivers and the Salish Sea | 0.1 beta | 2026-11-07 | no: 22 to copy-edit, 22 to fact-check, 13 awaiting photos |
+| Bats | 0.1 beta | 2026-11-07 | no: 15 to copy-edit, 15 to fact-check, 6 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -111,7 +111,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | W4 | Seafloor at Deception Pass (`deception`) | Whidbey Island | done |  | How pillow basalt, ribbon chert and serpentinite at Deception Pass record pieces of ocean floor scraped off and welded onto North America. |
 | W5 | A fault under the island (`whidbey-fault`) | Whidbey Island | done |  | How geologists showed that the South Whidbey Island fault is active with no earthquake on record: lidar that sees through forest, trenches across scarps, and dates from the layers. |
 | S1 | Why Seattle’s hills run north–south (`hills`) | Seattle | done |  | How a lobe of the Cordilleran ice sheet, a kilometre thick, flowed south over Seattle and left its hills, lakes and the Sound lined up in its direction. |
-| S2 | Drowned forests in Lake Washington (`drowned`) | Seattle | awaiting photos/images (2 photos parked in pending-photos.json) |  | How tree rings, a raised beach, a tsunami sand and underwater landslides together revealed a large earthquake on the Seattle fault about 1,100 years ago. |
+| S2 | Drowned forests in Lake Washington (`drowned`) | Seattle | awaiting photos/images (1 photo parked in pending-photos.json) |  | How tree rings, a raised beach, a tsunami sand and underwater landslides together revealed a large earthquake on the Seattle fault about 1,100 years ago. |
 | S3 | Why the hills slide (`slides`) | Seattle | done |  | Why Seattle’s landslides happen at the same level on its bluffs, and why they come after wet winters: sand over clay, and water that cannot get out. |
 | S4 | The ground people built (`fill`) | Seattle | done |  | How Seattle sluiced away hills and filled its tideflats, and why loose, wet fill shook hardest and liquefied in the 2001 Nisqually earthquake. |
 | F1 | Bretz’s heresy (`bretz`) | The ice age floods | done |  | How J Harlen Bretz read the channelled scablands of eastern Washington as the work of a flood far bigger than any river, and why geologists refused to believe him for forty years. |
@@ -267,7 +267,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
 | 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
 | 13 | A curtain across a lake (`curtain`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
-| 14 | Walking back in time (`glacier-bay`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
+| 14 | Walking back in time (`glacier-bay`) |  | awaiting fact check |  | Glacier Bay and how new ground fills with life. |
 | 15 | Is a forest an organism? (`gaps`) |  | awaiting fact check |  | Clements, Gleason and a forest grown gap by gap. |
 | 16 | Boulders and fires (`fires`) |  | awaiting fact check |  | Why some disturbance keeps more kinds alive. |
 | 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | Chimborazo, climate zones and why they move. |
@@ -446,28 +446,28 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Which sea does a raindrop reach? (`watershed`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Watersheds and divides, where rain goes once it lands, and snow as a reservoir. |
-| 2 | The same storm, twice the flood (`floods`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Discharge, the river gauge and its hydrograph, rain on snow, and what a "100-year flood" means. |
-| 3 | Where August's river comes from (`baseflow`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Groundwater in the spaces between grains, Darcy's law, baseflow, and gaining and losing streams. |
-| 4 | Why the river runs brown in November (`sediment`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | What a river carries, the speed a grain needs to move (Hjulström), and the Elwha's century of trapped sediment. |
-| 5 | The river that changed its mind (`meanders`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Why bends grow and cut off, braided and meandering rivers, log jams and avulsion. |
-| 6 | Why the bottom of the lake stays cold (`lake`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches. |
-| 7 | What a wave knows about the wind (`waves`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Waves carry energy, not water; fetch and duration, chop and swell, wave speed in deep and shallow water, and waves against a current. |
-| 8 | Two tides a day (`tides`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Why the Moon raises two bulges, the Sun's share, and spring and neap tides. |
-| 9 | Why one low tide is lower (`inequality`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight. |
-| 10 | Why Olympia's tide is nearly twice Port Townsend's (`olympia`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level. |
-| 11 | Why Deception Pass runs at eight knots (`narrows`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Currents driven by a difference in level, and why slack water comes after high water. |
-| 12 | Why the Sound stays cold in July (`estuary`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | Salt and density, the two-layer exchange over the sills, renewal at neap tides, upwelling, and the salt wedge at a river mouth. |
-| 13 | Why Hood Canal runs out of breath (`hoodcanal`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | A fjord's slow flushing, and how new ocean water lifts the old water to the surface. |
-| 14 | Where the beach comes from (`beach`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Feeder bluffs, longshore drift and spits, what a bulkhead does, and the Elwha's sand returning. |
-| 101 | The hill that drained a reservoir (`cedar`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918. |
-| 102 | The summer Lake Washington fell (`lowering`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The 1916 lowering, the vanished Black River, and the locks that keep the salt out. |
-| 103 | Straightening the Duwamish (`duwamish`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | How a meandering estuary became a waterway, and the rivers that were moved away from it. |
-| C1 | The falls that went under (`celilo`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The Columbia turned into a stair of reservoirs, and Celilo Falls drowned in 1957. |
-| C2 | The town behind the embankment (`vanport`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Vanport, 1948: levees, a snowmelt flood and a regulated river. |
-| C3 | The bar at the mouth (`bar`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Where the Columbia meets the Pacific swell, and why the bar is one of the most dangerous in the world. |
-| F1 | Reading a tide table and a current table (`tables`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Planning a beach walk at a minus tide and a crossing at slack water. |
-| F2 | Measuring a creek (`gauge`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | An orange, a stopwatch and a USGS gauge page: discharge measured by hand. |
+| 1 | Which sea does a raindrop reach? (`watershed`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Watersheds and divides, where rain goes once it lands, and snow as a reservoir. |
+| 2 | The same storm, twice the flood (`floods`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Discharge, the river gauge and its hydrograph, rain on snow, and what a "100-year flood" means. |
+| 3 | Where August's river comes from (`baseflow`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Groundwater in the spaces between grains, Darcy's law, baseflow, and gaining and losing streams. |
+| 4 | Why the river runs brown in November (`sediment`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | What a river carries, the speed a grain needs to move (Hjulström), and the Elwha's century of trapped sediment. |
+| 5 | The river that changed its mind (`meanders`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why bends grow and cut off, braided and meandering rivers, log jams and avulsion. |
+| 6 | Why the bottom of the lake stays cold (`lake`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches. |
+| 7 | What a wave knows about the wind (`waves`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Waves carry energy, not water; fetch and duration, chop and swell, wave speed in deep and shallow water, and waves against a current. |
+| 8 | Two tides a day (`tides`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why the Moon raises two bulges, the Sun's share, and spring and neap tides. |
+| 9 | Why one low tide is lower (`inequality`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight. |
+| 10 | Why Olympia's tide is nearly twice Port Townsend's (`olympia`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level. |
+| 11 | Why Deception Pass runs at eight knots (`narrows`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Currents driven by a difference in level, and why slack water comes after high water. |
+| 12 | Why the Sound stays cold in July (`estuary`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Salt and density, the two-layer exchange over the sills, renewal at neap tides, upwelling, and the salt wedge at a river mouth. |
+| 13 | Why Hood Canal runs out of breath (`hoodcanal`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | A fjord's slow flushing, and how new ocean water lifts the old water to the surface. |
+| 14 | Where the beach comes from (`beach`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Feeder bluffs, longshore drift and spits, what a bulkhead does, and the Elwha's sand returning. |
+| 101 | The hill that drained a reservoir (`cedar`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918. |
+| 102 | The summer Lake Washington fell (`lowering`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | The 1916 lowering, the vanished Black River, and the locks that keep the salt out. |
+| 103 | Straightening the Duwamish (`duwamish`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check | How a meandering estuary became a waterway, and the rivers that were moved away from it. |
+| C1 | The falls that went under (`celilo`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check | The Columbia turned into a stair of reservoirs, and Celilo Falls drowned in 1957. |
+| C2 | The town behind the embankment (`vanport`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Vanport, 1948: levees, a snowmelt flood and a regulated river. |
+| C3 | The bar at the mouth (`bar`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Where the Columbia meets the Pacific swell, and why the bar is one of the most dangerous in the world. |
+| F1 | Reading a tide table and a current table (`tables`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Planning a beach walk at a minus tide and a crossing at slack water. |
+| F2 | Measuring a creek (`gauge`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check | An orange, a stopwatch and a USGS gauge page: discharge measured by hand. |
 
 ## Bats <a id="bats"></a>
 
@@ -475,21 +475,21 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | How does a bat fly in the dark? (`dark`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Spallanzani's and Jurine's experiments, why nobody believed them for almost 150 years, and Pierce and Griffin hearing bats' calls in 1938. |
-| 2 | A hand with skin between the fingers (`hand`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | What a bat is: a wing made of a hand, one mammal species in five, closer kin to horses and cats than to mice, and how wing shape sets where each bat hunts. |
-| 3 | Why so high? (`ultrasound`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Wavelength against the size of an insect, why higher calls find smaller prey but carry less far, and the two shapes of call: sweeps and steady tones. |
-| 4 | The feeding buzz (`buzz`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay. |
-| 5 | Twenty million voices (`crowds`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | The Doppler shift and how horseshoe bats lower their call to keep the echo in their sharpest hearing, and how bats in a crowd avoid jamming each other, or jam on purpose. |
-| 6 | The moth that hears the bat (`moths`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | Moth ears with two cells, turning away and diving, tiger moths that click back and jam, and the bats that answer with whispers. |
-| 7 | The winter fat budget (`winter`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Torpor, how two grams of fat last a little brown bat the winter, why each waking costs so much, and how white-nose syndrome starves bats. |
-| 8 | Long lives, slow births (`lives`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Why bats live several times longer than mammals their size, one pup a year and slow recovery, and what bats and viruses really show. |
-| 9 | Blood, nectar and fruit (`diets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | Why vampire bats feed hungry roost-mates, how bats live on blood, nectar, fruit, fish and meat, and what nectar and fruit bats do for plants. |
-| 10 | The way home (`home`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | How Egyptian fruit bats find home from places they have never been, big brown bats' compass set by the sunset, and migrating tree bats and wind turbines. |
-| L1 | Hearing the unhearable (`heterodyne`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | How a heterodyne detector mixes a bat's call down into hearing, how to tune one, and how to build one on a breadboard. |
-| L2 | Reading a sonogram (`sonograms`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls. |
-| N1 | Dusk at Green Lake (`green-lake`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Who comes out when over a Seattle lake, high flyers and water skimmers, what they eat, and the season. |
-| N2 | Washington's fifteen (`washington`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Washington's fifteen species, where they live and roost, the dry-side bats, and what a bat house needs. |
-| P1 | Bats and people (`people`) | Bats and people | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | The 1943 bat bomb, Austin's bridge colony, guano and gunpowder, what bats are worth to farms, and what to do about a bat in the house. |
+| 1 | How does a bat fly in the dark? (`dark`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Spallanzani's and Jurine's experiments, why nobody believed them for almost 150 years, and Pierce and Griffin hearing bats' calls in 1938. |
+| 2 | A hand with skin between the fingers (`hand`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | What a bat is: a wing made of a hand, one mammal species in five, closer kin to horses and cats than to mice, and how wing shape sets where each bat hunts. |
+| 3 | Why so high? (`ultrasound`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Wavelength against the size of an insect, why higher calls find smaller prey but carry less far, and the two shapes of call: sweeps and steady tones. |
+| 4 | The feeding buzz (`buzz`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay. |
+| 5 | Twenty million voices (`crowds`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | The Doppler shift and how horseshoe bats lower their call to keep the echo in their sharpest hearing, and how bats in a crowd avoid jamming each other, or jam on purpose. |
+| 6 | The moth that hears the bat (`moths`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Moth ears with two cells, turning away and diving, tiger moths that click back and jam, and the bats that answer with whispers. |
+| 7 | The winter fat budget (`winter`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Torpor, how two grams of fat last a little brown bat the winter, why each waking costs so much, and how white-nose syndrome starves bats. |
+| 8 | Long lives, slow births (`lives`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why bats live several times longer than mammals their size, one pup a year and slow recovery, and what bats and viruses really show. |
+| 9 | Blood, nectar and fruit (`diets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Why vampire bats feed hungry roost-mates, how bats live on blood, nectar, fruit, fish and meat, and what nectar and fruit bats do for plants. |
+| 10 | The way home (`home`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How Egyptian fruit bats find home from places they have never been, big brown bats' compass set by the sunset, and migrating tree bats and wind turbines. |
+| L1 | Hearing the unhearable (`heterodyne`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | How a heterodyne detector mixes a bat's call down into hearing, how to tune one, and how to build one on a breadboard. |
+| L2 | Reading a sonogram (`sonograms`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls. |
+| N1 | Dusk at Green Lake (`green-lake`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check | Who comes out when over a Seattle lake, high flyers and water skimmers, what they eat, and the season. |
+| N2 | Washington's fifteen (`washington`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's fifteen species, where they live and roost, the dry-side bats, and what a bat house needs. |
+| P1 | Bats and people (`people`) | Bats and people | awaiting Gemini review (queued 2026-11-07) | Fact check | The 1943 bat bomb, Austin's bridge colony, guano and gunpowder, what bats are worth to farms, and what to do about a bat in the house. |
 
 ## Not started
 

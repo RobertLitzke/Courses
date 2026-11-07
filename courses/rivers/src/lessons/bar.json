@@ -46,17 +46,13 @@
       "title": "Jetties and dredges",
       "blocks": [
         {"type": "text", "text": "From 1885 the Army Corps of Engineers built a **jetty**, a wall of rock several kilometres long, out from the south shore. A second, the North Jetty, followed from 1913 to 1917, and in 1939 a short spur from the north shore, Jetty A, to keep the channel off the cape. A jetty works on the river's current: it squeezes the ebb into one channel, and the faster current scours that channel deeper and keeps it in one place. Within a few decades the channel over the bar was far deeper than it had been, and it stopped wandering."},
-        {"type": "diagram", "id": "timeline", "caption": "Taming the bar. Dates of the jetties from the Corps of Engineers' histories, rounded to the year.", "options": {"spacing": "even", "events": [
-          {"at": 1775, "label": "Heceta finds the current"},
-          {"at": 1792, "label": "Gray crosses the bar"},
-          {"at": 1841, "label": "The Peacock wrecked"},
-          {"at": 1885, "to": 1895, "label": "South Jetty built"},
-          {"at": 1903, "to": 1913, "label": "South Jetty lengthened"},
-          {"at": 1913, "to": 1917, "label": "North Jetty built"},
-          {"at": 1939, "label": "Jetty A"}
-        ]}},
+        {"type": "diagram", "id": "photo", "caption": "The mouth of the Columbia from the air, with the North and South Jetties reaching out to the bar.", "options": {"photo": "columbia-jetties", "aspect": 1.5}},
+        {"type": "diagram", "id": "timeline", "caption": "Taming the bar. Dates of the jetties from the Corps of Engineers' histories, rounded to the year.", "options": {"spacing": "even", "events": [{"at": 1775, "label": "Heceta finds the current"}, {"at": 1792, "label": "Gray crosses the bar"}, {"at": 1841, "label": "The Peacock wrecked"}, {"at": 1885, "to": 1895, "label": "South Jetty built"}, {"at": 1903, "to": 1913, "label": "South Jetty lengthened"}, {"at": 1913, "to": 1917, "label": "North Jetty built"}, {"at": 1939, "label": "Jetty A"}]}},
         {"type": "text", "text": "The jetties also caught sand. The sand moving along the coast piled up against them, and the beaches beside them grew out to sea: Clatsop Spit on the Oregon side and Benson Beach, under Peacock Spit, on the Washington side. Today the ship channel is dredged to about 17 m (55 feet) every year,[^dredge] and the Corps has rebuilt the jetties' ends more than once as storms knock the rock down."},
-        {"type": "text", "text": "None of this made the bar calm. A deeper channel means the swell steepens less from the shallow bottom, but the ebb is as strong as ever, and squeezed between the jetties it runs faster still."}
+        {
+          "type": "text",
+          "text": "None of this made the bar calm. A deeper channel means the swell steepens less from the shallow bottom, but the ebb is as strong as ever, and squeezed between the jetties it runs faster still."
+        }
       ]
     },
     {

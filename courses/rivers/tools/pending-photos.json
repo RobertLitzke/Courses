@@ -1,1007 +1,287 @@
 [
-  {
-    "lesson": "watershed",
-    "part": "A drop on the pass",
-    "after": "Drive east from Seattle on Interstate 90 and the road climbs for an hour beside ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Snoqualmie Pass in winter, where Interstate 90 crosses the Cascade crest about 920 metres up.",
-      "options": {
-        "photo": "snoqualmie-pass",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Snoqualmie Pass (a winter view of the pass and I-90 summit; CC BY/BY-SA or PD only)"
-  },
-  {
-    "lesson": "watershed",
-    "part": "Powell's districts",
-    "after": "His answer was to settle and govern the West by drainage basins, so that the peo",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Powell's 1890 map, Arid Region of the United States, showing Drainage Districts. Each coloured district is a watershed.",
-      "options": {
-        "photo": "powell-drainage-map",
-        "aspect": 1.0
-      }
-    },
-    "search": "Wikimedia Commons: search \"Arid Region of the United States, showing Drainage Districts\" (USGS Eleventh Annual Report, 1890-91, public domain); also Library of Congress scans on Commons"
-  },
-  {
-    "lesson": "watershed",
-    "part": "Why Seattle drinks the Cedar",
-    "after": "After the fire of 1889 burned out downtown, a fire blamed partly on weak water p",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Chester Morse Lake, in the Cedar River watershed, which Seattle owns and keeps closed to the public.",
-      "options": {
-        "photo": "cedar-watershed",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Cedar River Watershed or Category:Chester Morse Lake; or Seattle Municipal Archives on Flickr (Cedar River, Landsburg, Masonry Dam)"
-  },
-  {
-    "lesson": "floods",
-    "part": "January 2009",
-    "after": "By 8 January the Snoqualmie had risen to one of the largest floods ever measured",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Snoqualmie valley in flood: the river out of its banks across the farmland below Fall City and Carnation.",
-      "options": {
-        "photo": "snoqualmie-valley-flood",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Snoqualmie River or Category:Floods in Washington (state); January 2009 flood photos if any; Flickr CC BY/BY-SA (no NC, no WSDOT Flickr which is NC-ND)"
-  },
-  {
-    "lesson": "floods",
-    "part": "The gauge",
-    "after": "Nobody can measure width, depth and speed across a big river in flood every fift",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A USGS stream gauge: the house on the bank holds the recorder, over a well or pressure line connected to the river.",
-      "options": {
-        "photo": "usgs-streamgage",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS (public domain): a streamgage house photo, e.g. Washington Water Science Center gallery, or Wikimedia Commons Category:Stream gauges in the United States"
-  },
-  {
-    "lesson": "floods",
-    "part": "The gauge",
-    "after": "Turning height into flow takes work by hand. Several times a year, and especiall",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A USGS hydrographer measuring discharge from a cableway or by wading with a current meter.",
-      "options": {
-        "photo": "usgs-measuring",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS (public domain): \"streamflow measurement\" or \"discharge measurement\" photos; Wikimedia Commons Category:Hydrography or Category:United States Geological Survey hydrologists"
-  },
-  {
-    "lesson": "baseflow",
-    "part": "A normal winter, a dry river",
-    "after": "In May the governor declared a drought across the whole state. By August many riv",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A western Washington river in the low water of a dry late summer: gravel bars exposed, the channel shrunk to what the ground supplies.",
-      "options": {
-        "photo": "river-low-summer",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or USGS: a western Washington river at very low summer flow, ideally August 2015 (e.g. Snoqualmie, Skokomish, Dosewallips, Cedar); search Commons 'Category:2015 Washington drought' if it exists, else 'low water' plus the river's category. Licence PD, CC0, CC BY or BY-SA only."
-  },
-  {
-    "lesson": "baseflow",
-    "part": "Darcy's sand column",
-    "after": "Henry Darcy was the chief engineer of Dijon, in Burgundy, a town that had long be",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Henry Darcy (1803 to 1858), the engineer who gave Dijon its water and, in an appendix, groundwater its law.",
-      "options": {
-        "photo": "henry-darcy",
-        "aspect": 0.8
-      }
-    },
-    "search": "Wikimedia Commons, 'Category:Henry Darcy' (a 19th-century portrait, public domain; the file is usually titled 'Henry Darcy.jpg' or similar). kind: painting or illustration if it is not a photograph."
-  },
-  {
-    "lesson": "baseflow",
-    "part": "Gaining and losing",
-    "after": "**On a bluff.** After a wet spell, walk a beach below one of the high bluffs on ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A bluff on Puget Sound, with seeps and wet ground partway up the face where water soaking down meets a layer it cannot pass.",
-      "options": {
-        "photo": "bluff-seep",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or USGS: a Puget Sound coastal bluff showing seepage or a landslide scar (Discovery Park, Carkeek Park, Magnolia, Whidbey Island; USGS has Puget Sound landslide and Ledgewood 2013 photos, public domain). Must show the bluff face clearly."
-  },
-  {
-    "lesson": "sediment",
-    "part": "A plume off Port Angeles",
-    "after": "In September 2011 crews began taking apart two concrete dams on the Elwha River, ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Elwha's sediment plume spreading into the Strait of Juan de Fuca during the dam removal.",
-      "options": {
-        "photo": "elwha-plume",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS (public domain): aerial photo of the Elwha River mouth sediment plume, 2012 or 2013 (USGS Pacific Coastal and Marine Science Center Elwha project pages); or Wikimedia Commons 'Category:Elwha River restoration' / NASA Earth Observatory image of the plume on Commons. Avoid photos credited to private aerial photographers unless the licence is CC BY or BY-SA."
-  },
-  {
-    "lesson": "sediment",
-    "part": "Why November",
-    "after": "Glacier-fed rivers have a second colour. Under a moving glacier, stones frozen in",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Diablo Lake on the Skagit, turned turquoise by glacial flour still hanging in the water.",
-      "options": {
-        "photo": "diablo-lake",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons 'Category:Diablo Lake' (many CC BY-SA and PD photos from the overlook on State Route 20). Pick one where the turquoise water fills most of the frame."
-  },
-  {
-    "lesson": "sediment",
-    "part": "A century behind two dams",
-    "after": "After decades of pressure, much of it from the Lower Elwha Klallam Tribe, Congres",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Glines Canyon Dam partly removed, with the drained bed of Lake Mills behind it.",
-      "options": {
-        "photo": "glines-canyon-removal",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons 'Category:Glines Canyon Dam' or 'Category:Elwha River restoration' (National Park Service photos, public domain), 2012 to 2014, showing the dam mid-removal."
-  },
-  {
-    "lesson": "meanders",
-    "part": "Tea leaves and a bend",
-    "after": "The water plunging down the outside bank does the digging. It scours a deep **po",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A bend with a steep cut bank on the outside and a gravel point bar on the inside.",
-      "options": {
-        "photo": "river-cut-bank-point-bar",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Point bars or Category:Cut banks: a clear photo of one river bend showing both, ideally a Pacific Northwest river (Snoqualmie, Sauk, Nooksack). CC BY, CC BY-SA or public domain only; USGS photo library is also allowed."
-  },
-  {
-    "lesson": "meanders",
-    "part": "A bend that grows",
-    "after": "Sooner or later a growing loop doubles back on itself until only a narrow neck o",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Meanders, scroll bars and an oxbow lake seen from the air.",
-      "options": {
-        "photo": "oxbow-lake-aerial",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Oxbow lakes (aerial photographs). A Washington example if one exists (Snoqualmie Valley, Nooksack); otherwise any clear aerial with a cut-off loop beside a living channel. USGS or NASA Earth Observatory images are public domain."
-  },
-  {
-    "lesson": "meanders",
-    "part": "Rivers in many threads",
-    "after": "Below the glaciers of Mount Rainier the White does not meander at all. It runs a",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The braided Hoh River in Olympic National Park: many threads around bars of grey gravel.",
-      "options": {
-        "photo": "hoh-river-braids",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Hoh River (NPS photos are public domain); or the White River or Carbon River at Mount Rainier (Category:White River (Washington)), showing a wide braided gravel bed. Flickr CC BY/BY-SA (e.g. NPS Mount Rainier's Flickr, public domain) also allowed; no NC or ND."
-  },
-  {
-    "lesson": "meanders",
-    "part": "Logs and jumps",
-    "after": "Before settlers cleared them, the rivers of the Puget lowland were full of wood.",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A log jam on a Pacific Northwest river, splitting the flow around it.",
-      "options": {
-        "photo": "river-log-jam",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Log jams (or 'Logjam'), preferably on an Olympic Peninsula river (Hoh, Queets, Elwha); USGS has photos of log jams on the Elwha after dam removal (public domain). Avoid engineered jams unless the caption is changed."
-  },
-  {
-    "lesson": "lake",
-    "part": "Seven degrees in August",
-    "after": "On a hot afternoon in August the top of Lake Washington is as warm as it gets al",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Lake Washington from the air, about 35 km long, with Seattle on its western shore.",
-      "options": {
-        "photo": "lake-washington-aerial",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Aerial photographs of Lake Washington, or the ISS/NASA image of the Seattle area (public domain). CC BY or BY-SA only."
-  },
-  {
-    "lesson": "lake",
-    "part": "Three layers in summer",
-    "after": "François-Alphonse Forel, a professor of medicine at Lausanne who lived at Morges",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "François-Alphonse Forel, who measured Lake Geneva for decades and named the science of lakes, limnology.",
-      "options": {
-        "photo": "forel-portrait",
-        "aspect": 0.8
-      }
-    },
-    "search": "Wikimedia Commons, Category:François-Alphonse Forel (old photographs, public domain)."
-  },
-  {
-    "lesson": "lake",
-    "part": "A lake that sloshes",
-    "after": "Forel was also curious about something people on Lake Geneva had noticed for cen",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Lake Geneva from Morges, where Forel lived and studied the lake's seiches.",
-      "options": {
-        "photo": "lake-geneva-morges",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Morges or Category:Lake Geneva: a view along the lake from Morges or from above, CC BY, BY-SA or public domain."
-  },
-  {
-    "lesson": "waves",
-    "part": "The Clallam",
-    "after": "On 8 January 1904 the steamer *Clallam* left Seattle for Victoria. She was a woo",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The *Clallam*, a wooden passenger steamer built at Tacoma in 1903, in service before her loss in January 1904.",
-      "options": {
-        "photo": "clallam-steamer",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Clallam (ship, 1903), photos of the steamer Clallam (public domain, pre-1929); also UW Digital Collections images mirrored on Commons. Allowed sources only; no NC/ND."
-  },
-  {
-    "lesson": "waves",
-    "part": "Against the current",
-    "after": "Two or three knots is enough, and the ebb off Point Wilson often runs that fast.",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Point Wilson and its lighthouse at the corner of Admiralty Inlet and the Strait, where the ebb meets the westerly seas.",
-      "options": {
-        "photo": "point-wilson",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Point Wilson Light (CC BY or BY-SA, or USCG public domain); prefer a view with rough water or a tide rip off the point. Flickr CC BY/BY-SA also allowed."
-  },
-  {
-    "lesson": "waves",
-    "part": "Shallow water, and the wakes in Rich Passage",
-    "after": "Rich Passage is the narrow, winding channel between Bainbridge Island and the Ki",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A ferry in Rich Passage, between Bainbridge Island and the Kitsap Peninsula, on the Seattle to Bremerton run.",
-      "options": {
-        "photo": "rich-passage-ferry",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Rich Passage, or Category:Kitsap Fast Ferries / Category:Washington State Ferries in Rich Passage; Flickr CC BY/BY-SA. Not NC/ND."
-  },
-  {
-    "lesson": "tides",
-    "part": "A tide on the far side",
-    "after": "Kepler was partly right: the Moon's gravity does raise the tide. But his picture",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The title page of the first edition of Newton's *Principia*, London, 1687. Its third book explains the tides.",
-      "options": {
-        "photo": "principia-title",
-        "aspect": 0.75
-      }
-    },
-    "search": "Wikimedia Commons: 'Prinicipia-title.png' (the 1687 title page, public domain) or Category:Philosophiae Naturalis Principia Mathematica (first edition title page)."
-  },
-  {
-    "lesson": "tides",
-    "part": "Spring and neap",
-    "after": "**Out in the field.** NOAA's tide predictions for Seattle (station 9447130) are ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A low spring tide on a Seattle beach, uncovering the tide flats that most of the month lie under water.",
-      "options": {
-        "photo": "seattle-low-tide",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or Flickr CC BY/BY-SA: a minus tide at Constellation Park (Alki), Lincoln Park or Discovery Park North Beach, Seattle; Commons Category:Tide pools in Washington or Category:Alki Beach. Avoid the Washington King Tides Flickr group unless the individual licence is CC BY or BY-SA."
-  },
-  {
-    "lesson": "inequality",
-    "part": "Laplace's equations and Kelvin's machine",
-    "after": "So in 1872 Kelvin designed a machine to do the adding. Each constituent got a cr",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Kelvin's first tide-predicting machine, built in 1872 and 1873, now in the Science Museum in London. Each pulley stands for one constituent; the wire over them carries the sum to the pen.",
-      "options": {
-        "photo": "kelvin-tide-machine",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Kelvin's (William Thomson's) 1872-3 tide-predicting machine at the Science Museum, London. Try 'Category:Tide-predicting machines' and file titles containing 'Tide predicting machine' and 'Science Museum'. Photo must show the machine whole. PD, CC0, CC BY or BY-SA only."
-  },
-  {
-    "lesson": "inequality",
-    "part": "Laplace's equations and Kelvin's machine",
-    "after": "The first machine, built in 1872 and 1873, had ten cranks and could draw a year ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "US Tide Predicting Machine No. 2, Old Brass Brains, which made the country's tide tables from about 1912 until the mid-1960s.",
-      "options": {
-        "photo": "tide-machine-no2",
-        "aspect": 1.5
-      }
-    },
-    "search": "NOAA Photo Library (public domain): 'Tide Predicting Machine No. 2' (Coast and Geodetic Survey; NOAA History collection), or the same NOAA photo copied to Wikimedia Commons ('Category:Tide-predicting machines'). Record the NOAA image id and page."
-  },
-  {
-    "lesson": "inequality",
-    "part": "Summer lows in daylight",
-    "after": "The zero of the tide tables, promised at the start, is **mean lower low water**:",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A summer minus tide on a Seattle beach: the water far out, the lower beach and its sea life uncovered for an hour or two.",
-      "options": {
-        "photo": "seattle-minus-tide",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or Flickr (CC BY / BY-SA only): a very low daytime tide at Constellation Park (Alki), Lincoln Park or Discovery Park North Beach, Seattle; or 'Category:Low tide' with a Seattle or Puget Sound subcategory. People exploring the exposed beach are fine. No NC/ND."
-  },
-  {
-    "lesson": "olympia",
-    "part": "More tide at the far end",
-    "after": "The shellfish growers of the South Sound work the tide. In the long, shallow inl",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Oyster beds on a South Sound inlet at low tide, where a range of about 14 feet leaves wide flats bare.",
-      "options": {
-        "photo": "south-sound-oyster-flats",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: oyster farming or shellfish beds at low tide in Totten, Eld or Little Skookum Inlet, or Budd Inlet near Olympia; try 'Category:Oyster farming in Washington (state)', 'Category:Totten Inlet', 'Category:Eld Inlet'. Flickr CC BY/BY-SA as a fallback (e.g. Washington State Department of Ecology, only if the individual photo's licence is CC BY). No NC/ND."
-  },
-  {
-    "lesson": "olympia",
-    "part": "King tides",
-    "after": "On 27 December 2022 it came together. A high king tide was predicted for that mo",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The king tide of 27 December 2022 at Seattle, the highest water the city's gauge had recorded.",
-      "options": {
-        "photo": "seattle-king-tide-2022",
-        "aspect": 1.5
-      }
-    },
-    "search": "Flickr Washington King Tides Initiative group (only photos individually licensed CC BY or CC BY-SA; many are NC, skip those) or Wikimedia Commons: Alki, Harbor Avenue SW or South Park, Seattle, on 27 December 2022. If none is licensed, any Seattle-area king tide photo from Commons with water over a seawall or path, and change the caption to say which date."
-  },
-  {
-    "lesson": "olympia",
-    "part": "The sea under the tides",
-    "after": "The Seattle tide gauge has been measuring the water on the waterfront since 1898",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "NOAA's tide station on the Seattle waterfront, station 9447130, whose record runs from 1898.",
-      "options": {
-        "photo": "seattle-tide-gauge",
-        "aspect": 1.5
-      }
-    },
-    "search": "NOAA (public domain): a photo of the Seattle tide station 9447130 (Elliott Bay, Pier 69 area) from NOAA Tides and Currents station pages or the NOAA Photo Library; or Wikimedia Commons if a photo of the station hut or sensor exists. Skip this one rather than use an unidentified pier."
-  },
-  {
-    "lesson": "narrows",
-    "part": "The passage Vancouver missed",
-    "after": "In the spring of 1792 George Vancouver's two ships, HMS *Discovery* and HMS *Cha",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Part of Vancouver's chart of the inland waters, published in 1798. Whidbey's Island and Deception Passage carry the names he gave them.",
-      "options": {
-        "photo": "vancouver-chart-1792",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Vancouver's 1798 chart of the coast of NW America including Puget Sound and Admiralty Inlet (search \"Vancouver 1798 chart Puget Sound\" or Category:George Vancouver maps); public domain. Crop to the Whidbey Island area if large."
-  },
-  {
-    "lesson": "narrows",
-    "part": "The passage Vancouver missed",
-    "after": "Since 1935 a bridge has crossed the pass high above the water. Stand on it near ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Deception Pass from the bridge on a running tide, with eddies and boils in the current.",
-      "options": {
-        "photo": "deception-pass-current",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Deception Pass (many photos of the bridge and the narrows at ebb or flood); prefer one looking down at the water showing whirlpools or standing waves. CC BY or BY-SA or PD only."
-  },
-  {
-    "lesson": "narrows",
-    "part": "The other narrows",
-    "after": "**Tacoma Narrows** is the door to South Sound. Everything south of it, from Carr",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Tacoma Narrows and its two bridges, the door to South Sound.",
-      "options": {
-        "photo": "tacoma-narrows",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Tacoma Narrows Bridge (2007) or Category:Tacoma Narrows; an aerial or shore view showing the width of the channel. CC BY/BY-SA/PD."
-  },
-  {
-    "lesson": "estuary",
-    "part": "Cold in July",
-    "after": "The first good look at the Sound's depths came from the United States Exploring ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Part of the Exploring Expedition's chart of Admiralty Inlet and Puget Sound, from the 1841 survey.",
-      "options": {
-        "photo": "wilkes-chart-1841",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: United States Exploring Expedition (Wilkes) chart of Puget Sound / \"Map of the Oregon Territory by the U.S. Ex. Ex.\" 1841 (Category:United States Exploring Expedition maps); public domain."
-  },
-  {
-    "lesson": "estuary",
-    "part": "Out on top, in below",
-    "after": "The biggest river of all doesn't enter the Sound. The Fraser, which drains much ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Fraser River's muddy plume spreading over the Strait of Georgia, seen from orbit.",
-      "options": {
-        "photo": "fraser-plume",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or NASA Earth Observatory via Commons: \"Fraser River plume\" satellite image (Terra/Aqua MODIS or Landsat); public domain."
-  },
-  {
-    "lesson": "estuary",
-    "part": "A wedge in the river mouth",
-    "after": "The two layers can hold apart where little stirs them. At the mouth of a river t",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Duwamish Waterway, a dredged river channel where a salt wedge runs upstream under the river water.",
-      "options": {
-        "photo": "duwamish-waterway",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Duwamish Waterway (aerial or shore view of the channel); or Seattle Municipal Archives on Flickr. CC BY/BY-SA/PD only, no NC/ND."
-  },
-  {
-    "lesson": "estuary",
-    "part": "A wedge in the river mouth",
-    "after": "The best-known wedge in Seattle is one people made. The Ballard Locks, opened in",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Ballard Locks (the Hiram M. Chittenden Locks) between Salmon Bay and the Lake Washington Ship Canal.",
-      "options": {
-        "photo": "ballard-locks",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Hiram M. Chittenden Locks; an aerial or high view of both lock chambers. Or the Seattle Municipal Archives on Flickr (no NC/ND). CC BY/BY-SA/PD."
-  },
-  {
-    "lesson": "estuary",
-    "part": "Stirred at the sills",
-    "after": "You can see them on a calm day without seeing them. Look out over the Sound from",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Slicks in parallel bands on a calm day, marking internal waves in the water below.",
-      "options": {
-        "photo": "sound-slicks",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or Flickr CC BY/BY-SA: \"slicks\" or \"internal waves\" on Puget Sound or Admiralty Inlet; if none, a NASA/Commons image of internal-wave slicks elsewhere (say where in the caption). Never NC/ND."
-  },
-  {
-    "lesson": "hoodcanal",
-    "part": "A trench with a doorstep",
-    "after": "Hood Canal is not a canal.[^name] It is a **fjord**: a long, steep-sided trough ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Hood Canal from the air: a long, narrow fjord between the Olympics and the Kitsap Peninsula.",
-      "options": {
-        "photo": "hood-canal-aerial",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Hood Canal (aerial or high viewpoint showing the canal's length, e.g. from the Olympics or a plane); CC BY or BY-SA or public domain only"
-  },
-  {
-    "lesson": "hoodcanal",
-    "part": "Fish at the surface",
-    "after": "In September 2006, people along the southern reach of [[Hood Canal]], around the",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Hoodsport, on the western shore of southern Hood Canal, where the 2006 kill was first noticed.",
-      "options": {
-        "photo": "hoodsport-shore",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Hoodsport, Washington (the waterfront or the canal from Hoodsport); CC BY/BY-SA/PD"
-  },
-  {
-    "lesson": "hoodcanal",
-    "part": "Watching it happen",
-    "after": "The canal is now watched closely. The University of Washington keeps moored buoy",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A University of Washington ORCA buoy moored in Hood Canal, whose instruments profile the water several times a day.",
-      "options": {
-        "photo": "orca-buoy",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons or Flickr CC BY/BY-SA: \"ORCA buoy Hood Canal\" (UW Applied Physics Laboratory / NANOOS); if none is freely licensed, drop this photo"
-  },
-  {
-    "lesson": "beach",
-    "part": "A breakwater that was wasting away",
-    "after": "Port Angeles has one of the best harbours on the Strait of Juan de Fuca, and it ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Ediz Hook curving around Port Angeles harbour, seen from the air.",
-      "options": {
-        "photo": "ediz-hook-aerial",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Ediz Hook (aerial photo; several exist, some from the US Army Corps or USGS, public domain); never NC/ND"
-  },
-  {
-    "lesson": "beach",
-    "part": "Sand from the cliffs",
-    "after": "Waves work at the foot of a bluff. At high tide in a storm they pluck sand and g",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A feeder bluff on Puget Sound: layers of glacial sand and gravel, with a slide at its foot spilling onto the beach.",
-      "options": {
-        "photo": "feeder-bluff",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS or Wikimedia Commons: Puget Sound coastal bluff landslide, e.g. the 2013 Ledgewood landslide on Whidbey Island (USGS, public domain), or Category:Discovery Park (Seattle) bluffs; CC BY/BY-SA/PD"
-  },
-  {
-    "lesson": "beach",
-    "part": "The Elwha's sand comes back",
-    "after": "The two dams came down between September 2011 and August 2014, the largest dam r",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Elwha River's mouth after the dams came out, with the new delta built from the sediment they had held back.",
-      "options": {
-        "photo": "elwha-delta-2014",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS Elwha River dam removal photos (aerial of the river mouth and delta, about 2012 to 2016; USGS, public domain), or Wikimedia Commons Category:Elwha River delta"
-  },
-  {
-    "lesson": "cedar",
-    "part": "A flood from the wrong valley",
-    "after": "Boxley Creek is a small stream draining a small patch of hillside, and no rain o",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Masonry Dam on the Cedar River, finished in 1914. The dam held; the water left through the ridge beside it.",
-      "options": {
-        "photo": "masonry-dam",
-        "aspect": 1.5
-      }
-    },
-    "search": "Seattle Municipal Archives (Flickr, check the licence on each item; many are public domain or CC BY): search 'Masonry Dam' or 'Cedar River Masonry Dam', 1914 to 1920s construction or completed views. Else Wikimedia Commons, Category:Masonry Dam (Washington) or Category:Cedar River Watershed."
-  },
-  {
-    "lesson": "cedar",
-    "part": "The burst",
-    "after": "In December 1918 the side of the moraine at the head of Boxley Creek gave way. W",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Boxley Creek's canyon after the 1918 burst, cut through the moraine by the flood.",
-      "options": {
-        "photo": "boxley-burst",
-        "aspect": 1.4
-      }
-    },
-    "search": "Seattle Municipal Archives: search 'Boxley' or 'Boxley Creek' or 'Edgewick' (1918 to 1919 photos of the washout exist in the water department series). Only if clearly the burst site; public domain or CC BY only."
-  },
-  {
-    "lesson": "cedar",
-    "part": "The burst",
-    "after": "**Go and look.** Rattlesnake Lake, a short drive past North Bend beside the Ceda",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Rattlesnake Lake at low water, with the stumps of the forest that stood there before the reservoir's seepage raised it.",
-      "options": {
-        "photo": "rattlesnake-lake-stumps",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Rattlesnake Lake (Washington): a view showing stumps at low water; Flickr CC BY/BY-SA 'Rattlesnake Lake stumps'. Never NC/ND."
-  },
-  {
-    "lesson": "lowering",
-    "part": "Docks on mud",
-    "after": "In the autumn of 1916, people along the south end of Lake Washington watched the",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Docks standing on mud at the south end of Lake Washington after the lake was lowered in 1916.",
-      "options": {
-        "photo": "rainier-beach-1916",
-        "aspect": 1.4
-      }
-    },
-    "search": "Seattle Municipal Archives or Museum of History and Industry items on Wikimedia Commons: search 'Lake Washington lowering 1916', 'Rainier Beach 1916', 'exposed lake bed'. Public domain only (pre-1929 publications); skip if none clearly shows it."
-  },
-  {
-    "lesson": "lowering",
-    "part": "The cut opens",
-    "after": "The Montlake Cut was dug on dry ground, with a strip of earth left at its east e",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Montlake Cut under construction, before the cofferdam at its east end was opened in 1916.",
-      "options": {
-        "photo": "montlake-cut-construction",
-        "aspect": 1.5
-      }
-    },
-    "search": "Seattle Municipal Archives (Flickr) or Wikimedia Commons Category:Montlake Cut: construction photos c.1911 to 1916 (many by the Army Corps of Engineers, public domain)."
-  },
-  {
-    "lesson": "lowering",
-    "part": "The locks and the salt",
-    "after": "The locks at Ballard, named for Hiram M. Chittenden, the Army engineer who plann",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Hiram M. Chittenden Locks at Ballard, the large lock beside the small one, with Salmon Bay beyond.",
-      "options": {
-        "photo": "ballard-locks",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Hiram M. Chittenden Locks: an aerial or elevated view of both locks (many CC BY-SA or public domain Army Corps photos)."
-  },
-  {
-    "lesson": "duwamish",
-    "part": "A river that lost its rivers",
-    "after": "In 1900 the Duwamish wound north across a flat valley floor of farms and marsh, ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Duwamish's tideflats at the head of Elliott Bay before they were filled.",
-      "options": {
-        "photo": "duwamish-tideflats",
-        "aspect": 1.6
-      }
-    },
-    "search": "Seattle Municipal Archives or Wikimedia Commons, Category:Duwamish River history / Category:Tideflats of Seattle: pre-1910 views or maps of the flats (public domain). A US Coast Survey chart of Elliott Bay c.1890 to 1900 would do if no photo (kind: map)."
-  },
-  {
-    "lesson": "duwamish",
-    "part": "Cutting off the bends",
-    "after": "Seattle's business people wanted a port where ships could reach the valley's fla",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A dredge cutting the Duwamish Waterway, about 1914 to 1920.",
-      "options": {
-        "photo": "duwamish-dredging",
-        "aspect": 1.5
-      }
-    },
-    "search": "Seattle Municipal Archives (Flickr): search 'Duwamish Waterway dredging' or 'Duwamish dredge' 1913 to 1920; else Wikimedia Commons Category:Duwamish Waterway. Public domain or CC BY only."
-  },
-  {
-    "lesson": "duwamish",
-    "part": "Filling the flats",
-    "after": "**Go and look.** Herring's House Park, on the west bank of the waterway a little",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Kellogg Island and the restored marsh at Herring's House Park on the Duwamish Waterway.",
-      "options": {
-        "photo": "kellogg-island",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Kellogg Island or Category:Herring's House Park (Joe Mabel and others, CC BY-SA); Flickr CC BY. Never NC/ND."
-  },
-  {
-    "lesson": "celilo",
-    "part": "Wyam",
-    "after": "Salmon heading upriver to spawn had to get past the falls, and they gathered in ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Fishing from wooden platforms at Celilo Falls with long-handled dip nets, before 1957.",
-      "options": {
-        "photo": "celilo-platforms",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Celilo Falls (Army Corps of Engineers or other US government photos, public domain); a photo of dip-net fishers on platforms over the falls. Also Oregon State/OSU Flickr Commons (no known copyright restrictions) if allowed. Not NC/ND."
-  },
-  {
-    "lesson": "celilo",
-    "part": "Wyam",
-    "after": "On 10 March 1957 the Army Corps of Engineers closed the gates of The Dalles Dam,",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The Dalles Dam, whose lake has covered Celilo Falls since 10 March 1957.",
-      "options": {
-        "photo": "the-dalles-dam",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:The Dalles Dam (USACE photos, public domain); an aerial or downstream view of the dam and spillway."
-  },
-  {
-    "lesson": "celilo",
-    "part": "A stair of lakes",
-    "after": "Bonneville, in the Columbia Gorge, came first of the big dams, in 1938, and was ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Grand Coulee Dam, the tallest step on the Columbia, finished in 1942.",
-      "options": {
-        "photo": "grand-coulee",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Grand Coulee Dam (US Bureau of Reclamation photos, public domain); a full view of the dam face with the spillway."
-  },
-  {
-    "lesson": "vanport",
-    "part": "Memorial Day, 1948",
-    "after": "A little after four in the afternoon the railway embankment gave way. A gap open",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Vanport under water after the railway embankment broke on 30 May 1948.",
-      "options": {
-        "photo": "vanport-flood",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Vanport flood / Vanport, Oregon (US Army Corps of Engineers aerial photos, public domain), e.g. an aerial of the flooded town with buildings adrift."
-  },
-  {
-    "lesson": "vanport",
-    "part": "Memorial Day, 1948",
-    "after": "In 1942 Henry J. Kaiser's company was building ships for the war in yards on bot",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Vanport in 1943: rows of two-storey apartment blocks on low ground beside the Columbia.",
-      "options": {
-        "photo": "vanport-1943",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Vanport, Oregon; a wartime aerial or street view (public domain government photo only; check licence, many Oregon Historical Society images are not free)."
-  },
-  {
-    "lesson": "bar",
-    "part": "Jetties and dredges",
-    "after": "From 1885 the Army Corps of Engineers built a **jetty**, a wall of rock several ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "The mouth of the Columbia from the air, with the North and South Jetties reaching out to the bar.",
-      "options": {
-        "photo": "columbia-jetties",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Columbia Bar or Category:Columbia River jetties (USACE or NOAA aerials, public domain). NOAA Photo Library also has aerials of the river mouth."
-  },
-  {
-    "lesson": "bar",
-    "part": "Across the bar",
-    "after": "Small boats rely on the Coast Guard, which closes the bar to small boats, or to ",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A Coast Guard 47-foot motor lifeboat training in the surf near Cape Disappointment.",
-      "options": {
-        "photo": "motor-lifeboat",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:47-foot Motor Lifeboat or Category:National Motor Lifeboat School (US Coast Guard photos, public domain)."
-  },
-  {
-    "lesson": "bar",
-    "part": "Swell against the ebb tide",
-    "after": "Lesson 7 (waves) showed that a wave carries energy, not water, and that its ener",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Swell breaking on the Columbia bar.",
-      "options": {
-        "photo": "columbia-bar-breakers",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons, Category:Columbia Bar (US Coast Guard or NOAA photos, public domain), a photo of breakers on the bar or a vessel crossing in heavy seas."
-  },
-  {
-    "lesson": "tables",
-    "part": "A reef at lunchtime",
-    "after": "At Constellation Park, on the West Seattle shore just south of Alki Point, a broad",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A minus tide on a Seattle beach: rock, pools and seaweed that are under water most of the year.",
-      "options": {
-        "photo": "seattle-minus-tide",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Constellation Park (Seattle) or Category:Lincoln Park (Seattle) beaches at low tide; tide pools, Alki Point at low tide. Flickr CC BY/BY-SA 'Constellation Park low tide' also fine. No NC/ND."
-  },
-  {
-    "lesson": "tables",
-    "part": "The current table",
-    "after": "Deception Pass is the narrow gap between Whidbey Island and Fidalgo Island, at th",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Deception Pass from the bridge with the current running: eddies and standing waves in the narrows.",
-      "options": {
-        "photo": "deception-pass-current",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Deception Pass, look for a view down from the bridge showing whirlpools or a fast current (not a calm slack). Allowed: Commons, Flickr CC BY/BY-SA."
-  },
-  {
-    "lesson": "tables",
-    "part": "Zero is not the bottom",
-    "after": "The real tables are on NOAA's Tides and Currents site, tidesandcurrents.noaa.gov.",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A NOAA tide station: the instruments that measure the water level the predictions are built from.",
-      "options": {
-        "photo": "noaa-tide-station",
-        "aspect": 1.5
-      }
-    },
-    "search": "NOAA Photo Library or Commons: a NOAA NWLON tide station (Category:Tide gauges in the United States); the Seattle station 9447130 if one exists, otherwise any US tide station. Public domain (NOAA)."
-  },
-  {
-    "lesson": "gauge",
-    "part": "How much water is that?",
-    "after": "Piper's Creek runs down a wooded ravine in Carkeek Park, in north Seattle, to the",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "Piper's Creek in Carkeek Park, a small creek a few strides wide.",
-      "options": {
-        "photo": "pipers-creek",
-        "aspect": 1.5
-      }
-    },
-    "search": "Wikimedia Commons: Category:Carkeek Park or Category:Piper's Creek; Flickr CC BY/BY-SA 'Pipers Creek Carkeek'. Seattle Municipal Archives also allowed."
-  },
-  {
-    "lesson": "gauge",
-    "part": "What a gauge measures",
-    "after": "The discharge on that page comes from the stage through a **rating curve**. Every",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A USGS hydrographer measuring a river's discharge by hand, wading across with a current meter.",
-      "options": {
-        "photo": "usgs-streamflow-measurement",
-        "aspect": 1.5
-      }
-    },
-    "search": "USGS multimedia gallery or Commons (Category:Streamflow measurement / Category:United States Geological Survey hydrologists): wading measurement with a current meter or an ADCP from a bridge. Public domain (USGS)."
-  },
-  {
-    "lesson": "gauge",
-    "part": "What a gauge measures",
-    "after": "The USGS gauge on the Cedar River at Renton, station 12119000, stands near the ri",
-    "block": {
-      "type": "diagram",
-      "id": "photo",
-      "caption": "A USGS streamgage: the shelter on the bank that holds the instruments and the satellite radio.",
-      "options": {
-        "photo": "usgs-streamgage",
-        "aspect": 1.5
-      }
-    },
-    "search": "Commons: Category:Stream gauges in the United States or USGS gallery 'streamgage'; a Washington gauge (Snoqualmie, Cedar, Skagit) preferred. Public domain (USGS)."
-  }
+ {
+  "lesson": "watershed",
+  "part": "A drop on the pass",
+  "after": "Drive east from Seattle on Interstate 90 and the road climbs for an hour beside ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Snoqualmie Pass in winter, where Interstate 90 crosses the Cascade crest about 920 metres up.",
+   "options": {
+    "photo": "snoqualmie-pass",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons, Category:Snoqualmie Pass (a winter view of the pass and I-90 summit; CC BY/BY-SA or PD only)"
+ },
+ {
+  "lesson": "watershed",
+  "part": "Powell's districts",
+  "after": "His answer was to settle and govern the West by drainage basins, so that the peo",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Powell's 1890 map, Arid Region of the United States, showing Drainage Districts. Each coloured district is a watershed.",
+   "options": {
+    "photo": "powell-drainage-map",
+    "aspect": 1
+   }
+  },
+  "search": "Wikimedia Commons: search \"Arid Region of the United States, showing Drainage Districts\" (USGS Eleventh Annual Report, 1890-91, public domain); also Library of Congress scans on Commons"
+ },
+ {
+  "lesson": "floods",
+  "part": "January 2009",
+  "after": "By 8 January the Snoqualmie had risen to one of the largest floods ever measured",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Snoqualmie valley in flood: the river out of its banks across the farmland below Fall City and Carnation.",
+   "options": {
+    "photo": "snoqualmie-valley-flood",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons, Category:Snoqualmie River or Category:Floods in Washington (state); January 2009 flood photos if any; Flickr CC BY/BY-SA (no NC, no WSDOT Flickr which is NC-ND)"
+ },
+ {
+  "lesson": "baseflow",
+  "part": "A normal winter, a dry river",
+  "after": "In May the governor declared a drought across the whole state. By August many riv",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A western Washington river in the low water of a dry late summer: gravel bars exposed, the channel shrunk to what the ground supplies.",
+   "options": {
+    "photo": "river-low-summer",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons or USGS: a western Washington river at very low summer flow, ideally August 2015 (e.g. Snoqualmie, Skokomish, Dosewallips, Cedar); search Commons 'Category:2015 Washington drought' if it exists, else 'low water' plus the river's category. Licence PD, CC0, CC BY or BY-SA only."
+ },
+ {
+  "lesson": "baseflow",
+  "part": "Gaining and losing",
+  "after": "**On a bluff.** After a wet spell, walk a beach below one of the high bluffs on ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A bluff on Puget Sound, with seeps and wet ground partway up the face where water soaking down meets a layer it cannot pass.",
+   "options": {
+    "photo": "bluff-seep",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons or USGS: a Puget Sound coastal bluff showing seepage or a landslide scar (Discovery Park, Carkeek Park, Magnolia, Whidbey Island; USGS has Puget Sound landslide and Ledgewood 2013 photos, public domain). Must show the bluff face clearly."
+ },
+ {
+  "lesson": "waves",
+  "part": "The Clallam",
+  "after": "On 8 January 1904 the steamer *Clallam* left Seattle for Victoria. She was a woo",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The *Clallam*, a wooden passenger steamer built at Tacoma in 1903, in service before her loss in January 1904.",
+   "options": {
+    "photo": "clallam-steamer",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons: Category:Clallam (ship, 1903), photos of the steamer Clallam (public domain, pre-1929); also UW Digital Collections images mirrored on Commons. Allowed sources only; no NC/ND."
+ },
+ {
+  "lesson": "olympia",
+  "part": "King tides",
+  "after": "On 27 December 2022 it came together. A high king tide was predicted for that mo",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The king tide of 27 December 2022 at Seattle, the highest water the city's gauge had recorded.",
+   "options": {
+    "photo": "seattle-king-tide-2022",
+    "aspect": 1.5
+   }
+  },
+  "search": "Flickr Washington King Tides Initiative group (only photos individually licensed CC BY or CC BY-SA; many are NC, skip those) or Wikimedia Commons: Alki, Harbor Avenue SW or South Park, Seattle, on 27 December 2022. If none is licensed, any Seattle-area king tide photo from Commons with water over a seawall or path, and change the caption to say which date."
+ },
+ {
+  "lesson": "olympia",
+  "part": "The sea under the tides",
+  "after": "The Seattle tide gauge has been measuring the water on the waterfront since 1898",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "NOAA's tide station on the Seattle waterfront, station 9447130, whose record runs from 1898.",
+   "options": {
+    "photo": "seattle-tide-gauge",
+    "aspect": 1.5
+   }
+  },
+  "search": "NOAA (public domain): a photo of the Seattle tide station 9447130 (Elliott Bay, Pier 69 area) from NOAA Tides and Currents station pages or the NOAA Photo Library; or Wikimedia Commons if a photo of the station hut or sensor exists. Skip this one rather than use an unidentified pier."
+ },
+ {
+  "lesson": "estuary",
+  "part": "Stirred at the sills",
+  "after": "You can see them on a calm day without seeing them. Look out over the Sound from",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Slicks in parallel bands on a calm day, marking internal waves in the water below.",
+   "options": {
+    "photo": "sound-slicks",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons or Flickr CC BY/BY-SA: \"slicks\" or \"internal waves\" on Puget Sound or Admiralty Inlet; if none, a NASA/Commons image of internal-wave slicks elsewhere (say where in the caption). Never NC/ND."
+ },
+ {
+  "lesson": "hoodcanal",
+  "part": "A trench with a doorstep",
+  "after": "Hood Canal is not a canal.[^name] It is a **fjord**: a long, steep-sided trough ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Hood Canal from the air: a long, narrow fjord between the Olympics and the Kitsap Peninsula.",
+   "options": {
+    "photo": "hood-canal-aerial",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons, Category:Hood Canal (aerial or high viewpoint showing the canal's length, e.g. from the Olympics or a plane); CC BY or BY-SA or public domain only"
+ },
+ {
+  "lesson": "hoodcanal",
+  "part": "Watching it happen",
+  "after": "The canal is now watched closely. The University of Washington keeps moored buoy",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A University of Washington ORCA buoy moored in Hood Canal, whose instruments profile the water several times a day.",
+   "options": {
+    "photo": "orca-buoy",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons or Flickr CC BY/BY-SA: \"ORCA buoy Hood Canal\" (UW Applied Physics Laboratory / NANOOS); if none is freely licensed, drop this photo"
+ },
+ {
+  "lesson": "beach",
+  "part": "Sand from the cliffs",
+  "after": "Waves work at the foot of a bluff. At high tide in a storm they pluck sand and g",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A feeder bluff on Puget Sound: layers of glacial sand and gravel, with a slide at its foot spilling onto the beach.",
+   "options": {
+    "photo": "feeder-bluff",
+    "aspect": 1.5
+   }
+  },
+  "search": "USGS or Wikimedia Commons: Puget Sound coastal bluff landslide, e.g. the 2013 Ledgewood landslide on Whidbey Island (USGS, public domain), or Category:Discovery Park (Seattle) bluffs; CC BY/BY-SA/PD"
+ },
+ {
+  "lesson": "beach",
+  "part": "The Elwha's sand comes back",
+  "after": "The two dams came down between September 2011 and August 2014, the largest dam r",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Elwha River's mouth after the dams came out, with the new delta built from the sediment they had held back.",
+   "options": {
+    "photo": "elwha-delta-2014",
+    "aspect": 1.5
+   }
+  },
+  "search": "USGS Elwha River dam removal photos (aerial of the river mouth and delta, about 2012 to 2016; USGS, public domain), or Wikimedia Commons Category:Elwha River delta"
+ },
+ {
+  "lesson": "cedar",
+  "part": "The burst",
+  "after": "In December 1918 the side of the moraine at the head of Boxley Creek gave way. W",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Boxley Creek's canyon after the 1918 burst, cut through the moraine by the flood.",
+   "options": {
+    "photo": "boxley-burst",
+    "aspect": 1.4
+   }
+  },
+  "search": "Seattle Municipal Archives: search 'Boxley' or 'Boxley Creek' or 'Edgewick' (1918 to 1919 photos of the washout exist in the water department series). Only if clearly the burst site; public domain or CC BY only."
+ },
+ {
+  "lesson": "lowering",
+  "part": "Docks on mud",
+  "after": "In the autumn of 1916, people along the south end of Lake Washington watched the",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Docks standing on mud at the south end of Lake Washington after the lake was lowered in 1916.",
+   "options": {
+    "photo": "rainier-beach-1916",
+    "aspect": 1.4
+   }
+  },
+  "search": "Seattle Municipal Archives or Museum of History and Industry items on Wikimedia Commons: search 'Lake Washington lowering 1916', 'Rainier Beach 1916', 'exposed lake bed'. Public domain only (pre-1929 publications); skip if none clearly shows it."
+ },
+ {
+  "lesson": "vanport",
+  "part": "Memorial Day, 1948",
+  "after": "In 1942 Henry J. Kaiser's company was building ships for the war in yards on bot",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Vanport in 1943: rows of two-storey apartment blocks on low ground beside the Columbia.",
+   "options": {
+    "photo": "vanport-1943",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons, Category:Vanport, Oregon; a wartime aerial or street view (public domain government photo only; check licence, many Oregon Historical Society images are not free)."
+ },
+ {
+  "lesson": "bar",
+  "part": "Across the bar",
+  "after": "Small boats rely on the Coast Guard, which closes the bar to small boats, or to ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Coast Guard 47-foot motor lifeboat training in the surf near Cape Disappointment.",
+   "options": {
+    "photo": "motor-lifeboat",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons, Category:47-foot Motor Lifeboat or Category:National Motor Lifeboat School (US Coast Guard photos, public domain)."
+ },
+ {
+  "lesson": "bar",
+  "part": "Swell against the ebb tide",
+  "after": "Lesson 7 (waves) showed that a wave carries energy, not water, and that its ener",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Swell breaking on the Columbia bar.",
+   "options": {
+    "photo": "columbia-bar-breakers",
+    "aspect": 1.5
+   }
+  },
+  "search": "Wikimedia Commons, Category:Columbia Bar (US Coast Guard or NOAA photos, public domain), a photo of breakers on the bar or a vessel crossing in heavy seas."
+ },
+ {
+  "lesson": "tables",
+  "part": "Zero is not the bottom",
+  "after": "The real tables are on NOAA's Tides and Currents site, tidesandcurrents.noaa.gov.",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A NOAA tide station: the instruments that measure the water level the predictions are built from.",
+   "options": {
+    "photo": "noaa-tide-station",
+    "aspect": 1.5
+   }
+  },
+  "search": "NOAA Photo Library or Commons: a NOAA NWLON tide station (Category:Tide gauges in the United States); the Seattle station 9447130 if one exists, otherwise any US tide station. Public domain (NOAA)."
+ }
 ]

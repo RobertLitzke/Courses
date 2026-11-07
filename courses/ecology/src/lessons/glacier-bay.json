@@ -17,7 +17,16 @@
       "blocks": [
         {"type": "text", "text": "The cleanest chronosequence in the world is in south-east Alaska. In 1794 George Vancouver's expedition, surveying the coast in small boats, found Icy Strait blocked by a wall of ice. A glacier filled the whole of what is now Glacier Bay, more than a kilometre thick, its face standing at the bay's mouth. When John Muir paddled in with Tlingit guides in 1879, the ice had pulled back about 75 kilometres, leaving a long fjord of bare rock and gravel. By 1916 it had retreated about 100 kilometres[^muir]. So the farther up the bay, the fewer years the ground has been free of ice, and the dates of the ice front tell how many."},
         {"type": "interactive_diagram", "id": "glacier", "caption": "Glacier Bay, drawn as a single channel from Icy Strait to the head of the bay, as the ice pulls back. The shores colour by how long they have been free of ice. Distances and dates rounded.", "task": "Play the retreat, then walk up the bay and find four different stages along it", "goal": "walk", "aspect_ratio": 1.67},
-        {"type": "text", "text": "In 1916 the ecologist William S. Cooper, who had studied under Cowles, came to Glacier Bay to see succession starting from nothing. He marked out permanent plots at sites of different ages and photographed them, and he and later ecologists went back to the same plots for decades. He also campaigned to protect the bay, which became a national monument in 1925 and is now a national park."}
+        {"type": "text", "text": "In 1916 the ecologist William S. Cooper, who had studied under Cowles, came to Glacier Bay to see succession starting from nothing. He marked out permanent plots at sites of different ages and photographed them, and he and later ecologists went back to the same plots for decades. He also campaigned to protect the bay, which became a national monument in 1925 and is now a national park."},
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Muir Inlet in 2004, photographed from the spot where William Field found Muir Glacier filling the inlet in 1941. The ice has gone and the slopes are green.",
+          "options": {
+            "photo": "muir-glacier-repeat",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {

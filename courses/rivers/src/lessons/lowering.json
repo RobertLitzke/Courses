@@ -607,6 +607,15 @@
           "text": "The Montlake Cut was dug on dry ground, with a strip of earth left at its east end as a temporary dam, a cofferdam, to hold Lake Washington back while the work went on.[^cofferdam] In late August 1916 the cofferdam was opened and the lake began to pour west into Lake Union, through a channel dug far below the Black River's bed. From that day the lake had a new lip, 2.7 metres lower than the old one."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Montlake Cut under construction, before the cofferdam at its east end was opened in 1916.",
+          "options": {
+            "photo": "montlake-cut-construction",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "interactive_diagram",
           "id": "lowering-outlet",
           "caption": "A model of the lake and its two outlets, south (left) to north and west (right), heights above low tide in the Sound. The first slider runs the days after the cut opens; the second sets the level the locks hold Lake Union at. The inflow is a late summer's, and the cut's flow is set so the lake falls over about two months, as it did.",
@@ -643,6 +652,15 @@
         {
           "type": "text",
           "text": "The locks at Ballard, named for Hiram M. Chittenden, the Army engineer who planned them, were formally opened on 4 July 1917. Since then they, not any natural lip, have set the level of Lake Union and Lake Washington: about 6 metres above low tide in the Sound, let down a little each autumn to make room for winter rain and raised again in spring.[^datum] The Sound's tide at Seattle rises and falls about 3.5 metres (11 feet) between an ordinary low and high, and more at the biggest tides, so the lift from the Sound to the lake runs from about 2 metres at a high tide to about 8 at a very low one."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Hiram M. Chittenden Locks at Ballard, the large lock beside the small one, with Salmon Bay beyond.",
+          "options": {
+            "photo": "ballard-locks",
+            "aspect": 1.5
+          }
         },
         {
           "type": "text",

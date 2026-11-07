@@ -22,6 +22,15 @@
           "text": "In September 2006, people along the southern reach of Hood Canal, around the small town of Hoodsport on its western shore, began to find fish where fish do not belong. Rockfish, lingcod and other fish that keep to the rocks and mud near the bottom were hanging in the top few metres of water, barely moving. Divers reported dead fish lying on the bottom. Instruments lowered over the side measured the reason: below the top few metres, the water had almost no oxygen left in it."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Hoodsport, on the western shore of southern Hood Canal, where the 2006 kill was first noticed.",
+          "options": {
+            "photo": "hoodsport-shore",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "It had happened before. A kill struck the same waters in 2003, and another came in 2010, both like this one in late summer or early autumn. Smaller episodes have been reported in other years."
         },

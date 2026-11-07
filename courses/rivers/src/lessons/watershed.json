@@ -69,7 +69,7 @@
                 "side": "below"
               },
               {
-                "lon": -121.0,
+                "lon": -121,
                 "lat": 47.2,
                 "text": "Yakima River",
                 "side": "left"
@@ -259,6 +259,15 @@
         {
           "type": "text",
           "text": "After the fire of 1889 burned out downtown, a fire blamed partly on weak water pressure, Seattle voted to build its own water supply. The city engineer, Reginald H. Thomson, wanted the Cedar River: high enough in the mountains for its water to run to the city by gravity, with no pumps, and clean. Water from a pipeline at Landsburg reached the city in 1901. The city then bought the land above it, piece by piece, until it owned nearly the whole watershed, about 370 square kilometres of forest that is still closed to the public. Cedar water is clean enough that it is not filtered, only disinfected. Today the Cedar supplies about two thirds of the water for some 1.5 million people in and around Seattle; the Tolt River, a smaller supply to the north, gives the other third."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Chester Morse Lake, in the Cedar River watershed, which Seattle owns and keeps closed to the public.",
+          "options": {
+            "photo": "cedar-watershed",
+            "aspect": 1.5
+          }
         },
         {
           "type": "key_ideas",

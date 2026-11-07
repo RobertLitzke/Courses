@@ -18,7 +18,20 @@
       "title": "Forty-one years in a Siberian cave",
       "blocks": [
         {"type": "text", "text": "In 2005 bat researchers working in the caves of southern Siberia caught a male Brandt's bat, *Myotis brandtii*, a small brown bat of Europe and Asia that weighs about 7 g, as much as seven paper clips. On its forearm it carried a numbered metal band. The records showed the band had been put on in the same cave region in the 1960s, when the bat was already an adult. It was at least 41 years old, and still flying.[^band] Andrej Podlutsky and his colleagues reported it as the oldest bat known."},
-        {"type": "text", "text": "A house mouse weighs about three times as much. In a laboratory, with food, warmth and no predators, a mouse lives two or three years; in the wild it rarely sees a second winter. Nearer home, a little brown bat, the commonest bat of the northern United States, has been found alive 34 years after it was banded. Small mammals are supposed to live fast and die young, and these bats do neither. The question for this lesson is why, and what a long, slow life means for a bat population when something like white-nose syndrome strikes."}
+        {"type": "diagram", "id": "photo", "caption": "Brandt's bat, *Myotis brandtii*, a 7 g bat of Europe and Asia and the longest-lived bat known.", "options": {"photo": "brandts-bat", "aspect": 1.5}},
+        {
+          "type": "text",
+          "text": "A house mouse weighs about three times as much. In a laboratory, with food, warmth and no predators, a mouse lives two or three years; in the wild it rarely sees a second winter. Nearer home, a little brown bat, the commonest bat of the northern United States, has been found alive 34 years after it was banded. Small mammals are supposed to live fast and die young, and these bats do neither. The question for this lesson is why, and what a long, slow life means for a bat population when something like white-nose syndrome strikes."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A little brown bat with a numbered band on its forearm, the only way to know how old a wild bat is.",
+          "options": {
+            "photo": "banded-bat",
+            "aspect": 1.5
+          }
+        }
       ]
     },
     {
@@ -42,9 +55,13 @@
       "blocks": [
         {"type": "text", "text": "The other side of a long life is a slow start to each new one. Most bats raise a single pup a year. A house mouse can breed at six weeks old and raise a litter of five or six every month through the summer; a female little brown bat breeds once a year, at most, from her first or second summer."},
         {"type": "text", "text": "Her timetable is odd. Little brown bats mate in late summer and autumn, at the entrances of the caves where they will hibernate, and through the winter. The female does not ovulate then. She stores the sperm in her womb through months of torpor, and only when she wakes in spring does she release an egg and become pregnant.[^stored] Pregnant females gather in warm maternity colonies, in attics, barns and hollow trees, and give birth in June. The pup is enormous, a quarter to a third of its mother's weight: for a 60 kg woman, a baby of 15 to 20 kg, the weight of a four-year-old. It hangs on to her and drinks her milk for about three weeks, flies by four weeks old, and must lay down its own fat for winter in a few weeks more."},
+        {"type": "diagram", "id": "photo", "caption": "A mother bat with her pup, which at birth weighs a quarter to a third as much as she does.", "options": {"photo": "bat-mother-pup", "aspect": 1.5}},
         {"type": "text", "text": "A population like that cannot grow fast. Count only the females: each year about 85 in 100 adults survive. Each of the 100 has one pup, half of them female, and about half of those survive their first year, so 100 mothers add about 25 young females. A colony at best gains 25 and loses 15 for every 100, a net tenth a year. The figure asks what that means after a disaster."},
         {"type": "interactive_diagram", "id": "colony-recovery", "caption": "A model colony of little brown bats, as a share of the most its roost can hold. The sliders set the pups each female has a year, a one-off loss in one bad winter, and extra deaths every year after it. In the model 85% of adult females survive each year, half the young survive their first year, and growth slows as the roost fills. The dashed line is mice after the same loss.", "task": "Guess, then raise the extra yearly deaths until the colony cannot make them up", "goal": "fail", "aspect_ratio": 1.82},
-        {"type": "text", "text": "After a 90% loss the model colony takes over forty years to come back, while mice are back within a year. Give the bats two or three pups a year and they recover in a decade or less, which is why the single pup matters. The third slider is the quieter danger: a colony that can add at most a tenth a year, after its normal deaths, is lost if something new kills more than a tenth of its members every year on top of them, whether a fungus, wind turbines (lesson 10 comes back to these) or a sealed-up roost."}
+        {
+          "type": "text",
+          "text": "After a 90% loss the model colony takes over forty years to come back, while mice are back within a year. Give the bats two or three pups a year and they recover in a decade or less, which is why the single pup matters. The third slider is the quieter danger: a colony that can add at most a tenth a year, after its normal deaths, is lost if something new kills more than a tenth of its members every year on top of them, whether a fungus, wind turbines (lesson 10 comes back to these) or a sealed-up roost."
+        }
       ]
     },
     {

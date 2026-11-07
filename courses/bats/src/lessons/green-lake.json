@@ -20,16 +20,24 @@
       "title": "Twenty minutes after sunset",
       "blocks": [
         {"type": "text", "text": "Green Lake fills a hollow left by the ice sheet in north Seattle, about a kilometre across, with a path round it that is busy with walkers and runners until long after dark. On a clear evening in late July the sun sets a little before nine. For the next quarter of an hour, swallows and swifts take insects over the water. Then, somewhere between 15 and 25 minutes after sunset, the first bats appear, and they do not come down to the water at all. They fly high along the tops of the trees on the far shore, fast, in long straight runs and wide turns."},
-        {"type": "text", "text": "Ten minutes later, as the sky goes from orange to dark blue, a second kind arrives: smaller bats that drop to within a metre of the lake and zigzag over it, so low that their reflections fly beside them. By full dark the water is busy with them. The two kinds keep apart, one in the air above the trees and one on the surface, and the second comes later. Wing shape, the pitch of their calls and the risk of being eaten explain both, as the next part shows."}
+        {"type": "diagram", "id": "photo", "caption": "Green Lake in north Seattle at dusk.", "options": {"photo": "green-lake-dusk", "aspect": 1.6}},
+        {
+          "type": "text",
+          "text": "Ten minutes later, as the sky goes from orange to dark blue, a second kind arrives: smaller bats that drop to within a metre of the lake and zigzag over it, so low that their reflections fly beside them. By full dark the water is busy with them. The two kinds keep apart, one in the air above the trees and one on the surface, and the second comes later. Wing shape, the pitch of their calls and the risk of being eaten explain both, as the next part shows."
+        }
       ]
     },
     {
       "title": "Two layers",
       "blocks": [
         {"type": "text", "text": "The high, early bats are mostly **big brown bats** and **silver-haired bats**, weighing 8 to 20 grams against 5 to 9 for the bats that come later. They hunt in the open, along the edges of the trees and above them, and the big brown in particular is a fast flyer with wings built for open air (lesson 2). Both call near 25 to 28 kHz. A low call fades slowly in air (lesson 3), so it reaches insects 20 metres or more away, which is what a fast bat hunting in open sky needs. Big browns favour beetles and moths, big insects that give a strong echo at long range."},
+        {"type": "diagram", "id": "photo", "caption": "A big brown bat in flight, one of the first bats out over Seattle's lakes.", "options": {"photo": "big-brown-bat-flight", "aspect": 1.5}},
         {"type": "interactive_diagram", "id": "gl-dusk", "caption": "Dusk over a Seattle lake, from 10 minutes before sunset to 70 after, in four months of the year. Pick a month and play the evening through. The hoary bat, a big, high-flying visitor described under The season below, comes only late in summer. A sketch from surveys and bat walks around Seattle lakes, not a count.", "task": "Find the hoary bat", "goal": "hoary", "aspect_ratio": 1.72},
         {"type": "text", "text": "The water skimmers are **Myotis**, small bats of about 5 to 9 grams. Over Seattle's lakes most are **Yuma myotis**, whose calls end near 50 kHz, and **little brown myotis**, near 40 kHz. Their short, broad wings, wide for their length, turn tightly at low speed, and their short, steep calls time echoes precisely at close range, the right tools for insects a few centimetres above the surface. The surface itself helps. Smooth water reflects a call the way a mirror reflects light: sound that strikes it at a slant bounces on at the same slant, ahead and away from the bat, so very little comes back from the water, and an insect flying over it gives the only echo there is.[^mirror]"},
-        {"type": "text", "text": "Why the Myotis come out later is less certain. The answer most researchers favour is danger. Hawks, falcons and owls hunt by sight at dusk, and a small, slow bat is easier to catch than a fast one. Across many species, fast-flying bats tend to leave their roosts earlier than slow ones, as though each waits until the light is low enough for its own escape speed.[^emerge] The insects over the water are thickest at dusk too, so a Myotis pays for its safety in lost hunting time."}
+        {
+          "type": "text",
+          "text": "Why the Myotis come out later is less certain. The answer most researchers favour is danger. Hawks, falcons and owls hunt by sight at dusk, and a small, slow bat is easier to catch than a fast one. Across many species, fast-flying bats tend to leave their roosts earlier than slow ones, as though each waits until the light is low enough for its own escape speed.[^emerge] The insects over the water are thickest at dusk too, so a Myotis pays for its safety in lost hunting time."
+        }
       ]
     },
     {
@@ -38,7 +46,11 @@
         {"type": "text", "text": "Ask people what the bats over the lake are eating and most will say mosquitoes. The bats' droppings, examined under a microscope or by reading the DNA of the insects in them, say otherwise."},
         {"type": "interactive_diagram", "id": "gl-diet", "caption": "What turns up in the droppings of three bats of Seattle's lakes, the Yuma, the little brown and the big brown, rounded from diet studies in British Columbia and Washington. Real shares change from night to night and lake to lake.", "task": "Guess what most of their diet is, then compare the big brown", "goal": "diet", "aspect_ratio": 2.15},
         {"type": "text", "text": "For the Yuma and the little brown the answer is mostly **midges**, the small flies of the family Chironomidae. They look like mosquitoes but do not bite: the adults barely feed at all. Their larvae, red \"bloodworms\" in the mud on the lake bottom, can number thousands to a square metre, and on summer evenings the adults rise through the water and leave it together, the males dancing in swarms over the shore. With them come **caddisflies**, moth-like insects whose larvae build cases of sand or plant bits under water. Mosquitoes are eaten, but they are rarely common enough over open water to be more than a minor item in the droppings."},
-        {"type": "text", "text": "The famous figure of a thousand mosquitoes an hour goes back to experiments in a closed room in the late 1950s, where Griffin's little brown bats, flown among swarms of fruit flies or mosquitoes, caught small insects at up to about ten a minute.[^thousand] They showed how fast a bat can work, not what it eats outdoors. A wild bat eats whatever is plentiful, and over a lake at dusk that is midges."}
+        {"type": "diagram", "id": "photo", "caption": "A non-biting midge, family Chironomidae: the feathery antennae mark a male.", "options": {"photo": "chironomid-midge", "aspect": 1.33}},
+        {
+          "type": "text",
+          "text": "The famous figure of a thousand mosquitoes an hour goes back to experiments in a closed room in the late 1950s, where Griffin's little brown bats, flown among swarms of fruit flies or mosquitoes, caught small insects at up to about ten a minute.[^thousand] They showed how fast a bat can work, not what it eats outdoors. A wild bat eats whatever is plentiful, and over a lake at dusk that is midges."
+        }
       ]
     },
     {
@@ -58,13 +70,18 @@
       "blocks": [
         {"type": "text", "text": "Bats fly over Green Lake from about April to October. The numbers build through the summer: the females gather in nursery colonies in attics, bat houses and hollow trees in late spring, and each little brown or Yuma mother gives birth to a single pup in June or early July, and the pups fly at about three weeks old. Late July and August are the best evenings, with the year's young hunting beside their mothers, clumsily at first."},
         {"type": "text", "text": "In late summer the **hoary bat** comes through, the heaviest bat in Washington at 20 to 35 grams, with frosted fur and long, narrow wings. It hunts high and fast over the lake and the park, and its calls near 20 kHz are low enough that some people, mostly young ones, can just hear the bottom of each call as a faint tick. Hoary bats roost alone in tree foliage and migrate south for the winter, which lesson 10 follows south, past the wind turbines that kill many of them on the way."},
+        {"type": "diagram", "id": "photo", "caption": "A hoary bat roosting alone among leaves, its frosted fur blending with bark and lichen.", "options": {"photo": "hoary-bat-roosting", "aspect": 1.33}},
         {"type": "text", "text": "In winter the Myotis are in torpor, a deep, controlled chill that saves their fat (lesson 7), but big brown and silver-haired bats, which overwinter in buildings and trees around Seattle, sometimes wake on a mild night and hunt for an hour along the trees. A bat over Green Lake in January is not lost or sick; it is most likely one of these."},
-        {"type": "key_ideas", "title": "Outside", "points": [
-          "Pick a clear, calm evening in late July or August and look up the sunset time. Stand on the shore with open water in front and trees behind it, and start watching at sunset.",
-          "Note the minute the first bat appears high along the trees, and the minute the first one drops to the water. Do it again on another evening and compare.",
-          "Watch one water bat for a minute. Count its sudden twists and dives: each is an attempt at an insect.",
-          "A heterodyne detector (lesson L1) set near 45 kHz picks up the water bats; set near 25 kHz, the high flyers. Without one, you will hear nothing from either, except perhaps a hoary bat."
-        ]}
+        {
+          "type": "key_ideas",
+          "title": "Outside",
+          "points": [
+            "Pick a clear, calm evening in late July or August and look up the sunset time. Stand on the shore with open water in front and trees behind it, and start watching at sunset.",
+            "Note the minute the first bat appears high along the trees, and the minute the first one drops to the water. Do it again on another evening and compare.",
+            "Watch one water bat for a minute. Count its sudden twists and dives: each is an attempt at an insect.",
+            "A heterodyne detector (lesson L1) set near 45 kHz picks up the water bats; set near 25 kHz, the high flyers. Without one, you will hear nothing from either, except perhaps a hoary bat."
+          ]
+        }
       ]
     },
     {

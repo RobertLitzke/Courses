@@ -1,781 +1,817 @@
 {
- "id": "meanders",
- "n": 5,
- "title": "The river that changed its mind",
- "teaches": "Why bends grow and cut off, braided and meandering rivers, log jams and avulsion",
- "summary": [
-  "**Water corkscrews round a bend.** Fast surface water is driven toward the outside bank and down it, and slower water near the bed returns toward the inside, the secondary flow Thomson described in 1876.",
-  "**A stirred teacup shows the same flow.** Friction slows the bottom water, so the inward push from the higher rim wins there and sweeps the leaves to the middle, as Einstein explained in 1926.",
-  "**The outside of a bend erodes and the inside builds.** The plunge digs a pool and a steep cut bank; the bed flow carries sand and gravel to the inside, where it settles as a point bar.",
-  "**A bend, once started, grows.** A sharper bend drives a stronger secondary flow, which eats the outside bank faster, so loops swell and creep down the valley.",
-  "**Loops end in cutoffs.** When a loop doubles back until only a neck of land is left, a flood breaks through and the old loop becomes an oxbow lake.",
-  "**Banks set the pace.** Roots slow a bend's growth, bare banks let it run, and riprap stops it; why a straight river starts to bend in the first place is still argued.",
-  "**Steep rivers with heavy loads braid.** On a steep slope with more gravel than one channel can carry, as on the White, Carbon and Hoh, a river splits into threads around shifting bars.",
-  "**Log jams steer rivers.** A jam scours pools, splits the flow and, during a flood, can tip a river out of its channel.",
-  "**An avulsion is a river jumping to a new course.** A river sitting where two downhill routes start at nearly the same height can be sent down the other by a jam, as the White was at Auburn in 1906."
- ],
- "parts": [
-  {
-   "title": "Gone to Tacoma",
-   "blocks": [
+  "id": "meanders",
+  "n": 5,
+  "title": "The river that changed its mind",
+  "teaches": "Why bends grow and cut off, braided and meandering rivers, log jams and avulsion",
+  "summary": [
+    "**Water corkscrews round a bend.** Fast surface water is driven toward the outside bank and down it, and slower water near the bed returns toward the inside, the secondary flow Thomson described in 1876.",
+    "**A stirred teacup shows the same flow.** Friction slows the bottom water, so the inward push from the higher rim wins there and sweeps the leaves to the middle, as Einstein explained in 1926.",
+    "**The outside of a bend erodes and the inside builds.** The plunge digs a pool and a steep cut bank; the bed flow carries sand and gravel to the inside, where it settles as a point bar.",
+    "**A bend, once started, grows.** A sharper bend drives a stronger secondary flow, which eats the outside bank faster, so loops swell and creep down the valley.",
+    "**Loops end in cutoffs.** When a loop doubles back until only a neck of land is left, a flood breaks through and the old loop becomes an oxbow lake.",
+    "**Banks set the pace.** Roots slow a bend's growth, bare banks let it run, and riprap stops it; why a straight river starts to bend in the first place is still argued.",
+    "**Steep rivers with heavy loads braid.** On a steep slope with more gravel than one channel can carry, as on the White, Carbon and Hoh, a river splits into threads around shifting bars.",
+    "**Log jams steer rivers.** A jam scours pools, splits the flow and, during a flood, can tip a river out of its channel.",
+    "**An avulsion is a river jumping to a new course.** A river sitting where two downhill routes start at nearly the same height can be sent down the other by a jam, as the White was at Auburn in 1906."
+  ],
+  "parts": [
     {
-     "type": "text",
-     "text": "Until the autumn of 1906, the White River, grey with silt from the glaciers of Mount Rainier, came out of the foothills at Auburn and turned north, toward Seattle. A few kilometres to the south, across a valley floor so flat that a farmer could hardly tell which way it sloped, a smaller channel called the Stuck ran the other way, toward Tacoma. The map shows both, and the stage text names the other rivers along the way."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "map-live",
-     "caption": "Where the White River went: before the flood of November 1906, during it, and once a diversion at Auburn held it. Rivers are blue; the jam is marked in brown, this course's colour for sediment and debris, and the diversion in purple, its colour for people's works. Courses drawn by hand, so approximate.",
-     "task": "Step through all three stages",
-     "goal": "end",
-     "options": {
-      "relief": "maps/puget",
-      "sun": {
-       "azimuth": 315,
-       "altitude": 35
-      },
-      "water": 0,
-      "textLines": 4,
-      "seconds": 9,
-      "labels": [
-       {
-        "lon": -122.228,
-        "lat": 47.307,
-        "text": "Auburn",
-        "side": "left"
-       },
-       {
-        "lon": -122.335,
-        "lat": 47.6,
-        "text": "Seattle",
-        "side": "left"
-       },
-       {
-        "lon": -122.44,
-        "lat": 47.252,
-        "text": "Tacoma",
-        "side": "left"
-       }
-      ],
-      "stages": [
-       {
-        "label": "Before 1906",
-        "text": "The White leaves the foothills at Auburn and turns north with the Green, down the Kent valley to the Duwamish and Elliott Bay. The Stuck (dashed) is a small channel running south to the Puyallup.",
-        "lines": [
-         {
-          "points": [
-           [
-            -121.98,
-            47.17
-           ],
-           [
-            -122.06,
-            47.2
-           ],
-           [
-            -122.13,
-            47.25
-           ],
-           [
-            -122.2,
-            47.29
-           ],
-           [
-            -122.225,
-            47.305
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.225,
-            47.305
-           ],
-           [
-            -122.235,
-            47.36
-           ],
-           [
-            -122.245,
-            47.42
-           ],
-           [
-            -122.26,
-            47.47
-           ],
-           [
-            -122.3,
-            47.51
-           ],
-           [
-            -122.34,
-            47.55
-           ],
-           [
-            -122.36,
-            47.585
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.225,
-            47.305
-           ],
-           [
-            -122.235,
-            47.25
-           ],
-           [
-            -122.24,
-            47.205
-           ]
-          ],
-          "color": "water",
-          "width": 1.5,
-          "dashed": true
-         },
-         {
-          "points": [
-           [
-            -122.2,
-            47.1
-           ],
-           [
-            -122.23,
-            47.16
-           ],
-           [
-            -122.24,
-            47.205
-           ],
-           [
-            -122.3,
-            47.23
-           ],
-           [
-            -122.36,
-            47.25
-           ],
-           [
-            -122.42,
-            47.27
-           ]
-          ],
-          "color": "water",
-          "width": 2
-         }
-        ]
-       },
-       {
-        "label": "November 1906",
-        "text": "Driftwood jams the channel near Auburn during the flood. The water spills south down the Stuck, and when the flood is over the White is flowing to the Puyallup and Tacoma instead of to Seattle.",
-        "lines": [
-         {
-          "points": [
-           [
-            -121.98,
-            47.17
-           ],
-           [
-            -122.06,
-            47.2
-           ],
-           [
-            -122.13,
-            47.25
-           ],
-           [
-            -122.2,
-            47.29
-           ],
-           [
-            -122.225,
-            47.305
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.225,
-            47.305
-           ],
-           [
-            -122.235,
-            47.36
-           ],
-           [
-            -122.245,
-            47.42
-           ],
-           [
-            -122.26,
-            47.47
-           ],
-           [
-            -122.3,
-            47.51
-           ],
-           [
-            -122.34,
-            47.55
-           ],
-           [
-            -122.36,
-            47.585
-           ]
-          ],
-          "color": "water",
-          "width": 1.5
-         },
-         {
-          "points": [
-           [
-            -122.225,
-            47.305
-           ],
-           [
-            -122.235,
-            47.25
-           ],
-           [
-            -122.24,
-            47.205
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.2,
-            47.1
-           ],
-           [
-            -122.23,
-            47.16
-           ],
-           [
-            -122.24,
-            47.205
-           ],
-           [
-            -122.3,
-            47.23
-           ],
-           [
-            -122.36,
-            47.25
-           ],
-           [
-            -122.42,
-            47.27
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         }
-        ],
-        "labels": [
-         {
-          "lon": -122.215,
-          "lat": 47.3,
-          "text": "the jam",
-          "side": "right",
-          "color": "sediment"
-         }
-        ]
-       },
-       {
-        "label": "About 1915",
-        "text": "The two counties have agreed to keep the river where the jam sent it, and a concrete diversion at Auburn holds the White in the Stuck channel. Only the Green runs north to the Duwamish now.",
-        "lines": [
-         {
-          "points": [
-           [
-            -121.98,
-            47.17
-           ],
-           [
-            -122.06,
-            47.2
-           ],
-           [
-            -122.13,
-            47.25
-           ],
-           [
-            -122.2,
-            47.29
-           ],
-           [
-            -122.225,
-            47.305
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.225,
-            47.305
-           ],
-           [
-            -122.235,
-            47.25
-           ],
-           [
-            -122.24,
-            47.205
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.2,
-            47.1
-           ],
-           [
-            -122.23,
-            47.16
-           ],
-           [
-            -122.24,
-            47.205
-           ],
-           [
-            -122.3,
-            47.23
-           ],
-           [
-            -122.36,
-            47.25
-           ],
-           [
-            -122.42,
-            47.27
-           ]
-          ],
-          "color": "water",
-          "width": 3
-         },
-         {
-          "points": [
-           [
-            -122.06,
-            47.3
-           ],
-           [
-            -122.14,
-            47.31
-           ],
-           [
-            -122.225,
-            47.31
-           ],
-           [
-            -122.235,
-            47.36
-           ],
-           [
-            -122.245,
-            47.42
-           ],
-           [
-            -122.26,
-            47.47
-           ],
-           [
-            -122.3,
-            47.51
-           ],
-           [
-            -122.34,
-            47.55
-           ],
-           [
-            -122.36,
-            47.585
-           ]
-          ],
-          "color": "water",
-          "width": 2
-         }
-        ],
-        "labels": [
-         {
-          "lon": -122.215,
-          "lat": 47.3,
-          "text": "diversion",
-          "side": "right",
-          "color": "works"
-         },
-         {
-          "lon": -122.12,
-          "lat": 47.33,
-          "text": "Green",
-          "side": "above"
-         }
-        ]
-       }
+      "title": "Gone to Tacoma",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Until the autumn of 1906, the White River, grey with silt from the glaciers of Mount Rainier, came out of the foothills at Auburn and turned north, toward Seattle. A few kilometres to the south, across a valley floor so flat that a farmer could hardly tell which way it sloped, a smaller channel called the Stuck ran the other way, toward Tacoma. The map shows both, and the stage text names the other rivers along the way."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "Where the White River went: before the flood of November 1906, during it, and once a diversion at Auburn held it. Rivers are blue; the jam is marked in brown, this course's colour for sediment and debris, and the diversion in purple, its colour for people's works. Courses drawn by hand, so approximate.",
+          "task": "Step through all three stages",
+          "goal": "end",
+          "options": {
+            "relief": "maps/puget",
+            "sun": {
+              "azimuth": 315,
+              "altitude": 35
+            },
+            "water": 0,
+            "textLines": 4,
+            "seconds": 9,
+            "labels": [
+              {
+                "lon": -122.228,
+                "lat": 47.307,
+                "text": "Auburn",
+                "side": "left"
+              },
+              {
+                "lon": -122.335,
+                "lat": 47.6,
+                "text": "Seattle",
+                "side": "left"
+              },
+              {
+                "lon": -122.44,
+                "lat": 47.252,
+                "text": "Tacoma",
+                "side": "left"
+              }
+            ],
+            "stages": [
+              {
+                "label": "Before 1906",
+                "text": "The White leaves the foothills at Auburn and turns north with the Green, down the Kent valley to the Duwamish and Elliott Bay. The Stuck (dashed) is a small channel running south to the Puyallup.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -121.98,
+                        47.17
+                      ],
+                      [
+                        -122.06,
+                        47.2
+                      ],
+                      [
+                        -122.13,
+                        47.25
+                      ],
+                      [
+                        -122.2,
+                        47.29
+                      ],
+                      [
+                        -122.225,
+                        47.305
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.225,
+                        47.305
+                      ],
+                      [
+                        -122.235,
+                        47.36
+                      ],
+                      [
+                        -122.245,
+                        47.42
+                      ],
+                      [
+                        -122.26,
+                        47.47
+                      ],
+                      [
+                        -122.3,
+                        47.51
+                      ],
+                      [
+                        -122.34,
+                        47.55
+                      ],
+                      [
+                        -122.36,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.225,
+                        47.305
+                      ],
+                      [
+                        -122.235,
+                        47.25
+                      ],
+                      [
+                        -122.24,
+                        47.205
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 1.5,
+                    "dashed": true
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.2,
+                        47.1
+                      ],
+                      [
+                        -122.23,
+                        47.16
+                      ],
+                      [
+                        -122.24,
+                        47.205
+                      ],
+                      [
+                        -122.3,
+                        47.23
+                      ],
+                      [
+                        -122.36,
+                        47.25
+                      ],
+                      [
+                        -122.42,
+                        47.27
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 2
+                  }
+                ]
+              },
+              {
+                "label": "November 1906",
+                "text": "Driftwood jams the channel near Auburn during the flood. The water spills south down the Stuck, and when the flood is over the White is flowing to the Puyallup and Tacoma instead of to Seattle.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -121.98,
+                        47.17
+                      ],
+                      [
+                        -122.06,
+                        47.2
+                      ],
+                      [
+                        -122.13,
+                        47.25
+                      ],
+                      [
+                        -122.2,
+                        47.29
+                      ],
+                      [
+                        -122.225,
+                        47.305
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.225,
+                        47.305
+                      ],
+                      [
+                        -122.235,
+                        47.36
+                      ],
+                      [
+                        -122.245,
+                        47.42
+                      ],
+                      [
+                        -122.26,
+                        47.47
+                      ],
+                      [
+                        -122.3,
+                        47.51
+                      ],
+                      [
+                        -122.34,
+                        47.55
+                      ],
+                      [
+                        -122.36,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 1.5
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.225,
+                        47.305
+                      ],
+                      [
+                        -122.235,
+                        47.25
+                      ],
+                      [
+                        -122.24,
+                        47.205
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.2,
+                        47.1
+                      ],
+                      [
+                        -122.23,
+                        47.16
+                      ],
+                      [
+                        -122.24,
+                        47.205
+                      ],
+                      [
+                        -122.3,
+                        47.23
+                      ],
+                      [
+                        -122.36,
+                        47.25
+                      ],
+                      [
+                        -122.42,
+                        47.27
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.215,
+                    "lat": 47.3,
+                    "text": "the jam",
+                    "side": "right",
+                    "color": "sediment"
+                  }
+                ]
+              },
+              {
+                "label": "About 1915",
+                "text": "The two counties have agreed to keep the river where the jam sent it, and a concrete diversion at Auburn holds the White in the Stuck channel. Only the Green runs north to the Duwamish now.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -121.98,
+                        47.17
+                      ],
+                      [
+                        -122.06,
+                        47.2
+                      ],
+                      [
+                        -122.13,
+                        47.25
+                      ],
+                      [
+                        -122.2,
+                        47.29
+                      ],
+                      [
+                        -122.225,
+                        47.305
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.225,
+                        47.305
+                      ],
+                      [
+                        -122.235,
+                        47.25
+                      ],
+                      [
+                        -122.24,
+                        47.205
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.2,
+                        47.1
+                      ],
+                      [
+                        -122.23,
+                        47.16
+                      ],
+                      [
+                        -122.24,
+                        47.205
+                      ],
+                      [
+                        -122.3,
+                        47.23
+                      ],
+                      [
+                        -122.36,
+                        47.25
+                      ],
+                      [
+                        -122.42,
+                        47.27
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.06,
+                        47.3
+                      ],
+                      [
+                        -122.14,
+                        47.31
+                      ],
+                      [
+                        -122.225,
+                        47.31
+                      ],
+                      [
+                        -122.235,
+                        47.36
+                      ],
+                      [
+                        -122.245,
+                        47.42
+                      ],
+                      [
+                        -122.26,
+                        47.47
+                      ],
+                      [
+                        -122.3,
+                        47.51
+                      ],
+                      [
+                        -122.34,
+                        47.55
+                      ],
+                      [
+                        -122.36,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 2
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.215,
+                    "lat": 47.3,
+                    "text": "diversion",
+                    "side": "right",
+                    "color": "works"
+                  },
+                  {
+                    "lon": -122.12,
+                    "lat": 47.33,
+                    "text": "Green",
+                    "side": "above"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "In November 1906 a flood came down every river around the Sound. Driftwood piled up where the White spread out onto the valley floor near Auburn and jammed across its channel. When the water went down, the White was running south down the Stuck into the Puyallup. It had gone to bed flowing to Seattle and woken up flowing to Tacoma."
+        },
+        {
+          "type": "text",
+          "text": "King County's farmers in the Kent valley were pleased: the Green still ran past them, but the White's big winter floods no longer did. Pierce County, downstream on the Puyallup, was not, and the two counties argued over it for years. In the end they agreed to keep the river where the jam had sent it, and by about 1915 a concrete diversion at Auburn held the White in its new course, where it still runs. The Duwamish had lost most of its water, which the Seattle branch (S3) follows."
+        },
+        {
+          "type": "text",
+          "text": "A pile of logs cannot push a river uphill, so the route south must already have run downhill from Auburn, and the White must have been sitting where a small push could send it either way. Working out how a river comes to sit like that takes a few ideas about how rivers move sideways. The first is hidden in a cup of tea, because water going round a bend behaves like water going round a cup."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "In November 1906 a flood came down every river around the Sound. Driftwood piled up where the White spread out onto the valley floor near Auburn and jammed across its channel. When the water went down, the White was running south down the Stuck into the Puyallup. It had gone to bed flowing to Seattle and woken up flowing to Tacoma."
-    },
-    {
-     "type": "text",
-     "text": "King County's farmers in the Kent valley were pleased: the Green still ran past them, but the White's big winter floods no longer did. Pierce County, downstream on the Puyallup, was not, and the two counties argued over it for years. In the end they agreed to keep the river where the jam had sent it, and by about 1915 a concrete diversion at Auburn held the White in its new course, where it still runs. The Duwamish had lost most of its water, which the Seattle branch (S3) follows."
-    },
-    {
-     "type": "text",
-     "text": "A pile of logs cannot push a river uphill, so the route south must already have run downhill from Auburn, and the White must have been sitting where a small push could send it either way. Working out how a river comes to sit like that takes a few ideas about how rivers move sideways. The first is hidden in a cup of tea, because water going round a bend behaves like water going round a cup."
-    }
-   ]
-  },
-  {
-   "title": "Tea leaves and a bend",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Stir a cup of loose-leaf tea, take the spoon out and watch the leaves on the bottom. You might expect the spinning water to fling them outward, the way a spin dryer throws clothes against its drum. They slide inward instead, and gather in a little heap in the middle."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "meanders-teacup",
-     "caption": "A stirred teacup from above (left) and cut in half (right) in the seconds after the spoon comes out. The upper slider sets how hard it was stirred; Play runs the seconds. Watch the leaves on the bottom, and the red arrows of the slow loop across the cup. A model: the swirl dies away in about ten seconds, and a gentle stir drives a much weaker loop than a hard one.",
-     "task": "Stir hard, then play, and watch where the leaves go",
-     "goal": "gather",
-     "aspect_ratio": 1.74
-    },
-    {
-     "type": "text",
-     "text": "Albert Einstein explained this in a short paper in 1926, written to answer a question about rivers.[^baer] Spinning water presses outward, so it piles a little higher at the rim than in the middle: the surface of a stirred cup is a shallow dish. Water presses on whatever lies below it with the weight of the water above, so under the higher rim the water is pressed harder at every depth than under the middle. That difference pushes water toward the middle, and it is the same at the top of the cup as at the bottom, because the extra height at the rim is the same above both."
-    },
-    {
-     "type": "diagram",
-     "id": "meanders-pushes",
-     "caption": "The two pushes on the water at the top and at the bottom of a stirred cup. The push toward the middle (grey) is the same at both depths. The swirl's outward push (red) is strong at the top and weak at the bottom, where friction with the cup slows the water.",
-     "aspect_ratio": 2
-    },
-    {
-     "type": "text",
-     "text": "The other push depends on speed. Water going round a curve pushes outward, more strongly the faster it goes. Near the top the water swirls fast, its outward push beats the inward one, and it moves out. At the bottom the water rubs on the cup and slows down, its outward push weakens, and the inward push wins. So the bottom water creeps inward, carrying the leaves, rises up the middle and turns outward again at the top: a slow loop across the cup, riding on the spin. The water rising in the middle moves too slowly to lift leaves, which are denser than water, so they stay where the bottom flow dropped them."
-    },
-    {
-     "type": "text",
-     "text": "James Thomson, an engineer and the elder brother of Lord Kelvin, had described the same loop in river bends fifty years earlier, in 1876.[^thomson] In a bend, the outside bank plays the rim of the cup and the inside bank the middle. The surface stands a little higher against the outside bank, fast water near the surface is driven toward the outside bank and down it, and slower water near the bed returns toward the inside. Seen from above, the water corkscrews round the bend. A loop like this, across the channel and riding on the main downstream flow, is called **secondary flow**."
-    },
-    {
-     "type": "diagram",
-     "id": "meanders-section",
-     "caption": "A river bend seen from above, and cut across at its sharpest point, looking downstream, so the outside bank is on the left. Red arrows are the flow; fast surface water runs toward the outside bank and down it, and the flow along the bed returns toward the inside. Depths are exaggerated about ten times.",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "text",
-     "text": "The water plunging down the outside bank does the digging. It scours a deep **pool** at the foot of the bank and undercuts it until slabs of earth and trees fall in, leaving a steep, raw **cut bank**. The flow along the bed sweeps sand and gravel toward the inside of the bend, the way the cup's bottom flow sweeps leaves to the middle, and drops them where the water is shallow and slow. Flood by flood, the inside of the bend grows a gently sloping beach of sand and gravel, a **point bar**."
-    },
-    {
-     "type": "key_ideas",
-     "title": "On a riverbank",
-     "points": [
-      "Find a bend on the Snoqualmie at Fall City or at Tolt-MacDonald Park in Carnation, or on any river with bends, in late summer when the water is low.",
-      "On the outside of the bend, look for a steep bank with roots hanging out of it and trees leaning over the water. That is the cut bank, and the water at its foot is the deepest in the reach.",
-      "On the inside, look for the low beach of gravel and sand sloping gently into shallow water. That is the point bar, where people fish and picnic. Its stones get finer as you walk up the bar, away from the water."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "A bend that grows",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Erosion on the outside and building on the inside make a **feedback**, a change that causes more of itself. The channel moves sideways toward the outside of its bend; as it moves, the bend gets sharper; a sharper bend drives a stronger secondary flow; and the stronger flow eats the outside bank faster. A bend, once started, grows. Before you play the figure, guess one more thing: as the loops grow, do they travel along the valley, and which way?"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "meanders-migrate",
-     "caption": "A river meandering across its floodplain, seen from above, over a few centuries. The chips set what holds the banks: forest roots, bare banks or riprap. Play runs the years. The pale brown lines are where the channel ran 25, 50, 75 and 100 years before. A model: each stretch of bank moves at a rate set by the bend of the river just upstream of it, with the bank's strength as a brake.",
-     "task": "Guess which way the loops travel, then play until the river cuts off a loop",
-     "goal": "cutoff",
-     "aspect_ratio": 1.67
-    },
-    {
-     "type": "text",
-     "text": "Bends do not simply swell in place. Water going round a bend takes a little distance to swing across to the outside bank, the way passengers lean a moment after a car starts to turn, so the fastest water hits the outside bank a little downstream of the sharpest point of the bend. The erosion is shifted downstream too, and the loops creep down the valley as they grow. Each big flood adds to the point bar and leaves a low curved ridge of sand on the inside of the bend. Seen from the air, an old floodplain is combed with these ridges, called **scroll bars**, a record of where the channel used to run."
-    },
-    {
-     "type": "text",
-     "text": "Sooner or later a growing loop doubles back on itself until only a narrow neck of land separates one bend from the next. A flood pours across the neck and the river takes the short cut, a **neck cutoff**. The old loop, plugged with sand at both ends, becomes a curved lake, an **oxbow lake**, which slowly fills with mud and plants. The floodplain of the Snoqualmie between Fall City and Duvall is scattered with old loops and sloughs of this kind, easiest to see on a lidar map of the valley.[^lidar]"
-    },
-    {
-     "type": "text",
-     "text": "How fast this happens depends on the banks. The roots of alders, willows and cottonwoods bind a bank together, so a forested bank erodes far more slowly than a bare one. Rock dumped along a bank, **riprap**, stops it altogether, which is why it lines the outside of bends wherever a road or a house stands close to a river. A river that cannot move sideways puts its energy into its bed instead, and often scours deeper along the rock."
-    },
-    {
-     "type": "text",
-     "text": "Meanders keep their proportions. On creeks and on the Mississippi alike, the distance from one bend to the next bend on the same side is roughly ten to fourteen times the channel's width. You can check it on a satellite map. Measure the river's width on a straight stretch. Then measure the distance from one bend to the next bend on the same side, and divide that distance by the width. A river 50 metres wide should repeat its bends about every 600 metres.[^sinuosity]"
-    },
-    {
-     "type": "text",
-     "text": "Why a straight river starts to bend at all is a harder question than why a bend grows. Any small kink would grow by the feedback above, and in laboratory channels of sand a straight stream soon builds bars that alternate from side to side and steer the flow into a wiggle. But a lasting single winding channel proved hard to make in a laboratory. For decades the experimental rivers braided instead, because nothing held their sandy banks together, until experimenters in the 2000s grew alfalfa sprouts along them and let the roots do it.[^alfalfa] What starts a river's first bends, and how much its banks must resist for them to last, are still argued over."
-    }
-   ]
-  },
-  {
-   "title": "Rivers in many threads",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Below the glaciers of Mount Rainier the White does not meander at all. It runs across a wide bed of grey gravel, split into many shallow channels that part and rejoin around bars and shift with every flood. The Carbon on Rainier's north side, and the Hoh in the Olympic rain forest, look the same. A river like this is **braided**."
-    },
-    {
-     "type": "text",
-     "text": "A river braids when it is given more sand and gravel than one channel can carry, on a slope steep enough that even ordinary floods can move its bed. Glaciers grind rock to gravel and silt, and the steep slopes of a volcano slump into its rivers, so rivers fed from Rainier carry enormous loads. Lesson 4's grains and speeds are at work: when the flow slackens, the coarsest gravel drops in mid-channel and builds a bar, the water splits around it, and each thread builds bars of its own. Banks of loose gravel give way easily, so the river spreads wide and shallow. A meandering river is the other case: a gentler slope and a lighter load of mostly fine sediment, between banks held together by mud and roots."
-    },
-    {
-     "type": "text",
-     "text": "In 1957 Luna Leopold and Gordon Wolman of the US Geological Survey plotted many rivers on a chart of slope against discharge (lesson 2's flow in cubic metres a second) and found a dividing line: rivers above it braid, rivers below it meander. The line slopes downward, so a big river starts to braid on a gentler slope than a small one.[^leopold] Later work added the supply of sediment and the strength of the banks."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "meanders-braid",
-     "caption": "A river seen from above (top) and its place on Leopold and Wolman's chart (bottom, the red dot). The upper slider sets the slope, the lower one the supply of sand and gravel. A sketch of the rule for a river carrying 300 cubic metres a second when full to the top of its banks, about three times the Snoqualmie's average flow at Carnation. The dashed lines are the edges of braiding (brown) and meandering (blue); the effect of sediment supply is a rough model.",
-     "task": "Make the river braid, then make it meander",
-     "goal": "both",
-     "aspect_ratio": 1.54
-    },
-    {
-     "type": "text",
-     "text": "One river can do both along its length. Downstream, as the slope eases and the coarse gravel drops out, braids give way to a single winding channel. The White still braids below the mountain. Until 1906 its water went on down the lower Green, which meandered across the nearly flat floor of the Kent valley."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Rivers of western Washington, by the shape of their channels.",
-     "task": "Sort all six",
-     "goal": "sorted",
-     "options": {
-      "ask": "Braided, meandering, or fixed in place by people?",
-      "textLines": 3,
-      "groups": [
-       {
-        "name": "Braided",
-        "color": "sediment"
-       },
-       {
-        "name": "Meandering",
-        "color": "water"
-       },
-       {
-        "name": "Fixed by levees",
-        "color": "works"
-       }
-      ],
-      "items": [
-       {
-        "name": "The White below Mount Rainier",
-        "group": "Braided",
-        "clue": "steep, a heavy load of glacial gravel",
-        "why": "Glacier-ground gravel and a steep slope: a wide grey bed of shifting threads."
-       },
-       {
-        "name": "The Snoqualmie between Fall City and Duvall",
-        "group": "Meandering",
-        "clue": "a gentle slope, banks of mud and roots",
-        "why": "A gentle slope across a broad, flat valley floor, with old loops and sloughs on both sides."
-       },
-       {
-        "name": "The Hoh in the Olympic rain forest",
-        "group": "Braided",
-        "clue": "steep, gravel and logs from the Olympic glaciers",
-        "why": "Glacial gravel and huge logs keep it splitting and rejoining across a wide valley floor."
-       },
-       {
-        "name": "The lower Skagit near Mount Vernon",
-        "group": "Fixed by levees",
-        "clue": "farms to the banks, rock along every bend",
-        "why": "It once wandered across its delta; now dikes and riprap hold it in one place to protect the farms."
-       },
-       {
-        "name": "The Carbon on Rainier's north side",
-        "group": "Braided",
-        "clue": "steep, fed from a glacier",
-        "why": "Like the White, a steep river overloaded with gravel from the mountain."
-       },
-       {
-        "name": "The Sauk below Darrington",
-        "group": "Meandering",
-        "clue": "a gentler valley floor, forested banks",
-        "why": "A gentler valley where single channels swing in loops and leave old channels behind."
-       }
+      "title": "Tea leaves and a bend",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Stir a cup of loose-leaf tea, take the spoon out and watch the leaves on the bottom. You might expect the spinning water to fling them outward, the way a spin dryer throws clothes against its drum. They slide inward instead, and gather in a little heap in the middle."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "meanders-teacup",
+          "caption": "A stirred teacup from above (left) and cut in half (right) in the seconds after the spoon comes out. The upper slider sets how hard it was stirred; Play runs the seconds. Watch the leaves on the bottom, and the red arrows of the slow loop across the cup. A model: the swirl dies away in about ten seconds, and a gentle stir drives a much weaker loop than a hard one.",
+          "task": "Stir hard, then play, and watch where the leaves go",
+          "goal": "gather",
+          "aspect_ratio": 1.74
+        },
+        {
+          "type": "text",
+          "text": "Albert Einstein explained this in a short paper in 1926, written to answer a question about rivers.[^baer] Spinning water presses outward, so it piles a little higher at the rim than in the middle: the surface of a stirred cup is a shallow dish. Water presses on whatever lies below it with the weight of the water above, so under the higher rim the water is pressed harder at every depth than under the middle. That difference pushes water toward the middle, and it is the same at the top of the cup as at the bottom, because the extra height at the rim is the same above both."
+        },
+        {
+          "type": "diagram",
+          "id": "meanders-pushes",
+          "caption": "The two pushes on the water at the top and at the bottom of a stirred cup. The push toward the middle (grey) is the same at both depths. The swirl's outward push (red) is strong at the top and weak at the bottom, where friction with the cup slows the water.",
+          "aspect_ratio": 2
+        },
+        {
+          "type": "text",
+          "text": "The other push depends on speed. Water going round a curve pushes outward, more strongly the faster it goes. Near the top the water swirls fast, its outward push beats the inward one, and it moves out. At the bottom the water rubs on the cup and slows down, its outward push weakens, and the inward push wins. So the bottom water creeps inward, carrying the leaves, rises up the middle and turns outward again at the top: a slow loop across the cup, riding on the spin. The water rising in the middle moves too slowly to lift leaves, which are denser than water, so they stay where the bottom flow dropped them."
+        },
+        {
+          "type": "text",
+          "text": "James Thomson, an engineer and the elder brother of Lord Kelvin, had described the same loop in river bends fifty years earlier, in 1876.[^thomson] In a bend, the outside bank plays the rim of the cup and the inside bank the middle. The surface stands a little higher against the outside bank, fast water near the surface is driven toward the outside bank and down it, and slower water near the bed returns toward the inside. Seen from above, the water corkscrews round the bend. A loop like this, across the channel and riding on the main downstream flow, is called **secondary flow**."
+        },
+        {
+          "type": "diagram",
+          "id": "meanders-section",
+          "caption": "A river bend seen from above, and cut across at its sharpest point, looking downstream, so the outside bank is on the left. Red arrows are the flow; fast surface water runs toward the outside bank and down it, and the flow along the bed returns toward the inside. Depths are exaggerated about ten times.",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "The water plunging down the outside bank does the digging. It scours a deep **pool** at the foot of the bank and undercuts it until slabs of earth and trees fall in, leaving a steep, raw **cut bank**. The flow along the bed sweeps sand and gravel toward the inside of the bend, the way the cup's bottom flow sweeps leaves to the middle, and drops them where the water is shallow and slow. Flood by flood, the inside of the bend grows a gently sloping beach of sand and gravel, a **point bar**."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A bend with a steep cut bank on the outside and a gravel point bar on the inside.",
+          "options": {
+            "photo": "river-cut-bank-point-bar",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "On a riverbank",
+          "points": [
+            "Find a bend on the Snoqualmie at Fall City or at Tolt-MacDonald Park in Carnation, or on any river with bends, in late summer when the water is low.",
+            "On the outside of the bend, look for a steep bank with roots hanging out of it and trees leaning over the water. That is the cut bank, and the water at its foot is the deepest in the reach.",
+            "On the inside, look for the low beach of gravel and sand sloping gently into shallow water. That is the point bar, where people fish and picnic. Its stones get finer as you walk up the bar, away from the water."
+          ]
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Logs and jumps",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Before settlers cleared them, the rivers of the Puget lowland were full of wood. Trees hundreds of years old toppled in as banks were undercut, and big logs lodged on bars and caught others until jams of hundreds of trees spanned a channel. In the 1870s settlers spent years cutting apart the great jams that blocked the lower Skagit near Mount Vernon, to open the river to steamboats.[^skagit] A jam does to a river what a boulder does to a creek: it turns the water aside, scours a pool beneath it and drops gravel above it. Much of the pattern of pools, bars and side channels in a wild river here is made by wood."
     },
     {
-     "type": "text",
-     "text": "A jam can do something bigger. A river with a heavy load drops a little gravel on its own bed in each flood, and when it spills over its banks it drops sand right beside the channel, where the overflowing water first slows. Over decades the channel can come to sit on a low ridge of its own making, higher than the floodplain on either side. Water that spills over the side runs away from the river, downhill. If a jam blocks the channel during a flood, the water goes over the side and down to the low ground, and if the path the spilled water takes is shorter or steeper than the old channel, it can capture the whole river. A river jumping to a new course is an **avulsion**."
-    },
-    {
-     "type": "diagram",
-     "id": "meanders-avulsion",
-     "caption": "An avulsion, cut across a valley floor. Blue is the river's water, brown its sediment, and the grey-brown the floodplain. A river that builds its bed up above the land beside it can be tipped out of its channel by a jam during a flood, and takes the lower ground. Heights exaggerated.",
-     "aspect_ratio": 1.67
-    },
-    {
-     "type": "text",
-     "text": "That is what happened at Auburn. The White came out of the foothills onto a broad, almost level floor of its own gravel and of mudflows from Mount Rainier,[^osceola] and both the route north and the smaller Stuck channel to the south ran downhill from where it spread out. They started at almost the same height, so the White needed only a small push to change. The jam of 1906 did not push the river uphill. It blocked the northern route during a flood, the water spilled into the Stuck, and the river kept the new path."
-    },
-    {
-     "type": "text",
-     "text": "Most lowland rivers around the Sound are now held in place by **levees**, earth banks built along a river to keep its floods off the land (in the Skagit and other deltas they are called dikes). The lower Skagit runs between dikes, and the Green through Kent and the Puyallup through Sumner and Fife between levees. A levee stops a river wandering and keeps its floods off the land behind it, until a bigger flood overtops or breaks it; the Columbia branch comes back to that. Engineers now also build log jams on purpose, to deepen pools and to steer rivers away from roads and banks."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on how rivers move",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "Why do tea leaves gather in the middle of the bottom of a stirred cup?",
-        "choices": [
-         "Near the bottom friction slows the swirl, so the inward push from the higher rim wins and carries them in",
-         "The swirl is fastest near the bottom, flinging the water there outward and leaving the leaves behind",
-         "The dished surface makes the water deepest in the middle, and leaves settle where the water is deepest"
-        ],
-        "answer": 0,
-        "why": "The higher water at the rim pushes inward equally at every depth. At the top the fast swirl's outward push wins; at the bottom friction slows the water, the inward push wins, and the bottom water flows to the middle with the leaves."
-       },
-       {
-        "ask": "On a bend of a meandering river, where is the water deepest?",
-        "choices": [
-         "Against the outside bank, where water driven toward it dives down and scours a pool",
-         "Against the inside bank, where the slower water has time to dig into its bed",
-         "In the middle of the channel, farthest from the drag of both of the banks"
-        ],
-        "answer": 0,
-        "why": "The secondary flow drives surface water toward the outside bank and down it, digging a pool and a cut bank, while the bed flow carries sediment to the shallow point bar on the inside."
-       },
-       {
-        "ask": "Which explanation best accounts for a meander bend growing larger over the years?",
-        "choices": [
-         "A sharper bend drives a stronger secondary flow, which eats the outside bank faster and sharpens it more",
-         "Floods drop sand along the outside bank, building it outward, while the inside bank is slowly worn back",
-         "Water runs fastest round the inside of a bend, cutting that corner so the whole loop shifts and widens"
-        ],
-        "answer": 0,
-        "why": "It is a feedback: the channel moves toward the outside of its bend, the bend sharpens, and a sharper bend erodes its outside bank faster still. The outside erodes and the inside builds, not the other way round."
-       },
-       {
-        "ask": "How does an oxbow lake form?",
-        "choices": [
-         "A loop grows until only a narrow neck of land is left, and a flood breaks through the neck",
-         "Sand piles up at the downstream end of a bend until it seals the bend off from the river",
-         "A point bar grows right across the channel and forces the river into a new loop beside it"
-        ],
-        "answer": 0,
-        "why": "This is a neck cutoff. The river takes the short cut across the neck, and the abandoned loop, plugged with sand at both ends, is left as a curved lake."
-       },
-       {
-        "ask": "The White below Mount Rainier is braided, while the Snoqualmie near Duvall meanders. Which difference explains this best?",
-        "choices": [
-         "The White is steeper and carries more gravel than one channel can move, so bars build and split it",
-         "The White carries more water than one channel can hold, so the extra spills into side channels",
-         "The White's banks are mud, which splits easily, while the Snoqualmie's are gravel, which bends"
-        ],
-        "answer": 0,
-        "why": "Braiding comes with a steep slope and a heavy load of coarse sediment, here from Rainier's glaciers and slopes. Leopold and Wolman found that for the same discharge, braided rivers are the steeper ones; the Snoqualmie crosses a flat valley between muddy, rooted banks."
-       },
-       {
-        "ask": "In November 1906 a log jam near Auburn sent the White River south to the Puyallup instead of north to the Duwamish. What made this possible?",
-        "choices": [
-         "Routes north and south both ran downhill from nearly level ground, and the jam blocked the north one",
-         "The flood filled the Green's channel north of Auburn with so much gravel that no water could pass",
-         "Pierce County had deepened the Stuck channel before the flood, giving the White a steeper path south"
-        ],
-        "answer": 0,
-        "why": "A jam cannot push water uphill. At Auburn the White sat on a broad, almost level floor with downhill routes both ways, and the jam tipped it from one to the other during a flood: an avulsion."
-       }
+      "title": "A bend that grows",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Erosion on the outside and building on the inside make a **feedback**, a change that causes more of itself. The channel moves sideways toward the outside of its bend; as it moves, the bend gets sharper; a sharper bend drives a stronger secondary flow; and the stronger flow eats the outside bank faster. A bend, once started, grows. Before you play the figure, guess one more thing: as the loops grow, do they travel along the valley, and which way?"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "meanders-migrate",
+          "caption": "A river meandering across its floodplain, seen from above, over a few centuries. The chips set what holds the banks: forest roots, bare banks or riprap. Play runs the years. The pale brown lines are where the channel ran 25, 50, 75 and 100 years before. A model: each stretch of bank moves at a rate set by the bend of the river just upstream of it, with the bank's strength as a brake.",
+          "task": "Guess which way the loops travel, then play until the river cuts off a loop",
+          "goal": "cutoff",
+          "aspect_ratio": 1.67
+        },
+        {
+          "type": "text",
+          "text": "Bends do not simply swell in place. Water going round a bend takes a little distance to swing across to the outside bank, the way passengers lean a moment after a car starts to turn, so the fastest water hits the outside bank a little downstream of the sharpest point of the bend. The erosion is shifted downstream too, and the loops creep down the valley as they grow. Each big flood adds to the point bar and leaves a low curved ridge of sand on the inside of the bend. Seen from the air, an old floodplain is combed with these ridges, called **scroll bars**, a record of where the channel used to run."
+        },
+        {
+          "type": "text",
+          "text": "Sooner or later a growing loop doubles back on itself until only a narrow neck of land separates one bend from the next. A flood pours across the neck and the river takes the short cut, a **neck cutoff**. The old loop, plugged with sand at both ends, becomes a curved lake, an **oxbow lake**, which slowly fills with mud and plants. The floodplain of the Snoqualmie between Fall City and Duvall is scattered with old loops and sloughs of this kind, easiest to see on a lidar map of the valley.[^lidar]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Meanders, scroll bars and an oxbow lake seen from the air.",
+          "options": {
+            "photo": "oxbow-lake-aerial",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "How fast this happens depends on the banks. The roots of alders, willows and cottonwoods bind a bank together, so a forested bank erodes far more slowly than a bare one. Rock dumped along a bank, **riprap**, stops it altogether, which is why it lines the outside of bends wherever a road or a house stands close to a river. A river that cannot move sideways puts its energy into its bed instead, and often scours deeper along the rock."
+        },
+        {
+          "type": "text",
+          "text": "Meanders keep their proportions. On creeks and on the Mississippi alike, the distance from one bend to the next bend on the same side is roughly ten to fourteen times the channel's width. You can check it on a satellite map. Measure the river's width on a straight stretch. Then measure the distance from one bend to the next bend on the same side, and divide that distance by the width. A river 50 metres wide should repeat its bends about every 600 metres.[^sinuosity]"
+        },
+        {
+          "type": "text",
+          "text": "Why a straight river starts to bend at all is a harder question than why a bend grows. Any small kink would grow by the feedback above, and in laboratory channels of sand a straight stream soon builds bars that alternate from side to side and steer the flow into a wiggle. But a lasting single winding channel proved hard to make in a laboratory. For decades the experimental rivers braided instead, because nothing held their sandy banks together, until experimenters in the 2000s grew alfalfa sprouts along them and let the roots do it.[^alfalfa] What starts a river's first bends, and how much its banks must resist for them to last, are still argued over."
+        }
       ]
-     }
+    },
+    {
+      "title": "Rivers in many threads",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Below the glaciers of Mount Rainier the White does not meander at all. It runs across a wide bed of grey gravel, split into many shallow channels that part and rejoin around bars and shift with every flood. The Carbon on Rainier's north side, and the Hoh in the Olympic rain forest, look the same. A river like this is **braided**."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A braided river: the White River below Mount Rainier, many threads around bars of grey gravel.",
+          "options": {
+            "photo": "hoh-river-braids",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "A river braids when it is given more sand and gravel than one channel can carry, on a slope steep enough that even ordinary floods can move its bed. Glaciers grind rock to gravel and silt, and the steep slopes of a volcano slump into its rivers, so rivers fed from Rainier carry enormous loads. Lesson 4's grains and speeds are at work: when the flow slackens, the coarsest gravel drops in mid-channel and builds a bar, the water splits around it, and each thread builds bars of its own. Banks of loose gravel give way easily, so the river spreads wide and shallow. A meandering river is the other case: a gentler slope and a lighter load of mostly fine sediment, between banks held together by mud and roots."
+        },
+        {
+          "type": "text",
+          "text": "In 1957 Luna Leopold and Gordon Wolman of the US Geological Survey plotted many rivers on a chart of slope against discharge (lesson 2's flow in cubic metres a second) and found a dividing line: rivers above it braid, rivers below it meander. The line slopes downward, so a big river starts to braid on a gentler slope than a small one.[^leopold] Later work added the supply of sediment and the strength of the banks."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "meanders-braid",
+          "caption": "A river seen from above (top) and its place on Leopold and Wolman's chart (bottom, the red dot). The upper slider sets the slope, the lower one the supply of sand and gravel. A sketch of the rule for a river carrying 300 cubic metres a second when full to the top of its banks, about three times the Snoqualmie's average flow at Carnation. The dashed lines are the edges of braiding (brown) and meandering (blue); the effect of sediment supply is a rough model.",
+          "task": "Make the river braid, then make it meander",
+          "goal": "both",
+          "aspect_ratio": 1.54
+        },
+        {
+          "type": "text",
+          "text": "One river can do both along its length. Downstream, as the slope eases and the coarse gravel drops out, braids give way to a single winding channel. The White still braids below the mountain. Until 1906 its water went on down the lower Green, which meandered across the nearly flat floor of the Kent valley."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Rivers of western Washington, by the shape of their channels.",
+          "task": "Sort all six",
+          "goal": "sorted",
+          "options": {
+            "ask": "Braided, meandering, or fixed in place by people?",
+            "textLines": 3,
+            "groups": [
+              {
+                "name": "Braided",
+                "color": "sediment"
+              },
+              {
+                "name": "Meandering",
+                "color": "water"
+              },
+              {
+                "name": "Fixed by levees",
+                "color": "works"
+              }
+            ],
+            "items": [
+              {
+                "name": "The White below Mount Rainier",
+                "group": "Braided",
+                "clue": "steep, a heavy load of glacial gravel",
+                "why": "Glacier-ground gravel and a steep slope: a wide grey bed of shifting threads."
+              },
+              {
+                "name": "The Snoqualmie between Fall City and Duvall",
+                "group": "Meandering",
+                "clue": "a gentle slope, banks of mud and roots",
+                "why": "A gentle slope across a broad, flat valley floor, with old loops and sloughs on both sides."
+              },
+              {
+                "name": "The Hoh in the Olympic rain forest",
+                "group": "Braided",
+                "clue": "steep, gravel and logs from the Olympic glaciers",
+                "why": "Glacial gravel and huge logs keep it splitting and rejoining across a wide valley floor."
+              },
+              {
+                "name": "The lower Skagit near Mount Vernon",
+                "group": "Fixed by levees",
+                "clue": "farms to the banks, rock along every bend",
+                "why": "It once wandered across its delta; now dikes and riprap hold it in one place to protect the farms."
+              },
+              {
+                "name": "The Carbon on Rainier's north side",
+                "group": "Braided",
+                "clue": "steep, fed from a glacier",
+                "why": "Like the White, a steep river overloaded with gravel from the mountain."
+              },
+              {
+                "name": "The Sauk below Darrington",
+                "group": "Meandering",
+                "clue": "a gentler valley floor, forested banks",
+                "why": "A gentler valley where single channels swing in loops and leave old channels behind."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Logs and jumps",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Before settlers cleared them, the rivers of the Puget lowland were full of wood. Trees hundreds of years old toppled in as banks were undercut, and big logs lodged on bars and caught others until jams of hundreds of trees spanned a channel. In the 1870s settlers spent years cutting apart the great jams that blocked the lower Skagit near Mount Vernon, to open the river to steamboats.[^skagit] A jam does to a river what a boulder does to a creek: it turns the water aside, scours a pool beneath it and drops gravel above it. Much of the pattern of pools, bars and side channels in a wild river here is made by wood."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A log jam on a Pacific Northwest river, splitting the flow around it.",
+          "options": {
+            "photo": "river-log-jam",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "A jam can do something bigger. A river with a heavy load drops a little gravel on its own bed in each flood, and when it spills over its banks it drops sand right beside the channel, where the overflowing water first slows. Over decades the channel can come to sit on a low ridge of its own making, higher than the floodplain on either side. Water that spills over the side runs away from the river, downhill. If a jam blocks the channel during a flood, the water goes over the side and down to the low ground, and if the path the spilled water takes is shorter or steeper than the old channel, it can capture the whole river. A river jumping to a new course is an **avulsion**."
+        },
+        {
+          "type": "diagram",
+          "id": "meanders-avulsion",
+          "caption": "An avulsion, cut across a valley floor. Blue is the river's water, brown its sediment, and the grey-brown the floodplain. A river that builds its bed up above the land beside it can be tipped out of its channel by a jam during a flood, and takes the lower ground. Heights exaggerated.",
+          "aspect_ratio": 1.67
+        },
+        {
+          "type": "text",
+          "text": "That is what happened at Auburn. The White came out of the foothills onto a broad, almost level floor of its own gravel and of mudflows from Mount Rainier,[^osceola] and both the route north and the smaller Stuck channel to the south ran downhill from where it spread out. They started at almost the same height, so the White needed only a small push to change. The jam of 1906 did not push the river uphill. It blocked the northern route during a flood, the water spilled into the Stuck, and the river kept the new path."
+        },
+        {
+          "type": "text",
+          "text": "Most lowland rivers around the Sound are now held in place by **levees**, earth banks built along a river to keep its floods off the land (in the Skagit and other deltas they are called dikes). The lower Skagit runs between dikes, and the Green through Kent and the Puyallup through Sumner and Fife between levees. A levee stops a river wandering and keeps its floods off the land behind it, until a bigger flood overtops or breaks it; the Columbia branch comes back to that. Engineers now also build log jams on purpose, to deepen pools and to steer rivers away from roads and banks."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on how rivers move",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why do tea leaves gather in the middle of the bottom of a stirred cup?",
+                "choices": [
+                  "Near the bottom friction slows the swirl, so the inward push from the higher rim wins and carries them in",
+                  "The swirl is fastest near the bottom, flinging the water there outward and leaving the leaves behind",
+                  "The dished surface makes the water deepest in the middle, and leaves settle where the water is deepest"
+                ],
+                "answer": 0,
+                "why": "The higher water at the rim pushes inward equally at every depth. At the top the fast swirl's outward push wins; at the bottom friction slows the water, the inward push wins, and the bottom water flows to the middle with the leaves."
+              },
+              {
+                "ask": "On a bend of a meandering river, where is the water deepest?",
+                "choices": [
+                  "Against the outside bank, where water driven toward it dives down and scours a pool",
+                  "Against the inside bank, where the slower water has time to dig into its bed",
+                  "In the middle of the channel, farthest from the drag of both of the banks"
+                ],
+                "answer": 0,
+                "why": "The secondary flow drives surface water toward the outside bank and down it, digging a pool and a cut bank, while the bed flow carries sediment to the shallow point bar on the inside."
+              },
+              {
+                "ask": "Which explanation best accounts for a meander bend growing larger over the years?",
+                "choices": [
+                  "A sharper bend drives a stronger secondary flow, which eats the outside bank faster and sharpens it more",
+                  "Floods drop sand along the outside bank, building it outward, while the inside bank is slowly worn back",
+                  "Water runs fastest round the inside of a bend, cutting that corner so the whole loop shifts and widens"
+                ],
+                "answer": 0,
+                "why": "It is a feedback: the channel moves toward the outside of its bend, the bend sharpens, and a sharper bend erodes its outside bank faster still. The outside erodes and the inside builds, not the other way round."
+              },
+              {
+                "ask": "How does an oxbow lake form?",
+                "choices": [
+                  "A loop grows until only a narrow neck of land is left, and a flood breaks through the neck",
+                  "Sand piles up at the downstream end of a bend until it seals the bend off from the river",
+                  "A point bar grows right across the channel and forces the river into a new loop beside it"
+                ],
+                "answer": 0,
+                "why": "This is a neck cutoff. The river takes the short cut across the neck, and the abandoned loop, plugged with sand at both ends, is left as a curved lake."
+              },
+              {
+                "ask": "The White below Mount Rainier is braided, while the Snoqualmie near Duvall meanders. Which difference explains this best?",
+                "choices": [
+                  "The White is steeper and carries more gravel than one channel can move, so bars build and split it",
+                  "The White carries more water than one channel can hold, so the extra spills into side channels",
+                  "The White's banks are mud, which splits easily, while the Snoqualmie's are gravel, which bends"
+                ],
+                "answer": 0,
+                "why": "Braiding comes with a steep slope and a heavy load of coarse sediment, here from Rainier's glaciers and slopes. Leopold and Wolman found that for the same discharge, braided rivers are the steeper ones; the Snoqualmie crosses a flat valley between muddy, rooted banks."
+              },
+              {
+                "ask": "In November 1906 a log jam near Auburn sent the White River south to the Puyallup instead of north to the Duwamish. What made this possible?",
+                "choices": [
+                  "Routes north and south both ran downhill from nearly level ground, and the jam blocked the north one",
+                  "The flood filled the Green's channel north of Auburn with so much gravel that no water could pass",
+                  "Pierce County had deepened the Stuck channel before the flood, giving the White a steeper path south"
+                ],
+                "answer": 0,
+                "why": "A jam cannot push water uphill. At Auburn the White sat on a broad, almost level floor with downhill routes both ways, and the jam tipped it from one to the other during a flood: an avulsion."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "footnotes": {
+    "baer": {
+      "kind": "digression",
+      "title": "Einstein and Baer's law",
+      "text": "Einstein's paper of 1926 was titled, in German, \"The cause of the formation of meanders in the courses of rivers and of the so-called Baer's law\". Karl Ernst von Baer had argued in the 1860s that rivers in the northern hemisphere wear away their right banks faster because of the Earth's rotation. Einstein agreed that the rotation adds a small push of the same kind as a bend's, but the bend's own secondary flow is far stronger."
+    },
+    "thomson": {
+      "kind": "digression",
+      "title": "James Thomson",
+      "text": "James Thomson (1822 to 1892) was a professor of engineering in Belfast and later Glasgow, and a designer of water turbines. His 1876 paper to the Royal Society, on the windings of rivers in plains, described the flow toward the outside bank at the surface and toward the inside along the bed; he went on to show it in model channels."
+    },
+    "lidar": {
+      "kind": "technical",
+      "title": "Lidar",
+      "text": "Lidar measures the ground by timing laser pulses fired from an aircraft. Some pulses slip between the leaves to the ground, so the trees can be stripped away and the bare floodplain shown as a shaded relief. Washington's Department of Natural Resources publishes these maps on its lidar portal, where old channels and scroll bars stand out clearly."
+    },
+    "sinuosity": {
+      "kind": "technical",
+      "title": "Sinuosity",
+      "text": "A river's **sinuosity** is the length of its channel divided by the straight length of its valley. A straight channel has a sinuosity of 1, and rivers above about 1.5 are usually called meandering; the migrating figure shows the number as its loops grow. A loop just before its neck is cut off can push a stretch of river above 3."
+    },
+    "alfalfa": {
+      "kind": "digression",
+      "title": "Rivers in a sandbox",
+      "text": "Experimental river channels in sand and gravel tend to braid, because nothing holds their banks. In the 2000s, groups at the University of Minnesota and the University of California at Berkeley got a single channel to keep meandering in the laboratory by sprouting alfalfa on its banks and floodplain, and by adding fine sediment that filled in the low ground. The roots and the mud did what forests and silt do on a real floodplain."
+    },
+    "leopold": {
+      "kind": "technical",
+      "title": "Leopold and Wolman's line",
+      "text": "In metric units their line is close to slope = 0.012 × Q^-0.44, with Q the discharge in cubic metres a second at which the river just fills its banks (lesson 2's discharge). For a river carrying 300 cubic metres a second that is a slope of about 0.1 percent, a metre of drop in a kilometre; steeper than that, it tends to braid."
+    },
+    "skagit": {
+      "kind": "digression",
+      "title": "The Skagit jams",
+      "text": "Accounts from the time describe two great jams below Mount Vernon, so old that trees grew on top of them, which settlers cut apart in the 1870s. Opening them let steamboats reach the upper valley. Similar jams on most Puget lowland rivers were cleared in the same decades, and the rivers ran faster and simpler afterward."
+    },
+    "osceola": {
+      "kind": "digression",
+      "title": "Mudflows from Rainier",
+      "text": "About 5,600 years ago the Osceola Mudflow poured off Mount Rainier when part of the summit collapsed, and spread across the lowland as far as Auburn and Kent, burying the valley under metres of mud and rock. The White and the Puyallup have been working across that surface ever since. Volcanic mudflows like it are called lahars, and the Geology course covers them."
+    }
   }
- ],
- "footnotes": {
-  "baer": {
-   "kind": "digression",
-   "title": "Einstein and Baer's law",
-   "text": "Einstein's paper of 1926 was titled, in German, \"The cause of the formation of meanders in the courses of rivers and of the so-called Baer's law\". Karl Ernst von Baer had argued in the 1860s that rivers in the northern hemisphere wear away their right banks faster because of the Earth's rotation. Einstein agreed that the rotation adds a small push of the same kind as a bend's, but the bend's own secondary flow is far stronger."
-  },
-  "thomson": {
-   "kind": "digression",
-   "title": "James Thomson",
-   "text": "James Thomson (1822 to 1892) was a professor of engineering in Belfast and later Glasgow, and a designer of water turbines. His 1876 paper to the Royal Society, on the windings of rivers in plains, described the flow toward the outside bank at the surface and toward the inside along the bed; he went on to show it in model channels."
-  },
-  "lidar": {
-   "kind": "technical",
-   "title": "Lidar",
-   "text": "Lidar measures the ground by timing laser pulses fired from an aircraft. Some pulses slip between the leaves to the ground, so the trees can be stripped away and the bare floodplain shown as a shaded relief. Washington's Department of Natural Resources publishes these maps on its lidar portal, where old channels and scroll bars stand out clearly."
-  },
-  "sinuosity": {
-   "kind": "technical",
-   "title": "Sinuosity",
-   "text": "A river's **sinuosity** is the length of its channel divided by the straight length of its valley. A straight channel has a sinuosity of 1, and rivers above about 1.5 are usually called meandering; the migrating figure shows the number as its loops grow. A loop just before its neck is cut off can push a stretch of river above 3."
-  },
-  "alfalfa": {
-   "kind": "digression",
-   "title": "Rivers in a sandbox",
-   "text": "Experimental river channels in sand and gravel tend to braid, because nothing holds their banks. In the 2000s, groups at the University of Minnesota and the University of California at Berkeley got a single channel to keep meandering in the laboratory by sprouting alfalfa on its banks and floodplain, and by adding fine sediment that filled in the low ground. The roots and the mud did what forests and silt do on a real floodplain."
-  },
-  "leopold": {
-   "kind": "technical",
-   "title": "Leopold and Wolman's line",
-   "text": "In metric units their line is close to slope = 0.012 × Q^-0.44, with Q the discharge in cubic metres a second at which the river just fills its banks (lesson 2's discharge). For a river carrying 300 cubic metres a second that is a slope of about 0.1 percent, a metre of drop in a kilometre; steeper than that, it tends to braid."
-  },
-  "skagit": {
-   "kind": "digression",
-   "title": "The Skagit jams",
-   "text": "Accounts from the time describe two great jams below Mount Vernon, so old that trees grew on top of them, which settlers cut apart in the 1870s. Opening them let steamboats reach the upper valley. Similar jams on most Puget lowland rivers were cleared in the same decades, and the rivers ran faster and simpler afterward."
-  },
-  "osceola": {
-   "kind": "digression",
-   "title": "Mudflows from Rainier",
-   "text": "About 5,600 years ago the Osceola Mudflow poured off Mount Rainier when part of the summit collapsed, and spread across the lowland as far as Auburn and Kent, burying the valley under metres of mud and rock. The White and the Puyallup have been working across that surface ever since. Volcanic mudflows like it are called lahars, and the Geology course covers them."
-  }
- }
 }

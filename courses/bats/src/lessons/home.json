@@ -18,9 +18,26 @@
       "title": "A crater in the Negev",
       "blocks": [
         {"type": "text", "text": "In a cave in the low hills west of Jerusalem lived a colony of a few hundred Egyptian fruit bats, *Rousettus aegyptiacus*. They are big bats for the region, about 150 grams, with large eyes and faces like small dogs. Each evening they leave to feed on fruit in the orchards and gardens of central Israel and return before dawn. In the late 2000s Asaf Tsoar of the Hebrew University of Jerusalem, with Ran Nathan there and Nachum Ulanovsky of the Weizmann Institute of Science, glued small GPS loggers to the backs of some of them. The loggers recorded where each bat flew through the night; the team got them back by recapturing the bats or finding loggers that had dropped off, and so recovered the tracks of 15 bats flying from the cave on ordinary nights."},
+        {"type": "diagram", "id": "photo", "caption": "An Egyptian fruit bat, Rousettus aegyptiacus, in flight. Its large eyes see well in dim light.", "options": {"photo": "egyptian-fruit-bat-flight", "aspect": 1.5}},
         {"type": "text", "text": "The tracks, published in 2011, were startling for their straightness. A bat left the cave and flew at about 35 kilometres an hour, usually under a hundred metres up, in a nearly straight line to one particular fruit tree, on average 15 kilometres away. It fed there and flew straight back. Most bats went to the same tree night after night."},
         {"type": "text", "text": "Straight lines over familiar ground could just mean the bats knew the way. So the team caught bats, carried them in closed boxes far to the south, into the Negev Desert where they had almost certainly never been, and let them go at night. Some went 44 kilometres south. Others went 84 kilometres, to the floor of HaMakhtesh HaGadol, a crater several kilometres across with steep walls of rock. A third group was let go on the crater's rim, 79 kilometres from the cave and only five kilometres from the floor site, but with a view across the desert."},
-        {"type": "interactive_diagram", "id": "fruitbat-gps", "caption": "Flights of Egyptian fruit bats from a cave in central Israel, and from three places to the south where bats were let go. Schematic tracks drawn to the published distances and straightness (Tsoar and colleagues, 2011); the map is simplified.", "task": "Guess, then play the ordinary night and all three releases", "goal": "all", "aspect_ratio": 1.33}
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "HaMakhtesh HaGadol in the Negev Desert, the crater where Tsoar's bats were let go. Its walls hide the land beyond from anything on the floor.",
+          "options": {
+            "photo": "hamakhtesh-hagadol-crater",
+            "aspect": 1.78
+          }
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fruitbat-gps",
+          "caption": "Flights of Egyptian fruit bats from a cave in central Israel, and from three places to the south where bats were let go. Schematic tracks drawn to the published distances and straightness (Tsoar and colleagues, 2011); the map is simplified.",
+          "task": "Guess, then play the ordinary night and all three releases",
+          "goal": "all",
+          "aspect_ratio": 1.33
+        }
       ]
     },
     {
@@ -53,38 +70,43 @@
       "title": "A compass set by the sunset",
       "blocks": [
         {"type": "text", "text": "A map still needs a compass: an animal that knows home is to the north has to tell which way north is. Many birds have a magnetic compass, a sense of the direction of the Earth's magnetic field. Whether bats had one was unknown until 2006, when Richard Holland, then at Princeton, with Martin Wikelski, William Cochran and others, tested it in **big brown bats**, *Eptesicus fuscus*, a common bat across North America and one of those that fly over Seattle's lakes at dusk."},
+        {"type": "diagram", "id": "photo", "caption": "A big brown bat, Eptesicus fuscus, a common bat across North America and over Seattle's lakes.", "options": {"photo": "big-brown-bat", "aspect": 1.5}},
         {"type": "text", "text": "They put bats in boxes inside a frame of wire coils. A current in the coils makes a magnetic field that adds to the Earth's, and by choosing the current they could turn the field the bats felt by a quarter turn, 90°, clockwise or anticlockwise as seen from above, so that magnetic north pointed east or west instead of north. The bats sat in the turned field from 45 minutes before sunset to 45 minutes after, able to see the sky. Then, after dark, the bats were taken 20 kilometres north of their roost and let go, with small radio tags whose signals the team followed from a light aircraft. By then the bats were back in the Earth's own field."},
         {"type": "interactive_diagram", "id": "sunset-compass", "caption": "Holland's experiment, simplified. Set how far the field was turned and when, then let the bat go 20 km north of its roost. The field is normal again when it flies. Drawn from the published results of Holland and colleagues (2006) and of the 2010 test on mouse-eared bats.", "task": "Guess, then turn the field and let bats go, once at sunset and once after dark", "goal": "both", "aspect_ratio": 1.74},
         {"type": "text", "text": "Untreated bats flew south, towards home. Bats that had sat in a field turned clockwise flew east; those in a field turned anticlockwise flew west. So the bats were not simply reading the field around them as they flew, which was normal by then. They were steering by a compass that had been set wrong earlier, in the turned field around sunset, and they carried that setting into the night."},
-        {"type": "text", "text": "The obvious suspect was the sunset itself. The sun sets roughly in the west, north of west in summer and south of west in winter, but its setting point moves by less than a degree from one evening to the next, so a bat that notes where it went down, against the magnetic field it feels at that moment, can line up its magnetic compass with geography each evening. A bat that watched the sun set in a field turned a quarter turn would line its compass up a quarter turn wrong. In 2010 Holland, now in Germany, with Ivailo Borissov and Björn Siemers, tested this in another species, greater mouse-eared bats in Bulgaria, which suggests the sunset compass is not peculiar to one kind of bat. Bats in a field turned at sunset flew off at right angles to home. Bats in the same turned field after all trace of twilight had gone flew home normally. The compass is set at sunset and kept through the night.[^magnet]"}
+        {
+          "type": "text",
+          "text": "The obvious suspect was the sunset itself. The sun sets roughly in the west, north of west in summer and south of west in winter, but its setting point moves by less than a degree from one evening to the next, so a bat that notes where it went down, against the magnetic field it feels at that moment, can line up its magnetic compass with geography each evening. A bat that watched the sun set in a field turned a quarter turn would line its compass up a quarter turn wrong. In 2010 Holland, now in Germany, with Ivailo Borissov and Björn Siemers, tested this in another species, greater mouse-eared bats in Bulgaria, which suggests the sunset compass is not peculiar to one kind of bat. Bats in a field turned at sunset flew off at right angles to home. Bats in the same turned field after all trace of twilight had gone flew home normally. The compass is set at sunset and kept through the night.[^magnet]"
+        }
       ]
     },
     {
       "title": "Bats that leave",
       "blocks": [
         {"type": "text", "text": "Most bats in cold countries stay put for the winter and hibernate in caves, mines or buildings, living on the fat they built up in autumn, as lesson 7 described. A few species fly south instead. In North America the main migrants are three **tree bats**, so called because they roost alone among leaves or under bark rather than in colonies in caves: the **hoary bat**, the **silver-haired bat** and the **eastern red bat**. The hoary bat is the biggest of Washington's fifteen species, about 30 grams, against 8 for a little brown bat, with frosted fur and long narrow wings built for fast, straight flight in the open."},
-        {"type": "diagram", "id": "timeline", "caption": "A hoary bat's year in the Pacific Northwest, as far as it is known. Where exactly Northwest hoary bats spend the winter is still uncertain; most probably go to California and Mexico.", "options": {
-          "title": "The hoary bat's year",
-          "spacing": "even",
-          "events": [
-            {"at": 4, "to": 5, "label": "Arrive from the south", "when": "Apr to May"},
-            {"at": 6, "label": "Twins born in the trees", "when": "June"},
-            {"at": 7, "to": 8, "label": "Feeding high over lakes and fields", "when": "Jul to Aug"},
-            {"at": 8, "to": 10, "label": "Migrate south; most turbine deaths", "when": "Aug to Oct", "color": "bad", "bold": true},
-            {"at": 11, "to": 13, "label": "Winter further south", "when": "Nov to Mar"}
-          ]
+        {"type": "diagram", "id": "photo", "caption": "A hoary bat, Lasiurus cinereus, roosting alone in a tree. Its frosted fur gives it its name.", "options": {
+          "photo": "hoary-bat",
+          "aspect": 1.5
         }},
-        {"type": "text", "text": "Hoary bats are seen over Seattle mostly in late summer, flying high and fast, with calls near 20 kHz, 20,000 vibrations a second, that some people with young ears can just hear as ticks. By then many are on the move, and they and the other tree bats travel south through August, September and October, returning in April and May. Their routes are not well known, because a bat too small for a satellite tag and flying alone at night is hard to follow. An unwelcome clue to their routes came from wind farms."}
+        {"type": "diagram", "id": "timeline", "caption": "A hoary bat's year in the Pacific Northwest, as far as it is known. Where exactly Northwest hoary bats spend the winter is still uncertain; most probably go to California and Mexico.", "options": {"title": "The hoary bat's year", "spacing": "even", "events": [{"at": 4, "to": 5, "label": "Arrive from the south", "when": "Apr to May"}, {"at": 6, "label": "Twins born in the trees", "when": "June"}, {"at": 7, "to": 8, "label": "Feeding high over lakes and fields", "when": "Jul to Aug"}, {"at": 8, "to": 10, "label": "Migrate south; most turbine deaths", "when": "Aug to Oct", "color": "bad", "bold": true}, {"at": 11, "to": 13, "label": "Winter further south", "when": "Nov to Mar"}]}},
+        {
+          "type": "text",
+          "text": "Hoary bats are seen over Seattle mostly in late summer, flying high and fast, with calls near 20 kHz, 20,000 vibrations a second, that some people with young ears can just hear as ticks. By then many are on the move, and they and the other tree bats travel south through August, September and October, returning in April and May. Their routes are not well known, because a bat too small for a satellite tag and flying alone at night is hard to follow. An unwelcome clue to their routes came from wind farms."
+        }
       ]
     },
     {
       "title": "Turbines on the route",
       "blocks": [
         {"type": "text", "text": "When wind farms spread across North America in the 2000s, people searching under the turbines for dead birds found more dead bats. About three quarters of the dead bats found were the migrating tree bats, and most died in late summer and autumn, the season of migration. Estimates for the United States and Canada vary widely with the method, but run to hundreds of thousands of bats a year. The bats are struck by the blades, whose tips move at well over 200 kilometres an hour even when the hub seems to turn slowly. Thermal cameras have shown bats approaching turbines and circling them, as if exploring a tall tree. Tree bats roost and perhaps gather in tall trees, so one idea is that they are drawn to turbines for that reason, which would explain why they in particular are killed.[^trees]"},
+        {"type": "diagram", "id": "photo", "caption": "Wind turbines on a ridge in the eastern United States. Most bats killed at turbines die on calm nights in late summer and autumn.", "options": {"photo": "wind-farm-ridge", "aspect": 1.78}},
         {"type": "text", "text": "Lesson 8 explained why such losses matter more for bats than for most small animals: most bats raise one young a year, and even tree bats, which often have twins or more, raise a handful a year where a mouse of their size can raise dozens, so a population cannot quickly replace adults that are killed. A study led by Winifred Frick in 2017 estimated that if turbine deaths kept growing, the hoary bat population could fall by as much as nine tenths within fifty years, though such projections are uncertain, since nobody knows well how many hoary bats there are."},
         {"type": "text", "text": "The deaths cluster on calm nights, because bats fly most when the wind is light and insects are up. A turbine normally starts turning, and producing, at the **cut-in speed**, around 3 to 4 metres a second (m/s) at the hub, 3.5 at the farm described below. A metre a second is 3.6 km an hour, so 3.5 m/s is a light breeze that stirs leaves. Below the cut-in speed the blades are turned edge-on to the wind, which is called feathering, and barely move. Edward Arnett and colleagues tested raising the cut-in speed at a wind farm in Pennsylvania on late-summer and autumn nights in 2008 and 2009."},
         {"type": "interactive_diagram", "id": "turbine-cutin", "caption": "Wind speed runs along the bottom. The curves show how many bats fly at rotor height in each wind, how many hours each wind blows, and what the turbine makes, each scaled to its own peak. Raise the speed at which the blades start turning. An illustrative model scaled to the results of Arnett and colleagues (2011).", "task": "Guess, then save at least half the bats for 1% of the power or less", "goal": "half", "aspect_ratio": 1.74},
-        {"type": "text", "text": "At the Pennsylvania farm, turbines held until 5 or 6.5 metres a second killed between about half and nine tenths fewer bats than turbines running normally, and the power given up was 1% of the year's output or less. The trick is in the shape of the curves. A turbine's output grows with the cube of the wind speed, so doubling the wind gives about eight times the power, and the light winds the bats fly in make very little electricity. The higher cut-in speed was used only at night, and only from late July to early October. Since then many wind farms in North America and Europe have adopted some version of it, and some newer systems stop turbines only when detectors hear bats nearby.[^detect]"}
+        {
+          "type": "text",
+          "text": "At the Pennsylvania farm, turbines held until 5 or 6.5 metres a second killed between about half and nine tenths fewer bats than turbines running normally, and the power given up was 1% of the year's output or less. The trick is in the shape of the curves. A turbine's output grows with the cube of the wind speed, so doubling the wind gives about eight times the power, and the light winds the bats fly in make very little electricity. The higher cut-in speed was used only at night, and only from late July to early October. Since then many wind farms in North America and Europe have adopted some version of it, and some newer systems stop turbines only when detectors hear bats nearby.[^detect]"
+        }
       ]
     },
     {
