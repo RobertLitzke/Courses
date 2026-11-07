@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Clouds <a id="clouds"></a>
 
-`courses/clouds`, version 0.1 (beta, 2026-11-04). The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check.
+`courses/clouds`, version 0.1 (beta, 2026-11-04). The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -63,7 +63,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Dirt <a id="soil"></a>
 
-`courses/soil`, version 0.1 (beta, 2026-11-04). Came in from the old Dirt repository. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
+`courses/soil`, version 0.1 (beta, 2026-11-04). Came in from the old Dirt repository. No record of a Gemini copy edit or a full fact check; the read-through status is a guess. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -81,7 +81,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Geology <a id="geology"></a>
 
-`courses/geology`, version 1.0 (released, 2026-11-04). Every lesson was fact-checked on 3 Nov. Gemini's later fact notes still need checking against that review when the queue is run.
+`courses/geology`, version 1.0 (released, 2026-11-04). Every lesson was fact-checked on 3 Nov. Gemini's later fact notes still need checking against that review when the queue is run. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -135,7 +135,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Circuitry <a id="electronics"></a>
 
-`courses/electronics`, version 0.1 (beta, 2026-11-04). Came in from the old Circuitry repository. Circuits are drawn by its solver, so it needs no photos. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
+`courses/electronics`, version 0.1 (beta, 2026-11-04). Came in from the old Circuitry repository. Circuits are drawn by its solver, so it needs no photos. No record of a Gemini copy edit or a full fact check; the read-through status is a guess. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -156,7 +156,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Photography: Out of Auto <a id="photography"></a>
 
-`courses/photography`, version 0.1 (beta, 2026-11-04). Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive.
+`courses/photography`, version 0.1 (beta, 2026-11-04). Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -175,7 +175,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Astronomy <a id="astronomy"></a>
 
-`courses/astronomy`, version 0.1 (beta, 2026-11-04). Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet.
+`courses/astronomy`, version 0.1 (beta, 2026-11-04). Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -250,7 +250,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. 22 of 26 parked photos fetched and restored 4 Nov; Hubbard Brook weir, Lake 226, the Muir Glacier pair and a BDFFP fragment are still parked in tools/pending-photos.json (no free photo found). No encyclopedia links yet.
+`courses/ecology`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. 22 of 26 parked photos fetched and restored 4 Nov; Hubbard Brook weir, Lake 226, the Muir Glacier pair and a BDFFP fragment are still parked in tools/pending-photos.json (no free photo found). No encyclopedia links yet. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -294,7 +294,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
+`courses/botany`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -334,7 +334,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Synthesizers <a id="synthesizers"></a>
 
-`courses/synthesizers`, version 0.2 (beta, 2026-11-07). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. Student read-through of all 30 lessons and revisions done 7 Nov; all queued for a Gemini copy edit. For the fact check: bells says Stanford licensed FM to Yamaha in 1973 while its timeline says 1975.
+`courses/synthesizers`, version 0.2 (beta, 2026-11-07). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. Student read-through of all 30 lessons and revisions done 7 Nov; all queued for a Gemini copy edit. For the fact check: bells says Stanford licensed FM to Yamaha in 1973 while its timeline says 1975. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -371,7 +371,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Money That Lasts <a id="finance"></a>
 
-`courses/finance`, version 0.2 (beta, 2026-11-07). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026; student read-through and revisions done 7 Nov, all queued for a Gemini copy edit. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, Portugal's treatment of Social Security and Roth IRAs, the household-model figures quoted in filling-brackets ($780,000 more to heirs) and capstone, Portugal's tax on a $32,200 pension (about $2,400 in portugal-residency), WA's March 2026 estate-rate law, and SECURE/Medicare details added in the read-through revisions.
+`courses/finance`, version 0.2 (beta, 2026-11-07). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026; student read-through and revisions done 7 Nov, all queued for a Gemini copy edit. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, Portugal's treatment of Social Security and Roth IRAs, the household-model figures quoted in filling-brackets ($780,000 more to heirs) and capstone, Portugal's tax on a $32,200 pension (about $2,400 in portugal-residency), WA's March 2026 estate-rate law, and SECURE/Medicare details added in the read-through revisions. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -410,7 +410,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Fungi <a id="fungi"></a>
 
-`courses/fungi`, version 0.2 (beta, 2026-11-04). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).
+`courses/fungi`, version 0.2 (beta, 2026-11-04). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC). Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -442,7 +442,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Rivers and the Salish Sea <a id="rivers"></a>
 
-`courses/rivers`, version 0.1 (beta, 2026-11-07). Rivers and the Salish Sea: why the water does what it does. Outline revised after a five-reader panel on 7 Nov 2026 (project files rivers/outline.md, reviews in rivers/review-2026-11-07/). Every lesson had one student read-through and a revision; the writers' uncertain facts are listed in rivers/writer-notes.md for the fact check. Photos are parked in tools/pending-photos.json.
+`courses/rivers`, version 0.1 (beta, 2026-11-07). Rivers and the Salish Sea: why the water does what it does. Outline revised after a five-reader panel on 7 Nov 2026 (project files rivers/outline.md, reviews in rivers/review-2026-11-07/). Every lesson had one student read-through and a revision; the writers' uncertain facts are listed in rivers/writer-notes.md for the fact check. Photos are parked in tools/pending-photos.json. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -471,7 +471,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Bats <a id="bats"></a>
 
-`courses/bats`, version 0.1 (beta, 2026-11-07). Bats: seeing with sound. Outline v2 (7 Nov 2026), revised after a biologist, teacher, explainer and student review: project files bats/outline.md and bats/review-2026-11-07/. All 15 lessons (trunk 1-10, branches L, N, P) written 7 Nov 2026 with live figures; student read-through and revisions done the same day; queued for Gemini. Photos are queued in tools/pending-photos.json with search hints (none verified); calls are synthesised from published parameters.
+`courses/bats`, version 0.1 (beta, 2026-11-07). Bats: seeing with sound. Outline v2 (7 Nov 2026), revised after a biologist, teacher, explainer and student review: project files bats/outline.md and bats/review-2026-11-07/. All 15 lessons (trunk 1-10, branches L, N, P) written 7 Nov 2026 with live figures; student read-through and revisions done the same day; queued for Gemini. Photos are queued in tools/pending-photos.json with search hints (none verified); calls are synthesised from published parameters. Its catalog description waits for Gemini (queued 2026-11-07).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |

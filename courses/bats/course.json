@@ -3,7 +3,7 @@
   "subtitle": "Seeing with sound",
   "department": "Life Sciences",
   "order": 13,
-  "summary": "A fifth of all mammal species are bats, and most of them find their food in the dark by shouting and listening to the echoes. Each lesson opens on a real puzzle, Spallanzani's blinded bats that flew on, a moth that dives at the last moment, a cave where bats die in February, and follows the people who solved it, with live figures you can push and slowed-down calls you can hear. Branches go to the bats over a Seattle lake at dusk, and to building a detector that lets you hear them.",
+  "summary": "In 1793 Lazzaro Spallanzani blinded bats and found they still flew round a room strung with threads. Nobody could say how until 1938, when a Harvard undergraduate, Donald Griffin, held bats up to a physicist's ultrasonic detector and heard them calling. The course follows the calls from there: why they are so high, how a bat closing on a moth speeds up to 200 a second, and how some moths jam them. Two branches take you outside, to the bats over Green Lake at dusk and to a detector you can build.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "bats.save",

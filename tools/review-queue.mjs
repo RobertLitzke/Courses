@@ -2,7 +2,9 @@
 // copy edit (tools/copyedit.mjs, with the course's own brief in its
 // tools/copyedit.json) keeps a tools/review-queue.json: lessons whose new
 // prose (paragraphs, captions, footnotes) has not yet had the final copy edit,
-// with the date and what was added. Writers append to it; this runs them as
+// with the date and what was added, and { "description": true } when the
+// course's catalog description waits for its pass (tools/copyedit.mjs
+// --description). Writers append to it; this runs them as
 // one batch. The encyclopedia's queue, tools/encyclopedia-review-queue.json,
 // runs with them (tools/encyclopedia-copyedit.mjs).
 //
@@ -24,12 +26,13 @@ let total = 0;
 for (const course of readdirSync(join(root, 'courses'))) {
   const dir = join(root, 'courses', course);
   const queueFile = join(dir, 'tools/review-queue.json');
-  if (!existsSync(queueFile) || !existsSync(join(dir, 'tools/copyedit.json'))) continue;
-  const queue = JSON.parse(readFileSync(queueFile, 'utf8'));
+  if (!existsSync(queueFile)) continue;
+  // A course with no copy-edit brief takes only the description pass.
+  const queue = JSON.parse(readFileSync(queueFile, 'utf8')).filter((q) => q.description || existsSync(join(dir, 'tools/copyedit.json')));
   if (!queue.length) continue;
   total += queue.length;
-  console.log(`${course}: ${queue.length} lesson${queue.length === 1 ? '' : 's'}`);
-  for (const q of queue) console.log(`  ${q.lesson.padEnd(16)} ${q.added ?? ''}  ${q.what ?? ''}`);
+  console.log(`${course}: ${queue.length} waiting`);
+  for (const q of queue) console.log(`  ${(q.description ? '(description)' : q.lesson).padEnd(16)} ${q.added ?? ''}  ${q.what ?? ''}`);
   if (run) {
     const r = spawnSync(process.execPath, ['tools/copyedit.mjs', course, '--queue', '--write'], { cwd: root, stdio: 'inherit' });
     if (r.status) process.exitCode = r.status;

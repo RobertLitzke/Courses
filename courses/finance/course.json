@@ -3,7 +3,7 @@
   "subtitle": "Saving, spending and paying less tax",
   "department": "Personal Finance",
   "order": 10,
-  "summary": "How much a portfolio can safely pay out, why the order of good and bad years matters more than their average, and how to move money between pre-tax, Roth, HSA and taxable accounts so that tax and income-tested costs take as little as the law allows. Live models run on US market history since 1871 and the 2026 federal tax rules, with branches on Washington, Portugal, equity pay and more. Education about how the rules work, not personal advice.",
+  "summary": "For someone planning to stop work early. It starts with the 4 percent rule, where it came from and why the order of good and bad years matters once you are spending, all tested against US market history since 1871. Most of the rest is tax: how a return stacks, the four kinds of account, the low-income years when a Roth conversion costs little, health cover before Medicare. Branches cover Washington State, moving to Portugal, and pay in company stock. It explains how the rules work; it is not personal advice.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "finance.save",

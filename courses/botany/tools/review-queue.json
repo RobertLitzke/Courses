@@ -9,5 +9,6 @@
     "lesson": "abominable",
     "added": "2026-11-06",
     "what": "lotus figure now a regroup block: readouts moved into JSON, the DNA readout no longer repeats its lead"
-  }
+  },
+ { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
 ]

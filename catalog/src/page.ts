@@ -8,7 +8,8 @@
 import { el } from 'didactics/dom';
 import { dayCounts, migrateCollection } from 'didactics/srs';
 import type { Bridge, CatalogEntry, CatalogMap } from '../registry';
-import { MAP_HEIGHT, MAP_WIDTH } from './map-size';
+import { MAP_HEIGHT, MAP_WIDTH, REGION_PAD } from './map-size';
+import { splitIcon } from './split';
 
 type Read = (key: string) => string | null;
 
@@ -98,7 +99,7 @@ function bridgeEntry(b: Bridge, byFolder: ReadonlyMap<string, CatalogEntry>, rea
   return el(
     `article.course.bridge${own ? '' : '.coming'}`,
     { id: `bridge-${b.id}` },
-    el('span.bridge-pair', { 'aria-hidden': 'true' }, el('img', { src: a.icon, alt: '' }), el('img', { src: z.icon, alt: '' })),
+    el('span.course-icon', {}, splitIcon(a, z, !own)),
     el(
       'div.course-text',
       {},
@@ -114,20 +115,30 @@ function bridgeEntry(b: Bridge, byFolder: ReadonlyMap<string, CatalogEntry>, rea
   );
 }
 
-/** The map: courses where map.json puts them, bridges on the lines between, and beside it (on a wide screen) the entry of whichever is picked. */
+/** Where a shelf's region sits on the map, around its courses, in map units. */
+export function regionBox(places: readonly (readonly [number, number])[]): { x: number; y: number; w: number; h: number } {
+  const xs = places.map((p) => p[0]);
+  const ys = places.map((p) => p[1]);
+  const x = Math.max(0, Math.min(...xs) - REGION_PAD.side);
+  const y = Math.max(0, Math.min(...ys) - REGION_PAD.top);
+  return { x, y, w: Math.min(MAP_WIDTH, Math.max(...xs) + REGION_PAD.side) - x, h: Math.min(MAP_HEIGHT, Math.max(...ys) + REGION_PAD.bottom) - y };
+}
+
+/** The map: each shelf a region with its courses in it, bridges as split icons on the lines between, and beside it (on a wide screen) the entry of whichever is picked. */
 function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Read): HTMLElement | null {
   const byFolder = new Map(courses.map((c) => [c.folder, c]));
   const placed = courses.filter((c) => map.courses[c.folder]);
   if (!placed.length) return null;
   const at = (f: string) => map.courses[f];
   const pct = ([x, y]: readonly number[]) => ({ left: `${(x / MAP_WIDTH) * 100}%`, top: `${(y / MAP_HEIGHT) * 100}%` });
+  const bridges = map.bridges.filter((b) => b.between.every((f) => byFolder.has(f) && map.courses[f]));
   const ns = 'http://www.w3.org/2000/svg';
   const svg = document.createElementNS(ns, 'svg');
   svg.setAttribute('viewBox', `0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`);
   svg.setAttribute('preserveAspectRatio', 'none');
   svg.setAttribute('aria-hidden', 'true');
   const lines = new Map<string, SVGLineElement>();
-  for (const b of map.bridges) {
+  for (const b of bridges) {
     const [[x1, y1], [x2, y2]] = b.between.map(at);
     const line = document.createElementNS(ns, 'line');
     for (const [k, v] of Object.entries({ x1, y1, x2, y2 })) line.setAttribute(k, String(v));
@@ -135,6 +146,14 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
     svg.append(line);
     lines.set(b.id, line);
   }
+
+  // Each shelf is a region of the map, drawn round its courses.
+  const regions = (map.shelves ?? []).flatMap((s) => {
+    const ps = s.courses.filter((f) => byFolder.has(f) && map.courses[f]).map(at);
+    if (!ps.length) return [];
+    const r = regionBox(ps);
+    return [el('div.map-region', { style: { left: `${(r.x / MAP_WIDTH) * 100}%`, top: `${(r.y / MAP_HEIGHT) * 100}%`, width: `${(r.w / MAP_WIDTH) * 100}%`, height: `${(r.h / MAP_HEIGHT) * 100}%` } }, el('span.region-name', {}, s.title))];
+  });
 
   const nodes = new Map<string, HTMLElement>();
   for (const c of placed) {
@@ -144,19 +163,19 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
       { href: href(c.folder), style: pct(at(c.folder)) },
       el('img', { src: c.icon, alt: '' }),
       el('span.map-title', {}, c.title),
-      el('span.map-meta', {}, done ? `${Math.min(done, c.lessonCount)} of ${c.lessonCount} done` : lessonsLine(c.lessonCount)),
-      el('span.map-bar', { 'aria-hidden': 'true' }, el('i', { style: { width: `${Math.min(1, done / c.lessonCount) * 100}%` } })),
+      done ? el('span.map-bar', { 'aria-label': `${Math.min(done, c.lessonCount)} of ${c.lessonCount} done` }, el('i', { style: { width: `${Math.min(1, done / c.lessonCount) * 100}%` } })) : null,
     );
     nodes.set(c.folder, node);
   }
-  for (const b of map.bridges) {
+  for (const b of bridges) {
     const t = b.at ?? 0.5;
     const [[x1, y1], [x2, y2]] = b.between.map(at);
+    const [a, z] = b.between.map((f) => byFolder.get(f)!);
     const own = b.folder ? byFolder.get(b.folder) : undefined;
     const node = el(
       `${own ? 'a' : 'button'}.map-node.map-bridge${own ? '' : '.coming'}`,
-      { ...(own ? { href: href(own.folder) } : { type: 'button' }), style: pct([x1 + (x2 - x1) * t, y1 + (y2 - y1) * t]) },
-      el('span.map-kind', {}, own ? 'Bridge' : 'In preparation'),
+      { ...(own ? { href: href(own.folder) } : { type: 'button' }), style: pct([x1 + (x2 - x1) * t, y1 + (y2 - y1) * t]), title: `${b.title}: a bridge between ${a.title} and ${z.title}${own ? '' : ', in preparation'}` },
+      splitIcon(a, z, !own),
       el('span.map-title', {}, b.title),
     );
     nodes.set(`bridge:${b.id}`, node);
@@ -169,13 +188,18 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
     return el(
       'li',
       {},
-      own ? el('a', { href: href(own.folder) }, b.title) : el('a', { href: `#bridge-${b.id}` }, b.title),
-      el('small', {}, `With ${other.title} · ${own ? lessonsLine(own.lessonCount) : 'in preparation'}`),
+      splitIcon(byFolder.get(b.between[0])!, byFolder.get(b.between[1])!, !own),
+      el(
+        'span',
+        {},
+        own ? el('a', { href: href(own.folder) }, b.title) : el('a', { href: `#bridge-${b.id}` }, b.title),
+        el('small', {}, `With ${other.title} · ${own ? lessonsLine(own.lessonCount) : 'in preparation'}`),
+      ),
     );
   };
   const showCourse = (c: CatalogEntry) => {
     const status = standing(c, read);
-    const mine = map.bridges.filter((b) => b.between.includes(c.folder));
+    const mine = bridges.filter((b) => b.between.includes(c.folder));
     panel.replaceChildren(el(
       'div.panel-body',
       {},
@@ -183,9 +207,9 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
       el('h3', {}, el('a', { href: href(c.folder) }, c.title)),
       c.subtitle ? el('p.panel-sub', {}, c.subtitle) : null,
       el('p.panel-summary', {}, c.summary),
-      el('p.course-meta', {}, el('span', {}, lessonsLine(c.lessonCount)), status ? el('span.course-standing', {}, status) : null),
+      el('p.course-meta', {}, el('span', {}, lessonsLine(c.lessonCount)), el('span.course-version', {}, versionLine(c)), status ? el('span.course-standing', {}, status) : null),
       el('a.course-open', { href: href(c.folder) }, status ? 'Continue the course' : 'Open the course'),
-      mine.length ? [el('h4', {}, `Bridges from ${c.title}`), el('ul', {}, mine.map((b) => bridgeLine(b, c.folder)))] : null,
+      mine.length ? [el('h4', {}, 'Bridges'), el('ul.panel-bridges', {}, mine.map((b) => bridgeLine(b, c.folder)))] : null,
     ));
   };
   const showBridge = (b: Bridge) => {
@@ -196,6 +220,7 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
       'div.panel-body',
       {},
       el('p.panel-kind', {}, own ? 'Bridge' : 'Bridge · in preparation'),
+      splitIcon(a, z, !own),
       el('h3', {}, own ? el('a', { href: href(own.folder) }, b.title) : b.title),
       el('p.panel-sub', {}, `Between ${a.title} and ${z.title}`),
       el('p.panel-summary', {}, b.promise),
@@ -204,23 +229,29 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
             el('p.course-meta', {}, el('span', {}, lessonsLine(own.lessonCount)), status ? el('span.course-standing', {}, status) : null),
             el('a.course-open', { href: href(own.folder) }, status ? 'Continue the bridge' : 'Open the bridge'),
           ]
-        : el('p.panel-note', {}, 'Not written yet. It will take what both courses teach and go somewhere neither goes alone.'),
+        : el('p.panel-note', {}, 'Not written yet.'),
       el('h4', {}, 'It joins'),
       el('ul', {}, [a, z].map((c) => el('li', {}, el('a', { href: href(c.folder) }, c.title), el('small', {}, standing(c, read) ?? lessonsLine(c.lessonCount))))),
     ));
   };
 
-  // Picking one lights it and its lines, and dims the bridges that don't touch it.
-  const pick = (key: string) => {
+  // Picking one lights it, its lines and what they join, and dims the rest.
+  const pick = (key: string, dim = true) => {
     const folder = key.startsWith('bridge:') ? null : key;
-    const bridge = folder ? null : map.bridges.find((b) => `bridge:${b.id}` === key)!;
+    const bridge = folder ? null : bridges.find((b) => `bridge:${b.id}` === key)!;
+    const near = new Set<string>([key]);
+    for (const b of bridges) {
+      if (folder ? b.between.includes(folder) : b === bridge) {
+        near.add(`bridge:${b.id}`);
+        for (const f of b.between) near.add(f);
+      }
+    }
     for (const [k, n] of nodes) {
       n.classList.toggle('picked', k === key);
-      const b = k.startsWith('bridge:') ? map.bridges.find((x) => `bridge:${x.id}` === k)! : null;
-      const near = folder ? (b ? b.between.includes(folder) : true) : b ? b === bridge : bridge!.between.includes(k);
-      n.classList.toggle('far', !near);
+      n.classList.toggle('far', dim && !near.has(k));
     }
-    for (const b of map.bridges) lines.get(b.id)!.classList.toggle('lit', folder ? b.between.includes(folder) : b === bridge);
+    for (const b of bridges) lines.get(b.id)!.classList.toggle('lit', dim && near.has(`bridge:${b.id}`));
+    shown = key;
     if (folder) showCourse(byFolder.get(folder)!);
     else showBridge(bridge!);
   };
@@ -230,16 +261,21 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
   }
   // A bridge still in preparation has nowhere to go: on a wide screen it is
   // shown beside the map; on a phone its entry further down.
-  for (const b of map.bridges) {
+  for (const b of bridges) {
     if (b.folder) continue;
     nodes.get(`bridge:${b.id}`)!.addEventListener('click', () => {
       pick(`bridge:${b.id}`);
       if (!matchMedia('(min-width: 960px)').matches) document.getElementById(`bridge-${b.id}`)?.scrollIntoView({ behavior: 'smooth' });
     });
   }
-  // Start on the course the reader went furthest in, or the first.
+  // Leaving the map lifts the dimming and keeps the panel as it is.
+  let shown = '';
+  const mapBox = el('div.map', {}, regions, svg, [...nodes.values()]);
+  mapBox.addEventListener('mouseleave', () => pick(shown, false));
+  // Start on the course the reader went furthest in, or the first, with
+  // nothing dimmed until the reader points at something.
   const first = [...placed].sort((p, q) => progress(q, read).done - progress(p, read).done)[0];
-  pick(first.folder);
+  pick(first.folder, false);
 
   return el(
     'section.map-section',
@@ -250,8 +286,10 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
       el(
         'div',
         {},
-        el('div.map', {}, svg, [...nodes.values()]),
-        el('p.map-legend', {}, el('span.written', {}, 'bridge, written'), el('span.coming', {}, 'bridge, in preparation')),
+        mapBox,
+        bridges.length
+          ? el('p.map-legend', {}, el('span.legend-icon', {}, splitIcon(placed[0], placed[Math.min(1, placed.length - 1)], true)), 'A bridge: a short course that needs the two courses either side of it. Dashed until it is written.')
+          : null,
       ),
       panel,
     ),
@@ -275,8 +313,9 @@ export function mapPage(courses: readonly CatalogEntry[], read: Read, map: Catal
       el(
         'p.lede',
         {},
-        map.bridges.length ? 'Where two courses meet, a short bridge course takes what both teach and goes somewhere neither goes alone. ' : '',
-        'Take them in any order, on a phone or a computer, online or off. Your place in each is kept on this device.',
+        'Every course on the site, grouped as on the shelves. ',
+        map.bridges.length ? 'The split icons between them are bridges, short courses that need both of their neighbours. ' : '',
+        'Start any course first; your place in each is kept on this device.',
       ),
     ),
     reviewLine(courses, read),
@@ -291,10 +330,10 @@ export function mapPage(courses: readonly CatalogEntry[], read: Read, map: Catal
       'div.listing',
       {},
       departments.map((d) =>
-        el('section.department', { id: slug(d) }, el('h2', {}, d), main.filter((c) => c.department === d).map((c) => courseEntry(c, read, map.bridges, titles))),
+        el('section.department', { id: slug(d) }, el('h2', {}, d), el('div.entries', {}, main.filter((c) => c.department === d).map((c) => courseEntry(c, read, map.bridges, titles)))),
       ),
       map.bridges.length
-        ? el('section.department.bridges', { id: 'bridges' }, el('h2', {}, 'Bridges'), map.bridges.map((b) => bridgeEntry(b, byFolder, read)))
+        ? el('section.department.bridges', { id: 'bridges' }, el('h2', {}, 'Bridges'), el('div.entries', {}, map.bridges.map((b) => bridgeEntry(b, byFolder, read))))
         : null,
     ),
     el('footer.colophon', {}, el('p', {}, el('a', { href: '#' }, '← Back to the shelves'))),

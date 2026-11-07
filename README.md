@@ -28,7 +28,8 @@ tools/              what every course shares at the command line:
   photos.mjs          fetches a course's photos from its tools/photo-picks.json
   photos-find.mjs     a contact sheet of Commons candidates to pick from
   restore-photos.mjs  puts parked photo blocks back into lessons
-  copyedit.mjs        the Gemini copy edit, with each course's brief
+  copyedit.mjs        the Gemini copy edit, with each course's brief (lessons, and --description)
+  outline.mjs         a course's catalog description with every lesson under it
   review-queue.mjs    runs the copy edits waiting in every course
   status.mjs          the lesson status table (docs/status.md), with tools/lesson-status.json
   release.mjs         a course's version: npm run release -- <course> "What changed" (CLAUDE.md)
@@ -102,6 +103,18 @@ New lesson prose waits for its final Gemini copy edit in each course's
 `OPENROUTER_API_KEY=… npm run review-queue -- --run` edits and writes it all
 in one batch and empties the queues (reports in each course's
 `tools/copyedit-out/`; check their fact notes before committing).
+
+A course's description on the catalog (`summary` and `subtitle` in its
+`course.json`) is written against its lessons: `npm run outline -- <course>`
+prints it with every lesson's title and teaches line, written or planned,
+under it. After changing a course's lessons a lot, or its description, queue
+the description with `{ "description": true, "added", "what", "notes"? }` in
+the course's review queue (a course with no `copyedit.json` takes this entry
+too). Gemini then gets the description beside that outline and the other
+courses' descriptions, may rework it, and writes it back (report in
+`tools/copyedit-out/description.md`). Descriptions should differ in length
+and in how they open; the catalog's test refuses the stock phrases they once
+shared.
 
 In dev the catalog's links lead to course folders that only exist in a
 build; use `npm run build && npm run preview` to click through the site.

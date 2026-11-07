@@ -3,7 +3,7 @@
   "subtitle": "A circuits workbook",
   "department": "Engineering",
   "order": 3,
-  "summary": "For someone who has soldered and wants to design: what voltage and current really are, how resistors, capacitors, diodes and transistors shape them, and how to find out why a board doesn't work. Every circuit is live, with wires coloured by voltage, and branches lead into guitar pedals and off-grid solar.",
+  "summary": "For someone who can solder but can't yet design. The wires in every circuit are coloured by their voltage, so you can watch a capacitor fill or a transistor switch on. The last four lessons, still being written, open up two guitar pedals, a Fuzz Face and a Tube Screamer, and size an off-grid solar system from the panel down.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "circuitry.save",

@@ -84,13 +84,16 @@ describe('the photo tools', () => {
 });
 
 describe('the copy edit', () => {
-  it('finds every queued lesson in its course, which has a brief', () => {
+  it('finds every queued lesson in its course, which has a brief; a description entry needs no brief', () => {
     for (const c of courses) {
       const queueFile = join(root, 'courses', c, 'tools/review-queue.json');
       if (!existsSync(queueFile)) continue;
-      expect(existsSync(join(root, 'courses', c, 'tools/copyedit.json')), `${c}: queue without a copyedit.json`).toBe(true);
+      const queue = json(queueFile) as { lesson?: string; description?: boolean }[];
+      const lessonsQueued = queue.filter((q) => !q.description);
+      for (const q of queue) expect(Boolean(q.lesson) !== Boolean(q.description), `${c}: a queue entry names a lesson or is { "description": true }`).toBe(true);
+      if (lessonsQueued.length) expect(existsSync(join(root, 'courses', c, 'tools/copyedit.json')), `${c}: lessons queued without a copyedit.json`).toBe(true);
       const lessons = join(root, 'courses', c, json(join(root, 'courses', c, 'course.json')).lessons);
-      for (const q of json(queueFile) as { lesson: string }[]) expect(existsSync(join(lessons, `${q.lesson}.json`)), `${c}: queued ${q.lesson}`).toBe(true);
+      for (const q of lessonsQueued) expect(existsSync(join(lessons, `${q.lesson}.json`)), `${c}: queued ${q.lesson}`).toBe(true);
     }
   });
 });

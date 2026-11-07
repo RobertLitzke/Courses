@@ -3,7 +3,7 @@
   "subtitle": "Mysteries in the rocks",
   "department": "Earth Sciences",
   "order": 2,
-  "summary": "How to read rock: what layers, crystals and fossils record, and how people worked out the age of the Earth, the drift of continents, the ice ages and why the ground shakes. Each lesson starts from a puzzle in the field or in the history of science, with live figures and real maps. Branches on Seattle, Whidbey Island and the ice age floods are to come.",
+  "summary": "How geologists learned to read rock, told through the arguments that settled each question. James Hutton stood at Siccar Point in 1788 and saw that the Earth was unimaginably old; Kelvin spent decades insisting it was young; Alfred Wegener said the continents moved, and was dismissed until stripes on the seafloor, thirty years after his death, showed that they do. The twenty trunk lessons run from mud turning into rock to the 1964 earthquake that lifted an Alaskan coast out of the sea. After them come branches on the Pacific Northwest (Whidbey Island's bluffs, Seattle's hills and faults, the ice age floods that cut the scablands, Cascadia's earthquake of 1700), on the Moon, and on how anyone found out what is inside the Earth.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "geology.save",

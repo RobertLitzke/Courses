@@ -3,7 +3,7 @@
   "subtitle": "How plants work",
   "department": "Life Sciences",
   "order": 7,
-  "summary": "What a plant is made of, how it lifts water higher than any pump, why leaves are green and how a pea gets nitrogen out of the air. Each lesson opens on an old experiment (a willow in a tub, a candle in a jar, a ring cut round a trunk) and follows the evidence to what plants are doing, with live figures you can push. Growth, hormones, wood, flowers and seeds are to come.",
+  "summary": "Van Helmont grew a willow in a tub for five years. The tree gained 74 kilograms; the soil lost about 60 grams. Where the rest came from is the first lesson, and the course goes on asking that kind of question: how water climbs a hundred metres up a tree with no pump, and how a seedling in the dark knows which way the light is. Branches cover naming plants with a key, crops from maize to Palouse wheat, and a few strange ones that eat insects or warm their own flowers.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "botany.save",

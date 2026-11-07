@@ -70,6 +70,7 @@ a { color: var(--link); }
   padding: 18px 0; border-bottom: 1px solid var(--rule);
 }
 .course-icon img { display: block; width: 64px; height: 64px; border-radius: 14px; }
+.course-icon .split { --s: 64px; }
 .course h3 { margin: 0 0 4px; font-size: 1.3rem; line-height: 1.25; font-weight: 900; font-variation-settings: 'SOFT' 100; }
 .course h3 a { color: var(--ink); text-decoration: none; }
 .course h3 a:hover { text-decoration: underline; }
@@ -81,7 +82,7 @@ a { color: var(--link); }
 .course-open { font: 600 0.85rem/1 var(--sans); letter-spacing: 0.04em; }
 .course-open::after { content: ' \2192'; }
 /* A department's heading rule closes the one above it, so its last entry has none. */
-.department > .course:last-child { border-bottom: none; }
+.entries > .course:last-child { border-bottom: none; }
 
 .colophon { margin-top: 32px; font-size: 0.85rem; color: var(--soft); }
 
@@ -90,6 +91,7 @@ a { color: var(--link); }
   .masthead h1 { font-size: 2.1rem; }
   .course { grid-template-columns: 48px 1fr; gap: 12px; }
   .course-icon img { width: 48px; height: 48px; border-radius: 11px; }
+  .course-icon .split { --s: 48px; }
 }
 
 /* The way to the review of all courses, under the masthead, and that page. */
@@ -102,73 +104,85 @@ a { color: var(--link); }
 .review-all .ra-courses th, .review-all .ra-courses td { border-bottom-color: var(--rule); }
 .review-all .ra-courses thead th { border-bottom: 1px solid var(--ink); }
 
-/* Each course's bridges, and the bridges' own entries: the two courses' icons overlapped. */
+/* A bridge's icon (split.ts): one square cut corner to corner, a course's
+   icon on each side of the cut. Each picture is drawn 120% and moved towards
+   its own corner, so the middle of it sits in its half; the clip keeps it to
+   that half. Dashed round the edge while the bridge is in preparation. */
+.split {
+  position: relative; display: inline-block; flex: none; vertical-align: middle;
+  width: var(--s, 40px); height: var(--s, 40px); border-radius: 22%; overflow: hidden;
+  background: var(--paper); box-shadow: 0 0 0 1.5px var(--ink);
+}
+.split img { position: absolute; width: 120%; height: 120%; max-width: none; border-radius: 0; margin: 0; box-shadow: none; }
+.split-a { left: -20%; top: -20%; clip-path: polygon(0 0, 116.67% 0, 0 116.67%); }
+.split-b { left: 0; top: 0; clip-path: polygon(83.33% 0, 100% 0, 100% 100%, 0 100%, 0 83.33%); }
+.split::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom right, transparent calc(50% - 1.5px), var(--paper) calc(50% - 1.5px) calc(50% + 1.5px), transparent calc(50% + 1.5px));
+}
+.split.coming { box-shadow: none; outline: 1.5px dashed var(--soft); outline-offset: 2px; }
+.split.coming img { filter: saturate(0.6); opacity: 0.85; }
+
+/* Each course's bridges, named in its entry. */
 .course-bridges { margin: 0 0 8px; font: 0.85rem/1.45 var(--sans); color: var(--soft); }
 .course-bridges .label { color: var(--ink); font-weight: 600; }
-.bridge-pair { display: flex; padding-top: 6px; }
-.bridge-pair img { width: 40px; height: 40px; border-radius: 9px; box-shadow: 0 0 0 2px var(--paper); }
-.bridge-pair img + img { margin-left: -16px; margin-top: 18px; }
-@media (max-width: 480px) {
-  .bridge-pair img { width: 28px; height: 28px; border-radius: 7px; }
-  .bridge-pair img + img { margin-left: -8px; margin-top: 14px; }
-}
 .course.coming h3 { color: var(--soft); }
 
-/* The map: courses where map.json puts them, with bridges on the lines between.
-   On a phone it is a small overview of icons with a dot for each bridge, and
-   the entries below say the rest. */
+/* The map: each shelf a region holding its courses, and each bridge a split
+   icon on the line between its two courses. A course's icon (not its title)
+   sits on its point, so the lines meet the icons. On a phone it is a small
+   overview, titles in small type and bridges as icons only; the entries
+   below say the rest. */
 .map-section { margin-top: 26px; }
-.map-section h2 {
-  margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--ink);
-  font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
-}
-.map { position: relative; aspect-ratio: 1000 / 950; margin: 30px 26px 40px; }
+.map { --ico: 32px; --bi: 22px; --region: #f8f0e2; position: relative; aspect-ratio: 1000 / 1000; margin: 18px 0 12px; }
 .map svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.edge { stroke: var(--rule); stroke-width: 2; vector-effect: non-scaling-stroke; }
-.edge.coming { stroke-dasharray: 3 5; }
-.edge.lit { stroke: var(--ink); }
-.map-node {
-  position: absolute; transform: translate(-50%, -50%); display: block;
-  color: var(--ink); text-decoration: none; text-align: center;
+.map-region { position: absolute; border: 1px solid var(--rule); border-radius: 16px; background: var(--region); }
+.region-name {
+  position: absolute; top: 6px; left: 9px;
+  font: 600 0.55rem/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--head);
 }
-.map-course img { display: block; width: 44px; height: 44px; margin: 0 auto 2px; border-radius: 10px; box-shadow: 0 0 0 3px var(--paper); }
-.map-course .map-title { display: block; font: 900 0.78rem/1.15 var(--serif); font-variation-settings: 'SOFT' 100; background: var(--paper); }
-.map-course .map-meta, .map-course .map-bar { display: none; }
+.edge { stroke: var(--soft); stroke-width: 1.5; vector-effect: non-scaling-stroke; opacity: 0.6; }
+.edge.coming { stroke-dasharray: 4 4; }
+.edge.lit { stroke: var(--link); stroke-width: 2; opacity: 1; }
+.map-node { position: absolute; display: block; color: var(--ink); text-decoration: none; text-align: center; transition: opacity 0.15s; }
+.map-course { width: 80px; transform: translate(-50%, calc(var(--ico) / -2)); }
+.map-course img { display: block; width: var(--ico); height: var(--ico); margin: 0 auto 2px; border-radius: 22%; box-shadow: 0 0 0 3px var(--paper); }
+.map-course .map-title { display: block; font: 800 0.6rem/1.1 var(--serif); font-variation-settings: 'SOFT' 100; }
+.map-bar { display: block; width: 60%; height: 3px; margin: 3px auto 0; background: #ddd6c6; border-radius: 2px; overflow: hidden; }
+.map-bar i { display: block; height: 100%; background: var(--head); }
 .map-bridge {
-  width: 13px; height: 13px; padding: 0; border-radius: 50%; overflow: hidden;
-  border: 2px solid var(--ink); background: var(--paper); font: inherit; cursor: pointer;
+  --s: var(--bi); padding: 0; border: 0; background: none; font: inherit; cursor: pointer;
+  transform: translate(-50%, calc(var(--bi) / -2));
 }
-.map-bridge.coming { border-style: dashed; border-color: var(--soft); }
-.map-bridge > span { display: none; }
-.map-legend { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; font: 0.75rem/1.3 var(--sans); color: var(--soft); }
-.map-legend span::before { content: ''; display: inline-block; width: 20px; border-top: 2px solid var(--ink); vertical-align: middle; margin-right: 6px; }
-.map-legend .coming::before { border-top: 2px dashed var(--soft); }
+.map-bridge .split { display: block; margin: 0 auto; }
+.map-bridge .map-title { display: none; }
+.map-node.far { opacity: 0.4; }
+.map-node:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+@media (max-width: 600px) { .region-name { display: none; } }
+.map-legend { display: flex; align-items: center; gap: 10px; margin: 0; font: 0.75rem/1.35 var(--sans); color: var(--soft); }
+.legend-icon .split { --s: 22px; }
 .map-panel { display: none; }
 
 @media (min-width: 960px) {
   .catalog { max-width: 1180px; padding: 24px 32px 56px; }
   .masthead .lede { max-width: 46em; }
-  .map-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; }
-  .map { margin: 44px 64px 34px; }
+  .map-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; min-height: 620px; }
+  .map { --ico: 58px; --bi: 44px; margin: 26px 0 16px; }
+  .region-name { top: 12px; left: 16px; font-size: 0.7rem; }
   .map-course { width: 150px; }
-  .map-course img { width: 64px; height: 64px; border-radius: 14px; box-shadow: 0 0 0 4px var(--paper); }
-  .map-course.picked img { box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--link); }
-  .map-course .map-title { font: 900 1.05rem/1.2 var(--serif); width: max-content; margin: 2px auto 0; padding: 0 4px; }
-  .map-course .map-meta { display: block; width: max-content; margin: 0 auto; padding: 0 4px; font: 0.72rem/1.3 var(--sans); color: var(--soft); background: var(--paper); }
-  .map-course .map-bar { display: block; width: 80px; height: 4px; margin: 4px auto 0; background: #ddd6c6; }
-  .map-course .map-bar i { display: block; height: 100%; background: var(--ink); }
-  .map-bridge {
-    width: auto; height: auto; max-width: 150px; overflow: visible; border-radius: 0;
-    border-width: 1px; padding: 5px 9px 6px; font-size: 0.85rem; line-height: 1.2;
+  .map-course .map-title { font: 900 0.98rem/1.2 var(--serif); margin-top: 4px; }
+  .map-course.picked img { box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--link); }
+  .map-bridge .map-title {
+    display: block; width: 116px; margin: 5px auto 0; padding: 1px 4px;
+    font: italic 0.74rem/1.2 var(--serif); color: var(--soft); background: var(--region); border-radius: 4px;
   }
-  .map-bridge > span { display: block; }
-  .map-bridge .map-kind { margin-bottom: 3px; font: 600 0.58rem/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
-  .map-bridge.coming { color: var(--soft); }
-  .map-bridge.picked { border: 2px solid var(--link); padding: 4px 8px 5px; color: var(--ink); }
-  .map-bridge.far { color: #9a948a; border-color: var(--rule); }
-  .map-node:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
-  .map-panel { display: block; margin-top: 22px; padding-left: 24px; border-left: 1px solid var(--rule); }
+  .map-bridge.picked .split { outline-color: var(--link); outline-style: solid; }
+  .map-bridge.picked .map-title { color: var(--ink); }
+  /* The panel takes the map's height and scrolls inside it if it must, so
+     picking another course or bridge never moves what is below the map. */
+  .map-panel { display: block; contain: size; overflow-y: auto; margin-top: 26px; padding-left: 24px; border-left: 1px solid var(--rule); }
   .panel-kind { margin: 0; font: 600 0.7rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+  .panel-body > .split { --s: 54px; margin: 12px 0 4px; }
   .map-panel h3 { margin: 6px 0 0; font-size: 1.5rem; line-height: 1.2; }
   .map-panel h3 a { color: var(--ink); text-decoration: none; }
   .panel-sub { margin: 0 0 8px; font-style: italic; color: var(--soft); }
@@ -178,13 +192,13 @@ a { color: var(--link); }
   .map-panel ul { list-style: none; margin: 0; padding: 0; }
   .map-panel li { padding: 7px 0; border-top: 1px solid var(--rule); font-size: 0.95rem; line-height: 1.3; }
   .map-panel li small { display: block; font: 0.75rem/1.35 var(--sans); color: var(--soft); }
-  /* The two columns start level: no top margin on whatever heads a column. */
+  .panel-bridges li { display: flex; gap: 10px; align-items: center; }
+  .panel-bridges .split { --s: 30px; }
+
+  /* The listing in two columns. The descriptions differ in length, so the
+     entries are of varied heights; no top margin on whatever heads a column. */
   .listing { columns: 2; column-gap: 48px; margin-top: 30px; }
   .listing > .department { margin-top: 0; padding-bottom: 30px; }
-  /* The panel takes the map's height and scrolls inside it if it must, so
-     picking another course or bridge never moves what is below the map. */
-  .map-wrap { min-height: 620px; }
-  .map-panel { contain: size; overflow-y: auto; }
   .listing .department > h2 { break-after: avoid; }
   .listing .course { break-inside: avoid; }
 }
@@ -295,8 +309,7 @@ html { overflow-x: clip; }
 .cover.bridge b { margin-top: 10px; font: 700 1.05rem/1.2 var(--serif); }
 .cover.coming { background: repeating-linear-gradient(135deg, #efe2c9 0 10px, #eadbbf 10px 20px); color: var(--soft); border-style: dashed; box-shadow: none; }
 .cover.coming b { color: var(--ink); }
-.cover .pair { display: flex; gap: 4px; }
-.cover .pair img { width: 34px; height: 34px; border-radius: 8px; }
+.cover.bridge .split { --s: 46px; }
 .shelf-more { margin: 12px 0 0; font: 0.9rem var(--sans); }
 .home .colophon { margin-top: 40px; }
 

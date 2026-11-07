@@ -3,7 +3,7 @@
   "subtitle": "What are they up to?",
   "department": "Earth Sciences",
   "order": 1,
-  "summary": "How to name every kind of cloud, what made it, and what it means for the weather to come: fog and fair-weather puffs, grey decks that may or may not rain, fronts, thunderstorms, radar, and the 1940s rainmakers who tried to seed them. Live diagrams, a sky simulator, and real photos to test yourself on.",
+  "summary": "Learn to name every cloud you see, then work out why it formed and what it says about tomorrow. A halo round the Sun can mean rain within a day; towers at ten in the morning can mean a storm by four. Branches go into Northwest winter rain, tornadoes and hurricanes, and the 1946 attempts to make it rain with dry ice. A sky simulator and a stack of real photographs give you something to practise on.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "clouds.save",

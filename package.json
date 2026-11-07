@@ -17,6 +17,7 @@
     "preview": "vite preview --config catalog/vite.config.ts",
     "review-queue": "node tools/review-queue.mjs",
     "copyedit": "node tools/copyedit.mjs",
+    "outline": "node tools/outline.mjs",
     "photos": "node tools/photos.mjs",
     "photos:find": "node tools/photos-find.mjs",
     "restore-photos": "node tools/restore-photos.mjs",

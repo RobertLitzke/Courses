@@ -3,7 +3,7 @@
   "subtitle": "How we found out",
   "department": "Physical Sciences",
   "order": 5,
-  "summary": "How people standing on one planet worked out the size of the Earth, the pull that holds the Moon, the distance to the stars and what the stars are made of. Each lesson starts from a puzzle someone actually faced, with live figures you can push to see cause and effect. Relativity, galaxies, exoplanets and the gas giants are to come.",
+  "summary": "Everything here was worked out by people who could not leave the Earth. Eratosthenes measured it with a shadow, Bessel caught a star shifting by a third of a second of arc, a Swiss schoolteacher found the pattern in hydrogen's colours, and Jocelyn Bell's “little green men” turned out to be a spinning neutron star. The trunk ends with the expanding universe, dark matter and the question of whether time had a beginning. There are no equations.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "astronomy.save",

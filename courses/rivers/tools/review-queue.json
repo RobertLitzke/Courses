@@ -108,5 +108,6 @@
     "lesson": "gauge",
     "added": "2026-11-07",
     "what": "new lesson: prose, summary, check and figures (student read-through done and revised; Gemini copyedit and fact check still to do)"
-  }
+  },
+ { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
 ]
