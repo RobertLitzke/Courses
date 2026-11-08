@@ -28,6 +28,6 @@
     "release": "node tools/release.mjs"
   },
   "dependencies": {
-    "didactics": "github:RobertLitzke/Didactics#5ca71deb74c10acd38998bd99109675d9c9d118a"
+    "didactics": "github:RobertLitzke/Didactics#0429f2c147eaeaadc10881ed514a71339f09c7c8"
   }
 }
