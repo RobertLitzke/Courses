@@ -9,7 +9,7 @@ import type { Units } from 'didactics/units';
 import { FIGURES } from '../src/figures';
 import { WRITTEN } from '../src/lessons';
 import { orbitAt, TODAY } from '../src/figures/pacemaker';
-import { alpsCooling, lengthFor, RHONE_LAKES, seaLevel } from '../src/figures/iceage';
+import { alpsCooling, frontAt, lengthFor, RHONE_LAKES, seaLevel } from '../src/figures/iceage';
 import { JURA_KM } from '../src/figures/ice';
 import { atollAt, PLATE_VEL, sunk } from '../src/figures/hotspot';
 import { iceSpread, turnAt } from '../src/figures/drift';
@@ -348,6 +348,10 @@ describe('figures', () => {
     const texts = map.labels.map((l: { text: string }) => l.text);
     for (const place of ['Mont Blanc', 'Lake Neuchâtel', 'Lake Geneva', 'Pierre à Bot', 'Jura', 'Valais']) expect(texts).toContain(place);
     expect(map.lakes).toEqual(RHONE_LAKES);
+    // The replay's ice front starts at the glacier and passes the Pierre à Bot when the ice reaches the Jura.
+    expect(frontAt(0)).toEqual([8.38, 46.6]);
+    const [lon, lat] = frontAt(205);
+    expect(Math.hypot(lon - 6.913, lat - 47.009)).toBeLessThan(0.05);
   });
 
   it('time lapses: the models behind the maps', () => {

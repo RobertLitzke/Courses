@@ -39,5 +39,14 @@
     "added": "2026-11-07",
     "what": "new sand-table figure (a ridge rising across a river, seen from above): intro and caption in \"Powell's saw\"; the race figure redrawn from upstream with a lead slider (2026-11-08): its caption, readouts and the wind gap sentence before it"
   },
- { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
+  {
+    "description": true,
+    "added": "2026-11-07",
+    "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course"
+  },
+  {
+    "lesson": "erratics",
+    "added": "2026-11-08",
+    "what": "still map caption now names the Mont Blanc massif and Lake Neuchâtel, alt text mentions Mont Blanc; replay map has labels, an ice edge, an ice front marker and a key"
+  }
 ]

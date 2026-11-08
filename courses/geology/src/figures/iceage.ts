@@ -223,6 +223,33 @@ export const alpsCooling = (ka: number) => -10 * Math.max(0, iceShare(ka));
 /** The lakes on the Rhône map, a point on each; the erratics lesson's still map lists the same. */
 export const RHONE_LAKES = [[6.55, 46.45], [6.85, 46.9], [7.18, 47.1], [7.08, 46.93], [7.72, 46.69], [7.97, 46.73], [6.17, 45.85], [8.4, 45.82]].map(([lon, lat]) => ({ lon, lat }));
 
+/** The places named on the replay map, as on the lesson's still map above it. */
+const RHONE_LABELS = [
+  { lon: 8.38, lat: 46.6, text: 'Rhône glacier', side: 'left' as const },
+  { lon: 6.865, lat: 45.833, text: 'Mont Blanc', side: 'right' as const },
+  { lon: 6.55, lat: 46.45, text: 'Lake Geneva', area: true },
+  { lon: 6.86, lat: 46.9, text: 'Lake Neuchâtel', area: true },
+  { lon: 6.913, lat: 47.009, text: 'Pierre à Bot', side: 'left' as const },
+];
+/** The ice's edge, darker than its fill so a small glacier shows against the snowy peaks. */
+const ICE_EDGE = rgb('#4f86b0');
+const ICE_FRONT = '#2f6690';
+const JURA = '#b5523b';
+
+/** Where the ice front is on the map when the glacier is `km` long: on the path in ice.ts. */
+export function frontAt(km: number): LL {
+  const k = Math.max(0, Math.min(km, TRUNK[TRUNK.length - 1][2]));
+  for (let j = 1; j < TRUNK.length; j++) {
+    const [x0, y0, a0] = TRUNK[j - 1];
+    const [x1, y1, a1] = TRUNK[j];
+    if (k <= a1) {
+      const u = (k - a0) / (a1 - a0 || 1);
+      return [x0 + u * (x1 - x0), y0 + u * (y1 - y0)];
+    }
+  }
+  return [TRUNK[0][0], TRUNK[0][1]];
+}
+
 const RHONE_PLACES: [number, string][] = [[40, 'Brig'], [90, 'Sion'], [105, 'Martigny'], [135, 'Lake Geneva'], [180, 'the plateau'], [205, 'the Jura above Neuchâtel']];
 
 export const rhoneMapFigure = figure(['played'], (ctx, t) => {
@@ -234,6 +261,8 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
   let view: ReturnType<typeof mapView> | null = null;
   let along: Float32Array | null = null;
   let lakes: Uint8Array | null = null;
+  let iced: Uint8Array | null = null;
+  const marks = svg('g');
   let shade: Float32Array | null = null;
   let ramp: ReturnType<typeof heightRamp> | null = null;
   let farthest = 0;
@@ -253,15 +282,29 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
     painted = key;
     const a = along;
     const wet = lakes;
+    const z0 = relief.z;
+    const w = relief.width;
+    const ice = (iced ??= new Uint8Array(z0.length));
+    for (let i = 0; i < z0.length; i++) ice[i] = a[i] <= len && z0[i] < bedAt(a[i]) + thickness(a[i], len) + 150 ? 1 : 0;
     view.paint({
       shade, relief: 0.85, ground: ramp,
-      colorAt: (i, z) => {
-        const km = a[i];
-        if (km <= len && z < bedAt(km) + thickness(km, len) + 150) return ICE;
+      colorAt: (i) => {
+        if (ice[i]) {
+          const col = i % w;
+          const edge = (col > 0 && !ice[i - 1]) || (col < w - 1 && !ice[i + 1]) || (i >= w && !ice[i - w]) || (i + w < ice.length && !ice[i + w]);
+          return edge ? ICE_EDGE : ICE;
+        }
         if (wet[i]) return LAKE;
         return null;
       },
     });
+    // The Jura and the ice front, drawn over the ice so they show at every size of glacier.
+    const [fx, fy] = view.xy(...frontAt(len));
+    redraw(marks,
+      ...mapLabels(view, [{ lon: 6.35, lat: 46.72, text: 'Jura', area: true, color: JURA }], ICE_FRONT),
+      svg('circle', { cx: fx, cy: fy, r: 5, fill: ICE_FRONT, stroke: '#fff', 'stroke-width': 1.5 }),
+      svg('circle', { cx: fx, cy: fy, r: 10, fill: 'none', stroke: ICE_FRONT, 'stroke-width': 1.5, 'stroke-opacity': 0.6 }),
+    );
   };
   const ts = slider('Time', 0, START, 1, 0, (v) => (v >= START ? 'today' : `${START - v},000 years ago`), (v) => { pos = v; paint(); }, 'water');
   f.controls.append(player(ts, ctx, { seconds: 20 }).node, ts.node);
@@ -273,8 +316,10 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
       ramp = heightRamp(r);
       along = alongPath(r);
       lakes = lakeMask(r, RHONE_LAKES);
-      view = mapView(r, { alt: 'A shaded relief map of western Switzerland, from the Rhône glacier in the Alps to the Jura, with the glacier growing down the Rhône valley and across the plateau, then shrinking back.' });
-      holder.replaceChildren(view.node, el('p.map-credit', {}, `Heights: ${r.meta.credit}. Glacier from the long-section model above, driven by the LR04 deep-sea record; simplified.`));
+      view = mapView(r, { alt: 'A shaded relief map of western Switzerland, from the Rhône glacier in the Alps to the Jura, with the glacier growing down the Rhône valley and across the plateau, then shrinking back. A ringed dot marks the ice front.' });
+      view.svg.append(...mapLabels(view, RHONE_LABELS), marks);
+      const key = mapKey([{ text: 'Edge of the ice', color: '#4f86b0' }, { text: 'Ice front', color: ICE_FRONT }, { text: 'Lake', color: '#9cc3d3' }]);
+      holder.replaceChildren(view.node, key, el('p.map-credit', {}, `Heights: ${r.meta.credit}. Glacier from the long-section model above, driven by the LR04 deep-sea record; simplified.`));
       painted = -1;
       paint();
     }).catch(() => holder.replaceChildren(el('p.map-note', {}, 'The map could not be loaded here.'))),
