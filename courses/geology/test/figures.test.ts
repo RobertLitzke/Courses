@@ -16,6 +16,7 @@ import { iceSpread, turnAt } from '../src/figures/drift';
 import { rockAt } from '../src/figures/families';
 import { fan, arrivals, shadow, REAL_EARTH } from '../src/figures/rays';
 import { setPaleomap } from '../src/figures/paleomap';
+import { race as raceAt, raceStep, raceSteps } from '../src/figures/rivers';
 
 // The plate model is fetched on the page (data/paleomap.json); here it is read from disk.
 setPaleomap(JSON.parse(readFileSync('public/data/paleomap.json', 'utf8')));
@@ -214,11 +215,21 @@ describe('figures', () => {
 
   it('lesson 13: a river that keeps up cuts a canyon; a knickpoint climbs', async () => {
     const race = FIGURES.race(context(), 'gorge');
-    setSlider(race.node, 0, 1.4);
-    setSlider(race.node, 2, 2);
-    expect(race.node.textContent).toContain('lake');
-    setSlider(race.node, 1, 1.5);
+    setSlider(race.node, 0, 1.2);
+    setSlider(race.node, 3, 1);
+    expect(race.node.textContent).toContain('wind gap');
+    setSlider(race.node, 0, 0.6);
+    setSlider(race.node, 2, 600);
+    expect(race.node.textContent).toContain('Still holding');
+    setSlider(race.node, 1, 0.6);
     await expect(race.done).resolves.toBeUndefined();
+    // The lead buys time: a deeper valley holds the lake longer before it spills round.
+    expect(raceAt(0.6, 0.3, 0.5e6, 100).diverted).not.toBeNull();
+    expect(raceAt(0.6, 0.3, 0.5e6, 200).diverted).toBeNull();
+    expect(raceAt(0.6, 0.3, 1e6, 200).bed).toBeCloseTo(200 + 0.6 * (1e6 - 200 / 0.0003) / 1000, 6);
+    expect(raceAt(0.5, 0.5, 1e6, 200).canyon).toBeCloseTo(700, 6);
+    expect(raceStep(0.6, 0.3, 1e6, 200)).toBe(3);
+    expect(raceSteps(0.5, 0.5)).toHaveLength(3);
     const knick = FIGURES.knick(context(), 'knick');
     setSlider(knick.node, 0, 60);
     setSlider(knick.node, 1, 60);

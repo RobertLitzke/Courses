@@ -3,7 +3,7 @@
 // rises; and a fall in base level, working its way upstream as a knickpoint.
 
 import { svg } from 'didactics/dom';
-import { arrow, label, line, redraw, small, type P } from 'didactics/draw';
+import { arrow, line, redraw, small, type P } from 'didactics/draw';
 import { Replay, Table } from 'sandtable/table';
 import { mixHex, sandLapse, type SandLapse } from 'sandtable/lapse';
 import { COL, figure, frame, player, slider } from './kit';
@@ -12,87 +12,156 @@ const W = 400;
 
 // ---- Uplift against incision ----------------------------------------------------------
 
-/** How deep the lake behind a rising ridge can get before it spills around the ridge's end, metres. */
-const SPILL = 250;
+/** How deep the river's valley is below the plain when the ridge starts to rise, metres, unless the reader changes it: its lead. */
+export const LEAD = 200;
 
 export interface Race {
-  /** Height of the ridge's rock, metres. */
+  /** Height the ridge has risen above the plain, metres. */
   ridge: number;
-  /** Height of the river's bed where it crosses the ridge, metres above the valley upstream. */
+  /** Height of the river's bed where it crosses the ridge, metres above the valley floor upstream. */
   bed: number;
+  /** Depth of the cut through the ridge, from its crest down to the bed in the gap, metres. */
+  canyon: number;
   /** The river gave up its gap and went round, this many years ago (or null). */
   diverted: number | null;
 }
 
-/** After `years` with the ridge rising `uplift` mm a year and the river able to cut `cut` mm a year. */
-export function race(uplift: number, cut: number, years: number): Race {
+/**
+ * After `years` with the ridge rising `uplift` mm a year and the river able to cut `cut` mm a year,
+ * the river starting in a valley `lead` metres below the plain. A lake behind the ridge fills that
+ * valley; once it reaches the plain it spills round the ridge's end.
+ */
+export function race(uplift: number, cut: number, years: number, lead = LEAD): Race {
   const ridge = (uplift / 1000) * years;
   const climb = Math.max(0, uplift - cut) / 1000; // m a year the river's bed rises in the gap
-  const tSpill = climb > 0 ? SPILL / climb : Infinity;
-  if (years < tSpill) return { ridge, bed: climb * years, diverted: null };
-  // Abandoned: the gap rises with the ridge from then on, a dry notch.
-  return { ridge, bed: SPILL + (uplift / 1000) * (years - tSpill), diverted: years - tSpill };
+  const tSpill = climb > 0 ? lead / climb : Infinity;
+  const r = years < tSpill
+    ? { bed: climb * years, diverted: null }
+    // Abandoned: the gap rises with the ridge from then on, a dry notch.
+    : { bed: lead + (uplift / 1000) * (years - tSpill), diverted: years - tSpill };
+  return { ridge, ...r, canyon: lead + ridge - r.bed };
 }
 
+/** The steps of the race, in order: which the river is headed for depends only on the two rates. */
+export function raceSteps(uplift: number, cut: number): string[] {
+  return uplift <= cut
+    ? ['Ridge rises', 'River keeps pace', 'Deep canyon']
+    : ['Ridge rises', 'Lake fills', 'Spills round', 'Wind gap'];
+}
+
+/** How far along those steps the race is (−1 before it starts). */
+export function raceStep(uplift: number, cut: number, years: number, lead = LEAD): number {
+  if (years <= 0) return -1;
+  const r = race(uplift, cut, years, lead);
+  if (uplift <= cut) return r.canyon >= 700 ? 2 : r.ridge >= 100 ? 1 : 0;
+  if (r.diverted !== null) return r.bed - lead >= 40 ? 3 : 2;
+  return r.bed >= 15 ? 1 : 0;
+}
+
+const SKY = '#eef2f0';
+
 export const raceFigure = figure(['gorge'], (ctx, t) => {
-  const f = frame(W, 220, 3);
+  const H = 250;
+  const f = frame(W, H, 3);
   const g = svg('g');
   f.svg.append(g);
   let uplift = 0.6;
   let cut = 0.3;
+  let lead = LEAD;
   let myr = 0;
-  const BASE = 180;
-  const ZY = (m: number) => BASE - (m / 3000) * 150;
-  const shape = (x: number) => Math.exp(-(((x - 230) / 70) ** 4));
+  const BASE = 236; // the valley floor upstream, where the river runs at the start
+  const Z = (m: number) => BASE - m * 0.1;
+  const XR = 150; // where the river crosses
+  const FLOOR = 7; // half the width of the valley floor, px
+  const VALLEY = 11; // metres the valley side climbs per px
+  const WALL = 45; // metres a canyon wall climbs per px
+  const END = 300; // the ridge runs full height to here, and is gone by END + 50
+  const along = (x: number) => (x <= END ? 1 : x >= END + 50 ? 0 : 0.5 + 0.5 * Math.cos(((x - END) / 50) * Math.PI));
+  /** Half the width of the valley at height m above its floor, px. */
+  const half = (m: number) => FLOOR + m / VALLEY;
   const paint = () => {
-    const r = race(uplift, cut, myr * 1e6);
-    const ridge: string[] = [];
-    for (let x = 0; x <= W; x += 5) ridge.push(`${x},${ZY(r.ridge * shape(x)).toFixed(1)}`);
-    const gapL = 190;
-    const gapR = 270;
+    const r = race(uplift, cut, myr * 1e6, lead);
+    const crest = lead + r.ridge;
+    // The ridge, far off: its skyline, notched where the river crosses it.
+    const sky: string[] = [];
+    for (let x = 0; x <= W; x += 2) {
+      const top = lead + r.ridge * along(x);
+      const notch = r.bed + Math.max(0, Math.abs(x - XR) - FLOOR) * WALL;
+      sky.push(`${x},${Z(Math.min(top, notch)).toFixed(1)}`);
+    }
+    // The valley in front, cut into the plain: unchanged by the ridge.
+    const ground = (x: number) => Math.min(lead, Math.max(0, Math.abs(x - XR) - FLOOR) * VALLEY);
+    const front: string[] = [];
+    for (let x = 0; x <= W; x += 1) front.push(`${x},${Z(ground(x)).toFixed(1)}`);
+    const water = r.diverted !== null ? lead : Math.max(r.bed, 6);
+    const ponded = r.diverted !== null || r.bed > 6;
     const parts: (SVGElement | null)[] = [
-      svg('rect', { width: W, height: 220, fill: '#eef2f0' }),
-      svg('polygon', { points: `0,${BASE + 30} ${ridge.join(' ')} ${W},${BASE + 30}`, fill: '#b79c7e' }),
-      small(230, Math.max(14, ZY(r.ridge) - 6), r.ridge > 50 ? 'the rising ridge' : '', { anchor: 'middle', bold: true, fill: '#6b5440' }),
+      svg('rect', { width: W, height: H, fill: SKY }),
+      svg('polygon', { points: `0,${H} ${sky.join(' ')} ${W},${H}`, fill: COL.shell }),
+      svg('polygon', { points: `0,${H} ${front.join(' ')} ${W},${H}`, fill: COL.mud, stroke: COL.ink, 'stroke-width': 0.8, 'stroke-opacity': 0.5 }),
     ];
-    // The river's bed: flat up to the ridge, then over the gap.
-    const bedY = ZY(r.bed);
+    // Water in the valley: the river, or a lake filling it up to the lip of the gap.
+    parts.push(svg('polygon', { points: `${XR - half(water)},${Z(water)} ${XR + half(water)},${Z(water)} ${XR + FLOOR},${Z(0)} ${XR - FLOOR},${Z(0)}`, fill: COL.water, opacity: ponded ? 0.75 : 0.9 }));
+    if (r.ridge >= 60) parts.push(small(60, Z(crest) - 6, 'the rising ridge', { anchor: 'middle', bold: true, fill: COL.ink, halo: SKY }));
+    // The river's lead: how far below the plain it runs.
+    const lx = XR - half(lead) - 14;
+    parts.push(
+      line(lx, Z(0), lx, Z(lead), COL.paper, 1.2),
+      line(lx - 4, Z(0), lx + 4, Z(0), COL.paper, 1.2),
+      line(lx - 4, Z(lead), lx + 4, Z(lead), COL.paper, 1.2),
+      small(lx - 6, (Z(0) + Z(lead)) / 2 + 3, `lead ${lead} m`, { anchor: 'end', bold: true, fill: COL.paper }),
+      small(W - 6, Z(lead) + 14, 'the plain', { anchor: 'end', fill: COL.paper }),
+    );
     if (r.diverted === null) {
-      parts.push(
-        svg('polygon', { points: `0,${BASE} ${gapL - 20},${BASE} ${gapL},${bedY} ${gapR},${bedY} ${gapR + 20},${BASE} ${W},${BASE} ${W},${BASE + 30} 0,${BASE + 30}`, fill: '#8f7a64' }),
-        r.bed > 1 ? svg('rect', { x: 0, y: bedY, width: gapL, height: BASE - bedY, fill: COL.water, opacity: 0.55 }) : null,
-        line(0, Math.min(BASE, bedY) - 1, W, Math.min(BASE, bedY) - 1, COL.water, 3, { opacity: 0.9 }),
-        arrow(20, BASE - 10, 70, BASE - 10, COL.water, 1.6),
-      );
-      if (r.ridge - r.bed > 100) {
-        const top = ZY(r.ridge);
-        parts.push(line(300, top, 300, bedY, COL.ink, 1), small(294, (top + bedY) / 2 + 3, `canyon ${Math.round(r.ridge - r.bed)} m deep`, { bold: true, anchor: 'end', halo: '#b79c7e' }));
+      if (ponded && r.bed > 35) parts.push(small(XR, Z(r.bed / 2) + 3, 'lake', { anchor: 'middle', bold: true, fill: COL.paper }));
+      else parts.push(small(XR, Z(0) + 13, 'the river', { anchor: 'middle', bold: true, fill: COL.paper }));
+      if (r.ridge >= 60) {
+        const mx = XR + 34;
+        parts.push(
+          line(mx, Z(crest), mx, Z(r.bed), COL.ink, 1),
+          small(mx + 5, Math.min(Z(crest) + 14, (Z(crest) + Z(lead)) / 2 + 3), `canyon ${Math.round(r.canyon)} m deep`, { bold: true, halo: COL.shell }),
+        );
       }
     } else {
+      const y = Z(lead) - 6;
       parts.push(
-        svg('polygon', { points: `${gapL - 20},${BASE + 30} ${gapL - 20},${BASE} ${gapL},${bedY} ${gapR},${bedY} ${gapR + 20},${BASE} ${gapR + 20},${BASE + 30}`, fill: '#a58c71' }),
-        line(0, BASE - 1, gapL - 20, BASE - 1, COL.water, 3), line(gapR + 20, BASE - 1, W, BASE - 1, COL.water, 3, { opacity: 0.4 }),
-        small(230, bedY - 6, 'wind gap: a dry notch', { anchor: 'middle', bold: true, fill: '#5a4636', halo: '#eef2f0' }),
-        small(10, BASE - 10, 'the river now goes round the end of the ridge', { fill: COL.water, bold: true }),
+        small(XR, Z(lead / 2) + 3, 'lake', { anchor: 'middle', bold: true, fill: COL.paper }),
+        arrow(XR + half(lead) + 4, y, W - 14, y, COL.water, 2.2),
+        small(W - 14, y - 7, 'spills round the ridge’s end', { anchor: 'end', bold: true, fill: COL.water, halo: SKY }),
+        small(XR, Z(r.bed) - 8, 'wind gap', { anchor: 'middle', bold: true, fill: COL.ink, halo: SKY }),
       );
     }
-    parts.push(svg('rect', { x: 0, y: BASE + 30, width: W, height: 10, fill: '#eef2f0' }));
-    parts.push(label(W - 6, 16, `${myr.toFixed(2)} million years`, { size: 'note', anchor: 'end', bold: true, soft: true }));
+    // The steps across the top, the one it has reached in bold.
+    const steps = raceSteps(uplift, cut);
+    const at = raceStep(uplift, cut, myr * 1e6, lead);
+    const w = (W - 12) / steps.length;
+    steps.forEach((name, i) => {
+      const x = 6 + i * w;
+      const done = i < at;
+      const now = i === at;
+      parts.push(
+        svg('rect', { x: x + 2, y: 6, width: w - 4, height: 20, rx: 10, fill: now ? COL.ink : done ? COL.paper : 'none', stroke: i > at ? COL.soft : COL.ink, 'stroke-width': 1, 'stroke-dasharray': i > at ? '3 3' : 'none' }),
+        small(x + w / 2, 20, `${done ? '✓ ' : `${i + 1} `}${name}`, { anchor: 'middle', bold: now, fill: now ? COL.paper : i > at ? COL.soft : COL.ink }),
+      );
+    });
     redraw(g, ...parts);
-    const canyon = r.ridge - r.bed;
+    const left = lead - r.bed;
     f.readout.textContent = myr === 0
-      ? 'A river crosses flat ground. A fold in the crust starts to push a ridge up across its path. Move time forward.'
+      ? `Looking down the valley from upstream. The river runs ${lead} m below the plain: its lead. A ridge is about to rise across its path. Press Play.`
       : r.diverted !== null
-        ? `The ridge rose ${uplift.toFixed(1)} mm a year; the river could cut only ${cut.toFixed(1)}. Its bed in the gap rose, a lake ponded behind it and spilled round the ridge’s end ${(r.diverted / 1e6).toFixed(2)} million years ago.`
+        ? `The lake filled the valley and spilled round the ridge’s end ${(r.diverted / 1e6).toFixed(2)} million years ago. The old gap rises with the ridge: a wind gap ${Math.round(r.bed - lead)} m above the plain.`
         : uplift <= cut
-          ? `The river cuts as fast as the ridge rises, so its bed stays at the level of the valley while the ridge grows up around it: a canyon ${Math.round(canyon)} m deep, through a mountain the river is older than.`
-          : `The ridge is winning: the river’s bed in the gap is ${Math.round(r.bed)} m above the valley upstream, and a lake is filling behind it. At ${SPILL} m it spills round the ridge’s end.`;
-    if (r.diverted === null && canyon >= 700 && t.goal === 'gorge') t.done();
+          ? `The river cuts as fast as the ridge rises, so its bed stays put while the ridge grows around it: a canyon ${Math.round(r.canyon)} m deep, through a ridge younger than the river.`
+          : myr >= 1
+            ? `Still holding after a million years, but the lake is ${Math.round(r.bed)} m deep and rising. A lead only buys time: about ${(left / (uplift - cut) / 1000).toFixed(1)} million years more at these rates.`
+            : `The ridge is winning: the river’s bed in the gap has been lifted ${Math.round(r.bed)} m and a lake fills the valley behind it. ${Math.round(left)} m more and it reaches the plain and spills.`;
+    if (r.diverted === null && uplift <= cut && r.canyon >= 700 && t.goal === 'gorge') t.done();
   };
-  const us = slider('Ridge rises', 0.1, 1.5, 0.05, uplift, (v) => `${v.toFixed(2)} mm a year`, (v) => { uplift = v; paint(); }, 'pressure');
-  const cs = slider('River can cut down', 0.1, 1.5, 0.05, cut, (v) => `${v.toFixed(2)} mm a year`, (v) => { cut = v; paint(); }, 'water');
-  const ts = slider('Time', 0, 2, 0.01, 0, (v) => `${v.toFixed(2)} million years`, (v) => { myr = v; paint(); }, 'old');
-  f.controls.append(us.node, cs.node, player(ts, ctx).node, ts.node);
+  const us = slider('Ridge rises', 0.1, 1.2, 0.05, uplift, (v) => `${v.toFixed(2)} mm a year`, (v) => { uplift = v; paint(); }, 'pressure');
+  const cs = slider('River can cut down', 0.1, 1.2, 0.05, cut, (v) => `${v.toFixed(2)} mm a year`, (v) => { cut = v; paint(); }, 'water');
+  const ls = slider('River’s lead', 50, 600, 25, lead, (v) => `a valley ${v} m deep`, (v) => { lead = v; paint(); }, 'mud');
+  const ts = slider('Time', 0, 1, 0.01, 0, (v) => `${v.toFixed(2)} million years`, (v) => { myr = v; paint(); }, 'old');
+  f.controls.append(us.node, cs.node, ls.node, player(ts, ctx).node, ts.node);
   paint();
   return f.node;
 });

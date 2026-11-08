@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-07. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-08. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
