@@ -4,7 +4,7 @@
 // the LR04 deep-sea record (lesson 16), turned into a share of the ice of the
 // last glacial maximum; the shapes are simplified.
 
-import { fromCell, hillshade, heightRamp, loadRelief, mapKey, mapLabels, mapView, reliefFor, rgb, type Relief } from 'didactics/maps';
+import { fromCell, hillshade, heightRamp, lakeMask, loadRelief, mapKey, mapLabels, mapView, reliefFor, rgb, type Relief } from 'didactics/maps';
 import { el, svg } from 'didactics/dom';
 import { redraw } from 'didactics/draw';
 import { asset } from '../asset';
@@ -220,6 +220,9 @@ export function lengthFor(cooling: number): number {
 /** About how much colder the Alps were `ka` thousand years ago: 10 °C at the maximum, scaled by the ice in the deep-sea record. */
 export const alpsCooling = (ka: number) => -10 * Math.max(0, iceShare(ka));
 
+/** The lakes on the Rhône map, a point on each; the erratics lesson's still map lists the same. */
+export const RHONE_LAKES = [[6.55, 46.45], [6.85, 46.9], [7.18, 47.1], [7.08, 46.93], [7.72, 46.69], [7.97, 46.73], [6.17, 45.85], [8.4, 45.82]].map(([lon, lat]) => ({ lon, lat }));
+
 const RHONE_PLACES: [number, string][] = [[40, 'Brig'], [90, 'Sion'], [105, 'Martigny'], [135, 'Lake Geneva'], [180, 'the plateau'], [205, 'the Jura above Neuchâtel']];
 
 export const rhoneMapFigure = figure(['played'], (ctx, t) => {
@@ -230,6 +233,7 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
   let relief: Relief | null = null;
   let view: ReturnType<typeof mapView> | null = null;
   let along: Float32Array | null = null;
+  let lakes: Uint8Array | null = null;
   let shade: Float32Array | null = null;
   let ramp: ReturnType<typeof heightRamp> | null = null;
   let farthest = 0;
@@ -243,18 +247,18 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
     if (pos >= START && t.goal === 'played') t.done();
     const at = RHONE_PLACES.filter(([km]) => km <= len + 3).pop()?.[1];
     f.readout.textContent = `${ka < 0.5 ? 'Today' : `${Math.round(ka)},000 years ago`}: the Alps about ${Math.abs(cooling).toFixed(0)} °C colder than today, and the snowline near ${Math.round(elaFor(cooling, 1) / 100) * 100} m. The Rhône glacier is about ${Math.round(len)} km long${at ? `, reaching ${at}` : ''}.${farthest >= JURA_KM ? ' At its greatest it reached the Jura and left its boulders there.' : ''}`;
-    if (!relief || !view || !along || !shade || !ramp) return;
+    if (!relief || !view || !along || !lakes || !shade || !ramp) return;
     const key = Math.round(len);
     if (key === painted) return;
     painted = key;
     const a = along;
-    const z0 = relief.z;
+    const wet = lakes;
     view.paint({
       shade, relief: 0.85, ground: ramp,
       colorAt: (i, z) => {
         const km = a[i];
         if (km <= len && z < bedAt(km) + thickness(km, len) + 150) return ICE;
-        if (z <= 380 && z0[i] > 300) return LAKE;
+        if (wet[i]) return LAKE;
         return null;
       },
     });
@@ -268,6 +272,7 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
       shade = hillshade(r, undefined, 1.5);
       ramp = heightRamp(r);
       along = alongPath(r);
+      lakes = lakeMask(r, RHONE_LAKES);
       view = mapView(r, { alt: 'A shaded relief map of western Switzerland, from the Rhône glacier in the Alps to the Jura, with the glacier growing down the Rhône valley and across the plateau, then shrinking back.' });
       holder.replaceChildren(view.node, el('p.map-credit', {}, `Heights: ${r.meta.credit}. Glacier from the long-section model above, driven by the LR04 deep-sea record; simplified.`));
       painted = -1;

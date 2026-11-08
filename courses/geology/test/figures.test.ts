@@ -9,7 +9,7 @@ import type { Units } from 'didactics/units';
 import { FIGURES } from '../src/figures';
 import { WRITTEN } from '../src/lessons';
 import { orbitAt, TODAY } from '../src/figures/pacemaker';
-import { alpsCooling, lengthFor, seaLevel } from '../src/figures/iceage';
+import { alpsCooling, lengthFor, RHONE_LAKES, seaLevel } from '../src/figures/iceage';
 import { JURA_KM } from '../src/figures/ice';
 import { atollAt, PLATE_VEL, sunk } from '../src/figures/hotspot';
 import { iceSpread, turnAt } from '../src/figures/drift';
@@ -338,6 +338,16 @@ describe('figures', () => {
       setSlider(h.node, 0, end);
       await expect(h.done, id).resolves.toBeUndefined();
     }
+  });
+
+  it('the Rhône map shows every place its lesson names, and the same lakes as the ice-age map', () => {
+    const lesson = JSON.parse(readFileSync('src/lessons/erratics.json', 'utf8'));
+    const map = lesson.parts.flatMap((p: { blocks: { id?: string; options?: Record<string, unknown> }[] }) => p.blocks).find((b: { id?: string; options?: Record<string, unknown> }) => b.id === 'map' && b.options?.relief === 'maps/rhone').options;
+    const [w, s, e, n] = JSON.parse(readFileSync('public/maps/rhone.json', 'utf8')).bounds;
+    for (const l of map.labels) expect(l.lon > w && l.lon < e && l.lat > s && l.lat < n, l.text).toBe(true);
+    const texts = map.labels.map((l: { text: string }) => l.text);
+    for (const place of ['Mont Blanc', 'Lake Neuchâtel', 'Lake Geneva', 'Pierre à Bot', 'Jura', 'Valais']) expect(texts).toContain(place);
+    expect(map.lakes).toEqual(RHONE_LAKES);
   });
 
   it('time lapses: the models behind the maps', () => {
