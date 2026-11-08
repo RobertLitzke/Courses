@@ -117,7 +117,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A key does two jobs. It says **which note** to play, and it says **when**.[^cv-gate] The when comes in two parts. The moment it goes down is the **trigger**, which starts the envelope from the beginning. The time it is held is the **gate**, which keeps the envelope at its sustain level until the key comes up, when the release begins. An organ note lasts exactly as long as the gate. A piano note starts with the trigger and then fades on its own, until the key comes up and the damper, a felt pad, drops onto the string to silence it."
+          "text": "A key does two jobs. It says **which note** to play, and it says **when**.[^cv-gate] The when comes in two parts. The moment it goes down is the **trigger**, which starts the envelope from the beginning. The time it is held is the **gate**, which keeps the envelope running until the key comes up, when the release begins. An organ note lasts as long as the gate. A piano note starts with the trigger and then fades on its own, until the key comes up and the damper, a felt pad, drops onto the string to silence it."
         },
         {
           "type": "text",
@@ -155,11 +155,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Synth players have an answer for a panel they don't understand: start again from nothing. Nearly every instrument has an **init patch** (from *initialise*), a setting saved at the factory for exactly this. It is never silent, and never interesting: one oscillator, usually a saw; the filter wide open with no resonance; the envelope like an organ, full on while the key is held; no modulation, no effects. Every knob then does what its label says, from a sound you can hear."
+          "text": "Synth players have an answer for a panel they don't understand: start again from nothing. Nearly every instrument has an **init patch** (from *initialise*), a setting saved at the factory for this. It is never silent, and never interesting: one oscillator, usually a saw; the filter wide open with no resonance; the envelope like an organ, full on while the key is held; no modulation, no effects. Every knob then does what its label says, from a sound you can hear."
         },
         {
           "type": "text",
-          "text": "Loading the init patch is the quickest cure for a silent key, and the best way to learn a new instrument: turn one knob at a time away from the blank and listen. The last lesson of this course builds five sounds that way. Two other causes of a silent key live outside the patch. One is the obvious one, the volume. The other is the **octave** setting: most small keyboards can be shifted up or down several octaves, and a sound shifted far enough down lands below what a small speaker can play, so it seems to vanish though the synth is working perfectly."
+          "text": "Loading the init patch is the quickest cure for a silent key, and the best way to learn a new instrument: turn one knob at a time away from the blank and listen. The last lesson of this course builds five sounds that way. Two other causes of a silent key live outside the patch. One is the obvious one, the volume.[^local-off] The other is the **octave** setting: most small keyboards can be shifted up or down several octaves, and a sound shifted far enough down lands below what a small speaker can play, so it seems to vanish though the synth is working."
         },
         {
           "type": "key_ideas",
@@ -298,6 +298,11 @@
       "kind": "technical",
       "title": "CV and gate",
       "text": "On an analogue synthesizer, the two jobs of a key travel along two separate wires. Pitch goes as a *control voltage* (CV), which rises with the note, commonly by one volt per octave. Timing goes as a *gate* voltage, which jumps from zero to a fixed few volts while the key is down and falls back to zero when it comes up."
+    },
+    "local-off": {
+      "kind": "technical",
+      "title": "Local Control",
+      "text": "In a studio or shop, a hardware synth can also go silent because a menu setting called Local Control has been turned off. That disconnects the synth's keyboard from its own sound engine so a computer can sit between them without playing every note twice. The init patch will not fix it, because it is a system setting rather than part of the patch."
     }
   },
   "journal": []

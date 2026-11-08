@@ -150,10 +150,10 @@ export const channelFigure = figure(['peak'], (ctx, t) => {
 
 /** The gauge's year of reference: heights in the figure are above today's chart zero. */
 export const NOW = 2025;
-/** Seattle's trend since 1898, metres a year (about 2 mm). */
+/** Seattle's trend since 1899, metres a year (about 2 mm). */
 export const TREND = 0.002;
-/** Seattle's record high water, 27 December 2022, metres above mean lower low water (about 14.5 ft). */
-export const RECORD = 14.5 / 3.28084;
+/** Seattle's record high water, 27 December 2022, metres above mean lower low water (15.12 ft at the gauge, NOAA 9447130). */
+export const RECORD = 15.12 / 3.28084;
 
 const SEATTLE_ALL: Amps = Object.fromEntries(CONSTITUENTS.map((c) => [c.name, c.seattle]));
 

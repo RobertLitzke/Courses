@@ -3,7 +3,7 @@
   "subtitle": "Why the water does what it does",
   "department": "Earth Sciences",
   "order": 12,
-  "summary": "Where the water goes in western Washington, from a raindrop on the Cascade divide to the tide race at Deception Pass. Half the course is rivers and lakes: floods, groundwater, the brown water of November, and why the bottom of Lake Washington stays cold all summer. The other half is the Sound, with two tides a day of different heights, a layer of river water floating on the salt, and Hood Canal, whose deep water runs short of oxygen. If you live here, most of it can be checked from a bridge or a ferry.",
+  "summary": "Where the water goes in western Washington, from a raindrop on the Cascade divide to the eight-knot tide race at Deception Pass. Half the trunk is rivers and lakes: groundwater feeding August creeks, the Elwha's released sediment, and why the bottom of Lake Washington stays cold all summer. The other half is the Sound, where Olympia's tide is nearly twice Port Townsend's, river water floats out over incoming salt, and Hood Canal's deep water runs short of oxygen. Branches cover the 1916 lowering of Lake Washington, the drowning of Celilo Falls on the Columbia, and how to measure a creek with an orange and a stopwatch.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "rivers.save",
@@ -17,10 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.1",
+    "version": "0.2",
     "stage": "beta",
-    "date": "2026-11-07",
-    "note": "First version: fourteen lessons from the rain to the beach, and branches on Seattle's waterworks, the Columbia and fieldwork, each with figures you can work. Photos come later.",
-    "history": []
+    "date": "2026-11-08",
+    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
+    "history": [
+      {
+        "version": "0.1",
+        "stage": "beta",
+        "date": "2026-11-07",
+        "note": "First version: fourteen lessons from the rain to the beach, and branches on Seattle's waterworks, the Columbia and fieldwork, each with figures you can work. Photos come later."
+      }
+    ]
   }
 }

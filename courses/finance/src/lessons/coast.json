@@ -9,7 +9,7 @@
     {
       "title": "Between full-time and nothing",
       "blocks": [
-        { "type": "text", "text": "The main course treated the end of work as a single date: a salary one year, a portfolio the next. Many people do something in between: a shorter week, consulting, seasonal work, a job that pays less and matters more. Even small amounts of pay in those years change the arithmetic of lessons 2 to 5 a great deal, because they arrive right when a portfolio is most fragile." }
+        { "type": "text", "text": "The main course treated the end of work as a single date: a salary one year, a portfolio the next. Many people do something in between: a shorter week, consulting, seasonal work, or a job that pays less and matters more. Even small amounts of pay in those years change the arithmetic of lessons 2 to 5 a great deal, because they arrive right when a portfolio is most fragile." }
       ]
     },
     {
@@ -17,7 +17,7 @@
       "blocks": [
         { "type": "text", "text": "Lesson 3 showed that the order of returns matters most in the first decade: a bad run early, while withdrawals are large relative to the balance, does damage that later good years can't repair. Pay earned in those years reduces the withdrawals at the worst moment." },
         { "type": "interactive_diagram", "id": "part-time", "caption": "The highest constant real spending that lasted 45 years from every US start since 1871, from $1 million at 60 percent shares, with and without part-time earnings in the first years. Earnings count towards the spending while they last.", "task": "Guess, then try three combinations of pay and years", "goal": "part-time", "aspect_ratio": 2.27 },
-        { "type": "text", "text": "From $1 million, the portfolio alone sustained about $32,700 a year for 45 years in every start, about 3.3 percent, below the 4 percent of lesson 2 because 45 years is far longer than its 30 (lesson 4). Earning $20,000 a year for ten years lifts that to about $39,600, for all 45 years, not only while working. So $200,000 of pay buys about $6,900 more spending in every one of the 45 years, about $310,000 in all. It is worth more than itself because it kept money in the portfolio in the years when a withdrawal does the most harm." }
+        { "type": "text", "text": "From $1 million, the portfolio alone sustained about $32,700 a year for 45 years in every start, about 3.3 percent, below the 4 percent of lesson 2 because 45 years is far longer than its 30 (lesson 4). Earning $20,000 a year for ten years lifts that to about $39,600 for all 45 years, not only while working. So $200,000 of pay buys about $6,900 more spending in every one of the 45 years, about $310,000 in all. It is worth more than itself because it kept money in the portfolio in the years when a withdrawal does the most harm." }
       ]
     },
     {
@@ -31,7 +31,7 @@
       "title": "Pay, tax and credits",
       "blocks": [
         { "type": "text", "text": "Part-time pay brings tax effects of its own. It is earned income, which allows IRA or Roth IRA contributions of up to $7,500 a year in 2026 ($8,600 from age 50), a useful way to move a little more into Roth. It pays Social Security tax, and if it replaces a zero year in the 35-year average of lesson 13 it raises the benefit slightly." },
-        { "type": "text", "text": "It also adds to MAGI, the income lesson 11 measures health credits by. Before 65, pay counts against the ACA cliff and leaves less room for conversions. A pre-tax 401(k) at the part-time job brings MAGI back down, and self-employed consultants can open their own pre-tax plan, a SEP-IRA or a solo 401(k), and put in up to about a fifth of their profit.[^sep-math] And from 63 the pay counts towards IRMAA, Medicare's income surcharge, which looks back two years (lesson 12)." },
+        { "type": "text", "text": "It also adds to MAGI, the income lesson 11 measures health credits by. Before 65, pay counts against the ACA cliff and leaves less room for conversions. A pre-tax 401(k) at the part-time job brings MAGI back down, and self-employed consultants can open their own pre-tax plan, a SEP-IRA or a solo 401(k), and shelter a fifth of their profit or more.[^sep-math] From 63, the pay also counts towards IRMAA, Medicare's income surcharge, which looks back two years (lesson 12)." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Pay in the first years after leaving full-time work protects the portfolio when sequence risk is highest.",
           "From $1 million, $20,000 a year of pay for the first ten years raised the spending that lasted 45 years from $32,700 to $39,600.",

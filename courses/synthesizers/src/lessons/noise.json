@@ -149,7 +149,7 @@
         },
         {
           "type": "text",
-          "text": "A high-pass alone does half of that, and half is often all a sound needs. Take a full saw wave and high-pass it: the fundamental and the lowest harmonics go, and the note thins out though its pitch stays put. Musicians use it constantly, to stop a sound crowding the bass, and the way to hear it is to move the cutoff up slowly and listen to the weight drain away."
+          "text": "A high-pass alone does half of that, and half is often all a sound needs. Take a full saw wave and high-pass it: the fundamental and the lowest harmonics go, and the note thins out though its pitch stays put. Musicians use this constantly to stop a sound crowding the bass. Move the cutoff up slowly and listen to the weight drain away."
         },
         {
           "type": "interactive_diagram",
@@ -208,7 +208,7 @@
         },
         {
           "type": "text",
-          "text": "The 12 dB filter sounds brighter and more open, because more of the top leaks through. Neither is better. A steep filter makes a dark sound truly dark and a resonant sweep dramatic; a gentle one keeps some air in a sound and sits it in a mix more politely. Many synths offer one slope only, so their makers chose, and the choice is part of each instrument's character.[^sem] The band-pass and high-pass on this synth are the gentle kind, 12 dB."
+          "text": "The 12 dB filter sounds brighter and more open, because more of the top leaks through. Neither is better. A steep filter makes a dark sound truly dark and a resonant sweep dramatic; a gentle one keeps some air in a sound and sits it in a mix more politely. Many synths offer only one slope, chosen by the maker as part of the instrument's character.[^sem] The band-pass and high-pass on this synth are the gentle kind, 12 dB."
         }
       ]
     },
@@ -380,12 +380,12 @@
     "pink": {
       "kind": "technical",
       "title": "Pink noise",
-      "text": "Pink noise has equal energy in every octave instead of every hertz, so it falls off by 3 decibels per octave and sounds like rain or a waterfall rather than steam. Sound engineers use it to test speakers, because the ear judges loudness roughly octave by octave."
+      "text": "Pink noise has equal energy in every octave instead of every hertz, so its power per hertz falls by 3 decibels for each octave up and it sounds like rain or a waterfall rather than steam. Sound engineers use it to test speakers, because the ear judges loudness roughly octave by octave."
     },
     "source": {
       "kind": "technical",
       "title": "Where an analogue synth's noise comes from",
-      "text": "A common circuit runs a small current backwards through a transistor junction until it starts to break down. The breakdown happens in tiny random avalanches of electrons, and amplified, the current's flicker is a usable hiss. It is the same kind of randomness that makes the background hiss on a cassette or an old radio."
+      "text": "A common circuit runs a small current backwards through a transistor junction until it breaks down. The breakdown happens in tiny random avalanches of electrons; amplified, the flickering current is a usable hiss. It is the same kind of randomness that makes the background hiss on a cassette or an old radio."
     },
     "phone": {
       "kind": "digression",

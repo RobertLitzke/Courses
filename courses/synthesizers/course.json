@@ -3,7 +3,7 @@
   "subtitle": "How a sound is built",
   "department": "Music",
   "order": 9,
-  "summary": "Helmholtz spent the 1860s working out why a clarinet and a flute sound different on the same note, and that is where this course begins. A synthesizer sits beside every lesson, so each idea, from the filter and the envelope to FM and echo, is something you hear and then make. The later lessons follow one real instrument, Arturia's MicroFreak, and the last builds five sounds from a blank patch. PatchMatch, a game of copying sounds by ear, is there too.",
+  "summary": "Why a clarinet and a flute sound different on the same note, and how a synthesizer builds both from bare waves. The first half works through the physics of sound and the parts of a signal chain: harmonics, filters that shape vowels, envelopes, FM bells, distorted guitar chords and echo. The second half maps those ideas onto the controls of a real instrument, from modulation matrices and step sequencers to the TB-303 bass line, ending with five sounds built from a blank patch. Branches cover reverb, wavetables, Hammond drawbars, Homer Dudley's vocoder and granular synthesis.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "synthesizers.save",
@@ -17,11 +17,17 @@
     "display": "'Space Grotesk', system-ui, sans-serif"
   },
   "release": {
-    "version": "0.2",
+    "version": "0.3",
     "stage": "beta",
-    "date": "2026-11-07",
-    "note": "Every lesson revised after a student read-through: terms defined where they first appear, clearer tasks for the live synth, and numbers checked against the synth itself.",
+    "date": "2026-11-08",
+    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
     "history": [
+      {
+        "version": "0.2",
+        "stage": "beta",
+        "date": "2026-11-07",
+        "note": "Every lesson revised after a student read-through: terms defined where they first appear, clearer tasks for the live synth, and numbers checked against the synth itself."
+      },
       {
         "version": "0.1",
         "stage": "beta",

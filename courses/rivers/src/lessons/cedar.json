@@ -15,7 +15,7 @@
     "**Water seeps through gravel by Darcy's law.** The flow is the conductivity of the ground, times the push (how steeply the water table falls), times the area the water flows through.",
     "**A deeper reservoir leaks much more.** Doubling the water's depth against a gravel bank doubles both the push and the soaked thickness of gravel, so the seepage roughly quadruples.",
     "**Seepage that carries grains is dangerous.** Springs that wash sand out of a slope hollow it from below, and in December 1918 the hillside above Boxley Creek burst and the flood destroyed the town of Edgewick.",
-    "**The reservoir is still kept low.** The city never filled the Masonry Pool to the height it was built for, and water from the Cedar still seeps through the moraine toward the Snoqualmie."
+    "**The reservoir is still kept low.** The city never permanently held the Masonry Pool at the height it was built for, and water from the Cedar still seeps through the moraine toward the Snoqualmie."
   ],
   "parts": [
     {
@@ -23,11 +23,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Just before Christmas in 1918, a flood of water, mud, boulders and logs came down Boxley Creek, a small stream in the Cascade foothills east of North Bend, and swept through the mill town of Edgewick where the creek meets the South Fork of the Snoqualmie River. It wrecked the mill and the houses near the creek and tore out the Milwaukee Road's railway line where it crossed the creek on the hillside above.[^date] Edgewick was never rebuilt."
+          "text": "Just before Christmas in 1918, a flood of water, mud, boulders and logs came down Boxley Creek, a small stream in the Cascade foothills south-east of North Bend, and swept through the mill town of Edgewick where the creek meets the South Fork of the Snoqualmie River. It wrecked the mill and the houses near the creek and tore out the Milwaukee Road's railway line where it crossed the creek on the hillside above.[^date] Edgewick was never rebuilt."
         },
         {
           "type": "text",
-          "text": "Boxley Creek is a small stream draining a small patch of hillside, and no rain on that hillside could have made a flood like this. The water had come from just over a low ridge to the south, from the reservoir Seattle had built in the Cedar River's valley, behind a concrete wall called the Masonry Dam. The dam itself held. It never cracked or spilled over. The water went another way, through the hill beside it."
+          "text": "Boxley Creek drains only a small patch of hillside, and no rain on that slope could have made a flood like this. The water had come from just over a low ridge to the south-west, from the reservoir Seattle had built in the Cedar River's valley, behind a concrete wall called the Masonry Dam. The dam itself held. It never cracked or spilled over. The water went another way, through the hill beside it."
         },
         {
           "type": "diagram",
@@ -112,7 +112,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every tap in Seattle, and in many of the towns around it, draws on two rivers in the Cascades. The Cedar River supplies about two thirds of the water for about 1.5 million people; the South Fork of the Tolt River, to the north, supplies the rest. On the Cedar, the city owns almost the whole upper watershed, some 370 square kilometres of forest (about 90,000 acres), and keeps it closed. No one lives in it and no one may walk in it without a permit. Rain and snow that land there run through forest soil and into the river with nothing upstream to dirty them."
+          "text": "Every tap in Seattle, and in many of the towns around it, draws on two rivers in the Cascades. The Cedar River supplies about two thirds of the water for about 1.5 million people; the South Fork of the Tolt River, to the north, supplies the rest. On the Cedar, the city owns the whole municipal watershed above its intake, some 370 square kilometres of forest (about 90,000 acres), and keeps it closed. No one lives in it and no one may walk in it without a permit. Rain and snow that land there run through forest soil and into the river with nothing upstream to dirty them."
         },
         {
           "type": "text",
@@ -156,7 +156,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Masonry Dam was finished in 1914, in a narrow rocky part of the Cedar's valley a little upstream of Cedar Falls, the small settlement by the city's power station. The reservoir behind it is called the Masonry Pool. The dam's foundations are in rock. The trouble was beside it. On the north side, the pool rests against a broad, low ridge that is not rock at all but a **moraine**: a heap of sand, gravel and boulders dropped by the edge of the ice sheet that filled the Puget lowland until some 16,000 years ago (the Geology course on this site tells that story).[^moraine] The ice pushed a tongue up the Cedar's valley and left this heap as a dam across it. The moraine now forms the low divide between the Cedar and the South Fork of the Snoqualmie. On its far side the ground drops away, well below the reservoir, to Rattlesnake Lake and the head of Boxley Creek."
+          "text": "The Masonry Dam was finished in 1914, in a narrow rocky part of the Cedar's valley a little upstream of Cedar Falls, the small settlement by the city's power station. The reservoir behind it is called the Masonry Pool. The dam's foundations are in rock. The trouble was beside it. On the north-east side, the pool rests against a broad, low ridge that is not rock at all but a **moraine**: a heap of sand, gravel and boulders dropped by the edge of the ice sheet that filled the Puget lowland until some 16,000 years ago (the Geology course on this site tells that story).[^moraine] The ice pushed a tongue up the Cedar's valley and left this heap as a dam across it. The moraine now forms the low divide between the Cedar and the South Fork of the Snoqualmie. On its far side the ground drops away, well below the reservoir, to Rattlesnake Lake and the head of Boxley Creek."
         },
         {
           "type": "text",
@@ -176,7 +176,7 @@
         },
         {
           "type": "text",
-          "text": "The first warning came in 1915. As the new reservoir rose, Rattlesnake Lake, on the far side of the moraine, began to rise too, though nothing new was flowing into it on the surface. It rose until it flooded the small railway town of Moncton on its shore, and the city ended up taking over the town's land.[^moncton] The reservoir was leaking: water was seeping out of it through the hill, and a great deal of it."
+          "text": "The first warning came in 1915. As the new reservoir rose, Rattlesnake Lake, on the far side of the moraine, began to rise too, though nothing new was flowing into it on the surface. It rose until it flooded the small railway town of Moncton on its shore, and the city ended up condemning and buying out the town.[^moncton] The reservoir was leaking: water was seeping out of it through the hill, and a great deal of it."
         }
       ]
     },
@@ -189,7 +189,7 @@
         },
         {
           "type": "text",
-          "text": "In December 1918 the side of the moraine at the head of Boxley Creek gave way. Water stored in the gravel, and water from the reservoir behind it, poured out down the creek, carving a canyon as it went, and the flood reached Edgewick. Histories of the burst record a town lost but no lives lost. The city faced years of claims for the damage."
+          "text": "Just after midnight on 23 December 1918, the side of the moraine at the head of Boxley Creek gave way. Water stored in the gravel, and water from the reservoir behind it, poured out down the creek, carving a deep notch into the hillside as it went, and the flood reached Edgewick. Histories of the burst record a town lost but no lives lost. The city faced years of claims for the damage."
         },
         {
           "type": "key_ideas",
@@ -200,7 +200,7 @@
         },
         {
           "type": "text",
-          "text": "After 1918 the city never filled the Masonry Pool to the height the dam was built for. It is kept lower, the dam serves mainly to steady the river and feed the Cedar Falls power station below it, and most of the Cedar's storage is in Chester Morse Lake upstream. Water still seeps through the moraine: Rattlesnake Lake rises and falls through the year with the water behind it, fed from underground across the divide."
+          "text": "After 1918 the city never permanently held the Masonry Pool at the height the dam was built for. In normal years it is kept lower, the dam serves mainly to steady the river and feed the Cedar Falls power station below it, and most of the Cedar's storage is in Chester Morse Lake upstream. Water still seeps through the moraine: Rattlesnake Lake rises and falls through the year with the water behind it, fed from underground across the divide."
         },
         {
           "type": "text",
@@ -303,12 +303,12 @@
     "date": {
       "kind": "digression",
       "title": "The Boxley burst",
-      "text": "The flood is usually dated to 23 December 1918 and called the Boxley burst, after the creek. The railway was the Chicago, Milwaukee and St. Paul's line over Snoqualmie Pass (the Milwaukee Road), which ran past Rattlesnake Lake and crossed Boxley Creek on the slope above the town."
+      "text": "The flood occurred in the early hours of 23 December 1918 and is called the Boxley burst, after the creek. The railway was the Chicago, Milwaukee and St. Paul's line over Snoqualmie Pass (the Milwaukee Road), which ran past Rattlesnake Lake and crossed Boxley Creek on the slope above the town."
     },
     "unfiltered": {
       "kind": "technical",
       "title": "Skipping the filter",
-      "text": "Federal drinking-water rules require water from rivers and lakes to be filtered unless the source is very clean and the utility controls what happens in its watershed. Filtering takes out particles; ozone and ultraviolet light kill bacteria and the small parasites that chlorine alone can miss. Seattle added the ozone and ultraviolet treatment for the Cedar in the early 2000s."
+      "text": "Federal drinking-water rules require water from rivers and lakes to be filtered unless the source is very clean and the utility controls what happens in its watershed. Filtering takes out particles; ozone and ultraviolet light kill bacteria and the small parasites that chlorine alone can miss. Seattle opened the Cedar treatment plant with ozone and ultraviolet light in 2004."
     },
     "moraine": {
       "kind": "technical",
@@ -323,7 +323,7 @@
     "moncton": {
       "kind": "digression",
       "title": "Moncton",
-      "text": "Moncton was a stop on the Milwaukee Road at Rattlesnake Lake. When the lake flooded it in 1915 its people sued the city, and the city took over the land. Little of the town remains."
+      "text": "Moncton was a stop on the Milwaukee Road at Rattlesnake Lake. When the lake flooded it in 1915 its people sued the city, which condemned and bought out the town's land. Little of the town remains."
     },
     "piping": {
       "kind": "technical",

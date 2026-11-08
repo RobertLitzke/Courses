@@ -57,7 +57,7 @@
         },
         {
           "type": "text",
-          "text": "At Seattle the difference shows mostly in the lows, with a smaller one in the highs. Newton's picture puts it all in the highs. The bulges only describe the pull, the **forcing**. The real ocean cannot take up that shape at once; the pull sets off waves that take hours to travel round the ocean basins and up the Strait (lesson 10 follows one into the Sound). The once-a-day part of the answer and the twice-a-day part reach Seattle with different delays, and the next parts show how a delay moves the difference from the highs to the lows."
+          "text": "At Seattle the difference shows mostly in the lows, with a smaller one in the highs. Newton's picture puts it all in the highs. That is because the bulges only describe the pull, the **forcing**. The real ocean cannot take up that shape at once; the pull sets off waves that take hours to travel round the ocean basins and up the Strait (lesson 10 follows one into the Sound). The once-a-day part of the answer and the twice-a-day part reach Seattle with different delays, and the next parts show how a delay moves the difference from the highs to the lows."
         }
       ]
     },
@@ -66,7 +66,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Start with two plain waves, each rising and falling at its own steady rate. Add them together, hour by hour. If they have exactly the same period they stay in step and the sum is a single bigger wave. If one is slightly slower, it drops a little further behind on every cycle, so for a while the two crests coincide and the sum swings widely, then the crests fall opposite the troughs and the sum is small, and then they come back into step."
+          "text": "Start with two plain waves, each rising and falling at its own steady rate. Add them together, hour by hour. If they have the same period they stay in step and the sum is a single bigger wave. If one is slightly slower, it drops a little further behind on every cycle: for a while the two crests coincide and the sum swings widely, then the crests fall opposite the troughs and the sum is small, and later they come back into step."
         },
         {
           "type": "interactive_diagram",
@@ -78,7 +78,7 @@
         },
         {
           "type": "text",
-          "text": "Nothing in either wave changes, yet their sum looks irregular. The closer the two periods, the longer they take to drift apart and back. At 12 and 12.42 hours, wave B falls 0.42 hours further behind on every cycle, and it takes about 12.42 ÷ 0.42, nearly 30, cycles of 12 hours to fall a whole wave behind and come back into step: about 355 hours, or 14.8 days. Those are the Sun's and the Moon's twice-daily waves, and the pattern is the spring and neap cycle of lesson 8, seen as two steady waves adding."
+          "text": "Nothing in either wave changes, yet their sum looks irregular. The closer the two periods, the longer they take to drift apart and back. At 12 and 12.42 hours, wave B falls 0.42 hours further behind on every cycle, and it takes 12.42 ÷ 0.42 (about 29.6) cycles of 12 hours to fall a whole wave behind and come back into step: about 355 hours, or 14.8 days. Those are the Sun's and the Moon's twice-daily waves, and the pattern is the spring and neap cycle of lesson 8, seen as two steady waves adding."
         }
       ]
     },
@@ -102,7 +102,7 @@
         },
         {
           "type": "text",
-          "text": "The three daily waves are the tilt, written as steady waves. The Moon's tilt makes a once-a-day rise and fall that is strong while the Moon is far north or south and fades as it crosses the equator. A daily wave that swells and fades like that is exactly what two steady daily waves of slightly different period make when they add, as the twice-daily pair did above. For the Moon those two are K1 and O1, which fall in and out of step every 13.66 days: one peak with the Moon far north, one with it far south, in each 27.3-day swing.[^pair] The Sun's tilt works the same way over a year, through K1 and P1. K1 serves both because its period, 23.93 hours, is the time the Earth takes to turn once against the stars, which the Moon's and the Sun's tilt effects share."
+          "text": "The three daily waves are the tilt, written as steady waves. The Moon's tilt makes a once-a-day rise and fall that is strong while the Moon is far north or south and fades as it crosses the equator. A daily wave that swells and fades like that is just what two steady daily waves of slightly different period make when they add, as the twice-daily pair did above. For the Moon those two are K1 and O1, which fall in and out of step every 13.66 days: one peak with the Moon far north, one with it far south, in each 27.3-day swing.[^pair] The Sun's tilt works the same way over a year, through K1 and P1. K1 serves both because its period, 23.93 hours, is the time the Earth takes to turn once against the stars, which the Moon's and the Sun's tilt effects share."
         },
         {
           "type": "text",
@@ -118,7 +118,7 @@
         },
         {
           "type": "text",
-          "text": "Push the daily waves far enough and the held-up low climbs until it merges into the high beside it, and that day has one low and one high. One number sums up the balance: the **form number**, K1 plus O1 divided by M2 plus S2. Under about a quarter, the daily waves hardly show and a place has two nearly equal tides a day, as most of the Atlantic coast of North America does. Over about three, the daily waves win and most days have one high and one low, as along parts of the Gulf of Mexico. Seattle's is (0.83 + 0.46) ÷ (1.07 + 0.26), close to one: a **mixed** tide, two tides a day and strongly unequal, with the lower low the one beach walkers wait for."
+          "text": "Push the daily waves far enough and the held-up low climbs until it merges into the high beside it, so that day has one low and one high. One number sums up the balance: the **form number**, K1 plus O1 divided by M2 plus S2. Under about a quarter, the daily waves hardly show and a place has two nearly equal tides a day, as most of the Atlantic coast of North America does. Over about three, the daily waves win and most days have one high and one low, as along parts of the Gulf of Mexico. Seattle's is (0.83 + 0.46) ÷ (1.07 + 0.26), close to one: a **mixed** tide, two tides a day and strongly unequal, with the lower low the one beach walkers wait for."
         }
       ]
     },
@@ -135,7 +135,7 @@
         },
         {
           "type": "text",
-          "text": "So in 1872 Kelvin designed a machine to do the adding. Each constituent got a crank that turns once per period, set to its port's timing, and on the crank a pulley that rises and falls by that constituent's size. A single wire is fixed at one end, runs over the first moving pulley, under a fixed one, over the next moving pulley, and so on, and carries the pen at its free end. When a moving pulley rises it takes up a loop of wire, which pulls the free end and lifts the pen; when it falls it gives the wire back. Each pulley's movement passes straight along the wire, so the pen moves by the sum of all of them and draws the tide on a roll of paper as the handle turns."
+          "text": "So in 1872 Kelvin designed a machine to do the adding. Each constituent got a crank that turns once per period, set to its port's timing, and a pulley driven up and down by that constituent's size. A single wire is fixed at one end, runs over the first moving pulley, under a fixed one, over the next moving pulley, and so on, and carries the pen at its free end. When a moving pulley rises it takes up a loop of wire, which pulls the free end and lifts the pen; when it falls it gives the wire back. Each pulley's movement passes straight along the wire, so the pen moves by the sum of all of them and draws the tide on a roll of paper as the handle turns."
         },
         {
           "type": "diagram",
@@ -156,12 +156,12 @@
         },
         {
           "type": "text",
-          "text": "The first machine, built in 1872 and 1873, had ten cranks and could draw a year of tides for a port in a few hours. Others followed in several countries. The US Coast and Geodetic Survey's Tide Predicting Machine No. 2, a brass machine that added 37 constituents, made the country's tide tables, Seattle's among them, from about 1912 until the mid-1960s, when electronic computers took over the same sums.[^brass] The counts differ because more constituents only refine the sum: the four or five largest give Seattle's tide its shape, and the small ones adjust it by inches."
+          "text": "The first machine, built in 1872 and 1873, had ten cranks and could draw a year of tides for a port in a few hours. Others followed in several countries. The US Coast and Geodetic Survey's Tide Predicting Machine No. 2, a brass machine that added 37 constituents, made the country's tide tables, Seattle's among them, from 1912 until 1965, when electronic computers took over the same sums.[^brass] The counts differ because more constituents only refine the sum: the four or five largest give Seattle's tide its shape, and the small ones adjust it by inches."
         },
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "US Tide Predicting Machine No. 2, Old Brass Brains, which made the country's tide tables from about 1912 until the mid-1960s.",
+          "caption": "US Tide Predicting Machine No. 2, Old Brass Brains, which made the country's tide tables from 1912 until 1965.",
           "options": {
             "photo": "tide-machine-no2",
             "aspect": 1.5
@@ -205,7 +205,7 @@
         },
         {
           "type": "text",
-          "text": "Today's Seattle tide table is still a sum of steady waves, each measured from the gauge on the Seattle waterfront. What the sum cannot include is weather: a deep low or a strong south wind can lift the water a foot or more above the prediction, which lesson 10 picks up."
+          "text": "Today's Seattle tide table is still a sum of steady waves, each measured from the gauge on the Seattle waterfront. What the sum cannot include is weather: low atmospheric pressure or a strong south wind can lift the water a foot or more above the prediction, which lesson 10 picks up."
         }
       ]
     },
@@ -214,12 +214,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The zero of the tide tables, promised at the start, is **mean lower low water**: the average, over many years, of the lower of each day's two lows.[^datum] A low below it is a **minus tide**, and the lowest of them uncover sea stars, moon snails and eelgrass that are under water most of the year. Seattle's naturalists plan their summer around them, and in June and July the best come in the middle of the day. In December and January the same deep lows come in the middle of the night."
+          "text": "The zero of the tide tables, promised at the start, is **mean lower low water**: the average, over many years, of the lower of each day's two lows.[^datum] A low below it is a **minus tide**, and the lowest of them uncover beaches and reefs that are under water most of the year. Seattle's beach walkers plan their summer around them, and in June and July the best come in the middle of the day. In December and January the same deep lows come in the middle of the night."
         },
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "A summer minus tide on a Seattle beach: the water far out, the lower beach and its sea life uncovered for an hour or two.",
+          "caption": "A summer minus tide on a Seattle beach: the water far out, the lower beach uncovered for an hour or two.",
           "options": {
             "photo": "seattle-minus-tide",
             "aspect": 1.5
@@ -329,12 +329,12 @@
     "standstill": {
       "kind": "technical",
       "title": "How far the Moon swings",
-      "text": "The Moon's furthest swing north and south changes over an 18.6-year cycle, from about 18° to about 28.5°. It was at its widest around 2024 and 2025, and will be at its narrowest in the early 2030s. Wider swings mean bigger differences between the two daily tides."
+      "text": "The Moon's furthest swing north and south changes over an 18.6-year cycle, from about 18.3° to about 28.6°. It was at its widest in 2024 and 2025, and will be at its narrowest in 2034. Wider swings mean bigger differences between the two daily tides."
     },
     "names": {
       "kind": "technical",
       "title": "Why the odd names",
-      "text": "The labels come from the nineteenth-century tables of harmonic analysis: M for the Moon, S for the Sun (*sol*), while K, O and P are only letters. The number counts crests a day, 2 for twice-daily waves and 1 for daily ones. NOAA uses 37 constituents for Seattle's predictions; the five in this lesson carry most of the range, and the figures that add waves use four or five of them."
+      "text": "The labels come from George Darwin's nineteenth-century tables of harmonic analysis: M for the Moon, S for the Sun (*sol*), while K, O and P were chosen partly alphabetically. The number counts crests a day, 2 for twice-daily waves and 1 for daily ones. NOAA uses 37 constituents for Seattle's predictions; the five in this lesson carry most of the range, and the figures that add waves use four or five of them."
     },
     "pair": {
       "kind": "technical",

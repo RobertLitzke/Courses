@@ -60,11 +60,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In 1983, five years after Alex Strong first tried it, he and Kevin Karplus at Stanford published a way to make a plucked string so cheaply that even a computer too slow for almost anything else could play it.[^karplus] It starts with a burst of random noise, which has no pitch at all, and in a few hundredths of a second the noise turns into a clear, pitched note. What turns noise into a note?"
+          "text": "**The mystery.** In 1983, five years after Alex Strong first tried it, he and Kevin Karplus at Stanford published a way to make a plucked string so cheaply that even a computer too slow for almost anything else could play it.[^karplus] It starts with a burst of random noise, which has no pitch at all, and in a few hundredths of a second the noise turns into a clear, pitched note. How does noise turn into a note?"
         },
         {
           "type": "text",
-          "text": "A **delay line** does: a short memory that hands back each **sample**, one of the tens of thousands of numbers a second that make up digital sound, a fixed time after it went in. Make the delay one period of the note you want, a two-hundredth of a second for a note of 200 Hz, and feed what comes out back in. Whatever is in the line now comes round again every period, and anything that repeats every period is a tone at that pitch, however ragged its shape. Fill the line with noise, and that noise repeated is already a buzzy note."
+          "text": "It runs through a **delay line**, a short memory that hands back each **sample**[^sample] a fixed time after it went in. Make the delay one period of the note you want, a two-hundredth of a second for a note of 200 Hz, and feed what comes out back in. Whatever is in the line now comes round again every period, and anything that repeats every period is a tone at that pitch, however ragged its shape. Fill the line with noise, and that noise repeated is already a buzzy note."
         },
         {
           "type": "text",
@@ -89,7 +89,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On a plucked-string engine, **Wave** is how hard the string is plucked. A hard pluck with a pick fills the line with bright noise; a soft pluck with a fingertip fills it with darker noise, and the note starts mellower. **Timbre** here is the damping, not the tone colour of lesson 1 in general: how much each trip takes off the top. Low damping rings bright like steel; high damping sounds like nylon, or a string muted with the palm. **Shape** is how long the string rings, by setting how much of its level each trip keeps."
+          "text": "On a plucked-string engine, **Wave** sets how hard the string is plucked. A hard pluck with a pick fills the line with bright noise; a soft pluck with a fingertip fills it with darker noise, and the note starts mellower. **Timbre** here is the damping (not the general tone colour of lesson 1): how much each trip takes off the top. Low damping rings bright like steel; high damping sounds like nylon, or a string muted with the palm. **Shape** sets how long the string rings, by choosing how much of its level each trip keeps."
         },
         {
           "type": "interactive_diagram",
@@ -154,11 +154,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Karplus and Strong's string was an early success of **physical modelling**: making a sound by simulating the thing that makes it. A struck bar, like a marimba's, or a bell is modelled differently. It has a set of **modes**, ways it can vibrate, each with its own pitch, often not harmonics of the lowest, and each dying away at its own rate. A **modal** engine strikes a set of very sharp **resonant** filters, each one ringing on at its own pitch when struck, one per mode, with a short click. Change the spacing of the modes' pitches, and how long each rings, and you go from wood to glass to metal; a metal bar's modes are spread far apart and ring a long time, and wood's die quickly."
+          "text": "Karplus and Strong's string was an early success of **physical modelling**: making a sound by simulating the thing that makes it. A struck bar, like a marimba's, or a bell is modelled differently. It has a set of **modes**, ways it can vibrate, each with its own pitch, often not harmonics of the lowest, and each dying away at its own rate. A **modal** engine strikes a set of very sharp **resonant** filters with a short click, one filter per mode, and each rings on at its own pitch. Change the spacing of the modes' pitches, and how long each rings, and you go from wood to glass to metal; a metal bar's modes are spread far apart and ring a long time, while wood's die quickly."
         },
         {
           "type": "text",
-          "text": "Blown instruments have been modelled too: a delay line for the tube and a model of the reed or lips at one end. Yamaha's VL1 of 1994 was the first commercial synth built on this idea. It could bend and growl like a real saxophone, and it was very hard to play well, because a player had to supply the breath. Today modelled strings, bars and bells are among the engines of many small synths, under three knobs like every other engine.[^modal]"
+          "text": "Blown instruments have been modelled too: a delay line for the tube and a model of the reed or lips at one end. Yamaha's VL1 of 1994 was the first commercial synth built on this idea.[^vl1] It could bend and growl like a real saxophone, though it was hard to play well from a keyboard alone, because the model needed a player's changing breath. Today modelled strings, bars and bells are among the engines of many small synths, under three knobs like every other engine.[^modal]"
         }
       ]
     },
@@ -284,7 +284,17 @@
     "karplus": {
       "kind": "digression",
       "title": "No multiplies",
-      "text": "Strong came up with the algorithm in late 1978, and he and Karplus analysed it at Stanford. In the 1970s, multiplying two numbers on a cheap microprocessor took too long to do 20,000 times a second for live audio. Adding two numbers and dividing by two (a single bit-shift) was fast enough, so their string could run in real time on an 8-bit chip."
+      "text": "Strong came up with the algorithm in December 1978, and he and Karplus analysed it at Stanford. In the 1970s, multiplying two numbers on a cheap microprocessor took too long to do 20,000 times a second for live audio. Adding two numbers and dividing by two (a single bit-shift) was fast enough, so their string could run in real time on an 8-bit chip."
+    },
+    "sample": {
+      "kind": "technical",
+      "title": "Samples and sample rate",
+      "text": "Digital audio measures the height of a sound wave tens of thousands of times a second (often 44,100 or 48,000) and stores each measurement as a number called a sample. At 44,100 samples a second, a delay line for a 200 Hz note is about 220 samples long."
+    },
+    "vl1": {
+      "kind": "digression",
+      "title": "Playing the VL1 with breath",
+      "text": "Yamaha built the VL1 around Julius Smith's waveguide research at Stanford and shipped it with a mouthpiece controller that strapped to the player's head. Blowing harder didn't simply turn up the volume: it pushed the modelled reed harder against the air column, so the tone brightened, squeaked or overblew into a higher register as a real wind instrument does."
     }
   },
   "journal": []

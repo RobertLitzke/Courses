@@ -9,7 +9,7 @@
       "blocks": [
         { "type": "text", "text": "Take someone who retired in January 1969 with $1,000,000 in 60 percent shares and 40 percent bonds and followed the 4 percent rule from lesson 2: $40,000 in the first year, raised with prices every year after. Over the next thirty years that portfolio earned 5.5 percent a year after inflation. That is better than the long-run figure for the same mix since 1871, about 5.3 percent." },
         { "type": "text", "text": "The money ran out in the 28th year." },
-        { "type": "text", "text": "Someone who retired in 1929, at the worst possible moment by most accounts, earned less over their thirty years, 4.8 percent a year, and still had money left at the end of thirty years: about $700,000 in today's money. Averages, it turns out, are a poor guide to how a pile of savings fares once you start spending it. What matters is when the good and bad years arrive. The name for this is sequence-of-returns risk, and this lesson is about how it works and how large it is." }
+        { "type": "text", "text": "Someone who retired in 1929, at the worst possible moment by most accounts, earned less over their thirty years, 4.8 percent a year, and still had money left at the end of thirty years: about $700,000 in today's money. Averages, it turns out, are a poor guide to how a pile of savings fares once you start spending it. What matters is when the good and bad years arrive. The name for this is sequence-of-returns risk." }
       ]
     },
     {
@@ -26,7 +26,7 @@
     {
       "title": "The first decade",
       "blocks": [
-        { "type": "text", "text": "If order matters this much, the early returns should predict the outcome better than the average over the whole retirement. They do. The figure plots each 30-year start from 1871 to 1993 by the real return of its first few years, averaged in the compound way (the steady yearly rate that would have given the same growth), against the highest fixed real withdrawal rate that would have lasted the full thirty. Here \"real\" means after inflation, as everywhere in the course. Move the slider to change how many years are counted." },
+        { "type": "text", "text": "Because order matters this much, the early returns predict the outcome better than the average over the whole retirement. The figure plots each 30-year start from 1871 to 1993 by the compound real return[^compound] of its first few years against the highest fixed real withdrawal rate that would have lasted the full thirty. Here \"real\" means after inflation, as everywhere in the course. Move the slider to change how many years are counted." },
         { "type": "interactive_diagram", "id": "window", "caption": "Each dot is one 30-year retirement on 60/40. Across: the compound real return of its first few years. Up: the highest fixed real withdrawal rate that lasted thirty years.", "task": "Find the window that predicts best", "goal": "window", "aspect_ratio": 1.67 },
         { "type": "text", "text": "Counting all thirty years, the correlation[^corr] is about 0.63: a decent guide, with wide misses. Counting only the first ten, it rises to 0.88, and it peaks near fifteen years at about 0.92. The returns of the last ten or fifteen years of a retirement barely matter to whether the money lasts, because by then either the pile is large enough that nothing threatens it or it is already too small to recover." },
         { "type": "text", "text": "Planners sometimes call the years just before and after the last paycheck the riskiest of a financial life. For a saver of 35, a fall of 30 percent shrinks a small pile and is soon made up by new contributions, which buy cheaply while prices are down. The same fall in the first years of spending can decide the next thirty." }
@@ -35,7 +35,7 @@
     {
       "title": "1966: no crash needed",
       "blocks": [
-        { "type": "text", "text": "The worst US start in this course's data, 1966, contains no famous crash. What it contains is inflation. Consumer prices almost tripled between January 1966 and January 1982, and a retiree following Bengen's rule raised their withdrawal every year to match. Shares, meanwhile, went nowhere: the S&P 500 in the summer of 1982 stood barely above its level of early 1966. Counting dividends and taking out inflation, shares lost about a fifth of their value over those sixteen years. Bonds, paying fixed interest while prices soared, did worse." },
+        { "type": "text", "text": "The worst US start in this course's data, 1966, contains no famous crash. It was undone by inflation. Consumer prices almost tripled between January 1966 and January 1982, and a retiree following Bengen's rule raised their withdrawal every year to match. Shares, meanwhile, went nowhere: the S&P 500 in the summer of 1982 stood barely above its level of early 1966. Counting dividends and taking out inflation, shares lost about a fifth of their value over those sixteen years. Bonds, paying fixed interest while prices soared, did worse." },
         { "type": "text", "text": "So the 1966 retiree was taking ever larger amounts in dollars from a portfolio whose dollar value stayed flat. Ten years in, the balance had halved in real terms while the spending, measured in what it bought, had not changed, so the withdrawal had become 8 percent of what was left. From there even the great bull market of the 1980s and 1990s could not save it. On 60/40 the money ran out in 1990, its 25th year.[^infl]" },
         { "type": "text", "text": "1929 is the comparison everyone expects to be worse. Prices fell in the early 1930s, by about a quarter, so a fixed real withdrawal shrank in dollars just as share prices collapsed, and bonds gained in real terms. The 1929 retiree's balance was down a third after three years and back above where it started by 1937. Inflation, not a crash, is what made the late 1960s the hardest time in the record to retire." }
       ]
@@ -43,7 +43,7 @@
     {
       "title": "What can be done about it",
       "blocks": [
-        { "type": "text", "text": "Spreading money across many shares and bonds in one country doesn't remove sequence risk, because everyone in that market who retires the same year draws the same sequence. Owning other countries' markets too can soften it, but in bad decades many markets fell together. It can be reduced, though, and each of the next three lessons takes one route." },
+        { "type": "text", "text": "Spreading money across many shares and bonds in one country doesn't remove sequence risk, because everyone in that market who retires the same year draws the same sequence. Owning other countries' markets too can soften it, though in bad decades many markets fell together. Still, you can cut the risk, and each of the next three lessons takes one route." },
         { "type": "text", "text": "**Spend less when the early years go badly.** The 4 percent rule assumes spending never bends. A retiree who trims 10 percent after a bad year sells fewer shares at low prices, which is the damage the order figure shows. Lesson 5 compares rules that do this." },
         { "type": "text", "text": "**Hold more in bonds around the retirement date.** If the first decade decides most of the outcome, the portfolio could be most cautious in that first decade and take more risk later. Lesson 6 looks at the idea, sometimes called a bond tent, and at what history says about it." },
         { "type": "text", "text": "**Start lower when markets are expensive.** The 1966 and 1929 retirements both began after long rises, with share prices high relative to earnings. Lesson 4 asks whether starting valuations predict the bad sequences, and how much." },
@@ -80,6 +80,11 @@
   ],
   "footnotes": {
     "corr": { "kind": "technical", "title": "Correlation", "text": "A number from −1 to 1 for how closely two quantities move together along a straight line. At 1 every dot sits on a rising line; at 0 knowing one tells you nothing about the other. It measures how well a line fits, not how steep it is." },
-    "infl": { "kind": "digression", "title": "The Great Inflation", "text": "US consumer prices rose by more than 5 percent a year for most of 1969 to 1982, peaking at 14.8 percent in the year to March 1980. It ended when the Federal Reserve under Paul Volcker pushed short-term interest rates to around 20 percent in 1980 and 1981, at the cost of a deep recession. Falling inflation and interest rates after 1982 are a large part of why the following two decades were so good for both shares and bonds." }
+    "infl": { "kind": "digression", "title": "The Great Inflation", "text": "US consumer prices rose by more than 5 percent a year for most of 1969 to 1982, peaking at 14.8 percent in the year to March 1980. It ended when the Federal Reserve under Paul Volcker pushed short-term interest rates to around 20 percent in 1980 and 1981, at the cost of a deep recession. Falling inflation and interest rates after 1982 are a large part of why the following two decades were so good for both shares and bonds." },
+    "compound": {
+      "kind": "technical",
+      "title": "Compound return",
+      "text": "The steady yearly rate that gives the same final total as a string of varying yearly returns. In the two-year example earlier, −20 percent and +25 percent have a simple average of +2.5 percent, but a compound return of 0 percent, because $1 ends at $1."
+    }
   }
 }

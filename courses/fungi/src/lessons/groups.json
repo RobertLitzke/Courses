@@ -53,7 +53,7 @@
       "title": "Looks deceive",
       "blocks": [
         {"type": "text", "text": "Once fungi could be sorted by their DNA, one surprise was how often the same body shape had arisen independently. A cap on a stalk with gills or pores underneath is a good way to shed spores into the air: the stalk lifts them into moving air and the cap keeps rain off the gills. Mushrooms of that shape evolved many separate times among the club fungi, and brackets did too. Some lineages lost the cap and went back to a crust, and some closed the cap up into a sealed ball."},
-        {"type": "text", "text": "The underground truffle is the clearest case. A truffle is a fruiting body that never opens and relies on animals to dig it up. True truffles are sac fungi, but there are also false truffles among the club fungi, descended from ordinary mushrooms, and truffle-like fungi have evolved from open-air ancestors dozens of times.[^truffles] Shape reflects how a fungus makes its living, while the spore-making cell shows its ancestry."}
+        {"type": "text", "text": "The underground truffle is the clearest case. A truffle is a fruiting body that never opens and relies on animals to dig it up. True truffles are sac fungi, but there are also false truffles among the club fungi, descended from ordinary mushrooms, and truffle-like fungi have evolved from open-air ancestors dozens of times.[^truffles] How a fungus makes its living shapes its body, while the spore-making cell shows its ancestry."}
       ]
     },
     {
@@ -64,7 +64,7 @@
           {"ask": "A fungus makes eight spores in a row inside a long cell that shoots them out of its tip. What is it?", "choices": ["A sac fungus", "A club fungus", "A pin mould"], "answer": 0, "why": "An ascus, the sac, usually holds eight spores and fires them out of its tip: the mark of a sac fungus."},
           {"ask": "Why is a morel closer kin to baker's yeast than to a button mushroom?", "choices": ["The morel and the yeast both make their spores inside sacs", "The morel and the yeast both grow on bread", "Morels and yeasts are both single cells"], "answer": 0, "why": "Despite their shapes, both are sac fungi: the sac was inherited from a shared ancestor, so fungi that have it are closer kin. The button mushroom makes spores on clubs, so it belongs to the sister group."},
           {"ask": "Which fungi make spores that swim with a single tail?", "choices": ["Chytrids", "Club fungi", "Pin moulds"], "answer": 0, "why": "Chytrids, of water and wet soil, keep the swimming spore with a rear tail, as animal sperm have. The sac, club and pin-mould fungi have lost it."},
-          {"ask": "What does the many-times evolution of truffles show?", "choices": ["Similar shapes can arise separately in unrelated fungi", "All truffles descend from one ancestor", "Truffles are older than any other fungi"], "answer": 0, "why": "Underground fruiting bodies arose from open-air ancestors in both sac and club fungi, many separate times. Shape follows way of life, not ancestry."}
+          {"ask": "What does the repeated evolution of truffles show?", "choices": ["Similar shapes can arise separately in unrelated fungi", "All truffles descend from one ancestor", "Truffles are older than any other fungi"], "answer": 0, "why": "Underground fruiting bodies arose from open-air ancestors in both sac and club fungi, many separate times. Shape follows way of life, not ancestry."}
         ]}}
       ]
     }
@@ -80,7 +80,7 @@
     "conidia": {
       "kind": "technical",
       "title": "Conidia and double names",
-      "text": "These asexual spores are called **conidia** (from the Greek for dust). Because the asexual stage and the sexual stage of the same fungus often look nothing alike and grow in different places, mycologists gave many species two scientific names before DNA linked them. Since 2013 the rules of naming allow only one name per fungus."
+      "text": "These asexual spores are called **conidia** (from the Greek for dust). Because the asexual stage and the sexual stage of the same fungus often look nothing alike and grow in different places, mycologists gave many species two scientific names before DNA linked them. Under a rule change passed in 2011 (taking effect in 2013), each fungus is now allowed only one name."
     }
   }
 }

@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** A singer moving from one note to another doesn't jump. The voice slides, quickly, through the pitches in between, and so does a violin or a trombone. A keyboard can't: each key is its own fixed pitch. Here is a slow line played as a keyboard plays it, then with every jump turned into a slide."
+          "text": "**The sound.** A singer moving from one note to another doesn't jump. The voice slides quickly through the pitches in between, and so does a violin or a trombone. A keyboard can't: each key is its own fixed pitch. Here is a slow line played as a keyboard plays it, then with every jump turned into a slide."
         },
         {
           "type": "diagram",
@@ -51,7 +51,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The **Glide** knob sets how long the slide takes. At a few hundredths of a second it is barely a slide at all, more a softening of each note's start. At a fifth of a second it sounds like a deliberate swoop, and at half a second the line starts to sound drunk. Most of the useful settings lie between those, under a quarter of a second."
+          "text": "The **Glide** knob sets how long the slide takes. At a few hundredths of a second it is barely a slide at all, more a softening of each note's start. At a fifth of a second it sounds like a deliberate swoop, and at half a second the line starts to sound drunk. Most useful settings lie between those, under a quarter of a second."
         },
         {
           "type": "interactive_diagram",
@@ -87,7 +87,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Glide only makes sense on a synth that plays one note at a time, because a slide needs a single note to move. Such a synth is **monophonic**, or **mono**: one voice, like a singer. Hold one key and press another, and the second takes over. Let go of the second while still holding the first, and most mono synths go back to the first, the way a guitarist's finger lifted from a fret lets the lower note ring again."
+          "text": "Glide only makes sense on a synth that plays one note at a time, because a slide needs a single note to move. Such a synth is **monophonic**, or **mono**: one voice, like a singer. Hold one key and press another, and the second takes over. Let go of the second while still holding the first, and most mono synths go back to the first, the way lifting a finger from a guitar fret lets a lower held note ring again."
         },
         {
           "type": "text",
@@ -104,7 +104,7 @@
         },
         {
           "type": "text",
-          "text": "On most synths, and on this one, Legato mode changes the glide too: only notes played over a held one slide, and notes played separately jump. The player then decides, note by note, which notes slide, by keeping the previous key held down when pressing the next, or not. In the figure, the second note is held until the third starts."
+          "text": "On most synths, including this one, Legato mode changes the glide too: only notes played over a held one slide, and notes played separately jump. The player then decides, note by note, which notes slide, by keeping the previous key held down when pressing the next, or not. In the figure, the second note is held until the third starts."
         },
         {
           "type": "interactive_diagram",
@@ -161,7 +161,7 @@
         },
         {
           "type": "text",
-          "text": "Play it yourself on the keys, in Legato: hold a note, press the next before you let go, and the new note slides; play them apart, and it doesn't. A step sequencer, which plays a pattern of notes for you (lesson 20), has a **slide** switch on each step that does the same, and it is most of the character of the bass lines in acid house, the Chicago dance music of the late 1980s."
+          "text": "Play it yourself on the keys, in Legato: hold a note, press the next before you let go, and the new note slides; play them apart, and it doesn't. A step sequencer, which plays a pattern of notes for you (lesson 20), often has a **slide** switch on each step that does the same, and it gives much of the character to the bass lines of acid house, the Chicago dance music of the late 1980s.[^tb303]"
         }
       ]
     },
@@ -244,17 +244,22 @@
     "portamento": {
       "kind": "digression",
       "title": "Portamento and glissando",
-      "text": "Singers and string players call the slide between two notes portamento, Italian for carrying. A glissando, from the French for sliding, usually means sweeping through the notes in between, as a harpist runs a finger down the strings or a pianist down the white keys. A trombone can do either. On synths the two words are used loosely, and glide is the commonest name on the panel."
+      "text": "Singers and string players call the slide between two notes portamento, Italian for carrying. A glissando, formed like Italian from the French glisser (to slide), usually means sweeping through the discrete notes in between, as a harpist runs a finger down the strings or a pianist down the white keys. A trombone can do either. On synths the two words are used loosely, and glide is the commonest name on the panel."
     },
     "rate": {
       "kind": "technical",
       "title": "Time or speed",
-      "text": "A glide with constant time takes, say, a fifth of a second whatever the interval, so a leap of an octave moves faster than a step of a semitone. A glide with constant rate moves at a set number of semitones per second, so the octave takes twelve times as long as the semitone. Some synths glide the first way, because a capacitor charging through a resistor takes the same time to approach any target voltage, while others use a constant-current circuit to glide at a constant rate. A few let you choose. The synth in this course uses constant time."
+      "text": "A glide with constant time takes, say, a fifth of a second whatever the interval, so a leap of an octave moves faster than a step of a semitone. A glide with constant rate moves at a set number of semitones per second, so the octave takes twelve times as long as the semitone. Some synths glide the first way, because a capacitor charging through a resistor takes the same time to cover the same fraction of any voltage step, while others use a constant-current circuit to glide at a constant rate. A few let you choose. The synth in this course uses constant time."
     },
     "priority": {
       "kind": "technical",
       "title": "Note priority",
       "text": "Which key wins when several are held is called note priority. Last-note priority, the commonest today, plays the newest key. Low-note priority plays the lowest held key, which suits bass lines: hold a low note and tap higher ones for quick ornaments that fall back to it. The Minimoog worked that way. High-note priority suits leads in the same way. Some synths let you choose in a settings menu."
+    },
+    "tb303": {
+      "kind": "digression",
+      "title": "The TB-303",
+      "text": "Roland built the TB-303 Bass Line in 1981 to stand in for a bass guitarist when practicing alone. Its tiny keyboard and fiddly sequencer were meant to mimic plucked and slid bass notes, with a constant-time glide of about 60 ms on steps marked with a slide. Guitarists hated it, and within two years it sat in pawn shops for a fraction of its price. In 1987 the Chicago group Phuture bought one, twisted the filter knobs while a sliding pattern played, and recorded Acid Tracks."
     }
   },
   "journal": []

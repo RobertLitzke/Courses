@@ -3,7 +3,7 @@
   "subtitle": "How we found out",
   "department": "Physical Sciences",
   "order": 5,
-  "summary": "Everything here was worked out by people who could not leave the Earth. Eratosthenes measured it with a shadow, Bessel caught a star shifting by a third of a second of arc, a Swiss schoolteacher found the pattern in hydrogen's colours, and Jocelyn Bell's “little green men” turned out to be a spinning neutron star. The trunk ends with the expanding universe, dark matter and the question of whether time had a beginning. There are no equations.",
+  "summary": "Everything here was worked out by people who could not leave the Earth. Eratosthenes measured it with a shadow, Bessel caught a star shifting by a third of a second of arc, a Swiss schoolteacher found the pattern in hydrogen's colours, and Jocelyn Bell's “little green men” turned out to be a spinning neutron star. Twenty-five lessons take the story through to the expanding universe, dark matter and the question of whether time had a beginning, without a single equation. Eight branches, still being written, go to the sky over Seattle, exoplanets, gravitational waves and the first three minutes.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "astronomy.save",
@@ -17,10 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.1",
+    "version": "0.2",
     "stage": "beta",
-    "date": "2026-11-04",
-    "note": "First numbered version.",
-    "history": []
+    "date": "2026-11-08",
+    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
+    "history": [
+      {
+        "version": "0.1",
+        "stage": "beta",
+        "date": "2026-11-04",
+        "note": "First numbered version."
+      }
+    ]
   }
 }

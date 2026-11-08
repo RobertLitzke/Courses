@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "The engine is a **wavetable**: not one wave, but a numbered stack of them, and a knob, called **Wave**, that picks where in the stack to play from. It is the first of the three macro knobs from lesson 22, Wave, Timbre and Shape, which do a new job in each engine. Turn the knob while a note sounds, or let an envelope turn it, and the wave changes under your fingers."
+          "text": "The engine is a **wavetable**: a numbered stack of waves rather than a single one, and a knob, called **Wave**, that picks where in the stack to play from. It is the first of the three macro knobs from lesson 22, Wave, Timbre and Shape, which do a new job in each engine. Turn the knob while a note sounds, or let an envelope turn it, and the wave changes under your fingers."
         }
       ]
     },
@@ -133,7 +133,7 @@
         },
         {
           "type": "text",
-          "text": "Try the attack and decay too, in the Envelope module of the Synth lab: the scan follows them exactly, because it is the same envelope that shapes the loudness. A sound that changes like this needs no filter sweep at all."
+          "text": "Try the attack and decay too, in the Envelope module of the Synth lab: the scan follows them, because it is the same envelope that shapes the loudness. A sound that changes like this needs no filter sweep."
         }
       ]
     },
@@ -273,7 +273,7 @@
                   "The note gets higher"
                 ],
                 "answer": 0,
-                "why": "The scan follows the envelope's shape exactly."
+                "why": "The scan follows the envelope's shape."
               }
             ]
           }
@@ -284,7 +284,7 @@
   "summary": [
     "**A wavetable is a stack of single-cycle waves, called frames**; the Wave knob picks a place in it.",
     "**Between two frames the engine plays a blend**, so turning the knob changes the wave smoothly.",
-    "**A table can move anywhere in the harmonics**, not only darker or brighter, so it can sound vocal or hollow.",
+    "**A table can move anywhere in the harmonics**, rather than only darker or brighter, so it can sound vocal or hollow.",
     "**Wolfgang Palm’s PPG Wave of the early 1980s** read its waves from memory and moved between them.",
     "**The envelope can scan the table** as each note starts: a bloom of colour without a filter sweep.",
     "**The LFO can swing the place back and forth**, slowly for drift or fast for a wobble."

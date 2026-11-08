@@ -53,7 +53,7 @@
         },
         {
           "type": "text",
-          "text": "Building a sound from sines is called **additive synthesis**. It is the most direct use of what lesson 1 showed: any steady sound is a stack of sines, so a synth that can set the size of each sine can make any steady sound. Its first use came about fifty years before the RCA Synthesizer of 1957, one of the first machines to carry the name."
+          "text": "Building a sound from sines is called **additive synthesis**. It is the most direct use of what lesson 1 showed: any steady sound is a stack of sines, so a synth that can set the size of each sine can make any steady sound. Its first use came about fifty years before the RCA Synthesizer of 1955, one of the first machines to carry the name."
         }
       ]
     },
@@ -62,11 +62,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In 1906 New Yorkers could pick up a telephone and listen to live music, with no musicians on the line. The music came from a machine in a building on Broadway that weighed about two hundred tons. It was the **Telharmonium**, built by Thaddeus Cahill, and it made every note from spinning **alternators**, giant wheels turning beside coils, each one making a single, nearly pure tone.[^cahill]"
+          "text": "**The mystery.** In 1906 New Yorkers could pick up a telephone and listen to live music, with no musicians on the line. The music came from a two-hundred-ton machine in a building on Broadway. It was the **Telharmonium**, built by Thaddeus Cahill, and it made every note from spinning **alternators**: giant wheels turning beside coils, each one making a single, nearly pure tone.[^cahill]"
         },
         {
           "type": "text",
-          "text": "The player didn't choose a wave. For each note, the keys and the **stops**, switches borrowed from the pipe organ that bring in or shut off a set of tones, mixed several alternators' tones at the note's harmonics, louder or softer, and the mixture was the instrument's colour. That's additive synthesis exactly. The scheme failed for reasons that had nothing to do with sound. The machine needed power-station currents, and its signals leaked into ordinary phone calls.[^crosstalk] Before long, nobody wanted to pay for music by telephone."
+          "text": "The player didn't choose a wave. For each note, the keys and the **stops** (switches borrowed from the pipe organ) mixed several alternators' tones at the note's harmonics, louder or softer, and that mixture gave the instrument its colour. That is additive synthesis. The scheme failed for reasons that had nothing to do with sound: the machine needed power-station currents, and its signals leaked into ordinary phone calls.[^crosstalk] Before long, nobody wanted to pay for music by telephone."
         },
         {
           "type": "diagram",
@@ -97,7 +97,7 @@
         },
         {
           "type": "text",
-          "text": "The drawbars are named in feet, after the lengths of organ pipes.[^pipe-feet] The 8′ bar is the note itself; 4′ is an octave up, 2′ two octaves, and so on. Counted from the left, the first two bars are brown. The first, 16′, is an octave below the note, and the second, 5⅓′, is a fifth above the note. Together they add depth underneath the 8′. An organist sets up a sound by pulling bars out, and writes it down as nine digits, a **registration**: \"00 8000 000\" is the 8′ alone, a pure sine."
+          "text": "The drawbars are named in feet, after the lengths of organ pipes.[^pipe-feet] The 8′ bar is the note itself; 4′ is an octave up, 2′ two octaves, and so on. Counted from the left, the first two bars are brown: 16′ is an octave below the note, and 5⅓′ is a fifth above the note. Together they add depth underneath the 8′. An organist sets up a sound by pulling bars out, and writes it down as nine digits, a **registration**: \"00 8000 000\" is the 8′ alone, a pure sine."
         },
         {
           "type": "interactive_diagram",
@@ -109,7 +109,7 @@
         },
         {
           "type": "text",
-          "text": "Pull the first three bars from the left all the way out, and push the other six all the way in, to silent: 88 8000 000. That registration, a deep, round sound, is on a great many jazz and gospel records. Every Hammond sound is a mixture like this one: a handful of sines, each at a level you chose."
+          "text": "Pull the first three bars from the left all the way out, and push the other six all the way in, to silent: 88 8000 000. That registration makes a deep, round sound heard on a great many jazz and gospel records. Every Hammond sound is a mixture like this one: a handful of sines, each at a level you chose."
         }
       ]
     },
@@ -118,7 +118,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Nine sliders is about as many as a player can handle, and a sound with thirty harmonics would need thirty. So an additive engine on a synth puts its sines under three knobs, each of which sets many of them at once. On this one, **Wave** sets the brightness: how quickly the harmonics fall away as they go up. **Timbre** sets how loud the even harmonics are: at 0 there are none, and turning it up brings them back in beside the odd ones. **Shape** is how many harmonics there are, from the fundamental alone to thirty-two. (The knob names are only names here; Timbre isn't the tone colour of lesson 1 in general.)"
+          "text": "Nine sliders is about as many as a player can handle, and a sound with thirty harmonics would need thirty. So an additive engine on a synth puts its sines under three knobs, each setting many of them at once. On this one, **Wave** sets the brightness: how quickly the harmonics fall away as they go up. **Timbre** sets how loud the even harmonics are: at 0 there are none, and turning it up brings them back in beside the odd ones. **Shape** sets how many harmonics there are, from the fundamental alone to thirty-two. (Timbre here is just the knob's label, not tone colour in general as in lesson 1.)"
         },
         {
           "type": "text",
@@ -151,7 +151,7 @@
         },
         {
           "type": "text",
-          "text": "Because every harmonic is set separately, an additive engine can do what a filter can't: thin out the middle, lift only the top, or keep the evens and drop the odds. The price is the number of things to set, and that's why the three knobs exist."
+          "text": "Because every harmonic is set separately, an additive engine can do what a filter can't: thin out the middle, lift only the top, or keep the evens and drop the odds. The price is the number of things to set, which is why the three knobs exist."
         }
       ]
     },
@@ -195,7 +195,7 @@
         },
         {
           "type": "text",
-          "text": "Additive synthesis was too costly in hardware for decades after the Hammond, and came back in the 1980s and 1990s, when computers became fast enough to run hundreds of sines at once, each with its own envelope. Its strength is that it can change each harmonic separately as a note plays. A bell's high **partials**, the sines in a sound whether or not they are true harmonics, die away before its low ones, for instance. Its weakness is the same thing: someone has to decide what all those harmonics do."
+          "text": "Additive synthesis was too costly in hardware for decades after the Hammond. It came back in the 1980s and 1990s, when computers grew fast enough to run hundreds of sines at once, each with its own envelope. Its strength is that it can change each harmonic separately as a note plays: a bell's high **partials**[^partials] die away before its low ones, for instance. Its weakness is the same thing: someone has to decide what all those sines do."
         }
       ]
     },
@@ -278,6 +278,11 @@
       "kind": "technical",
       "title": "Organ footage",
       "text": "On a pipe organ, an open flue pipe for bottom C (about 65 Hz) is roughly eight feet long, so a rank of pipes at normal pitch is called an 8′ stop. A rank sounding an octave higher has pipes half as long (4′); an octave lower takes 16′."
+    },
+    "partials": {
+      "kind": "technical",
+      "title": "Partials",
+      "text": "Each single sine that makes up a sound is a partial. When the partials sit at whole-number multiples of the lowest pitch, they are harmonics; in bells, drums and metal bars, their pitches aren't whole-number multiples, so they are called inharmonic partials."
     }
   },
   "journal": []

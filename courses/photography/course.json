@@ -3,7 +3,7 @@
   "subtitle": "A field workbook",
   "department": "Visual Arts",
   "order": 4,
-  "summary": "Written for one camera and one habit: a superzoom with a 2000 mm lens, left on its bird mode because the dials are confusing. Each setting the camera was choosing is handed back to you in turn, and the figures re-expose real photographs as you change it. By the end you should be able to stand in a marsh at dusk and pick the shutter speed yourself.",
+  "summary": "Written for one camera and one habit: a superzoom with a 24 mm to 2000 mm lens, left on its bird-watching mode because the dials are confusing. It takes back the settings the camera was choosing for you, explaining why snow turns grey, why autofocus grabs the twig in front of the bird, and where a small sensor runs out of light. By the end you should be able to stand in a marsh at dusk and pick the shutter speed yourself.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "outofauto.save",

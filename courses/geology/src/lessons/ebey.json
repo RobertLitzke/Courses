@@ -1,269 +1,269 @@
 {
- "id": "ebey",
- "n": 101,
- "branch": "whidbey",
- "needs": [
-  "kettles"
- ],
- "title": "Shells at the top of the bluff",
- "teaches": "How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top",
- "parts": [
-  {
-   "title": "A bluff you can read",
-   "blocks": [
+  "id": "ebey",
+  "n": 101,
+  "branch": "whidbey",
+  "needs": [
+    "kettles"
+  ],
+  "title": "Shells at the top of the bluff",
+  "teaches": "How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top",
+  "parts": [
     {
-     "type": "text",
-     "text": "At Ebey’s Landing, on the west side of central Whidbey Island, a trail climbs from the beach along the top of a bluff about 70 metres high, with Admiralty Inlet below and the Olympics across the water. The bluff is bare where the waves keep cutting its foot, and it is striped. Near the beach are layers of sand and silt with dark bands of peat. Above them comes a thick pale sand, then a hard grey layer full of pebbles and boulders, and at the top a layer of clay."
-    },
-    {
-     "type": "text",
-     "text": "In that top clay are shells: whole clam shells, some still paired, the kinds that live today in the mud of Puget Sound’s bays. Scattered through the same clay are stones, from pebbles to boulders, of granite and other rocks that do not come from anywhere on the island. Clams live underwater. So the top of the bluff, 70 metres above the sea, was once the bottom of the sea. And the boulders cannot have been rolled there by waves into quiet mud. Something dropped them."
-    },
-    {
-      "type": "interactive_diagram",
-      "id": "hotspots",
-      "caption": "The bluff at Ebey’s Landing, with the trail along its top and the beach below. Tap a spot to see what it is.",
-      "options": {
-        "photo": "ebeys-landing-bluff",
-        "intro": "Tap a numbered spot to see what it is.",
-        "spots": [
-          {
-            "x": 0.22,
-            "y": 0.6,
-            "name": "Ebey’s Prairie",
-            "text": "Flat farmland on top of the glacial deposits, about 70 metres above the sea."
-          },
-          {
-            "x": 0.63,
-            "y": 0.53,
-            "name": "The bluff",
-            "text": "A cliff cut by the waves into layers of sand, gravel and clay left by the ice age."
-          },
-          {
-            "x": 0.73,
-            "y": 0.66,
-            "name": "The beach",
-            "text": "Sand and gravel that fall from the bluff, carried along the shore by the waves."
-          },
-          {
-            "x": 0.88,
-            "y": 0.6,
-            "name": "Admiralty Inlet",
-            "text": "The channel that runs past the island from the Strait of Juan de Fuca into Puget Sound."
-          },
-          {
-            "x": 0.62,
-            "y": 0.79,
-            "name": "The trail",
-            "text": "The path along the top of the bluff, with two walkers for scale."
+      "title": "A bluff you can read",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At Ebey’s Landing, on the west side of central Whidbey Island, a trail climbs from the beach along the top of a bluff about 70 metres high, with Admiralty Inlet below and the Olympic Mountains across the water. The bluff is bare where the waves keep cutting its foot, and it is striped. Near the beach are layers of sand and silt with dark bands of peat. Above them comes a thick pale sand, then a hard grey layer full of pebbles and boulders, and at the top a layer of clay."
+        },
+        {
+          "type": "text",
+          "text": "In that top clay are shells: whole clam shells, some with both halves still joined, the kinds that live today in the mud of Puget Sound’s bays. Scattered through the same clay are stones, from pebbles to boulders, of granite and other rocks that do not come from anywhere on the island. Clams live underwater, so the top of the bluff, 70 metres above the sea, was once the sea floor. And waves could not have rolled boulders into quiet mud without washing the mud itself away. Something dropped them from above."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "hotspots",
+          "caption": "The bluff at Ebey’s Landing, with the trail along its top and the beach below. Tap a spot to see what it is.",
+          "options": {
+            "photo": "ebeys-landing-bluff",
+            "intro": "Tap a numbered spot to see what it is.",
+            "spots": [
+              {
+                "x": 0.22,
+                "y": 0.6,
+                "name": "Ebey’s Prairie",
+                "text": "Flat farmland on top of the glacial deposits, about 70 metres above the sea."
+              },
+              {
+                "x": 0.63,
+                "y": 0.53,
+                "name": "The bluff",
+                "text": "A cliff cut by the waves into layers of sand, gravel and clay left by the ice age."
+              },
+              {
+                "x": 0.73,
+                "y": 0.66,
+                "name": "The beach",
+                "text": "Sand and gravel that fall from the bluff, carried along the shore by the waves."
+              },
+              {
+                "x": 0.88,
+                "y": 0.6,
+                "name": "Admiralty Inlet",
+                "text": "The channel that runs past the island from the Strait of Juan de Fuca into Puget Sound."
+              },
+              {
+                "x": 0.62,
+                "y": 0.79,
+                "name": "The trail",
+                "text": "The path along the top of the bluff, with two walkers for scale."
+              }
+            ]
           }
-        ]
-      }
-    },
-    {
-     "type": "diagram",
-     "id": "map",
-     "caption": "Central Whidbey Island. Ebey’s Landing is on the west shore; the bluff runs north-west from it.",
-     "options": {
-      "relief": "maps/whidbey",
-      "title": "Central Whidbey",
-      "ground": "height",
-      "water": 0,
-      "exaggeration": 3,
-      "alt": "A shaded relief map of central Whidbey Island between Admiralty Inlet to the west and Penn Cove and Saratoga Passage to the east. Ebey’s Landing is on the west shore; Coupeville is on Penn Cove; Ebey’s Prairie is the flat open ground between them.",
-      "labels": [
-       {
-        "lon": -122.7088,
-        "lat": 48.1925,
-        "text": "Ebey’s Landing",
-        "side": "left"
-       },
-       {
-        "lon": -122.6863,
-        "lat": 48.2198,
-        "text": "Coupeville",
-        "side": "right"
-       },
-       {
-        "lon": -122.712,
-        "lat": 48.207,
-        "text": "Ebey’s Prairie",
-        "side": "right"
-       },
-       {
-        "lon": -122.73,
-        "lat": 48.218,
-        "text": "the Kettles",
-        "side": "left"
-       },
-       {
-        "lon": -122.645,
-        "lat": 48.168,
-        "text": "Crockett Lake",
-        "side": "right"
-       },
-       {
-        "lon": -122.69,
-        "lat": 48.24,
-        "text": "Penn Cove",
-        "area": true
-       },
-       {
-        "lon": -122.76,
-        "lat": 48.17,
-        "text": "Admiralty Inlet",
-        "area": true
-       }
-      ],
-      "scale": "right"
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The bluff at Ebey’s Landing is about 70 m high and striped with layers.",
-      "Its top layer is clay with clam shells and with boulders from far away."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "From the bottom up",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Steno’s rule from lesson 1 says to read a stack of layers from the bottom up: each was laid on the one beneath, so the lowest is the oldest. Geologists who have worked along Whidbey’s bluffs read them as a record of the ice ages of lesson 16, warm times and cold times in turn.[^names]"
-    },
-    {
-     "type": "text",
-     "text": "At the bottom lie river sand, silt and peat from a warm time between ice ages, about 125,000 to 80,000 years ago, when rivers wandered over a lowland and swamps grew peat. Where they show, they are called the **Whidbey Formation**, after the island. Above them in places comes **Possession Drift**, the leftovers of an earlier ice advance (geologists call anything the ice laid down, till and outwash alike, **drift**). Then the thick pale sand: **Esperance Sand**, outwash spread by meltwater rivers ahead of the Puget lobe as it advanced, about 18,000 years ago (the Seattle lessons follow that ice over the city). On top of that the ice itself dropped the hard grey **Vashon till**, the unsorted mix of everything it carried. And above the till, the shelly clay."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "bluff-builder",
-     "caption": "The bluff, simplified, with the land’s height and the sea’s on the right. Time runs faster through the long warm stretches and slower when the ice comes.",
-     "task": "Build the bluff from 125,000 years ago to today",
-     "goal": "built",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Read from the bottom up: the lowest layers are the oldest.",
-      "Bottom: warm-time river sand and peat (Whidbey Formation), then older drift, then Esperance Sand outwash, then Vashon till."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Clams over the till",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The shelly clay is called the **Everson glaciomarine drift**, and its name tells its story: glacial and marine at once. When the Puget lobe began to melt back here, about 16,500 years ago, the land beneath it was still pressed down by its weight (lesson 17), by more than 200 metres: the ground that stands 70 metres above the sea today then stood roughly 150 metres below today’s sea level. The sea at the time stood lower than today, by about 100 metres, because so much water was still locked in ice sheets. But the land was pressed down even further, so the sea flowed in and stood tens of metres deep over the till. The thinning ice lifted off its bed and floated."
-    },
-    {
-     "type": "text",
-     "text": "Clams settled in the mud of this new sea. Over them drifted icebergs and floating ice, melting as they went, dropping stones they had carried from the mountains of British Columbia and the North Cascades into the mud: **dropstones**. Then the land sprang back, much faster than the sea rose, and within a couple of thousand years the seafloor stood high and dry, 70 metres above the water, with the clams still in it. Radiocarbon dating of the shells gives their age, around 16,000 years."
-    },
-    {
-     "type": "text",
-     "text": "Today the waves at the foot of the bluff are cutting back into this whole stack, and the beach below is made of the sand and stones that fall out of it. The bluff is still being read, by geologists and by the sea."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The Everson clay was laid down in a sea that flooded the pressed-down land after the ice.",
-      "Floating ice dropped stones into the mud where clams lived.",
-      "The land then rebounded faster than the sea rose, lifting the seafloor 70 m up."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on the bluff at Ebey’s Landing",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "Which layer of the bluff is oldest?",
-        "choices": [
-         "The sand and peat at the bottom",
-         "The shelly clay at the top",
-         "The till in the middle"
-        ],
-        "answer": 0,
-        "why": "Each layer was laid on the one below it, so the lowest is the oldest."
-       },
-       {
-        "ask": "What does the Esperance Sand record?",
-        "choices": [
-         "Meltwater rivers spreading sand ahead of the advancing ice",
-         "A desert",
-         "A warm sea"
-        ],
-        "answer": 0,
-        "why": "It is outwash: sand washed out ahead of the Puget lobe as it came south."
-       },
-       {
-        "ask": "How did boulders get into fine clay with clam shells?",
-        "choices": [
-         "They dropped from floating ice into the mud",
-         "Waves rolled them in",
-         "They grew in place"
-        ],
-        "answer": 0,
-        "why": "Quiet mud could not have been reached by rolling boulders; melting ice dropped them from above."
-       },
-       {
-        "ask": "Sea level was about 100 m lower than today when the ice melted. How could the sea cover land that is now 70 m up?",
-        "choices": [
-         "The land was pressed down even further by the ice, and had not yet rebounded",
-         "The sea was actually higher",
-         "The bluff was built later"
-        ],
-        "answer": 0,
-        "why": "The ice pressed the land down by more than 200 m, further than the sea had dropped."
-       },
-       {
-        "ask": "Why is the seafloor clay now high and dry?",
-        "choices": [
-         "The land rebounded faster than the sea rose",
-         "The sea dried up",
-         "Earthquakes lifted it"
-        ],
-        "answer": 0,
-        "why": "After the ice was gone the land sprang back quickly, leaving the old seafloor above the water."
-       }
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Central Whidbey Island. Ebey’s Landing is on the west shore; the bluff runs north-west from it.",
+          "options": {
+            "relief": "maps/whidbey",
+            "title": "Central Whidbey",
+            "ground": "height",
+            "water": 0,
+            "exaggeration": 3,
+            "alt": "A shaded relief map of central Whidbey Island between Admiralty Inlet to the west and Penn Cove and Saratoga Passage to the east. Ebey’s Landing is on the west shore; Coupeville is on Penn Cove; Ebey’s Prairie is the flat open ground between them.",
+            "labels": [
+              {
+                "lon": -122.7088,
+                "lat": 48.1925,
+                "text": "Ebey’s Landing",
+                "side": "left"
+              },
+              {
+                "lon": -122.6863,
+                "lat": 48.2198,
+                "text": "Coupeville",
+                "side": "right"
+              },
+              {
+                "lon": -122.712,
+                "lat": 48.207,
+                "text": "Ebey’s Prairie",
+                "side": "right"
+              },
+              {
+                "lon": -122.73,
+                "lat": 48.218,
+                "text": "the Kettles",
+                "side": "left"
+              },
+              {
+                "lon": -122.645,
+                "lat": 48.168,
+                "text": "Crockett Lake",
+                "side": "right"
+              },
+              {
+                "lon": -122.69,
+                "lat": 48.24,
+                "text": "Penn Cove",
+                "area": true
+              },
+              {
+                "lon": -122.76,
+                "lat": 48.17,
+                "text": "Admiralty Inlet",
+                "area": true
+              }
+            ],
+            "scale": "right"
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The bluff at Ebey’s Landing is about 70 m high and striped with layers.",
+            "Its top layer is clay with clam shells and with boulders from far away."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "From the bottom up",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Steno’s rule from lesson 1 says to read a stack of layers from the bottom up: each was laid on the one beneath, so the lowest is the oldest. Geologists who have worked along Whidbey’s bluffs read them as a record of the ice ages of lesson 16, warm times and cold times in turn.[^names]"
+        },
+        {
+          "type": "text",
+          "text": "At the bottom lie river sand, silt and peat from a warm time between ice ages, about 125,000 to 80,000 years ago, when rivers wandered over a lowland and swamps grew peat. Where they show, they are called the **Whidbey Formation**, after the island. Above them in places comes **Possession Drift**, the leftovers of an earlier ice advance (geologists call anything the ice laid down, till and outwash alike, **drift**). Then the thick pale sand: **Esperance Sand**, outwash spread by meltwater rivers ahead of the Puget lobe as it advanced, about 18,000 years ago (the Seattle lessons follow that ice over the city). On top of that the ice itself dropped the hard grey **Vashon till**, the unsorted mix of everything it carried. And above the till, the shelly clay."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bluff-builder",
+          "caption": "The bluff, simplified, with the land’s height and the sea’s on the right. Time runs faster through the long warm stretches and slower when the ice comes.",
+          "task": "Build the bluff from 125,000 years ago to today",
+          "goal": "built",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Read from the bottom up: the lowest layers are the oldest.",
+            "Bottom: warm-time river sand and peat (Whidbey Formation), then older drift, then Esperance Sand outwash, then Vashon till."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Clams over the till",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The shelly clay is called the **Everson glaciomarine drift**, and its name tells its story: glacial and marine at once. When the Puget lobe began to melt back here, about 16,500 years ago, the land beneath it was still pressed down more than 200 metres by its weight (lesson 17). The ground that stands 70 metres above the sea today then lay roughly 150 metres below today’s sea level. The sea itself stood about 100 metres lower than today, because so much water was still locked up in the great ice sheets. Even so, the land was pressed down further than the sea had dropped, so saltwater flooded in and stood tens of metres deep over the till. The thinning ice lifted off its bed and floated."
+        },
+        {
+          "type": "text",
+          "text": "Clams settled in the mud of this new sea. Over them drifted icebergs and floating ice, melting as they went and dropping stones they had carried from the mountains of British Columbia and the North Cascades into the mud: **dropstones**. Then the land sprang back, much faster than the sea rose, and within a couple of thousand years the seafloor stood high and dry, 70 metres above the water, with the clams still in it. Radiocarbon dating of the shells puts their age at around 16,000 years."
+        },
+        {
+          "type": "text",
+          "text": "Today the waves at the foot of the bluff are cutting back into this whole stack, and the beach below is made of the sand and stones that fall out of it."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The Everson clay was laid down in a sea that flooded the pressed-down land after the ice.",
+            "Floating ice dropped stones into the mud where clams lived.",
+            "The land then rebounded faster than the sea rose, lifting the seafloor 70 m up."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the bluff at Ebey’s Landing",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "Which layer of the bluff is oldest?",
+                "choices": [
+                  "The sand and peat at the bottom",
+                  "The shelly clay at the top",
+                  "The till in the middle"
+                ],
+                "answer": 0,
+                "why": "Each layer was laid on the one below it, so the lowest is the oldest."
+              },
+              {
+                "ask": "What does the Esperance Sand record?",
+                "choices": [
+                  "Meltwater rivers spreading sand ahead of the advancing ice",
+                  "A desert",
+                  "A warm sea"
+                ],
+                "answer": 0,
+                "why": "It is outwash: sand washed out ahead of the Puget lobe as it came south."
+              },
+              {
+                "ask": "How did boulders get into fine clay with clam shells?",
+                "choices": [
+                  "They dropped from floating ice into the mud",
+                  "Waves rolled them in",
+                  "They grew in place"
+                ],
+                "answer": 0,
+                "why": "Waves strong enough to roll boulders would have washed away fine mud; melting ice dropped the stones from above into quiet water."
+              },
+              {
+                "ask": "Sea level was about 100 m lower than today when the ice melted. How could the sea cover land that is now 70 m up?",
+                "choices": [
+                  "The land was pressed down even further by the ice, and had not yet rebounded",
+                  "The sea was actually higher",
+                  "The bluff was built later"
+                ],
+                "answer": 0,
+                "why": "The ice pressed the land down by more than 200 m, further than the sea had dropped."
+              },
+              {
+                "ask": "Why is the seafloor clay now high and dry?",
+                "choices": [
+                  "The land rebounded faster than the sea rose",
+                  "The sea dried up",
+                  "Earthquakes lifted it"
+                ],
+                "answer": 0,
+                "why": "After the ice was gone the land sprang back quickly, leaving the old seafloor above the water."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**The bluff is a stack of layers.** Read from the bottom up, oldest first.",
+    "**Bottom: a warm time.** River sand and peat from 125,000 to 80,000 years ago.",
+    "**Then the ice came.** Outwash sand ahead of it, till beneath it.",
+    "**Top: seafloor clay.** Clam shells and dropstones together.",
+    "**The land was pressed down.** By more than the sea had dropped, so the sea flooded in.",
+    "**Floating ice dropped stones.** Into mud where clams lived.",
+    "**Rebound lifted it 70 m.** Faster than the sea rose."
+  ],
+  "journal": [],
+  "footnotes": {
+    "names": {
+      "kind": "technical",
+      "title": "Names and correlation",
+      "text": "The layer names come from type sections elsewhere: the Whidbey Formation from Double Bluff on south Whidbey, Possession Drift from Possession Point, Esperance Sand from Esperance near Edmonds, and the Everson from Everson in Whatcom County. Matching a layer at Ebey’s Landing to one of them rests on its kind of sediment, its place in the stack and its dates, and not every layer appears in every bluff."
+    }
   }
- ],
- "summary": [
-  "**The bluff is a stack of layers.** Read from the bottom up, oldest first.",
-  "**Bottom: a warm time.** River sand and peat from 125,000 to 80,000 years ago.",
-  "**Then the ice came.** Outwash sand ahead of it, till beneath it.",
-  "**Top: seafloor clay.** Clam shells and dropstones together.",
-  "**The land was pressed down.** By more than the sea had dropped, so the sea flooded in.",
-  "**Floating ice dropped stones.** Into mud where clams lived.",
-  "**Rebound lifted it 70 m.** Faster than the sea rose."
- ],
- "journal": [],
- "footnotes": {
-  "names": {
-   "kind": "technical",
-   "title": "Names and correlation",
-   "text": "The layer names come from type sections elsewhere: the Whidbey Formation from Double Bluff on south Whidbey, Possession drift from Possession Point, Esperance Sand from Esperance near Edmonds, and the Everson from Everson in Whatcom County. Matching a layer at Ebey’s Landing to one of them rests on its kind of sediment, its place in the stack and its dates, and not every layer appears in every bluff."
-  }
- }
 }

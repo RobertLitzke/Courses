@@ -11,6 +11,9 @@
 //   node tools/review-queue.mjs                              list what is waiting
 //   OPENROUTER_API_KEY=… node tools/review-queue.mjs --run   edit and write every queued lesson
 //
+// Not OpenRouter's batch API: on 2026-11-08 it garbled the JSON of 72 of 131
+// replies. For speed, run tools/copyedit.mjs for each course side by side.
+//
 // Each course's reports land in courses/<course>/tools/copyedit-out/. Read
 // their "Facts" sections before committing: the model's fact changes are
 // sometimes wrong.

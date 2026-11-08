@@ -53,7 +53,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An LFO, like an audio oscillator, can have a shape: the path it takes from top to bottom and back. Most synths offer the same few. A **sine** or a **triangle** glides: the sine slows as it turns at the top and bottom, the triangle moves at one steady speed all the way. A **saw** rises steadily and drops at once, or the reverse. A **square** sits at the top, then jumps to the bottom and sits there."
+          "text": "An LFO, like an audio oscillator, can have a shape: the path it takes from top to bottom and back. Most synths offer the same few. A **sine** or a **triangle** glides: the sine slows as it turns at the top and bottom, while the triangle moves at one steady speed all the way. A **saw** rises steadily and drops at once, or the reverse. A **square** sits at the top, then jumps to the bottom and sits there."
         },
         {
           "type": "text",
@@ -112,7 +112,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An LFO's speed can be set two ways. Free, it is a rate in hertz, cycles per second, and it drifts against whatever else is playing. **Synced**, it is counted in notes of the beat: once a bar, once a quarter note, once a sixteenth. Change the tempo and a synced LFO keeps step. The synth in these lessons always syncs its LFO, which is why its rate knob reads in bars and notes: 1/8 is eight cycles a bar."
+          "text": "An LFO's speed can be set in two ways. Free, it runs at a rate in hertz (cycles per second) and drifts against whatever else is playing. **Synced**, it is counted in notes of the beat: once a bar, once a quarter note, once a sixteenth. Change the tempo and a synced LFO keeps step. The synth in these lessons always syncs its LFO, which is why its rate knob reads in bars and notes: 1/8 is eight cycles a bar."
         },
         {
           "type": "interactive_diagram",
@@ -152,7 +152,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now the burble. Its parts: the LFO's S&H shape, sent to the cutoff, fast enough to be busy, deep enough to be heard, and a resonance high enough that each step rings. Here they all start wrong: the resonance is low, the LFO is a slow sine on pitch, and the depth is at zero."
+          "text": "Now for the burble. Its parts are the LFO's S&H shape, sent to the cutoff, fast enough to be busy, deep enough to be heard, with a resonance high enough that each step rings. Here they all start wrong: the resonance is low, the LFO is a slow sine on pitch, and the depth is at zero."
         },
         {
           "type": "interactive_diagram",
@@ -196,7 +196,7 @@
         },
         {
           "type": "text",
-          "text": "Point the same random staircase at the pitch instead, and the computer starts playing random notes: another sound from the same films. Point it at the pulse width, and each step gets a slightly different hollowness. Randomness, used gently, is one of the main ways a synth player stops a sound being mechanical."
+          "text": "Point the same random staircase at the pitch instead, and the computer starts playing random notes, another sound from the same films. Point it at the pulse width, and each step gets a slightly different hollowness. Randomness, used gently, is one of the main ways a synth player stops a sound from feeling mechanical."
         }
       ]
     },
@@ -284,7 +284,7 @@
     "uncertainty": {
       "kind": "digression",
       "title": "The Source of Uncertainty",
-      "text": "Don Buchla's modular synthesizers of the late 1960s had a module called the Source of Uncertainty, a box of random voltages: noise, stepped random values, and smoothly wandering ones. Buchla wanted instruments that would surprise the player, and random modulation has been a fixture of synths ever since."
+      "text": "Don Buchla's modular synthesizers of the 1970s had a module called the Source of Uncertainty, a box of random voltages: noise, stepped random values, and smoothly wandering ones. Buchla wanted instruments that would surprise the player, and random modulation has been a fixture of synths ever since."
     },
     "real-computers": {
       "kind": "digression",

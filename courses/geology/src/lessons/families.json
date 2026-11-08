@@ -14,14 +14,14 @@
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "Abraham Gottlob Werner, who taught geology at Freiberg from 1775 until his death in 1817.",
+          "caption": "Abraham Gottlob Werner, who taught at Freiberg from 1775 until his death in 1817.",
           "options": {
             "photo": "werner-portrait"
           }
         },
         {
           "type": "text",
-          "text": "The scheme was tidy, and it was useful to miners, who could learn what lay under what. Its trouble was that rocks kept turning up in the wrong drawer. Lesson 4 described one problem: granite that had been squeezed, molten, into cracks in younger rock. A second came from the Alps. By the 1820s and 1830s geologists working there were finding glittering, crystalline schists and marbles that could be followed along the mountainside into ordinary shale and limestone with fossils in them. In some places the schist held fossils itself: **belemnites**[^thunderbolts], the bullet-shaped internal shells of squid-like animals that lived in the Jurassic seas, stretched and snapped apart inside rock that Werner would have called Primitive."
+          "text": "The scheme was tidy, and it was useful to miners, who could learn what lay under what. Its trouble was that rocks kept turning up in the wrong drawer. Lesson 4 described one problem: granite that had been squeezed, molten, into cracks in younger rock. A second came from the Alps. By the 1810s and 1820s geologists working there were finding glittering, crystalline schists and marbles that could be followed along the mountainside into ordinary shale and limestone with fossils in them. In some places the schist held fossils itself: **belemnites**[^thunderbolts], the bullet-shaped internal shells of squid-like animals that lived in the Jurassic seas, stretched and snapped apart inside rock that Werner would have called Primitive."
         },
         {
           "type": "diagram",
@@ -63,7 +63,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Each family is defined by the conditions a rock met. A **sedimentary** rock forms at or near the surface, where temperatures stay below roughly 200 °C (the line is approximate, as the next part shows). Some sedimentary rocks are made of broken pieces of older rock, named by the size of the pieces: conglomerate from pebbles, sandstone from sand, shale and mudstone from mud. Others are made of what water and living things drop out of solution, such as limestone from shells and lime mud, or rock salt from an evaporating sea. Either way, the weight of later layers presses the sediment together, minerals left by water seeping through it glue the grains, and it becomes rock; the rock keeps a record of where it was laid down: a river, a beach, a dune field (lesson 2), a reef or the deep sea floor."
+          "text": "Each family is defined by the conditions a rock met. A **sedimentary** rock forms at or near the surface, where temperatures stay below roughly 200 °C. Some sedimentary rocks are made of broken pieces of older rock, named by the size of the pieces: conglomerate from pebbles, sandstone from sand, shale and mudstone from mud. Others are made of what water and living things drop out of solution, such as limestone from shells and lime mud, or rock salt from an evaporating sea. Either way, the weight of later layers presses the sediment together, minerals left by water seeping through it glue the grains, and it becomes rock. The rock keeps a record of where it was laid down: a river, a beach, a dune field (lesson 2), a reef or the deep sea floor."
         },
         {
           "type": "text",
@@ -98,7 +98,7 @@
         },
         {
           "type": "text",
-          "text": "Granite and mudstone start to melt at about 650 to 700 °C when there is some water in the rock, as there nearly always is. Wet basalt needs about 800 to 850 °C to start (dry basalt over 1,000 °C) and about 1,200 °C to melt through. A rock of one pure mineral holds out far longer than a mixture: quartz on its own melts only above about 1,700 °C, and calcite under pressure above 1,300 °C, both far hotter than the crust ever gets. So pure quartz sandstone and limestone stay quartzite and marble. Which rock melts first depends on what it is made of, a point the last part of this lesson comes back to."
+          "text": "Granite and mudstone start to melt at about 650 to 700 °C when there is some water in the rock, as there nearly always is. Wet basalt needs about 750 to 850 °C to start (dry basalt over 1,000 °C) and about 1,200 °C to melt through. A rock of one pure mineral holds out far longer than a mixture: quartz on its own melts only above about 1,700 °C, and calcite under pressure above 1,300 °C, both far hotter than the crust ever gets. So pure quartz sandstone and limestone stay quartzite and marble."
         },
         {
           "type": "key_ideas",
@@ -136,7 +136,7 @@
         },
         {
           "type": "text",
-          "text": "The families blur at the surface too. Volcanic ash is igneous material, but it falls out of the sky and settles in layers like any sediment, so the rock it makes, **tuff**, belongs to both. Granite that weathers in place falls apart into grains of quartz and feldspar, and a river can carry them a few kilometres and drop them as sand that hardens into sandstone[^arkose] made almost entirely of granite. Because it is still made of quartz and feldspar, not quartz alone, bury and heat that sandstone and it becomes a gneiss that a geologist can hardly tell from the gneiss made from the original granite."
+          "text": "The families blur at the surface too. Volcanic ash is igneous material, but it falls out of the sky and settles in layers like any sediment, so the rock it makes, **tuff**, belongs to both. Granite that weathers in place falls apart into grains of quartz and feldspar, and a river can carry them a few kilometres and drop them as sand that hardens into sandstone[^arkose] made almost entirely of granite. Because it is still made of quartz and feldspar, not quartz alone, bury and heat that sandstone and it becomes a gneiss that a geologist can hardly tell from a gneiss made directly from the granite."
         },
         {
           "type": "diagram",
@@ -211,11 +211,11 @@
         },
         {
           "type": "text",
-          "text": "The first crystals out of a basalt melt are olivine and calcium-rich feldspar, minerals poor in silica. If they sink out of the liquid, what remains is richer in silica. Cool it further and it would erupt as andesite, then dacite, and finally rhyolite. A single magma can therefore give rise to a whole family of related igneous rocks, depending on how much of the melt had crystallised before the rest escaped from the chamber. This process, **fractional crystallisation**, is one of the main reasons different volcanoes, and different eruptions of one volcano, produce different lavas."
+          "text": "The first crystals out of a basalt melt are olivine and calcium-rich feldspar, minerals poor in silica. If they sink out of the liquid, what remains is richer in silica. Cool it further and it can erupt as andesite, then dacite, and finally rhyolite. A single magma can therefore give rise to a whole family of related igneous rocks, depending on how much of the melt had crystallised before the rest escaped from the chamber. This process, **fractional crystallisation**, is one of the main reasons different volcanoes, and different eruptions of one volcano, produce different lavas."
         },
         {
           "type": "text",
-          "text": "The order also works backwards. The minerals that crystallise last, at the lowest temperatures, are the first to melt when a rock is heated: quartz, potassium feldspar and mica. Those are what granite, and mud that has become gneiss, are mostly made of. That is why they start to melt at about 650 to 700 °C while basalt holds out to 800 °C or more, and why the first melt of the thick, light crust under the continents usually has the make-up of granite. The pale veins in a migmatite are that first melt."
+          "text": "The order also works backwards. The minerals that crystallise last, at the lowest temperatures, are the first to melt when a rock is heated: quartz, potassium feldspar and mica. Those are what granite, and mud that has become gneiss, are mostly made of. That is why they start to melt at about 650 to 700 °C while basalt holds out to 750 °C or more, and why the first melt of the thick, light crust under the continents usually has the make-up of granite. The pale veins in a migmatite are that first melt."
         },
         {
           "type": "text",
@@ -291,7 +291,7 @@
                 "why": "They are one silica-rich melt in two forms. Fast cooling gives fine grains or glass; slow cooling gives coarse crystals."
               },
               {
-                "ask": "Granite and basalt are heated side by side deep in the crust. Granite starts to melt at about 650 to 700 °C, basalt only at 800 °C or higher. Why?",
+                "ask": "Granite and basalt are heated side by side deep in the crust. Granite starts to melt at about 650 to 700 °C, basalt only at 750 °C or higher. Why?",
                 "choices": [
                   "Granite is mostly quartz, feldspar and mica, the minerals that crystallise last from a melt",
                   "Granite holds more olivine and pyroxene, which melt easily",

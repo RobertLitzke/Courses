@@ -17,8 +17,8 @@
       "title": "Harvesting a loss",
       "blocks": [
         { "type": "text", "text": "Realised losses first cancel realised gains of the same year. Any loss left over reduces ordinary income by up to $3,000 a year, and whatever remains carries forward without limit, to future years' gains or $3,000 a year of income.[^order]" },
-        { "type": "text", "text": "Suppose an **index fund**, a fund that simply owns every share in a market index such as the S&P 500, bought for $50,000 is worth $40,000 after a fall. Selling it and buying a similar fund books a $10,000 loss. The new fund's basis is $40,000, so if it recovers to $50,000 there is now a $10,000 gain where there would have been none. The loss today is paid back by a gain later." },
-        { "type": "text", "text": "So harvesting a loss is worth the difference between the rate it saves now and the rate the extra gain pays later, plus the use of the money in between. Where the loss offsets ordinary income at 22 percent, $3,000 a year over a few years, and the gain is later taxed at 15, each $10,000 is worth $700, plus the use of the tax saved meanwhile. Where the extra gain is never taxed, because the shares are held until death or given to charity, the whole saving is kept. The figure sets out the value for each pair of rates, leaving out the smaller gain from the years in between." },
+        { "type": "text", "text": "Suppose an **index fund**[^index-fund] bought for $50,000 is worth $40,000 after a fall. Selling it and buying a similar fund books a $10,000 loss. The new fund's basis is $40,000, so if it recovers to $50,000 there is now a $10,000 gain where there would have been none. The loss today is paid back by a gain later." },
+        { "type": "text", "text": "So harvesting a loss is worth the difference between the rate it saves now and the rate the extra gain pays later, plus the use of the money in between. Where the loss offsets ordinary income at 22 percent, $3,000 a year over a few years, and the gain is later taxed at 15 percent, each $10,000 is worth $700, plus the use of the tax saved meanwhile. Where the extra gain is never taxed, because the shares are held until death or given to charity, the whole saving is kept. The figure sets out the value for each pair of rates, leaving out the smaller gain from the years in between." },
         { "type": "diagram", "id": "scale", "caption": "What a $10,000 harvested loss is worth over a lifetime, by the rate it saves now and the rate later paid on the extra gain, ignoring the time in between.", "options": { "title": "The value of a $10,000 loss", "unit": "dollars", "items": [
           { "label": "Saves 15% now, gain taxed at 15% later", "value": 0, "says": "$0, only deferral", "color": "soft" },
           { "label": "Saves 22% now, gain taxed at 15% later", "value": 700, "says": "$700", "color": "taxable" },
@@ -39,7 +39,7 @@
       "title": "Lots and gains",
       "blocks": [
         { "type": "text", "text": "Shares bought at different times are different lots, each with its own basis. When selling part of a holding, the seller can name which lots go. Choosing the lots with the highest basis keeps the gain smallest, and choosing lots held more than a year keeps its rate at the lower long-term rates instead of ordinary ones. Most brokers default to first in, first out, which usually sells the oldest, cheapest lots first; changing the default to specific identification is a one-time setting." },
-        { "type": "text", "text": "Gain harvesting is the mirror image. For a couple in 2026, long-term gains are taxed at 0 percent as long as taxable income, counting the gains themselves, stays under $98,900 (about $49,450 for a single person). Only the part of a gain that crosses the line pays 15 percent. Selling winners and buying them back the same day realises the gain at 0 percent and raises the basis, with no wash-sale problem, because the rule only applies to losses. The two harvests compete. A loss carried forward must be used against any gains realised first, before it can touch income. So a household that harvests gains at 0 percent spends its banked loss on gains that would have been taxed at nothing anyway, and less of it is left to save tax on income." },
+        { "type": "text", "text": "Gain harvesting is the mirror image. For a couple in 2026, long-term gains are taxed at 0 percent as long as taxable income, counting the gains themselves, stays under $98,900 ($49,450 for a single person). Only the part of a gain that crosses the line pays 15 percent. Selling winners and buying them back the same day realises the gain at 0 percent and raises the basis, with no wash-sale problem, because the rule only applies to losses. The two harvests compete. A loss carried forward must be used against any gains realised first, before it can touch income. So a household that harvests gains at 0 percent spends its banked loss on gains that would have been taxed at nothing anyway, and less of it is left to save tax on income." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "A harvested loss lowers basis: it is worth the rate saved now minus the rate the extra gain pays later.",
           "Losses offset gains, then $3,000 a year of income, and carry forward without limit.",
@@ -77,6 +77,11 @@
       "kind": "technical",
       "title": "IRAs, spouses and the 61-day window",
       "text": "The window is 30 calendar days before the sale, the day of the sale, and 30 calendar days after: 61 days in all. In Revenue Ruling 2008-5, the IRS ruled that buying the replacement shares in a traditional or Roth IRA disallows the loss without increasing the IRA's basis, so the deduction vanishes. Purchases by a spouse, or by a company the seller controls, count as well."
+    },
+    "index-fund": {
+      "kind": "technical",
+      "title": "Index funds",
+      "text": "An index fund is a fund that simply owns every share in a market index, such as the S&P 500, in the proportions of the index itself, rather than paying a manager to pick shares."
     }
   }
 }

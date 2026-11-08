@@ -45,7 +45,7 @@
         },
         {
           "type": "text",
-          "text": "The secret is in a sound piano tuners spend their lives trying to get rid of. Most notes on a piano have two or three strings each, struck together by one hammer. A piano tuner has to get each set exactly in tune with itself. Strange to say, they don't do it by judging the pitch. They listen for something else: a slow swelling and fading in the sound, a wah-wah-wah, which tells them the strings are slightly apart. They turn the tuning pin until it slows, and slows, and stops."
+          "text": "The secret is in a sound piano tuners spend their lives trying to get rid of. Most notes on a piano have two or three strings each, struck together by one hammer. A piano tuner has to get each set exactly in tune with itself. Strange to say, they don't do it by judging the pitch. They listen for something else: a slow swelling and fading in the sound, a wah-wah-wah, which tells them the strings are slightly apart. They turn the tuning pin until the swelling slows down and stops."
         },
         {
           "type": "interactive_diagram",
@@ -57,7 +57,7 @@
         },
         {
           "type": "text",
-          "text": "These are **[[beats]]**. Two tones a few hertz apart drift in and out of step. When their peaks line up they add and the sound swells; half a cycle later (half of one wave's rise and fall) one pushes while the other pulls, they cancel, and it fades. The number of swells a second is simply the difference between the two frequencies: 440 and 443 beat three times a second. It is the most precise tool a tuner has, sensitive to a fraction of a hertz."
+          "text": "These are **[[beats]]**. Two tones a few hertz apart drift in and out of step. When their peaks line up they add and the sound swells; half abeat cycle later, one pushes while the other pulls, they cancel, and the sound fades. The number of swells a second is simply the difference between the two frequencies: 440 and 443 Hz beat three times a second. It is the most precise tool a tuner has, sensitive to a fraction of a hertz."
         }
       ]
     },
@@ -168,7 +168,7 @@
         },
         {
           "type": "text",
-          "text": "These ratios sound smooth together because of their harmonics. A note on 200 Hz has harmonics at 200, 400, 600, 800. A fifth above, 300 Hz, has 300, 600, 900, 1200. They share 600 and 1200, so those harmonics don't beat. Tune the fifth slightly off and the shared harmonics split and beat, and the chord sounds sour. On a piano, tuned in [[equal temperament]], every fifth is left a shade narrow on purpose and beats slowly. This is how tuners set fifths, and it is the start of an answer to why some notes sound good together, which a later lesson takes up.[^fifths]"
+          "text": "These ratios sound smooth together because of their harmonics. A note on 200 Hz has harmonics at 200, 400, 600, 800 Hz. A fifth above, 300 Hz, has 300, 600, 900, 1200 Hz. They share 600 and 1200, so those harmonics don't beat. Tune the fifth slightly off and the shared harmonics split and beat, and the chord sounds sour. On a piano, tuned in [[equal temperament]], every fifth is left a shade narrow on purpose and beats slowly. This is how tuners set fifths, and it is the start of an answer to why some notes sound good together, which a later lesson takes up.[^fifths]"
         },
         {
           "type": "key_ideas",
@@ -391,7 +391,7 @@
     "supersaw": {
       "kind": "digression",
       "title": "The supersaw",
-      "text": "Roland's JP-8000 of 1996 offered a waveform it called the super saw: seven saws spread around the note with a single knob for how far apart. It was copied by nearly every synth that followed. Its tone is a mass of slow, overlapping beats that never repeat, which is why it sounds huge."
+      "text": "Roland's JP-8000, released in early 1997, offered a waveform it called the Super Saw: seven saws spread around the note with a single knob for how far apart. It was copied by nearly every synth that followed. Its tone is a mass of slow, overlapping beats that never repeat, which is why it sounds huge."
     },
     "fifths": {
       "kind": "technical",
@@ -406,7 +406,7 @@
     "solina": {
       "kind": "digression",
       "title": "The Solina String Ensemble",
-      "text": "The Solina was built in the Netherlands in 1974 by Eminent, a maker of home organs, and sold in America by ARP. Inside, a single oscillator bank drove all the keys at once (as in an organ), and a three-line bucket-brigade delay wobbled the pitch in three phases at once to mimic a string section. You can hear it on records by Pink Floyd, Herbie Hancock, Elton John and Air."
+      "text": "The Solina was built in the Netherlands in 1974 by Eminent, a maker of home organs, and sold in America by ARP. Inside, a single top-octave generator and frequency dividers drove all the keys at once (as in an organ), and a three-line bucket-brigade delay wobbled the pitch in three phases at once to mimic a string section. You can hear it on records by Pink Floyd, Herbie Hancock, Elton John and Air."
     }
   },
   "journal": []

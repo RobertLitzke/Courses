@@ -45,7 +45,7 @@
         },
         {
           "type": "text",
-          "text": "It was found by accident. In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a program that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a Leslie, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
+          "text": "It was found by accident. In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a programme that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a spinning organ speaker, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
         },
         {
           "type": "diagram",
@@ -146,7 +146,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A struck bell does not make a stack of harmonics. Its metal shell flexes in several shapes at once, and their frequencies are not whole-number multiples of one note: a well-tuned church bell has a hum tone an octave below the note, a prime on the note, a minor third (which gives bells their faintly sad sound), a fifth and more, and the higher ones drift off any harmonic series.[^bellmodes] Our ears try to fit them to one note and can't, and that failure is the clang. FM with a ratio that puts sidebands between the harmonics does the same, which is why it makes such convincing bells, chimes and electric pianos. This synth's Ratio knob has only whole numbers, so its bells are a near miss: ×3 or ×4 with plenty of amount piles strong, widely spaced lines high above the note, and on a struck envelope the ear hears metal. The sidebands figure above goes further, to a ratio such as ×3.5, where the lines fall between the harmonics and the clang is real."
+          "text": "A struck bell does not make a stack of harmonics. Its metal shell flexes in several shapes at once, and their frequencies are not whole-number multiples of one note: a well-tuned church bell has a hum tone an octave below the note, a prime on the note, a minor third (which gives bells their faintly sad sound), a fifth and more, and the higher ones drift off any harmonic series.[^bellmodes] Our ears try to fit them to one note and can't, and that failure is the clang. FM with a ratio that puts sidebands between the harmonics does the same, which is why it makes such convincing bells, chimes and electric pianos. This synth's Ratio knob has only whole numbers (above ×½), so its bells are a near miss: ×3 or ×4 with plenty of amount piles strong, widely spaced lines high above the note, and on a struck envelope the ear hears metal. The sidebands figure above goes further, to a ratio such as ×3.5, where the lines fall between the harmonics and the clang is real."
         },
         {
           "type": "interactive_diagram",
@@ -180,7 +180,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Stanford patented Chowning's discovery and licensed it to Yamaha in 1973. In 1983 Yamaha put it in the **[[DX7]]**, a keyboard with six sine oscillators per voice and no filter at all. It cost about a fifth of the big analogue synths and sounded like nothing else: glassy electric pianos, punchy basses, bells. It became one of the best-selling synthesizers ever made, and for a few years its preset electric piano was on what feels like every pop ballad.[^royalties]"
+          "text": "Stanford patented Chowning's discovery and licensed it to Yamaha in 1973. In 1983 Yamaha put it in the **[[DX7]]**, a keyboard with six sine oscillators per voice and no filter at all. It cost a fraction of the big polyphonic analogue synths and sounded like nothing else: glassy electric pianos, punchy basses, bells. It became one of the best-selling synthesizers ever made, and for a few years its preset electric piano was on what feels like every pop ballad.[^royalties]"
         },
         {
           "type": "diagram",
@@ -336,7 +336,7 @@
         },
         {
           "type": "text",
-          "text": "A real bell's partials start bright and the high ones die first. The DX7 sends each note's envelope to the FM amount as well, so the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
+          "text": "A real bell's overtones start bright and the high ones die first. The DX7 sends each note's envelope to the FM amount as well, so the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
         }
       ]
     },
@@ -388,7 +388,7 @@
                   "It is too loud"
                 ],
                 "answer": 0,
-                "why": "Bells have partials that aren't whole-number multiples of one note; the ear hears that as a clang."
+                "why": "Bells have overtones that aren't whole-number multiples of one note; the ear hears that as a clang."
               },
               {
                 "ask": "What did the DX7 lack that most earlier synths had?",
@@ -419,7 +419,7 @@
   "summary": [
     "**FM is a vibrato so fast it becomes timbre**, found by Chowning at Stanford in 1967.",
     "**Swinging a carrier's pitch grows sidebands**, spaced by the modulator's frequency; more swing, more sidebands.",
-    "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow, or metallic when the ratio leaves gaps; a ratio such as ×3.5 puts them between the harmonics, a true clang.",
+    "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow, or metallic when the ratio leaves gaps.",
     "**Other ratios put them between harmonics**: a clang, like a bell, whose tones aren't a harmonic series.",
     "**The DX7 (1983) made FM the sound of the 1980s**: six sine oscillators per voice and no filter.",
     "**FM radio is the same mathematics** at a hundred million cycles a second."
@@ -428,12 +428,12 @@
     "chowning": {
       "kind": "digression",
       "title": "Chowning's computer",
-      "text": "Chowning worked on the Stanford Artificial Intelligence Laboratory's computer with Max Mathews's MUSIC programs, which computed sound sample by sample and could take minutes to render seconds of music. Nothing about FM needed special hardware; it was simply a setting nobody had tried."
+      "text": "Chowning worked on the Stanford Artificial Intelligence Laboratory's computer with Max Mathews's MUSIC programmes, which computed sound sample by sample and could take minutes to render seconds of music. Nothing about FM needed special hardware; it was simply a setting nobody had tried."
     },
     "bessel": {
       "kind": "technical",
       "title": "Bessel functions",
-      "text": "Friedrich Bessel worked them out in 1817 for the motion of a planet in an elliptical orbit. The size of the k-th sideband is the Bessel function Jₖ of the index. At an index of about 2.4 the carrier itself vanishes entirely, leaving only sidebands: a trick radio engineers use to calibrate transmitters."
+      "text": "Friedrich Bessel studied them in 1817 for the motion of a planet in an elliptical orbit (Daniel Bernoulli had met the first ones earlier in hanging chains). The size of the k-th sideband is the Bessel function Jₖ of the index. At an index of about 2.4 the carrier itself vanishes entirely, leaving only sidebands: a trick radio engineers use to calibrate transmitters."
     },
     "radio": {
       "kind": "digression",
@@ -443,12 +443,12 @@
     "bellmodes": {
       "kind": "technical",
       "title": "The tones of a bell",
-      "text": "Bell founders tune five main partials in a church bell. Above the hum note come the prime, a minor third (the tierce), a fifth (the quint) and the nominal an octave above the prime; the higher partials no founder can tune fall where the shape puts them. The note we hear as the bell's pitch, the strike note, isn't any one of these: the ear invents it from the pattern."
+      "text": "Bell founders tune five main overtones (or partials) in a church bell. Above the hum note come the prime, a minor third (the tierce), a fifth (the quint) and the nominal an octave above the prime; the higher partials no founder can tune fall where the shape puts them. The note we hear as the bell's pitch, the strike note, isn't any one of these: the ear invents it from the pattern."
     },
     "royalties": {
       "kind": "digression",
       "title": "Stanford's royalties",
-      "text": "The FM patent earned Stanford more than twenty million dollars before it expired in 1994, at the time one of the university's most lucrative licences. Yamaha sold about 200,000 DX7s."
+      "text": "The FM patent earned Stanford more than twenty million dollars before it expired in 1995, at the time the university's second most lucrative licence. Yamaha sold about 200,000 DX7s."
     }
   },
   "journal": []

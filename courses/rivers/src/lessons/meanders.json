@@ -442,11 +442,11 @@
         },
         {
           "type": "text",
-          "text": "King County's farmers in the Kent valley were pleased: the Green still ran past them, but the White's big winter floods no longer did. Pierce County, downstream on the Puyallup, was not, and the two counties argued over it for years. In the end they agreed to keep the river where the jam had sent it, and by about 1915 a concrete diversion at Auburn held the White in its new course, where it still runs. The Duwamish had lost most of its water, which the Seattle branch (S3) follows."
+          "text": "King County's farmers in the Kent valley were pleased: the Green still ran past them, but the White's big winter floods no longer did. Pierce County, downstream on the Puyallup, was not, and the two counties argued over it for years. In the end they agreed to keep the river where the jam had sent it, and by 1915 a concrete diversion wall at Auburn held the White in its new course, where it still runs. The Duwamish, which the Seattle branch (S3) follows, had lost a large share of its water."
         },
         {
           "type": "text",
-          "text": "A pile of logs cannot push a river uphill, so the route south must already have run downhill from Auburn, and the White must have been sitting where a small push could send it either way. Working out how a river comes to sit like that takes a few ideas about how rivers move sideways. The first is hidden in a cup of tea, because water going round a bend behaves like water going round a cup."
+          "text": "A pile of logs cannot push a river uphill, so the route south must already have run downhill from Auburn, and the White must have been sitting where a small push could send it either way. Working out how a river comes to sit like that takes a few ideas about how rivers move sideways. The first is in a cup of tea, because water going round a bend behaves like water going round a cup."
         }
       ]
     },
@@ -467,17 +467,17 @@
         },
         {
           "type": "text",
-          "text": "Albert Einstein explained this in a short paper in 1926, written to answer a question about rivers.[^baer] Spinning water presses outward, so it piles a little higher at the rim than in the middle: the surface of a stirred cup is a shallow dish. Water presses on whatever lies below it with the weight of the water above, so under the higher rim the water is pressed harder at every depth than under the middle. That difference pushes water toward the middle, and it is the same at the top of the cup as at the bottom, because the extra height at the rim is the same above both."
+          "text": "Albert Einstein explained this in a short paper in 1926, written to answer a question about rivers.[^baer] Spinning water presses outward, so it piles a little higher at the rim than in the middle: the surface of a stirred cup is a shallow dish. Water presses on whatever lies below it with the weight of the water above, so under the higher rim the water is pressed harder at every depth than under the middle. That difference pushes water toward the middle, and it is the same near the top of the cup as at the bottom, because the extra height at the rim is the same above both."
         },
         {
           "type": "diagram",
           "id": "meanders-pushes",
-          "caption": "The two pushes on the water at the top and at the bottom of a stirred cup. The push toward the middle (grey) is the same at both depths. The swirl's outward push (red) is strong at the top and weak at the bottom, where friction with the cup slows the water.",
+          "caption": "The two pushes on the water near the top and at the bottom of a stirred cup. The push toward the middle (grey) is the same at both depths. The swirl's outward push (red) is strong near the top and weak at the bottom, where friction with the cup slows the water.",
           "aspect_ratio": 2
         },
         {
           "type": "text",
-          "text": "The other push depends on speed. Water going round a curve pushes outward, more strongly the faster it goes. Near the top the water swirls fast, its outward push beats the inward one, and it moves out. At the bottom the water rubs on the cup and slows down, its outward push weakens, and the inward push wins. So the bottom water creeps inward, carrying the leaves, rises up the middle and turns outward again at the top: a slow loop across the cup, riding on the spin. The water rising in the middle moves too slowly to lift leaves, which are denser than water, so they stay where the bottom flow dropped them."
+          "text": "The other push depends on speed. Water going round a curve pushes outward, more strongly the faster it goes. Near the top the water swirls fast, its outward push beats the inward one, and it moves out. At the bottom the water rubs on the cup and slows down, its outward push weakens, and the inward push wins. So the bottom water creeps inward, carrying the leaves, rises up the middle and turns outward again near the top: a slow loop across the cup, riding on the spin. The water rising in the middle moves too slowly to lift the leaves, which are denser than water, so they stay where the bottom flow dropped them."
         },
         {
           "type": "text",
@@ -714,7 +714,7 @@
                   "The dished surface makes the water deepest in the middle, and leaves settle where the water is deepest"
                 ],
                 "answer": 0,
-                "why": "The higher water at the rim pushes inward equally at every depth. At the top the fast swirl's outward push wins; at the bottom friction slows the water, the inward push wins, and the bottom water flows to the middle with the leaves."
+                "why": "The higher water at the rim pushes inward equally at every depth. Near the top the fast swirl's outward push wins; at the bottom friction slows the water, the inward push wins, and the bottom water flows to the middle with the leaves."
               },
               {
                 "ask": "On a bend of a meandering river, where is the water deepest?",

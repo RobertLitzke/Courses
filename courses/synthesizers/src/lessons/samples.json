@@ -59,7 +59,7 @@
         },
         {
           "type": "text",
-          "text": "On the sample engine, the three knobs take new jobs again, and their names are only names. **Wave** is where in the sample a note starts, and **Timbre** is how much of it plays from there. Start late, and the note skips the breath at the beginning and goes straight into the vowel. Play only a little, and you have a short slice of it. Cutting samples into slices like this is the basis of a great deal of music."
+          "text": "On the sample engine, the three knobs take new jobs again, and their names are only names. **Wave** sets where in the sample a note starts, and **Timbre** sets how much of it plays from there. Start late, and the note skips the breath at the beginning and goes straight into the vowel. Play only a little, and you have a short slice of it. Cutting samples into slices like this is the basis of a great deal of music."
         },
         {
           "type": "interactive_diagram",
@@ -92,11 +92,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In old Westerns a wagon rolls forward, faster and faster, and its spoked wheels seem to slow down, stop and turn backwards. The wheels are fine. The film is the trouble: it takes 24 pictures a second, and when, between one picture and the next, each spoke moves almost all the way to where the next spoke was, it looks as if it moved a little backwards instead."
+          "text": "**The mystery.** In old Westerns a wagon rolls forward, faster and faster, and its spoked wheels seem to slow down, stop and turn backwards. The wheels are fine. The film is the trouble: it takes 24 pictures a second, and when each spoke moves almost all the way to where the next spoke was between one picture and the next, it looks as if it moved a little backwards instead."
         },
         {
           "type": "text",
-          "text": "Sampling a sound does the same thing to a tone. If the tone rises and falls more than once between two samples, the samples can't tell, and they trace out a slower tone that was never there. A recording can only hold tones below half its sample rate. That limit is called the **Nyquist frequency**, after Harry Nyquist of Bell Labs.[^nyquist] A tone above it doesn't disappear. It comes back down, folded under the limit, as a false tone called an **alias**."
+          "text": "Sampling a sound does the same thing to a tone. If the tone rises and falls more than once between two samples, the samples can't tell, and they trace out a slower tone that was never there. A recording can only hold tones below half its sample rate. That limit is called the **Nyquist frequency**, after Harry Nyquist of AT&T.[^nyquist] A tone above it doesn't disappear. It comes back down, folded under the limit, as a false tone called an **alias**."
         },
         {
           "type": "interactive_diagram",
@@ -130,7 +130,7 @@
         },
         {
           "type": "text",
-          "text": "On this engine, **Shape** copies the slow sampling: it lowers the sample rate as the sample plays. Nothing removes the high tones before it does, as a recorder's filter would, so the aliases come through. A little adds a fizzy edge, and a lot turns the voice into a metallic, ringing version of itself. The false tones don't follow the note's pitch the way harmonics do, so a crushed note sounds slightly out of tune with itself."
+          "text": "On this engine, **Shape** copies that slow sampling: it lowers the sample rate as the sample plays. Nothing removes the high tones before it does, as a recorder's filter would, so the aliases come through. A little adds a fizzy edge, and a lot turns the voice into a metallic, ringing version of itself. The false tones don't follow the note's pitch the way harmonics do, so a crushed note sounds slightly out of tune with itself."
         },
         {
           "type": "interactive_diagram",
@@ -271,7 +271,7 @@
     "chipmunk": {
       "kind": "digression",
       "title": "The Chipmunks",
-      "text": "In 1958 Ross Bagdasarian recorded his own voice singing slowly, with the tape running at half speed, and played it back at full speed. It came out an octave higher and twice as fast, and became Alvin and the Chipmunks. Samplers today can change pitch without changing speed, by cutting the sound into tiny pieces and overlapping them, which is the grains of the next lesson."
+      "text": "In 1958 Ross Bagdasarian recorded his own voice singing slowly, with the tape running at half speed, and played it back at full speed. It came out an octave higher and twice as fast, and became Alvin and the Chipmunks. Samplers today can change pitch without changing speed, by cutting the sound into tiny pieces and overlapping them, which are the grains of the next lesson."
     },
     "forty-four-one": {
       "kind": "digression",

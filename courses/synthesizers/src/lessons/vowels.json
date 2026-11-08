@@ -40,11 +40,11 @@
         },
         {
           "type": "text",
-          "text": "The clue is in your own throat. Sing a long “ee” on one comfortable note, then slide to “ah” without changing the note. The pitch stays put. Your throat is making the same buzz at the same rate, yet the sound changes completely. What changed, if not the buzz?"
+          "text": "The clue is in your own throat. Sing a long “ee” on one comfortable note, then slide to “ah” without changing the note. The pitch stays put. Your throat is making the same buzz at the same rate, yet the sound changes completely, because what follows the buzz has changed."
         },
         {
           "type": "text",
-          "text": "In 1779 the Imperial Academy in St Petersburg offered a prize (awarded in 1780) to anyone who could explain the vowels and build a machine to make them. Christian Kratzenstein won it with five oddly shaped tubes, one for each vowel; four were blown through a vibrating reed, and the fifth was simply blown into.[^kratzenstein] The reed was the same in all four; only the shape of the tube after it differed. Kratzenstein had found the answer without quite saying it: a vowel is made not by what buzzes, but by what the buzz passes through."
+          "text": "In 1779 the Imperial Academy of Sciences in St Petersburg offered a prize (awarded in 1780) to anyone who could explain the five vowels and build an instrument to sound them. Christian Kratzenstein won it with five oddly shaped tubes, one for each vowel; four were blown through a vibrating reed, and the fifth, for “i”, was simply blown into like a flute.[^kratzenstein] The reed was the same kind in all four; only the shape of the tube on top differed. Kratzenstein had found the principle without quite knowing why it worked: a vowel comes not from what buzzes, but from the cavity the buzz passes through."
         },
         {
           "type": "text",
@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "The first formant moves mostly with your jaw: open it for “ah” and the peak rises. The second follows your tongue, high when the tongue is forward for “ee”, low when it is pulled back for “oo”. This is why you can still make out a whisper, which has no pitch at all (its source is the hiss of breath, not a buzz, but it passes through the same peaks), and why a parrot, with no lips and a quite different throat, can still be understood: the ear is listening for the peaks, not the buzz."
+          "text": "The first formant moves mostly with your jaw: open it for “ah” and the peak rises. The second follows your tongue, high when the tongue is forward for “ee”, low when it is pulled back for “oo”. This is why you can still make out a whisper, which has no pitch at all (its source is the hiss of breath, not a buzz, though it still passes through the same peaks), and why a parrot, with no lips and a quite different throat, can still be understood: the ear is listening for the peaks, not the buzz."
         },
         {
           "type": "key_ideas",
@@ -106,7 +106,7 @@
         },
         {
           "type": "text",
-          "text": "A low-pass filter on a synth is far cruder than a mouth: one edge instead of two or three peaks. But that edge can move while a note plays, as a mouth does all the time, and that movement is most of what makes a synth sound alive."
+          "text": "A low-pass filter on a synth is far cruder than a mouth: one edge instead of two or three peaks. Yet that edge can move while a note plays, as a mouth does all the time, and that movement is most of what makes a synth sound alive."
         }
       ]
     },
@@ -244,7 +244,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now return to the voice from the start of the lesson. Listen to it against the raw buzz and ask the same question: is it darker, or has it got a peak? Both. Most of the top has gone, and there is a hollow, ringing peak like a formant. So the cutoff comes down and the resonance comes up. How far each goes is for your ear to decide."
+          "text": "Now return to the voice from the start of the lesson, and listen to it against the raw buzz. Most of the top has gone, and a hollow, ringing peak sits in the middle like a formant, so it is both darker and peaked. To match it, bring the cutoff down and the resonance up; how far each goes is for your ear to decide."
         },
         {
           "type": "interactive_diagram",
@@ -280,7 +280,7 @@
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "Wendy Carlos in 1985. Her Switched-On Bach of 1968, played on a Moog modular, made the synthesizer famous, and she made a synthesizer sing through a vocoder for A Clockwork Orange.",
+          "caption": "Wendy Carlos in 1985. Her 1968 album Switched-On Bach, played on a Moog modular, made the synthesizer famous, and she made a Moog sing through her custom vocoder for A Clockwork Orange (1971).",
           "options": {
             "photo": "wendy-carlos",
             "aspect": 0.8,

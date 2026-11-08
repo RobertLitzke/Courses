@@ -17,11 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.2",
+    "version": "0.3",
     "stage": "beta",
-    "date": "2026-11-04",
-    "note": "Every lesson is written: sixteen on how fungi live and three branches, on lichens, Northwest forests and how fungi are named and counted, each with figures you can work. Photos come later.",
+    "date": "2026-11-08",
+    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
     "history": [
+      {
+        "version": "0.2",
+        "stage": "beta",
+        "date": "2026-11-04",
+        "note": "Every lesson is written: sixteen on how fungi live and three branches, on lichens, Northwest forests and how fungi are named and counted, each with figures you can work. Photos come later."
+      },
       {
         "version": "0.1",
         "stage": "beta",

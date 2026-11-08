@@ -5,13 +5,13 @@
   "teaches": "The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level",
   "summary": [
     "**The tide grows on its way into the Sound.** The usual daily range is about 8.5 ft at Port Townsend, 11.4 ft at Seattle, 11.8 ft at Tacoma and 14.6 ft at Olympia.",
-    "**The tide is a long wave.** Its wavelength is hundreds of kilometres, so even the deep ocean is shallow to it, and it travels at √(g h), set by the depth alone.",
+    "**The tide is a long wave.** Its wavelength is thousands of kilometres in the ocean and hundreds in the Sound, so the water is always shallow to it, and it travels at √(g h), set by the depth alone.",
     "**In the Sound the tide wave moves at about 90 km/h.** At about 60 m deep it crosses the 150 km from Admiralty Inlet to Olympia in under two hours.",
     "**The wave bounces off the Sound's closed southern end.** The returning wave adds to the incoming one into a standing wave, like the seiche in lesson 6, with its largest swing at the closed end and a quiet spot a quarter wavelength away.",
     "**A basin a quarter of a wavelength long resonates.** The nearer its length comes to that, the more the range at the closed end grows; the Sound is about half way there, which accounts for most of Olympia's range being 1.7 times Port Townsend's.",
     "**King tides are the year's highest predicted tides.** They come when springs, the Moon's closest approach and the solstice's strong daily wave line up, in winter at Seattle.",
-    "**Weather adds to the prediction.** Every hectopascal of low pressure lifts the sea about a centimetre, and south winds pile more water in; Seattle's record, about 14.5 ft on 27 December 2022, was a king tide raised by stormy low pressure.",
-    "**The sea is rising under the tides.** The Seattle gauge shows about 2 mm a year since 1898, and the rise is expected to speed up; at a faster pace, today's king tide height would become an ordinary high tide this century."
+    "**Weather adds to the prediction.** Every hectopascal of low pressure lifts the sea about a centimetre, and south winds pile more water in; Seattle's record, about 15.1 ft on 27 December 2022, was a king tide raised by stormy low pressure.",
+    "**The sea is rising under the tides.** The Seattle gauge shows about 2 mm a year since 1899, and the rise is expected to speed up; at a faster pace, today's king tide height would become an ordinary high tide this century."
   ],
   "parts": [
     {
@@ -217,7 +217,7 @@
         },
         {
           "type": "text",
-          "text": "At 24 m/s the wave covers 150 km in about 6,000 seconds, a little under two hours. So if the tide simply ran down the Sound, like a wave rolling along a very long beach, high water would reach Olympia nearly two hours after Port Townsend, and the wave would arrive somewhat weaker, worn down by friction against the bottom. Neither is what happens: high water at Olympia trails Port Townsend's by less than that, and the range there is larger. The next part shows why."
+          "text": "At 24 m/s the wave covers 150 km in about 6,000 seconds, a little under two hours. So if the tide simply ran down the Sound, like a wave rolling along a very long beach, high water would reach Olympia nearly two hours after Port Townsend, and the wave would arrive somewhat weaker, worn down by friction against the bottom. Neither is what happens: high water at Olympia trails Port Townsend's by less than that, and the range there is larger."
         },
         {
           "type": "text",
@@ -275,7 +275,7 @@
         },
         {
           "type": "text",
-          "text": "On 27 December 2022 it came together. A high king tide was predicted for that morning, and a stormy spell of low pressure lifted the water above the prediction. The Seattle gauge reached about 14.5 feet above the chart's zero (mean lower low water, from lesson 9), the highest it had recorded since it began in 1898, a little above its previous record from January 1983. Water came over the seawall at Alki and flooded streets and homes in South Park, along the Duwamish."
+          "text": "On 27 December 2022 it came together. A high king tide was predicted for that morning, and a stormy spell of low pressure lifted the water above the prediction. The Seattle gauge reached about 15.1 feet above the chart's zero (mean lower low water, from lesson 9), the highest it had recorded since it began in 1899, above the previous record of about 14.5 feet set only that January. Water came over the seawall at Alki and flooded streets and homes in South Park, along the Duwamish."
         }
       ]
     },
@@ -284,7 +284,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Seattle tide gauge has been measuring the water on the waterfront since 1898, one of the longest records on the Pacific coast. Averaged over the tides and over each year, its sea level has risen about 2 mm a year, about 20 cm (8 inches) a century. A gauge measures the sea against the land it stands on, so if the land sinks the gauge shows more rise, and if it rises, less. Around the world the rise has sped up, from under 2 mm a year through most of the twentieth century to more than 3 mm a year since the 1990s, as warming water expands and land ice melts. Washington's 2018 sea level projections put Seattle's rise by 2100, under continued high emissions, at roughly half a metre to a metre."
+          "text": "The Seattle tide gauge has been measuring the water on the waterfront since 1899, one of the longest records on the Pacific coast. Averaged over the tides and over each year, its sea level has risen about 2 mm a year, about 20 cm (8 inches) a century. A gauge measures the sea against the land it stands on, so if the land sinks the gauge shows more rise, and if it rises, less. Around the world the rise has sped up, from under 2 mm a year through most of the twentieth century to more than 3 mm a year since the 1990s, as warming water expands and land ice melts. Washington's 2018 sea level projections put Seattle's rise by 2100, under continued high emissions, at roughly half a metre to a metre."
         },
         {
           "type": "text",
@@ -293,7 +293,7 @@
         {
           "type": "interactive_diagram",
           "id": "olympia-rise",
-          "caption": "Top: Seattle's sea level, rising about 2 mm a year since 1898 (the gauge's trend, drawn as a line), and three possible rates for the future. Bottom: three ordinary days of a model Seattle tide, lifted by the sea's rise, against the height of today's king tides and the December 2022 record. The dotted line is the average day's higher high water.",
+          "caption": "Top: Seattle's sea level, rising about 2 mm a year since 1899 (the gauge's trend, drawn as a line), and three possible rates for the future. Bottom: three ordinary days of a model Seattle tide, lifted by the sea's rise, against the height of today's king tides and the December 2022 record. The dotted line is the average day's higher high water.",
           "task": "Pick a rate and run the years until an ordinary high tide reaches today's king tides",
           "goal": "reach",
           "aspect_ratio": 1.6
@@ -364,7 +364,7 @@
                 "why": "At a quarter wavelength the basin's own sloshing keeps time with the push at the mouth: resonance. Longer than that, the quiet spot of the standing wave moves inside the basin and the swing at the closed end shrinks."
               },
               {
-                "ask": "Seattle's tide reached about 14.5 ft on 27 December 2022, above that morning's prediction. What added the extra?",
+                "ask": "Seattle's tide reached a record 15.1 ft on 27 December 2022, above that morning's prediction. What added the extra?",
                 "choices": [
                   "Low air pressure lifting the sea",
                   "The Moon at its closest of the year, which predictions leave out",

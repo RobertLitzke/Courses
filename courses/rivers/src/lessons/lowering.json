@@ -13,7 +13,7 @@
     "**The Cedar was turned into the lake in 1912.** Before that it joined the Black River below the lake.",
     "**The Montlake Cut gave the lake a lower outlet.** When the cut opened in 1916 the lake drained west into Lake Union and fell about 2.7 metres (8.8 feet), to Lake Union's level, over about two months.",
     "**The Black River all but dried up.** The lake fell below its bed, so the river was left with only a trickle of rain from its own small valley.",
-    "**The locks at Ballard now set the lake's level.** Since 1917 the Hiram M. Chittenden Locks have held Lake Union and Lake Washington about 6 metres above low tide in the Sound.",
+    "**The locks at Ballard now set the lake's level.** Since 1916 the Hiram M. Chittenden Locks have held Lake Union and Lake Washington about 6 metres above low tide in the Sound.",
     "**Every lockage lets salt water in.** Heavy sea water left in the lock chamber slides out along the bottom of Salmon Bay and creeps upstream as a salt wedge.",
     "**A barrier and a drain keep the salt from the lake.** A barrier on the lock chamber's floor holds salt water back, and a drain on the lake side returns what gets past to the Sound."
   ],
@@ -27,7 +27,7 @@
         },
         {
           "type": "text",
-          "text": "Nobody had dammed the Black River, and the summer had not been unusually dry. What had changed was some 15 km away, at the far north end of the lake, where workmen had just finished cutting a channel through a low neck of land into Lake Union. Lesson 6, on lakes and their layers, looked at what goes on inside a lake. This lesson is about what holds one up. Before reading on, try to explain how a ditch dug at one end of a lake can dry up a river at the other."
+          "text": "Nobody had dammed the Black River, and the summer had not been unusually dry. What had changed was some 15 km away, at the north end of the lake, where workmen had just finished cutting a channel through a low neck of land into Lake Union. Lesson 6, on lakes and their layers, looked at what goes on inside a lake. This lesson is about what holds one up. Before reading on, try to explain how a ditch dug at one end of a lake can dry up a river at the other."
         }
       ]
     },
@@ -40,7 +40,7 @@
         },
         {
           "type": "text",
-          "text": "Before 1916, Lake Washington's lip was at its south end. The lake spilled into the Black River, a short, slow river that wound southwest from Renton and joined the White River near present-day Tukwila; together they became the Duwamish, which ran on to Elliott Bay. The Cedar River did not then flow into the lake at all. It came down through Renton and joined the Black River just below the lake. In 1912, to ease Renton's floods and to give the planned canal more water, the Cedar was turned north into a new channel straight into the lake."
+          "text": "Before 1916, Lake Washington's lip was at its south end. The lake spilled into the Black River, a short, slow river that wound southwest from Renton and joined the White River (now the Green River) near present-day Tukwila;[^white-river] together they became the Duwamish, which ran on to Elliott Bay. The Cedar River did not then flow into the lake at all. It came down through Renton and joined the Black River just below the lake. In 1912, to ease Renton's floods and to give the planned canal more water, the Cedar was turned north into a new channel straight into the lake."
         },
         {
           "type": "text",
@@ -604,7 +604,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Montlake Cut was dug on dry ground, with a strip of earth left at its east end as a temporary dam, a cofferdam, to hold Lake Washington back while the work went on.[^cofferdam] In late August 1916 the cofferdam was opened and the lake began to pour west into Lake Union, through a channel dug far below the Black River's bed. From that day the lake had a new lip, 2.7 metres lower than the old one."
+          "text": "The Montlake Cut was dug on dry ground, with a strip of earth left at each end as a temporary dam, a cofferdam, to hold the lakes back while the work went on.[^cofferdam] First the west cofferdam was opened to let Lake Union into the cut; then, in late August 1916, the east one was opened and Lake Washington began to pour west into Lake Union, through a channel dug far below the Black River's bed. From that day the lake had a new lip, 2.7 metres lower than the old one."
         },
         {
           "type": "diagram",
@@ -651,7 +651,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The locks at Ballard, named for Hiram M. Chittenden, the Army engineer who planned them, were formally opened on 4 July 1917. Since then they, not any natural lip, have set the level of Lake Union and Lake Washington: about 6 metres above low tide in the Sound, let down a little each autumn to make room for winter rain and raised again in spring.[^datum] The Sound's tide at Seattle rises and falls about 3.5 metres (11 feet) between an ordinary low and high, and more at the biggest tides, so the lift from the Sound to the lake runs from about 2 metres at a high tide to about 8 at a very low one."
+          "text": "The locks at Ballard, named for Hiram M. Chittenden, the Army engineer who planned them, opened to boats in August 1916 and had their formal opening on 4 July 1917. Since then they, not any natural lip, have set the level of Lake Union and Lake Washington: about 6 metres above low tide in the Sound, let down a little each autumn to make room for winter rain and raised again in spring.[^datum] The Sound's tide at Seattle rises and falls about 3.5 metres (11 feet) between an ordinary low and high, and more at the biggest tides, so the lift from the Sound to the lake runs from about 2 metres at a high tide to about 8 at a very low one."
         },
         {
           "type": "diagram",
@@ -677,7 +677,7 @@
         },
         {
           "type": "text",
-          "text": "Two works keep it out. On the floor of the large lock, near the upper gates, is a barrier that can be raised to hold back the bottom layer of salt water when those gates open. A little way above the locks, on the lake side, a large pipe opening on the bed of Salmon Bay, the saltwater drain, draws off the salty bottom water that gets past and sends it back into the Sound below the locks. Even so, a thin layer of salt water reaches some way up the canal in late summer, when the rivers feeding the lake run low and little fresh water flows out past the locks to push it back."
+          "text": "Two works keep it out. On the floor of the large lock, near the upper gates, is a barrier that can be raised to hold back the bottom layer of salt water when those gates open. Just above the locks, on the lake side, a deep basin in the bed of Salmon Bay catches the salty bottom water that gets past, and a large pipe, the saltwater drain, draws it off and sends it back into the Sound below the locks. Even so, a thin layer of salt water reaches some way up the canal in late summer, when the rivers feeding the lake run low and little fresh water flows out past the locks to push it back."
         },
         {
           "type": "text",
@@ -787,6 +787,11 @@
       "kind": "technical",
       "title": "Measured from low tide",
       "text": "A datum is the zero a height is measured from. At the locks it is close to the average of the lower of each day's two low tides in the Sound. On that scale Lake Washington is held between about 20 feet (6.1 m) in winter and about 22 feet (6.7 m) in summer."
+    },
+    "white-river": {
+      "kind": "digression",
+      "title": "The White and the Green",
+      "text": "Until 1906 the White River flowed north through Auburn to join the Green River, and their combined channel below Auburn was called the White River all the way to the Black River at Tukwila. In November 1906 a flood and logjam diverted the White permanently south into the Puyallup River towards Tacoma. Today the river that meets the old Black River channel at Tukwila is called the Green River."
     }
   }
 }

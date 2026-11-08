@@ -1,9 +1,9 @@
 {
   "title": "Clouds",
-  "subtitle": "What are they up to?",
+  "subtitle": "Reading the sky",
   "department": "Earth Sciences",
   "order": 1,
-  "summary": "Learn to name every cloud you see, then work out why it formed and what it says about tomorrow. A halo round the Sun can mean rain within a day; towers at ten in the morning can mean a storm by four. Branches go into Northwest winter rain, tornadoes and hurricanes, and the 1946 attempts to make it rain with dry ice. A sky simulator and a stack of real photographs give you something to practise on.",
+  "summary": "Learn to name the clouds overhead, then work out why they formed and what they say about tomorrow's weather. A 22° halo round the Sun can mean rain within a day; towers at ten in the morning can mean a storm by four; a dark thin cloud will leave you dry when a deep pale one soaks you. Four branches follow the wind into the Pacific Northwest's winter rain and quiet coasts, tornadoes and hurricanes, weeks-long valley fog and hot Santa Ana winds, and the 1946 experiments that tried to make it rain with dry ice.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "clouds.save",

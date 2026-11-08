@@ -157,12 +157,12 @@
         },
         {
           "type": "text",
-          "text": "The same wind does something larger and slower out of sight. Pushing the warm top layer to the downwind end piles warm water up there, so the thermocline sinks at that end and rises at the upwind end. Because the warm and cold layers differ in density by only about two parts in a thousand, it takes very little push to tilt the boundary between them. In the figure's model, a day of 5 m/s wind (about 11 mph) raises the surface at the downwind end by about 2 millimetres and pushes the thermocline down there by nearly 4 metres, the opposite way and well over a thousand times as far. After a strong wind that blows along the lake for a day, the thermocline at the upwind end can rise all the way to the surface, and swimmers there find the lake suddenly cold. Before you play the figure, guess which end the thermocline sits deeper at while the wind blows."
+          "text": "The same wind does something larger and slower out of sight. Pushing the warm top layer to the downwind end piles warm water up there, so the thermocline sinks at that end and rises at the upwind end. Because the warm and cold layers differ in density by only about two parts in a thousand, it takes very little push to tilt the boundary between them. In the figure's model, a day of 5 m/s wind (about 11 mph) raises the surface at the downwind end by about 2 millimetres and pushes the thermocline down there by nearly 4 metres, the opposite way and well over a thousand times as far. After a strong wind that blows along the lake for a day, the thermocline at the upwind end can rise all the way to the surface, and swimmers there find the lake suddenly cold. Before you play the figure, guess at which end the thermocline sits deeper while the wind blows."
         },
         {
           "type": "interactive_diagram",
           "id": "lake-seiche",
-          "caption": "A summer lake cut along its length: orange warm water over blue cold, with the thermocline the boundary between them. The chips choose to watch the first 3 hours or the first 4 days; the sliders set the wind that blew for a day and the time since it dropped. The surface's tilt is drawn 200 times larger than it is; the thermocline's is drawn true. A model of a box 35 km long and 33 m deep, with a warm layer 10 m thick.",
+          "caption": "A summer lake cut along its length: orange warm water over blue cold, with the thermocline the boundary between them. The buttons choose the first 3 hours or the first 4 days; the sliders set the wind that blew for a day and the time since it dropped. The surface's tilt is drawn 200 times larger than it is; the thermocline's is drawn true. A model of a box 35 km long and 33 m deep, with a warm layer 10 m thick.",
           "task": "Guess, then watch the thermocline swing back over four days",
           "goal": "slosh",
           "aspect_ratio": 1.74

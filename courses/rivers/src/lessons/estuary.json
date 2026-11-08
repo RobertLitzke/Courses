@@ -304,7 +304,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "If that were all, the Sound would be layered like a summer lake: a warm, fresh skin on top and cold salt water below, holding apart. It isn't, because of the sills. At Admiralty Inlet the floor rises so that the deepest channel over the sill is only about 60 metres deep, between the deep water of the Strait and the deep Main Basin behind it. Twice a day the tide drags all of that water over the rise, top to bottom, at a few knots (lesson 11), and it tumbles and churns as it goes. The two layers are stirred into each other. Tacoma Narrows, at the entrance to South Sound, does the same."
+          "text": "If that were all, the Sound would be layered like a summer lake: a warm, fresh skin on top and cold salt water below, holding apart. It isn't, because of the sills. At Admiralty Inlet the floor rises so that the deepest channel over the sill is only about 65 metres deep, between the deep water of the Strait and the deep Main Basin behind it. Twice a day the tide drags all of that water over the rise, top to bottom, at a few knots (lesson 11), and it tumbles and churns as it goes. The two layers are stirred into each other. Tacoma Narrows, at the entrance to South Sound, does the same."
         },
         {
           "type": "text",
@@ -312,7 +312,7 @@
         },
         {
           "type": "text",
-          "text": "Stirring is also what keeps the surface cold. **An estimate.** Energy is counted in joules; a watt is one joule each second. In July the sunlight reaching the Sound averages about 250 watts on each square metre, counting day and night together. Over a week, 604,800 seconds, that is about 150 million joules on each square metre. Warming a cubic metre of water by one degree takes about 4 million joules. Kept in the top 5 metres, as in a calm lake, a week of sunshine could warm that layer by about 7 °C, before counting the heat the surface gives back to the air and sky. Stirred through the full 60 metres over the sill, the same heat warms the whole column by about half a degree. The sill takes the summer's heat and spreads it too thin for the surface to warm the way a lake does."
+          "text": "Stirring is also what keeps the surface cold. **An estimate.** Energy is counted in joules; a watt is one joule each second. In July the sunlight reaching the Sound averages about 250 watts on each square metre, counting day and night together. Over a week, 604,800 seconds, that is about 150 million joules on each square metre. Warming a cubic metre of water by one degree takes about 4 million joules. Kept in the top 5 metres, as in a calm lake, a week of sunshine could warm that layer by about 7 °C, before counting the heat the surface gives back to the air and sky. Stirred through the full 65 metres over the sill, the same heat warms the whole column by about half a degree. The sill takes the summer's heat and spreads it too thin for the surface to warm the way a lake does."
         },
         {
           "type": "text",
@@ -437,12 +437,12 @@
         },
         {
           "type": "text",
-          "text": "The best-known wedge in Seattle is one people made. The Ballard Locks, opened in 1917, lift ships from the salt water of Salmon Bay to the fresh water of the Lake Washington Ship Canal and Lake Union. Every time the large lock opens to the canal it lets out a lock full of salt water, which slides along the canal bed toward Lake Union like a wedge with no river strong enough to stop it. Left alone, the salt would build up in the bottom of Lake Union and beyond. The engineers' answer uses the same physics as the glass in the kitchen: salt water lies on the bottom, so it can be caught there. A barrier on the floor of the large lock holds much of it back, and a drain in the canal bed just above the locks collects salt water that gets past and pipes it back to Salmon Bay below the locks. The Seattle branch (S2) tells the story of the locks."
+          "text": "The best-known wedge in Seattle is one people made. The Ballard Locks, opened in 1917, lift ships from the salt water of Puget Sound to the fresh water of Salmon Bay, the Lake Washington Ship Canal and Lake Union. Every time the large lock opens to the canal it lets out a lock full of salt water, which slides along the canal bed toward Lake Union like a wedge with no river strong enough to stop it. Left alone, the salt would build up in the bottom of Lake Union and beyond. The engineers' answer uses the same physics as the glass in the kitchen: salt water lies on the bottom, so it can be caught there. A sunken basin and drain in the canal bed just above the locks collect salt water that enters and pipe it back to Puget Sound below the locks, while a barrier on the drain's upstream side holds the salt until it goes out. The Seattle branch (S2) tells the story of the locks."
         },
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "The Ballard Locks (the Hiram M. Chittenden Locks) between Salmon Bay and the Lake Washington Ship Canal.",
+          "caption": "The Ballard Locks (the Hiram M. Chittenden Locks) between Puget Sound and Salmon Bay, at the west end of the Lake Washington Ship Canal.",
           "options": {
             "photo": "ballard-locks",
             "aspect": 1.5
@@ -451,7 +451,7 @@
         {
           "type": "diagram",
           "id": "estuary-locks",
-          "caption": "The Ballard Locks from the side, not to scale. Salt water that gets past the large lock slides along the bottom of the canal and is caught by a drain."
+          "caption": "The Ballard Locks from the side, not to scale. Salt water that enters through the large lock slides along the bottom of the canal and is caught by a basin and drain."
         }
       ]
     },

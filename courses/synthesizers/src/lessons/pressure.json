@@ -317,7 +317,7 @@
     "poly": {
       "kind": "digression",
       "title": "Each key on its own",
-      "text": "Pressure for each key separately is called polyphonic aftertouch. The Yamaha CS-80 of 1977 had it, and players of the CS-80 still talk about it, but it was expensive to build and rare for decades. It has come back with keyboards that sense each finger in two or three directions at once, and with a newer version of MIDI written to carry them."
+      "text": "Pressure for each key separately is called polyphonic aftertouch. The Yamaha CS-80 of 1977 had it, and players of the CS-80 still talk about it, but it was expensive to build and rare for decades. It has come back with keyboards that sense each finger in two or three directions at once, and with an extension to MIDI written to carry all three."
     },
     "wheels": {
       "kind": "digression",

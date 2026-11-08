@@ -64,7 +64,7 @@
         },
         {
           "type": "text",
-          "text": "The switch picks the **engine**: the way the oscillator makes its wave. A great many modern synths work this way. Their oscillator is a small computer program, not a circuit, so it can be any of a dozen kinds of oscillator. A panel can't carry a dozen sets of knobs, so it carries three, and the engine decides what each one does.[^names]"
+          "text": "The switch picks the **engine**: the way the oscillator makes its wave. A great many modern synths work this way. Their oscillator is a small computer programme, not a circuit, so it can be any of a dozen kinds of oscillator. A panel can't carry a dozen sets of knobs, so it carries three, and the engine decides what each one does.[^names]"
         }
       ]
     },
@@ -130,7 +130,7 @@
         },
         {
           "type": "text",
-          "text": "Listen on the way past. A wave that is partly saw and partly square is buzzy, but less so than a saw. Between triangle and sine, the last few harmonics fade one at a time. Morphing is gentle, and its jobs are much like the classic oscillator's jobs. The next engine is not like that at all."
+          "text": "Listen on the way past. A wave that is partly saw and partly square is buzzy, but less so than a saw. Between triangle and sine, the last few harmonics fade one at a time. Morphing is gentle, and its jobs are much like the classic oscillator's jobs. The next engine is very different."
         }
       ]
     },
@@ -139,7 +139,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In the 1960s two people built the first modular synthesizers, on opposite coasts of the United States, and never agreed on how a sound should be made. In New York, [[Robert Moog]] started with a bright wave and took harmonics away with a filter. That is the subtractive synth this course has been about. In California, [[Don Buchla]] mostly started with a plain wave and added harmonics to it. One of his ways of adding them was to fold the wave."
+          "text": "**The mystery.** In the 1960s two people built the first modular synthesizers, on opposite coasts of the United States, and never agreed on how a sound should be made. In New York State, [[Robert Moog]] started with a bright wave and took harmonics away with a filter. That is the subtractive synth this course has been about. In California, [[Don Buchla]] mostly started with a plain wave and added harmonics to it. One of his ways of adding them was to fold the wave."
         },
         {
           "type": "diagram",

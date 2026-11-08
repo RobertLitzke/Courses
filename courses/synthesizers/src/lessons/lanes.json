@@ -91,7 +91,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The other way to stop a loop sounding like a loop is to let it change itself, a little. Some sequencers have a pair of controls for this.[^spice-dice] **Dice** works out a new set of small changes to the pattern: a note dropped here, an octave jump there, an accent moved. **Spice** sets how many of those changes are heard, from none to all of them. Turn Spice up, then roll the Dice until you like what you hear. (On the MicroFreak, Dice is a button and the touch strip sets the Spice.)"
+          "text": "The other way to stop a loop sounding like a loop is to let it change itself, a little. Some sequencers have a pair of controls for this.[^spice-dice] **Dice** works out a new set of small changes to the pattern: a note dropped here, an octave jump there, an accent moved. **Spice** sets how many of those changes are heard, from none to all of them. Turn Spice up, then roll the Dice until you like what you hear. (On the MicroFreak, both sit on the touch strip.)"
         },
         {
           "type": "interactive_diagram",
@@ -255,12 +255,12 @@
     "spice-dice": {
       "kind": "digression",
       "title": "Spice and Dice",
-      "text": "The names Spice and Dice come from Arturia's MicroFreak (2019) and its step sequencer, where a touch strip controls the amount of variation after a roll. Other instruments give the same idea other names: Mutable Instruments' Marbles module lets you lock a random loop in place with a Deja Vu knob, and Music Thing Modular's Turing Machine (2012) shifts random bits round a loop that only changes when you let new bits in."
+      "text": "The names Spice and Dice come from Arturia's KeyStep Pro (2020) and MicroFreak (2019), where a touch strip controls the amount of variation after a roll. Other instruments give the same idea other names: Mutable Instruments' Marbles module (2018) lets you lock a random loop in place with a Deja Vu knob, and Music Thing Modular's Turing Machine (2012) shifts random bits round a loop that only changes when you let new bits in."
     },
     "ratchet": {
       "kind": "digression",
       "title": "Ratcheting",
-      "text": "Ratcheting takes its name from Tangerine Dream's Christopher Franke, who in the 1970s wired his Moog sequencer so that selected steps were clocked at a faster subdivision, firing a burst of thirty-second notes inside a sixteenth-note pattern."
+      "text": "Ratcheting is closely associated with Tangerine Dream's Christopher Franke, who in the 1970s wired his Moog sequencer so that selected steps were clocked at a faster subdivision, firing a burst of thirty-second notes inside a sixteenth-note pattern."
     }
   },
   "journal": []

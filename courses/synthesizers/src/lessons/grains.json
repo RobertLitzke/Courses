@@ -100,7 +100,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A grains engine takes its grains from one place in a sample. **Wave** is that place. Move it and the grains come from a different part of the recording, and the grains themselves play no faster or slower: you can stop at a single vowel and hold it as long as you like, or scrub slowly through the whole word. **Timbre** is the grain size, from about 12 **ms** (milliseconds, thousandths of a second) at 0 to 200 ms at full; 30 ms is about a third of the way up, and 100 ms about three quarters. **Shape** turns up two things together: the **density**, how many grains start each second, and the **scatter**, how widely their places spread around Wave. As before, the names are only names; Timbre here isn't the tone colour of lesson 1."
+          "text": "A grains engine takes its grains from one place in a sample. **Wave** is that place. Move it and the grains come from a different part of the recording, while the grains themselves play no faster or slower: you can stop at a single vowel and hold it as long as you like, or scrub slowly through the whole word. **Timbre** is the grain size, from about 12 **ms** (milliseconds, thousandths of a second) at 0 to 200 ms at full; 30 ms is about a third of the way up, and 100 ms about three quarters. **Shape** turns up two things together: the **density**, how many grains start each second, and the **scatter**, how widely their places spread around Wave. As before, the names are only names; Timbre here isn't the tone colour of lesson 1."
         },
         {
           "type": "interactive_diagram",
@@ -121,7 +121,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Because each grain is a new copy taken from the same place, the grains engine separates the two things the simple sampler of the last lesson ties together: how fast the sound moves through the recording, and its pitch. Playing a key higher plays each grain faster, so the pitch rises, but the place they come from doesn't move faster. That is how modern samplers change pitch without the chipmunk, and how a recording can be stretched to ten times its length."
+          "text": "Because each grain is a new copy taken from the same place, the grains engine separates the two things the simple sampler of the last lesson ties together: how fast the sound moves through the recording, and its pitch. Playing a higher key plays each grain faster, so the pitch rises, but the place they come from doesn't move faster. That is how modern samplers change pitch without the chipmunk effect, and how a recording can be stretched to ten times its length."
         },
         {
           "type": "interactive_diagram",
@@ -161,7 +161,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the frozen voice from the start of the lesson. The figure starts on the plain saw of the classic oscillator; switch the Engine to grains, which brings in the sung \"wow\" in place of the saw. Then set the place in the sample with Wave, the grain size with Timbre, and few grains, all from the same spot, with Shape."
+          "text": "Now make the frozen voice from the start of the lesson. The figure starts on the plain saw of the classic oscillator; switch the Engine to grains, which brings in the sung \"wow\" in place of the saw. Then set the place in the sample with Wave, the grain size with Timbre, and a low density and scatter with Shape so that few grains play, all from the same spot."
         },
         {
           "type": "interactive_diagram",
@@ -263,18 +263,18 @@
     "**Wave is where the grains come from**; moving it scrubs through the recording at any speed.",
     "**Grain size decides what you hear**: long grains are bits of the sound, short ones are texture.",
     "**Shape sets density and scatter**: how thick and how smeared the cloud is.",
-    "**Grains separate pitch from speed**: a sound can be frozen, stretched or pitched without the chipmunk."
+    "**Grains separate pitch from speed**: a sound can be frozen, stretched or pitched without the chipmunk effect."
   ],
   "footnotes": {
     "roads": {
       "kind": "digression",
       "title": "A day’s computing",
-      "text": "Curtis Roads's first granular piece, made at the University of California, San Diego in 1974, was computed on a mainframe fed with punched cards, and took far longer to compute than to play. Barry Truax made granular synthesis run in real time in the mid 1980s, and now a phone can play hundreds of grains a second."
+      "text": "Curtis Roads's first granular study, made at the University of California, San Diego in 1974, was computed on a mainframe fed with punched cards, and took far longer to compute than to play. Barry Truax made granular synthesis run in real time in 1986, and now a phone can play hundreds of grains a second."
     },
     "gabor-limit": {
       "kind": "technical",
       "title": "The Gabor limit",
-      "text": "Gabor borrowed the mathematics directly from Werner Heisenberg's uncertainty principle in quantum mechanics. A wave's duration in time and its spread in frequency are tied together by the Fourier transform: multiply the two spreads together and the answer can never be smaller than a fixed minimum, found when the grain is a sine wave faded in and out along a bell-shaped curve."
+      "text": "Gabor borrowed the mathematics directly from Werner Heisenberg's uncertainty principle in quantum mechanics. A wave's duration in time and its spread in frequency are tied together by the Fourier transform: multiply the two spreads together and the answer can never be smaller than a fixed minimum, reached when the grain is a sine wave faded in and out along a bell-shaped curve."
     }
   },
   "journal": []

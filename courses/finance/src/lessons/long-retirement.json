@@ -79,7 +79,7 @@
   ],
   "footnotes": {
     "sixty": { "kind": "technical", "title": "Sixty years", "text": "The figure stops at fifty years because a 60-year retirement needs 60 years of data after it begins, so the last start in the record is 1963. The 60-year results miss the late 1960s, the worst starts of all, and can look better than the 50-year ones for that reason alone." },
-    "cape": { "kind": "technical", "title": "Shiller's data", "text": "Robert Shiller published the CAPE in his 2000 book Irrational Exuberance, which came out in March 2000 as the dot-com bubble peaked, and he keeps the monthly series on his Yale website. This course's returns are built from the same series." },
+    "cape": { "kind": "technical", "title": "Shiller's data", "text": "Robert Shiller developed the ten-year earnings ratio with John Campbell in 1988 and popularised it in his book Irrational Exuberance, which came out in March 2000 as the dot-com bubble peaked. He keeps the monthly series on his Yale website, and this course's returns are built from the same series." },
     "cape-shifts": {
       "kind": "technical",
       "title": "Why the CAPE drifted up",

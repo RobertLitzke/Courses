@@ -10,7 +10,7 @@
       "title": "A state with no income tax",
       "blocks": [
         { "type": "text", "text": "Washington is one of the few states with no general income tax, and for a retiree that covers most of what the main course taxed. IRA withdrawals, Roth conversions, Social Security, pensions, interest and dividends: the state taxes none of them. Every figure in lessons 7 to 14 counted federal tax alone for that reason." },
-        { "type": "text", "text": "The state collects its money in other ways. The sales tax is 6.5 percent at state level plus local rates, over 10 percent in Seattle, and it falls heavily on spending, which is what a retiree's income mostly becomes. Property tax, set county by county, runs at roughly 1 percent of a home's assessed value a year. Businesses pay a tax on gross receipts.[^bo] And since 2022 there has been one tax that looks like an income tax: a tax on long-term capital gains." },
+        { "type": "text", "text": "The state collects its money in other ways. The sales tax is 6.5 percent at the state level plus local rates, over 10 percent in Seattle, and it falls heavily on spending, which is what a retiree's income mostly becomes. Property tax, set county by county, runs at roughly 1 percent of a home's assessed value a year. Businesses pay a tax on gross receipts.[^bo] And since 2022 there has been one tax that looks like an income tax: a tax on long-term capital gains." },
         { "type": "text", "text": "Most retirees take the federal standard deduction, so the next point rarely matters. Someone who instead **itemises**, listing their actual deductible costs on the federal return, can deduct state sales tax in place of the state income tax they don't pay. All state and local taxes deducted together are capped, at $40,400 in 2026, and the cap shrinks for incomes above about $500,000." }
       ]
     },
@@ -18,7 +18,7 @@
       "title": "The tax on gains",
       "blocks": [
         { "type": "text", "text": "Washington's capital gains tax is 7 percent of a year's long-term gains on shares, bonds and funds above Washington's own standard deduction, separate from the federal one: $278,000 for 2025, raised each year with inflation, so a little higher for 2026. A further 2.9 percent, 9.9 in all, applies to gains more than $1 million above the deduction. The deduction is per household: a married couple shares one, whether they file together or apart." },
-        { "type": "text", "text": "Much is outside it. Gains on real estate are exempt, so the sale of a house or a rental pays nothing. Gains inside IRAs, 401(k)s and Roth accounts are never counted, and withdrawals from them are income, not gains. Short-term gains are out too, as is the sale of a qualifying family-owned small business, and farms and timber.[^excluded]" },
+        { "type": "text", "text": "Much is outside it. Gains on real estate are exempt, so the sale of a house or a rental pays nothing. Gains inside IRAs, 401(k)s and Roth accounts are never counted, and withdrawals from them are income, not gains. Short-term gains are out too, as is the sale of a qualifying family-owned small business, or of livestock and timber.[^excluded]" },
         { "type": "interactive_diagram", "id": "wa-gains", "caption": "The federal and Washington tax on a year's long-term gains on shares, for a couple with no other income, under the 2025 Washington deduction.", "task": "Guess, then try a gain below the deduction and one above it", "goal": "wa-gains", "aspect_ratio": 2.27 },
         { "type": "text", "text": "For most retirees the deduction is high enough that the tax never applies. Lesson 10's gain harvesting fills the federal 0 percent band, about $100,000 of gains for a couple, far below Washington's line. The tax bites when one year holds a very large gain: a concentrated stock position sold at once, or shares in a business too large to qualify for the family-business exemption. Spreading such a sale across several years uses the deduction several times, as long as the price risk of waiting is acceptable." }
       ]
@@ -26,9 +26,9 @@
     {
       "title": "The tax on incomes above $1 million",
       "blocks": [
-        { "type": "text", "text": "In March 2026 the legislature passed a tax of 9.9 percent on household income above $1 million, starting in 2028. It begins from federal adjusted gross income, so IRA withdrawals, Roth conversions, wages and investment income all count; gains on real estate don't, since they are outside the state's gains tax too. Any capital gains tax already paid is credited against it, dollar for dollar, so the two don't stack on the same gains. A married couple shares one $1 million deduction." },
-        { "type": "text", "text": "Its future was undecided when this lesson was written: a lawsuit challenges it under the state constitution, and a ballot initiative on 3 November 2026 asked voters to repeal it and forbid any state income tax.[^uniformity] Check whether it survived before planning around it." },
-        { "type": "text", "text": "Few households reach $1 million of income in a year, but a retiree can create one. Converting a whole pre-tax balance to Roth in a single year, or a large one-time sale, could cross the line. If the tax stands, the main course's habit of spreading conversions and sales over many years gains one more reason." }
+        { "type": "text", "text": "In March 2026 the legislature passed a tax of 9.9 percent on household income above $1 million, starting in 2028. It begins from federal adjusted gross income, so IRA withdrawals, Roth conversions, wages and investment income all count; gains on real estate might be excluded if they are exempt from the state's gains tax. Any capital gains tax already paid is credited against it, dollar for dollar, so the two don't stack on the same gains. A married couple shares one $1 million deduction." },
+        { "type": "text", "text": "Its future was undecided when this lesson was written: a lawsuit challenges it under the state constitution, and a ballot initiative for 3 November 2026 asks voters to repeal it and forbid any state income tax.[^uniformity] Check whether it survived before planning around it." },
+        { "type": "text", "text": "Few households reach $1 million of income in a year, but a retiree can create that much. Converting a whole pre-tax balance to Roth in a single year, or making a large one-time sale, could cross the line. If the tax stands, the main course's habit of spreading conversions and sales over many years gains one more reason." }
       ]
     },
     {
@@ -60,7 +60,7 @@
   ],
   "summary": [
     "**Washington taxes spending and property, not ordinary income.** Pensions, withdrawals, conversions and dividends all escape state tax; only large gains are taxed.",
-    "**Long-term gains on shares are the exception.** 7 percent above a household deduction of $278,000 in 2025, and 9.9 above about $1.3 million.",
+    "**Long-term gains on shares are the exception.** They pay 7 percent above a household deduction of $278,000 in 2025, and 9.9 above about $1.3 million.",
     "**Houses and retirement accounts are exempt from it.** Most retirees never reach the deduction.",
     "**A tax on incomes above $1 million is due from 2028.** If it survives the courts and the voters, large single-year conversions become dearer.",
     "**Moving states changes the course's arithmetic.** In most other states, conversions and withdrawals pay state income tax as well.",

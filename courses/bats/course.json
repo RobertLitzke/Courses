@@ -3,7 +3,7 @@
   "subtitle": "Seeing with sound",
   "department": "Life Sciences",
   "order": 13,
-  "summary": "In 1793 Lazzaro Spallanzani blinded bats and found they still flew round a room strung with threads. Nobody could say how until 1938, when a Harvard undergraduate, Donald Griffin, held bats up to a physicist's ultrasonic detector and heard them calling. The course follows the calls from there: why they are so high, how a bat closing on a moth speeds up to 200 a second, and how some moths jam them. Two branches take you outside, to the bats over Green Lake at dusk and to a detector you can build.",
+  "summary": "In 1793 Lazzaro Spallanzani blinded bats and found they still flew round a room strung with threads. Nobody could say how until 1938, when a Harvard undergraduate, Donald Griffin, held bats up to a physicist's ultrasonic detector and heard them calling. The course follows the calls from there, including why a bat closing on a moth speeds up to 200 calls a second and how tiger moths click back to jam them, before turning to how two grams of fat last a little brown bat the winter and why vampire bats feed hungry roost-mates. Three branches take you to a breadboard detector you can build, the fifteen species of Washington State at dusk over Green Lake, and the 1943 bat bomb.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "bats.save",
@@ -17,10 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.1",
+    "version": "0.2",
     "stage": "beta",
-    "date": "2026-11-07",
-    "note": "First numbered version.",
-    "history": []
+    "date": "2026-11-08",
+    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
+    "history": [
+      {
+        "version": "0.1",
+        "stage": "beta",
+        "date": "2026-11-07",
+        "note": "First numbered version."
+      }
+    ]
   }
 }

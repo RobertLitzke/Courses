@@ -86,12 +86,12 @@
     "ball": {
       "kind": "digression",
       "title": "Darwin's lost continent",
-      "text": "Darwin had just read a lecture by the Irish botanist John Ball, who thought flowering plants had evolved on high mountains. Darwin disagreed in his letter to Hooker and floated instead \"some isolated island, or whole continent, now sunk in the sea\", perhaps toward the South Pole, where they could have developed out of reach of the fossil beds we know."
+      "text": "Darwin had just read a lecture by the Irish botanist John Ball, who thought flowering plants had evolved on high mountains. Darwin disagreed in his letter to Hooker and offered instead \"a small isolated continent in the S. hemisphere, which served as the birth place of the higher plants\", where they could have developed out of reach of the fossil beds we know, though he called it \"a wretchedly poor conjecture\"."
     },
     "rbcl": {
       "kind": "technical",
       "title": "The chloroplast gene",
-      "text": "The gene was *rbcL*, which sits in the chloroplast, the green body inside a plant cell that carries a small ring of DNA of its own. It encodes half of RuBisCO, the enzyme that grabs carbon dioxide from the air in photosynthesis. Every green plant has it, and because the job barely allows mistakes, the gene changes slowly enough to compare across all seed plants."
+      "text": "The gene was *rbcL*, which sits in the chloroplast, the green body inside a plant cell that carries a small ring of DNA of its own. It encodes the large subunit of RuBisCO, the enzyme that grabs carbon dioxide from the air in photosynthesis. Every green plant has it, and because the job barely allows mistakes, the gene changes slowly enough to compare across all seed plants."
     }
   }
 }

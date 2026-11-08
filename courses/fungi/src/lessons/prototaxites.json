@@ -19,11 +19,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 1843 the geologist William Logan, mapping the Gaspé peninsula of Quebec, found great fossil logs in the sea cliffs, some nearly a metre across, in rocks then thought to be far too old for trees, from before land plants had grown large. Sixteen years later the Canadian geologist John William Dawson described them. Under the microscope their cut faces showed long tubes, and Dawson took the tubes for the cells of wood that had rotted. He named the fossil ***Prototaxites***, first yew, believing it an early conifer."
+          "text": "In 1843 the geologist William Logan, mapping the Gaspé peninsula of Quebec, found great fossil logs in the sea cliffs, some nearly a metre across. The rocks were then thought to be far too old for trees, from before land plants had grown large. Sixteen years later the Canadian geologist John William Dawson described them. Under the microscope their cut faces showed long tubes, and Dawson took the tubes for the cells of wood that had rotted. He named the fossil ***Prototaxites***, first yew, believing it an early conifer."
         },
         {
           "type": "text",
-          "text": "The rocks are about 400 million years old, from the early part of the Devonian period, which ran from about 419 to 359 million years ago. More trunks have since been found on many continents, from about 430 to 370 million years ago. The largest stood about 8 metres tall. At the time the tallest land plants were small green stems a few centimetres to a few tens of centimetres high, with no leaves, no wood and no seeds. Prototaxites would have stood over them like a lighthouse."
+          "text": "The Gaspé rocks are about 400 million years old, from the early part of the Devonian period, which ran from about 419 to 359 million years ago. More trunks have since been found on several continents, in rocks from about 430 to 370 million years ago. The largest stood about 8 metres tall.[^saudi] For much of that span, the tallest land plants were small green stems a few centimetres to a few tens of centimetres high, with no leaves, no wood and no seeds. Prototaxites would have stood over them like a lighthouse."
         },
         {
           "type": "diagram",
@@ -50,7 +50,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "For most of the twentieth century Prototaxites was left as a curiosity. In 2001 Francis Hueber of the Smithsonian Institution, after decades of cutting and examining specimens, published a long study of its anatomy. Its trunk was a dense mass of tubes of three kinds: wide tubes with thick walls, running lengthwise; thin branching tubes weaving between them; and thinner walled tubes branching and joining. Some tubes had cross walls with holes, like the pores of lesson 3. To Hueber this was the build of a fungus, a giant fruiting body packed into a trunk."
+          "text": "For most of the twentieth century Prototaxites was left as a curiosity. In 2001 Francis Hueber of the Smithsonian Institution, after decades of cutting and examining specimens, published a long study of its anatomy. Its trunk was a dense mass of tubes of three kinds: wide tubes with thick walls, running lengthwise; thin branching tubes weaving between them; and thinner-walled tubes branching and joining. Some tubes had cross-walls with holes, like the pores of lesson 3. To Hueber this was the build of a fungus, a giant fruiting body packed into a trunk."
         },
         {
           "type": "text",
@@ -71,7 +71,7 @@
         },
         {
           "type": "text",
-          "text": "They concluded that Prototaxites was a member of an extinct branch of complex life, unrelated to any group living today, which had arrived at a fungus-like body and way of feeding on its own, as the water moulds of lesson 2 did. Not everyone is convinced. Fossil chemistry after 400 million years is hard to read, and Honegger's spore tubes have to be explained. But the case for a fungus is weaker than it was."
+          "text": "They concluded that Prototaxites was a member of an extinct branch of complex life, unrelated to any group living today, which had arrived at a fungus-like body and way of feeding on its own, as the water moulds of lesson 2 did. Not everyone is convinced. Fossil chemistry after 400 million years is hard to read, and Honegger's spore tubes have to be explained. Still, the case for a fungus is weaker than it was."
         },
         {
           "type": "interactive_diagram",
@@ -175,7 +175,7 @@
         },
         {
           "type": "text",
-          "text": "Whatever it was, Prototaxites shows how strange the first land ecosystems were. Before trees, the tallest thing on land was, on most views, not a plant, and it lived, as far as anyone can tell, by feeding on what the small plants and microbes around it left in the soil. The question of what it was has passed through at least four answers, each one put forward by careful people looking at real evidence, and each one replaced when new evidence came."
+          "text": "Whatever it was, Prototaxites shows how strange the first land ecosystems were. Before trees, the tallest thing on land was, on most views, not a plant, and it lived, as far as anyone can tell, by feeding on what the small plants and microbes around it left in the soil. The question of what it was has passed through at least four answers, each put forward by careful people looking at real evidence, and each replaced when new evidence came."
         }
       ]
     },
@@ -260,6 +260,11 @@
       "kind": "technical",
       "title": "A lichen?",
       "text": "The lichen idea, put forward by Marc-André Selosse in 2002 among others, has found little support: no layer of algae has been seen in the trunks. It would, though, have explained how so large a thing grew so big when the small plants around it left only a thin layer of dead matter to eat."
+    },
+    "saudi": {
+      "kind": "digression",
+      "title": "The biggest specimen",
+      "text": "The longest known trunk was found lying in the desert of Saudi Arabia by Hueber and his colleagues: 8.8 metres long and 1.37 metres across at its base."
     }
   }
 }

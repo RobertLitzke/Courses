@@ -27,7 +27,7 @@
         },
         {
           "type": "text",
-          "text": "The synth can play the same trick. Below are three notes with the same harmonics: the same wave through the same filter. Only their shape in time differs. One is an organ, one a bowed string, one a plucked harp."
+          "text": "The synth can play the same trick. Below are three notes with the same harmonics: the same wave through the same filter. Only their shape in time differs. One is an organ, one a bowed string and one a plucked harp."
         },
         {
           "type": "diagram",
@@ -115,7 +115,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "After the attack, the note falls to the **sustain** level and holds there for as long as the key is down. **Decay** is how long that fall takes. Sustain is a level, not a time, and that is the usual thing to mix up. A piano note has no sustain at all: from the moment the hammer hits, the string loses energy and the note dies away whether you hold the key or not. An organ has full sustain: the pipe sounds unchanged until you let go. Most instruments lie somewhere between."
+          "text": "After the attack, the note falls to the **sustain** level and holds there for as long as the key is down. **Decay** is how long that fall takes. Sustain is a level, not a time, which is easy to mix up. A piano note has no sustain at all: from the moment the hammer hits, the string loses energy and the note dies away whether you hold the key or not. An organ has full sustain: the pipe sounds unchanged until you let go. Most instruments lie somewhere between."
         },
         {
           "type": "interactive_diagram",
@@ -203,7 +203,7 @@
         },
         {
           "type": "text",
-          "text": "A synth copies this by sending the envelope, with the same attack, decay, sustain and release, to the filter as well as to the volume. **Env amt** says how far each note opens the filter, counted in octaves above the cutoff. Each note then starts bright and settles darker along the decay. It needs a low cutoff to start from, so that each note has room to open the filter upward and fall back."
+          "text": "A synth copies this by sending the envelope, with the same attack, decay, sustain and release, to the filter as well as to the volume. **Env amt** says how far each note opens the filter, counted in octaves above the cutoff. Each note then starts bright and settles darker along the decay. The filter's cutoff needs to start low so that each note has room to open it upward and fall back."
         },
         {
           "type": "interactive_diagram",
@@ -274,7 +274,7 @@
         },
         {
           "type": "text",
-          "text": "This one connection, an envelope sweeping a resonant filter, is behind many classic synth sounds: the “bwow” of synth brass, the squelch of a bass line, the plink of a synth harp."
+          "text": "This one connection, an envelope sweeping a resonant filter, is behind many classic synth sounds, from the “bwow” of synth brass and the squelch of a bass line to the plink of a synth harp."
         }
       ]
     },
@@ -283,7 +283,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Back to the three instruments from the start. The organ holds every note at full volume and full brightness until the key comes up. The harp is plucked: it starts bright and dies away, darkening as it goes, whether the key is held or not. Which knobs say “dies away even while held”, and how fast? Which one says “starts bright”?"
+          "text": "Back to the three instruments from the start. The organ holds every note at full volume and full brightness until the key comes up. The harp is plucked: it starts bright and dies away, darkening as it goes, whether the key is held or not. Look for the knobs that say “dies away even while held”, and how fast, and the one that says “starts bright”."
         },
         {
           "type": "interactive_diagram",

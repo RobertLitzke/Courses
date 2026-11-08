@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way. (A semitone is the step from one piano key to the next, black or white: about 6 percent in pitch.) Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
+          "text": "Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way.[^semitone] Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
         },
         {
           "type": "text",
@@ -67,7 +67,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Depth** is how far the LFO turns its knob. Here it is wired to pitch. Start at zero and bring it up: first a gentle shimmer, then a singer's vibrato, then a seasick wobble no singer would allow."
+          "text": "**Depth** is how far the LFO turns its knob. Here it is wired to pitch. Start at zero and bring it up: as you turn it, a gentle shimmer grows into a singer's vibrato, and past that into a seasick wobble no singer would allow."
         },
         {
           "type": "interactive_diagram",
@@ -100,7 +100,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Rate** is how fast the LFO goes round; one sweep is one full cycle, up and back. On this synth it is counted against the beat of the looping riff, from one sweep a bar (a bar is four beats) up to sixteen, so that a wobble stays in time with the music. It restarts each time the riff starts again, so when you match a sound, its wobble and yours always line up."
+          "text": "**Rate** is how fast the LFO goes round; one sweep is one full cycle, up and back. On this synth it is counted against the beat of the looping riff, from one sweep a bar (four beats) up to sixteen, so that a wobble stays in time with the music. It restarts each time the riff starts again, so when you match a sound, its wobble and yours always line up."
         },
         {
           "type": "interactive_diagram",
@@ -128,7 +128,7 @@
         },
         {
           "type": "text",
-          "text": "Push an LFO fast enough, into the hundreds of cycles a second, and it stops being heard as a wobble at all. Something strange happens instead, which is lesson 6."
+          "text": "Push an LFO fast enough, into the hundreds of cycles a second, and it stops being heard as a wobble at all. Something strange happens instead, which you will meet in lesson 6."
         }
       ]
     },
@@ -165,7 +165,7 @@
         },
         {
           "type": "text",
-          "text": "Musicians have used the two words loosely for a century. Fender's amplifiers had a “vibrato” channel that wobbled the volume, which is tremolo, while their guitars had a “tremolo arm” that bent the pitch, which is vibrato.[^fender]"
+          "text": "Musicians have mixed the two words up for decades. Fender's amplifiers had a “vibrato” channel that wobbled the volume, which is tremolo, while their guitars had a “tremolo arm” that bent the pitch, which is vibrato.[^fender]"
         }
       ]
     },
@@ -174,7 +174,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "One famous machine does both at once. A **Leslie speaker**, made to go with the Hammond organ, has a horn that spins inside its cabinet. As the horn swings towards you, the sound waves arrive bunched together and the pitch rises; as it swings away they arrive stretched and the pitch falls. This is the **[[Doppler effect]]**, the same rise and fall you hear as an ambulance passes, and here it comes round a few times a second. At the same time the horn points at you, then away, so the volume pulses too."
+          "text": "One famous machine does both at once. A **Leslie speaker**, made to go with the Hammond organ, has a horn that spins inside its cabinet. As the horn swings towards you, the sound waves arrive bunched together and the pitch rises; as it swings away they arrive stretched and the pitch falls. This is the **[[Doppler effect]]**, the same rise and fall you hear as an ambulance passes, and here it comes round several times a second. At the same time the horn points at you, then away, so the volume pulses too."
         },
         {
           "type": "diagram",
@@ -187,7 +187,7 @@
         },
         {
           "type": "text",
-          "text": "A horn tip moving at about 10 metres a second, against sound at 343, shifts the pitch by about 3 percent each way: roughly half a semitone. That is, by luck or design, the depth of a singer's vibrato.[^leslie]"
+          "text": "A horn tip moving at about 10 metres a second, against sound at 343, shifts the pitch by about 3 percent each way: roughly half a semitone. By luck or design, that matches the depth of a singer's vibrato.[^leslie]"
         }
       ]
     },
@@ -264,7 +264,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now the singing tone from the start. Three questions, one for each knob. What is moving, the pitch, the brightness or the volume? How fast: a slow sway, or the quick shimmer Seashore measured, about six times a second? How far: a gentle half semitone, or a seasick swing? On this riff's tempo the quickest rate, sixteen sweeps a bar, is about seven a second."
+          "text": "Now for the singing tone from the start. You have three knobs to set. For Dest, listen for whether the pitch, the brightness or the volume is moving. For Rate, listen for a slow sway or the quick shimmer Seashore measured at about six times a second (at this riff's tempo the quickest setting, sixteen sweeps a bar, is about seven a second). For Depth, listen for a gentle half semitone rather than a seasick swing."
         },
         {
           "type": "interactive_diagram",
@@ -390,6 +390,11 @@
       "kind": "technical",
       "title": "The Doppler shift, worked out",
       "text": "A source moving towards you at speed v raises the pitch by a factor of about 1 + v/c, where c is the speed of sound. With v = 10 m/s and c = 343 m/s that is 1.029, a rise of about 3 percent, and a semitone is 6 percent. A Leslie's horn turns at roughly 6 to 7 revolutions a second on its fast setting, which is also the rate of a singer's vibrato."
+    },
+    "semitone": {
+      "kind": "technical",
+      "title": "What a semitone is",
+      "text": "A semitone is the step from one piano key to the very next, black or white. In frequency it is a change of about 6 percent, so twelve of them double the frequency and make an octave."
     }
   },
   "journal": []

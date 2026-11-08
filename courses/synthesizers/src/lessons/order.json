@@ -229,7 +229,7 @@
         },
         {
           "type": "text",
-          "text": "That is the whole synth so far: oscillators, filter, envelopes, LFO, FM, drive and echo, with the drive free to move along the line. One last puzzle, on the full panel as [PatchMatch](#/ear) shows it. The sound below is a dirty wash: the echoes come back nearly as loud as the notes and smear into them. Where must the drive be for that to happen? And how long is the trail of echoes, which is the Repeats knob? The [Synth lab](#/lab) has the same panel with a keyboard to play it."
+          "text": "That is the whole synth so far: oscillators, filter, envelopes, LFO, FM, drive and echo, with the drive free to move along the line. One last puzzle, on the full panel as [PatchMatch](#/ear) shows it. The sound below is a dirty wash: the echoes come back nearly as loud as the notes and smear into them. Where must the drive be for that to happen, and how long is the trail of echoes (the Repeats knob)? The [Synth lab](#/lab) has the same panel with a keyboard to play it."
         },
         {
           "type": "interactive_diagram",

@@ -55,7 +55,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The first synthesizers had no switch at all. Each module had sockets, and the player joined them with **patch cords**, cables from an output to an input. An LFO's output could be plugged into the oscillator's pitch input and, with a second cable, into the filter's cutoff input. That is why a synth's setting is still called a **patch**. The [[EMS VCS3]], a small British synth of 1969, put its connections on a board of pins instead: sources along the rows, destinations along the columns, and a pin pushed into the hole where a row met a column joined them.[^pins]"
+          "text": "The first synthesizers had no switch at all. Each module had sockets, and the player joined them with **patch cords**, cables from an output to an input. An LFO's output could be plugged into the oscillator's pitch input and, with a second cable, into the filter's cutoff input. That is why a synth's setting is still called a **patch**.[^telephone] The [[EMS VCS3]], a small British synth of 1969, put its connections on a board of pins instead: sources along the rows, destinations along the columns, and a pin pushed into the hole where a row met a column joined them.[^pins]"
         },
         {
           "type": "diagram",
@@ -271,7 +271,7 @@
         },
         {
           "type": "text",
-          "text": "The same route with a positive amount gives the opposite, a vibrato that is strongest at the start and settles. With the envelope's Loop mode, the vibrato swells and fades over and over. A matrix with six sources and four destinations has twenty-odd squares, and most good patches use only two or three of them. When you meet an unfamiliar synth, find its matrix (often a grid on a small screen, with a cursor and one knob), then ask what each source is and what it can reach. Some synths add columns you choose yourself, so a route can reach any knob on the panel."
+          "text": "The same route with a positive amount gives the opposite, a vibrato that is strongest at the start and settles. With the envelope's Loop mode, the vibrato swells and fades over and over. A matrix with six sources and four destinations has twenty-four squares, and most good patches use only two or three of them. When you meet an unfamiliar synth, find its matrix (often a grid on a small screen, with a cursor and one knob), then ask what each source is and what it can reach. Some synths add columns you choose yourself, so a route can reach any knob on the panel.[^xpander]"
         }
       ]
     },
@@ -355,12 +355,22 @@
     "pins": {
       "kind": "digression",
       "title": "The pinboard",
-      "text": "The EMS VCS3, made in London from 1969, had no patch cords. Its connections were a square board of holes, sixteen rows of sources by sixteen columns of destinations, and the player pushed a small pin into a hole to make a connection. Pins with resistors inside came in different colours, and joined their row and column more or less strongly: an early version of an amount. The VCS3 turns up on records by Pink Floyd, Hawkwind and the BBC Radiophonic Workshop."
+      "text": "The EMS VCS3, made in London from 1969, had no patch cords. Its connections were a square board of holes, sixteen rows of sources by sixteen columns of destinations, and the player pushed a small pin into a hole to make a connection. Pins with different resistors inside came in different colours, and joined their row and column more or less strongly: an early version of an amount. The VCS3 turns up on records by Pink Floyd, Hawkwind and the BBC Radiophonic Workshop."
     },
     "tracking": {
       "kind": "technical",
       "title": "Tracking the whistle",
-      "text": "Full key tracking matters most with the resonance high. A resonant filter adds a peak at the cutoff, and at full tracking the peak moves up an octave for every octave of the key, so it stays in the same place among the harmonics and plays in tune with the note. Turned all the way up, so the filter whistles on its own, a filter with full tracking can be played as a sine-wave oscillator. The Minimoog had two switches for this, each adding part of the key to the cutoff."
+      "text": "Full key tracking matters most with the resonance high. A resonant filter adds a peak at the cutoff, and at full tracking the peak moves up an octave for every octave of the key, so it stays in the same place among the harmonics and plays in tune with the note. Turned all the way up, so the filter whistles on its own, a filter with full tracking can be played as a sine-wave oscillator. The Minimoog had two switches for this, adding one-third and two-thirds of the key to the cutoff, or the full key with both on."
+    },
+    "telephone": {
+      "kind": "digression",
+      "title": "Before the synth",
+      "text": "Synthesizer builders took patch cords and the word 'patch' from telephone switchboards and radio studios, where operators joined lines for a call or a broadcast by plugging short cables into a wall of sockets."
+    },
+    "xpander": {
+      "kind": "digression",
+      "title": "Matrix Modulation",
+      "text": "The first digital modulation matrix was on the Oberheim Xpander, designed in Los Angeles by Marcus Ryle and Michel Doidic in 1984. It offered twenty-seven sources, forty-seven destinations and up to twenty routes per patch, all stored in memory so a player could call up an entire web of invisible patch cords with one button."
     }
   },
   "journal": []

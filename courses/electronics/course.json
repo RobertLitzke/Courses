@@ -3,7 +3,7 @@
   "subtitle": "A circuits workbook",
   "department": "Engineering",
   "order": 3,
-  "summary": "For someone who can solder but can't yet design. The wires in every circuit are coloured by their voltage, so you can watch a capacitor fill or a transistor switch on. The last four lessons, still being written, open up two guitar pedals, a Fuzz Face and a Tube Screamer, and size an off-grid solar system from the panel down.",
+  "summary": "For someone who can solder but can't yet design. Ten trunk lessons build from Ohm's law, voltage dividers and wire losses through RC filters, diodes and op-amps to finding the fault in a dead board with a multimeter. The wires in every circuit are coloured by their voltage, so you can watch a capacitor fill or a transistor switch on. Two branches open up a Fuzz Face and a Tube Screamer, or size an off-grid solar system from the panel down.",
   "lessons": "src/data/lessons",
   "icon": "public/icons/icon.svg",
   "save": "circuitry.save",

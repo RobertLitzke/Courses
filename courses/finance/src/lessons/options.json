@@ -24,10 +24,10 @@
       "title": "Incentive options and the AMT",
       "blocks": [
         { "type": "text", "text": "An ISO's spread at exercise isn't income for the regular tax at all. If the shares are then held two years from grant and one year from exercise, the whole profit, spread included, is long-term gain. For an employee in the 35 percent bracket, that turns income which would have been taxed at 35 percent into gains taxed at 15 or 20." },
-        { "type": "text", "text": "The catch is the **alternative minimum tax** (AMT), a second calculation of the same year's tax. It starts from much the same income, adds back some deductions (state and local taxes among them) and some items the regular tax leaves out, such as the ISO spread. Then it subtracts its own allowance instead of the standard deduction, an **exemption** of $140,200 for a couple in 2026, and taxes the rest at 26 and 28 percent. The household pays whichever of the two taxes is larger. An ISO spread counts in the AMT calculation though not in the regular one, so a large exercise can make the AMT the larger." },
+        { "type": "text", "text": "The catch is the **alternative minimum tax** (AMT), a second calculation of the same year's tax.[^amt-history] It starts from much the same income, adds back some deductions (state and local taxes among them) and some items the regular tax leaves out, such as the ISO spread. Then it subtracts its own allowance instead of the standard deduction, an **exemption** of $140,200 for a couple in 2026, and taxes the rest at 26 and 28 percent. The household pays whichever of the two taxes is larger. An ISO spread counts in the AMT calculation though not in the regular one, so a large exercise can make the AMT the larger." },
         { "type": "interactive_diagram", "id": "amt", "caption": "A married couple's regular federal tax and alternative minimum tax in a year they exercise incentive stock options and keep the shares, by their wages and the spread at exercise.", "task": "Guess, then find a spread with no AMT", "goal": "amt", "aspect_ratio": 2.27 },
-        { "type": "text", "text": "A couple earning $300,000 in wages can exercise about $30,000 of spread with no AMT. With $100,000 of spread they owe about $18,000 more than their regular tax, in cash, for shares they haven't sold. The AMT paid is not lost: it becomes a credit against regular tax in later years, recovered in later years when the household's regular tax is higher than its AMT, as it often is in the year the shares are sold.[^credit]" },
-        { "type": "text", "text": "The danger is the share price falling after exercise. In 2000 and 2001 many employees owed AMT on spreads that had vanished by the time the bill came, with shares worth less than the tax. Two defences: exercise each year only as much as stays under the AMT, and sell enough shares in the same year to cover any tax, since a sale in the same year is a **disqualifying** sale: it gives up the ISO treatment for those shares, taxing their spread as wages, and takes it out of the AMT." }
+        { "type": "text", "text": "A couple earning $300,000 in wages can exercise about $30,000 of spread with no AMT. With $100,000 of spread they owe about $18,000 more than their regular tax, in cash, for shares they haven't sold. The AMT paid is not lost: it becomes a credit against regular tax in later years, recovered when the household's regular tax is higher than its AMT, as it often is in the year the shares are sold.[^credit]" },
+        { "type": "text", "text": "The danger is the share price falling after exercise. In 2000 and 2001 many employees owed AMT on spreads that had vanished by the time the bill came, with shares worth less than the tax. There are two defences: exercise each year only as much as stays under the AMT, and sell enough shares in the same year to cover any tax. A sale in the same year is a **disqualifying** sale: it gives up the ISO treatment for those shares, taxing their spread as wages, and takes it out of the AMT." }
       ]
     },
     {
@@ -71,6 +71,11 @@
       "kind": "technical",
       "title": "The $100,000 ISO limit",
       "text": "Only employees can receive ISOs, and at most $100,000 of shares (valued at the grant price) can become exercisable for the first time in any calendar year. Any grant above that ceiling is treated as an NSO. And once an employee leaves the company, ISOs keep their tax treatment for only three months; after that they become NSOs even if the grant agreement lets them stay open longer."
+    },
+    "amt-history": {
+      "kind": "digression",
+      "title": "Why the AMT exists",
+      "text": "In January 1969, Treasury Secretary Joseph Barr told Congress that 155 households with incomes over $200,000 (about $1.8 million today) had paid no federal income tax at all on their 1967 returns. Voters sent more letters to Congress about those 155 returns than about the Vietnam War that year, and Congress created the predecessor to the AMT before December was out."
     }
   }
 }

@@ -1,18 +1,1 @@
-[
-  {
-    "lesson": "groups",
-    "added": "2026-11-06",
-    "what": "sorting figure moved to the lesson JSON (groups live chart): caption, six clues and six why lines"
-  },
-  {
-    "lesson": "prototaxites",
-    "added": "2026-11-06",
-    "what": "clue board now a clue-board block (same clues, read from JSON) and the history timeline made a put-in-order figure: caption added"
-  },
-  {
-    "lesson": "kingdom",
-    "added": "2026-11-06",
-    "what": "two sortings now a regroup block: readouts and guess moved into JSON, leaf notes reworded"
-  },
- { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
-]
+[]

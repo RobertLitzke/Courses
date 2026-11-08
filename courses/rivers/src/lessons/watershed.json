@@ -28,7 +28,7 @@
         },
         {
           "type": "text",
-          "text": "The drop on the west side runs down into the South Fork, past North Bend, over Snoqualmie Falls and down the farm valley through Carnation. At Monroe the Snoqualmie meets the Skykomish and the two become the Snohomish, which reaches salt water at Everett, in Puget Sound, about 150 kilometres of river from the pass. The drop on the east side runs into Lake Keechelus, a reservoir just below the summit, and out of it as the Yakima River. The Yakima flows south-east, away from the Sound, through Ellensburg and Yakima to the Columbia, and the Columbia carries it west to the Pacific Ocean at Astoria, on the Oregon border. That is nearly 900 kilometres: about 350 down the Yakima and 540 down the Columbia."
+          "text": "The drop on the west side runs down into the South Fork, past North Bend, over Snoqualmie Falls and down the farm valley through Carnation. At Monroe the Snoqualmie meets the Skykomish and the two become the Snohomish, which reaches salt water at Everett, in Puget Sound, about 130 kilometres of river from the pass. The drop on the east side runs into Keechelus Lake, a reservoir just below the summit, and out of it as the Yakima River. The Yakima flows south-east, away from the Sound, through Ellensburg and Yakima to the Columbia, and the Columbia carries it west to the Pacific Ocean at Astoria, on the Oregon border. That is about 880 kilometres: some 345 down the Yakima and 535 down the Columbia."
         },
         {
           "type": "interactive_diagram",
@@ -175,7 +175,7 @@
         {"type": "interactive_diagram", "id": "watershed-table", "caption": "A model range of mountains with a pass in the middle. Tap anywhere to make a shower fall there: its water is dyed orange and runs downhill along the valleys. Once you have sent showers both ways, the divide is drawn in.", "task": "Send one shower to Puget Sound and one toward the Columbia", "goal": "both", "aspect_ratio": 1.6},
         {
           "type": "text",
-          "text": "All the land that drains to one point on a river, bounded by divides on every side, is that point's **watershed**, also called its drainage basin.[^word] Choose the point and you choose the watershed. The Snoqualmie's watershed above Snoqualmie Falls is a bowl of valleys on the west side of the pass. Move the point down to Monroe and it grows to take in the whole Snoqualmie valley; down to Everett, and it adds the Skykomish's. Watersheds nest inside one another like a set of bowls. The Columbia's, which takes in the Yakima's, is one of the largest in North America: about 670,000 square kilometres, nearly the size of Texas, in seven states and British Columbia."
+          "text": "All the land that drains to one point on a river, bounded by divides on every side, is that point's **watershed**, also called its drainage basin.[^word] Choose the point and you choose the watershed. The Snoqualmie's watershed above Snoqualmie Falls is a bowl of valleys on the west side of the pass. Move the point down to Monroe and it grows to take in the whole Snoqualmie valley; down to Everett, and it adds the Skykomish's. Watersheds nest inside one another like a set of bowls. The Columbia's, which takes in the Yakima's, is one of the largest in North America: about 670,000 square kilometres, nearly the size of Texas, across seven states and British Columbia."
         },
         {
           "type": "text",
@@ -192,7 +192,7 @@
         },
         {
           "type": "text",
-          "text": "His answer was to settle and govern the West by drainage basins, so that the people who share a river decide together how its water is used, since water taken upstream is water missing downstream. In 1890, as director of the US Geological Survey, he drew it, on a map titled *Arid Region of the United States, showing Drainage Districts*, which divides the West into districts along its divides. Congress never adopted it, and soon cut the money for the survey that was to plan them. The idea lasted better than the map. Washington today divides itself into 62 Water Resource Inventory Areas, each one a river's watershed or a group of small neighbouring ones, and plans its water and its salmon recovery by them.[^wria]"
+          "text": "His answer was to settle and govern the West by drainage basins, so that the people who share a river decide together how its water is used, since water taken upstream is water missing downstream. In 1890, as director of the US Geological Survey, he drew that plan on a map titled *Arid Region of the United States, Showing Drainage Districts*, which divides the West into districts along its divides. Congress never adopted it, and soon cut the money for the survey that was to plan the districts. The idea lasted better than the map. Washington today divides itself into 62 Water Resource Inventory Areas, each one a river's watershed or a group of small neighbouring ones, and plans its water and its salmon recovery by them.[^wria]"
         }
       ]
     },
@@ -260,7 +260,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "After the fire of 1889 burned out downtown, a fire blamed partly on weak water pressure, Seattle voted to build its own water supply. The city engineer, Reginald H. Thomson, wanted the Cedar River: high enough in the mountains for its water to run to the city by gravity, with no pumps, and clean. Water from a pipeline at Landsburg reached the city in 1901. The city then bought the land above it, piece by piece, until it owned nearly the whole watershed, about 370 square kilometres of forest that is still closed to the public. Cedar water is clean enough that it is not filtered, only disinfected. Today the Cedar supplies about two thirds of the water for some 1.5 million people in and around Seattle; the Tolt River, a smaller supply to the north, gives the other third."
+          "text": "After the fire of 1889 burned out downtown, a fire blamed partly on weak water pressure, Seattle voted to build its own water supply. The city engineer, Reginald H. Thomson, wanted the Cedar River: high enough in the mountains for its water to run to the city by gravity, with no pumps, and clean. Water from a pipeline at Landsburg reached the city in 1901. The city then bought the land above it, piece by piece, until it owned nearly the whole watershed, about 370 square kilometres of forest that is still closed to the public. Cedar water is clean enough that it is not filtered, only disinfected. Today the Cedar supplies about two thirds of the water for some 1.5 million people in and around Seattle; the South Fork of the Tolt River, a smaller supply to the north, gives the other third."
         },
         {
           "type": "diagram",

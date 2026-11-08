@@ -46,11 +46,11 @@
         },
         {
           "type": "text",
-          "text": "A synthesizer has the same puzzle in miniature. Its **oscillator**, the part that makes the raw tone by swinging back and forth at the note's pitch, can play the riff above as a bright buzz, a hollow woodwind or a soft one, and nothing changes but one switch: the shape of the wave it swings through. By the end of the lesson you will know what that switch changes, and you will find a fourth sound, a reed, by ear."
+          "text": "A synthesizer has the same puzzle in miniature. Its **oscillator**, the part that makes the raw tone by swinging back and forth at the note's pitch, can play the riff above as a bright buzz, a hollow woodwind or a soft flute, and nothing changes but one switch: the shape of the wave it swings through. By the end of the lesson you will know what that switch changes, and you will find a fourth sound, a reed, by ear."
         },
         {
           "type": "text",
-          "text": "In 1863 the German physicist [[Hermann von Helmholtz]] published his answer, worked out with a box of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches at two, three, four and more times its rate. The note's own pitch counts as the first harmonic, twice it the second, three times it the third. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
+          "text": "In 1863 the German physicist [[Hermann von Helmholtz]] published his answer, worked out with a set of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches at two, three, four and more times its rate. The note's own pitch counts as the first harmonic, twice it the second, three times it the third. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
         },
         {
           "type": "interactive_diagram",
@@ -80,7 +80,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Helmholtz had a theorem behind him. Forty years earlier the French mathematician [[Joseph Fourier]], working on how heat spreads through a metal bar, had shown that any shape that repeats can be built by adding up sine waves: one at the repeat rate, and others at two, three, four times it, each with its own size.[^fourier] Fourier was thinking about temperatures. Helmholtz saw that it was also a description of the ear, which seems to run the sum backwards: it splits a sound into its sines and hears each one."
+          "text": "Helmholtz had a theorem behind him. Forty years earlier the French mathematician [[Joseph Fourier]], working on how heat spreads through a solid, had shown that any shape that repeats can be built by adding up sine waves: one at the repeat rate, and others at two, three, four times it, each with its own size.[^fourier] Fourier was thinking about temperatures. Helmholtz saw that it was also a description of the ear, which seems to run the sum backwards: it splits a sound into its sines and hears each one."
         },
         {
           "type": "interactive_diagram",
@@ -144,7 +144,7 @@
         },
         {
           "type": "text",
-          "text": "A pulse wave is a square that need not be square. It flips between high and low, and its **width** is how much of each cycle it spends high. At 50 % it is a square. Narrower, the high harmonics grow as strong as the low ones and a reedy, nasal edge is left, more oboe than clarinet."
+          "text": "A pulse wave is a square that need not be square. It flips between high and low, and its **width** is how much of each cycle it spends high. At 50 % it is a square. Make it narrower, and the low harmonics thin out until the high ones match them, leaving a reedy, nasal edge that is more oboe than clarinet."
         },
         {
           "type": "interactive_diagram",

@@ -18,7 +18,7 @@
       "title": "A surviving spouse's choice",
       "blocks": [
         { "type": "text", "text": "A spouse who inherits an IRA can roll it into their own IRA and treat it as theirs from then on, with required withdrawals based on their own age. That is usually best for an older survivor." },
-        { "type": "text", "text": "A younger survivor may do better leaving it as an inherited IRA for a while. Withdrawals from an inherited IRA carry no 10 percent penalty before 59 and a half. A widow of 50 who needs to live on the account can draw from it freely; rolled into her own IRA, the same withdrawals would be penalised. They can roll it into their own IRA later, once past 59 and a half." }
+        { "type": "text", "text": "A younger survivor may do better leaving it as an inherited IRA for a while. Withdrawals from an inherited IRA carry no 10 percent penalty before 59 and a half. A widow of 50 who needs to live on the account can draw from it freely; rolled into her own IRA, the same withdrawals would be penalised. She can roll it into her own IRA later, once past 59 and a half." }
       ]
     },
     {
@@ -38,7 +38,7 @@
     {
       "title": "Trusts as beneficiaries",
       "blocks": [
-        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money: for a young heir, a spendthrift, or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust,[^see-through] or, if the owner died before their required withdrawals began, the account may have to be emptied within five years, a stricter rule than the ten. A trust that holds on to the money it withdraws, rather than paying it out to the heir, pays tax itself, and trusts have compressed brackets: the top 37 percent rate starts at about $16,000 of income. So these trusts are written with care." },
+        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money, for instance for a young heir or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust,[^see-through] or, if the owner died before their required withdrawals began, the account may have to be emptied within five years, a stricter rule than the ten. A trust that holds on to the money it withdraws, rather than paying it out to the heir, pays tax itself, and trusts have compressed brackets: the top 37 percent rate starts at about $16,000 of income. So these trusts are written with care." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Beneficiary forms, not the will, decide where retirement accounts go: name a contingent and review them after every change in the family.",
           "A surviving spouse can roll an IRA into their own, or keep it inherited to draw without penalty before 59 and a half.",

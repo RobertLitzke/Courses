@@ -121,7 +121,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The last setting frees your hand. With **Hold** on, the arpeggiator keeps playing the last chord after you let go, until you play a new chord, which it then plays instead. Keys pressed while another is still down add to the chord instead. A player can set a pattern going with one hand and spend both on the knobs."
+          "text": "The last setting frees your hand. With **Hold** on, the arpeggiator keeps playing the last chord after you let go, until you play a new chord to replace it. Keys pressed while another is still down are added to the chord. A player can set a pattern going with one hand and spend both on the knobs."
         },
         {
           "type": "interactive_diagram",

@@ -1,14 +1,1 @@
-[
-  {
-    "lesson": "families",
-    "added": "2026-11-06",
-    "what": "new family key (id-key): caption, couplets, names and five plant descriptions",
-    "notes": "Check each couplet against the lesson's signatures; keep the wording short enough for buttons."
-  },
-  {
-    "lesson": "abominable",
-    "added": "2026-11-06",
-    "what": "lotus figure now a regroup block: readouts moved into JSON, the DNA readout no longer repeats its lead"
-  },
- { "description": true, "added": "2026-11-07", "what": "catalog description rewritten by hand to drop the phrases every course shared; rework it against the lesson list if it can be clearer or more particular to this course" }
-]
+[]

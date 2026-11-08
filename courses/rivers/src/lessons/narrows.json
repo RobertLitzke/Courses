@@ -5,7 +5,7 @@
   "teaches": "Currents driven by a difference in level, and why slack water comes after high water",
   "summary": [
     "**A tidal current in a narrows runs downhill.** The water flows from the side where the sea stands higher to the side where it stands lower.",
-    "**The two ends of Deception Pass get their tide by different routes.** Rosario Strait gets it straight from the Strait of Juan de Fuca; Skagit Bay gets it late, round Whidbey Island, and through the pass, which can't pass water fast enough to keep it level.",
+    "**The two ends of Deception Pass get their tide by different routes.** The western side gets it straight from the Strait of Juan de Fuca; Skagit Bay gets it late, round Whidbey Island, and through the pass, which can't pass water fast enough to keep it level.",
     "**A level difference of a little over a metre drives eight knots.** Water falling a height h reaches a speed of about √(2gh), and friction takes about a tenth of it.",
     "**Slack water comes after high water, not at it.** The current stops when the two levels are equal, which is when the basin behind the gap reaches its own high water.",
     "**A narrower gap runs faster but carries less.** The basin behind it rises and falls less and later, so the difference across the gap grows.",
@@ -36,7 +36,7 @@
         },
         {
           "type": "text",
-          "text": "Since 1935 a bridge has crossed the pass high above the water. Stand on it near the strongest flow of a big tide and the water below runs like a river in flood, with standing waves, boils and whirlpools, at up to eight **knots**. A knot is one nautical mile an hour, about half a metre a second, so eight knots is about 15 km/h or 9 mph, a fast running pace.[^knot] Many small boats cannot make headway against it. An hour or two later the same water lies still. That pause, when the current stops before it turns and runs the other way, is called **slack water**, or slack."
+          "text": "Since 1935 a bridge has crossed the pass high above the water.[^bridge] Stand on it near the strongest flow of a big tide and the water below runs like a river in flood, with standing waves, boils and whirlpools, at up to eight **knots**. A knot is one nautical mile an hour, about half a metre a second, so eight knots is about 15 km/h or 9 mph, a fast running pace.[^knot] Many small boats cannot make headway against it. An hour or two later the same water lies still. That pause, when the current stops before it turns and runs the other way, is called **slack water**, or slack."
         },
         {
           "type": "diagram",
@@ -110,7 +110,7 @@
         },
         {
           "type": "text",
-          "text": "A tidal current in a narrows runs downhill too, only the slope is in the sea surface itself, running through the gap from one sea to the other. If the sea on one side of a gap stands higher than the sea on the other, water pours through from the high side to the low side. The current does not depend on the level on either side by itself, only on the difference between them, and the bigger the difference, the faster the water runs."
+          "text": "A tidal current in a narrows runs downhill too, only the slope is in the sea surface itself, running through the gap from one side to the other. If the sea on one side of a gap stands higher than the sea on the other, water pours through from the high side to the low side. The current does not depend on the level on either side by itself, only on the difference between them, and the bigger the difference, the faster the water runs."
         },
         {
           "type": "text",
@@ -118,7 +118,7 @@
         },
         {
           "type": "text",
-          "text": "Both sides of Deception Pass are part of the same Salish Sea, yet the sea can stand a metre higher on one side than the other, because the tide reaches the two ends by different routes. Lesson 10 showed the tide as a long wave moving into the inland waters from the Pacific. The western end of the pass opens onto Rosario Strait, which takes the tide almost straight from the Strait of Juan de Fuca. The eastern end opens onto Skagit Bay, which sits at the end of a long way round, traced on the map below: in through Admiralty Inlet, round the southern tip of Whidbey Island, and north up Saratoga Passage. The tide arriving by that route comes later. Skagit Bay also takes water through the pass itself, but the gap lets only so much through each second, so the bay's level cannot rise as fast as the Strait's."
+          "text": "Both sides of Deception Pass are part of the same Salish Sea, yet the sea can stand a metre higher on one side than the other, because the tide reaches the two ends by different routes. Lesson 10 showed the tide as a long wave moving into the inland waters from the Pacific. The western end of the pass opens onto the Strait of Juan de Fuca, where it meets Rosario Strait, and takes the tide almost straight from the ocean. The eastern end opens onto Skagit Bay, which sits at the end of a long way round, traced on the map below: in through Admiralty Inlet, round the southern tip of Whidbey Island, and north up Saratoga Passage. The tide arriving by that route comes later. Skagit Bay also takes water through the pass itself, but the gap lets only so much through each second, so the bay's level cannot rise as fast as the Strait's."
         },
         {
           "type": "text",
@@ -540,7 +540,7 @@
         },
         {
           "type": "text",
-          "text": "**Admiralty Inlet**, between Whidbey Island and the Quimper Peninsula near Port Townsend, is the main door of the whole Sound. Here too water runs from the higher side to the lower, but the door is so large that a few centimetres of difference is enough to pass the water the Sound needs, so the bay behind it, the whole Sound, keeps up with the sea. Its current is set by how much water must go through, not by how far it falls. A rough estimate: the Sound inside covers a little over 2,000 square kilometres; call it 2,000. On a large tide it rises about 3 metres in about six hours. That is 6 cubic kilometres in 22,000 seconds, nearly 300,000 cubic metres a second. The doorway is about 6 kilometres wide, and at most about 60 metres deep in its channel, shallower toward the shores; call the average 40 metres. Then the water must move at a little over a metre a second on average, faster at the peak: a few knots."
+          "text": "**Admiralty Inlet**, between Whidbey Island and the Quimper Peninsula near Port Townsend, is the main door of the whole Sound. Here too water runs from the higher side to the lower, but the door is so large that a few centimetres of difference is enough to pass the water the Sound needs, so the bay behind it, the whole Sound, keeps up with the sea. Its current is set by how much water must go through, not by how far it falls. A rough estimate: the Sound inside covers a little over 2,000 square kilometres; call it 2,000. On a large tide it rises about 3 metres in about six hours. That is 6 cubic kilometres in 22,000 seconds, nearly 300,000 cubic metres a second. The doorway is about 6 kilometres wide at Point Wilson, and around 60 metres deep in its channel, shallower toward the shores; call the average 40 metres. Then the water must move at a little over a metre a second on average, faster at the peak: a few knots."
         },
         {
           "type": "text",
@@ -704,6 +704,11 @@
       "kind": "technical",
       "title": "One tide in the model",
       "text": "The model uses one plain tide, the same size every half day. The real tide in the Salish Sea is mixed (lesson 9), so the two floods and two ebbs of a day differ, and so do the currents and the gaps between high water and slack."
+    },
+    "bridge": {
+      "kind": "digression",
+      "title": "Two spans on one island",
+      "text": "The 1935 bridge is really two bridges placed end to end: a shorter span from Fidalgo Island across Canoe Pass to Pass Island, and a longer arch from Pass Island across Deception Pass to Whidbey Island, about 55 metres above the water. Young men from the Civilian Conservation Corps helped build the approaches and the park around them."
     }
   }
 }

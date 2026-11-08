@@ -11,7 +11,7 @@
     "**The Duwamish once gathered several rivers.** In 1900 the White (carrying the Green) and the Black (carrying Lake Washington and the Cedar) joined to form it.",
     "**Most of that water was moved away.** The White went to the Puyallup in 1906, the Cedar into the lake in 1912, and the Black River all but dried in 1916, leaving the Green.",
     "**Even the Green is held back.** Since 1962 Howard Hanson Dam has stored its winter floods and let water out in late summer.",
-    "**The lower river was straightened from about 1913 to 1920.** Dredges cut a straight, deep waterway of about 8 km through some 14 km of meanders.",
+    "**The lower river was straightened from 1913 to 1920.** Dredges cut a straight, deep waterway of about 8 km through some 14 km of meanders.",
     "**A straighter channel is a steeper one.** Cutting off bends shortens the path for the same fall, as lesson 5 showed.",
     "**The tideflats were filled.** Harbor Island and the industrial district south of downtown stand on fill laid over the river's old flats.",
     "**Salt water creeps up the waterway along the bed.** Sea water is heavier than river water and slides upstream under it wherever the river is too slow to push it back.",
@@ -45,7 +45,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The first to go was the White River. In November 1906, as lesson 5 told, a flood and a log jam near Auburn, just above where the Green came in, turned the White out of its channel and sent it south down the Stuck River, a small stream, to the Puyallup and Tacoma. Below the jam, the Green now ran north on its own. Floods could still send the White back north until a concrete diversion at Auburn, finished about 1915, held it in its new course.[^diversion] The Cedar was turned into Lake Washington in 1912, and in 1916 the lowering of the lake left the Black River all but dry, as S2 described. Within ten years the Duwamish lost the White's glacier water, the Cedar and the lake's steady outflow."
+          "text": "The first to go was the White River. In November 1906, as lesson 5 told, a flood and a log jam near Auburn, just above where the Green came in, turned the White out of its channel and sent it south down the Stuck River, a small stream, to the Puyallup and Tacoma. Below the jam, the Green now ran north on its own. Floods could still send the White back north until a concrete diversion at Auburn, finished in 1915, held it in its new course.[^diversion] The Cedar was turned into Lake Washington in 1912, and in 1916 the lowering of the lake left the Black River all but dry, as S2 described. Within ten years the Duwamish lost the White's glacier water, the Cedar and the lake's steady outflow."
         },
         {
           "type": "text",
@@ -108,7 +108,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Seattle's business people wanted a port where ships could reach the valley's flat land, and the Duwamish's shallow loops were no use to a ship. From about 1913 to 1920, dredges, floating machines that scoop or suck mud and sand from a river's bed, cut a new channel straight up the lower valley for a public waterway district set up to build it and pay for it. The new channel was about 8 km (5 miles) long, in place of some 14 km (9 miles) of winding river.[^miles] It was dug several metres deeper than the old river's bed and much wider, with a turning basin at its upper end, a wide pool where ships can turn round. The dredges pumped the mud and sand they raised onto the flats and into the old loops, which disappeared under fill."
+          "text": "Seattle's business people wanted a port where ships could reach the valley's flat land, and the Duwamish's shallow loops were no use to a ship. From 1913 to 1920, dredges, floating machines that scoop or suck mud and sand from a river's bed, cut a new channel straight up the lower valley for a public waterway district set up to build it and pay for it. The new channel was about 8 km (5 miles) long, in place of some 14 km (9 miles) of winding river.[^miles] It was dug several metres deeper than the old river's bed and much wider, with a turning basin at its upper end, a wide pool where ships can turn round. The dredges pumped the mud and sand they raised onto the flats and into the old loops, which disappeared under fill."
         },
         {
           "type": "diagram",
@@ -142,7 +142,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "At the mouth, the tideflats went too. Harbor Island, built on fill where the river met the bay, was finished in 1909 and splits the river's mouth into the East and West Waterways, the two channels on either side of it.[^harbor] South of downtown, around where the stadiums stand now, the flats were filled with earth washed off Seattle's hills by jets of water when the city cut the hills down in the regrades of the early 1900s, and the industrial district stands on it. Of the marsh and mudflats that once lined the estuary, only scraps remain."
+          "text": "At the mouth, the tideflats went too. Harbor Island, built on fill where the river met the bay, was finished in 1909 and splits the river's mouth into the East and West Waterways, the two channels on either side of it.[^harbor] South of downtown, around where the stadiums stand now, the flats were filled with dredged mud and with earth washed off Seattle's hills by jets of water when the city cut the hills down in the regrades of the early 1900s, and the industrial district stands on it. Of the marsh and mudflats that once lined the estuary, only scraps remain."
         },
         {
           "type": "text",
@@ -256,7 +256,7 @@
     "diversion": {
       "kind": "digression",
       "title": "Fixing the White",
-      "text": "After 1906, King and Pierce counties argued over where the White should go, since its floods would fall on one or the other. They settled on the Puyallup, and a concrete diversion at Auburn, finished by about 1915, has held it there since."
+      "text": "After 1906, King and Pierce counties argued over where the White should go, since its floods would fall on one or the other. They settled on the Puyallup, and a concrete diversion wall at Auburn, finished in 1915, has held it there since."
     },
     "miles": {
       "kind": "technical",
@@ -271,7 +271,7 @@
     "harbor": {
       "kind": "digression",
       "title": "Harbor Island",
-      "text": "When it was finished, Harbor Island was often called the largest artificial island in the world. Much of its fill came from dredging the river's mouth and the waterways on either side of it."
+      "text": "When it was finished, Harbor Island was billed as the largest artificial island in the world. Much of its fill came from dredging the river's mouth and the waterways on either side of it."
     }
   }
 }

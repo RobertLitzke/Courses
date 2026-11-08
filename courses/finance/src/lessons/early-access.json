@@ -30,7 +30,7 @@
         },
         {
           "type": "text",
-          "text": "Converted money has its own rule. Each conversion from a pre-tax account to a Roth starts a five-year clock, counted from 1 January of the year of the conversion. Once the clock runs out, the converted amount (the part you paid income tax on when converting) can be withdrawn with no penalty at any age. The earnings stay locked until 59½, and a Roth IRA's earnings also need the account to have been open five years before they come out tax-free."
+          "text": "Converted money has its own rule. Each conversion from a pre-tax account to a Roth starts a five-year clock, counted from 1 January of the year of the conversion. Once the clock runs out, the converted amount (the part you paid income tax on when converting) can be withdrawn with no penalty at any age.[^non-taxable-conv] The earnings stay locked until 59½, and a Roth IRA's earnings also need the account to have been open five years before they come out tax-free."
         }
       ]
     },
@@ -174,9 +174,9 @@
               {
                 "ask": "Which account has no early withdrawal penalty after leaving the employer, at any age?",
                 "choices": [
-                  "A governmental 457(b)",
+                  "A governmental 457(b<h4>",
                   "A traditional IRA",
-                  "A Roth 401(k)"
+                  "A Roth 401(k)</h4>"
                 ],
                 "answer": 0,
                 "why": "Withdrawals from a governmental 457(b) after leaving the job are taxed as income but carry no 10 percent penalty, except on money rolled in from a 401(k) or IRA."
@@ -211,6 +211,11 @@
       "kind": "technical",
       "title": "Roll a Roth 401(k) into a Roth IRA first",
       "text": "This ordering rule applies to Roth IRAs, not to Roth 401(k)s. An early withdrawal straight from a Roth 401(k) is split between contributions and earnings in proportion to the account's balance, so part of it is taxed and penalized. Rolling the Roth 401(k) into a Roth IRA after leaving the job puts the money under the IRA ordering rule, with contributions coming out first."
+    },
+    "non-taxable-conv": {
+      "kind": "technical",
+      "title": "Taxable before non-taxable",
+      "text": "Within a single conversion, any taxable part comes out before any non-taxable part (such as after-tax traditional IRA contributions converted in a backdoor Roth). Only the taxable part faces the five-year penalty clock; the non-taxable part was already taxed and can be withdrawn penalty-free right away, once any earlier conversions and the taxable part of the same conversion are out of the way."
     }
   }
 }

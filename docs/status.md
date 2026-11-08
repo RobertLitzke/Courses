@@ -8,17 +8,17 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
 | [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 9 | 0 | 1 | 37 |
+| [Geology](#geology) | 1.1 released | 47 | 0 | 0 | 1 | 0 | 1 | 45 |
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
-| [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 2 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 4 | 37 | 15 | 0 |
-| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 2 | 33 | 33 | 0 |
-| [Synthesizers](#synthesizers) | 0.2 beta | 30 | 0 | 0 | 30 | 30 | 0 | 0 |
-| [Money That Lasts](#finance) | 0.2 beta | 32 | 0 | 0 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 3 | 25 | 24 | 0 |
-| [Rivers and the Salish Sea](#rivers) | 0.1 beta | 22 | 0 | 0 | 22 | 22 | 13 | 0 |
-| [Bats](#bats) | 0.1 beta | 15 | 0 | 0 | 15 | 15 | 6 | 0 |
+| [Astronomy](#astronomy) | 0.2 beta | 25 | 43 | 0 | 0 | 25 | 15 | 0 |
+| [Ecology](#ecology) | 0.2 beta | 37 | 0 | 0 | 0 | 37 | 15 | 0 |
+| [Botany](#botany) | 0.2 beta | 33 | 0 | 0 | 0 | 33 | 33 | 0 |
+| [Synthesizers](#synthesizers) | 0.3 beta | 30 | 0 | 0 | 0 | 30 | 0 | 0 |
+| [Money That Lasts](#finance) | 0.3 beta | 32 | 0 | 0 | 0 | 32 | 0 | 0 |
+| [Fungi](#fungi) | 0.3 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
+| [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
+| [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -26,21 +26,21 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- |
 | Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
 | Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
-| Geology | 1.0 released | 2026-11-04 | released; still to do: 9 to copy-edit, 1 awaiting photos |
+| Geology | 1.1 released | 2026-11-08 | released; still to do: 1 to copy-edit, 1 awaiting photos |
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
-| Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 2 to copy-edit, 25 to fact-check, 15 awaiting photos |
-| Ecology | 0.1 beta | 2026-11-04 | no: 4 to copy-edit, 37 to fact-check, 15 awaiting photos |
-| Botany | 0.1 beta | 2026-11-04 | no: 2 to copy-edit, 33 to fact-check, 33 awaiting photos |
-| Synthesizers | 0.2 beta | 2026-11-07 | no: 30 to copy-edit, 30 to fact-check |
-| Money That Lasts | 0.2 beta | 2026-11-07 | no: 32 to copy-edit, 32 to fact-check |
-| Fungi | 0.2 beta | 2026-11-04 | no: 3 to copy-edit, 25 to fact-check, 24 awaiting photos |
-| Rivers and the Salish Sea | 0.1 beta | 2026-11-07 | no: 22 to copy-edit, 22 to fact-check, 13 awaiting photos |
-| Bats | 0.1 beta | 2026-11-07 | no: 15 to copy-edit, 15 to fact-check, 6 awaiting photos |
+| Astronomy | 0.2 beta | 2026-11-08 | no: 43 lessons to write, 25 to fact-check, 15 awaiting photos |
+| Ecology | 0.2 beta | 2026-11-08 | no: 37 to fact-check, 15 awaiting photos |
+| Botany | 0.2 beta | 2026-11-08 | no: 33 to fact-check, 33 awaiting photos |
+| Synthesizers | 0.3 beta | 2026-11-08 | no: 30 to fact-check |
+| Money That Lasts | 0.3 beta | 2026-11-08 | no: 32 to fact-check |
+| Fungi | 0.3 beta | 2026-11-08 | no: 25 to fact-check, 24 awaiting photos |
+| Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
+| Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
-`courses/clouds`, version 0.1 (beta, 2026-11-04). The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/clouds`, version 0.1 (beta, 2026-11-04). The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -63,7 +63,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Dirt <a id="soil"></a>
 
-`courses/soil`, version 0.1 (beta, 2026-11-04). Came in from the old Dirt repository. No record of a Gemini copy edit or a full fact check; the read-through status is a guess. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/soil`, version 0.1 (beta, 2026-11-04). Came in from the old Dirt repository. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -81,31 +81,31 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Geology <a id="geology"></a>
 
-`courses/geology`, version 1.0 (released, 2026-11-04). Every lesson was fact-checked on 3 Nov. Gemini's later fact notes still need checking against that review when the queue is run. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/geology`, version 1.1 (released, 2026-11-08). Every lesson was fact-checked on 3 Nov. Gemini's later fact notes still need checking against that review when the queue is run.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Seashells on mountaintops (`steno`) |  | done |  | How loose mud becomes layers of rock, and how to read their order. |
 | 2 | A desert turned to stone (`dunes`) |  | done |  | How water and wind sort grains, and how a moving dune leaves sloping layers behind. |
 | 3 | The map that read the ground (`smith`) |  | done |  | How fossils match layers across the countryside, and how tilted beds show up on a map. |
-| 4 | The rock that was once on fire (`basalt`) |  | awaiting Gemini review (queued 2026-11-06) |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
+| 4 | The rock that was once on fire (`basalt`) |  | done |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
 | 5 | Garnets in the mud (`barrow`) |  | done |  | How heat and pressure alter buried rock in the solid state, and how the resulting minerals record the depth of burial. |
-| 6 | Fossils in the schist (`families`) |  | awaiting Gemini review (queued 2026-11-06) |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
-| 7 | The rock at Siccar Point (`siccar`) |  | awaiting Gemini review (queued 2026-11-06) |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
+| 6 | Fossils in the schist (`families`) |  | done |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
+| 7 | The rock at Siccar Point (`siccar`) |  | done |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
 | 8 | How old is the Earth? (`age`) |  | done |  | Kelvin's cooling Earth, the objections that undid it, and the clock in radioactive atoms. |
-| 9 | Continents that fit (`drift`) |  | awaiting Gemini review (queued 2026-11-06) |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
+| 9 | Continents that fit (`drift`) |  | done |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
 | 10 | Stripes on the seafloor (`stripes`) |  | done |  | How magnetic reversals recorded in ocean-floor rock showed the sea floor spreading apart. |
 | 11 | Where the Earth shakes (`quakes`) |  | done |  | How earthquakes outline the plates, and how the angle of a sinking slab of ocean floor sets where volcanoes rise. |
-| 12 | Islands that get older in a line (`hotspot`) |  | awaiting Gemini review (queued 2026-11-06) |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
+| 12 | Islands that get older in a line (`hotspot`) |  | done |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
 | 13 | The ocean before the Atlantic (`supercontinents`) |  | done |  | How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today. |
-| 14 | A river that cuts through a mountain (`rivers`) |  | awaiting Gemini review (queued 2026-11-07) |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
+| 14 | A river that cuts through a mountain (`rivers`) |  | done |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
 | 15 | Boulders where they don't belong (`erratics`) |  | awaiting Gemini review (queued 2026-11-08) |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
 | 16 | The pacemaker of the ice ages (`pacemaker`) |  | done |  | How slow changes in the Earth's orbit time the ice ages, and how the record was read from deep-sea mud. |
 | 17 | A lake with no river (`kettles`) |  | done |  | The landforms an ice sheet leaves behind, how shaded relief reveals them, and how the land rises once the ice is gone. |
 | 18 | Why faults snap (`faults`) |  | done |  | How a stuck fault stores the plates' motion as bent rock and releases it in an earthquake, what sets an earthquake's size, and why soft ground shakes harder. |
 | 19 | Why some volcanoes explode (`explode`) |  | done |  | How the silica and water in magma decide whether a volcano pours out lava or explodes, and what a pyroclastic flow is. |
 | 20 | Barnacles above the tide (`barnacles`) |  | done |  | How George Plafker read the 1964 Alaska earthquake from barnacles and drowned forests, and how a locked subduction zone lifts and drops a coast and starts a tsunami. |
-| W1 | Shells at the top of the bluff (`ebey`) | Whidbey Island | awaiting Gemini review (queued 2026-11-06) |  | How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top. |
+| W1 | Shells at the top of the bluff (`ebey`) | Whidbey Island | done |  | How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top. |
 | W2 | Holes in the prairie (`prairie`) | Whidbey Island | done |  | Why central Whidbey has open prairies and pits with no outlets: gravel that drains too fast for young firs, blocks of buried ice, and thousands of years of fire. |
 | W3 | Where the beaches come from (`feeder-bluffs`) | Whidbey Island | done |  | How Whidbey’s bluffs fail when water builds up above clay, and how the sand that falls feeds the beaches along the shore, until a bulkhead cuts it off. |
 | W4 | Seafloor at Deception Pass (`deception`) | Whidbey Island | done |  | How pillow basalt, ribbon chert and serpentinite at Deception Pass record pieces of ocean floor scraped off and welded onto North America. |
@@ -116,7 +116,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | S4 | The ground people built (`fill`) | Seattle | done |  | How Seattle sluiced away hills and filled its tideflats, and why loose, wet fill shook hardest and liquefied in the 2001 Nisqually earthquake. |
 | F1 | Bretz’s heresy (`bretz`) | The ice age floods | done |  | How J Harlen Bretz read the channelled scablands of eastern Washington as the work of a flood far bigger than any river, and why geologists refused to believe him for forty years. |
 | F2 | Ripples the size of hills (`ripples`) | The ice age floods | done |  | How Joseph Pardee found the source of Bretz's flood in a glacial lake in Montana, how an ice dam floats and fails, and why the lake drained again and again. |
-| F3 | How many floods? (`rhythmites`) | The ice age floods | awaiting Gemini review (queued 2026-11-06) |  | How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed. |
+| F3 | How many floods? (`rhythmites`) | The ice age floods | done |  | How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed. |
 | F4 | Montana rocks in Oregon (`montana-rocks`) | The ice age floods | done |  | How boulders from Montana came to rest on hillsides in Oregon's Willamette Valley, carried by icebergs on the floodwater. |
 | C1 | The orphan tsunami (`orphan`) | Cascadia | done |  | How buried marshes, dead cedars, Japanese records and Indigenous stories showed that Cascadia's megathrust broke in a magnitude 9 earthquake on 26 January 1700. |
 | C2 | Mud under Auburn (`osceola`) | Cascadia | done |  | How towns from Enumclaw to Kent came to stand on a mudflow from Mount Rainier, and why lahars are the volcano's biggest threat to the Puget Lowland. |
@@ -135,7 +135,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Circuitry <a id="electronics"></a>
 
-`courses/electronics`, version 0.1 (beta, 2026-11-04). Came in from the old Circuitry repository. Circuits are drawn by its solver, so it needs no photos. No record of a Gemini copy edit or a full fact check; the read-through status is a guess. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/electronics`, version 0.1 (beta, 2026-11-04). Came in from the old Circuitry repository. Circuits are drawn by its solver, so it needs no photos. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -156,7 +156,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Photography: Out of Auto <a id="photography"></a>
 
-`courses/photography`, version 0.1 (beta, 2026-11-04). Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/photography`, version 0.1 (beta, 2026-11-04). Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -175,7 +175,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Astronomy <a id="astronomy"></a>
 
-`courses/astronomy`, version 0.1 (beta, 2026-11-04). Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/astronomy`, version 0.2 (beta, 2026-11-08). Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -184,8 +184,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 3 | The falling Moon (`falling`) |  | awaiting fact check |  | Why the Moon goes round the Earth instead of falling down, and why orbits are ellipses. |
 | 4 | A planet found with a pen (`neptune`) |  | awaiting fact check |  | How small errors in Uranus's orbit revealed Neptune, and why the same trick failed for Mercury. |
 | 5 | How far are the stars? (`parallax`) |  | awaiting fact check |  | Why the stars should shift as the Earth moves, why nobody could see it, and how Bessel finally did. |
-| 6 | What the stars are made of (`spectra`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth. *Outline v2 adds the Doppler shift here (not written yet).* |
-| 7 | Why are there no green stars? (`colour`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | How a star's colour gives its temperature, and why no star looks green. |
+| 6 | What the stars are made of (`spectra`) |  | awaiting fact check |  | How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth. *Outline v2 adds the Doppler shift here (not written yet).* |
+| 7 | Why are there no green stars? (`colour`) |  | awaiting fact check |  | How a star's colour gives its temperature, and why no star looks green. |
 | 8 | A schoolteacher's number puzzle (`ladder`) |  | awaiting fact check | Photos (no photos chosen yet) | Why each kind of atom gives out and soaks up only certain colours: Balmer's pattern, Bohr's ladder, and the electron as a wave. |
 | 9 | Mostly hydrogen (`hydrogen`) |  | awaiting fact check |  | How stars were sorted into classes, and why the classes are temperatures, not ingredients. |
 | 10 | Giants and dwarfs (`hr`) |  | awaiting fact check |  | How plotting brightness against colour sorted the stars, and showed that some are giants and some are no bigger than the Earth. *Outline v2 adds binary stars here (not written yet).* |
@@ -250,30 +250,30 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. 22 of 26 parked photos fetched and restored 4 Nov; Hubbard Brook weir, Lake 226, the Muir Glacier pair and a BDFFP fragment are still parked in tools/pending-photos.json (no free photo found). No encyclopedia links yet. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/ecology`, version 0.2 (beta, 2026-11-08). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. 22 of 26 parked photos fetched and restored 4 Nov; Hubbard Brook weir, Lake 226, the Muir Glacier pair and a BDFFP fragment are still parked in tools/pending-photos.json (no free photo found). No encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
 | 1 | How many kinds are there? (`kinds`) |  | awaiting fact check | Photos (no photos chosen yet) | How to estimate what you can’t count, and why no one knows how many species there are. |
 | 2 | Why aren’t we knee-deep in elephants? (`elephants`) |  | awaiting fact check | Photos (no photos chosen yet) | How populations grow, why growth compounds, and what brings it to a stop. |
 | 3 | The reindeer of St Matthew Island (`reindeer`) |  | awaiting fact check | Photos (no photos chosen yet) | Why a population can shoot past its ceiling and crash when its food is slow to grow back. |
-| 4 | The hare and the lynx (`lynx`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | Why predators and prey rise and fall in cycles, and why fishing both can help the prey. |
+| 4 | The hare and the lynx (`lynx`) |  | awaiting fact check | Photos (no photos chosen yet) | Why predators and prey rise and fall in cycles, and why fishing both can help the prey. |
 | 5 | A drought on Daphne Major (`finches`) |  | awaiting fact check | Photos (no photos chosen yet) | What natural selection is, and how it was watched changing a population in a single year. |
 | 6 | Gause’s bottles (`gause`) |  | awaiting fact check | Photos (no photos chosen yet) | Why two species can’t share one food in the same way, and how splitting it lets them live together. |
 | 7 | The sea star experiment (`seastar`) |  | awaiting fact check | Photos (no photos chosen yet) | How one predator can keep many species on a shore, and what a keystone species is. |
 | 8 | Why is the world green? (`green`) |  | awaiting fact check | Photos (no photos chosen yet) | How a predator can protect plants it never eats, and why food chains flip in alternation. |
 | 9 | The ants that guard a tree (`acacia`) |  | awaiting fact check | Photos (no photos chosen yet) | What a mutualism is, what each partner pays, and how cheaters threaten it. |
 | 10 | Why big fierce animals are rare (`pyramid`) |  | awaiting fact check | Photos (no photos chosen yet) | How energy passes up a food chain, why most of it ends as heat, and why that keeps chains short and top predators few. |
-| 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
+| 11 | The planet breathes (`breathes`) |  | awaiting fact check |  | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
 | 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
 | 13 | A curtain across a lake (`curtain`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
 | 14 | Walking back in time (`glacier-bay`) |  | awaiting fact check |  | Glacier Bay and how new ground fills with life. |
 | 15 | Is a forest an organism? (`gaps`) |  | awaiting fact check |  | Clements, Gleason and a forest grown gap by gap. |
 | 16 | Boulders and fires (`fires`) |  | awaiting fact check |  | Why some disturbance keeps more kinds alive. |
-| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | Chimborazo, climate zones and why they move. |
+| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting fact check |  | Chimborazo, climate zones and why they move. |
 | 18 | Islands that refilled (`islands`) |  | awaiting fact check |  | Mangrove islets, arrivals, losses and the species-area rule. |
 | 19 | Half the Earth? (`half`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
-| H1 | Eggs that broke (`eggs`) | People in the web | awaiting Gemini review (queued 2026-11-06) | Fact check | Peregrines, DDT and poisons that build up the food chain. |
+| H1 | Eggs that broke (`eggs`) | People in the web | awaiting fact check |  | Peregrines, DDT and poisons that build up the food chain. |
 | H2 | Arrivals (`arrivals`) | People in the web | awaiting fact check |  | Species carried to new places, and the few that take over. |
 | H3 | The cod that didn’t come back (`cod`) | People in the web | awaiting fact check | Photos (no photos chosen yet) | Harvesting a stock, and a fishery that collapsed. |
 | N1 | Trails that fade (`trails`) | Ants and other societies | awaiting fact check |  | How ants find the shortest path with no one in charge. |
@@ -294,7 +294,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/botany`, version 0.2 (beta, 2026-11-08). Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -318,10 +318,10 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 18 | The comet orchid (`orchid`) |  | awaiting fact check | Photos (no photos chosen yet) | What flowers are for, how they make animals carry pollen, the double fertilisation that makes a seed and fruit, and a moth Darwin predicted forty years early. |
 | 19 | Travelling and waiting (`seeds`) |  | awaiting fact check | Photos (no photos chosen yet) | How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable. |
 | 20 | The caterpillar’s menu (`menu`) |  | awaiting fact check | Photos (no photos chosen yet) | How plants defend themselves with poisons, spines and toughness, what defence costs, and how specialist insects beat one family's poisons and use them to find their food. |
-| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
+| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting fact check | Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
 | K1 | Counting stamens (`stamens`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Linnaeus's system of sorting plants by counting stamens, the two-word names that outlived it, how to read a plant's name, and why names and families still change. |
 | K2 | Using a key (`key`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook. |
-| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
+| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
 | K4 | The deadly look-alikes (`look-alikes`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Camas and death camas, and poison hemlock, water hemlock and Queen Anne's lace: how botanists tell them apart, and why this course gives no advice on eating wild plants. |
 | C1 | Mendel’s peas (`mendel`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How Gregor Mendel's counts of pea plants showed that traits are passed on as particles, one copy from each parent, why short plants vanish and come back in a quarter of the next generation, and what the short gene does. |
 | C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How maize was made from teosinte, a Mexican grass that looks nothing like it, how George Beadle and later DNA showed it, and how a few genes made the biggest changes. |
@@ -334,92 +334,92 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Synthesizers <a id="synthesizers"></a>
 
-`courses/synthesizers`, version 0.2 (beta, 2026-11-07). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. Student read-through of all 30 lessons and revisions done 7 Nov; all queued for a Gemini copy edit. For the fact check: bells says Stanford licensed FM to Yamaha in 1973 while its timeline says 1975. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/synthesizers`, version 0.3 (beta, 2026-11-08). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. Student read-through of all 30 lessons and revisions done 7 Nov; all queued for a Gemini copy edit. For the fact check: bells says Stanford licensed FM to Yamaha in 1973 while its timeline says 1975.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The clarinet and the flute (`timbre`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
-| 2 | The buzz in your throat (`vowels`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
-| 3 | The bell with its start cut off (`tape`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
-| 4 | Why singers wobble (`vibrato`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
-| 5 | Counting beats (`beats`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
-| 6 | The accidental bell (`bells`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
-| 7 | The torn speaker (`fuzz`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
-| 8 | Echoes on purpose (`echo`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
-| 9 | Does the order matter? (`order`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
-| 10 | The silent key (`silent`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
-| 11 | Wind from nothing (`noise`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
-| 12 | A drum with no drum (`drums`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
-| 13 | The computer that burbles (`random`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
-| 14 | The envelope that wouldn't stop (`cycle`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
-| 15 | The invisible patch cord (`matrix`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
-| 16 | Leaning on a note (`pressure`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
-| 17 | The slide (`glide`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
-| 18 | Four fingers, one filter (`voices`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
-| 19 | One hand, many notes (`arp`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
-| 20 | The bass line nobody played (`sequencer`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
-| 21 | Knobs that remember (`lanes`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Recorded knob moves in a sequence, and controlled randomness. |
-| 22 | Same knob, different job (`macros`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
-| 23 | The blank patch (`blank`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
-| O1 | Scanning through tables (`tables`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
-| O2 | Organs by telephone (`organ`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
-| O3 | A string from a delay line (`pluck`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
-| O4 | The talking synth (`vocoder`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
-| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
-| O6 | Crumbs of sound (`grains`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Granular synthesis: grain size, density and position. |
-| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | awaiting Gemini review (queued 2026-11-07) | Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
+| 1 | The clarinet and the flute (`timbre`) |  | awaiting fact check |  | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
+| 2 | The buzz in your throat (`vowels`) |  | awaiting fact check |  | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
+| 3 | The bell with its start cut off (`tape`) |  | awaiting fact check |  | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
+| 4 | Why singers wobble (`vibrato`) |  | awaiting fact check |  | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
+| 5 | Counting beats (`beats`) |  | awaiting fact check |  | Two oscillators: beating, detune, thickness, and the intervals of music. |
+| 6 | The accidental bell (`bells`) |  | awaiting fact check |  | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
+| 7 | The torn speaker (`fuzz`) |  | awaiting fact check |  | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
+| 8 | Echoes on purpose (`echo`) |  | awaiting fact check |  | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
+| 9 | Does the order matter? (`order`) |  | awaiting fact check |  | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
+| 10 | The silent key (`silent`) |  | awaiting fact check |  | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
+| 11 | Wind from nothing (`noise`) |  | awaiting fact check |  | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
+| 12 | A drum with no drum (`drums`) |  | awaiting fact check |  | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
+| 13 | The computer that burbles (`random`) |  | awaiting fact check |  | LFO shapes, sample-and-hold, tempo sync and retrigger. |
+| 14 | The envelope that wouldn't stop (`cycle`) |  | awaiting fact check |  | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
+| 15 | The invisible patch cord (`matrix`) |  | awaiting fact check |  | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
+| 16 | Leaning on a note (`pressure`) |  | awaiting fact check |  | Velocity, pressure and the touch strip, and where each one is routed. |
+| 17 | The slide (`glide`) |  | awaiting fact check |  | Mono, legato, glide and retrigger: notes that slide into each other. |
+| 18 | Four fingers, one filter (`voices`) |  | awaiting fact check |  | Paraphonic and unison voices, voice stealing, and chords from one key. |
+| 19 | One hand, many notes (`arp`) |  | awaiting fact check |  | The arpeggiator: modes, octave range, rate, swing and hold. |
+| 20 | The bass line nobody played (`sequencer`) |  | awaiting fact check |  | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
+| 21 | Knobs that remember (`lanes`) |  | awaiting fact check |  | Recorded knob moves in a sequence, and controlled randomness. |
+| 22 | Same knob, different job (`macros`) |  | awaiting fact check |  | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
+| 23 | The blank patch (`blank`) |  | awaiting fact check |  | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
+| O1 | Scanning through tables (`tables`) | Other oscillators | awaiting fact check |  | Wavetables: a stack of waves scanned by an envelope or LFO. |
+| O2 | Organs by telephone (`organ`) | Other oscillators | awaiting fact check |  | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
+| O3 | A string from a delay line (`pluck`) | Other oscillators | awaiting fact check |  | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
+| O4 | The talking synth (`vocoder`) | Other oscillators | awaiting fact check |  | Formants, speech engines and Homer Dudley’s vocoder. |
+| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | awaiting fact check |  | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
+| O6 | Crumbs of sound (`grains`) | Other oscillators | awaiting fact check |  | Granular synthesis: grain size, density and position. |
+| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | awaiting fact check |  | Reverb: how a room answers, and the plates and springs that fake one. |
 
 ## Money That Lasts <a id="finance"></a>
 
-`courses/finance`, version 0.2 (beta, 2026-11-07). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026; student read-through and revisions done 7 Nov, all queued for a Gemini copy edit. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, Portugal's treatment of Social Security and Roth IRAs, the household-model figures quoted in filling-brackets ($780,000 more to heirs) and capstone, Portugal's tax on a $32,200 pension (about $2,400 in portugal-residency), WA's March 2026 estate-rate law, and SECURE/Medicare details added in the read-through revisions. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/finance`, version 0.3 (beta, 2026-11-08). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026; student read-through and revisions done 7 Nov, all queued for a Gemini copy edit. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, Portugal's treatment of Social Security and Roth IRAs, the household-model figures quoted in filling-brackets ($780,000 more to heirs) and capstone, Portugal's tax on a $32,200 pension (about $2,400 in portugal-residency), WA's March 2026 estate-rate law, and SECURE/Medicare details added in the read-through revisions.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why the savings rate beats the return (`savings-rate`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
-| 2 | Where 4 percent came from (`four-percent`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
-| 3 | The same average, a different order (`sequence`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
-| 4 | A fifty-year retirement (`long-retirement`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
-| 5 | Spending rules that bend (`flexible-spending`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
-| 6 | Stocks, bonds and the glide path (`allocation`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
-| 7 | How a federal return stacks (`brackets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
-| 8 | Four buckets (`accounts`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
-| 9 | Money before 59 and a half (`early-access`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
-| 10 | Filling the low brackets (`filling-brackets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
-| 11 | Health insurance before 65 (`aca`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
-| 12 | Which account to spend first (`withdrawal-order`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
-| 13 | Social Security, worked out (`social-security`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
-| 14 | Build the plan (`capstone`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
-| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | awaiting Gemini review (queued 2026-11-07) | Fact check | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
-| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | awaiting Gemini review (queued 2026-11-07) | Fact check | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
-| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | awaiting Gemini review (queued 2026-11-07) | Fact check | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
-| W1 | What Washington taxes instead (`wa-taxes`) | Washington | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
-| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
-| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
-| T1 | Where to hold what (`asset-location`) | Taxable-account craft | awaiting Gemini review (queued 2026-11-07) | Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
-| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | awaiting Gemini review (queued 2026-11-07) | Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
-| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | awaiting Gemini review (queued 2026-11-07) | Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
-| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | awaiting Gemini review (queued 2026-11-07) | Fact check | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
-| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | awaiting Gemini review (queued 2026-11-07) | Fact check | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
-| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | awaiting Gemini review (queued 2026-11-07) | Fact check | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
-| C1 | Two people, one plan (`filing-status`) | Couples and heirs | awaiting Gemini review (queued 2026-11-07) | Fact check | When marriage raises or lowers a couple's tax, how unmarried partners are treated for tax and health credits, and the higher tax a survivor pays on the same savings. |
-| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | awaiting Gemini review (queued 2026-11-07) | Fact check | Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax. |
-| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | awaiting Gemini review (queued 2026-11-07) | Fact check | What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance. |
-| H2 | Long-term care (`long-term-care`) | Health after 65 | awaiting Gemini review (queued 2026-11-07) | Fact check | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
-| S1 | Coast, part-time and partial (`coast`) | Other shapes | awaiting Gemini review (queued 2026-11-07) | Fact check | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
-| S2 | The house (`housing`) | Other shapes | awaiting Gemini review (queued 2026-11-07) | Fact check | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
+| 1 | Why the savings rate beats the return (`savings-rate`) |  | awaiting fact check |  | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
+| 2 | Where 4 percent came from (`four-percent`) |  | awaiting fact check |  | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
+| 3 | The same average, a different order (`sequence`) |  | awaiting fact check |  | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
+| 4 | A fifty-year retirement (`long-retirement`) |  | awaiting fact check |  | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
+| 5 | Spending rules that bend (`flexible-spending`) |  | awaiting fact check |  | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
+| 6 | Stocks, bonds and the glide path (`allocation`) |  | awaiting fact check |  | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
+| 7 | How a federal return stacks (`brackets`) |  | awaiting fact check |  | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
+| 8 | Four buckets (`accounts`) |  | awaiting fact check |  | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
+| 9 | Money before 59 and a half (`early-access`) |  | awaiting fact check |  | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
+| 10 | Filling the low brackets (`filling-brackets`) |  | awaiting fact check |  | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
+| 11 | Health insurance before 65 (`aca`) |  | awaiting fact check |  | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
+| 12 | Which account to spend first (`withdrawal-order`) |  | awaiting fact check |  | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
+| 13 | Social Security, worked out (`social-security`) |  | awaiting fact check |  | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
+| 14 | Build the plan (`capstone`) |  | awaiting fact check |  | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
+| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | awaiting fact check |  | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
+| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | awaiting fact check |  | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
+| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | awaiting fact check |  | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
+| W1 | What Washington taxes instead (`wa-taxes`) | Washington | awaiting fact check |  | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
+| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | awaiting fact check |  | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
+| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | awaiting fact check |  | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
+| T1 | Where to hold what (`asset-location`) | Taxable-account craft | awaiting fact check |  | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
+| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | awaiting fact check |  | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
+| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | awaiting fact check |  | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
+| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | awaiting fact check |  | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
+| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | awaiting fact check |  | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
+| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | awaiting fact check |  | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
+| C1 | Two people, one plan (`filing-status`) | Couples and heirs | awaiting fact check |  | When marriage raises or lowers a couple's tax, how unmarried partners are treated for tax and health credits, and the higher tax a survivor pays on the same savings. |
+| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | awaiting fact check |  | Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax. |
+| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | awaiting fact check |  | What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance. |
+| H2 | Long-term care (`long-term-care`) | Health after 65 | awaiting fact check |  | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
+| S1 | Coast, part-time and partial (`coast`) | Other shapes | awaiting fact check |  | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
+| S2 | The house (`housing`) | Other shapes | awaiting fact check |  | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
 
 ## Fungi <a id="fungi"></a>
 
-`courses/fungi`, version 0.2 (beta, 2026-11-04). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC). Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/fungi`, version 0.3 (beta, 2026-11-08). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
 | 1 | The ring in the meadow (`rings`) |  | awaiting fact check | Photos (no photos chosen yet) | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
-| 2 | Closer to us than to plants (`kingdom`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
+| 2 | Closer to us than to plants (`kingdom`) |  | awaiting fact check | Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
 | 3 | Eating from the outside (`tips`) |  | awaiting fact check | Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
 | 4 | Seven trillion spores (`spores`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
 | 5 | Twenty thousand sexes (`sexes`) |  | awaiting fact check | Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
-| 6 | Sacs and clubs (`groups`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
+| 6 | Sacs and clubs (`groups`) |  | awaiting fact check | Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
 | 7 | The yeast that wastes its sugar (`yeast`) |  | awaiting fact check | Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
 | 8 | The gap in the coal (`rot`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
 | 9 | Do trees share through fungi? (`network`) |  | awaiting fact check | Photos (no photos chosen yet) | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
@@ -428,7 +428,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 12 | Foxfire (`glow`) |  | awaiting fact check | Photos (no photos chosen yet) | Fungi that glow in the dark: how the light is made, and the experiment that asked what it is for. |
 | 13 | Fungi that hunt (`hunters`) |  | awaiting fact check | Photos (no photos chosen yet) | Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence. |
 | 14 | How big is one fungus? (`individual`) |  | awaiting fact check | Photos (no photos chosen yet) | What counts as one fungus, and how genetic markers revealed single fungi covering whole forests. |
-| 15 | The trunk with no tree (`prototaxites`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for over 165 years. |
+| 15 | The trunk with no tree (`prototaxites`) |  | awaiting fact check | Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for over 165 years. |
 | 16 | A log's afterlife (`log`) |  | awaiting fact check | Photos (no photos chosen yet) | How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way. |
 | L1 | The lichens that left the city (`bark`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | How lichens vanished from smoky cities, how they were used to map sulphur in the air, and how they came back once the smoke ended. |
 | L2 | Dating a moraine by its lichens (`lichenometry`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers. |
@@ -442,54 +442,54 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Rivers and the Salish Sea <a id="rivers"></a>
 
-`courses/rivers`, version 0.1 (beta, 2026-11-07). Rivers and the Salish Sea: why the water does what it does. Outline revised after a five-reader panel on 7 Nov 2026 (project files rivers/outline.md, reviews in rivers/review-2026-11-07/). Every lesson had one student read-through and a revision; the writers' uncertain facts are listed in rivers/writer-notes.md for the fact check. Photos are parked in tools/pending-photos.json. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/rivers`, version 0.2 (beta, 2026-11-08). Rivers and the Salish Sea: why the water does what it does. Outline revised after a five-reader panel on 7 Nov 2026 (project files rivers/outline.md, reviews in rivers/review-2026-11-07/). Every lesson had one student read-through and a revision; the writers' uncertain facts are listed in rivers/writer-notes.md for the fact check. Photos are parked in tools/pending-photos.json.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Which sea does a raindrop reach? (`watershed`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Watersheds and divides, where rain goes once it lands, and snow as a reservoir. |
-| 2 | The same storm, twice the flood (`floods`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Discharge, the river gauge and its hydrograph, rain on snow, and what a "100-year flood" means. |
-| 3 | Where August's river comes from (`baseflow`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Groundwater in the spaces between grains, Darcy's law, baseflow, and gaining and losing streams. |
-| 4 | Why the river runs brown in November (`sediment`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | What a river carries, the speed a grain needs to move (Hjulström), and the Elwha's century of trapped sediment. |
-| 5 | The river that changed its mind (`meanders`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why bends grow and cut off, braided and meandering rivers, log jams and avulsion. |
-| 6 | Why the bottom of the lake stays cold (`lake`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches. |
-| 7 | What a wave knows about the wind (`waves`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Waves carry energy, not water; fetch and duration, chop and swell, wave speed in deep and shallow water, and waves against a current. |
-| 8 | Two tides a day (`tides`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why the Moon raises two bulges, the Sun's share, and spring and neap tides. |
-| 9 | Why one low tide is lower (`inequality`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight. |
-| 10 | Why Olympia's tide is nearly twice Port Townsend's (`olympia`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level. |
-| 11 | Why Deception Pass runs at eight knots (`narrows`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Currents driven by a difference in level, and why slack water comes after high water. |
-| 12 | Why the Sound stays cold in July (`estuary`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Salt and density, the two-layer exchange over the sills, renewal at neap tides, upwelling, and the salt wedge at a river mouth. |
-| 13 | Why Hood Canal runs out of breath (`hoodcanal`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | A fjord's slow flushing, and how new ocean water lifts the old water to the surface. |
-| 14 | Where the beach comes from (`beach`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Feeder bluffs, longshore drift and spits, what a bulkhead does, and the Elwha's sand returning. |
-| 101 | The hill that drained a reservoir (`cedar`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918. |
-| 102 | The summer Lake Washington fell (`lowering`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | The 1916 lowering, the vanished Black River, and the locks that keep the salt out. |
-| 103 | Straightening the Duwamish (`duwamish`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check | How a meandering estuary became a waterway, and the rivers that were moved away from it. |
-| C1 | The falls that went under (`celilo`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check | The Columbia turned into a stair of reservoirs, and Celilo Falls drowned in 1957. |
-| C2 | The town behind the embankment (`vanport`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Vanport, 1948: levees, a snowmelt flood and a regulated river. |
-| C3 | The bar at the mouth (`bar`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Where the Columbia meets the Pacific swell, and why the bar is one of the most dangerous in the world. |
-| F1 | Reading a tide table and a current table (`tables`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Planning a beach walk at a minus tide and a crossing at slack water. |
-| F2 | Measuring a creek (`gauge`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check | An orange, a stopwatch and a USGS gauge page: discharge measured by hand. |
+| 1 | Which sea does a raindrop reach? (`watershed`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Watersheds and divides, where rain goes once it lands, and snow as a reservoir. |
+| 2 | The same storm, twice the flood (`floods`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Discharge, the river gauge and its hydrograph, rain on snow, and what a "100-year flood" means. |
+| 3 | Where August's river comes from (`baseflow`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Groundwater in the spaces between grains, Darcy's law, baseflow, and gaining and losing streams. |
+| 4 | Why the river runs brown in November (`sediment`) |  | awaiting fact check |  | What a river carries, the speed a grain needs to move (Hjulström), and the Elwha's century of trapped sediment. |
+| 5 | The river that changed its mind (`meanders`) |  | awaiting fact check |  | Why bends grow and cut off, braided and meandering rivers, log jams and avulsion. |
+| 6 | Why the bottom of the lake stays cold (`lake`) |  | awaiting fact check |  | Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches. |
+| 7 | What a wave knows about the wind (`waves`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Waves carry energy, not water; fetch and duration, chop and swell, wave speed in deep and shallow water, and waves against a current. |
+| 8 | Two tides a day (`tides`) |  | awaiting fact check |  | Why the Moon raises two bulges, the Sun's share, and spring and neap tides. |
+| 9 | Why one low tide is lower (`inequality`) |  | awaiting fact check |  | The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight. |
+| 10 | Why Olympia's tide is nearly twice Port Townsend's (`olympia`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level. |
+| 11 | Why Deception Pass runs at eight knots (`narrows`) |  | awaiting fact check |  | Currents driven by a difference in level, and why slack water comes after high water. |
+| 12 | Why the Sound stays cold in July (`estuary`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Salt and density, the two-layer exchange over the sills, renewal at neap tides, upwelling, and the salt wedge at a river mouth. |
+| 13 | Why Hood Canal runs out of breath (`hoodcanal`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | A fjord's slow flushing, and how new ocean water lifts the old water to the surface. |
+| 14 | Where the beach comes from (`beach`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Feeder bluffs, longshore drift and spits, what a bulkhead does, and the Elwha's sand returning. |
+| 101 | The hill that drained a reservoir (`cedar`) | seattle | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918. |
+| 102 | The summer Lake Washington fell (`lowering`) | seattle | awaiting fact check | Photos (1 photo parked in pending-photos.json) | The 1916 lowering, the vanished Black River, and the locks that keep the salt out. |
+| 103 | Straightening the Duwamish (`duwamish`) | seattle | awaiting fact check |  | How a meandering estuary became a waterway, and the rivers that were moved away from it. |
+| C1 | The falls that went under (`celilo`) | The Columbia | awaiting fact check |  | The Columbia turned into a stair of reservoirs, and Celilo Falls drowned in 1957. |
+| C2 | The town behind the embankment (`vanport`) | The Columbia | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Vanport, 1948: levees, a snowmelt flood and a regulated river. |
+| C3 | The bar at the mouth (`bar`) | The Columbia | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Where the Columbia meets the Pacific swell, and why the bar is one of the most dangerous in the world. |
+| F1 | Reading a tide table and a current table (`tables`) | In the field | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Planning a beach walk at a minus tide and a crossing at slack water. |
+| F2 | Measuring a creek (`gauge`) | In the field | awaiting fact check |  | An orange, a stopwatch and a USGS gauge page: discharge measured by hand. |
 
 ## Bats <a id="bats"></a>
 
-`courses/bats`, version 0.1 (beta, 2026-11-07). Bats: seeing with sound. Outline v2 (7 Nov 2026), revised after a biologist, teacher, explainer and student review: project files bats/outline.md and bats/review-2026-11-07/. All 15 lessons (trunk 1-10, branches L, N, P) written 7 Nov 2026 with live figures; student read-through and revisions done the same day; queued for Gemini. Photos are queued in tools/pending-photos.json with search hints (none verified); calls are synthesised from published parameters. Its catalog description waits for Gemini (queued 2026-11-07).
+`courses/bats`, version 0.2 (beta, 2026-11-08). Bats: seeing with sound. Outline v2 (7 Nov 2026), revised after a biologist, teacher, explainer and student review: project files bats/outline.md and bats/review-2026-11-07/. All 15 lessons (trunk 1-10, branches L, N, P) written 7 Nov 2026 with live figures; student read-through and revisions done the same day; queued for Gemini. Photos are queued in tools/pending-photos.json with search hints (none verified); calls are synthesised from published parameters.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | How does a bat fly in the dark? (`dark`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Spallanzani's and Jurine's experiments, why nobody believed them for almost 150 years, and Pierce and Griffin hearing bats' calls in 1938. |
-| 2 | A hand with skin between the fingers (`hand`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | What a bat is: a wing made of a hand, one mammal species in five, closer kin to horses and cats than to mice, and how wing shape sets where each bat hunts. |
-| 3 | Why so high? (`ultrasound`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Wavelength against the size of an insect, why higher calls find smaller prey but carry less far, and the two shapes of call: sweeps and steady tones. |
-| 4 | The feeding buzz (`buzz`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay. |
-| 5 | Twenty million voices (`crowds`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | The Doppler shift and how horseshoe bats lower their call to keep the echo in their sharpest hearing, and how bats in a crowd avoid jamming each other, or jam on purpose. |
-| 6 | The moth that hears the bat (`moths`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Moth ears with two cells, turning away and diving, tiger moths that click back and jam, and the bats that answer with whispers. |
-| 7 | The winter fat budget (`winter`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Torpor, how two grams of fat last a little brown bat the winter, why each waking costs so much, and how white-nose syndrome starves bats. |
-| 8 | Long lives, slow births (`lives`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why bats live several times longer than mammals their size, one pup a year and slow recovery, and what bats and viruses really show. |
-| 9 | Blood, nectar and fruit (`diets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Why vampire bats feed hungry roost-mates, how bats live on blood, nectar, fruit, fish and meat, and what nectar and fruit bats do for plants. |
-| 10 | The way home (`home`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How Egyptian fruit bats find home from places they have never been, big brown bats' compass set by the sunset, and migrating tree bats and wind turbines. |
-| L1 | Hearing the unhearable (`heterodyne`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | How a heterodyne detector mixes a bat's call down into hearing, how to tune one, and how to build one on a breadboard. |
-| L2 | Reading a sonogram (`sonograms`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (1 photo parked in pending-photos.json) | Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls. |
-| N1 | Dusk at Green Lake (`green-lake`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check | Who comes out when over a Seattle lake, high flyers and water skimmers, what they eat, and the season. |
-| N2 | Washington's fifteen (`washington`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's fifteen species, where they live and roost, the dry-side bats, and what a bat house needs. |
-| P1 | Bats and people (`people`) | Bats and people | awaiting Gemini review (queued 2026-11-07) | Fact check | The 1943 bat bomb, Austin's bridge colony, guano and gunpowder, what bats are worth to farms, and what to do about a bat in the house. |
+| 1 | How does a bat fly in the dark? (`dark`) |  | awaiting fact check |  | Spallanzani's and Jurine's experiments, why nobody believed them for almost 150 years, and Pierce and Griffin hearing bats' calls in 1938. |
+| 2 | A hand with skin between the fingers (`hand`) |  | awaiting fact check |  | What a bat is: a wing made of a hand, one mammal species in five, closer kin to horses and cats than to mice, and how wing shape sets where each bat hunts. |
+| 3 | Why so high? (`ultrasound`) |  | awaiting fact check |  | Wavelength against the size of an insect, why higher calls find smaller prey but carry less far, and the two shapes of call: sweeps and steady tones. |
+| 4 | The feeding buzz (`buzz`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay. |
+| 5 | Twenty million voices (`crowds`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | The Doppler shift and how horseshoe bats lower their call to keep the echo in their sharpest hearing, and how bats in a crowd avoid jamming each other, or jam on purpose. |
+| 6 | The moth that hears the bat (`moths`) |  | awaiting fact check |  | Moth ears with two cells, turning away and diving, tiger moths that click back and jam, and the bats that answer with whispers. |
+| 7 | The winter fat budget (`winter`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Torpor, how two grams of fat last a little brown bat the winter, why each waking costs so much, and how white-nose syndrome starves bats. |
+| 8 | Long lives, slow births (`lives`) |  | awaiting fact check |  | Why bats live several times longer than mammals their size, one pup a year and slow recovery, and what bats and viruses really show. |
+| 9 | Blood, nectar and fruit (`diets`) |  | awaiting fact check | Photos (2 photos parked in pending-photos.json) | Why vampire bats feed hungry roost-mates, how bats live on blood, nectar, fruit, fish and meat, and what nectar and fruit bats do for plants. |
+| 10 | The way home (`home`) |  | awaiting fact check |  | How Egyptian fruit bats find home from places they have never been, big brown bats' compass set by the sunset, and migrating tree bats and wind turbines. |
+| L1 | Hearing the unhearable (`heterodyne`) | Listening in | awaiting fact check | Photos (1 photo parked in pending-photos.json) | How a heterodyne detector mixes a bat's call down into hearing, how to tune one, and how to build one on a breadboard. |
+| L2 | Reading a sonogram (`sonograms`) | Listening in | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls. |
+| N1 | Dusk at Green Lake (`green-lake`) | Northwest bats | awaiting fact check |  | Who comes out when over a Seattle lake, high flyers and water skimmers, what they eat, and the season. |
+| N2 | Washington's fifteen (`washington`) | Northwest bats | awaiting fact check |  | Washington's fifteen species, where they live and roost, the dry-side bats, and what a bat house needs. |
+| P1 | Bats and people (`people`) | Bats and people | awaiting fact check |  | The 1943 bat bomb, Austin's bridge colony, guano and gunpowder, what bats are worth to farms, and what to do about a bat in the house. |
 
 ## Not started
 

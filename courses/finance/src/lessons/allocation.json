@@ -11,24 +11,24 @@
         { "type": "text", "text": "The figure in this lesson lets you set the share of shares at the start of retirement and ten years in, and tests the result on every 30-year start since 1871. Before the sliders, a guess about bonds alone: with no shares at all, how many of the 123 starts would run out at 4 percent?" },
         { "type": "interactive_diagram", "id": "glide", "caption": "The percentage held in shares moves in a straight line from the first slider's value to the second's over the first ten years, then stays. Bars: the highest steady real withdrawal each 30-year start could sustain. The rest is in ten-year Treasury bonds.", "task": "Guess, then try a rising path and a falling one", "goal": "glide", "aspect_ratio": 1.53 },
         { "type": "text", "text": "With nothing but bonds, 4 percent ran out in 63 of 123 starts, and the worst start, 1941, could sustain only 2.4 percent. Bonds pay a fixed number of dollars, and from 1941 to 1981 inflation ate those dollars: over those forty years, ten-year Treasuries lost more than half their real value even counting the interest. A bond is safe from default, but not from the prices of everyday things rising faster than its interest.[^repression]" },
-        { "type": "text", "text": "At the other end, all shares had the highest worst case, 3.74 percent, and by far the richest typical ending. Between them, the worst case barely changes from 50 to 100 percent in shares: 3.6 to 3.7 percent, though the ride does. In all three, the worst starts were in the late 1960s. With 100 percent shares the balance fell by more than half in real terms in several starts before recovering, which few people sit through calmly." }
+        { "type": "text", "text": "At the other end, all shares had the highest worst case, 3.74 percent, and by far the richest typical ending. Between 50 and 100 percent in shares, the worst case barely changes, moving from 3.6 to 3.7 percent, though the ride does. Across that range, the worst starts were in the late 1960s. With 100 percent shares the balance fell by more than half in real terms in several starts before recovering, which few people sit through calmly." }
       ]
     },
     {
       "title": "What bonds are for",
       "blocks": [
         { "type": "text", "text": "Even though bonds lower the long-run return and barely improve the worst case, there are still three reasons to hold them." },
-        { "type": "text", "text": "**They give you something to sell in a crash.** In 1974, 2002 and 2008 high-quality bonds held up or rose while shares fell. A retiree who spends from the bonds in those years doesn't have to sell shares at the bottom, which is the damage lesson 3 described." },
+        { "type": "text", "text": "**They give you something to sell in a crash.** In 1974, 2002 and 2008 high-quality bonds held up or rose while shares fell. A retiree who spends from the bonds in those years doesn't have to sell shares at the bottom, avoiding the damage lesson 3 described." },
         { "type": "text", "text": "**They narrow the range.** The worst case is set by one era, but the bad tenth of outcomes and the swings along the way are much milder with 40 or 50 percent in bonds. A plan the retiree can stick to through a crash is worth more than a slightly better plan they abandon at the bottom." },
-        { "type": "text", "text": "**They don't always help.** In 2022 shares and bonds fell together, as rising interest rates hit both, and a 60/40 portfolio, 60 percent shares and 40 percent bonds, had its worst year since the 1930s. (When rates rise, new bonds pay more, so an old bond paying less is worth less to a buyer, and its price falls.) Bonds protect best against falls caused by recessions, and worst against inflation." }
+        { "type": "text", "text": "**They don't always help.** In 2022 shares and bonds fell together, as rising interest rates hit both, and a 60/40 portfolio (60 percent shares and 40 percent bonds) had its worst year since the 1930s.[^bond-prices] Bonds protect best against falls caused by recessions, and worst against inflation." }
       ]
     },
     {
       "title": "Paths that move",
       "blocks": [
-        { "type": "text", "text": "Most target-date funds, single funds that shift their own mix as a chosen retirement year approaches and the default in many 401(k) plans, hold fewer shares every year: perhaps 90 percent at 30, 50 percent at 65, and 30 percent by 75. That is a falling **glide path**: a plan for how the share in shares changes with age. It feels right, since an older person has less time to recover." },
+        { "type": "text", "text": "Most target-date funds, single funds that shift their own mix as a chosen retirement year approaches and serve as the default in many 401(k) plans, hold fewer shares every year: perhaps 90 percent at age 30, 50 percent at 65, and 30 percent by 75. That is a falling **glide path**: a plan for how the share in shares changes with age. It feels right, since an older person has less time to recover." },
         { "type": "text", "text": "In 2013 Wade Pfau and Michael Kitces argued the reverse for the years after retirement. Lesson 3 showed that the first decade decides most of the outcome, so the portfolio should be most cautious then, and can take more risk later, when the outcome is mostly settled. They proposed starting at around 30 percent shares and rising to 60 or 70. Combined with a falling path before retirement, the share of bonds rises towards the retirement date and falls after it, a shape often called a bond tent." },
-        { "type": "text", "text": "Try both in the figure. On this course's data, 70 percent shares falling to 30 over ten years did worst, with a worst case of 3.46 percent, no better than holding 30 percent shares throughout. Starting at 30 percent and rising to 70 did as well as 60 percent throughout, 3.66 percent, while holding far fewer shares in the decade when a crash does the most harm. Neither beat simply holding 80 percent shares, at 3.71, almost as high as all shares and with a gentler ride." },
+        { "type": "text", "text": "Try both in the figure. On this course's data, 70 percent shares falling to 30 over ten years did worst, with a worst case of 3.46 percent, no better than holding 30 percent shares throughout. Starting at 30 percent and rising to 70 did as well as 60 percent throughout, 3.66 percent, while holding far fewer shares in the decade when a crash does the most harm. Neither beat simply holding 80 percent shares, at 3.71 percent, almost as high as all shares and with a gentler ride." },
         { "type": "text", "text": "So the gains from a rising path in the US record are modest. Its real strength is putting the risk where it matters least: a retiree on a rising path whose first decade goes badly has their money mostly in bonds through it; one whose first decade goes well is buying more shares out of a larger pile. For anyone who would struggle to hold 80 percent shares through 2008, it is a way to get most of the benefit with less of the fear." }
       ]
     },
@@ -43,7 +43,7 @@
           { "at": 2009, "label": "March: about 7,050, under a fifth of the 1989 peak" },
           { "at": 2024, "label": "February: the index finally closes above its 1989 peak, 34 years later" }
         ], "spacing": "even" } },
-        { "type": "text", "text": "A Japanese retiree of 1990 with most of their money in Japanese shares saw it fall by more than half and stay down for the rest of their life.[^nikkei] Dividends and Japan's low inflation softened the loss in real terms, but not by enough to save a 4 percent withdrawal. In 1989 US shares traded at a fraction of Japan's price-to-earnings ratio, the price of a share divided by the company's yearly profit per share, which is lesson 4's point about starting valuations seen from abroad." },
+        { "type": "text", "text": "A Japanese retiree of 1990 with most of their money in Japanese shares saw it fall by more than half and stay down for the rest of their life.[^nikkei] Dividends and Japan's low inflation softened the loss in real terms, but not by enough to save a 4 percent withdrawal. In 1989 US shares traded at a fraction of Japan's price-to-earnings ratio (the price of a share divided by the company's yearly profit per share), which is lesson 4's point about starting valuations seen from abroad." },
         { "type": "text", "text": "The defence is the one lesson 4 ended on: own shares from many countries, so that a lost generation in one market is a fraction of the portfolio rather than all of it. A world index fund holds US shares at roughly their share of world market value, around 60 percent in recent years, and the rest spread over dozens of countries.[^world]" },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "All-bond portfolios failed most often in the US record, because inflation eats fixed interest.",
@@ -56,8 +56,8 @@
     {
       "title": "Choosing a mix",
       "blocks": [
-        { "type": "text", "text": "There is no single right allocation, but history narrows the choice. Less than about half in shares has meant both a lower worst case and a much poorer typical outcome. Above that, the worst case is nearly flat, so the choice is really about how much fall the retiree can stand to watch, and what they want to leave." },
-        { "type": "text", "text": "A reasonable default for someone with a long retirement ahead is somewhere between 60 and 80 percent shares, held across world markets, with the bonds in high-quality government bonds and inflation-protected ones (TIPS, whose payments rise with prices, so the 1941 to 1981 problem doesn't touch them; lesson 5 used them for a ladder). Someone nervous about the first decade can start lower and rise. Someone with a pension or Social Security covering their essentials, the floor from lesson 5, can afford more shares, because a fall in the portfolio only threatens the discretionary part of their spending." },
+        { "type": "text", "text": "There is no single right allocation, but history narrows the choice. Less than about half in shares has meant both a lower worst case and a much poorer typical outcome. Above that, the worst case is nearly flat, so the choice is really about how much of a fall the retiree can stand to watch, and what they want to leave." },
+        { "type": "text", "text": "A reasonable default for someone with a long retirement ahead is somewhere between 60 and 80 percent shares, held across world markets, with the rest in high-quality government bonds and inflation-protected ones (TIPS, whose payments rise with prices, so the 1941 to 1981 problem doesn't touch them; lesson 5 used them for a ladder). Someone nervous about the first decade can start lower and rise. Someone with a pension or Social Security covering their essentials, the floor from lesson 5, can afford more shares, because a fall in the portfolio only threatens the discretionary part of their spending." },
         { "type": "text", "text": "Where each part is held matters as much as the mix: bonds and shares are taxed differently, and the same 60/40 can cost very different amounts in tax depending on which account holds which. That is the subject of the branch on taxable accounts, an optional side path that follows the tax lessons starting next." }
       ]
     },
@@ -91,6 +91,11 @@
       "kind": "digression",
       "title": "Japan's 1989 bubble",
       "text": "On the last trading day of 1989, the Nikkei 225 closed at 38,916, and Japanese companies made up nearly 45 percent of the world share market by value. At the bottom in March 2009 the index stood at 7,055, down more than 80 percent. It did not pass its 1989 level again until February 2024."
+    },
+    "bond-prices": {
+      "kind": "technical",
+      "title": "Why bond prices fall when rates rise",
+      "text": "When interest rates rise, newly issued bonds pay higher interest. An older bond paying the lower old rate is worth less to a buyer, so its market price falls."
     }
   }
 }

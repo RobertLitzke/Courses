@@ -103,6 +103,14 @@ New lesson prose waits for its final Gemini copy edit in each course's
 `OPENROUTER_API_KEY=… npm run review-queue -- --run` edits and writes it all
 in one batch and empties the queues (reports in each course's
 `tools/copyedit-out/`; check their fact notes before committing).
+The requests go one lesson at a time with a strict JSON reply schema, at
+medium reasoning effort (`EFFORT=low|medium|high`). For speed, run the
+courses side by side (`node tools/copyedit.mjs <course> --queue --write`
+for each). Don't use OpenRouter's batch API: on 2026-11-08 it
+garbled the JSON in 72 of 131 replies, and none of it could be used. From a
+cloud session, Node's fetch needs `NODE_USE_ENV_PROXY=1
+NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt`, and the environment must
+allow `openrouter.ai`.
 
 A course's description on the catalog (`summary` and `subtitle` in its
 `course.json`) is written against its lessons: `npm run outline -- <course>`

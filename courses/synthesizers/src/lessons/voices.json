@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** This synth has played one note at a time for seventeen lessons. Below, it plays chords. Listen to the brightness, which swells with each chord. Every note of each chord opens at the same moment and closes at the same moment, as if one hand were sweeping one filter for all of them. On a piano, or in a band of three players, each note would have its own shape. Why do these move together?"
+          "text": "**The mystery.** This synth has played one note at a time for seventeen lessons. Below, it plays chords. Listen to the brightness, which swells with each chord. Every note of each chord opens and closes at the same moment, as if one hand were sweeping one filter for all of them. On a piano, or in a band of three players, each note would have its own shape. Why do these move together?"
         },
         {
           "type": "diagram",
@@ -44,7 +44,7 @@
         },
         {
           "type": "text",
-          "text": "Because there *is* only one filter. The synth has grown four oscillators, one per finger, but they all go into the same filter, the same envelope and the same amp. That arrangement is called **paraphonic**: several pitches, one sound-shaping path. With one note at a time, as before, it is **monophonic**."
+          "text": "Because there *is* only one filter. The synth has grown four oscillators, one per finger, but they all feed into the same filter and envelope. That arrangement is called **paraphonic**: several pitches, one sound-shaping path. With one note at a time, as before, it is **monophonic**."
         }
       ]
     },
@@ -82,7 +82,7 @@
         },
         {
           "type": "text",
-          "text": "A paraphonic synth has a quirk you will hear as soon as you play it like a piano. The envelope belongs to all the notes at once, so pressing a new key starts it again for every note that is already sounding: the whole chord re-swells. And a fifth key, on a four-note synth, has to take the place of one already held. Which one gives way is called **voice stealing**; this synth, like most, drops the oldest."
+          "text": "A paraphonic synth has a quirk you will hear as soon as you play it like a piano. The envelope belongs to all the notes at once, so pressing a new key starts it again for every note already sounding: the whole chord re-swells. And on a four-note synth, a fifth key has to take the place of one already held. Choosing which note gives way is called **voice stealing**; this synth, like most, drops the oldest."
         }
       ]
     },
@@ -91,7 +91,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **polyphonic** synth gives each note a whole voice: its own oscillators, its own filter and its own envelopes. A chord on a polyphonic synth is several complete synths playing at once, each note shaped separately, like a piano.[^poly] That costs a filter and envelopes per note, which is why polyphony was expensive for so long, and why small synths today are often paraphonic: the oscillators are cheap, the filter is not."
+          "text": "A **polyphonic** synth gives each note a whole voice, with its own oscillators, filter and envelopes. A chord on a polyphonic synth is several complete synths playing at once, each note shaped separately, like a piano.[^poly] That takes a filter and envelopes for every note, which is why polyphony was expensive for so long, and why small synths today are often paraphonic: extra oscillators are cheap, extra filters are not."
         },
         {
           "type": "diagram",
@@ -104,7 +104,7 @@
         },
         {
           "type": "text",
-          "text": "Paraphony has its own uses. A pad on a paraphonic synth sweeps as one block, which can sound bigger and more deliberate than a polyphonic one. Played one note at a time, it is a mono synth, with glide and legato from lesson 17 still working. What it can't do is let a held chord ring on while a new note plucks over it: the new note re-plucks the lot."
+          "text": "Paraphony has its own uses. A pad on a paraphonic synth sweeps as one block, which can sound bigger and more deliberate than a polyphonic one. Played one note at a time, it is a mono synth, with glide and legato from lesson 17 still working. What it cannot do is let a held chord ring on while a new note plucks over it: the new note re-plucks the lot."
         }
       ]
     },
@@ -113,7 +113,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The third setting, **Unison**, uses the four oscillators the other way: all on the same note, each tuned a few cents apart. It is lesson 5's two detuned oscillators taken further. The result is one very thick note, the sound of a lot of big synth leads and basses. **Spread** sets how far apart they are tuned."
+          "text": "The third setting, **Unison**, uses the four oscillators the other way: all on the same note, each tuned a few cents apart. It is lesson 5's two detuned oscillators taken further. The result is one very thick note, the sound of many big synth leads and basses. **Spread** sets how far apart they are tuned."
         },
         {
           "type": "interactive_diagram",
@@ -141,7 +141,7 @@
         },
         {
           "type": "text",
-          "text": "A little spread thickens; a lot of spread starts to sound out of tune, then like a crowd. Unison is a mono mode: every oscillator is busy on the one note, so it can't play chords, and the chord switch below does nothing in it."
+          "text": "A little spread thickens the sound; a lot of spread starts to sound out of tune, then like a crowd. Unison is a mono mode: every oscillator is busy on the one note, so it cannot play chords, and the chord switch below does nothing in it."
         }
       ]
     },
@@ -150,7 +150,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The last trick turns one key into a chord. The **Chord** switch adds fixed notes above whatever you play: an octave, a fifth, or the three notes of a minor, major or suspended chord (names for three chord colours: major sounds bright, minor darker, suspended open and unsettled). Every key then plays the same shape of chord, moved up or down. It is a mono line played in chords, through the one filter."
+          "text": "The last trick turns one key into a chord. The **Chord** switch adds fixed intervals above whatever you play: an octave, a fifth, or the extra notes of a minor, major or suspended chord.[^chord-colours] Every key then plays the same chord shape, moved up or down. It is a mono line played in chords, through the one filter."
         },
         {
           "type": "interactive_diagram",
@@ -178,7 +178,7 @@
         },
         {
           "type": "text",
-          "text": "The same idea, as **chord memory**, was a feature of early-1980s synths, which stored whatever chord you held and gave it back on every key; and chords played this way, plucked short, are the **stab** of house and techno: one shape of chord, moved about, never changing its inside. Because every note is the same shape, a whole bass line can become a chord line without anyone knowing any harmony.[^stab]"
+          "text": "Early-1980s synths had the same idea as **chord memory**, storing whatever chord you held and giving it back on every key. Played as a short pluck, this is the **stab** of house and techno: one chord shape moved up and down, never changing its internal intervals. Because every note carries the same shape, a one-finger bass line becomes a chord line without anyone needing to know harmony.[^stab]"
         }
       ]
     },
@@ -306,12 +306,17 @@
     "poly": {
       "kind": "digression",
       "title": "Five voices",
-      "text": "Polyphonic synths existed in the 1970s, but the one that set the pattern was the Sequential Circuits Prophet-5 of 1978: five complete voices, each with two oscillators, a filter and two envelopes, and a microprocessor that remembered whole patches and handed out voices to keys. Before polyphonic synths, a player who wanted chords with separate shapes had to multitrack a mono synth one note at a time."
+      "text": "Polyphonic synths existed earlier in the 1970s, but the one that set the pattern was the Sequential Circuits Prophet-5 of 1978: five complete voices, each with two oscillators, a filter and two envelopes, plus a microprocessor that stored whole patches and assigned voices to keys. Before polyphonic synths, a player who wanted chords with independent shapes had to record a mono synth one note at a time onto separate tape tracks."
     },
     "stab": {
       "kind": "digression",
-      "title": "The chord memory",
-      "text": "Some synths of the early 1980s, the Korg Polysix among them, had a button that stored whatever chord was held and played it from any single key afterwards. House and techno producers later in the decade used it to turn a one-finger riff into a riff of chords, and the stab became one of the commonest sounds in dance music."
+      "title": "Chord memory",
+      "text": "Several synths of the early 1980s, the Korg Polysix and Roland Juno-60 among them, had a button that stored whatever chord was held and played it from any single key afterwards. House and techno producers later in the decade used it to turn a one-finger riff into a riff of chords, and the stab became one of the commonest sounds in dance music."
+    },
+    "chord-colours": {
+      "kind": "technical",
+      "title": "Major, minor and suspended",
+      "text": "A three-note chord (a triad) is built from the root note you press, a fifth above it (seven semitones), and a middle note that sets its colour. A major chord puts that middle note four semitones above the root and sounds bright; a minor chord puts it at three semitones and sounds darker; a suspended fourth puts it at five semitones, sounding open and unsettled."
     }
   },
   "journal": []

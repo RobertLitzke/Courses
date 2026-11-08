@@ -3,7 +3,7 @@
   "subtitle": "Saving, spending and paying less tax",
   "department": "Personal Finance",
   "order": 10,
-  "summary": "For someone planning to stop work early. It starts with the 4 percent rule, where it came from and why the order of good and bad years matters once you are spending, all tested against US market history since 1871. Most of the rest is tax: how a return stacks, the four kinds of account, the low-income years when a Roth conversion costs little, health cover before Medicare. Branches cover Washington State, moving to Portugal, and pay in company stock. It explains how the rules work; it is not personal advice.",
+  "summary": "William Bengen's 4 percent rule was built for a thirty-year retirement; someone who stops work at forty needs money to last fifty, and has decades before 59½ and Medicare when the tax code and health-insurance rules work differently. The first six lessons test withdrawal rates and bond glide paths against every stretch of US market history since 1871, when the order of good and bad years decides whether savings survive. The rest work through federal tax brackets, 0 percent capital gains, Roth conversion ladders, ACA health-credit cliffs and Social Security's bend points. Branches go into Washington State's capital-gains and estate taxes, American taxes in Portugal, equity pay from RSUs to the mega backdoor Roth, and what changes for couples, heirs and Medicare after 65.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "finance.save",
@@ -17,11 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.2",
+    "version": "0.3",
     "stage": "beta",
-    "date": "2026-11-07",
-    "note": "Every lesson revised after a student read-through: terms defined where they first appear, worked numbers checked against the 2026 rules, and clearer cross-references between lessons.",
+    "date": "2026-11-08",
+    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
     "history": [
+      {
+        "version": "0.2",
+        "stage": "beta",
+        "date": "2026-11-07",
+        "note": "Every lesson revised after a student read-through: terms defined where they first appear, worked numbers checked against the 2026 rules, and clearer cross-references between lessons."
+      },
       {
         "version": "0.1",
         "stage": "beta",

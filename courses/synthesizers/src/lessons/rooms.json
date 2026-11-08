@@ -54,7 +54,7 @@
         },
         {
           "type": "text",
-          "text": "What you hear in the second and third is **reverb**, short for reverberation: the sound reflecting off walls, floor and ceiling, thousands of times, arriving later and later and quieter and quieter. Every sound you have ever heard indoors came with some. A synth's sound has none at all, which is why nearly every recording adds it."
+          "text": "What you hear in the second and third is **reverb**, short for reverberation: the sound reflecting off walls, floor and ceiling, thousands of times, arriving later and later and quieter and quieter. Every sound you have ever heard indoors came with some. A synth's raw sound has none at all, which is why nearly every recording adds it."
         }
       ]
     },
@@ -67,7 +67,7 @@
         },
         {
           "type": "text",
-          "text": "Sabine spent his nights measuring. He sounded an organ pipe and timed with a stopwatch how long the sound took, after the pipe stopped, to die away until he could no longer hear it. Then his assistants carried in seat cushions from the theatre across the yard, a few at a time, and he timed it again.[^cushions] More cushions always shortened the time in a predictable curve. After years of this he had a law. Today the **reverberation time** is defined as the time a sound takes to fall to a millionth of its starting power, a drop of 60 **decibels**, the usual unit for comparing loudness; that is close to what Sabine's ear measured. It is proportional to the room's volume divided by how much its surfaces soak up.[^law]"
+          "text": "Sabine spent his nights measuring. He sounded an organ pipe and timed with a stopwatch how long the sound took, after the pipe stopped, to die away until he could no longer hear it. Then his assistants carried in seat cushions from the theatre across the yard, a few at a time, and he timed it again.[^cushions] More cushions always shortened the time in a predictable curve. After years of this he had a law. Today the **reverberation time** is defined as the time a sound takes to fall to a millionth of its starting power (a drop of 60 **decibels**[^decibels], close to what Sabine's ear measured). It is proportional to the room's volume divided by how much its surfaces soak up.[^law]"
         },
         {
           "type": "interactive_diagram",
@@ -128,7 +128,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Recording studios needed reverb before they could afford the rooms. Some built **echo chambers**: a bare room with a loudspeaker at one end and a microphone at the other.[^chambers] In 1957 a German company, EMT, sold a cheaper answer: a **plate**, a thin steel sheet about two metres long, hung in a frame. A speaker driver shook it and pickups listened to it ringing. A plate's reverb is dense and bright from the very start, with no early reflections. It suits voices and drums, and it is on a great many records of the 1960s and 1970s."
+          "text": "Recording studios needed reverb before they could afford the rooms. Some built **echo chambers**: a bare room with a loudspeaker at one end and a microphone at the other.[^chambers] In 1957 a German company, EMT, sold a cheaper answer: a **plate**, a thin steel sheet two metres long, hung in a frame. A speaker driver shook it and pickups listened to it ringing. A plate's reverb is dense and bright from the very start, with no early reflections. It suits voices and drums, and it is on a great many records of the 1960s and 1970s."
         },
         {
           "type": "text",
@@ -200,7 +200,7 @@
         },
         {
           "type": "text",
-          "text": "This synth's reverb bounces nothing. For each Type it works out how a room, a plate or a spring would answer a single click, its **impulse response**. Digital sound is a stream of numbers, tens of thousands a second, each called a **sample**, and the reverb adds up a copy of that answer for every sample, scaled by the sample's height. The calculation is called **convolution**. Record the answer of a real cathedral to a starting pistol, and any sound can be played in that cathedral."
+          "text": "This synth's reverb bounces nothing. For each Type it works out how a room, a plate or a spring would answer a single click, its **impulse response**. Digital sound is a stream of numbers, tens of thousands a second, each called a **sample**, and the reverb adds up a copy of that answer for every sample, scaled by the sample's height. This calculation is called **convolution**. Record the answer of a real cathedral to a starting pistol, and any sound can be played in that cathedral."
         }
       ]
     },
@@ -272,7 +272,7 @@
     "law": {
       "kind": "technical",
       "title": "Sabine’s formula",
-      "text": "In metric units, the time in seconds is 0.161 times the volume in cubic metres, divided by the absorption, measured in square metres of open window. An open window absorbs everything that reaches it, so a square metre of it counts as 1. A square metre of plaster counts as about 0.03, and a seated person soaks up about as much as 0.4 square metres of open window. Sabine himself worked in feet, and at first measured absorption in lengths of cushion, converting to open windows later."
+      "text": "In metric units, the time in seconds is 0.161 times the volume in cubic metres, divided by the absorption, measured in square metres of open window. An open window absorbs everything that reaches it, so a square metre of it counts as 1. A square metre of plaster counts as about 0.03, and a seated person soaks up about as much as 0.4 square metres of open window. Sabine himself worked in feet, and at first measured absorption in lengths of Sanders Theatre cushion, converting to open windows later."
     },
     "cushions": {
       "kind": "digression",
@@ -282,12 +282,17 @@
     "chambers": {
       "kind": "digression",
       "title": "The rooms under the car park",
-      "text": "Capitol Records in Hollywood built eight trapezoid rooms of hard plaster 30 feet underground, beneath its car park, designed with the acoustician Vern Knudsen in 1956. Voices recorded dry in the studio upstairs were piped down to a speaker in one of the chambers, picked up by a microphone across the room, and mixed back into the track."
+      "text": "Capitol Records in Hollywood built eight trapezoidal rooms of hard concrete and plaster 30 feet underground, beneath its car park, designed with the acoustician Vern Knudsen and guitarist Les Paul in 1956. Voices recorded dry in the studio upstairs were piped down to a speaker in one of the chambers, picked up by a microphone across the room, and mixed back into the track."
     },
     "dispersion": {
       "kind": "technical",
       "title": "Why springs chirp",
       "text": "In open air, all frequencies travel at the same speed. In steel, they don't. On a flat plate, bending waves carry high frequencies faster than low ones, giving a subtle downward sweep. In a tightly coiled spring, the curve of the wire turns this round below a few kilohertz: low frequencies travel faster and arrive first, giving the upward chirp you hear on a guitar amp."
+    },
+    "decibels": {
+      "kind": "technical",
+      "title": "Decibels",
+      "text": "The decibel (dB) compares two sound powers on a logarithmic scale, because our ears hear ratios rather than raw differences. Every drop of 10 dB means a tenth of the power, which sounds roughly half as loud. A drop of 60 dB is six steps of 10: a tenth of a tenth of a tenth of a tenth of a tenth of a tenth, or one millionth of the starting power."
     }
   },
   "journal": []

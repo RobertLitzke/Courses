@@ -26,7 +26,7 @@
         { "type": "text", "text": "For adults under 65, Apple Health looks only at income, measured as MAGI, the same modified adjusted gross income that sets the ACA credit in lesson 11. There is no limit on savings. A couple with $2 million invested and $25,000 of MAGI qualifies, and the cover costs them nothing: no premium, and no or very small charges for care." },
         { "type": "text", "text": "An early retiree can produce a low MAGI on purpose. Spending from a taxable account's basis (the part of a sale that returns what you paid, which isn't income), withdrawing Roth contributions, and drawing down cash all fund a year without adding income. Dividends, interest and realised gains do count, and so does any conversion. Apple Health looks at current monthly income when you apply and whenever your circumstances change, while the ACA looks at the year's total, so a large gain in one month can matter more for Apple Health.[^monthly]" },
         { "type": "text", "text": "The trade is with lesson 10. A year on Apple Health is a year with almost no room for Roth conversions, since a couple's conversions would carry them over 138 percent at once. A couple with a large pre-tax balance and little other income may do better converting $60,000, which keeps them under the $84,600 cliff, and paying a few thousand dollars for an ACA plan than staying on Apple Health and facing larger withdrawals at higher brackets later. Lesson 12's figure on withdrawal order can test both, by comparing its orders at your own pre-tax balance." },
-        { "type": "text", "text": "Apple Health is a managed-care plan with its own networks, and fewer doctors take it than take commercial plans in some areas. Some people with substantial savings are also uncomfortable using a programme meant for low incomes, even where the law is written to include them. Both are reasonable considerations; neither changes the eligibility." }
+        { "type": "text", "text": "Apple Health is a managed-care plan with its own networks, and in some areas fewer doctors take it than take commercial plans. Some people with substantial savings are also uncomfortable using a programme meant for low incomes, even where the law is written to include them. Both are reasonable considerations; neither changes eligibility." }
       ]
     },
     {
@@ -40,7 +40,7 @@
       "title": "Cascade Care",
       "blocks": [
         { "type": "text", "text": "Above the Apple Health line, Washington adds three things to the federal marketplace. Cascade Care plans are standardised, so the same deductible and copays apply across insurers and plans can be compared on price alone. Cascade Select is the state's **public option**: plans sold by private insurers on terms the state sets, including a limit on what they pay hospitals, which keeps premiums down." },
-        { "type": "text", "text": "Cascade Care Savings is a state premium credit on top of the federal one, for households up to 250 percent of the poverty line, about $53,000 for a couple, on qualifying plans. It is set each year by the state budget, so the amount is checked at enrolment rather than planned on years ahead." },
+        { "type": "text", "text": "Cascade Care Savings is a state premium credit on top of the federal one, for households up to 250 percent of the poverty line, about $53,000 for a couple, on qualifying silver and gold plans. It is set each year by the state budget, so the amount is checked at enrolment rather than planned on years ahead." },
         { "type": "text", "text": "None of this moves the cliff. At 400 percent of the poverty line, about $84,600 for a couple in 2026, the federal credit stops, and the state's help stops well before. Lesson 11's planning still applies in Washington unchanged." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Below 138 percent of the poverty line, adults under 65 qualify for Apple Health, with no limit on savings.",
@@ -55,7 +55,7 @@
       "title": "Check",
       "blocks": [
         { "type": "quiz", "id": "check", "caption": "Four questions on health cover in Washington", "task": "Choose the best answer to each", "options": { "items": [
-          { "ask": "A couple of 58 have $1.5 million saved and $26,000 of MAGI. Can they get Apple Health?", "choices": ["Yes, it has no asset test for adults under 65", "No, their savings are too large", "Only after spending down to $2,000"], "answer": 0, "why": "Medicaid for adults under 65 is based on MAGI alone." },
+          { "ask": "A couple, both 58, have $1.5 million saved and $26,000 of MAGI. Can they get Apple Health?", "choices": ["Yes, it has no asset test for adults under 65", "No, their savings are too large", "Only after spending down to $2,000"], "answer": 0, "why": "Medicaid for adults under 65 is based on MAGI alone." },
           { "ask": "Which of these raises MAGI for Apple Health?", "choices": ["Realising a capital gain", "Withdrawing Roth contributions", "Spending cash in the bank"], "answer": 0, "why": "Gains are income; returned contributions and cash are not." },
           { "ask": "Why might a couple with a large pre-tax balance choose an ACA plan over Apple Health?", "choices": ["To make room for Roth conversions at low brackets", "Because Apple Health is recovered from all estates", "Because Apple Health costs more"], "answer": 0, "why": "Staying under 138 percent leaves no room to convert, and the pre-tax balance may later be withdrawn at higher rates." },
           { "ask": "What does Washington recover from the estate of someone who had Apple Health from 56 to 64 and stayed healthy?", "choices": ["Nothing", "Every claim it paid", "Half the premiums it would have charged"], "answer": 0, "why": "Washington recovers only long-term care and the hospital and drug costs that go with it." }
@@ -69,7 +69,7 @@
     "**Low MAGI can be planned.** Spending basis, Roth contributions or cash adds nothing; dividends, gains and conversions do.",
     "**It trades against conversions.** A year on Apple Health is a year with no room to convert.",
     "**Recovery is limited to long-term care.** Ordinary medical cover before 65 isn't reclaimed from the estate.",
-    "**The cliff is still the cliff.** State help ends by 250 percent; the federal credit at 400."
+    "**The cliff is still the cliff.** State help ends by 250 percent; the federal credit ends at 400."
   ],
   "footnotes": {
     "monthly": { "kind": "technical", "title": "Monthly income", "text": "Apple Health checks current monthly income at application and when circumstances change, and the marketplace credit uses the year's total. Someone whose income rises above the line after a mid-year sale, and reports it, is moved to the marketplace from the next month, without repaying the months already covered." },
