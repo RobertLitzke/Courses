@@ -1,7 +1,7 @@
 {
   "format": "didactics-relief",
   "version": 1,
-  "image": "rhone.png",
+  "image": "rhone-alps.png",
   "width": 455,
   "height": 383,
   "zoom": 9,
@@ -22,5 +22,5 @@
   "licence": "Mostly public domain; some sources ask for attribution (see source).",
   "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
   "fetched": "2026-11-08",
-  "made": "node tools/geo/relief.mjs --name rhone --bbox 6,45.7,8.5,47.15 --zoom 9 --max 640 --precision 1 --out courses/geology/public/maps"
+  "made": "node tools/geo/relief.mjs --name rhone-alps --bbox 6,45.7,8.5,47.15 --zoom 9 --max 640 --precision 1 --out courses/geology/public/maps"
 }

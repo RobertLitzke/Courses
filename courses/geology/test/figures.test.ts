@@ -342,8 +342,8 @@ describe('figures', () => {
 
   it('the Rhône map shows every place its lesson names, and the same lakes as the ice-age map', () => {
     const lesson = JSON.parse(readFileSync('src/lessons/erratics.json', 'utf8'));
-    const map = lesson.parts.flatMap((p: { blocks: { id?: string; options?: Record<string, unknown> }[] }) => p.blocks).find((b: { id?: string; options?: Record<string, unknown> }) => b.id === 'map' && b.options?.relief === 'maps/rhone').options;
-    const [w, s, e, n] = JSON.parse(readFileSync('public/maps/rhone.json', 'utf8')).bounds;
+    const map = lesson.parts.flatMap((p: { blocks: { id?: string; options?: Record<string, unknown> }[] }) => p.blocks).find((b: { id?: string; options?: Record<string, unknown> }) => b.id === 'map' && b.options?.relief === 'maps/rhone-alps').options;
+    const [w, s, e, n] = JSON.parse(readFileSync('public/maps/rhone-alps.json', 'utf8')).bounds;
     for (const l of map.labels) expect(l.lon > w && l.lon < e && l.lat > s && l.lat < n, l.text).toBe(true);
     const texts = map.labels.map((l: { text: string }) => l.text);
     for (const place of ['Mont Blanc', 'Lake Neuchâtel', 'Lake Geneva', 'Pierre à Bot', 'Jura', 'Valais']) expect(texts).toContain(place);

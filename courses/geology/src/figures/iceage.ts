@@ -310,7 +310,8 @@ export const rhoneMapFigure = figure(['played'], (ctx, t) => {
   f.controls.append(player(ts, ctx, { seconds: 20 }).node, ts.node);
   paint();
   t.waitFor(
-    reliefFor((p) => loadRelief(asset(p)), 'maps/rhone').then((r) => {
+    // A new name when the relief changed (2026-11-08): readers' caches keep a map file under its old name.
+    reliefFor((p) => loadRelief(asset(p)), 'maps/rhone-alps').then((r) => {
       relief = r;
       shade = hillshade(r, undefined, 1.5);
       ramp = heightRamp(r);
