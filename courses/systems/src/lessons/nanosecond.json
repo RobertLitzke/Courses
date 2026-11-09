@@ -44,7 +44,7 @@
         },
         {
           "type": "text",
-          "text": "The bars sit on a scale where each gridline is ten times the one before, because nothing else could fit them on one page. A processor keeps copies of recently used memory in a small, fast store of its own, a **cache**; reading from the smallest and fastest of these, the L1 cache, takes about half a nanosecond. A reference to main memory takes 100 ns, two hundred times longer. A [[round trip inside a datacentre|request]] takes about half a millisecond, five thousand times a memory reference. Moving the head of a [[spinning disk|data]] to a new track, a seek, takes 10 ms, and a round trip across the Atlantic takes 150 ms. From top to bottom the ladder covers nine powers of ten."
+          "text": "The bars sit on a scale where each gridline is ten times the one before, because nothing else could fit them on one page. A processor keeps copies of recently used memory in a small, fast store of its own, a **cache**; reading from the smallest and fastest of these, the L1 cache, takes four or five clock cycles, about a nanosecond.[^l1] A reference to main memory takes 100 ns, two hundred times longer. A [[round trip inside a datacentre|request]] takes about half a millisecond, five thousand times a memory reference. Moving the head of a [[spinning disk|data]] to a new track, a seek, takes 10 ms, and a round trip across the Atlantic takes 150 ms. From top to bottom the ladder covers nine powers of ten."
         },
         {
           "type": "text",
@@ -220,6 +220,7 @@
     }
   ],
   "footnotes": {
+    "l1": {"kind": "technical", "title": "Why the ladder's L1 line goes up", "text": "Dean's 2009 table gives half a nanosecond for an L1 cache reference, but an L1 hit has taken about four clock cycles for twenty years, and at the 2 to 3 GHz of 2009 that was nearer 1.5 to 2 ns. Today's 4 to 5 GHz cores bring it to about a nanosecond. L1 did not get slower; the old figure was optimistic, which is why the 2026 line sits above it."},
     "hopper": {
       "kind": "digression",
       "title": "Hopper's nanoseconds",
