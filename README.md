@@ -23,6 +23,9 @@ models/<name>/      a simulation more than one course runs, too specific for
                     Didactics: a workspace package courses import by name
   sandtable/        rain, rivers, tides and waves over a grid of heights,
                     wearing ground away and laying sand down (Rivers, Geology)
+  sysdiagram/       system diagrams: requests flowing through servers,
+                    caches, databases and queues, with load, failures,
+                    message timelines and a hashing ring (Systems at Scale)
 tools/              what every course shares at the command line:
   build-site.mjs      builds every course into dist/<folder>/, then the catalog
   photos.mjs          fetches a course's photos from its tools/photo-picks.json
@@ -60,6 +63,7 @@ lowercase word or two naming its subject (the catalog's test checks this).
 | `courses/botany` | Botany: how plants work | `botany.save` |
 | `courses/ecology` | Ecology: who lives where, and why | `ecology.save` |
 | `courses/synthesizers` | Synthesizers: how a sound is built (with PatchMatch, the ear-training game, at `#/ear`; its own progress stays under `patchmatch.save`) | `synthesizers.save` |
+| `courses/systems` | Systems at Scale: how the big ones were built (its system diagrams are the workspace `models/sysdiagram`) | `systems.save` |
 
 Dirt, Circuitry and Out of Auto came in from their own repositories
 (RobertLitzke/Dirt, Circuitry, Photography), and Synthesizers from PatchMatch

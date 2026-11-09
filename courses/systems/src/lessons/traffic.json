@@ -1,0 +1,295 @@
+{
+  "id": "traffic",
+  "n": 104,
+  "title": "Ninety-nine phones in a handcart",
+  "teaches": "Turning phones' positions into road speeds, map matching, windows, privacy and spoofing, and predicting arrival times",
+  "branch": "maps",
+  "needs": [
+    "routing",
+    "streams"
+  ],
+  "parts": [
+    {
+      "title": "A jam on an empty street",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In February 2020 the Berlin artist Simon Weckert bought 99 second-hand phones, started Google Maps on each, put them in a red handcart and pulled it slowly along streets with hardly a car on them. On the map on his own phone, each street he walked turned red, the colour of a traffic jam, and route planners began sending drivers some other way. His film of it, Google Maps Hacks, was watched millions of times."
+        },
+        {
+          "type": "text",
+          "text": "The trick worked because of a decision Google had made eleven years earlier. Google Maps first showed live traffic in 2007, for some American cities, from road sensors and data bought from traffic companies.[^loops] In August 2009 it started using the positions of phones whose owners had allowed it: a phone moving slowly along a road is probably in a car stuck in traffic, and with enough phones every busy road in the world has its own sensors, moving with the traffic. Waze, started in Israel in 2008, built both its map and its traffic from its own users' phones, and Google bought it in June 2013 for about $1.1 billion."
+        },
+        {
+          "type": "text",
+          "text": "This lesson follows positions from phones to a colour on a road and a time on a route. Lesson M3 found routes over weights; here is where the weights come from. It leans on lesson 17's windows and event time throughout."
+        },
+        {
+          "type": "text",
+          "text": "Before drawing any boxes, what a right answer is. For each stretch of road between two junctions, a **segment**, publish a speed that is close to what a car driving it now would manage, that is no more than a few minutes old, that says nothing about any one person, and that a few devices cannot move. Every one of those pulls against another: freshness wants few samples, accuracy wants many, privacy wants to throw some away, and trusting nobody in particular makes a lone honest phone count for little."
+        },
+        {
+          "type": "text",
+          "text": "Then the numbers, in round figures chosen for the estimate rather than taken from any company. Say ten million phones are on the move with location sharing on at a busy hour around the world, each sending a position every 5 seconds: two million positions a second. At about 50 bytes each (a trip identifier, a time, latitude and longitude, accuracy, speed and heading) that is 100 MB a second, about 9 TB a day before compression, an ordinary load for the log of lesson 16. The world's road maps hold a few hundred million segments. Ten million phones spread over them leave almost every segment with no phone on it in a given minute, and that sparseness, more than the volume, shapes the design."
+        }
+      ]
+    },
+    {
+      "title": "Which road was it on",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A position is not a place on a road. A phone's satellite fix is typically within about 5 metres under open sky, by the US government's own figures for GPS phones, but between tall buildings signals bounce off walls and the error grows to tens of metres. A motorway with a parallel service road, a flyover above a street or two lanes of a dual carriageway can be closer together than that. **Map matching** turns a phone's string of [[positions|request]] into the sequence of road segments it drove."
+        },
+        {
+          "type": "text",
+          "text": "The obvious method snaps each position to the nearest road. It fails exactly where the roads are close: a trace along the service road hops onto the motorway and back, and the speeds it implies are nonsense, since no car can cross between them without driving to a junction."
+        },
+        {
+          "type": "text",
+          "text": "Paul Newson and John Krumm of Microsoft Research published the method most matchers now build on in 2009. They treated the problem as a **hidden Markov model**: the road position the car was really at is hidden, and each GPS sample is a noisy observation of it. Every sample has a few possible matches, the nearest point on each road within reach. Each gets an **emission** score for being close to its sample: proportional to exp(−½(d/σ)²), where d is the distance from the sample to the road and σ the GPS error. Each move from one match to the next gets a **transition** score for being drivable: proportional to exp(−|r − s|/β), where r is the driving distance between the two matches, s the straight-line distance between the two samples, and β a tolerance of some metres learned from real trips. A jump to a parallel road that would mean a detour of 400 metres through a junction scores almost nothing. A path's score is the product of its scores, or the sum of their logarithms. The most likely sequence of matches over the whole trace is found by the Viterbi algorithm,[^viterbi] which keeps, for each possible match of each sample, only the best path that ends there."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "traffic-match",
+          "caption": "A trip along a side road 30 metres from a main road, then down a turning. Blue dots are GPS samples; each line joins a sample to the place it was matched, green on the road the phone was on and red on a road it was not.",
+          "task": "Set GPS error to 15 m or more, then switch Match between the two methods",
+          "goal": "viterbi",
+          "aspect_ratio": 1.92
+        },
+        {
+          "type": "text",
+          "text": "The model is cheap per sample: a handful of possible matches, each compared with a handful from the sample before. It needs the samples before it, so a matcher runs per trip and holds a little state for each trip in progress, which is why the log is partitioned by trip and each trip's samples reach the same worker in order. A trip's state is small, its last few samples and their scores. If a matcher dies, its partitions move to another worker, which rereads the log from the last offset the dead one committed (lesson 16) and rebuilds each trip's state in seconds. A matched trace gives what the rest of the pipeline wants: for each segment the phone drove, when it entered and when it left, and so a travel time and a speed."
+        }
+      ]
+    },
+    {
+      "title": "From samples to a speed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The pipeline from here is lesson 17's. Phones send positions to collectors near them; the collectors append them to a log, partitioned by trip; matchers read the log and append, for each segment traversed, a report of the segment, the time the phone was on it and the speed. A second stage, partitioned by segment, gathers each segment's reports into windows and publishes a speed every minute or so."
+        },
+        {
+          "type": "text",
+          "text": "The windows run on event time, the time stamped by the phone, because phones lose signal in tunnels and send what they saved when they get it back, minutes late. A watermark, lesson 17's running estimate of how far event time has got, decides when a minute's window is complete enough to answer; a report that arrives after that is still used for the next windows but not to rewrite one already published, since a speed from five minutes ago is of little use to anyone."
+        },
+        {
+          "type": "text",
+          "text": "Averaging every report equally is the first wrong design. A bus stopping at its stops, a delivery van double-parked, a phone on the pavement in someone's pocket and a taxi waiting for a fare all report slow speeds from the road. The **median** of a window's reports ignores a few of them where the mean is dragged down, and real systems go further, dropping reports whose pattern of stops does not look like driving. Then two choices set how the published speed behaves: how long the window is, and how many phones a window needs before it says anything at all. With too few, the published speed falls back on history: the usual speed on that segment at that hour of the week, from past weeks."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "traffic-window",
+          "caption": "One 500-metre segment over an hour, with a jam from minute 20 to minute 40. Blue dots are phones' speed reports; the green line is the published speed, the median of the window blended with the usual speed (dashed). The strip below is the colour the map shows: paler where too few phones reported and only the usual speed was shown.",
+          "task": "Set the Window slider to 2 minutes or less, then to 10 or more, and watch the map strip",
+          "goal": "window",
+          "aspect_ratio": 2.0
+        },
+        {
+          "type": "text",
+          "text": "A short window shows the jam within a couple of minutes of its forming, and on a quiet road flickers between colours as single reports come and go. A long one is steady and late, still showing a jam for ten minutes after it has cleared, long enough to send drivers round a road that is empty. Busy roads can afford short windows because each minute brings plenty of phones; quiet ones need long windows or history. The figure blends history in as if it were two more reports, (n × median + 2 × usual) ÷ (n + 2) for n reports: with 2 reports the live median counts for half, with 18 for 90%. That keeps a single odd report from turning a whole street red, and lets the live data take over once enough of it arrives. End to end, the map runs a few minutes behind the road: seconds of upload, the watermark's wait of perhaps half a minute, and on average half a window, 2.5 minutes for a 5-minute window."
+        },
+        {
+          "type": "text",
+          "text": "History is itself a batch job over the same reports: for every segment, the typical speed in each 15-minute slot of the week, 672 numbers a segment, recomputed every week or so in the manner of lesson 8. It is what the map shows on roads with no live data and what a route uses for the parts of a long trip that are hours away."
+        }
+      ]
+    },
+    {
+      "title": "Keeping people out of it",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A location trace is personal in a way most data is not. In 2013 Yves-Alexandre de Montjoye and colleagues found that four places and times were enough to pick out 95% of 1.5 million people in a mobile operator's records.[^unique] The two ends of a trip are the worst of it, since one is usually a home."
+        },
+        {
+          "type": "text",
+          "text": "The pipeline is built so that nothing downstream needs to know who anyone is. Google said in 2009 that it combined data from many phones and permanently deleted the start and end of each trip; the general pattern is that the collector replaces the account with a random trip identifier that changes from trip to trip, trims the first and last few hundred metres of every trace, and keeps raw traces only for as long as matching needs them. Raw traces last only the minutes matching needs. What is kept is per-segment aggregates, counts of the places where matching failed, and for each trip a predicted and an actual duration, with no trace or person attached."
+        },
+        {
+          "type": "text",
+          "text": "The second defence is the threshold in the figure above: publish a live speed only when several different phones have reported in the window, so that a published speed never describes one person. It costs coverage. A residential street with one car every ten minutes may never reach the threshold and always shows its usual speed, which is the trade the Fewest phones slider in the window figure makes visible: privacy and resistance to noise paid for by quiet roads."
+        }
+      ]
+    },
+    {
+      "title": "A cart of phones",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Weckert's phones told the truth. Each was a real device on a real road, moving at walking pace. The pipeline's mistake was in the step from data to conclusion: it assumed that ninety-nine slow phones on a road were ninety-nine cars in traffic. On an empty street they were the only reports, so the median was walking pace and the threshold was passed many times over."
+        },
+        {
+          "type": "text",
+          "text": "The defences check whether the reports look like traffic. Phones that stay within a few metres of each other at the same speed for minutes are one observer, however many devices it holds; a real jam is cars spread along the whole segment. In the figure below, phones within 20 m and 2 km/h of each other in the same minute count as one observer, and a window needs three observers to publish. A real jam backs up into the segments before it and shows in the reports of cars that leave it; a jam with no queue behind it is suspect. Devices that have never driven anywhere before count for less than ones with a long ordinary history, and one group's influence on a segment can be capped. Waze faced organised versions of the same thing, from researchers who drove fake jams with thousands of emulated phones.[^sybil]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "traffic-handcart",
+          "caption": "A quiet street over an hour, with two reports every five minutes from passing traffic. From minute 20 to minute 40 there is either a handcart of 99 phones or a real jam of ten cars a minute spread along the street. The map's colour is in the strip below.",
+          "task": "Under Rule, choose A group counts once, then switch Today between Handcart and Real jam",
+          "goal": "check",
+          "aspect_ratio": 2.0
+        },
+        {
+          "type": "text",
+          "text": "Grouping the cart's phones into one observer leaves the empty street its usual colour and still shows the real jam, because the cars are spread out. The price is a slower response to genuine slow-downs that look like groups, such as a convoy behind a tractor. Every rule of this kind is a guess about what honest traffic looks like, and each one invites a cleverer cart."
+        }
+      ]
+    },
+    {
+      "title": "From speeds to arrival times",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every minute or two the segment speeds are published as a new version of the weights. Lesson M3's route planning by cells takes them in seconds: each region's routing servers rebuild the cells whose roads changed and switch to the new version together, so that a route and its arrival time are both computed against one set of weights, not a mix. The map takes them as a traffic layer drawn over the base tiles of lesson M1, so the base tiles stay cached for weeks while the thin layer of colours is fetched again every few minutes."
+        },
+        {
+          "type": "text",
+          "text": "An arrival time is the route's segment times added up, but each at the moment the car will reach it. The jam 40 minutes ahead may have cleared by then, and the motorway that flows now will be in rush hour. So near segments use live speeds and far ones a forecast, mostly the history for that hour of the week, adjusted by how today differs from usual so far. Turns, traffic lights and the minute or two of parking at the end are added on."
+        },
+        {
+          "type": "text",
+          "text": "Arrival times can be checked, which makes them easier to improve than most predictions: every completed trip gives a predicted duration at the start and an actual one at the end, the two numbers the privacy rules keep. The usual measure is the share of trips whose prediction was off by more than some percentage, watched per city and per hour, like the error budget of lesson 24. In 2020 DeepMind and Google described a graph neural network that learns how jams spread along groups of connected segments; they reported cutting the share of inaccurate arrival times by up to about half in some cities, and published the full paper a year later.[^gnn]"
+        },
+        {
+          "type": "text",
+          "text": "The same traces also show where the map itself is wrong. When matching keeps failing at one place because many phones drive where the map has no road, a road has probably been built; when a segment that always had traffic has none for days, it is probably closed. Those become proposed edits to the map, checked by people or by other sources such as new imagery, and then a new map version: new tiles (lesson M1) and a new road graph to partition and customise (lesson M3)."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Before trusting a stream of samples",
+          "points": [
+            "Write down what a right answer is: how fresh, how accurate, how private, and how hard to fake.",
+            "Count how many samples a unit gets in a window; sparseness, not volume, usually decides the design.",
+            "Choose the window and the threshold for the quietest unit, and say what is shown below it.",
+            "Ask what honest data looks like, and what a few devices acting together could do."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on traffic from phones",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A phone's trace runs along a service road 25 metres from a motorway, with GPS errors of about 20 metres. Why does a hidden Markov model match it better than snapping each sample to the nearest road?",
+                "choices": [
+                  "It discards every sample more than 10 metres from a road, keeping only the most precise ones",
+                  "It scores whole sequences, and a hop to the motorway would need a long detour through a junction",
+                  "It averages each sample with its neighbours first, which removes most of the GPS error"
+                ],
+                "answer": 1,
+                "why": "Each possible match is judged both by its distance from its sample and by whether driving to it from the previous one matches the distance between the samples. Hopping between parallel roads fails the second test."
+              },
+              {
+                "ask": "Why does the stage that turns reports into speeds window them by the time the phone stamped, not the time they arrived?",
+                "choices": [
+                  "The time a report arrives depends on which collector received it, so it cannot be compared at all",
+                  "Phones send their reports in batches once an hour, so arrival time says nothing about when they were made",
+                  "Phones save reports in tunnels and send them minutes late, which would put old slowness in the wrong minute"
+                ],
+                "answer": 2,
+                "why": "This is lesson 17's event time: a delayed batch read by arrival time would make a jam appear when it was already over."
+              },
+              {
+                "ask": "A segment's window has twelve reports: nine near 45 km/h and three near 5 km/h from a bus at its stops. What does publishing the median rather than the mean do?",
+                "choices": [
+                  "It shows about 45 km/h, where the mean would be dragged down to about 35 by the bus",
+                  "It shows about 25 km/h, halfway between the two groups of reports, which is fairer to both",
+                  "It shows about 5 km/h, since the slowest reports are the ones that matter to drivers"
+                ],
+                "answer": 0,
+                "why": "The median ignores a minority of odd reports; the mean of nine at 45 and three at 5 is 35."
+              },
+              {
+                "ask": "A quiet road gets about one report a minute, and the threshold is three phones. What goes wrong with a 1-minute window?",
+                "choices": [
+                  "The road keeps showing a jam for ten minutes after it clears, sending drivers away from it",
+                  "Most windows hold fewer than three reports, so the road shows its usual speed even during a jam",
+                  "Each report is counted in several windows, so one phone can turn the road red on its own"
+                ],
+                "answer": 1,
+                "why": "A 1-minute window on that road rarely holds three reports, so the live data is seldom published. Staying red after a jam clears is the long window's fault, and windows of one minute do not overlap."
+              },
+              {
+                "ask": "Besides guarding against one odd phone, why does the pipeline publish a live speed only when several different phones reported?",
+                "choices": [
+                  "So that a published speed never describes one person's movements",
+                  "So that each window holds enough reports for the matcher to tell parallel roads apart",
+                  "So that each segment's reports fit in one partition of the log"
+                ],
+                "answer": 0,
+                "why": "The threshold is a privacy rule as well as a guard against noise. Matching happens per trip, before any window, and partitioning does not depend on how many reports a segment gets."
+              },
+              {
+                "ask": "Why did Weckert's handcart turn an empty street red?",
+                "choices": [
+                  "The phones sent forged positions that placed them on a busy road a few streets away",
+                  "The street's usual speed for that hour was already slow, so a few reports tipped it over",
+                  "The pipeline counted 99 slow phones as 99 cars, and on an empty street they were the only reports"
+                ],
+                "answer": 2,
+                "why": "The data was honest; the inference was wrong. Grouping phones that move together into one observer is one defence."
+              },
+              {
+                "ask": "Why does a predicted arrival time use forecast speeds, not live ones, for roads an hour ahead on the route?",
+                "choices": [
+                  "Live speeds are only kept for an hour, so roads further away have no live data stored",
+                  "By the time the car reaches them, conditions there will have changed from what they are now",
+                  "Routing servers only receive live weights for the cells the route starts and ends in"
+                ],
+                "answer": 1,
+                "why": "A segment's time counts at the moment it is reached. The forecast is mostly history for that hour of the week, adjusted by how today differs."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Phones are traffic sensors that move with the traffic.** Google Maps began using them in 2009, and Waze built its map from them.",
+    "**Define a right answer first.** A segment's speed must be fresh, accurate, private and hard to fake, and each of those pulls against the others.",
+    "**Sparseness shapes the design more than volume.** Two million positions a second spread over hundreds of millions of segments leave most segments empty in any minute.",
+    "**Map matching finds the road.** A hidden Markov model, solved by Viterbi, keeps a trace on roads a car could drive in sequence, where snapping to the nearest road hops between parallel ones.",
+    "**Windows trade freshness for steadiness.** Short windows show a jam in minutes and flicker on quiet roads; long ones are steady and late.",
+    "**Medians, thresholds and history make a speed.** The median ignores buses and pedestrians, a threshold of several phones protects privacy, and history fills in below it.",
+    "**Honest data can still mislead.** The handcart's phones were real; grouping devices that move together and checking for a queue upstream are defences.",
+    "**Arrival times add each segment's time when it will be reached.** Near roads use live speeds, far ones a forecast, and every completed trip measures the error."
+  ],
+  "footnotes": {
+    "loops": {
+      "kind": "digression",
+      "title": "Wires in the road",
+      "text": "Before phones, traffic data came mostly from inductive loops: coils of wire cut into the road surface that sense a car's metal passing over them. A pair of loops a few metres apart gives a speed as well as a count. They are accurate and cheap to run but cost a lane closure to install and repair, so they cover motorways and main roads, not the side streets phones now report from."
+    },
+    "viterbi": {
+      "kind": "technical",
+      "title": "The Viterbi algorithm",
+      "text": "Andrew Viterbi published it in 1967 to decode error-correcting codes in noisy radio signals. It is dynamic programming over a chain: for each possible match at sample i it keeps the best score of any path ending there, computed from the best scores at sample i minus 1. With n samples and k possible matches each, it costs about n times k squared steps, against k to the power n for trying every sequence."
+    },
+    "unique": {
+      "kind": "digression",
+      "title": "Unique in the crowd",
+      "text": "De Montjoye, Hidalgo, Verleysen and Blondel's paper, Unique in the Crowd (Scientific Reports, 2013), used 15 months of records of which mobile mast each phone was near, each hour. Coarsening the places and times helped only a little: the number of points needed to identify someone grew slowly as the data got blurrier."
+    },
+    "sybil": {
+      "kind": "digression",
+      "title": "Fake drivers",
+      "text": "In 2014 two students at the Technion in Israel reported creating a fake jam on Waze with thousands of simulated users, and in 2016 a group at the University of California, Santa Barbara described running many emulated phones as fake drivers to create and remove jams, and proposed defences based on checking that devices are where they say. A fake identity used to sway a crowd-sourced system is called a Sybil, after a book about a woman with many personalities."
+    },
+    "gnn": {
+      "kind": "technical",
+      "title": "Supersegments",
+      "text": "DeepMind's model groups segments that carry traffic together into supersegments and treats each as a small graph, so a jam can spread from one segment to its neighbours as it does on the road. It was trained on historical traffic and arrival times and predicts a supersegment's travel time some minutes ahead, on top of the forecast already in use. The paper appeared at the CIKM conference in 2021, a year after the announcement."
+    }
+  }
+}

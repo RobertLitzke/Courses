@@ -1,0 +1,247 @@
+{
+  "id": "fanout",
+  "n": 14,
+  "title": "Who pays for a tweet?",
+  "teaches": "Fan-out on write and on read, the hybrid for accounts with millions of followers, and IDs that sort by time",
+  "summary": [
+    "**Put the work where it is cheapest.** When reads outnumber writes sixty to one, doing the work once at write time beats repeating it on every read.",
+    "**Fan-out on write keeps a list per reader.** Each tweet's ID is pushed into every follower's cached timeline, so a read is one list fetch.",
+    "**Fan-out on read merges at read time.** Writes are cheap, but every read gathers from hundreds of accounts and waits for the slowest of them.",
+    "**Outliers break averages.** An account with 30 million followers turns one tweet into 30 million inserts and minutes of delay.",
+    "**The hybrid treats outliers separately.** Ordinary accounts are pushed; the largest are merged in when a timeline is read.",
+    "**Only cache what will be read.** Timelines were kept in memory for active users only and rebuilt on demand for the rest.",
+    "**Snowflake IDs sort by time without coordination.** 41 bits of milliseconds, 10 of machine and 12 of sequence give each machine 4,096 unique IDs a millisecond.",
+    "**A clock that steps back must stop the generator.** Handing out IDs from a past millisecond could repeat one or break the order."
+  ],
+  "parts": [
+    {
+      "title": "The whale",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 2008 Twitter was famous for being down. The site had launched in July 2006 as a Ruby on Rails application on a MySQL database, and it grew faster than anyone had planned for: big events, when everyone posted at once, regularly brought it to a stop. Visitors then saw a page with a whale held aloft by a flock of small birds, drawn by the designer Yiying Lu.[^whale] Users named it the Fail Whale, and it became the best known error page on the web."
+        },
+        {
+          "type": "text",
+          "text": "Much of the load came from one page. A user's home timeline shows the latest tweets from everyone they follow, newest first, and in the first design it was built when asked for: find the accounts this user follows, fetch their recent tweets, sort them and keep the top twenty. That is a query across hundreds of accounts, run every time anyone opens the app or refreshes the page."
+        },
+        {
+          "type": "text",
+          "text": "In November 2012, at the QCon conference in San Francisco, Raffi Krikorian, who led Twitter's platform engineering, described what it had been replaced with in a talk called \"Timelines at Scale\". The redesign turned on one choice: whether the work of building a timeline is done when a tweet is written or when a timeline is read."
+        }
+      ]
+    },
+    {
+      "title": "The numbers first",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Before choosing, the numbers from the talk, rounded: about **5,000 tweets a second** written on average, and about **300,000 timeline reads a second**. Reads outnumber writes sixty to one. Two more round numbers are assumptions for the arithmetic: a tweet's author has about 200 followers, and a reader follows about 200 accounts."
+        },
+        {
+          "type": "text",
+          "text": "**Fan-out on read** does the work at read time, as the first design did. A tweet is written once, 5,000 writes a second. Each timeline read gathers from 200 accounts: 300,000 × 200 = 60 million lookups a second. **Fan-out on write** does it at write time. Each tweet's ID is inserted into the cached timeline of each of its author's followers, 5,000 × 200 = 1 million inserts a second, and each read then fetches one ready-made list."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fanout-cost",
+          "caption": "The work of each design, in a model built from the numbers above; the bars are on a log scale. The last row is one tweet from the account with the most followers: how many timeline inserts it needs. Inserts are assumed to run at 100,000 a second for one tweet. In the hybrid, accounts with over 1 million followers are not pushed, and a reader is assumed to follow 3 of them, so a read fetches 4 lists.",
+          "task": "Guess first. Then raise the biggest account to 30 million followers and find the design that neither floods the inserts nor slows every read.",
+          "goal": "hybrid"
+        },
+        {
+          "type": "text",
+          "text": "Fan-out on write does about 1.3 million operations a second against 60 million, roughly fifty times less work, because the work done once per tweet is shared by the many reads of each timeline. Reads also become fast and steady: a read that gathers from 200 places waits for the slowest of them, and lesson 9 showed that if one place in a hundred is slow at a given moment, about 87% of such reads meet at least one."
+        }
+      ]
+    },
+    {
+      "title": "A list for every reader",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Twitter's timelines lived in Redis, an in-memory store with a list type, spread over a cluster of machines. Each user's home timeline was a list of at most **800** entries, each holding a tweet's ID and a little metadata, never the tweet's text. When a tweet was posted, a fan-out service looked up the author's followers and appended the ID to each follower's list, trimming the oldest. Each list was kept on **three** machines, so losing one lost no timelines. A timeline read fetched the IDs from one list and then the tweets themselves from a separate store of tweets, mostly from its cache (lesson 5)."
+        },
+        {
+          "type": "text",
+          "text": "The memory, in round numbers: 150 million active users × 800 IDs × 8 bytes is about 1 TB, three copies make 3 TB, before Redis's own overhead. That fits in the memory of a modest cluster. It would not have fitted for every account ever created, so timelines were kept only for users who had logged in within the last 30 days. A returning user's timeline was rebuilt from the tweet store when they came back, by the slow path, once.[^inactive]"
+        },
+        {
+          "type": "text",
+          "text": "Fan-out on write is a cache built ahead of time (lesson 5 built caches on demand), so it inherits a cache's problems. Every change to a timeline must be written in many places: a deleted tweet has to be removed from every list it was pushed to, or filtered out when a timeline is read. And followers see a tweet at different moments, since the fan-out reaches their lists one by one. A fan-out is a long job, so it runs from a queue of work (lesson 16), and a worker that crashes after 10 million of 30 million inserts leaves the job to be retried. The retry repeats inserts that already happened, which is harmless as long as an insert checks whether the tweet ID is already in the list and skips it."
+        }
+      ]
+    },
+    {
+      "title": "One account, thirty million timelines",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The averages hide the accounts that matter most. Grow one author's followers from 200 to 30 million, a factor of 150,000, as Lady Gaga's account had by 2012. One tweet from it is 30 million inserts, as many as the whole system does in 30 seconds at its ordinary million a second. One tweet's fan-out cannot use the whole system, though: at an assumed 100,000 inserts a second for a single tweet, as in the figure, it takes 300 seconds. Krikorian said such a tweet could take up to five minutes to reach every follower, so some followers replied to a tweet that others could not yet see."
+        },
+        {
+          "type": "text",
+          "text": "The **hybrid** treats the outliers separately. Accounts below some number of followers are fanned out on write as before. Twitter did not publish its number; the figure uses 1 million. It is tuned by measuring how long the largest fan-outs take and moving the line until they finish within the delay the service accepts. Tweets from the few very large accounts are not pushed at all; when a timeline is read, the reader's cached list is merged with the recent tweets of the large accounts they follow. A read then touches a handful of lists instead of one, and a large account's tweet is visible to all its followers at once. Set the biggest account in the figure above to 30 million and compare the three designs."
+        },
+        {
+          "type": "text",
+          "text": "This is the lesson's principle: put the work where it is cheapest given the read and write rates, then look for the cases where the rates are different and treat them on their own. The same pattern recurs whenever a few keys are far hotter than the rest, as with the row-key hot spots of lesson 10."
+        }
+      ]
+    },
+    {
+      "title": "IDs that sort by time",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A timeline holds tweet IDs and must keep them in time order, so the IDs themselves had better sort by time. MySQL's auto-increment column did that, but only because one database handed out every ID. When Twitter began moving tweets to Cassandra (lesson 12), which has no such counter, it needed a way for many machines to hand out IDs independently. On 1 June 2010 its engineering blog announced **Snowflake**: an ID is a 64-bit number made of a sign bit and three fields."
+        },
+        {
+          "type": "key_ideas",
+          "title": "A Snowflake ID, from the top bit down",
+          "points": [
+            "One unused sign bit, so the ID stays positive.",
+            "41 bits of [[milliseconds|clock]] since a custom epoch, enough for 69 years.[^epoch]",
+            "10 bits of machine number, so 1,024 generators can run at once without ever producing the same ID, as long as no two share a number.",
+            "12 bits of [[sequence|request]], counting the IDs one machine hands out within one millisecond: 4,096 of them."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Because time is in the top bits, an ID from a later millisecond is larger than any from an earlier one, whichever machine made it, so sorting by ID sorts by time to within the gap between machines' clocks. Machine numbers are the one piece of coordination: each generator is given its number when it is deployed, and Snowflake checked it against ZooKeeper, an open-source cousin of lesson 11's Chubby, at start-up so that no two ran with the same one. After that, no machine talks to another to make an ID, so the generator is as fast as a local counter and keeps working when the network does not."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fanout-snowflake",
+          "caption": "One Snowflake generator over 20 ms, as a time lapse. Each column is one millisecond: [[IDs handed out|answer]], [[requests waiting|busy]] for the next millisecond, and [[requests refused|error]], which happens only when the clock steps back. The bar at the top shows the latest ID's three fields.",
+          "task": "Push the requests past 4,096 a millisecond, then make the clock step back and play past 10 ms.",
+          "goal": "back"
+        },
+        {
+          "type": "text",
+          "text": "Two limits show in the figure. A machine can make only 4,096 IDs in one millisecond, about 4 million a second, after which requests wait for the next millisecond. And the scheme trusts the machine's clock. If NTP (lesson 13) steps the clock back, as it may after a correction, the generator would reuse milliseconds it has already used, risking a duplicate and certainly breaking the time order. Snowflake refuses to make IDs until its clock passes the last millisecond it used, which turns a clock fault into a short outage instead of wrong data.[^idstr]"
+        }
+      ]
+    },
+    {
+      "title": "Who pays",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Naming the trade-off for the timeline design means saying who pays for each choice."
+        },
+        {
+          "type": "key_ideas",
+          "title": "The trade, named",
+          "points": [
+            "Fan-out on write: readers get fast, steady timelines; writers' tweets cost one insert per follower, the memory holds every active user's timeline, and deletes must chase every copy.",
+            "Fan-out on read: writes are cheap and timelines always current; every read pays for gathering, and its latency is the slowest of hundreds of lookups.",
+            "The hybrid: both paths to build and keep correct, in exchange for neither failing on the largest accounts.",
+            "Snowflake: IDs without coordination that sort by time, in exchange for trusting clocks to a few milliseconds and stopping when one steps back."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Other services have reached the same split from their own numbers. Instagram described its ID scheme in 2012, 41 bits of time with 13 bits of shard and 10 of sequence, generated inside each PostgreSQL shard. Feeds in general follow the timeline's design wherever reads far outnumber writes, and fall back to merging at read time wherever one writer has more readers than a push can reach quickly."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on fan-out and IDs",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A service sees 300,000 timeline reads and 5,000 posts a second, with about 200 followers to an author. Why does fan-out on write do less work?",
+                "choices": [
+                  "Writes are cheaper than reads on every kind of storage, so moving work from reads to writes always helps",
+                  "Each post's fan-out is done once and shared by every later read of each timeline",
+                  "Fan-out on write stores each tweet only once, while fan-out on read must copy the whole tweet to every follower"
+                ],
+                "answer": 1,
+                "why": "5,000 × 200 = 1 million inserts a second against 300,000 × 200 = 60 million lookups; the reads are sixty times as many as the writes."
+              },
+              {
+                "ask": "Why did Twitter keep cached timelines only for recently active users?",
+                "choices": [
+                  "Inactive users' timelines cost memory and fan-out but are rarely read",
+                  "Redis cannot hold more than a fixed number of lists on one machine, however short each list is kept",
+                  "Inactive users have no followers, so their timelines would always be empty and cost nothing to skip"
+                ],
+                "answer": 0,
+                "why": "A cache is worth its memory only for data that will be read; the rare returning user pays once for a rebuild."
+              },
+              {
+                "ask": "One account has 30 million followers. What goes wrong under pure fan-out on write?",
+                "choices": [
+                  "Its followers' timelines overflow, since each list holds only 800 entries and its tweets push out the rest",
+                  "Each of its tweets must be read 30 million times from the tweet store, overloading the cache",
+                  "Each tweet needs 30 million inserts and takes minutes"
+                ],
+                "answer": 2,
+                "why": "The work and delay grow with the follower count; the hybrid merges such accounts in at read time instead."
+              },
+              {
+                "ask": "In the hybrid design, what does a timeline read do?",
+                "choices": [
+                  "Gathers every followed account's recent tweets, exactly as fan-out on read does for every reader",
+                  "Fetches the pushed list and merges in the large accounts' tweets",
+                  "Fetches the reader's pushed list only, since large accounts' tweets are pushed at a lower priority"
+                ],
+                "answer": 1,
+                "why": "Ordinary accounts are pushed; only the outliers are pulled, so a read touches a handful of lists."
+              },
+              {
+                "ask": "What does a Snowflake ID give that a random 64-bit ID does not?",
+                "choices": [
+                  "IDs that sort by time, made with no coordination for each ID",
+                  "A guarantee that IDs are consecutive, with no gaps between one tweet and the next",
+                  "Protection against two machines being given the same machine number by mistake when they are deployed"
+                ],
+                "answer": 0,
+                "why": "The time is in the top bits. Coordination happens once, when a machine gets its number; making each ID needs none. IDs leave gaps."
+              },
+              {
+                "ask": "A Snowflake generator's clock is stepped back by 4 ms. What should it do?",
+                "choices": [
+                  "Carry on with the clock's new time, since the machine field keeps its IDs unique",
+                  "Add 4 ms to every timestamp from now on, so that it never notices the step",
+                  "Refuse to make IDs until its clock passes the last millisecond it used"
+                ],
+                "answer": 2,
+                "why": "Reusing past milliseconds could repeat an ID with the same sequence number and would break the time order; a short refusal is the safe failure."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "whale": {
+      "kind": "digression",
+      "title": "A greeting card",
+      "text": "Yiying Lu had drawn the picture as an e-card for a friend and put it on a stock-image site, where Twitter found it and licensed it for its over-capacity page. She learned of its new use when people started talking about the Fail Whale."
+    },
+    "inactive": {
+      "kind": "technical",
+      "title": "Two paths anyway",
+      "text": "Because inactive users are rebuilt by gathering from the accounts they follow, fan-out on write never removes the read-time path; it makes it rare. Any design that caches only some of the data needs the slow path that builds the rest, and needs it to cope when many users come back at once."
+    },
+    "epoch": {
+      "kind": "technical",
+      "title": "Twitter's epoch",
+      "text": "Counting from 1970 would waste 40 years of the 41-bit field, so Snowflake counts from its own epoch, 1288834974657 in Unix milliseconds, early on 4 November 2010. 2 to the 41st milliseconds is about 69.7 years, which runs out in 2080."
+    },
+    "idstr": {
+      "kind": "technical",
+      "title": "Too big for JavaScript",
+      "text": "JavaScript stores every number as a 64-bit float, which holds integers exactly only up to 2 to the 53rd. Snowflake IDs soon passed that, so browsers parsing Twitter's JSON silently changed the last digits. Twitter added an id_str field to its API with the same ID as a string."
+    }
+  }
+}

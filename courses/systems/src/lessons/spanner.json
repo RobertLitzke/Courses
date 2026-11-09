@@ -1,0 +1,278 @@
+{
+  "id": "spanner",
+  "n": 20,
+  "title": "A clock you can trust",
+  "teaches": "Why wall clocks lie, two-phase commit and why it blocks, TrueTime's bounded uncertainty, and commit wait",
+  "parts": [
+    {
+      "title": "A second too many",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At midnight UTC on 30 June 2012, the world's clocks counted 23:59:59, then 23:59:60, then midnight. A **leap second** is added every few years to keep atomic time in step with the Earth, whose rotation is slowing a little. Linux had handled leap seconds before. This time a bug in the kernel's timer code left part of it a second out of step with the rest, and programs that waited on short timers woke at once, went back to wait, and woke again, as fast as the processor could go.[^hrtimer] Java and MySQL processes on thousands of servers jumped to full use of their processors. Reddit went down for a time; Mozilla's servers struggled; operators across the internet spent the weekend finding that setting the clock to its own time made the load fall back."
+        },
+        {
+          "type": "text",
+          "text": "Google was unaffected. Since 2011 it had **smeared** leap seconds: its time servers ran their clocks a little slow for hours either side, so the extra second was spread into thousands of small ones and no machine ever saw 23:59:60.[^smear] The trick works because Google's machines all took their time from Google's servers, and all of them were wrong in the same way."
+        },
+        {
+          "type": "text",
+          "text": "Three months later, in October 2012, James Corbett and more than twenty colleagues at Google presented Spanner at the OSDI conference in Hollywood, California. It is a database whose data is spread over datacentres on several continents, which nonetheless gives every transaction a single global order, and it does that by trusting clocks. Every Google datacentre running it had GPS receivers and atomic clocks. The trust is earned in an unusual way: Spanner does not assume its clocks are right; it knows how wrong they can be, and waits for that long."
+        },
+        {
+          "type": "text",
+          "text": "The habit to take from it is to **pay only for the guarantee you need**. Spanner's guarantee is the strongest a database can give, and it costs milliseconds on every write and a lot of hardware. The question for a designer is which data must have it."
+        }
+      ]
+    },
+    {
+      "title": "What a clock reading is worth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A server's clock is a quartz crystal that drifts by tens of parts per million, a few seconds a day if left alone. The **Network Time Protocol** (NTP) corrects it by asking a time server and allowing for the round trip. Within one datacentre that keeps clocks within about a millisecond of each other on a good day; across the internet, tens of milliseconds; and a server that has lost its time source, has a bad crystal, or has just been stepped by an operator can be off by seconds. A clock can also jump backwards, which is why lesson 14's Snowflake IDs refuse to be issued while the clock is behind the last one used."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 13 showed **last-writer-wins**: when two copies disagree, keep the one with the later timestamp. With timestamps from local clocks, \"later\" means later by whichever clock stamped it. Suppose a shop's stock count lives in two regions and region B's clock is 50 ms behind region A's. A customer buys the last item through A at 12:00:00.000 and the count becomes 0. Twenty milliseconds later a restock through B sets it to 10, stamped by B's clock 11:59:59.970. When the copies compare, A's write wins because its stamp is later, the restock is lost, and the shop shows nothing to sell. Nobody did anything wrong except trust two clocks to agree within 20 ms."
+        },
+        {
+          "type": "text",
+          "text": "A timestamp is useful for ordering only if every reader knows how far to trust it. NTP gives a best guess and no bound. The two halves of Spanner answer two separate problems: how to commit a transaction across many machines at all, and how to give it a timestamp that orders it correctly against every other transaction in the world."
+        }
+      ]
+    },
+    {
+      "title": "Two-phase commit",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **transaction** that touches data on two shards, moving money from an account on shard A to an account on shard B, must happen on both or neither. The classic way is **two-phase commit** (2PC), set down by Jim Gray in 1978.[^gray] One machine is the **coordinator**; the shards holding the data are **participants**. In phase one the coordinator sends each participant *prepare*. A participant that can do its part locks the rows, writes the change and its vote to its log on disk, and answers *yes*. Once it has voted yes it has promised: it may not abort on its own any more. If every vote is yes, the coordinator writes *commit* to its own log, and that write is the moment the transaction commits. In phase two it tells the participants, which apply the change and release their locks."
+        },
+        {
+          "type": "text",
+          "text": "The weak point is the gap between the votes and the decision. Try it below: let the coordinator die after the votes are in."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "spanner-2pc",
+          "caption": "Two-phase commit between a coordinator and two shards, in slow motion: a few tens of milliseconds drawn over twelve seconds. Then the coordinator dies after the votes, and then each box becomes a Paxos group.",
+          "task": "Kill the coordinator after the votes, then make each box a Paxos group, and play the commit through",
+          "goal": "unblocked"
+        },
+        {
+          "type": "text",
+          "text": "A participant that has voted yes and hears nothing is stuck. It cannot commit, because the coordinator may have decided to abort (another participant may have voted no). It cannot abort, because the coordinator may have decided to commit and told the other shard, which has already applied it. Asking the other participants helps only if one of them heard the decision. So it waits, holding its locks, and every other transaction that needs those rows waits behind it, for as long as the coordinator's machine is down: minutes for a reboot, hours for a dead disk that held the log. This is why 2PC is called a **blocking** protocol, and why many systems avoid transactions across shards altogether."
+        }
+      ]
+    },
+    {
+      "title": "Spanner: commit over Paxos groups",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Spanner splits its data into shards, and keeps each shard as a **Paxos group**: usually five replicas in different datacentres, one of which is leader under a lease, exactly lesson 11's replicated log. A write to a shard is committed once a majority of its replicas have it in their logs. The figure's toggle \"Each is a Paxos group\" is Spanner's fix for 2PC: the coordinator and each participant are not machines but Paxos groups. A participant's prepare record and the coordinator's commit decision are each written through Paxos, so they survive the death of any one machine. When the coordinator's leader dies, another replica of its group takes over within a lease's length, finds the decision in its copy of the log, and sends it on. Two-phase commit still runs, between groups instead of single machines."
+        },
+        {
+          "type": "text",
+          "text": "Inside a transaction, Spanner locks rows the plain way: a transaction that reads or writes takes locks and keeps them until it commits, so two transactions that both read a seat as free and both try to book it cannot both succeed; the second waits for the first and then sees the seat taken. Deadlocks are avoided by age: an older transaction that wants a lock held by a younger one makes the younger abort and retry, and a younger one that wants an older one's lock waits.[^wound]"
+        },
+        {
+          "type": "text",
+          "text": "This costs round trips. A write to one shard needs a majority of its replicas to answer: about 1 ms when they are in one datacentre, 30 to 100 ms when they are on different coasts or continents. A transaction over several shards needs a prepare round through each participant's Paxos group and then the coordinator's. So Spanner lets the owner choose where replicas live and which region holds each shard's leader: put the leader near the users who write the data, and keep a majority within a short round trip of it. Read-only replicas can be added far away to serve reads without slowing writes. Commit wait also lengthens lock hold time: a transaction keeps its locks through the wait, so one hot row can take at most about 1/(2ε) conflicting writes a second, some 125 at ε = 4 ms. And each leader stamps commits only with times inside its own lease, so a new leader's timestamps cannot fall before those of the one it replaced."
+        }
+      ]
+    },
+    {
+      "title": "TrueTime",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Committing atomically is half the problem. The other half is order. Spanner promises **external consistency**: if transaction T1 commits before T2 starts, measured by the real time of the world outside, then T2's commit timestamp is greater than T1's. That makes the timestamps a true history. A read at any timestamp sees exactly the transactions with earlier stamps, never T2 without T1. It is the strongest of lesson 13's models, linearizability, given for transactions over the whole database."
+        },
+        {
+          "type": "text",
+          "text": "Its clock is **TrueTime**. Each datacentre has a few time masters, most with GPS receivers and some with atomic clocks, so that a fault in the satellite signal and a fault in an atomic clock do not look alike. A daemon on every machine polls several masters every 30 seconds. The difference is in what the API returns. `TT.now()` gives not a time but an interval, `[earliest, latest]`, and Google guarantees the true time lies inside it. Its half-width ε is the uncertainty. In the paper it climbed from about 1 ms just after a poll to about 7 ms just before the next, as the local clock's possible drift added up, and averaged about 4 ms.[^sawtooth]"
+        },
+        {
+          "type": "text",
+          "text": "Knowing ε, the rule for a commit is short. Choose the commit timestamp s no earlier than `TT.now().latest`, so it is not before the true time of the commit. Then wait, holding the locks and showing the result to nobody, until `TT.now().earliest` is after s, so s is certainly in the past on every clock. This is **commit wait**, and it takes about 2ε: when s is chosen, `TT.now().earliest` is 2ε below it, the width of the interval, and the clock must run that far before earliest passes s. Equally, s may be up to 2ε ahead of the true time of the commit, if the true time is at the bottom of the interval, and the wait covers exactly that. Guess how long that is with ε at 4 ms, then compare three rules."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "spanner-truetime",
+          "caption": "T1 commits on a server whose clock is fast; a client sees it and starts T2 on a server whose clock is slow, each off by 0.9 ε. The shaded bars are TrueTime's intervals. Illustrative times.",
+          "task": "Guess the wait, then find the rule that keeps the timestamps in order with ε at 4 ms or more",
+          "goal": "ordered"
+        },
+        {
+          "type": "text",
+          "text": "With local clocks, T2 can start after T1 is visible and still get the earlier stamp, which is last-writer-wins's error again. With TrueTime and no wait, the same can happen, because T1's stamp is up to 2ε ahead of the true time at which it was shown. Commit wait closes the gap: by the time anyone can see T1, every clock in the world reads past s1, so anything that starts afterwards is stamped later."
+        },
+        {
+          "type": "text",
+          "text": "The order pays off on reads. Because a timestamp is a true point in the history, a read-only transaction needs no locks: it picks a timestamp, and any replica that has applied every write up to that timestamp can answer from its stored versions, without disturbing writers. A replica far from the leader serves reads a few seconds old at once, or a fresh read after checking with the leader how far it must catch up. Long reports and backups run against a consistent snapshot of a database that keeps taking writes."
+        }
+      ]
+    },
+    {
+      "title": "Paying for the guarantee",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Count what a write costs. With ε averaging 4 ms, commit wait adds about 8 ms, but Spanner starts it while the Paxos round is in flight, so where a majority is 30 ms away the wait is hidden inside the round trip. Within one datacentre, where Paxos takes a millisecond, the 8 ms wait is most of the commit's time. The bound on ε is what sets the price, which is why Google bought GPS receivers and atomic clocks rather than accept NTP's tens of milliseconds: at ε = 100 ms every write would wait 200 ms."
+        },
+        {
+          "type": "text",
+          "text": "The first large user was F1, the database behind AdWords, Google's advertising business, which had run on MySQL split by hand into shards. Re-sharding it had taken years of work. Its team accepted higher write latency in return for transactions across shards, SQL, and never having to split a database by hand again. They said plainly that the cost was real: F1's commits took tens of milliseconds and more, and its applications were written to batch work and run it in parallel to hide them."
+        },
+        {
+          "type": "text",
+          "text": "Systems without atomic clocks take the same idea with a wider bound. CockroachDB, started in 2014 by former Google engineers, uses **hybrid logical clocks**: a timestamp made of a physical time plus a counter, so that a server that has seen a later time from another server never issues an earlier one.[^hlc] It assumes clocks are within a configured bound, a few hundred milliseconds by default, and rather than wait out that bound on every write, it makes a read restart when it finds a value whose timestamp falls inside its uncertainty. Writes are faster and some reads pay instead. Without GPS and atomic clocks the bound cannot be measured as TrueTime's is; it has to be set by hand from NTP's observed offsets with a wide margin, which is why the default is so large. A clock outside the bound would break the guarantee, so a node whose clock has drifted too far shuts itself down."
+        },
+        {
+          "type": "text",
+          "text": "Most data does not need any of this. A count of page views or a user's profile picture can live under lesson 13's weaker models, served at local latency, and keep working when a region is cut off. Moving money, selling the last seat, issuing a number that must never repeat: these need a transaction with a true order, and are worth tens of milliseconds a write. Name for each piece of data which it is, and buy the strong guarantee only for those. Lesson 21 shows a second payoff of true timestamps: a client can carry one as a token that says how fresh an answer must be."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Before choosing a transaction model",
+          "points": [
+            "Name what must never happen: a seat sold twice, money created, a write lost to a clock.",
+            "Count the round trips a commit needs, at the distance between replicas.",
+            "Know your clock's error bound, and what happens when a clock exceeds it.",
+            "Keep strong transactions to the data that needs them."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on clocks and commits",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "In two-phase commit, the coordinator dies after both shards have voted yes and before it sends the decision. Why may shard A not simply abort after a timeout?",
+                "choices": [
+                  "Aborting would release locks that other transactions are waiting on, and they would then read rows that are halfway through a change",
+                  "The coordinator may already have decided to commit and logged it, so aborting could leave A undone while the decision says committed",
+                  "Shard B has already applied the change on its own once both votes were yes, so A aborting would leave the two shards disagreeing"
+                ],
+                "answer": 1,
+                "why": "An abort rolls a shard's change back before releasing its locks, so nobody would see a half-made change; the danger is different. A yes vote is a promise to obey the coordinator's decision. The decision may already be commit, written in a log on the dead machine, so neither choice is safe for A until it learns it. B applies nothing until it hears the decision either."
+              },
+              {
+                "ask": "How does Spanner stop a coordinator's death from blocking participants?",
+                "choices": [
+                  "Participants that time out ask each other for the decision and commit if every one of them voted yes",
+                  "The coordinator sends its decision to the client first, and the client passes it on if the coordinator dies",
+                  "The coordinator and each participant are Paxos groups, so the decision outlives any one machine and a new leader sends it"
+                ],
+                "answer": 2,
+                "why": "The commit decision is written through Paxos to a majority of the coordinator group's replicas. When its leader dies, another replica takes over with the decision in its log. Participants asking each other cannot help when none heard the decision."
+              },
+              {
+                "ask": "TrueTime reports ε = 5 ms. A transaction is stamped s = TT.now().latest. What is commit wait waiting for, and about how long does it take?",
+                "choices": [
+                  "Until TT.now().earliest is past s, so s is in the past on every clock: about 10 ms",
+                  "Until a majority of the transaction's Paxos replicas have logged it: one round trip, whatever ε is",
+                  "Until the time masters' next poll narrows ε back to about 1 ms, so the stamp is precise: up to 30 s"
+                ],
+                "answer": 0,
+                "why": "The stamp can be up to ε ahead of true time, and the clock must then advance until even its earliest reading passes s, another ε. About 2ε, here 10 ms. The Paxos round runs at the same time but is a separate cost."
+              },
+              {
+                "ask": "Two regions keep copies of a stock count and resolve conflicts by last writer wins, using each region's NTP-set clock. Region B's clock is 50 ms slow. A sale in A sets the count to 0; 20 ms later a restock in B sets it to 10. What survives?",
+                "choices": [
+                  "The restock, because it happened later in real time and both writes carry enough precision to show it",
+                  "The sale, because B's write is stamped about 30 ms before A's, so the restock is quietly lost",
+                  "Neither, because the two regions detect clocks 50 ms apart and reject both writes as a conflict to resolve by hand"
+                ],
+                "answer": 1,
+                "why": "B's clock reads 50 ms behind, so its write 20 ms later in real time carries a stamp 30 ms earlier. Last writer wins keeps the later stamp, which is the sale. Nothing notices the lost restock."
+              },
+              {
+                "ask": "Five replicas of a shard sit in five US regions; a majority is about 30 ms from the leader. ε averages 4 ms. Roughly what does one write cost, and why?",
+                "choices": [
+                  "About 38 ms, because commit wait starts only after the Paxos round and adds 2ε to it",
+                  "About 8 ms, because commit wait is the only delay a Spanner write has to wait for before replying",
+                  "About 30 ms, because the 8 ms commit wait runs during the Paxos round and is hidden by it"
+                ],
+                "answer": 2,
+                "why": "Spanner overlaps commit wait with Paxos replication. With a 30 ms majority round trip, the 8 ms wait ends long before the replicas answer. In one datacentre the wait would be most of the cost."
+              },
+              {
+                "ask": "Why can a Spanner read-only transaction run without taking any locks?",
+                "choices": [
+                  "It reads at a single timestamp from stored versions, and any replica that has applied every write up to that timestamp can answer",
+                  "It reads only from the leader of each shard, which serialises reads with writes by running them in turn",
+                  "It accepts that it may see half of a transaction, because read-only work such as reports can tolerate small errors"
+                ],
+                "answer": 0,
+                "why": "Every write keeps its version under its commit timestamp, and timestamps follow real order. A read at timestamp t sees exactly the transactions stamped before t, a consistent snapshot, without blocking writers."
+              },
+              {
+                "ask": "A social site stores likes on posts and also sells tickets to its events. Which design pays for the strong guarantee only where it is needed?",
+                "choices": [
+                  "Every write through cross-region transactions with commit wait, so that likes and tickets share one simple model",
+                  "Likes in an eventually consistent store at local latency; ticket sales in a transactional database so no seat sells twice",
+                  "Both eventually consistent, with a nightly job that finds tickets sold twice and refunds one buyer of each"
+                ],
+                "answer": 1,
+                "why": "A like counted late or twice harms nobody and should be cheap. A seat sold twice cannot be undone by the buyer standing in the aisle, so tickets are worth tens of milliseconds a write."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A clock reading is a guess.** NTP keeps servers within about a millisecond in one datacentre and tens of milliseconds across the internet, and a bad clock can be off by seconds or jump back.",
+    "**Last writer wins on local clocks loses writes.** A clock 50 ms slow stamps a later write as earlier, and the copy that really came last is thrown away.",
+    "**Two-phase commit makes a change on many shards happen on all or none.** Participants prepare and vote, then the coordinator logs the decision and sends it.",
+    "**Plain two-phase commit blocks.** A participant that voted yes may neither commit nor abort until it hears the decision, so a dead coordinator holds every lock it touched.",
+    "**Spanner runs two-phase commit between Paxos groups.** The decision is written to a majority of replicas, so a new leader can finish what a dead one started.",
+    "**TrueTime returns an interval.** GPS receivers and atomic clocks keep its uncertainty ε at a few milliseconds, about 4 on average in the paper.",
+    "**Commit wait buys a global order.** A transaction is stamped at TrueTime's latest and hidden for about 2ε until the stamp has passed everywhere, so later transactions get later stamps.",
+    "**True timestamps make reads free of locks.** A read at a timestamp sees a consistent snapshot from any replica that has caught up to it.",
+    "**Pay for the strong guarantee only where the data needs it.** Money and seats are worth tens of milliseconds a write; likes and view counts are not."
+  ],
+  "footnotes": {
+    "hrtimer": {
+      "kind": "technical",
+      "title": "The bug",
+      "text": "When the kernel inserted the leap second it set its own clock back by one second but did not tell the high-resolution timer code, which kept an offset that was now a second wrong. A program that asked to sleep until a time a fraction of a second ahead found, by the timer's reckoning, that the time had already passed, and returned at once. Programs that wait in such loops, as Java's threads and MySQL do, spun. Setting the date by hand made the kernel recompute the offset."
+    },
+    "smear": {
+      "kind": "digression",
+      "title": "Smearing",
+      "text": "Google described the smear in a blog post in September 2011: its time servers lied about the time by a growing fraction of a second before the leap, so the second was absorbed gradually. Several large companies later adopted smears, though not all the same shape, which means two smeared clocks from different providers can disagree by up to half a second during one."
+    },
+    "gray": {
+      "kind": "digression",
+      "title": "Jim Gray",
+      "text": "Gray described two-phase commit in his 1978 notes on database operating systems; Butler Lampson and Howard Sturgis worked on the same problem at the same time. Gray received the Turing Award in 1998 for his work on transactions. In January 2007 he sailed alone from San Francisco to scatter his mother's ashes near the Farallon Islands and was never found, despite a search in which thousands of volunteers examined satellite images online."
+    },
+    "wound": {
+      "kind": "technical",
+      "title": "Wound-wait",
+      "text": "The rule is called wound-wait: when an older transaction wants a lock a younger one holds, it wounds the younger, which aborts and retries with its original age; a younger transaction wanting an older one's lock waits. Since waits only ever go from younger to older, no cycle of waiting can form, and a retried transaction keeps its age and so eventually wins."
+    },
+    "sawtooth": {
+      "kind": "technical",
+      "title": "Where ε comes from",
+      "text": "Between polls a machine assumes its clock may drift by up to 200 microseconds a second, so in 30 seconds ε grows by about 6 ms on top of the 1 ms or so of uncertainty in reaching the masters, giving the sawtooth. Masters with atomic clocks, which the paper called Armageddon masters, cover the case where GPS fails across a region; a machine whose clock disagrees with the masters by too much takes itself out of service."
+    },
+    "hlc": {
+      "kind": "technical",
+      "title": "Hybrid logical clocks",
+      "text": "Kulkarni, Demirbas and others published hybrid logical clocks in 2014. Each timestamp is the largest physical time the node has seen, its own or in a message, with a counter to break ties. Timestamps then respect cause and effect, as Lamport's logical clocks do, while staying close to the wall clock so that a read at a time of day means something."
+    }
+  }
+}

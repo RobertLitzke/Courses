@@ -1,0 +1,32 @@
+/* Design tokens: a machine room at night. The page is the deep blue of a
+   dark hall of racks, lessons are on pale paper like an engineer's notebook,
+   and the accents are status lights: amber for load, teal for a cache,
+   the blue of a request and the green of an answer. */
+
+:root {
+  --bg: #141b2d; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #222b42;
+  --panel: #f0eee7;
+  --panel-2: #d9d6cb;
+  --ink: #1f2430;
+  --ink-soft: #5b6170;
+  --text: #e8eaf0;
+  --muted: #a3a9ba;
+  --sun: #e8a64a;
+  --sun-deep: #d07a3a;
+  --rose: #c7607a;
+  --teal: #4fa8a2;
+  --violet: #8f80d0; /* branch colours */
+  --leaf: #7fa66a;
+  --ice: #8fb4d8;
+  --ember: #b0603a;
+  --title: #f2d7a6;
+  --paper: #fbfaf6;
+  --good: #3f8f5a;
+  --bad: #c0392b;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }

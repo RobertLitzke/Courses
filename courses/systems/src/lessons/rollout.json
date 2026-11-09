@@ -1,0 +1,328 @@
+{
+  "id": "rollout",
+  "n": 207,
+  "branch": "studio",
+  "needs": [
+    "outage",
+    "slo"
+  ],
+  "title": "One update, 8.5 million screens",
+  "teaches": "Shipping software and data to a fleet: staged rollouts behind health gates, A/B partitions that fall back, signed updates (TUF and Uptane), deltas and offline devices, compatible versions, and watching fleet health",
+  "parts": [
+    {
+      "title": "Seventy-eight minutes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At 04:09 UTC on Friday 19 July 2024, the security company CrowdStrike sent a configuration file, Channel File 291, to the Falcon software that guards its customers' Windows computers. Falcon reads such files inside the operating system's kernel. This one asked for an input that wasn't there, the code read memory it shouldn't have, and every Windows machine that loaded the file crashed, restarted, loaded it again and crashed again.[^cs] CrowdStrike replaced the file at 05:27, 78 minutes later. By then Microsoft estimated that about **8.5 million** machines were stuck: airport check-in desks, hospital systems, broadcasters, payment terminals. A stuck machine couldn't download the fix, because it never stayed up long enough. Each one had to be started by hand in a recovery mode and the file deleted, and airlines cancelled thousands of flights over the following days."
+        },
+        {
+          "type": "text",
+          "text": "The file was treated as data, not code, and so it went to every machine at once, without the staged rollout CrowdStrike used for its software. Twelve years earlier, on 1 August 2012, the trading firm Knight Capital had shown the opposite danger. A technician copied new trading code to seven of its eight servers and missed the eighth. The new code reused a flag that had once switched on an old routine, and on the eighth server that flag woke the old routine, which sent millions of orders into the market. In 45 minutes Knight lost more than $460 million, and within days it needed rescuing.[^knight] One fleet changed everywhere at once; the other was left with two versions that disagreed about what a flag meant."
+        },
+        {
+          "type": "text",
+          "text": "This lesson is a design exercise. The target: **two million cars** from one maker, each with a computer running its dashboard and navigation, and a few smaller computers beside it. Every month there is a new software release and a new edition of the map data. Get both onto the cars without ever leaving a car that won't start, without letting a stolen server key install anything, and at a sensible cost. Design it, then compare it with what Android, The Update Framework and CrowdStrike's own review describe."
+        }
+      ]
+    },
+    {
+      "title": "What it must do, and what it need not",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Functional.** Publish a release, software and map data, and offer it to cars in stages, watching each stage's health before the next. Halt a release automatically, and undo it on cars that already have it. Install without stopping a car's use, and recover by itself from a release that doesn't work. Prove to each car that a release came from the maker and hasn't been altered. Reach cars that were parked for months. Keep the software and the map data each car runs able to work together. Show the fleet's health by release, hardware and region."
+        },
+        {
+          "type": "text",
+          "text": "**Non-functional.** A bad release reaches a small share of cars before it stops, and no car ever needs a workshop to recover from an update. A thief with one server key can't install anything. Cellular data, which the maker pays for, costs well under a dollar a car a month. 95% of the fleet has a release within three weeks."
+        },
+        {
+          "type": "text",
+          "text": "**Out of scope:** writing the software, building the map data from surveys (the maps branch, lessons 101 to 104), and the workshop tools for cars that are already broken for other reasons."
+        }
+      ]
+    },
+    {
+      "title": "The numbers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A software release is about 1.5 GB and a full edition of the map about 20 GB, so a full release is 21.5 GB a car, and **43 PB** for the fleet. Over cellular at a dollar a gigabyte, a round price for bulk data, that is $43 million every month, about $21.50 a car. Sent in one day it would need about 4 terabits a second from the servers. The map changes little from month to month, and most of the software doesn't change at all, so the first cut is obvious: send only what changed. The workbench below shows how far that goes."
+        },
+        {
+          "type": "text",
+          "text": "The other numbers are about risk. A defect that stops one car in a thousand from starting is 2,000 cars at the roadside if it reaches everyone. A defect that affects one car in a hundred thousand, 20 cars, might never be noticed at all among the fleet's everyday faults. How quickly a rollout can find each kind decides how it is staged."
+        }
+      ]
+    },
+    {
+      "title": "Stages and a health gate",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **staged rollout** offers a release to a small **cohort** first, the **canary**, named after the birds miners carried to warn of gas, watches it, and widens only if the cohort is healthy: 1%, then 10%, then 50%, then everyone. Guess what that does to an update as bad as CrowdStrike's file."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "rollout-stages",
+          "caption": "A release with a defect across a fleet of a million, sent at once or in stages behind a health gate. The scale counts devices by powers of ten; the faint line is the other strategy.",
+          "task": "Guess, then make the defect rarer until the first stage misses it",
+          "goal": "subtle"
+        },
+        {
+          "type": "text",
+          "text": "In the figure's fleet of a million, the first stage catches a gross defect with 2,000 devices broken instead of 200,000; for two million cars, double both. A subtle one slips through: at one device in a thousand the 1% stage breaks only 10 more than usual, lost among the fleet's ordinary failures, and the 10% stage is the first big enough to show it. The **health gate** compares the cohort with a **control group** of devices that haven't had the release, over the same hours and drawn from the same hardware models and regions, compared model by model, so that a bad day for everyone, a storm or a mobile network outage, doesn't look like a bad release. Small first stages catch gross faults cheaply, and the larger stages after them catch rarer ones. A fault rarer than any stage can see reaches everyone, but slowly enough for people to spot it in other ways."
+        },
+        {
+          "type": "text",
+          "text": "What the gate measures matters as much as how big the stages are. It watches symptoms that cars report, the measures of lesson 24 applied to a fleet: did the car start, did the software crash, is navigation working. The most telling signal is often silence. A car stuck restarting sends no reports at all, so the gate counts the **heartbeats** each car should have sent and treats missing ones as failures. Cohorts are chosen to include every hardware model and region, because a release that is fine on one model can break another. Each stage bakes long enough for most of its devices to be used and report: the figure's six hours suit computers that are always on, but a car may not be driven for two days, so a car fleet's stages last two or three days each. And the gate halts automatically: a person reading a graph at 04:30 is too slow, as CrowdStrike's 78 minutes showed, and lesson 23's rule applies to data as much as to code: every change to a fleet goes out in stages, with its **blast radius**, the share of the fleet it can reach before anyone can stop it, chosen in advance."
+        }
+      ]
+    },
+    {
+      "title": "Two slots and a bootloader",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A staged rollout limits how many cars a bad release reaches. The cars it does reach still have to recover by themselves, or each one is a tow truck. The answer is in how a car installs."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "rollout-ab",
+          "caption": "Installing an update in place, or into the spare of two system slots, with a bootloader that counts tries.",
+          "task": "Use two slots, choose the update that won't boot and play it to the end",
+          "goal": "fallback"
+        },
+        {
+          "type": "text",
+          "text": "With **A/B slots** the device keeps two copies of its system. The update is written into the slot not in use while the device carries on as normal, so a power cut or a dropped download harms nothing. The new slot is marked to be tried, the **bootloader** counts down a try as it starts it, and the new system marks itself good only after its own health checks pass. If it crashes first, the tries run out and the bootloader starts the old slot. Android adopted this in version 7.0, in 2016, and Chromebooks had worked this way from the start. The cost is twice the storage for the system, which on a car is small next to the cost of a tow."
+        },
+        {
+          "type": "text",
+          "text": "The small computers beside the main one, for the doors or the battery, often have room for only one copy. The main computer then holds the previous version for them, writes the new one, checks it, and writes the old one back if the small computer fails to start."
+        }
+      ]
+    },
+    {
+      "title": "Signed so a stolen key isn't enough",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "An update channel can install anything on two million cars, which makes it the most valuable target the maker owns. Signing each file with one key isn't enough: the key sits on a server that signs every release, and whoever steals it can sign anything. **The Update Framework** (TUF), published by Justin Samuel, Justin Cappos and colleagues in 2010, splits the trust into **roles**, each with its own keys, so that the keys used every day can do little damage alone."
+        },
+        {
+          "type": "diagram",
+          "id": "rollout-sign",
+          "caption": "The four roles of The Update Framework, what each signs, and the order in which a device checks them."
+        },
+        {
+          "type": "text",
+          "text": "The **root** keys are kept offline, each in a hardware security module in a safe and held by a different named person, and several must sign together, at a planned signing with witnesses; they say which keys are trusted for the other roles, and can replace a stolen one. **Targets** lists every file with its hash and size, so a file swapped in transit is refused. **Snapshot** fixes which version of each list belongs together, so an attacker can't mix a new list with an old one. **Timestamp** is re-signed every day with a short expiry, so a device being fed an old, vulnerable release by a server in an attacker's hands notices within a day that it has heard nothing new. And version numbers only ever go up, so a correctly signed old release can't be sent again to bring back a fixed hole.[^rollback] Undoing a bad release that cars have already accepted therefore goes forward, not back: the maker builds the previous good code again as release 43, with a higher number, and sends it through the same stages, faster."
+        },
+        {
+          "type": "text",
+          "text": "Cars added a problem of their own: a car has many computers, and each must get the right image for its exact part number. **Uptane**, an adaptation of TUF for cars developed from 2016, splits the server side in two. An **image repository**, signed with offline keys, holds every image. A **director**, online, tells each car which images it should install. A car installs an image only if both agree, so a stolen director key can at worst choose among genuine images, and a stolen image key can't send anything without the director.[^uptane]"
+        }
+      ]
+    },
+    {
+      "title": "The workbench",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now the bytes. Choose whether to send whole releases or **deltas**, binary differences from what the car already has; whether cars wait for home Wi-Fi, falling back to cellular after two weeks, or use cellular at once; how many past releases get a delta; and over how many days the release is offered. 70% of cars have Wi-Fi at home, and 3% are parked for months at a time."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "rollout-fleet",
+          "caption": "A month's release to two million cars. A wire's width follows the bytes on it; prices are round figures of our own.",
+          "task": "Keep cellular under $1 million a month, the peak under 100 Gb/s, and 95% within three weeks",
+          "goal": "lean"
+        },
+        {
+          "type": "text",
+          "text": "Deltas do most of the work: a car that is up to date gets 1.15 GB in place of 21.5 GB, about a nineteenth of the size, because a map edition changes a few per cent of its tiles and a software release a fraction of its files. Waiting for Wi-Fi moves most of the remaining bytes off the paid network, at the price of two weeks before the cars without home Wi-Fi get it. Spreading the offer over a few days flattens the peak, and it is the same staging as the health gate, so it costs nothing extra in time."
+        },
+        {
+          "type": "text",
+          "text": "Parked cars set the hard limits. A car that comes back after five months is five releases behind. Each delta path is a separate file to build, and a separate upgrade to test, and a car beyond the oldest path gets the whole release instead. The server answers each car's question, \"I have software 38 and map 2026.06, what now\", with the cheapest safe path, which may be a delta, a chain of deltas or the full release. And after a month about 2% of the fleet is still on older releases, which means every server the cars talk to must keep working with all of them."
+        }
+      ]
+    },
+    {
+      "title": "The map nobody could read",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In November the map team ships an edition in a new file format, version 8, with richer lane data. Software release 42 reads it; release 41 reads only format 7. The map goes out in stages like everything else, and in the 1% cohort the cars still on release 41, a fifth of the cohort, try to load it, fail, and show a blank navigation screen. Their heartbeats report map load failures, the gate sees the cohort's failure rate far above the control group's, and the rollout halts with a few thousand cars affected, each able to go back to the previous edition held beside the new one."
+        },
+        {
+          "type": "text",
+          "text": "The fix is a rule about versions. The server never offers a car data its software can't read: the question each car asks includes its software version, and the answer for release 41 is the latest map built in format 7. The map team keeps producing format 7 until fewer than 1% of the fleet runs release 41, and the rest are offered the full update of software and map together. Readers ship before writers, the order database changes use under the name **expand and contract**: first add the new form beside the old (expand), move every reader to it, and only then stop producing the old one (contract). Here every car learns to read format 8 before format 8 is sent. This is the lesson of Knight Capital in another form. A flag, a field or a file format keeps its meaning for as long as any machine in the fleet might read it, and a new meaning gets a new name."
+        }
+      ]
+    },
+    {
+      "title": "Watching two million cars",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Each car sends a **heartbeat** once a day or when it wakes: its software and map versions, how many times it has started and crashed since the last one, which checks failed, and its hardware model. Counters are kept on the car and sent as totals, a few hundred bytes, so two million cars send under a gigabyte a day even over a weak signal, and a car that was out of signal for a week sends one heartbeat covering the week. The car's clock may be wrong, so the server records when it received each heartbeat too."
+        },
+        {
+          "type": "text",
+          "text": "On the server, heartbeats become counts by **cohort**: release, map edition, hardware model, region. The health gate reads those counts, and so do people. A dashboard shows each cohort's crash rate beside its control group, and a click narrows it, from the release to a hardware model to a country to a list of cars, and then to one car's detailed logs, fetched on request because no one could afford to upload every car's logs every day. Alerts use the **burn rate** of lesson 24, how fast a cohort spends its error budget compared with the speed that would spend it exactly in a month. With a budget of 0.1% of starts failing, a burn rate of 14.4, which spends 2% of the month's budget in one hour, pages someone at once; a slower burn, a few times the even rate over six hours, opens a ticket.[^burn]"
+        }
+      ]
+    },
+    {
+      "title": "What others built",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "CrowdStrike's review, published in August 2024, said content files like Channel File 291 would from then on be released in stages, starting with a canary cohort, with monitoring between stages and customers able to choose when they receive them, and that the sensor would check such files more strictly before using them. In other words, the configuration file would get the treatment its software already had. Phones and laptops update hundreds of millions of devices with the same parts as above: Android's A/B slots and staged rollouts in the Play Store, ChromeOS's two partitions, and signed metadata. TUF's design is used by software repositories as well as devices, and Uptane by carmakers."
+        },
+        {
+          "type": "text",
+          "text": "Knight Capital's lesson ended up in deployment tools rather than in trading. Every server gets the same release by automation, never by hand; a tool compares what each server actually runs with what it should run and refuses to go on while they differ; and old code behind a flag is deleted, not left asleep."
+        }
+      ]
+    },
+    {
+      "title": "At ten and a hundred times",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Ten times**, twenty million cars, is mostly more of the same. Deltas over a CDN scale with the CDN; heartbeats grow to a few gigabytes a day, still small. What grows is the version matrix: more models, more years of cars in the field, each needing its own images and its own cohorts. The release system has to treat \"which image for which car\" as data, a table keyed by part number and version, built and tested automatically."
+        },
+        {
+          "type": "text",
+          "text": "**A hundred times**, two hundred million devices, is the size of a phone platform. The servers answering \"what should I install\" must answer from precomputed tables per cohort, without touching a database per device. The bytes go partly between devices, as Windows' Delivery Optimization lets computers on the same network share update pieces, and through caches inside internet providers. And the stages slow down: a defect affecting one device in a million is 200 devices, and finding it takes a cohort of millions watched for days."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on getting an update safely onto a fleet",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "CrowdStrike's Channel File 291 reached about 8.5 million machines within 78 minutes. What change to how it was released would most have limited the damage?",
+                "choices": [
+                  "Releasing it in stages from a small cohort, halting automatically when that cohort's machines stopped reporting",
+                  "Writing the replacement file more quickly, so that the fix could have been sent within minutes of the first crash",
+                  "Sending the file only to the machines that had been restarted in the last day, which were known to be healthy"
+                ],
+                "answer": 0,
+                "why": "A configuration file can break machines as surely as code. A first stage of 1% would have stopped it with a hundredth of the machines affected; a stricter check of its inputs inside the sensor would have helped too."
+              },
+              {
+                "ask": "A defect breaks one device in a thousand. A 1% stage of a million-device fleet shows nothing unusual. Why?",
+                "choices": [
+                  "The health gate checks only for crashes, and this defect must be causing something other than a crash",
+                  "Ten extra failures in 10,000 hide in the noise",
+                  "Defects that rare can only be found by testing in the lab, before any release reaches the fleet at all"
+                ],
+                "answer": 1,
+                "why": "Each stage sees only faults large enough to rise above the fleet's everyday failures. Rare faults need larger stages, which is why the stages grow."
+              },
+              {
+                "ask": "Why does a health gate compare the cohort with a control group instead of with a fixed threshold?",
+                "choices": [
+                  "So that a bad day for every device, such as a network outage, isn't blamed on the release",
+                  "Because a control group of devices is needed to roll the release back if the health gate halts it",
+                  "Because a fixed threshold would need the whole fleet's data before it could be set to a sensible value"
+                ],
+                "answer": 0,
+                "why": "Updated and not-yet-updated devices share the same weather, networks and day of the week; only the release differs."
+              },
+              {
+                "ask": "A car with A/B slots installs an update that crashes as it starts. What happens?",
+                "choices": [
+                  "The car stays broken until the next release reaches it and fixes the fault in the new slot",
+                  "The car downloads the old version again over cellular, installs it over the new one and restarts",
+                  "The bootloader goes back to the old slot"
+                ],
+                "answer": 2,
+                "why": "The new system marks itself good only after its health checks pass, so until then the untouched old slot is the fallback."
+              },
+              {
+                "ask": "An attacker steals the online key that signs TUF's timestamp role. What can they do?",
+                "choices": [
+                  "Sign and install any software they like on every device that trusts the repository",
+                  "Freeze devices on old releases for a while, but install nothing new",
+                  "Replace the root keys with keys of their own, and from then on control every role"
+                ],
+                "answer": 1,
+                "why": "With the timestamp key alone, an attacker can keep pointing devices at an old snapshot, so they miss new releases until a check of the other roles notices; but every file must still match lists signed with offline keys."
+              },
+              {
+                "ask": "A car parked for five months comes back. Deltas exist only from the last three releases. What should it get?",
+                "choices": [
+                  "The latest delta, applied to whatever version the car happens to have installed",
+                  "Nothing until it has been taken to a workshop and updated there by hand, from a cable",
+                  "The cheapest tested path from its versions: a chain of deltas, or the full release"
+                ],
+                "answer": 2,
+                "why": "A delta applies only to the exact version it was made from, so the server picks a path from the car's actual versions."
+              },
+              {
+                "ask": "A new map format can't be read by last month's software. How should the map be released?",
+                "choices": [
+                  "Release the map to every car first, and the software that reads it a week later",
+                  "Readers first; the old format for cars not yet updated",
+                  "Release both on the same day, so that the map and the software arrive at each car together"
+                ],
+                "answer": 1,
+                "why": "Cars update at different times, so each car is offered only data its own software can read until few old readers remain."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Data is code.** A configuration file or a map edition can break a fleet as surely as software, and needs the same staged rollout.",
+    "**Stage every change behind a health gate.** 1%, 10%, 50%, all, each watched; small stages catch gross faults, larger ones rare faults.",
+    "**Compare with a control group, count the silent.** Updated devices against devices not yet updated, and missing heartbeats as failures.",
+    "**Halt automatically.** A fleet can be lost in 78 minutes, faster than people read graphs.",
+    "**Install into a spare slot.** A/B slots and a bootloader that counts tries make a bad update fall back by itself.",
+    "**Split signing trust.** TUF's roles keep the powerful keys offline, expire stale metadata, and never let versions go down; Uptane adds a director for cars.",
+    "**Send differences, on cheap networks, spread out.** Deltas, Wi-Fi first and a staged offer cut the bytes, the bill and the peak.",
+    "**Every version in the field must keep working.** Readers ship before writers, flags never change meaning, and each device is offered only what it can use."
+  ],
+  "footnotes": {
+    "cs": {
+      "kind": "digression",
+      "title": "Channel File 291",
+      "text": "CrowdStrike's root cause analysis, published in August 2024, described a template for a new kind of check that defined 21 input fields, while the sensor code that used it supplied 20. Earlier files of that type hadn't used the 21st field. Channel File 291 did, and the sensor read past the end of its inputs."
+    },
+    "knight": {
+      "kind": "digression",
+      "title": "Power Peg",
+      "text": "According to the SEC's order of October 2013, the old routine was called Power Peg, unused since 2003 but never deleted. The new code reused the flag that had activated it. Power Peg's check that orders had been filled had been moved elsewhere years earlier, so on the eighth server it kept sending orders for parent orders already complete. Knight's staff also reverted the new code on the other seven servers during the incident, which made them run Power Peg too."
+    },
+    "rollback": {
+      "kind": "technical",
+      "title": "Fallback and anti-rollback",
+      "text": "A/B fallback and anti-rollback can look like they conflict. They don't, because of timing: until the new slot marks itself good, the old version is still the newest one the device has accepted, and starting it is allowed. Once the new version commits, the device raises a stored minimum version, often in hardware that can only count up, and from then on refuses anything older."
+    },
+    "uptane": {
+      "kind": "technical",
+      "title": "Uptane in a car",
+      "text": "In Uptane a car's main computer does the full checks for both repositories and passes images to the smaller computers. Those that can afford it check the signatures again themselves; the smallest check only a few. Each computer reports what it is running, signed, so the director can see a car's real state rather than what it was told to install."
+    },
+    "burn": {
+      "kind": "technical",
+      "title": "Burn rates for a fleet",
+      "text": "With a budget of 0.1% failed starts in 30 days, a cohort failing 1.44% of starts for an hour spends 2% of the month's budget in that hour, a burn rate of 14.4: the fast-burn page suggested in Google's SRE workbook. The workbook pairs it with a slower alert, a burn rate of 6 sustained over six hours, which spends 5% of the budget. The same arithmetic works for any fleet signal with a budget: failed installs, rollbacks, missing heartbeats."
+    }
+  }
+}

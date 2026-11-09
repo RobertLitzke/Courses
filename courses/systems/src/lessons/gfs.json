@@ -1,0 +1,264 @@
+{
+  "id": "gfs",
+  "n": 6,
+  "title": "One master, a thousand disks",
+  "teaches": "Splitting metadata from data, big blocks, and why one coordinator can be the right first design",
+  "summary": [
+    "**GFS was built for one kind of file.** A few million files of many megabytes to many gigabytes, written by appending and read in long streams, on a thousand cheap machines.",
+    "**Metadata and data take different paths.** One master knows every file's chunks and where they are; the bytes go straight between clients and chunkservers.",
+    "**The master's tables live in memory.** A sorted table of names, each file's list of chunks, and each chunk's locations, the last rebuilt by asking the chunkservers.",
+    "**Big chunks keep the master small and quiet.** At 64 MB a chunk and under 64 bytes each, a petabyte is about 16 million chunks and 1 GB of memory, and a client asks the master once per chunk.",
+    "**Big chunks cost something too.** A small file sits in one chunk on three machines, and if many clients want it at once those three become a hot spot.",
+    "**One coordinator makes global decisions simple.** Placement, re-replication and garbage collection are decided in one place with all the facts, as long as its load and memory stay small.",
+    "**The master's state survives in a replicated log.** Every change to names and chunk lists is written to an operation log copied to other machines before the client is told it is done.",
+    "**Know where the simple design stops.** By 2009 file counts and latency-sensitive users had outgrown one master, and Google replaced GFS with Colossus, which spreads the metadata."
+  ],
+  "parts": [
+    {
+      "title": "Corkboard and cheap disks",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1999 Google's servers were bare circuit boards, several to a shelf. The company bought the cheapest machines that would do, in large numbers, and accepted that some of them would always be broken. Lesson 7 is about that choice. This lesson is about the file system it led to."
+        },
+        {
+          "type": "text",
+          "text": "Google's work was dominated by a few enormous jobs. A crawler fetched billions of web pages and wrote them to files; programs read those files from start to finish to build the search index; logs of every search piled up to be read the same way. No single disk could hold the data, and no file system of the time would spread one file system's worth of files over a thousand machines. In October 2003 Sanjay Ghemawat, Howard Gobioff and Shun-Tak Leung published how they had built one, \"The Google File System\".[^authors] Its largest clusters then held hundreds of terabytes over more than a thousand machines."
+        },
+        {
+          "type": "text",
+          "text": "The design surprised readers. At the centre of a file system spread over a thousand machines sat a single machine, the **master**, that knew where everything was. Many people's first thought was that it must be a bottleneck and a single point of failure. The paper's authors had thought about both, and the reasons it was neither, for the work it was built for, are the subject of this lesson, along with the point where it stopped being true."
+        }
+      ]
+    },
+    {
+      "title": "What the files were like",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The paper begins by saying what the system was for, and that list decided the design. Files were large: a few million of them, typically 100 MB or more, many of them several gigabytes. Most were changed by **appending** to the end, often by many programs at once, and almost never overwritten in the middle. Most reads were long streams through a file from start to finish, and a few were small reads at random places. Steady throughput, many megabytes a second for hours, mattered more than the time of any single read."
+        },
+        {
+          "type": "text",
+          "text": "Just as important was what it left out. Small files would work but would not be efficient. It did not offer POSIX, the standard set of file operations and guarantees that Unix programs are written against, so ordinary programs could not use it unchanged. Low latency for small reads was not a goal. Each of those omissions made the design simpler, and each is where later users ran into trouble. Pinning down what a system need not do is as much a design decision as what it must."
+        }
+      ]
+    },
+    {
+      "title": "One master, many chunkservers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "GFS cuts every file into **chunks** of 64 MB, each named by a 64-bit number, its chunk handle. Each chunk is stored as an ordinary Linux file on three different **chunkservers**, the machines with the disks. The master keeps the **metadata**, the data about the data: the names of all the files, the list of chunks in each file, and where each chunk's copies are."
+        },
+        {
+          "type": "diagram",
+          "id": "gfs-tables",
+          "caption": "What the master keeps in memory, and what is on the chunkservers. The master never holds file contents.",
+          "aspect_ratio": 1.52
+        },
+        {
+          "type": "text",
+          "text": "Reading a file takes two steps. The client turns the byte offset it wants into a chunk index (offset divided by 64 MB) and asks the master for that chunk's handle and locations. Then it asks the nearest chunkserver for the bytes. The master is on the **control path**, deciding and remembering where things are; the bytes travel on the **data path**, straight from chunkserver to client, and never touch the master. The client keeps the master's answer for a while, so a program streaming through a 64 MB chunk in 1 MB reads asks the master once and the chunkserver sixty-four times.[^cache]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "gfs-flow",
+          "caption": "Clients reading 10 GB a second in 1 MB pieces, with a master assumed to answer 2,000 requests a second, a made-up round number for the figure. Slow motion, at a small fraction of the rate.",
+          "goal": "overload",
+          "task": "Shrink the chunks, or send the data through the master, until the master is the box that is full.",
+          "aspect_ratio": 1.42
+        },
+        {
+          "type": "text",
+          "text": "Before trusting one master, the numbers. Clients reading 10 GB a second in 1 MB pieces make 10,000 reads a second. With 64 MB chunks they make about 160 requests a second to the master, a light load for one machine. With 1 MB chunks the master gets all 10,000. And if the data passed through the master, as it would in a design where the coordinator also serves the bytes, one machine's network card would carry all 10 GB a second; a gigabit link of 2003 carried about 0.1 GB a second. Say the master can answer 2,000 requests a second; the figure assumes that number, and a real master's limit would be measured. At 64 MB chunks it is under a tenth busy. The master can be single because it does one small piece of work per chunk, not per read or per byte, and the chunk size and the separate data path are what keep that work small."
+        }
+      ]
+    },
+    {
+      "title": "Why the chunks are so big",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A local file system of 2003 stored files in blocks of 4 KB, and a few used 64 KB. GFS's 64 MB is sixteen thousand times larger, and the reason is the master's memory. The master keeps all its tables in RAM, so that every lookup is a memory reference and no request waits for its disk. The paper says each chunk costs it less than 64 bytes."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "gfs-estimate",
+          "caption": "Master memory for the metadata, at under 64 bytes a block, on a scale where each gridline is a thousand times the last. Guess first.",
+          "goal": "guess",
+          "task": "Guess how much master memory a petabyte of files needs in 64 MB chunks.",
+          "aspect_ratio": 1.86
+        },
+        {
+          "type": "text",
+          "text": "A petabyte in 64 MB chunks is about 16 million chunks, and at 64 bytes each about 1 GB of memory: one ordinary server holds it, with room for the names and the file lists. The same petabyte in 4 KB blocks is 250 billion blocks and 16 TB of metadata, which no machine could hold in memory in 2003 and very few could today. The block size decides whether one machine can know where everything is. Choosing a chunk size for another system runs the same two sums from below: the data stored divided by the chunk size, times the bytes per chunk, must fit the coordinator's memory, and the reads a second divided by the reads per chunk must fit its request rate. From above, the chunk must be small enough that a typical file spans several chunks, so reading it can be spread over several machines."
+        },
+        {
+          "type": "text",
+          "text": "Big chunks have costs, and the paper names them. A file of a few kilobytes still occupies a chunk, on three chunkservers (the chunk file on disk is only as large as the data, so no space is wasted, but the file has only three homes). When hundreds of machines read the same small file at the same moment, those three chunkservers are swamped. The paper's example was a program stored in GFS that hundreds of machines started at once; the fix was more copies of such files and staggered start times.[^hotspot] It is a general pattern: the choice that makes the common case cheap makes some uncommon case expensive, and a design should say which uncommon cases it accepts."
+        }
+      ]
+    },
+    {
+      "title": "Why one coordinator works",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A single master has a real advantage beyond being easy to build: it sees everything. Where to put a new chunk's copies depends on every chunkserver's free space, load and rack, and the master has all of it in one place. When a chunkserver dies, the master knows exactly which chunks lost a copy and can order new ones (lesson 7). Deleted files are cleaned up lazily by the master scanning its own tables. Spreading those decisions over many machines would mean those machines agreeing with each other, which lesson 11 shows is one of the hardest problems in the field. Keep the part that must make global decisions small and in one place, and make everything else simple enough not to need it."
+        },
+        {
+          "type": "text",
+          "text": "The master must not lose its tables, so every change to the names or to a file's chunk list is appended to an **operation log** on the master's disk and copied to log files on other machines before the client is told it succeeded. Now and then the master writes its whole state as a checkpoint, so that a restart reads the checkpoint and replays only the log since. The chunk locations are not logged at all: on start-up the master simply asks every chunkserver what it holds, and keeps up to date from their **heartbeats**, short messages each chunkserver sends every few seconds to say it is alive and what it holds. The chunkservers are the authority on what they hold, so there is nothing to keep in step."
+        },
+        {
+          "type": "text",
+          "text": "Clients find the master by a DNS name, not by machine. If the master's machine dies, a monitoring system outside GFS starts a new master elsewhere from the replicated log and moves the name to it. Meanwhile read-only **shadow masters**, which follow the log a little behind, can answer clients that only want to read. So the single master is a single point of failure for writes, for as long as a restart takes, and the design accepts that for the jobs it was built for: batch programs that can wait a minute."
+        }
+      ]
+    },
+    {
+      "title": "Where it stopped",
+      "blocks": [
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "From bare boards to Colossus.",
+          "options": {
+            "events": [
+              { "at": 1999, "label": "Bare boards on shelves", "color": "cost" },
+              { "at": 2003, "label": "GFS paper", "color": "leader", "bold": true },
+              { "at": 2006, "label": "Hadoop's HDFS copies the design", "color": "data" },
+              { "at": 2009, "label": "\"GFS: Evolution on Fast-forward\"", "color": "leader" },
+              { "at": 2010, "label": "Colossus replaces GFS", "color": "leader", "when": "about 2010" }
+            ],
+            "spacing": "time"
+          }
+        },
+        {
+          "type": "text",
+          "text": "In August 2009 Sean Quinlan, who had led GFS's development, described in a conversation with Kirk McKusick, published in ACM Queue, how the system had been pushed far beyond what it was designed for. Google now stored many more, much smaller files, and the number of files, not their size, was the master's limit: every file costs memory, and some clusters had hundreds of millions of them. Applications such as Gmail wanted answers in milliseconds from a system built for batch jobs that could wait, and a master failover that a batch job hardly noticed was an outage to someone reading their mail.[^quinlan]"
+        },
+        {
+          "type": "text",
+          "text": "Google replaced GFS with a system called Colossus around 2010. It keeps the metadata as rows in Bigtable (lesson 10), a table that is itself split by key range across many machines, so the file names are divided among many servers instead of held by one, and it uses erasure coding (lesson 7) in place of three full copies.[^colossus] That was a much harder system to build, and it was built about seven years after the GFS paper, once the single master's limits were reached and measured. Hadoop's file system, HDFS, copied GFS's design in 2006, with a NameNode in the master's place, and met the same limit in the number of small files."
+        },
+        {
+          "type": "text",
+          "text": "Starting with one master was the right call. It got a working file system into use quickly, it carried the company's growth for most of a decade, and its limits were plain in its own arithmetic: memory per file, requests per chunk. The habit to take from it is to keep the hard part small and simple, and to write down, at the start, the numbers at which it stops."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Control path through the master; data path straight to the chunkservers.",
+            "Metadata in memory: a petabyte in 64 MB chunks is about 16 million chunks, and at 64 bytes each about 1 GB.",
+            "A single coordinator is fine while its share of the work is small, and its limits can be computed in advance."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the master and its chunks",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why was GFS's single master not a bottleneck for clients reading gigabytes a second?",
+                "choices": [
+                  "It ran on a much larger machine than the chunkservers, with many more disks",
+                  "Clients asked it only where each 64 MB chunk was, then read the bytes from chunkservers",
+                  "It kept a copy of every popular chunk in memory and served those reads itself"
+                ],
+                "answer": 1,
+                "why": "The master is on the control path only. A client asks once per chunk and caches the answer, so reading 10 GB a second in 1 MB pieces costs the master about 160 requests a second."
+              },
+              {
+                "ask": "A GFS master keeps under 64 bytes per 64 MB chunk. About how much memory does it need for 4 PB of files?",
+                "choices": [
+                  "About 4 GB",
+                  "About 400 GB",
+                  "About 64 TB"
+                ],
+                "answer": 0,
+                "why": "4 PB / 64 MB is about 62 million chunks; times 64 bytes is about 4 GB. In 4 KB blocks the same data would need about 64 TB."
+              },
+              {
+                "ask": "What did GFS give up by choosing 64 MB chunks?",
+                "choices": [
+                  "Efficient use of disk space, since every small file filled a whole 64 MB on disk",
+                  "Fast streaming reads, since each chunk had to be read in full before the first byte arrived",
+                  "An even spread of load for small popular files, since each lived on only three chunkservers"
+                ],
+                "answer": 2,
+                "why": "A small file is one chunk with three copies. When many clients read it at once those three machines are swamped. Disk space was not wasted, because a chunk file is only as large as its data."
+              },
+              {
+                "ask": "Why did the GFS master not log where each chunk's copies were stored?",
+                "choices": [
+                  "The chunkservers already know, and tell it",
+                  "Chunk locations change so often that logging them would fill the operation log within minutes",
+                  "The locations could be computed from the chunk handle with a hash, so there was nothing to store"
+                ],
+                "answer": 0,
+                "why": "Each chunkserver is the authority on its own disks. Asking them avoids keeping two records in step, and a chunkserver that fails or loses a disk simply stops reporting those chunks."
+              },
+              {
+                "ask": "By 2009, what set the limit on the GFS master's memory?",
+                "choices": [
+                  "The total bytes stored, since every byte of file data was also held in the master's memory as a cache",
+                  "The number of files",
+                  "The bandwidth of the master's network link"
+                ],
+                "answer": 1,
+                "why": "Every file costs the master memory for its name and chunk list, so many small files cost far more than a few large ones holding the same bytes. The master never held file data, and its link carried only metadata."
+              },
+              {
+                "ask": "A team is building a storage system for large log files read by batch jobs. Which first design does GFS's history argue for?",
+                "choices": [
+                  "Distributed metadata from the start, since one coordinator always becomes the limit",
+                  "One coordinator, its limits written down",
+                  "No coordinator at all: clients hash file names to choose storage machines directly"
+                ],
+                "answer": 1,
+                "why": "A single coordinator makes global decisions simple and lasts as long as its load and memory stay small, which can be computed in advance. GFS carried Google for most of a decade before Colossus spread the metadata."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "authors": {
+      "kind": "digression",
+      "title": "The authors",
+      "text": "Ghemawat went on to build MapReduce (lesson 8) and Bigtable (lesson 10) with Jeff Dean, and later LevelDB. The paper appeared at SOSP, the Symposium on Operating Systems Principles, in 2003."
+    },
+    "cache": {
+      "kind": "technical",
+      "title": "Asking ahead",
+      "text": "A client usually asks for several chunks in one request, the one it needs and the next few, and the master answers with all their locations. A streaming reader may talk to the master only once every few hundred megabytes."
+    },
+    "hotspot": {
+      "kind": "digression",
+      "title": "The program everyone started",
+      "text": "The paper describes a batch queue that wrote a program into GFS as a single-chunk file and then started it on hundreds of machines at once. The few chunkservers holding it were overloaded; the fix was to store such programs with more copies and to stagger the starts."
+    },
+    "colossus": {
+      "kind": "technical",
+      "title": "What is known of Colossus",
+      "text": "Google has published little about Colossus. A 2021 Google Cloud post described its metadata servers, which it called curators, keeping the file system's metadata in Bigtable, with the bytes on separate storage servers as in GFS. Bigtable in turn stores its own data in Colossus; the cycle is broken by a small, older store for the metadata of the metadata."
+    },
+    "quinlan": {
+      "kind": "digression",
+      "title": "Evolution on fast-forward",
+      "text": "Quinlan said the single master had been a deliberate shortcut to get something working quickly, and that by 2009 Google was running several masters per cluster over different parts of the namespace as a stopgap while the replacement was built."
+    }
+  }
+}

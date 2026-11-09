@@ -1,0 +1,13 @@
+{
+  "name": "sysdiagram",
+  "version": "0.1.0",
+  "description": "System diagrams for live lesson figures: boxes for servers, caches, databases and queues joined by links, with requests that flow along them, queues that back up under load, parts that can be failed by a tap, message timelines between nodes and a consistent-hashing ring.",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "test": "vitest run"
+  }
+}

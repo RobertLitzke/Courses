@@ -1,0 +1,318 @@
+{
+  "id": "sensors",
+  "n": 205,
+  "branch": "studio",
+  "needs": [
+    "chunks",
+    "kafka",
+    "edge"
+  ],
+  "title": "More data than the network can carry",
+  "teaches": "Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue",
+  "parts": [
+    {
+      "title": "A petabyte a second, kept to a trickle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When the Large Hadron Collider at CERN, on the border of France and Switzerland, began colliding protons for physics in March 2010, its big detectors faced a problem no network could solve. The machine was built to cross bunches of protons up to 40 million times a second, and each crossing lights up millions of detector channels. Writing all of it down would mean something like a petabyte a second. So the experiments decide what to keep where the data is born. A first **trigger**, built in custom hardware, looks at a coarse picture of each crossing within a few microseconds and keeps about a hundred thousand a second; a farm of thousands of computers then reconstructs those in more detail and keeps about a thousand a second for the disks. Roughly one crossing in forty thousand is ever written."
+        },
+        {
+          "type": "text",
+          "text": "Other fleets of instruments meet a smaller version of the same wall. From 2007 Google's Street View cars drove the world's roads with rings of cameras, and later laser scanners, recording far more than a car's mobile connection could send; the recordings came home on the cars' own drives. The computer scientist Andrew Tanenbaum had put the principle in a sentence in his textbook *Computer Networks*: never underestimate the bandwidth of a station wagon full of tapes hurtling down the highway.[^wagon] In 2016 Amazon took it literally with Snowmobile, a shipping container on a lorry that carried 100 PB from a customer's datacentre to its own."
+        },
+        {
+          "type": "text",
+          "text": "This lesson is a design exercise. The target: **1,000 survey vehicles**, each carrying cameras and laser scanners that record about **1 TB an hour**, driving **8 hours a day**. Engineers need anything unusual within minutes, everything kept within a day or two, and the ability to find \"every time X happened\" across years of driving. Design the pipeline, then compare it with what CERN, Amazon, Dropbox and Facebook published about theirs."
+        }
+      ]
+    },
+    {
+      "title": "What it must do, and what it need not",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Functional.** Get every byte that is worth keeping from the vehicles to the datacentre, and never lose one that was kept. Get small urgent things, a fault, a rare event a detector flagged, a vehicle's health, there within minutes. Store what arrives cheaply, for as long as the rules say. Let people find the moments they need by time, place and what was in the scene. Blur faces and number plates before anyone browses the imagery."
+        },
+        {
+          "type": "text",
+          "text": "**Non-functional.** Kept data is as durable as a bank's records: eleven nines a year, the figure object stores advertise, which means a store of a billion objects loses about one in a hundred years.[^nines] Moving and storing it must cost a sensible amount per vehicle. A vehicle that is offline for a week loses nothing."
+        },
+        {
+          "type": "text",
+          "text": "**Out of scope:** the recording software on the vehicles, the detectors that tag scenes, and what the data is then used for, such as building maps or testing new software (lesson D6). Each is a large system of its own. This one is the plumbing between them, and plumbing is where the money goes."
+        }
+      ]
+    },
+    {
+      "title": "The numbers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Before drawing any boxes, guess how long a fast link would take to move one day of driving."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sensors-estimate",
+          "caption": "The estimate for a fleet that records more than any link can move.",
+          "task": "Guess, then try a smaller fleet and a faster link",
+          "goal": "guess"
+        },
+        {
+          "type": "text",
+          "text": "Eight petabytes a day. A 10 Gb/s link, which is a serious connection for a depot, moves about 108 TB a day, so one day of driving would take about ten weeks to upload, and the backlog would grow by 7.9 PB every day it tried. A vehicle's cellular link at 50 Mb/s, kept up for every hour it drives, carries about 2% of what it records, and every gigabyte of it costs money. The arithmetic leaves two levers, and the workbench below lets you pull each. Keep less: decide on the vehicle what is worth keeping, as CERN's triggers do. And move the bulk by the cheapest path with the most bandwidth, which for petabytes is a disk in a vehicle that is going home anyway."
+        }
+      ]
+    },
+    {
+      "title": "Two pipes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On the vehicle the recording goes into a **ring buffer**: the last half hour or so in full, with older data overwritten. Most of what passes through it is an empty road. **Triggers** mark windows to keep in full: a hard stop, an operator pressing a button, a detector on board seeing something rare, a sensor disagreeing with another. Everything else is kept at reduced rate, or as summaries, or not at all. How much to keep is worth trying in the workbench before deciding, because a factor of twenty-five here, from 100% kept to 4%, is a factor of twenty-five in every box downstream. Thresholds are set by keeping a small random sample of everything, say 0.1% of minutes, whatever the triggers say: comparing what the triggers kept with what that sample holds shows what they miss, and a trigger for a rare event is set loose, firing too often rather than too rarely, since the cost of a false alarm is a few gigabytes."
+        },
+        {
+          "type": "text",
+          "text": "Then the data leaves by one of two pipes, chosen by urgency. The **narrow pipe** is cellular: a vehicle's health every minute, an index of what it recorded, small thumbnails of triggered events, and the raw window of anything flagged urgent. It costs tens of megabits a second at most and dollars per gigabyte, so only small, valuable data goes this way, in minutes. The **wide pipe** is the depot: back at base each night the vehicle connects to a fast local network, or its drives are swapped for empty ones and the full ones go to the datacentre by van. Hours to days, but nearly free per byte."
+        },
+        {
+          "type": "text",
+          "text": "Some fleets need a third pipe, a **live link**: a person at a desk who can see through a machine's cameras and give it guidance when it asks, a geologist steering an instrument on a distant slope. Its budget is end to end, glass to glass: encoding a frame 20 to 30 ms, a cellular uplink 50 to 100 ms on a good day, a relay 10 ms, decoding and display 20 ms, under a quarter of a second in all, at low resolution. Cellular coverage fails in patches, so the link sends over two carriers at once and uses whichever copy arrives first.[^bond] And it fails anyway, so the machine is designed never to depend on it: the person advises, the machine decides, and a dropped link leaves the machine in a safe state it can reach on its own: what lesson 23 calls **static stability**, carrying on correctly without help from the part that failed. Every exchange is written to a log, because someone will ask afterwards who decided what."
+        }
+      ]
+    },
+    {
+      "title": "Uploads that survive",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A 256 GB log over a depot's Wi-Fi takes most of an hour, and links drop. An upload that starts again from the beginning after every drop may never finish. Split the file into **chunks** of a few megabytes and name each chunk by a hash of its contents, a SHA-256 of its bytes: then a reconnecting vehicle sends the store the list of hashes in the file, the store answers with the ones it lacks, and only those are sent. A drop costs one chunk. And any chunk the store already holds, a calibration file every vehicle carries, a map package, the same log copied off two drives, is never sent at all. Storage that names data by a hash of its contents like this is called **content-addressed**.[^hash] The chunk size is a trade: a 256 GB log in 4 MB chunks has 64,000 hashes, a list of 2 MB, while chunks of 4 KB would make a list of 2 GB; chunks of 1 GB would make a drop cost up to a gigabyte and find fewer shared chunks. A few megabytes sits between the two."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sensors-chunks",
+          "caption": "A log uploaded whole or in chunks named by hash, over a link that drops once.",
+          "task": "Upload in chunks, then move the Link drops at slider",
+          "goal": "resumed"
+        },
+        {
+          "type": "text",
+          "text": "This is how Dropbox's client syncs files: it splits each file into 4 MB blocks, hashes each with SHA-256, and uploads only blocks the server doesn't have, so an edit to one page of a large document sends a few blocks, and a file many people store is kept once. A **file sync** service is that block store plus a database of file versions, each version a list of block hashes, and a journal of changes that every client polls or is told about. When two people edit the same file offline, the server keeps both versions and the second becomes a \"conflicted copy\", because merging arbitrary files is impossible in general (lesson 13 showed what it takes for text)."
+        },
+        {
+          "type": "text",
+          "text": "In the store, chunks are objects. The object store keeps its **metadata**, which objects exist and where their pieces are, apart from the data, as GFS kept its master apart from its chunkservers (lesson 6), and accepts big objects as a **multipart upload**, parts sent in any order and in parallel, joined into one object only when the last arrives. Listing and the catalogue read the metadata; nothing reads the bulk until someone needs the bytes."
+        }
+      ]
+    },
+    {
+      "title": "The workbench",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now make the large choices: how much each vehicle keeps after triage, which path carries the bulk, and whether data older than 30 days moves to cold storage. The prices are round figures of our own: $60 a month for a terabyte kept hot in three copies, $4 for a terabyte kept cold with erasure coding (lesson 7: data split into pieces plus a few extra parity pieces, any large enough set of which rebuilds it), $1 a gigabyte for cellular data. Ten depots each have a 10 Gb/s link; shipped drives go once a day from each depot by van."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sensors-bench",
+          "caption": "A year of a 1,000-vehicle fleet. The labels give bytes a day on each wire; the bill counts storage after a year and the cost of moving data.",
+          "task": "Keep up with the fleet, with old data in cold storage, for under $3 million a month",
+          "goal": "keeps"
+        },
+        {
+          "type": "text",
+          "text": "Keeping everything defeats every path: 8 PB a day is beyond even the ten depots' combined 1 PB a day, and drives that could carry it would fill a store growing by 3 exabytes a year. Keeping 4% brings it to 320 TB a day, which the ten depots' links, 100 Gb/s together, carry in about seven hours overnight. After a year that is about 117 PB. All of it hot, in three copies, is about $7 million a month; with only the last 30 days hot and the rest erasure coded in cold storage, it is about $1 million. The cellular path can only carry the small part, and it is the most expensive per byte by far: use it for what can't wait."
+        },
+        {
+          "type": "text",
+          "text": "**Retention** is the third lever, and it is partly a rule rather than a choice. Raw imagery of public streets holds faces and plates; a common policy blurs them on ingest, keeps the raw only as long as it is needed to check the blurring and the detectors, and keeps derived data, the tags, the positions, the blurred copies, much longer. Deleting is a feature to design: a person's request to be removed has to find every copy, which is one more reason the catalogue matters."
+        },
+        {
+          "type": "text",
+          "text": "**The failure worth working through: a depot's link is down for a week.** The vehicles' drives fill. The design has to say in advance what goes first: the pipeline uploads triggered windows before routine data, so a week's outage leaves a backlog of the least valuable data, and drives can be shipped instead. The ingest is idempotent, as lesson 22 requires: a chunk uploaded twice, or a drive read twice, stores nothing new."
+        }
+      ]
+    },
+    {
+      "title": "Finding every time it happened",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A store of 117 PB that nobody can search is a very expensive drawer. Engineers ask questions like \"every night-time minute with a cyclist near a junction\": to test a new detector, to build a training set, to see how often something rare really happens. Reading every log to answer is reading every byte."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sensors-find",
+          "caption": "A year of kept one-minute segments, with tags at round shares: night 30%, junction 20%, rain 10%, cyclist 5%, roadworks 3%.",
+          "task": "Ask the catalogue for two things at once",
+          "goal": "found"
+        },
+        {
+          "type": "text",
+          "text": "The **catalogue** is a database about the data, written at ingest and kept forever. Each row is a segment: the vehicle, the start and end time, the map cells it passed through (lesson M2), the software and sensor versions, where its chunks are, and tags added by detectors that run over new data in batch (lesson 8). Indexed by time, by cell and by tag, with an inverted index from tag to segments like a search engine's (lesson D3), it answers night and cyclist and junction by intersecting three lists in milliseconds, and the store is then asked only for the matching segments: at the figure's shares, if the tags are independent, about 0.35 PB instead of 117."
+        },
+        {
+          "type": "text",
+          "text": "Two more things follow from having one. A **dataset** becomes a saved query result frozen as a list of segment ids and versions, so a test run months later reads exactly the same data (lesson D6). And **change detection** becomes a query: segments where what the vehicle saw disagrees with the map, a new roundabout, a closed lane, become proposed edits; edits are checked and merged into a new map version, and the new version goes out to whatever uses the map like any other update, in stages (lessons M1 and D7)."
+        }
+      ]
+    },
+    {
+      "title": "What others built",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "CERN's design is the exercise at its most extreme: triggers throw away all but about one crossing in forty thousand before anything is written, and what is kept, tens of petabytes a year, flows out from CERN through a grid of computing centres in tiers, national centres holding copies and universities doing the analysis.[^grid] The principle is the one the workbench showed: the largest saving is made where the data is born."
+        },
+        {
+          "type": "text",
+          "text": "Amazon's Snowball appliances and Snowmobile lorry are the wide pipe sold as a service, for exactly the case in the estimate, where a link would take months. Dropbox's chunked, content-addressed sync is the upload design; in 2016 Dropbox also described moving its blocks off Amazon S3 into its own storage system, Magic Pocket, erasure coded across datacentres, because at its size the storage bill had become the business. Facebook's f4, published in 2014, made the hot-and-cold split for photos: new photos stay in a store with several full copies, and photos that have gone quiet move to an erasure-coded warm store, which cut the space each photo took from about 3.6 times its size to about 2.1.[^f4]"
+        },
+        {
+          "type": "text",
+          "text": "The triggers, the two pipes and the chunked uploads follow from the numbers. The catalogue follows from the users, who ask for moments, not files."
+        }
+      ]
+    },
+    {
+      "title": "At ten and a hundred times",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Ten times the fleet** is ten times the depots and links, which scale by adding more of the same. The store grows by an exabyte a year, and the cost of cold storage, not of moving data, becomes the largest number: retention rules and how much each vehicle keeps are revisited with finance in the room."
+        },
+        {
+          "type": "text",
+          "text": "**A hundred times** moves the computing to the data. At each depot, servers run the detectors and the blurring overnight and send the datacentre the tags, the summaries and only the raw windows someone has asked for, much as CERN's trigger farm sits beside the detector. The catalogue becomes the largest database in the system, a sorted table keyed by (cell, time) in the style of Bigtable (lesson 10), and the store holds raw data only as long as someone has a reason to keep it."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on moving and keeping a fleet's data",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A fleet records 8 PB a day and each depot has a 10 Gb/s link moving about 108 TB a day. Which plan is realistic?",
+                "choices": [
+                  "Upgrade every depot to a 100 Gb/s link and keep everything that is recorded",
+                  "Keep a few per cent after triage on board",
+                  "Upload everything over cellular while driving, so that nothing waits for the depot at night"
+                ],
+                "answer": 1,
+                "why": "Ten 100 Gb/s links could just carry 8 PB a day, but the store would then grow by about 3 exabytes a year; cellular carries about 2%. The saving that helps every box is deciding on the vehicle what to keep."
+              },
+              {
+                "ask": "Why do instrument pipelines such as the LHC's decide what to keep at the source?",
+                "choices": [
+                  "Because data filtered later can't be compressed as well as the raw data that comes from the sensors",
+                  "Because the source has the most accurate clock, so only the source can put the events in order",
+                  "Because every byte dropped there is a byte that no link, disk or later stage has to pay for"
+                ],
+                "answer": 2,
+                "why": "A factor saved at the source is saved in every box downstream. CERN's triggers keep about one crossing in forty thousand."
+              },
+              {
+                "ask": "A 256 GB upload is split into 4 MB chunks named by SHA-256 hashes. The link drops at 60%. What happens on reconnecting?",
+                "choices": [
+                  "The vehicle sends the list of hashes, the store names those it lacks, and only they are sent",
+                  "The upload restarts, but faster, because the store has cached the chunks it saw the first time",
+                  "The store waits for the vehicle to resend the whole file, then compares the two copies"
+                ],
+                "answer": 0,
+                "why": "A drop costs one chunk, and chunks the store already holds are never sent."
+              },
+              {
+                "ask": "A live link lets a person at a desk guide a machine in the field. What must happen when the link drops?",
+                "choices": [
+                  "The machine stops all work and waits in place, however long the link takes to come back",
+                  "The machine goes on with whatever command it last received, for as long as the link is down",
+                  "It reaches a safe state without help"
+                ],
+                "answer": 2,
+                "why": "Cellular links fail in patches. The person advises and the machine decides, so it must never need the link to be safe."
+              },
+              {
+                "ask": "After a year, 117 PB are stored. Keeping all of it in three hot copies costs about $7 million a month. What cuts the bill most?",
+                "choices": [
+                  "Compressing every segment again each month with a stronger and slower codec",
+                  "Keeping the last 30 days hot and moving older data to erasure-coded cold storage",
+                  "Storing two copies instead of three in the hot store, accepting a lower durability"
+                ],
+                "answer": 1,
+                "why": "Old data is rarely read. Erasure coding stores it at well under the three times its size that three copies take, on cheap dense disks, so most of the year costs a small fraction of the hot price."
+              },
+              {
+                "ask": "Engineers want every night-time minute with a cyclist near a junction from a year of logs. What makes that fast?",
+                "choices": [
+                  "A catalogue written at ingest, indexed by time, place and tag, so only the matching segments are ever read",
+                  "A larger cluster that reads all of the logs in parallel, so that the whole scan finishes overnight",
+                  "Storing the logs in date order, so that the year's night-time minutes sit next to one another on disk"
+                ],
+                "answer": 0,
+                "why": "Without a catalogue every byte must be read. With one, small indexes answer the question and the store serves only the matches."
+              },
+              {
+                "ask": "In a file sync service, how is a file's new version stored after a small edit?",
+                "choices": [
+                  "As a full new copy, so that each version can be read without reference to any other version",
+                  "A list of block hashes, most shared with the old one",
+                  "As a diff against the previous version, applied in order whenever the file is opened again"
+                ],
+                "answer": 1,
+                "why": "Unchanged blocks keep their hashes, so an edit uploads and stores only the blocks that changed."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Do the arithmetic before choosing a pipe.** 1,000 vehicles at 1 TB an hour make 8 PB a day, ten weeks of upload through a 10 Gb/s link.",
+    "**Decide what to keep where the data is born.** Triggers and a ring buffer on board cut every box downstream by the same factor.",
+    "**Two pipes, by urgency.** Small urgent data goes over cellular in minutes; the bulk goes through depots or shipped drives in hours to days.",
+    "**A live link must be optional.** Budget it glass to glass, send over two carriers, and design the machine to stay safe when it drops.",
+    "**Upload in chunks named by their hash.** A dropped link costs one chunk, and chunks the store already holds are never sent.",
+    "**Keep metadata apart from data.** The object store's index and the catalogue are small and fast; the bulk is read only when needed.",
+    "**Tier storage by age.** Recent data hot in copies, older data erasure coded and cold, and retention set by rule as well as by cost.",
+    "**Build the catalogue at ingest.** Time, place and tags, indexed, turn a scan of petabytes into a lookup and make datasets and change detection queries."
+  ],
+  "footnotes": {
+    "wagon": {
+      "kind": "digression",
+      "title": "The station wagon",
+      "text": "Tanenbaum's line appears in his textbook *Computer Networks*, first published in 1981. The arithmetic still holds: a van carrying a thousand 20 TB drives on a six-hour drive moves 20 PB, about 7,400 gigabits a second, more than most datacentres' links to the outside world."
+    },
+    "nines": {
+      "kind": "technical",
+      "title": "Eleven nines",
+      "text": "A durability of 99.999999999% a year means each object has a one in a hundred billion chance of being lost in a year. Object stores reach it by spreading copies or erasure-coded pieces across failure domains and repairing lost pieces quickly (lesson 7); the number is a model's estimate, and bugs and operator mistakes are what usually lose data."
+    },
+    "bond": {
+      "kind": "technical",
+      "title": "Two carriers at once",
+      "text": "Sending every packet over two networks and keeping the first copy to arrive doubles the data bill but cuts the chance of a gap: if each carrier drops out 2% of the time independently, both are out together about 0.04% of the time. It is the hedged request of lesson 9 applied to radio links."
+    },
+    "hash": {
+      "kind": "technical",
+      "title": "Naming by hash",
+      "text": "Two different chunks having the same SHA-256 hash is so unlikely that systems treat the hash as the chunk's identity. The store can also check every chunk it receives against its name, so a chunk corrupted in transit is caught and sent again."
+    },
+    "grid": {
+      "kind": "digression",
+      "title": "The grid",
+      "text": "The Worldwide LHC Computing Grid has a Tier 0 at CERN, which keeps the first copy of the raw data, a dozen or so large Tier 1 centres around the world that keep further copies and reprocess it, and many Tier 2 centres, mostly at universities, for simulation and analysis."
+    },
+    "f4": {
+      "kind": "technical",
+      "title": "Warm storage",
+      "text": "Facebook's Haystack store kept new photos in several full copies for fast reads. Its 2014 f4 paper reported that most photos are read far less after their first weeks, and moved those to Reed-Solomon coded storage within and across datacentres, cutting the bytes stored per byte of photo from about 3.6 to about 2.1."
+    }
+  }
+}

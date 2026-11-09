@@ -1,0 +1,254 @@
+{
+  "id": "nanosecond",
+  "n": 1,
+  "title": "How long is a nanosecond?",
+  "teaches": "The costs every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers",
+  "summary": [
+    "**Light covers about 30 cm in a nanosecond.** In glass fibre it covers about 20 cm, so every 100 km of cable adds a millisecond to a round trip.",
+    "**The costs span nine powers of ten.** A reference to the processor's own cache takes about a nanosecond, a memory reference 100 ns, a datacentre round trip about half a millisecond, a disk seek 10 ms, a trip to Europe and back 150 ms.",
+    "**Ratios matter more than the exact values.** A memory reference is about five thousand times faster than a datacentre round trip, which is about twenty times faster than a disk seek; the ratios decide designs and change slowly.",
+    "**Another machine's memory can beat your own disk.** A round trip inside a building costs less than one seek, which is why caches on other machines work.",
+    "**Flash and fast networks moved the middle of the ladder.** Memory latency, disk seeks and the speed of light hardly moved between 2009 and 2026.",
+    "**A day is about 10⁵ seconds.** So a million events a day is about ten a second, and a year is about 3 × 10⁷ seconds.",
+    "**Build for the peak, not the average.** Traffic in the busiest hour often runs two to ten times the daily mean.",
+    "**Estimate before drawing boxes.** Round numbers, worked in a minute, often settle whether a design needs one machine or a hundred."
+  ],
+  "parts": [
+    {
+      "title": "Thirty centimetres of wire",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From the late 1960s, the Navy computer scientist Grace Hopper handed out pieces of wire at her lectures, each cut to 29.97 centimetres: the distance light travels in one billionth of a second, a **nanosecond**.[^hopper] Admirals had asked her why a message by satellite took so long, and she wanted them to see that the delay was distance, not faulty equipment. For a **microsecond**, a millionth of a second, she brought a coil of wire nearly 300 metres long."
+        },
+        {
+          "type": "text",
+          "text": "Every large computer system is built on a handful of such times: how long it takes to read from memory, from a disk, from another machine across the room or across an ocean. This course calls the time between asking for something and having the answer its **latency**. The asking is a **request**, a message to a server, and the answer is its **reply**. Each later lesson leans on the times in this one. Treat them as starting points: the numbers that count for your own system are the ones you measure on it, with a benchmark of a disk or a timed request between two of your own machines."
+        }
+      ]
+    },
+    {
+      "title": "Numbers everyone should know",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 2009 Jeff Dean, who had by then built much of Google's search and storage infrastructure, put a slide in his talks headed \"Numbers everyone should know\". It grew from a table in Peter Norvig's 2001 essay on learning to program, and engineers have been copying it ever since.[^norvig] It is a list of a dozen operations and roughly how long each takes, from reading the processor's own fastest memory to sending a **packet**, one chunk of a network message, from California to the Netherlands and back."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "nanosecond-ladder",
+          "caption": "The ladder of costs, each gridline ten times the last. Switch between Dean's 2009 table and round figures for 2026, and turn on the human scale.",
+          "goal": "human",
+          "task": "Turn on the human scale and read the bottom rows.",
+          "aspect_ratio": 1.25
+        },
+        {
+          "type": "text",
+          "text": "The bars sit on a scale where each gridline is ten times the one before, because nothing else could fit them on one page. A processor keeps copies of recently used memory in a small, fast store of its own, a **cache**; reading from the smallest and fastest of these, the L1 cache, takes about half a nanosecond. A reference to main memory takes 100 ns, two hundred times longer. A [[round trip inside a datacentre|request]] takes about half a millisecond, five thousand times a memory reference. Moving the head of a [[spinning disk|data]] to a new track, a seek, takes 10 ms, and a round trip across the Atlantic takes 150 ms. From top to bottom the ladder covers nine powers of ten."
+        },
+        {
+          "type": "text",
+          "text": "The human scale stretches every bar by the same factor, so that a memory reference takes one second. A round trip to another machine in the same building then takes more than an hour, a disk seek more than a day, and the trip to Europe and back about seventeen days. Nobody keeps the exact figures in their head. Engineers who design these systems keep the ratios, such as memory against network and network against disk."
+        },
+        {
+          "type": "text",
+          "text": "One ratio surprises people. Sending a request to another machine in the same datacentre and getting an answer back from its memory, about 0.5 ms, is twenty times faster than one seek on your own disk. \"Memory is fast and the network is slow\" is the wrong rule. Another machine's memory, a short hop away, beats your own disk. Lesson 5 is built on that: a whole tier of machines that do nothing but hold data in memory for the others."
+        }
+      ]
+    },
+    {
+      "title": "What moved and what didn't",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Switch the ladder to 2026 and the middle changes. [[Flash storage|data]], the chips of a solid-state drive, arrived in servers after 2009 and reads a random 4 KB block in tens of microseconds, about a hundred times faster than a disk seek, with no head to move. Networks inside datacentres went from 1 gigabit a second to 100 and more, so the time to push 2 KB onto the wire fell from 20 µs to a fraction of one. Reading a megabyte in a row from memory got faster too, because each memory channel now moves more bits at once and a server has more channels."
+        },
+        {
+          "type": "text",
+          "text": "Three rows hardly moved: memory, the disk seek and the trip to Europe. A reference to main memory still takes about 100 ns, because the time is set by the chips' design and their distance from the processor, and that has not shrunk much. Spinning disks still seek in milliseconds and still hold most of the world's cold data, the data that is rarely read, because they are the cheapest place to keep it.[^disks] The trip to Europe still takes 150 ms, because it is set by the speed of light in glass and the length of the cables, and no engineering will shorten either much. A design that rested on one of those three is still right; one built around the slow random read of a disk had to change when flash made such reads cheap."
+        },
+        {
+          "type": "text",
+          "text": "The latencies that matter are also not always where you expect them. In 2012 John Carmack, the programmer behind *Doom* and *Quake*, complained that he could send a packet across the Atlantic faster than he could get a pixel onto his own screen. The pixel spent longer than the packet's whole trip in buffers between the game, the graphics driver and the display's own processing.[^carmack] Nobody had measured the screen because everyone assumed it was fast. The habit this lesson builds is to put a number on each step, including the ones that seem too quick to matter."
+        }
+      ]
+    },
+    {
+      "title": "The speed of light as a budget",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Light in a vacuum covers 30 cm in a nanosecond, Hopper's wire. In optical fibre it is slowed by the glass to about two thirds of that, 20 cm a nanosecond or 200 km a millisecond.[^fibre] A round trip goes there and back, so each 100 km between two machines adds at least one millisecond."
+        },
+        {
+          "type": "text",
+          "text": "Seattle to London is about 7,700 km along the shortest path over the Earth. Out and back is 15,400 km, which at 200 km a millisecond is 77 ms. That is a floor that no faster computer can lower. Real round trips run longer, often 130 to 150 ms, because cables do not follow great circles and every router on the way adds a little."
+        },
+        {
+          "type": "diagram",
+          "id": "scale",
+          "caption": "The shortest possible round trip from Seattle, at 200 km a millisecond in fibre along the shortest path over the Earth. Real networks take one and a half to two times as long.",
+          "options": {
+            "title": "Least round trip from Seattle, ms",
+            "unit": "ms",
+            "log": true,
+            "items": [
+              { "label": "Another rack, same room", "value": 0.001, "says": "about 1 µs of wire", "color": "request" },
+              { "label": "Portland (230 km)", "value": 2.3, "color": "request" },
+              { "label": "San Francisco (1,090 km)", "value": 11, "color": "request" },
+              { "label": "New York (3,870 km)", "value": 39, "color": "request" },
+              { "label": "London (7,700 km)", "value": 77, "color": "request", "bold": true },
+              { "label": "Sydney (12,500 km)", "value": 125, "color": "request" }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "These numbers decide where data can live. A service that must answer a reader in London within 100 ms cannot ask a database in Seattle twice on the way. A design that writes every change to three continents before answering has a floor of a few hundred milliseconds on every write, however fast its machines are. Later lessons keep running into this floor: lesson 20's global database pays it on purpose, and lesson 19's video network exists to avoid it."
+        }
+      ]
+    },
+    {
+      "title": "Before drawing any boxes, the numbers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The second set of numbers worth carrying is for turning counts into rates. A day has 86,400 seconds. This course rounds that to 100,000, or 10⁵, in every estimate, which makes the arithmetic a matter of moving the decimal point and understates rates by about a seventh. So a million of anything a day is about ten a second, and a billion a day is about ten thousand a second. A year has about 3 × 10⁷ seconds. With these, a sentence like \"ten million uploads a day\" becomes a rate a machine can be measured against."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "nanosecond-estimate",
+          "caption": "From people a day to requests a second. Guess the average rate first; then the sliders work the estimate through.",
+          "goal": "guess",
+          "task": "Guess the average requests a second for a million users making ten requests a day each.",
+          "aspect_ratio": 2.3
+        },
+        {
+          "type": "text",
+          "text": "Ten million requests a day is about 100 a second on average. No service gets its traffic evenly. Most of it arrives in waking hours of the time zones it serves, more on some days than others, and in bursts when something is in the news. The busiest hour of a typical service runs two to ten times its daily average, so the 100 becomes 200 to 1,000 a second at the peak, and the service must be built for the peak.[^peak] For a service that already runs, the factor comes from its own logs: count requests in each hour of a busy week and divide the largest count by the average. A capacity plan that divides a day's traffic by the seconds in a day and stops there is wrong by that factor at exactly the time it matters."
+        },
+        {
+          "type": "text",
+          "text": "Here is the habit in full, on a made-up photo service. People upload ten million photos a day, each about 2 MB. Storage: 20 TB a day, about 7 PB a year, so this will not fit on one machine and needs a storage system that spreads over many (lessons 6 and 7). Upload bandwidth: 20 TB over 10⁵ seconds is 200 MB a second on average, about 1.6 gigabits a second, a few times that at the peak: one fast network link could carry it. Uploads a second: about 100 on average, 500 at a peak five times the average. If each takes 5 ms of server time to check and record, the peak needs 2.5 seconds of work every second, three processor cores. The arithmetic took a minute and already says which part is hard (storing petabytes) and which is not (counting uploads)."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Carry these",
+          "points": [
+            "Memory 100 ns; datacentre round trip 0.5 ms; disk seek 10 ms; a continent away 50 to 150 ms.",
+            "Fibre: 200 km a millisecond, so 1 ms of round trip for every 100 km.",
+            "A day is about 10⁵ seconds; a year about 3 × 10⁷. A million a day is about 10 a second.",
+            "Peak traffic is two to ten times the daily average."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the costs and the arithmetic",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A server can read a value from its own spinning disk, or ask another server in the same datacentre that holds the value in memory. Which is usually faster, and why?",
+                "choices": [
+                  "Its own disk, because any trip over the network costs more than any local read",
+                  "The other server, because a datacentre round trip of about 0.5 ms beats a 10 ms seek",
+                  "They take about the same time, because both are limited by the speed of memory"
+                ],
+                "answer": 1,
+                "why": "A round trip inside a building costs about half a millisecond, a disk seek about ten. Another machine's memory is twenty times closer in time than your own disk, which is why caches on separate machines pay off."
+              },
+              {
+                "ask": "A service gets 50 million requests a day, and its logs show the busiest hour running four times the daily average. Roughly what rate should it be built to carry?",
+                "choices": [
+                  "About 500 a second, the day's count over 10⁵ seconds",
+                  "About 2,000 a second",
+                  "About 50,000 a second, a hundred times the average, so that no burst of any size can ever reach the limit"
+                ],
+                "answer": 1,
+                "why": "50 million over 10⁵ seconds is about 500 a second on average, and the busiest hour runs four times that, about 2,000. 500 is the average, which the service passes every afternoon; 50,000 buys twenty-five times more machines than the peak needs."
+              },
+              {
+                "ask": "Why does a request from Seattle to a server in London take at least 77 ms to come back, however fast the machines are?",
+                "choices": [
+                  "Light in fibre covers about 200 km a millisecond, and the round trip is 15,400 km",
+                  "Undersea cables carry less bandwidth than land cables, so packets wait their turn",
+                  "Each of the routers on the way takes several milliseconds to look up the route"
+                ],
+                "answer": 0,
+                "why": "The floor is set by distance: 7,700 km each way at 200 km a millisecond in glass. Routers and indirect cable paths add more on top, which is why real round trips are nearer 130 to 150 ms."
+              },
+              {
+                "ask": "Between 2009 and 2026, which of these changed least?",
+                "choices": [
+                  "The time to read a random 4 KB block from a server's storage",
+                  "The time to push 2 KB onto a datacentre network link",
+                  "The time for one reference to main memory"
+                ],
+                "answer": 2,
+                "why": "Flash made random storage reads about a hundred times faster than a disk seek, and networks went from 1 to 100 gigabits a second. A main memory reference is still about 100 ns."
+              },
+              {
+                "ask": "On a scale where a main memory reference takes one second, about how long does a disk seek take?",
+                "choices": [
+                  "About a minute and a half",
+                  "About a day",
+                  "About a year"
+                ],
+                "answer": 1,
+                "why": "A seek is about 10 ms and a memory reference 100 ns, a ratio of 100,000. One second times 100,000 is about 28 hours."
+              },
+              {
+                "ask": "A team estimates that its new service will store 30 TB a year and take 200 writes a second at the peak. Which conclusion about the writes and the stored data does that support?",
+                "choices": [
+                  "Both could fit one well-equipped database server for a few years",
+                  "The data must be spread across hundreds of machines from the first day, since a year of growth is measured in terabytes",
+                  "None yet, because estimates are too rough to make design choices with"
+                ],
+                "answer": 0,
+                "why": "Tens of terabytes and a few hundred writes a second are within one large server's reach. The reads still need their own estimate, which this one leaves out. The point of the arithmetic is to make that call early, before designing for a scale that is not there."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "hopper": {
+      "kind": "digression",
+      "title": "Hopper's nanoseconds",
+      "text": "Grace Hopper (1906 to 1992) worked on the Harvard Mark I in the 1940s, wrote one of the first compilers, and led the work that became COBOL. She kept handing out nanoseconds into the 1980s, including on David Letterman's show in 1986, and for a picosecond, a thousandth of a nanosecond, she handed out grains of pepper."
+    },
+    "norvig": {
+      "kind": "digression",
+      "title": "Where the table came from",
+      "text": "Peter Norvig's essay \"Teach Yourself Programming in Ten Years\" (2001) listed approximate times for a handful of operations on a typical PC. Dean's version, from his talks of 2009 and 2010, added the datacentre rows, and others have since redrawn it for newer hardware. The exact values differ between versions; the order of the rows has stayed the same."
+    },
+    "disks": {
+      "kind": "technical",
+      "title": "Why disks are still slow",
+      "text": "A spinning disk reads by moving an arm to the right track and waiting for the platter to turn the data under the head. At 7,200 turns a minute, half a turn takes about 4 ms, and the arm adds a few more. A disk that reads a long run without moving the arm streams 200 MB a second or more, so the same disk is slow for scattered reads and fast for long ones. Lesson 10 builds a storage engine around that difference."
+    },
+    "carmack": {
+      "kind": "digression",
+      "title": "The slow pixel",
+      "text": "Carmack explained that a frame passes through several buffers: the game draws it, the graphics driver queues it, and many displays process the picture before showing it. Each step adds a frame or more at 60 frames a second, about 17 ms each, and they add up to more than a trip across the ocean. His interest was virtual reality headsets, where that delay makes people feel ill."
+    },
+    "fibre": {
+      "kind": "technical",
+      "title": "Slower in glass",
+      "text": "Light in glass travels at the speed of light in a vacuum divided by the glass's refractive index, about 1.47 for the fibre used in long cables, so about 204,000 km a second. Some trading firms pay for microwave links between exchanges because radio through air is about half as fast again as light in fibre."
+    },
+    "peak": {
+      "kind": "technical",
+      "title": "Peaks within peaks",
+      "text": "The peak hour is an average too. Within it, requests arrive in bursts lasting seconds, and a server sized exactly for the hour's average will queue during them. Lesson 2 shows how quickly that queue grows as a server nears its limit."
+    }
+  }
+}

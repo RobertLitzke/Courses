@@ -1,0 +1,14 @@
+{
+  "course": "an illustrated online course on how large computer systems are designed",
+  "intro": "Each lesson opens on a real system, outage or published paper (LiveJournal's cache, Google's file system, Amazon's Dynamo, Spanner's clocks), puts the reader in front of the problem its builders met, then shows the design they published, in the plain, concrete voice of the site's other courses. Numbers over adjectives: latencies in milliseconds, rates a second, costs in machines. Keep technical terms exact (replica, quorum, idempotent, percentile, consensus, lease); don't soften them. No buzzwords used as explanations.",
+  "spellings": [
+    "metres",
+    "colour",
+    "behaviour",
+    "centre",
+    "datacentre",
+    "utilisation",
+    "optimise",
+    "catalogue"
+  ]
+}

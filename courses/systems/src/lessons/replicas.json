@@ -1,0 +1,262 @@
+{
+  "id": "replicas",
+  "n": 4,
+  "title": "When the database can't keep up",
+  "teaches": "Read replicas and replication lag, reading your own writes, and splitting users across databases",
+  "summary": [
+    "**A replica is a copy of a database kept current by replaying its changes.** The primary takes every write and logs it; each replica reads the log and applies the same changes.",
+    "**Replicas scale reads, not writes.** Every replica must apply every write, so as the share of writes grows, each new replica adds less room for reads, and past a point none.",
+    "**Asynchronous replication runs behind.** The primary does not wait for replicas, so a replica's lag is usually milliseconds but can grow to seconds or minutes when it is overloaded.",
+    "**A reader can miss their own write.** Read from the primary for a short while after a write, or ask the replica to wait until it has applied the write's position in the log.",
+    "**Promoting a replica that is behind loses writes.** With asynchronous replication, whatever the old primary had not yet sent is gone when a replica takes over.",
+    "**Splitting the data scales writes.** Each user's data lives on one of several independent clusters, so each cluster takes only its users' writes.",
+    "**The shard key comes from the queries.** Splitting by user keeps a user's own pages on one cluster and makes queries across many users harder.",
+    "**A directory costs a lookup and buys freedom to move users.** A formula such as user number mod n needs no lookup but moves most users when n changes.",
+    "**Grow each design by ten times on paper.** The fix for today's bottleneck often has a ceiling, and the arithmetic shows where."
+  ],
+  "parts": [
+    {
+      "title": "A diary site on one computer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In April 1999 Brad Fitzpatrick, then a college student, started LiveJournal so that he and his friends could keep online diaries. It ran on one computer: a web server and a MySQL database on the same machine. Within a few years it had millions of accounts, and Fitzpatrick and a small team spent those years keeping it running. In 2005 he gave a talk called \"LiveJournal's Backend: A History of Scaling\" that walked through every stage, one bottleneck at a time, and it became one of the most copied accounts of how a website grows.[^fitzpatrick]"
+        },
+        {
+          "type": "text",
+          "text": "The first steps were the ones lesson 2 would predict. One machine ran out of room, so the database moved to a machine of its own. The web servers filled, so there were several of them behind a load balancer, all talking to the one database. Then the database filled. Every page on LiveJournal was built from queries, and one machine could answer only so many a second, however many web servers asked. This lesson follows what they did next, and why each step stopped working."
+        }
+      ]
+    },
+    {
+      "title": "Copies for reading",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most of a diary site's queries are reads: people read far more journal entries than they write. So the obvious move is to make copies of the database and spread the reads over them. A **replica** is such a copy, kept up to date by applying the same changes as the original, in the same order. The original, which takes every write, is the **primary**.[^names] Later lessons meet the same role under other names (GFS's master in lesson 6, the primary copy of a chunk in lesson 7): in each case it is the one copy in charge, the one that decides the order of changes."
+        },
+        {
+          "type": "text",
+          "text": "MySQL did this with a log. The primary appends each change it commits to a file, the **binary log**. Each replica holds a connection to the primary, reads the log as it grows, and applies each change to its own copy.[^binlog] The primary does not wait for any replica before telling the writer that the change is saved; this is **asynchronous replication**. Writes stay as fast as they were with one database, and a replica that is slow or down holds nobody up."
+        },
+        {
+          "type": "text",
+          "text": "The price is that a replica is always some way behind. The time between a change committing on the primary and the replica applying it is the **replication lag**. On a quiet system it is a few milliseconds. When a replica is overloaded, or a single large change takes it a while to apply, the lag grows to seconds, and in bad cases to minutes."
+        }
+      ]
+    },
+    {
+      "title": "Every copy applies every write",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Before adding replicas, the numbers. Say the site gets 10,000 queries a second, 5% of them writes, and each database server can handle 3,000 queries a second. Reads go to the replicas; writes go to the primary, and every replica must also apply every one of them. Each replica's load is all the writes plus its share of the reads: 500 + 9,500 / n. With five replicas that is 500 + 1,900 = 2,400, or 80% of what a server can do. That works."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "replicas-flow",
+          "caption": "A primary and its read replicas at 10,000 queries a second (the dots run at a hundredth of that, in slow motion). Each replica's bar shows how busy it is, and the number under it how far behind the primary it has fallen. Tap the primary to fail it.",
+          "goal": "lag",
+          "task": "Raise the share of writes until the replicas fall behind, and try adding replicas to catch them up.",
+          "aspect_ratio": 1.42
+        },
+        {
+          "type": "text",
+          "text": "Now raise the share of writes. At 20%, each replica applies 2,000 writes a second before it serves a single read, and the 8,000 reads need at least 8,000 / 1,000 = 8 replicas to fit in the room that is left. At 30%, the writes alone fill a replica: no number of replicas helps, because each new one brings no spare room. When a replica gets more work than it can do, its queue grows, and since the changes from the primary wait in that same queue, its lag grows with it. In general, write Q for the queries a second the site sends, w for the share that are writes and n for the number of replicas. Each replica applies all the writes, wQ, plus its share of the reads, (1 − w)Q / n, and that must stay under 3,000. So Q can be at most 3,000 / (w + (1 − w)/n), and as n grows that limit approaches 3,000 / w. Replicas multiply read capacity; they do nothing for write capacity."
+        },
+        {
+          "type": "text",
+          "text": "The same arithmetic shows what happens at ten times the load, a question this course asks of every design. At 100,000 queries a second with 5% writes, the primary and every replica must apply 5,000 writes a second, more than any one of them can do. The design that worked at 10,000 does not work at 100,000 with any number of replicas. Fitzpatrick's 2005 talk describes LiveJournal reaching that point: replicas spent most of their time applying writes and had little left for the reads they were bought for."
+        },
+        {
+          "type": "text",
+          "text": "In the figure above, tap the primary to fail it. Writes stop at once. The usual repair is to **promote** a replica: make it the new primary and point the others at it. With asynchronous replication, any change the old primary had committed but not yet sent is not on any replica, so it is lost, even though the writer was told it was saved. The further behind the replica, the more is lost. **Synchronous replication**, where the primary waits for replicas to confirm before answering, closes that gap at the cost of slower writes. Waiting for every replica makes each write as slow as the slowest of them; many systems wait for just one.[^semisync] A failover by hand runs in four steps: decide the primary is really down (several missed checks in a row, not one); stop it taking writes if it comes back, by cutting it off from the web servers; promote the replica furthest along the log, since it loses least; and point the other replicas and the web servers at the new primary. Doing those steps automatically and safely is a problem of agreement that lesson 11 takes up. To watch the lag that decides how much a failover loses, have the primary rewrite one row with the current time every second; on each replica, the current time minus that row's time is its lag."
+        }
+      ]
+    },
+    {
+      "title": "Reading your own writes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lag causes a quieter failure too. You post a comment, the page says it is saved, you reload, and it is not there. The write went to the primary, but the reload read from a replica that had not yet applied it. Nothing was lost, and a second reload a moment later shows it, but to the person who wrote it the site looks broken."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "replicas-seq",
+          "caption": "Messages over time, running down the page: a comment posted, then the page reloaded 150 ms later. Writes in orange, reads in blue. The replica's lag is shown short here so the whole story fits; under load it can be seconds.",
+          "goal": "fixed",
+          "task": "With a lag long enough to lose the comment, try both fixes (Primary for 10 s, Wait for my write) and play each through.",
+          "aspect_ratio": 1.33
+        },
+        {
+          "type": "text",
+          "text": "The guarantee wanted here has a name, **read-your-writes**: a user always sees their own changes, though other people may see them a little later. Two fixes are common. The simplest remembers, in the user's session, when they last wrote, and sends their reads to the primary for a few seconds afterwards; the primary carries a little extra read load for active writers. The more exact one carries the write's position in the log: the primary returns it with the write, and later reads ask the replica to answer only once it has applied the log up to that point.[^position] The second fix always shows the user their own write and never adds load to the primary, but a read may wait for the replica to catch up."
+        },
+        {
+          "type": "text",
+          "text": "Neither fix makes the replicas current for anyone else. A friend reading your journal from another replica may still not see the comment for a moment. Most sites decide that is acceptable, and it is a decision worth making explicitly, per kind of read, rather than discovering it in a bug report. Lesson 13 names the different guarantees a system can give and what each one costs."
+        }
+      ]
+    },
+    {
+      "title": "Splitting the users",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Replicas could not carry LiveJournal's writes, so the next step had to divide the writes themselves. Fitzpatrick's team split the users into groups and gave each group its own small **cluster**, a primary with a replica or two, holding everything about those users: their journal entries, comments and settings. A user's writes went only to their own cluster, so each cluster took a fraction of the site's writes. Splitting data this way is called **sharding**, each part a **shard**, and the field that decides which shard a row belongs to is the **shard key**. LiveJournal's shard key was the user."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "replicas-shards",
+          "caption": "8,000 writes a second split by user over independent clusters, each able to take 3,000. A directory says which cluster holds each user. Slow motion, at a hundredth of the rate.",
+          "goal": "fit",
+          "task": "Add clusters until each one is under 80% busy.",
+          "aspect_ratio": 1.57
+        },
+        {
+          "type": "text",
+          "text": "The shard key decides which queries are easy. Everything on one user's journal page lives on one cluster: one query, one machine. A page that gathers many users' entries, such as a friends page showing the latest posts of everyone you follow, now has to ask many clusters and merge the answers. Choose the shard key by listing the queries and their rates, and pick the key that keeps the most frequent ones on one shard. A key that spreads load unevenly makes trouble of its own: a cluster that holds one very popular user is busier than the rest."
+        },
+        {
+          "type": "text",
+          "text": "To find a user's cluster, LiveJournal kept a small global database, a **directory**, mapping each user to a cluster number, and the web servers looked it up (and cached the answer). The alternative is a formula, such as user number mod the number of clusters, which needs no lookup at all. The formula's cost appears when clusters are added. Going from three clusters to four by user number mod n moves three users in four to a different cluster, and their data must be copied all at once. With a directory, a new cluster takes new users, or a chosen set of old ones moved one at a time, and nothing else changes. Lesson 5 meets the same problem with caches and solves it a third way."
+        }
+      ]
+    },
+    {
+      "title": "The simplest fix for the current bottleneck",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Looking back over LiveJournal's history, each step was the smallest change that removed the bottleneck in front of it: a second machine, more web servers, replicas, then clusters. None was designed for the next stage, and each ran into a limit that was visible in its own arithmetic. That is not a failure of planning. A design built for a hundred times today's load costs more to build and run than the one you need, and the load may never come. What the arithmetic buys is warning: grow each design by ten times on paper, see which number breaks first, and start the next step before it does."
+        },
+        {
+          "type": "text",
+          "text": "Splitting by user also had costs LiveJournal paid for years. Every query had to know which cluster to go to. Queries across users became several queries and a merge. Moving a user between clusters, to even out load, takes a copy and a switch: copy the user's rows to the new cluster while the old one still takes their writes, then block that user's writes for a moment, copy what changed since, point the directory at the new cluster and let the writes go on. A change that touches two users on two clusters is no longer one transaction, so if one cluster commits and the other fails, neither database can undo the other's half; designs avoid such changes, keep the rows they touch on one shard, or pay for extra round trips to coordinate the clusters. And every cluster still had a primary that could fail. The site's next problem, though, was neither writes nor failures. Even with clusters, the same popular entries were being read from the databases thousands of times a second, and in 2003 Fitzpatrick tried something cheaper than another database. That is lesson 5."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Each replica's load = all the writes + its share of the reads.",
+            "Lag is the price of asynchronous replication; it grows when a replica is overloaded.",
+            "Sharding divides writes; the shard key decides which queries stay on one machine."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on copies and splits",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A database gets 10,000 queries a second, 30% of them writes, and each server can do 3,000 a second. Why will adding read replicas not help?",
+                "choices": [
+                  "Each replica must apply all 3,000 writes a second, which fills it",
+                  "The load balancer in front of the replicas becomes the bottleneck at around six replicas",
+                  "Replication lag grows with the number of replicas, so reads become too stale to use"
+                ],
+                "answer": 0,
+                "why": "Every replica applies every write. At 3,000 writes a second each replica is full with writes alone, so a new replica adds no room for reads. Writes need sharding."
+              },
+              {
+                "ask": "A user posts a comment, reloads, and the comment is missing; a moment later it appears. What is the most likely cause?",
+                "choices": [
+                  "The primary lost the write and a retry from the web server put it back",
+                  "The reload read from a replica that had not yet applied the write",
+                  "The browser showed a cached copy of the page from before the comment"
+                ],
+                "answer": 1,
+                "why": "With asynchronous replication a replica runs a little behind. The write was safe on the primary; the read went to a copy that had not caught up."
+              },
+              {
+                "ask": "Which fix gives a user read-your-writes without adding any read load to the primary?",
+                "choices": [
+                  "Send all of a user's reads to the primary for ten seconds after each write they make",
+                  "Return the write's log position, and have later reads wait until the replica has applied it",
+                  "Switch replication to synchronous, so every replica confirms each write before it is saved"
+                ],
+                "answer": 1,
+                "why": "Carrying the position lets any replica answer correctly once it has caught up to that point; the primary sees no extra reads. Reading from the primary works but loads it, and synchronous replication slows every write."
+              },
+              {
+                "ask": "With asynchronous replication, the primary fails and a replica 3 seconds behind is promoted. What happens to the committed writes that had not yet reached that replica?",
+                "choices": [
+                  "The new primary applies them when it replays the binary log it received",
+                  "They are lost",
+                  "They wait in the load balancer's queue until the new primary is ready, and are then sent on in their original order"
+                ],
+                "answer": 1,
+                "why": "Those changes were committed only on the old primary and never reached the replica. Promoting it loses them; synchronous replication is what prevents that, at the cost of slower writes."
+              },
+              {
+                "ask": "A site shards by user. Which query becomes harder than it was on one database?",
+                "choices": [
+                  "Showing one user's own journal entries, newest first",
+                  "Saving a new entry written by one user",
+                  "Showing the latest entries from all of the people a user follows"
+                ],
+                "answer": 2,
+                "why": "The people a user follows live on many shards, so the query becomes many queries and a merge. A single user's own reads and writes stay on one shard."
+              },
+              {
+                "ask": "Why might a sharded system keep a directory of which shard holds each user instead of computing user number mod the number of shards?",
+                "choices": [
+                  "With mod, adding a shard moves most users; a directory moves only those you choose",
+                  "With mod, the shard for a user cannot be computed until the database has been asked first",
+                  "A directory spreads users more evenly than mod, which always puts more users on the first shard"
+                ],
+                "answer": 0,
+                "why": "Going from n to n + 1 shards by mod changes the shard of about n out of n + 1 users. A directory costs a lookup, often cached, and lets users be moved one at a time."
+              },
+              {
+                "ask": "A service runs 2,000 queries a second, 20% of them writes, on a primary and two replicas that can each do 3,000 a second. It expects ten times the traffic. What does the arithmetic say?",
+                "choices": [
+                  "Add replicas in proportion: about twenty will carry 20,000 queries a second",
+                  "Nothing needs to change yet, because the three servers are each less than half busy",
+                  "At 4,000 writes a second no single server can keep up, so the writes must be split"
+                ],
+                "answer": 2,
+                "why": "At ten times the traffic there are 4,000 writes a second. The primary and every replica must apply all of them and each can do only 3,000, so no number of replicas is enough; the writes have to be split across shards."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "fitzpatrick": {
+      "kind": "digression",
+      "title": "Danga's tools",
+      "text": "Fitzpatrick's company, Danga Interactive, wrote much of the software LiveJournal needed and gave it away: memcached (lesson 5), the load balancer Perlbal, the file store MogileFS and the job queue Gearman. Six Apart bought LiveJournal and Danga in 2005."
+    },
+    "names": {
+      "kind": "technical",
+      "title": "Names for the copies",
+      "text": "MySQL's own documents called the primary the master and the replicas slaves until 2020, and much older writing uses those words. Other systems say leader and follower, which lesson 11 uses for systems where the copies agree among themselves who leads."
+    },
+    "binlog": {
+      "kind": "technical",
+      "title": "What the log holds",
+      "text": "Early MySQL replication logged each statement (\"UPDATE entries SET ...\") and replicas ran it again. Statements whose result depends on the moment or on chance, such as one that uses NOW() or RAND(), can come out differently on a replica, so later versions can log the changed rows themselves instead."
+    },
+    "semisync": {
+      "kind": "technical",
+      "title": "Halfway",
+      "text": "Many systems wait for one replica, not all, before answering a write: MySQL calls this semi-synchronous replication. A write then survives the loss of the primary, and the wait is one round trip to the nearest replica, not to the slowest."
+    },
+    "position": {
+      "kind": "technical",
+      "title": "Waiting for a position",
+      "text": "MySQL offers a function that blocks until a replica has applied the log up to a given point (MASTER_POS_WAIT, and later WAIT_FOR_EXECUTED_GTID_SET using global transaction IDs). A web server passes the position it got back from the write, and the replica's answer is then guaranteed to include it."
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "id": "slashdot",
+  "n": 2,
+  "title": "The link that took a website down",
+  "teaches": "What happens between a click and the reply, why waiting time explodes as a server nears full load, and Little's law",
+  "summary": [
+    "**Most of a web request's time is round trips.** A first HTTPS request pays for DNS, a TCP handshake and a TLS handshake before the server does any work; reused connections skip them.",
+    "**Utilisation is the share of time a server is busy.** It is the arrival rate times the work per request, divided by how many requests it can work on at once.",
+    "**Waiting grows as 1 / (1 − utilisation).** A request's time at a server doubles at 50% busy, is ten times its work at 90% and a hundred times at 99%.",
+    "**A percentile describes the slow requests.** The median is the time half the requests beat; the 99th percentile is the time all but one in a hundred beat, and it climbs faster than the median under load.",
+    "**Little's law links rate, time and what is inside.** Requests in a system equal the arrival rate times the time each spends there, for any system that keeps up.",
+    "**A server near full load is slow before it is down.** Slower answers mean more requests inside at once, which fill pools and queues until new arrivals are refused.",
+    "**Find the box that saturates first.** Adding capacity anywhere else changes nothing; more web servers do not help a full database.",
+    "**One well-written machine goes a long way.** Ask whether the load needs more than one before designing for many, and keep headroom at the peak."
+  ],
+  "parts": [
+    {
+      "title": "Slashdotted",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Slashdot, started in 1997, was a page of links and comments for programmers. By 1999 it had hundreds of thousands of readers, and a link from its front page could send tens of thousands of them to a small website within an hour. Those websites were usually one machine in a university office or a cheap hosting company. Many of them stopped answering. Readers came to call it the **Slashdot effect**, and a site that had gone down that way had been \"slashdotted\".[^adler]"
+        },
+        {
+          "type": "text",
+          "text": "What happened to those machines is the subject of this lesson, because it is what happens to every server under load. A server that handled 20 visitors a second comfortably did not get 20% slower when 24 arrived. It got slower by far more than that, then slower still, and then stopped answering altogether, while its processor was still not doing much more work than before. Before reading on, think about where the time went. The answer is in two parts: what a single request costs, and what happens when requests wait for each other."
+        }
+      ]
+    },
+    {
+      "title": "Between a click and the reply",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 1 gave the costs of single operations. A web request strings several together. Take a reader in Seattle opening a page on a server in Virginia, a round trip of about 70 ms. The browser first asks the **Domain Name System** (DNS) for the server's address, unless it already has it; the DNS server it asks is usually nearby, so this costs tens of milliseconds, not a trip across the country. It then opens a TCP connection, which takes one round trip: the browser sends an opening message (SYN) and the server acknowledges it (SYN-ACK). Then TLS, the encryption layer, settles on the encryption keys both sides will use: one more round trip in TLS 1.3, assumed here, and two in the older TLS 1.2.[^tls] Only then does the request itself go out, the server do its work, and the reply come back."
+        },
+        {
+          "type": "diagram",
+          "id": "slashdot-request",
+          "caption": "One HTTPS request from Seattle to a server in Virginia, with a cold start: no cached address, no open connection. The server's own work is 12 ms of 252.",
+          "aspect_ratio": 1.76
+        },
+        {
+          "type": "text",
+          "text": "Of 252 ms, the server spends 12. Three round trips across the country take 210 (TCP, TLS, then the request and its reply) and the DNS lookup 30: the speed of light, paid three times over. This is the first habit of the course in its plainest form: before speeding anything up, find where the time goes. Here the gains are in round trips. Keeping connections open and reusing them (a second request on the same connection takes 82 ms), putting a server closer to the reader, or caching the DNS answer each save more than any change to the server's code could."
+        },
+        {
+          "type": "text",
+          "text": "In 1999 the server's own work was larger, a few tens of milliseconds to build a page from files and a database. That was still small beside the network. So the slashdotted servers did not die because each request was expensive. They died because requests began to wait for one another."
+        }
+      ]
+    },
+    {
+      "title": "Waiting in line",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A server's **utilisation** is the share of time it is busy. If requests arrive at 30 a second and each needs 20 ms of work, the server is busy 30 × 0.02 = 0.6 of each second: 60%. A server that can work on several requests at once, say eight on eight processor cores, divides by eight. At 100% it is doing all the work it can; past 100% the work arrives faster than it can be done and the queue grows without end."
+        },
+        {
+          "type": "text",
+          "text": "Below 100% there is still waiting, because requests do not arrive evenly. Visitors click independently, so sometimes three arrive within a millisecond and sometimes none for 50 ms. A request that arrives while the server is busy waits its turn. The busier the server, the more likely a new request finds others ahead of it, and the longer the line it finds. Assume requests arrive at random, independently of one another, and that their work times vary at random too. Then a request that arrives finds, on average, utilisation / (1 − utilisation) requests already at the server, and each of them costs it a whole work time. Adding its own work, the average time a request spends at the server, waiting plus working, is the work time divided by (1 − utilisation).[^mm1]"
+        },
+        {
+          "type": "text",
+          "text": "Averages hide the requests people notice, so this course measures latency in **percentiles**. Sort a minute's requests by how long each took. The **median**, or 50th percentile, is the time half of them beat. The **99th percentile**, written p99, is the time that all but the slowest one in a hundred beat. A page that makes several requests, or a reader who visits several pages, meets the 99th percentile often, so it is the number to design for. Lesson 9 returns to why it matters more as systems grow."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "slashdot-queue",
+          "caption": "One server, 20 ms of work per request, requests arriving at random. Dots are requests in flight (slow motion); amber dots over the server are requests waiting. Below, the time a request spends at the server against how busy it is, on a scale where each line is about three times the last.",
+          "goal": "ninety",
+          "task": "Guess, then raise the load until the server is 90% busy or more.",
+          "aspect_ratio": 1.42
+        },
+        {
+          "type": "text",
+          "text": "At 50% busy a request's average time at the server has doubled, from 20 ms of work to 40 ms. At 90% it is 200 ms, ten times the work. At 99% it is 2 seconds, a hundred times. The 99th percentile climbs alongside. Under the same assumptions the times are spread out in a particular way (exponentially), which puts the 99th percentile at about 4.6 times the average whatever the load: at 90% busy, one request in a hundred spends nearly a second at a server that does 20 ms of work on it. The curve is gentle at first and nearly vertical at the end, and the bend comes well before 100%."
+        },
+        {
+          "type": "text",
+          "text": "That is the first half of the slashdotted server's story. A machine that ran at 60% before the link went up and 90% after did not get 50% slower; its answers took four times as long. Latency is mostly waiting, and a server near full load is slow well before it is down."
+        }
+      ]
+    },
+    {
+      "title": "Little's law",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The second half needs one more relation. In 1961 John Little proved that for any system that keeps up with its arrivals, the average number of things inside it equals the rate at which they arrive times the average time each spends inside.[^little] It holds for a shop, a motorway or a server: 1,000 requests a second that each take 0.2 seconds means 200 requests inside at any moment."
+        },
+        {
+          "type": "text",
+          "text": "Web servers of 1999 typically gave each open connection a process or thread of its own, and capped how many they would run. A common setting for the Apache web server allowed 150.[^apache] Suppose a site gets 100 requests a second and answers each in 0.2 s, network time included: 20 connections are open at once, far below the cap. A Slashdot link brings 500 a second. Even if each answer still took 0.2 s, that is 100 open at once. But the server is now near full load, so each answer takes longer, say 0.5 s, and 500 × 0.5 = 250 connections want to be open. The cap is 150. New readers wait in the operating system's queue for a free slot, their browsers time out and retry, and the server spends its time on connections whose readers have already given up."
+        },
+        {
+          "type": "text",
+          "text": "Retries are how overload feeds itself. A reader who gives up and reloads adds a second request while the first is still in the queue, so a server that is already behind receives more work, not less. Three defences recur through this course. A **timeout** bounds how long a client waits, and a server should drop work whose client has stopped waiting. **Backoff** makes a client that failed wait before retrying, a growing and partly random time, so that a crowd of failed clients does not return all at once. **Load shedding** turns away, quickly and with an error, the requests a server cannot answer in time, so that those it accepts are answered at their usual speed. A fast refusal costs the server almost nothing; a slow success that arrives after the reader has gone costs it a full request."
+        },
+        {
+          "type": "text",
+          "text": "Waiting raised the time per request, Little's law turned the longer time into more requests inside, and the cap turned those into refusals. The machine's processor was busy but not overwhelmed; it ran out of slots. In 1999 Dan Kegel wrote a page called \"The C10K problem\" asking how one server could hold ten thousand connections open at once. The answer, which most servers now use, was to stop giving each connection a thread and let one thread watch many connections, working on whichever has data ready (an **event loop**).[^c10k] That raised the cap, but it did not repeal the queueing curve: a server at 95% busy is slow however it holds its connections."
+        }
+      ]
+    },
+    {
+      "title": "Which box fills first",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Real sites soon had more than one box: a **load balancer** spreading requests over several web servers, and a database behind them. Each box has its own capacity and its own queueing curve, and the one with the least room, the **bottleneck**, decides how much the whole site can carry. Before drawing more boxes, find out which one fills first."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "slashdot-flow",
+          "caption": "A balancer, web servers that each handle 100 requests a second, and one database that handles 500 a second. Bars under each box show how busy it is; amber dots are requests waiting. Slow motion.",
+          "goal": "database",
+          "task": "Raise the load and add web servers until the database is the box that is full.",
+          "aspect_ratio": 1.47
+        },
+        {
+          "type": "text",
+          "text": "With two web servers the site carries 200 requests a second; at 180 the web servers sit at 90% and answers slow, while the database idles at 36%. Adding web servers fixes that, up to a point. With six web servers and 480 requests a second, the database is at 96% and the web servers at 80%. Add a seventh web server and nothing improves, because every request still needs the database. A team that watches the web servers' latency climb and adds more web servers has spent money on the wrong box."
+        },
+        {
+          "type": "text",
+          "text": "The fix for a full database is different in kind, and it is where the next three lessons go: copies of the database for reading (lesson 4), a cache in front of it (lesson 5), or splitting the data across several databases (lesson 4 again). Each of those starts from knowing that the database is the box that fills first."
+        }
+      ]
+    },
+    {
+      "title": "One machine goes a long way",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The other side of this lesson is how much one machine can carry when it is written with the queue in mind. In January 2012 WhatsApp's engineers wrote that a single one of their servers held more than two million open connections at once.[^whatsapp] Around 2016 Stack Overflow, one of the busiest websites in the world, served its pages from nine web servers and four database servers, and its engineers wrote that each ran at a small fraction of its capacity.[^so] Neither was designed as a large distributed system first."
+        },
+        {
+          "type": "text",
+          "text": "So the first question about any design is whether its load needs more than one machine, and the second is how much headroom it keeps. A server planned to run at 50 to 70% busy at the peak hour stays on the gentle part of the curve when a burst comes; one planned for 95% sits on the steep part every evening. The curve turns a latency target into a utilisation target. If the 99th percentile at the server must stay under ten times the work time, then 4.6 / (1 − u) ≤ 10, so u must stay under about 54%. Spare capacity costs money, and running hot costs latency. Both are choices to make with the numbers in front of you."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Time at a server ≈ work time / (1 − utilisation): ×2 at 50%, ×10 at 90%, ×100 at 99%.",
+            "Little's law: requests inside = arrival rate × time each spends inside.",
+            "The bottleneck is the box with the least room; capacity added elsewhere is wasted."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on requests and queues",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A server needs 10 ms of work per request. Load rises until it is 90% busy. About how long does an average request now spend at the server?",
+                "choices": [
+                  "About 11 ms, the work plus a tenth for the extra load",
+                  "About 100 ms, ten times the work, nearly all of it waiting",
+                  "About 19 ms, because the load has nearly doubled from half"
+                ],
+                "answer": 1,
+                "why": "With random arrivals the time at a server is the work divided by (1 − utilisation): 10 ms / 0.1 = 100 ms. The extra 90 ms is waiting behind other requests."
+              },
+              {
+                "ask": "A service answers 2,000 requests a second and each request takes 50 ms from arrival to reply. How many requests are inside the service at any moment, on average?",
+                "choices": [
+                  "40",
+                  "100",
+                  "400"
+                ],
+                "answer": 1,
+                "why": "Little's law: requests inside = arrival rate × time inside = 2,000 × 0.05 s = 100. A pool of worker threads smaller than that would be full."
+              },
+              {
+                "ask": "A slashdotted server's processor was busy but not at its limit, its network link had room to spare, and yet new readers were turned away. What ran out?",
+                "choices": [
+                  "Memory for the page cache, so each page was rebuilt from disk",
+                  "Its pool of connection slots: slower answers meant more connections open at once, until the cap of workers was reached",
+                  "Disk space, as each extra visitor added a line to the access log"
+                ],
+                "answer": 1,
+                "why": "Queueing raised the time per request, Little's law turned the longer times into more open connections, and the cap on workers turned those into refusals and timeouts."
+              },
+              {
+                "ask": "A site's web servers show rising latency. Their processors are at 40% while the database is at 95%. What should the team do first?",
+                "choices": [
+                  "Add web servers, since that is where the latency shows",
+                  "Raise the web servers' pool of worker threads so that each can hold several hundred more requests while they wait",
+                  "Take load off the database"
+                ],
+                "answer": 2,
+                "why": "The web servers are waiting on the database, which is the bottleneck. Capacity added anywhere else leaves the queue at the database as long as it was."
+              },
+              {
+                "ask": "A page makes twenty requests to a service, each independently. About how often does a page load include at least one request slower than the service's 99th percentile?",
+                "choices": [
+                  "About one load in a hundred, the same as for a single request",
+                  "About one load in five",
+                  "Nearly every load, since twenty requests is a large sample and the slowest one in a hundred will almost always turn up among them"
+                ],
+                "answer": 1,
+                "why": "Each request beats the 99th percentile with chance 0.99, so all twenty do with chance 0.99²⁰ ≈ 0.82. The other 18%, about one load in five, meets a slow one. That is why the 99th percentile, not the average, is what readers feel."
+              },
+              {
+                "ask": "A first HTTPS request from Seattle to Virginia takes about 250 ms, of which the server's work is 12 ms. Which change cuts the most time from a reader's later requests?",
+                "choices": [
+                  "Rewriting the server's code so that it does its work in 6 ms",
+                  "Keeping the connection open so later requests skip the TCP and TLS handshakes",
+                  "Moving the database onto faster flash storage"
+                ],
+                "answer": 1,
+                "why": "The handshakes cost two round trips, about 140 ms. Reusing the connection saves them on every later request; halving the server's work saves 6 ms."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "adler": {
+      "kind": "digression",
+      "title": "Measuring the effect",
+      "text": "In 1999 Stephen Adler, a physicist at Brookhaven National Laboratory, published \"The Slashdot Effect: An Analysis of Three Internet Publications\", counting hits a minute on his own and others' sites before and after a link went up. The traffic rose within minutes of posting and fell away over a day or two."
+    },
+    "tls": {
+      "kind": "technical",
+      "title": "Handshakes",
+      "text": "TLS 1.2 needs two round trips before the request can go; TLS 1.3, published in 2018, needs one, and a browser returning to a server it has spoken to recently can send its request in the first message. QUIC, the transport under HTTP/3, folds the TCP and TLS handshakes into one round trip."
+    },
+    "mm1": {
+      "kind": "technical",
+      "title": "Where the curve comes from",
+      "text": "The formula is for a single server with arrivals at random (a Poisson process) and work times that vary at random around their mean (exponentially), which queueing theory calls an M/M/1 queue. Steadier work times wait less, but every queue with random arrivals has the same shape: gentle at first, then steep as utilisation nears one."
+    },
+    "little": {
+      "kind": "digression",
+      "title": "John Little's proof",
+      "text": "John Little, at MIT, published the proof in 1961; the rule had been used for years before that without one. Its strength is what it does not assume: nothing about the order requests are served in, how their times vary or how they arrive, only that the system is in a steady state."
+    },
+    "apache": {
+      "kind": "technical",
+      "title": "One process per connection",
+      "text": "Apache 1.3, the most common web server of the time, ran a pool of processes and gave each connection one of them until the reply was sent. Its MaxClients setting capped the pool, and many installations used 150. A slow reader on a slow modem held a process for the whole time it took to send them the page."
+    },
+    "c10k": {
+      "kind": "digression",
+      "title": "Ten thousand connections",
+      "text": "Kegel's page surveyed the ways operating systems let one thread wait on many connections (select, poll, and the newer kqueue on BSD and epoll on Linux) and became the starting point for servers such as nginx, first released in 2004."
+    },
+    "so": {
+      "kind": "technical",
+      "title": "Stack Overflow's servers",
+      "text": "Nick Craver, then an engineer at Stack Overflow, listed the hardware in a 2016 blog post, \"Stack Overflow: The Architecture, 2016 Edition\": nine web servers, four SQL Server machines in two pairs, and a few servers for caching, search and tags. Each pair of database servers had a copy ready to take over (lesson 4)."
+    },
+    "whatsapp": {
+      "kind": "digression",
+      "title": "Two million connections",
+      "text": "WhatsApp ran on Erlang, a language built at Ericsson for telephone switches, where each connection is a very light process of its own. The team tuned the operating system and Erlang's runtime for months to reach that number on one server with many cores and plenty of memory."
+    }
+  }
+}

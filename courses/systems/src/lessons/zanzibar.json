@@ -1,0 +1,269 @@
+{
+  "id": "zanzibar",
+  "n": 21,
+  "title": "Who may see this file?",
+  "teaches": "Permissions as relation tuples, the \"new enemy\" problem and consistency tokens, and answering ten million checks a second",
+  "parts": [
+    {
+      "title": "One answer for every product",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In July 2019, at the USENIX Annual Technical Conference in Renton, Washington, Ruoming Pang and a dozen colleagues from Google described Zanzibar, the service that decides who may see what across Google's products.[^burrows] Drive, Calendar, Cloud, Maps, Photos and YouTube all asked it the same question, many times for every page: may this user do this to this object? The paper reported more than two trillion stored permissions, more than ten million checks a second, 95% of them answered in under 10 ms, and availability above 99.999% over three years."
+        },
+        {
+          "type": "text",
+          "text": "Before it, each product kept its own access lists in its own format. That works until products share things: a Drive file attached to a Calendar event, a YouTube video shared with a Google group, a Cloud project whose members come from a company's directory. Each product then has to understand the others' rules, and two products can give different answers about the same person and the same file."
+        },
+        {
+          "type": "text",
+          "text": "Zanzibar's paper is a good model for one habit: **name the trade-off out loud**. Zanzibar makes three choices that each give something up: one service for everyone, which every product now depends on; a client that states how fresh an answer it needs, rather than one rule for all; and answers served from caches and slightly old snapshots wherever that is safe. The lesson takes them in turn, saying each time who pays."
+        }
+      ]
+    },
+    {
+      "title": "Permissions as tuples",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Zanzibar stores every permission as a **relation tuple**: an object, a relation, and a user, written `object#relation@user`. `doc:readme#owner@user:alice` says Alice owns the readme. The user can itself be a set of users, a **userset**, written as an object and a relation: `doc:readme#viewer@group:eng#member` says every member of the eng group may view it, and `group:eng#member@user:bob` makes Bob a member. Groups can hold groups, so membership is a graph, and a check is a search through it."
+        },
+        {
+          "type": "text",
+          "text": "Some permissions follow from others, and storing them all would be wasteful and drift out of step. Each kind of object has a short configuration of **userset rewrite rules** saying how relations derive. For a document: an owner is also an editor, an editor is also a viewer, and a viewer of the document's parent folder is a viewer of the document. Then `check(doc:plan, viewer, user:bob)` asks: is Bob a direct viewer, or an editor, or an owner, or a viewer of the folder, recursively through each group and folder above it. The client sees one call that returns yes or no."
+        },
+        {
+          "type": "text",
+          "text": "Count the storage first. Two trillion tuples, if each is about 50 bytes with its object, relation, user and timestamp, is 100 TB: more than any one machine holds, and small for a database spread over many. Zanzibar keeps them in Spanner, lesson 20's database, so every tuple write is a transaction with a commit timestamp, and every read can be made at a snapshot. A product writes tuples when its users share and unshare, and reads them only through checks."
+        },
+        {
+          "type": "text",
+          "text": "The obvious alternative, each product caching its own copy of the access lists for a minute, fails in a way the next part shows. The other, walking every nested group at request time, fails on depth: a document shared with a group that contains five levels of groups costs five or more reads one after another, each tens of milliseconds if it misses a cache."
+        }
+      ]
+    },
+    {
+      "title": "The new enemy",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The paper names one failure the **new enemy problem**. Alice removes Bob from a shared folder, because she is about to put something there he must not see. Then she adds the document. If the check for Bob is answered from permissions as they stood before the removal, Bob sees the document. Alice's order, removal first, protects her only if the check reads a snapshot that includes the removal; a snapshot from before it shows Bob still in the folder, and the document's later arrival changes nothing about that. Play it below, then turn on the fix."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "zanzibar-enemy",
+          "caption": "Alice removes Bob from a folder and then adds a document to it; Bob opens the document. Times are illustrative and slowed down.",
+          "task": "Play it without a zookie and watch Bob get in; then carry a zookie and play it through",
+          "goal": "token"
+        },
+        {
+          "type": "text",
+          "text": "Nothing in the failing run is a bug in one part. The removal was committed. The check was answered correctly for the snapshot it used. The fault is that the check was not told it needed a snapshot at least as new as the change the document depended on. A cache of access lists that each product refreshes once a minute has the same failure for up to a minute after every removal."
+        },
+        {
+          "type": "text",
+          "text": "Zanzibar's fix is a token the paper calls a **zookie**. When a product saves new content, it makes a *content-change check*: an ordinary check that the writer may change the content, Alice may edit the folder, which as a side effect returns a zookie. The zookie is an opaque string holding a Spanner timestamp at least as late as every permission change committed before the save. The product stores the zookie with the new version of the content. When anyone later asks to read that content, the product passes the zookie with the check, and Zanzibar must answer at a snapshot no older than its timestamp. Spanner's guarantee from lesson 20 is what makes this sound: the removal committed before the content-change check began, so its timestamp is smaller, and any snapshot at the zookie's time includes it."
+        }
+      ]
+    },
+    {
+      "title": "Fresh enough, and no fresher",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Answering every check at the newest possible snapshot would also prevent the new enemy, and it is what a designer might reach for first. The cost is in where the answer can come from. The newest data must be read from each shard's leader, which may be on another continent, 50 to 100 ms away, and an answer at a snapshot nobody has asked about before cannot come from a cache. Most checks need nothing of the kind: Bob opening a document whose permissions have not changed in a month is equally well served by a snapshot ten seconds old."
+        },
+        {
+          "type": "text",
+          "text": "So the freshness is stated by the client, per request. A check with a zookie gets a snapshot at least that new. A check without one lets Zanzibar choose, and it chooses a snapshot slightly in the past: one that the nearest replica already holds, so no round trip to a leader, and one shared with other checks, so their answers can be cached and reused.[^quantise] Content changes are rare beside reads, so few checks pay for freshness and the rest are served locally. Rounding to a granularity of g seconds adds at most g seconds of staleness: with 10-second rounding, a check without a zookie may see permissions up to about ten seconds old, and checks within each ten seconds share cache entries."
+        },
+        {
+          "type": "text",
+          "text": "Said out loud, the trade-off is: freshness against latency and cost, chosen per request by the only party that knows what the content depends on. The price is a burden on every product: it must store a zookie with each version of its content and pass it back, and a product that forgets reopens the new enemy problem for its users. Zanzibar cannot detect that omission; it can only answer what it is asked. Content saved before a product adopted zookies has none, and its checks fall back to the default staleness until the content next changes and gets one. The omission is caught only by a product's own tests, such as one that removes a user, adds content and checks straight away."
+        },
+        {
+          "type": "key_ideas",
+          "title": "What a zookie carries",
+          "points": [
+            "A timestamp, opaque to the client, from the content-change check made when the content was saved.",
+            "The rule: answer this check at a snapshot no older than that timestamp.",
+            "Nothing about who may see what: it only bounds how old the answer may be.",
+            "Freedom for every check that carries none to use older, cached snapshots."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ten million checks a second",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The numbers set the serving design. Ten million checks a second over about ten thousand servers is a thousand a second each, and a budget of 10 ms at the 95th percentile leaves no room for more than one or two reads from Spanner on the path of a typical check: a read from a nearby replica takes a few milliseconds, and one that must reach a leader across an ocean 50 to 100 ms.[^servers] Most answers must therefore come from memory. A check server caches the results of the reads and sub-checks it does, keyed by object, relation and snapshot timestamp."
+        },
+        {
+          "type": "text",
+          "text": "A cache's hit rate depends on which requests reach it. Sent to any server, every check for a popular document lands in a different cache, so each server holds its own copy of the same popular answers. Zanzibar instead sends each piece of work to the server chosen by consistent hashing of the object (lesson 5), so each object's answers live in one server's cache and the servers' caches add up rather than repeat. Try both below, then make popularity steep."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "zanzibar-flow",
+          "caption": "Products send checks on 2,000 objects, whose popularity falls off as 1/rank to a power s, through four check servers that each cache answers for 100 objects. Misses read from Spanner. Slow motion; illustrative numbers.",
+          "task": "Compare the routings Any server and By object, then raise the skew to 1.2 or more and choose By object, hot ones spread",
+          "goal": "spread"
+        },
+        {
+          "type": "text",
+          "text": "Routing by object raises the hit rate, here from about 63% to 80% at s = 1.0, but it puts every check on the most popular object on one server. At s = 1.4 the most checked object alone takes about a third of all checks, so the server that owns it carries nearly half of all checks while the others carry under a fifth each, and its queue sets the latency for everyone routed to it. The drawing's fix is the general one: notice the few hottest objects and let any server answer them, which costs almost no hits because those few fit in every cache."
+        },
+        {
+          "type": "text",
+          "text": "Zanzibar's paper describes its own measures against hot spots. Each server keeps a **lock table** of the reads and sub-checks it has in flight, so a thousand identical checks that arrive together wait for one read instead of sending a thousand, the herd of lesson 15. For the hottest objects it reads and caches all of their tuples at once. And slow reads from Spanner are **hedged**: a second copy is sent after a delay, as in lesson 9, and whichever answers first is used."
+        },
+        {
+          "type": "text",
+          "text": "Deep groups get their own structure. An index called **Leopard** keeps two kinds of flattened set, updated as tuples change: for each user, the groups they belong to directly, and for each group, every group nested inside it at any depth. A user is in a group if the group itself or one nested in it is among the user's groups: one test of whether two sets intersect, held in memory, where a walk would have taken five levels of reads.[^leopard]"
+        }
+      ]
+    },
+    {
+      "title": "One service that everyone depends on",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Centralising permissions gives every product the same answer about the same user and the same object, and one team that owns the hard problems once. The cost is that every product's availability now includes Zanzibar's. A product that cannot check permissions cannot show anything, so an outage of the shared service is an outage of all of them at once. That is why its availability is stated to five nines, 99.999%, which allows about five minutes of failure a year, and why the paper spends as much space on serving as on the data model."
+        },
+        {
+          "type": "text",
+          "text": "The other costs are also worth naming. Products must express their rules in Zanzibar's model of tuples and rewrites, which fits sharing and groups well and conditions such as \"only during office hours\" badly. Every write of a permission is a cross-region Spanner transaction, tens of milliseconds, which is acceptable because sharing is rare beside reading. And products must handle zookies correctly, which Zanzibar can document but not enforce."
+        },
+        {
+          "type": "text",
+          "text": "The design has since spread outside Google. SpiceDB, from Authzed, and OpenFGA, begun at Auth0 and later given to the Cloud Native Computing Foundation, both implement relation tuples, rewrite rules and a form of zookie.[^descendants] Their documentation states the same trade-off: a check can ask for full consistency, at a cost in latency, or accept a cached answer that may be slightly old."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on permissions at scale",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Alice removes Bob from a folder, then adds a secret document to it. Bob can open the document. Which explanation is best?",
+                "choices": [
+                  "The removal had not been committed when the document was added, because Zanzibar writes permission changes in the background",
+                  "Bob's check was answered from a snapshot taken before the removal, which nothing required to be newer",
+                  "Bob's client cached the folder's access list from his last visit, and the document inherited the cached list"
+                ],
+                "answer": 1,
+                "why": "Every step was correct for the snapshot it used. The fault is that the check was not bound to a snapshot at least as new as the change the document depended on: the new enemy problem."
+              },
+              {
+                "ask": "What does a zookie hold, and what does Zanzibar do with it?",
+                "choices": [
+                  "A copy of the access list as it stood when the content was saved, which the check uses instead of reading Spanner",
+                  "A signed statement that the user was allowed at a certain time, valid for a fixed period afterwards",
+                  "A point in time no earlier than the last permission change before the save, and Zanzibar must not answer from older data"
+                ],
+                "answer": 2,
+                "why": "The zookie bounds how old the answer may be. It does not carry permissions, and it does not grant anything; the check is still evaluated against the stored tuples."
+              },
+              {
+                "ask": "Why does Zanzibar not simply answer every check at the newest snapshot?",
+                "choices": [
+                  "The newest data must come from each shard's leader, perhaps on another continent, and an answer at a fresh snapshot cannot come from a cache",
+                  "Spanner forbids reading at the newest timestamp until commit wait has passed, which would add seconds to every check",
+                  "The newest snapshot may include half of a transaction that is still committing, so answers could change"
+                ],
+                "answer": 0,
+                "why": "Fresh reads cost round trips to leaders and defeat the caches. Most checks are on content whose permissions have not changed recently, so a snapshot a few seconds old is equally correct for them."
+              },
+              {
+                "ask": "Each product caches access lists for 60 seconds to save calls to the permission service. What follows?",
+                "choices": [
+                  "Nothing that matters, because a removal and a new document within the same minute are too rare to plan for",
+                  "For up to a minute after someone is removed, they can see content added in that minute",
+                  "Checks become slower, because each product must also refresh its cache in the request path"
+                ],
+                "answer": 1,
+                "why": "The cached list is older than the removal, so a document added just after it is checked against the old list: the new enemy problem, open for the length of the TTL every time."
+              },
+              {
+                "ask": "Ten check servers each cache answers for 100,000 objects. Popularity is steep. What does routing each check by its object, rather than to any server, change?",
+                "choices": [
+                  "The caches together hold about a million distinct objects instead of the same 100,000 ten times, so far fewer checks miss",
+                  "Each server's cache holds fewer objects, because consistent hashing reserves space on each server for the others' keys",
+                  "Nothing about hits, since every cache still holds 100,000 objects; it only spreads load more evenly over the servers"
+                ],
+                "answer": 0,
+                "why": "Sent anywhere, every server ends up caching the same popular objects. Sent by object, each server caches its own share, so the total cached set grows tenfold. The cost is that one hot object lands entirely on one server."
+              },
+              {
+                "ask": "A public document is checked 50,000 times a second, and routing by object sends every check for it to one server. Which response fits?",
+                "choices": [
+                  "Give that server a larger cache, so the document's answers stay cached",
+                  "Let any server answer checks for the few hottest objects",
+                  "Route every check to any server again, because routing by object only raises the hit rate for objects that are rarely checked"
+                ],
+                "answer": 1,
+                "why": "The hot object is already cached; the problem is the load on one server. Spreading only the hottest few costs almost no hit rate, and merging identical in-flight checks stops a burst of misses becoming a burst of reads."
+              },
+              {
+                "ask": "Groups contain groups up to six levels deep. Why does Zanzibar keep a separate index for group membership?",
+                "choices": [
+                  "Spanner cannot store tuples whose user is a group, so nested membership has to live in another system",
+                  "Without it, a check walks the nesting one read after another, and six sequential reads overrun a 10 ms budget",
+                  "The index lets products change group membership without writing tuples, which saves a transaction on every change"
+                ],
+                "answer": 1,
+                "why": "Each level of nesting is a read that depends on the one before. An index of flattened memberships, held in memory, turns the walk into one set lookup."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Store permissions as relation tuples.** `object#relation@user`, where the user can be a set such as `group:eng#member`, so groups and folders inherit.",
+    "**Derive what follows from rules, not copies.** Rewrite rules say an owner is an editor and a folder's viewer views its files, and a check walks them.",
+    "**Count the store before choosing it.** Two trillion tuples at about 50 bytes is 100 TB, which needs a database spread over many machines, here Spanner.",
+    "**The new enemy sees content added after their removal.** It happens whenever a check uses a snapshot older than a change the content depended on.",
+    "**A zookie carries a timestamp from when content changed.** Checks that pass it are answered at a snapshot at least that new; the rest may use older, cached ones.",
+    "**Let the client state the freshness it needs.** Fresh answers cost round trips to leaders and miss caches, so only content that depends on a recent change pays for them.",
+    "**Route each object to one server, and its cache holds its share.** The caches add up instead of repeating, at the cost of putting a hot object on one server.",
+    "**Treat hot objects and deep groups separately.** Merge identical checks in flight, spread the hottest objects, and index flattened group membership in memory.",
+    "**One shared service is everyone's dependency.** Consistent answers for every product come with an availability target that must be five nines."
+  ],
+  "footnotes": {
+    "burrows": {
+      "kind": "digression",
+      "title": "An author from lesson 11",
+      "text": "Among the authors was Mike Burrows, who designed Chubby, the lock service of lesson 11. Zanzibar's configuration and its leader elections are the kind of small, coarse agreement Chubby was built for."
+    },
+    "quantise": {
+      "kind": "technical",
+      "title": "Rounding the snapshot",
+      "text": "The paper describes rounding the evaluation timestamps of checks without a zookie to a coarse granularity, so that checks arriving close together share one snapshot and therefore one set of cache entries. Answers keyed by an exact timestamp would almost never be reused."
+    },
+    "servers": {
+      "kind": "technical",
+      "title": "The serving fleet",
+      "text": "The paper put Zanzibar's serving at more than 10,000 servers in several dozen clusters around the world, with data replicated in more than 30 locations. Those figures are as of 2019."
+    },
+    "leopard": {
+      "kind": "technical",
+      "title": "Leopard",
+      "text": "It is built from a snapshot of the tuples and kept current by following Zanzibar's stream of changes."
+    },
+    "descendants": {
+      "kind": "digression",
+      "title": "Open-source descendants",
+      "text": "Authzed released SpiceDB in 2021; Auth0, by then part of Okta, released OpenFGA in 2022. SpiceDB calls its token a ZedToken. Both let a schema define rewrite rules much like the paper's namespace configurations."
+    }
+  }
+}

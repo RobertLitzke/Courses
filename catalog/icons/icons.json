@@ -18,6 +18,7 @@
     "ecology": { "sheet": "course-icons-2", "box": [660, 1688, 469, 469], "to": "courses/ecology" },
     "synthesizers": { "sheet": "course-icons-2", "box": [1211, 1688, 470, 469], "to": "courses/synthesizers" },
     "finance": { "file": "sources/finance.png", "to": "courses/finance" },
+    "systems": { "file": "sources/systems.png", "to": "courses/systems" },
     "bats": { "sheet": "more-course-icons-2", "box": [111, 317, 483, 483], "to": "courses/bats" },
     "rivers": { "sheet": "more-course-icons-2", "box": [676, 317, 483, 483], "to": "courses/rivers" },
     "salish-sea": { "sheet": "more-course-icons", "box": [990, 289, 548, 548] },

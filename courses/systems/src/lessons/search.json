@@ -1,0 +1,286 @@
+{
+  "id": "search",
+  "n": 203,
+  "branch": "studio",
+  "needs": [
+    "mapreduce",
+    "tail",
+    "bigtable"
+  ],
+  "title": "From crawl to suggestion",
+  "teaches": "A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type",
+  "parts": [
+    {
+      "title": "Twenty-four million pages",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In April 1998, at the World Wide Web conference in Brisbane, two Stanford graduate students, Sergey Brin and Larry Page, presented a paper called \"The Anatomy of a Large-Scale Hypertextual Web Search Engine\". It described a working search engine, Google, running on machines in a Stanford lab, and it described all of it: a crawler that fetched pages, an indexer that turned them into lists of which words appear where, and a searcher that answered queries from those lists. Its collection was about 24 million pages. Six years later, in December 2004, a Google engineer named Kevin Gibbs put up an experiment on Google Labs that finished your query while you typed it; by 2008 it was on the main search page for everyone."
+        },
+        {
+          "type": "text",
+          "text": "Those three systems, a crawler, an index and a completer, each make a good design on its own, and together they show how the work in a large system splits into what is done ahead of time and what is done while someone waits. This lesson is a design exercise in three short parts. The targets: crawl **a billion pages a month** without being a nuisance to anyone's website; answer a query over the index in **under 200 ms**; and suggest completions in **under 100 ms per keystroke**. Design each part, then compare with what was published."
+        }
+      ]
+    },
+    {
+      "title": "What it must do, and the numbers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Crawler, functional.** Start from a list of seed URLs; fetch pages; extract links; fetch those; obey each site's rules about what may be fetched; never fetch the same URL twice in a crawl, and notice when two URLs hold the same page; come back to pages that change. **Non-functional:** no site gets more than about one request a second from us; a billion pages a month; a crawler machine dying loses no more than a few minutes of work."
+        },
+        {
+          "type": "text",
+          "text": "**Out of scope:** ranking quality, the decades-long work of deciding which page is best; running a page's JavaScript to see what a browser would; images and video; spam beyond plain duplicates; ads. They matter, but none changes the shape of the three systems."
+        },
+        {
+          "type": "text",
+          "text": "**An estimate.** A month is about 2.6 million seconds, so a billion pages a month is about **400 pages a second**, all day. At about 100 KB of HTML a page that is 40 MB a second, some 320 megabits a second of download, and **100 TB of raw pages a month**, perhaps 25 TB compressed. Each page also needs a DNS lookup for its host unless we remember it, and at 400 a second the resolver would be our bottleneck long before the network: the crawler keeps its own DNS cache. The index for a billion pages, at about 300 distinct words a page and about 3 bytes per entry, is about 0.9 TB of postings; with word positions for phrase searches it is a few terabytes: too big for one machine's memory, small for a cluster."
+        }
+      ]
+    },
+    {
+      "title": "A crawler that doesn't hammer anyone",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The obvious crawler keeps one queue of URLs to fetch, the **frontier**, and a pool of fetchers that each take the next URL, fetch it, add the links they find to the back, and repeat. Being polite means waiting a second between requests to the same site, so a fetcher whose next URL is for a site it hit a moment ago has to wait. Links are not spread evenly over the web: a big site links mostly to itself, so a large share of what the crawler finds points at a handful of hosts. Guess what that does to the simple design."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "search-frontier",
+          "caption": "A crawl of a thousand sites, one of them big. Each fetch takes half a second, and a polite crawler waits a second between requests to one site. Rates are measured once the crawl has settled.",
+          "task": "Guess, then find a frontier that is both fast and polite",
+          "goal": "polite"
+        },
+        {
+          "type": "text",
+          "text": "One polite queue manages about 5 pages a second with 200 fetchers, because a fifth of the URLs belong to the big site, which can take one request a second, so the whole crawl moves at the big site's pace: every fetcher ends up holding a big-site URL and waiting its turn. Drop the politeness and it runs at 400 pages a second, with 80 of them aimed at one website, which looks to its owner like an attack. The fix, from the Mercator crawler that Allan Heydon and Marc Najork described in 1999, is **a queue per host**. The frontier keeps one queue for each site and a heap ordered by when each site may next be asked; a fetcher takes the site that is ready soonest, fetches one URL from its queue, and the site goes back in the heap a second later. Fetchers never wait while some site is ready, and no site sees more than one request a second. The big site's URLs pile up in its own queue instead of blocking everyone else's."
+        },
+        {
+          "type": "text",
+          "text": "Mercator put a second layer in front: several **priority queues**, so important or fast-changing pages are fed to the per-host queues first. The rest of the crawler is bookkeeping that the numbers force:"
+        },
+        {
+          "type": "text",
+          "text": "**Rules.** Each site's robots.txt, a short file at its root saying what crawlers may fetch, is fetched once and cached for a day.[^robots] **Seen URLs.** Before a URL joins the frontier it is checked against everything already queued or fetched. Ten billion URLs at 100 bytes each is a terabyte, too much to check in memory, so the test is a Bloom filter (lesson 10): at about 10 bits a URL and seven hash functions, ten billion fit in 12.5 GB with a false positive rate just under 1%, which costs a few new pages a crawl that are wrongly skipped, a price worth paying. **Duplicate pages.** The same article appears under many URLs; a **simhash** fingerprint, 64 bits computed so that similar pages get fingerprints differing in only a few bits, finds near-copies without comparing pages with each other.[^simhash] **Traps.** A calendar page with a \"next month\" link goes on forever; capping the depth and the URL length per site stops it. **Freshness.** A news front page changes hourly and an archived paper never, so each URL's next visit is scheduled from how often it has been seen to change: a page that changed on 3 of its last 10 daily visits is visited about every three days, and the interval is halved after a visit that finds a change and lengthened after one that doesn't, between an hour and a few months."
+        }
+      ]
+    },
+    {
+      "title": "The index",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Searching a billion pages for a word by reading them all would take hours. An **inverted index** turns the question around ahead of time: for every word, a **posting list** of the documents that contain it, sorted by document id. A query for two words walks both lists side by side and keeps the ids in both. The ids are stored as gaps from the one before, which are small numbers and take a byte or two each.[^varint]"
+        },
+        {
+          "type": "diagram",
+          "id": "search-index",
+          "caption": "Posting lists, as stored and as read, and an index split by document across shards, each answering for its own slice."
+        },
+        {
+          "type": "text",
+          "text": "Building the index is lesson 8's example of MapReduce: map reads pages and emits (word, document id) pairs, the shuffle sorts them by word, and reduce writes each word's list. Serving it means splitting it, and there are two ways. Split by **word** and a query for \"seattle weather\" asks two machines, but the list for a common word is enormous and must be shipped between machines to be intersected. Split by **document** and each shard holds a complete little index of its own pages: every shard is asked, each finds its own best ten, and a root merges them. Decide which you would choose before reading on. Search engines chose documents. The price is that every query touches every shard, so the slowest shard sets the latency, and the hedged requests and replicas of lesson 9 are what keep the 99th percentile under the 200 ms budget."
+        },
+        {
+          "type": "text",
+          "text": "The same index answers **place search**: divide the map into small squares, **cells**, each named by a short code, and add the code of each place's cell as a word, such as \"cell:89c25\", and a query for \"coffee\" near a point becomes \"coffee\" intersected with the cells that cover a circle around it (lesson M2, *Finding the nearest car*, builds these cells), ranked by distance as well as popularity. A **results cache** in front catches the most common queries whole. New pages reach the index through a small, frequently rebuilt index of recent pages that every query also asks, merged with the big one built in batches."
+        }
+      ]
+    },
+    {
+      "title": "Suggestions while you type",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A completer has a tighter budget than search: a person types a letter about every 150 ms, and a suggestion that arrives after the next letter is useless. The data is the query log: every query people asked yesterday, with how often. The structure that matches prefixes is a **trie**, a tree with one letter on each edge, so every query is a path from the root and every node is a prefix. Finding the three most asked queries under a prefix by visiting every node below it costs time in proportion to the size of that subtree. Before opening the figure, decide what a node could store so that a lookup no longer has to walk everything below it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "search-trie",
+          "caption": "Twelve of a day's queries that start with s, in a trie. The counts are made up, in thousands.",
+          "task": "Store the top three at each node, then type three prefixes",
+          "goal": "typed"
+        },
+        {
+          "type": "text",
+          "text": "With the top three stored, a lookup touches one node per letter typed, however many queries share the prefix. That moves all the work to the build: once a day, a MapReduce over the query log counts each query, emits it for every one of its prefixes, and keeps the best ten per prefix (the figure keeps three, to stay readable). And once every prefix has its answer stored, the trie is no longer needed to serve: it is just a table, **prefix → ten completions**, a key-value lookup that can be sharded and replicated like any other. Each day's table is loaded beside the old one under a new version number; servers switch to it once every shard has it, and the old one is dropped, so there is never a moment with no table. The build also drops offensive and unsafe completions, which is easier with a human-reviewed list in a batch job than at query time."
+        },
+        {
+          "type": "text",
+          "text": "The daily table misses what is new this hour: an earthquake, a match result. A second, fast path counts queries over the last hour with a count-min sketch and a heap of the heaviest (lesson 17) and merges trending completions into the stored ones. A user's own recent searches are merged on the device, so nothing personal sits in the shared table."
+        }
+      ]
+    },
+    {
+      "title": "The workbench",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Serving the table is where the load is. Say 100,000 searches a second at peak, each typed in about eight keystrokes. Choose when the browser asks, whether an edge cache (lesson 19) answers some requests near the user, and how the table is split into shards. Each suggestion server answers about 20,000 lookups a second from memory."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "search-bench",
+          "caption": "Serving suggestions at the peak. Wire widths and labels give request rates; the server count is sized for the busiest shard.",
+          "task": "Bring the load on the suggestion servers under 400,000 a second with even shards",
+          "goal": "fast"
+        },
+        {
+          "type": "text",
+          "text": "Asking on every keystroke is 800,000 requests a second. Sending only when the typing pauses for 100 ms skips the letters typed in quick runs; suppose that is half of them, which brings the rate to about 400,000. It costs nothing a person notices, since a fast typist's suggestions would be stale before they arrived anyway. Short prefixes are a small, fixed set, 26 one-letter prefixes and under 20,000 of three letters, the same for everyone in a language, so an edge cache answers them all; caching the million most common prefixes answers about 70% of requests at the edge in 10 to 20 ms, because queries follow a Zipf distribution in which a few are asked enormously often. Sharding by first letter looks natural and is badly uneven: roughly one English word in nine starts with *s*, and queries are much the same, so that shard carries nearly three times the average, and every shard has to be sized for it. Hashing the prefix spreads prefixes evenly over the shards. It can't split one very hot prefix such as *s* itself, which still lands on one shard; that is why the edge cache answers the short prefixes before they reach a shard."
+        },
+        {
+          "type": "text",
+          "text": "**The failure worth working through: a suggestion shard is slow.** Suggestions are optional, so the right answer to a slow shard is no suggestions, not a slow search box. The browser cancels the request for \"sea\" the moment \"seat\" is typed, the server drops work for requests already cancelled, and anything that misses a 100 ms deadline is simply not shown. Each shard has replicas, so a dead one costs nothing visible. The crawler's version of the same principle: a fetcher that dies loses only the URLs it held, which go back in their sites' queues after a lease on them expires (lesson 11)."
+        }
+      ]
+    },
+    {
+      "title": "What Google published",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The 1998 paper's crawler was a URL server feeding a few crawler processes, each keeping hundreds of connections open at once and its own DNS cache, which together managed something like a hundred pages a second. Fetched pages were compressed into a repository; an indexer parsed them into hits, a word and its position and font size, and wrote them to \"barrels\" partly sorted by word; a sorter finished the job into the inverted index; and the searcher answered from it, ranking with the link analysis the paper became famous for.[^pagerank] The shape is the one this lesson reached: a frontier, fetchers, an inverted index built by sorting, and a searcher reading posting lists. What changed over the next decade was scale: Mercator's per-host queues, MapReduce for the build (lesson 8), Bigtable for the crawled pages (lesson 10), and serving split by document across thousands of machines (lesson 9)."
+        },
+        {
+          "type": "text",
+          "text": "Google Suggest's launch post said it drew on the overall popularity of searches, computed ahead of time, rather than on anything personal: the precomputed top list per prefix, built from logs. Place search is the same index with geography added as words. The parts you probably designed differently are the ones driven by what the web is like rather than by what computers are like: a fifth of links pointing at one site, the same page under twenty URLs, calendars with no last page."
+        }
+      ]
+    },
+    {
+      "title": "At ten and a hundred times",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Ten billion pages a month** is 4,000 pages a second and one crawler machine can't hold the frontier. Split it by host: hash each site's name to one crawler machine, which owns that site's queue, its robots.txt and its politeness clock, so politeness stays a local decision with no coordination. A machine that finds a link to a site it doesn't own sends it to the owner, in batches. **A hundred times** forces a choice the requirements never stated, between coverage and freshness: there is not enough bandwidth to recheck everything often, so the recrawl schedule becomes the product, and the index splits into tiers, a small fresh tier rebuilt in minutes, a large main tier rebuilt daily, and an archive."
+        },
+        {
+          "type": "text",
+          "text": "For suggestions, growth is mostly breadth: a table per language and region, since \"football\" completes differently in London and Dallas, each built from its own logs and cached at the edges that serve that region."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on crawling, indexing and suggesting",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A crawler keeps one queue of URLs and its fetchers wait whenever the next URL's site was asked less than a second ago. A fifth of the links point at one big site. Why does the crawl slow to about 5 pages a second?",
+                "choices": [
+                  "The big site answers slowly, so every fetch from it takes far longer than a fetch from any of the other sites",
+                  "Fetchers wait on the big site's one request a second",
+                  "The queue grows too long to fit in memory, so each fetcher has to read its next URL from disk"
+                ],
+                "answer": 1,
+                "why": "A fifth of the stream belongs to a host that takes one request a second, so the stream moves at most five URLs a second."
+              },
+              {
+                "ask": "What does a frontier with a queue per host and a heap of ready times achieve?",
+                "choices": [
+                  "Fetchers always take the site that may be asked soonest, so none waits while some site is ready, and no site is asked too often",
+                  "Each site's pages are fetched in the order they were found, so the crawl stays complete without any need for priorities",
+                  "Duplicate URLs are removed automatically, because each host's queue can only hold any one URL once"
+                ],
+                "answer": 0,
+                "why": "A big site's URLs wait in their own queue, and the heap hands each free fetcher the site allowed soonest, so speed and politeness stop conflicting."
+              },
+              {
+                "ask": "A crawler must check 10 billion URLs for \"already seen\" with little memory. Which structure fits, and what does it cost?",
+                "choices": [
+                  "A sorted list of every URL in memory, which costs about a terabyte of RAM but is exact",
+                  "A hash of each page's text, which costs one fetch per URL but catches all duplicates",
+                  "A Bloom filter at about 10 bits a URL, which costs a few new URLs wrongly skipped as seen"
+                ],
+                "answer": 2,
+                "why": "A Bloom filter never misses a URL it has seen, and at 10 bits each needs about 12.5 GB; its rare false positives skip a few new pages, which a crawl can afford."
+              },
+              {
+                "ask": "Why do web search engines split their index by document rather than by word?",
+                "choices": [
+                  "Each shard is a complete small index that answers alone, so no long posting lists are shipped between machines to be intersected",
+                  "Splitting by document lets each query touch only the few shards that hold its words, which keeps the latency of every query low",
+                  "Splitting by word can't be built with MapReduce, because one reducer would have to see every document's words at once"
+                ],
+                "answer": 0,
+                "why": "By word, a common word's list is enormous and must be intersected across machines. By document, the cost is asking every shard, which hedging and replicas handle."
+              },
+              {
+                "ask": "A completer stores each trie node's most asked completions in the node. What does that buy, and what does it cost?",
+                "choices": [
+                  "Exact completions for every query ever typed, at the cost of a lookup that grows with the number of queries",
+                  "One node per letter typed, for a daily build",
+                  "Personal completions for every user, at the cost of a separate trie stored and rebuilt for each account"
+                ],
+                "answer": 1,
+                "why": "Precomputing the lists moves the work offline. Serving becomes a lookup by prefix; yesterday's lists miss today's news, which needs a separate fast path."
+              },
+              {
+                "ask": "Suggestion requests are sharded by the first letter of the prefix. Why is that a poor choice?",
+                "choices": [
+                  "Prefixes longer than one letter can't be found once the table has been split by its first letter alone",
+                  "Each shard has to hold the whole table anyway, because any prefix can complete to any query at all",
+                  "First letters are very unevenly used"
+                ],
+                "answer": 2,
+                "why": "Roughly one English word in nine starts with s, so that shard carries nearly three times the average, and every shard must be sized for the busiest."
+              },
+              {
+                "ask": "A suggestion shard becomes slow. What should the user see?",
+                "choices": [
+                  "A spinner in the search box until the suggestions arrive, so that none are lost",
+                  "No suggestions for that keystroke: they are optional and arrive within 100 ms or not at all",
+                  "An error asking the user to retype the query once the shard has recovered"
+                ],
+                "answer": 1,
+                "why": "Suggestions only help if they arrive before the next letter. Cancelling stale requests and dropping late ones keeps the search box fast when a part of the system isn't."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Split the work between ahead of time and while someone waits.** Crawling, indexing and building completions run in batches so that a query or a keystroke is a lookup.",
+    "**A billion pages a month is about 400 a second.** About 40 MB a second of HTML and 100 TB a month of raw pages.",
+    "**One queue for the frontier stalls behind the biggest site.** Politeness turns a fifth of links to one host into a crawl of five pages a second.",
+    "**A queue per host and a heap of ready times fix it.** Fetchers take whichever site may be asked soonest; big sites' URLs wait in their own queues.",
+    "**Remember what has been seen cheaply.** A Bloom filter for URLs, a simhash fingerprint for near-duplicate pages, a cache for DNS and robots.txt.",
+    "**An inverted index maps words to sorted lists of documents.** Built by MapReduce, split by document, and searched by asking every shard and merging.",
+    "**Store each prefix's top completions.** A trie with precomputed lists becomes a prefix-to-list table served from memory, with a fast path for trends.",
+    "**Shard by hash, not by letter, and cache the short prefixes.** First letters are uneven; hashing spreads prefixes, and an edge cache takes the hottest ones.",
+    "**Optional answers should fail quietly.** A slow shard means no suggestions for one keystroke, not a slow search box."
+  ],
+  "footnotes": {
+    "varint": {
+      "kind": "technical",
+      "title": "A byte or two",
+      "text": "In **variable-byte encoding** each byte carries seven bits of the number and one bit saying whether another byte follows, so a gap under 128 takes one byte and one under 16,384 takes two. Common words have small gaps, because they appear in most documents, so their long lists compress best. Faster schemes pack many gaps into a block with the same bit width."
+    },
+    "robots": {
+      "kind": "digression",
+      "title": "robots.txt",
+      "text": "In 1994 Martijn Koster, after a badly written crawler swamped a server he ran, proposed a file at a site's root listing paths that robots should leave alone. It was a convention for 28 years before it became a standard, RFC 9309, in 2022. Nothing enforces it: it works because well-run crawlers obey it."
+    },
+    "simhash": {
+      "kind": "technical",
+      "title": "Simhash",
+      "text": "Moses Charikar described the idea in 2002: hash every word of a page to 64 bits, add up the hashes bit by bit with each word's weight, counting a 1 as +1 and a 0 as −1, and keep the sign of each sum. Pages that share most of their words get fingerprints that differ in few bits. Gurmeet Manku, Arvind Jain and Anish Das Sarma reported in 2007 that, for Google's crawl of about 8 billion pages, near-duplicates could be taken as those within 3 bits of each other, and showed how to find them fast."
+    },
+    "pagerank": {
+      "kind": "digression",
+      "title": "Ranking by links",
+      "text": "The paper's PageRank scores a page by the pages that link to it, each link weighted by its source's own score, as if a reader clicked at random forever and the score were how often they landed on the page. Lesson 8's MapReduce is a natural way to compute it, one round of map and reduce per step of the random walk."
+    }
+  }
+}

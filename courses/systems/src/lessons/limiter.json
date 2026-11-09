@@ -1,0 +1,367 @@
+{
+  "id": "limiter",
+  "n": 201,
+  "branch": "studio",
+  "needs": [
+    "memcached",
+    "chaos"
+  ],
+  "title": "Saying no politely",
+  "teaches": "Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits",
+  "parts": [
+    {
+      "title": "One API, many tenants",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In March 2017 Paul Tarjan, an engineer at Stripe, published a short post on how the company keeps its payments API standing. Stripe's API is one set of servers shared by every business that takes card payments through it, from a bakery's web shop to an airline. Each business is a **tenant**: one customer of a service that many customers share. Most tenants send a steady trickle of requests. Now and then one of them sends a flood: a script stuck in a loop that retries a failed call with no pause, a nightly report that pages through every charge since the account was opened, a load test pointed at production by mistake. Every request in that flood takes a thread, a database connection and some milliseconds of CPU that the other tenants needed. Without something in the way, one customer's bug becomes everyone's outage, the cascade that lesson 18, *Breaking things on purpose*, watched spread through Netflix's services."
+        },
+        {
+          "type": "text",
+          "text": "Stripe's answer was a set of four limiters, and the post said what each one does and why it is there. This lesson is a design exercise: design the limiter yourself first, then compare it with what Stripe built. The target, in round numbers of our own: an API with **a million API keys**, **50,000 requests a second** at the daily peak, a default limit of **100 requests a second per key**, and a promise that the limiter adds well under a millisecond to a request. Before drawing any boxes, say what the thing must do."
+        }
+      ]
+    },
+    {
+      "title": "What it must do, and what it need not",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A limiter that tries to stop every kind of abuse ends up doing none of them well. Some of what sounds like its job belongs to other parts of the system: a flood of junk packets never reaches the application at all if the network's edge drops it first (lesson 19), and a stolen API key is a security problem, not a counting one. Sort the jobs below. Each says why it belongs where it does."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Possible jobs for the limiter. Some belong in the design; some belong to another part of the system.",
+          "task": "Sort all eight",
+          "goal": "sorted",
+          "options": {
+            "ask": "In this design, or somewhere else?",
+            "groups": [
+              {
+                "name": "In this design",
+                "color": "answer"
+              },
+              {
+                "name": "Somewhere else",
+                "color": "soft"
+              }
+            ],
+            "items": [
+              {
+                "name": "Per-key rate caps",
+                "clue": "Cap each API key at a sustained rate, with short bursts allowed",
+                "group": "In this design",
+                "why": "The core requirement: one key's traffic must not crowd out the rest."
+              },
+              {
+                "name": "When to retry",
+                "clue": "Tell a refused client when to try again",
+                "group": "In this design",
+                "why": "A 429 with Retry-After turns blind retries into a wait the client can plan around."
+              },
+              {
+                "name": "Payments in an overload",
+                "clue": "Keep payments flowing when the whole fleet is short of capacity",
+                "group": "In this design",
+                "why": "Per-key limits can't help when every key is within its limit and the total is still too much; that needs shedding by priority."
+              },
+              {
+                "name": "Limits as data",
+                "clue": "Change a customer's limit without a deploy",
+                "group": "In this design",
+                "why": "Limits are data. Support staff raise them for big customers, so they live in a table, not in code."
+              },
+              {
+                "name": "Packet floods",
+                "clue": "Drop a flood of 100 Gb/s of junk packets",
+                "group": "Somewhere else",
+                "why": "That has to be stopped at the network's edge, long before an HTTP request is parsed and an API key read."
+              },
+              {
+                "name": "Billing overage",
+                "clue": "Bill customers for requests over their plan",
+                "group": "Somewhere else",
+                "why": "Billing needs exact counts kept for months; the limiter's counts can be approximate and forgotten within minutes."
+              },
+              {
+                "name": "Stolen keys",
+                "clue": "Notice that a key has been stolen",
+                "group": "Somewhere else",
+                "why": "That is fraud detection, which looks at where and how a key is used, not at how fast."
+              },
+              {
+                "name": "Exact counts",
+                "clue": "Count every request exactly, never one over",
+                "group": "Somewhere else",
+                "why": "Exactness would cost a coordinated write per request. Letting a client run 5% over its limit for a second hurts nobody."
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Written down, the requirements are short. **Functional:** count each key's requests against its limit and refuse the excess; tell refused clients when to come back; under fleet-wide overload, refuse the least important work first; read limits from a table. **Non-functional:** add under a millisecond at the 99th percentile; keep working, in some sensible way, when a limiter machine dies; be accurate to within about ten per cent, because a limit is a guard rail, not an invoice. That last line matters later. Because a count may be a little wrong, gateways can take tokens in batches and regions can each hold part of a limit, both described below, instead of asking one central counter about every request."
+        }
+      ]
+    },
+    {
+      "title": "Four ways to count",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The simplest limiter is a **fixed window**: one counter per key per minute, reset when the minute turns. It needs one number per key and one increment per request. Its flaw shows at the boundary between two windows. Before you choose a way of counting, guess how bad that flaw is."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "limiter-windows",
+          "caption": "Three minutes of one client's requests against a limit of 100 a minute: a slow trickle, and two bursts of 90 that straddle the end of the first minute. Dashed lines mark where fixed windows start.",
+          "task": "Guess, then try another way of counting",
+          "goal": "compare"
+        },
+        {
+          "type": "text",
+          "text": "The two bursts land in different windows, so each window sees under 100 and lets almost all of it through: with a trickle of one request every three seconds on top, 190 requests in sixty seconds against a limit of 100. A client that wants to hammer a fixed-window limiter only has to time its bursts to the minute. The fixes trade memory for accuracy."
+        },
+        {
+          "type": "text",
+          "text": "A **sliding log** keeps the time of every request let through in the last minute and refuses a new one when the log already holds 100. It is exact, and expensive: at 100 a second over a 60-second window a key's log holds 6,000 timestamps of 8 bytes each, 48 KB, and a million busy keys would need 48 GB. A **sliding window counter** keeps only this minute's count and last minute's, and estimates the last sixty seconds by weighting last minute's count by how much of it still overlaps: 15 seconds into a minute, it counts 75% of last minute plus all of this one. Two numbers per key, and close to the log: compare the counts each lets through in the figure's readout."
+        },
+        {
+          "type": "text",
+          "text": "A **token bucket** turns the question around. Each key has a bucket that fills with tokens at the allowed rate, 100 a minute here, up to a fixed size; each request takes a token, and a request that finds the bucket empty is refused. The rate says what a client may average and the size says how big a burst it may send after a quiet spell. Over any span of *T* seconds a bucket of size *b* filling at *r* a second lets through at most *b* + *rT*, so a bucket as large as a whole minute's allowance lets twice the limit through, just as the fixed window did; choose Token bucket in the figure and move its Bucket size slider to see it. The bucket's state is two numbers, the tokens left and the time it was last filled, and the refill is worked out lazily when the next request arrives, so nothing runs between requests.[^leaky]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "What each costs a key",
+          "points": [
+            "Fixed window: one counter; can pass twice the limit across a boundary.",
+            "Sliding log: one timestamp per request in the window; exact, but kilobytes per busy key.",
+            "Sliding window counter: two counters; approximate, close enough.",
+            "Token bucket: two numbers; a sustained rate plus a burst you choose."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Where the count lives",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The API runs on many gateway machines behind a balancer, and a key's requests land on whichever gateway the balancer picks. If each gateway kept its own count, a key would get its limit once per gateway. The count has to be shared, or split. The numbers say whether sharing it is affordable."
+        },
+        {
+          "type": "text",
+          "text": "**An estimate.** A token bucket per key is a small hash in Redis, the in-memory store lesson 5 met beside memcached: the key's name, two numbers and Redis's own bookkeeping come to about 100 bytes, so a million keys need about 100 MB, which fits in one machine's memory many times over. Every request costs one call to Redis, so 50,000 requests a second means 50,000 calls a second. One Redis process handles something like 100,000 small operations a second on one core, so three processes, each holding a third of the keys by hash and each with a replica, carry the peak with room to spare. A round trip inside a datacentre is a few hundred microseconds (lesson 1), inside the millisecond budget."
+        },
+        {
+          "type": "text",
+          "text": "Sharing creates a race. Two gateways handle requests for the same key in the same instant; both read *tokens = 1*, both decide yes, both write *tokens = 0*, and two requests pass on one token. Under a flood that race happens thousands of times a second. Before reading on, decide how you would stop it without a lock held across the network. The answer used in practice is to send Redis the whole decision as one script, which Redis runs to the end before it starts anything else, so the read, the decision and the write are **atomic**: no other command can come between them.[^lua] The still below shows what is stored and what the script does."
+        },
+        {
+          "type": "diagram",
+          "id": "limiter-record",
+          "caption": "A token bucket as Redis holds it, the script that spends a token, and what a refused client receives."
+        },
+        {
+          "type": "text",
+          "text": "The other choice is to split the count: give each of the *n* gateways its own bucket at 1/*n* of the rate, with no network call at all. That is cheap and accurate on average, and wrong in two ways. A client whose requests all reach one gateway, because it holds one long-lived connection, gets a quarter of its limit with four gateways. And adding a fifth gateway quietly changes everyone's share. A middle way is to keep the count in Redis but take tokens from it in batches: a gateway takes 20 tokens for a key at once and spends them locally, so Redis sees a twentieth of the calls, at the price of a client sometimes getting more than its limit: up to 20 more for each gateway holding part of a batch, so 40 with the figure's two gateways."
+        },
+        {
+          "type": "text",
+          "text": "The limiter sits in the gateway, after authentication, because it needs the API key and the route, which only exist once the HTTP request has been parsed.[^l4l7] Putting it in each service as well catches limits that only that service understands (\"one export job at a time per customer\"); putting it only in clients protects nothing, because a client with a bug is exactly the one that won't honour it."
+        }
+      ]
+    },
+    {
+      "title": "The workbench",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Two tenants share an API that can serve about 200 requests a second: eight threads, 40 ms a request. Tenant B sends a steady 40 a second. Tenant A's rate is yours to set, and so is the limiter: none, a bucket in each gateway, or shared buckets in Redis, each tenant limited to 80 a second. The figure runs in slow motion, with link delays stretched so the requests can be followed; the latencies it reports are in its own milliseconds, not a real network's. To try a Redis failure, choose shared buckets in Redis, set *If Redis is down* to fail open or fail closed, and tap Redis to fail it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "limiter-bench",
+          "caption": "Two tenants, a balancer, two gateways and an API with room for about 200 requests a second. Blue dots are requests, green answers, red failures; amber shows how busy a part is.",
+          "task": "Turn tenant A up to 300 a second or more with a limiter on",
+          "goal": "shield"
+        },
+        {
+          "type": "text",
+          "text": "With no limiter, tenant A at 400 a second fills the API's queue, and tenant B's requests wait behind A's; past the queue's limit they are turned away, and more than half of B's requests fail. Nothing B did caused it. With either limiter, A gets its 80 a second and about 320 refusals a second, each answered in half a millisecond at the gateway instead of 40 ms at the API, and B never notices. Refusing has to be far cheaper than serving, or the refusals become the overload."
+        },
+        {
+          "type": "text",
+          "text": "**The failure worth working through: Redis dies.** Every gateway now asks a store that doesn't answer. If the gateway treats \"no answer\" as \"refuse\", it **fails closed**, and the API refuses every request from every tenant: the limiter, built to protect the API, has taken it down. If it treats \"no answer\" as \"allow\", it **fails open**, and for as long as Redis is down nobody is limited, which is how most days look anyway. For a limiter that guards against occasional floods, failing open is usually right, with a timeout of a millisecond or two on the Redis call so a slow Redis doesn't slow every request, and an alert so someone mends it. A limiter that stops brute-force password guessing is the opposite case and should fail closed. Try both with the *If Redis is down* setting in the workbench."
+        },
+        {
+          "type": "text",
+          "text": "A refusal also has to be honest about what happens next. A 429 response with a Retry-After header tells the client how long to wait;[^status] a well-written client waits that long, plus some random jitter so its retries don't line up with everyone else's (lesson 18). A client that retries at once turns one refused request into a stream of them, which is why limits are counted on attempts, not on successes."
+        },
+        {
+          "type": "text",
+          "text": "**Choosing the numbers.** A bucket's size is a few seconds of its rate: a key allowed 100 a second gets a bucket of 200 to 500, enough for a page that fires a burst of calls as it loads, and small enough that a stuck loop is held to the rate within seconds. A concurrency cap comes from Little's law (lesson 2): requests in flight are rate times time each takes, so 100 a second at a usual 50 ms is 5 in flight, and a cap of four or five times that, 20 to 25, leaves room for slow moments while still catching an endpoint that slows tenfold. The timeout on the Redis call sits just above Redis's own 99th percentile, about a millisecond inside a datacentre, so a healthy Redis almost never trips it. And a shedder's reserve is the critical traffic's share of the busiest hour: if charges are a fifth of peak traffic, keep a fifth of capacity for them."
+        }
+      ]
+    },
+    {
+      "title": "What Stripe built",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Stripe's post described four limiters, two that act on each user and two that protect the fleet as a whole."
+        },
+        {
+          "type": "text",
+          "text": "**A request rate limiter**: a token bucket per user, in Redis, much like the design above. It was by far the one that refused most often, and the post said that much of what it refused was test-mode traffic from customers' scripts that had got out of hand. **A concurrent requests limiter**: a cap on how many requests one user may have in progress at once, the example in the post being 20. A rate limit misses the case where requests get slower: by Little's law (lesson 2), requests in flight equal rate times time each takes, so a user sending 10 a second to an endpoint that has slowed from 100 ms to 10 seconds goes from one request in flight to a hundred, holding a hundred threads, without ever exceeding a rate limit."
+        },
+        {
+          "type": "text",
+          "text": "**A fleet usage load shedder**: Stripe split its traffic into critical requests, such as creating a charge, and everything else, and kept a share of the fleet for the critical ones; the post's example reserves 20%, so non-critical requests that would push past their 80% get a 503. **A worker utilisation load shedder**, the last line of defence: when a server's workers are all busy, it sheds traffic in four tiers, test-mode traffic first, then GET requests, then POSTs, and critical methods last, and it adds them back slowly as the workers recover so it doesn't swing between overload and idle."
+        },
+        {
+          "type": "text",
+          "text": "Stripe's per-key limiter is the design of this lesson's first half; its shedders answer a question the exercise hadn't yet asked. Per-key limits answer \"is this one client taking too much?\"; they say nothing when every client is within its limit and the total is still more than the fleet can carry, at the top of a busy day or after a third of the servers have died. Shedding by priority answers that one. Stripe also recommended launching each limiter dark, logging whom it would have refused before letting it refuse anyone, and keeping a switch to turn it off.[^dark]"
+        }
+      ]
+    },
+    {
+      "title": "At ten and a hundred times",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**At 500,000 requests a second** the Redis tier grows to a dozen or so processes, each owning a slice of keys by hash, and the problem changes from total load to the busiest key. A single tenant sending 50,000 requests a second sends all of them to one Redis process, half its capacity spent on one bucket. Batching tokens fixes it: a gateway that takes a hundred tokens per call makes a hundred times fewer calls for that key, and the error is bounded by the batch size times the number of gateways."
+        },
+        {
+          "type": "text",
+          "text": "**At 5 million a second, across three regions**, a key's requests arrive on different continents, and a round trip between them is 70 to 150 ms. Checking one global bucket on every request is out of the question. Instead each region gets a share of each key's limit, and every few seconds the regions report what each key used and the shares are moved toward where the traffic is. When a client's traffic moves suddenly from one region to another, it can overshoot for a few seconds by up to the share left unused elsewhere, well past ten per cent. The requirement is relaxed for that case: a few seconds of overshoot is something a guard rail can bear, and a global check on every request is not. The table of limits becomes configuration pushed to every gateway, with the same care as any other change that reaches the whole fleet at once (lesson D7)."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on limiters",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A limit of 100 requests a minute is counted in fixed windows that reset on the minute. How can a client get nearly 200 requests through in one 60-second span?",
+                "choices": [
+                  "By sending about 100 just before a minute ends and 100 just after, so each window sees under its limit",
+                  "By opening two connections, because each connection is counted against its own separate window",
+                  "By sending its requests faster than the counter can be written, so some are never counted at all"
+                ],
+                "answer": 0,
+                "why": "Each window only counts its own requests. Two bursts on either side of a boundary land in different windows, so both pass within a few seconds of each other."
+              },
+              {
+                "ask": "A token bucket refills at 10 tokens a second and holds at most 50. What is the most a client can send in any 10-second span?",
+                "choices": [
+                  "100: the refill rate times the span, whatever the bucket holds when the span begins",
+                  "150: a full bucket spent at once, then the refill",
+                  "50: the bucket's size, because no more can be held at once and spent"
+                ],
+                "answer": 1,
+                "why": "A burst can spend what was saved, and the refill keeps coming during the span: b + rT."
+              },
+              {
+                "ask": "Two gateways share a token bucket in Redis, and each runs GET, decides, then SET as separate commands. What goes wrong under a flood?",
+                "choices": [
+                  "Redis runs out of memory, because every GET and SET pair leaves an extra copy of the bucket behind it",
+                  "Both gateways read the same last token, both spend it, and more requests pass than the limit allows",
+                  "The SET from one gateway is refused, so the other gateway's requests all fail until the key expires"
+                ],
+                "answer": 1,
+                "why": "Separate read and write steps leave a gap in which another gateway can read the same value. A script that Redis runs whole closes the gap."
+              },
+              {
+                "ask": "A per-key limiter guards an API against occasional floods; its Redis store fails. Which response is usually best, and why?",
+                "choices": [
+                  "Fail closed and refuse all requests, since an unlimited API can't be trusted to stay up through a flood",
+                  "Retry Redis until it answers, so that every request is still checked against its own limit",
+                  "Fail open with a short timeout"
+                ],
+                "answer": 2,
+                "why": "Failing closed turns a Redis failure into a total API outage, while unlimited traffic for a while is what most days look like. A login limiter is the exception."
+              },
+              {
+                "ask": "A customer sends a steady 10 requests a second, well within its rate limit, but the endpoint it calls slows from 100 ms to 10 s per request. What protects the servers?",
+                "choices": [
+                  "A tighter rate limit, since 10 a second is now too many for an endpoint that slow to answer",
+                  "A concurrency limit, which notices that requests in flight have risen from about 1 to about 100",
+                  "A longer timeout, so each slow request has time to finish and free its thread"
+                ],
+                "answer": 1,
+                "why": "By Little's law the requests in flight rise from about 1 to about 100 while the rate stays the same; only a cap on requests in progress notices."
+              },
+              {
+                "ask": "Each of 4 gateways keeps its own token bucket at a quarter of a key's 100-a-second limit. A client holds one long-lived connection, pinned to one gateway. What does it get?",
+                "choices": [
+                  "About 25 a second",
+                  "About 100 a second, because the four buckets add up to the full limit across the whole fleet",
+                  "About 400 a second, because each gateway grants the full limit to whatever traffic it sees"
+                ],
+                "answer": 0,
+                "why": "Splitting a limit across gateways assumes traffic spreads evenly. A pinned client meets one bucket only."
+              },
+              {
+                "ask": "A fleet is at 120% of capacity. Most customers send far below their rate limits, and none is over. Which design keeps payments working?",
+                "choices": [
+                  "Lower every customer's rate limit by a fifth until the fleet is back under its capacity",
+                  "Shed by priority, keeping a reserve for charges",
+                  "Queue every request until capacity frees up, so that nothing at all has to be refused"
+                ],
+                "answer": 1,
+                "why": "Customers far below their limits aren't slowed by lower limits, and a queue only delays the overload. Refusing the least important work first, with room held for charges, is what Stripe's fleet-wide shedders do."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Pin down what the limiter is for.** Per-key limits, honest refusals and shedding by priority are its job; packet floods, billing and stolen keys belong elsewhere.",
+    "**Fixed windows leak at the boundary.** Two bursts either side of a reset can pass nearly twice the limit in one minute.",
+    "**A token bucket is a rate plus a burst.** Two numbers per key, refilled lazily, passing at most b + rT in any span T.",
+    "**A sliding log is exact and costly; a sliding counter is cheap and close.** Accuracy to a few per cent is usually all a limit needs.",
+    "**Shared counts need one atomic step.** Read, decide and write as one Redis script, or two gateways spend the same token.",
+    "**Decide how the limiter fails.** Fail open for flood protection, closed for login guessing, and always with a short timeout.",
+    "**Refusing must be far cheaper than serving.** A 429 with Retry-After at the gateway costs microseconds; the clients' backoff and jitter do the rest.",
+    "**Rate limits miss slow requests; concurrency limits catch them.** By Little's law a slower endpoint holds more requests in flight at the same rate.",
+    "**Per-key limits can't save an overloaded fleet.** Stripe kept a reserve for critical requests and shed test traffic and reads first.",
+    "**At scale, batch and split.** Take tokens in batches for hot keys, and give each region a share of a global limit."
+  ],
+  "footnotes": {
+    "leaky": {
+      "kind": "technical",
+      "title": "The leaky bucket",
+      "text": "A **leaky bucket** is the token bucket's twin: requests join a queue that drains at a fixed rate, and a request that finds the queue full is refused. It smooths a burst into an even stream instead of letting it through at once, which suits a sender feeding a slow downstream, and costs a queue per key. Networks used both in the 1980s and 1990s to police and shape traffic on telephone and ATM lines."
+    },
+    "lua": {
+      "kind": "technical",
+      "title": "Atomic scripts in Redis",
+      "text": "Redis runs commands one at a time on a single thread, so a Lua script sent with EVAL runs from start to finish with no other command in between. That makes read, decide and write one atomic step without locks. The cost is that a slow script stalls every other client of that Redis process, so limiter scripts are kept to a handful of operations."
+    },
+    "l4l7": {
+      "kind": "technical",
+      "title": "Layer 4 and layer 7",
+      "text": "A **layer 4** balancer sees only TCP connections, addresses and ports; it is fast and simple but can't read a request. A **layer 7** balancer or gateway terminates TLS and parses HTTP, so it can route by path, check credentials and apply a limit per API key. Most designs use both: layer 4 spreads connections across a pool of layer 7 gateways, which do the per-request work. Gateways also drain connections before a restart, finishing requests in flight before they stop accepting new ones."
+    },
+    "status": {
+      "kind": "technical",
+      "title": "429 and 503",
+      "text": "Status 429, Too Many Requests, was defined in RFC 6585 in 2012 for a client that has sent too much. Status 503, Service Unavailable, says the server is overloaded whatever the client did, and is the honest answer from a load shedder. Both may carry a Retry-After header, in seconds or as a date."
+    },
+    "dark": {
+      "kind": "digression",
+      "title": "Launching a limiter in the dark",
+      "text": "A new limiter's thresholds are guesses until real traffic meets them. Running it for a while in a mode that logs \"would have refused\" without refusing shows which customers it would hit, and lets the thresholds be set from data before anyone gets a 429 they didn't deserve."
+    }
+  }
+}

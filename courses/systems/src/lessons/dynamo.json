@@ -1,0 +1,289 @@
+{
+  "id": "dynamo",
+  "n": 12,
+  "title": "A shopping cart that never says no",
+  "teaches": "Consistent hashing with virtual nodes, replicas along the ring, quorums (N, R, W), hinted handoff, and Merkle-tree repair",
+  "summary": [
+    "**Start from the requirement that rules.** Dynamo was designed around one sentence: a customer can always add to the cart, whatever is failing.",
+    "**Many points per server.** With one point on the ring, a dead server's keys all land on one neighbour; with a hundred points they spread over every server.",
+    "**A key lives on N servers.** Its preference list is the first N distinct servers clockwise from the key.",
+    "**R + W > N makes reads see writes.** A write waits for W acknowledgements and a read for R replies, and when the sum exceeds N every read set shares a replica with every write set.",
+    "**Smaller R and W buy latency.** Waiting for two of three replies means the slowest replica no longer sets the time, at the price of a chance of stale reads when R + W is not more than N.",
+    "**A sloppy quorum keeps writes flowing.** A copy meant for a dead server goes to the next healthy one with a hint, and is handed back when the server returns.",
+    "**Merkle trees find what differs.** Two replicas compare hashes from the root down and exchange only the key ranges that disagree.",
+    "**Availability is paid for in conflicts.** Without a leader two replicas can accept different writes to one key, and the application must merge them (lesson 13).",
+    "**The name outlived the design.** DynamoDB (2012) has a leader for each partition; the 2007 design lives on in Cassandra and Riak."
+  ],
+  "parts": [
+    {
+      "title": "Add to cart, whatever happens",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In October 2007 the Symposium on Operating Systems Principles met at Skamania Lodge in Stevenson, Washington. Giuseppe DeCandia and eight colleagues from Amazon, Werner Vogels, the company's chief technology officer, among them, presented \"Dynamo: Amazon's Highly Available Key-value Store\". It described a storage system that Amazon had been running for its shopping cart and other services, and it was unusually frank about what the design gave up."
+        },
+        {
+          "type": "text",
+          "text": "Amazon's site was built from services: the paper says a page request typically called more than 150 of them. On one busy day of a holiday season, the shopping cart service had handled tens of millions of requests, ending in more than 3 million checkouts. Each service promised its callers a latency at the 99.9th percentile, such as 300 ms for 99.9% of requests at a peak of 500 requests a second, because an average hides the customers who matter most (lesson 9 made the same point about fan-out)."
+        },
+        {
+          "type": "text",
+          "text": "One sentence in the paper drives everything else: customers should be able to view and add items to their shopping cart even if disks are failing, network routes are flapping, or data centres are being destroyed by tornados. A refused \"add to cart\" is a lost sale, and at Amazon's volume even a few seconds of refusals a day is real money. The design team called this being **always writeable**."
+        },
+        {
+          "type": "text",
+          "text": "Before drawing any boxes, the requirements, written down as lesson 3 did for TinyURL:"
+        },
+        {
+          "type": "key_ideas",
+          "title": "What the store must do",
+          "points": [
+            "Read and write a value by its key, such as a cart by its cart id; values are small, under 1 MB.",
+            "Accept every write, even while servers, disks or links between data centres are failing.",
+            "Answer 99.9% of requests within a few hundred milliseconds.",
+            "Grow by adding machines, with no machine special and no operator moving data by hand.",
+            "Out of scope: transactions across keys, queries by anything but the key, and protection from hostile machines inside Amazon's network."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "The second line rules out the designs of the last few lessons. A single primary, as in lesson 4's replicas or GFS's master, refuses writes while it is down and while a new one takes over. Consensus, as in lesson 11, refuses writes on the side of a partition that lacks a majority. So in Dynamo there is no leader: any of a key's replicas may accept a write, and the price is named up front: replicas can disagree, and someone must reconcile them."
+        }
+      ]
+    },
+    {
+      "title": "The ring, with many points each",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Dynamo places keys with consistent hashing, which lesson 5 introduced for memcached: servers and keys are hashed onto one circle, and a key belongs to the first server clockwise from it. Two problems remain with one point per server. The arcs are uneven, since random points on a circle leave some gaps several times the average. And when a server dies, every one of its keys passes to the single server next clockwise, which suddenly carries twice its load."
+        },
+        {
+          "type": "text",
+          "text": "The fix is to give each server many points, called **virtual nodes** (the paper calls them tokens). A server with a hundred points owns a hundred small arcs scattered round the circle. Its share is the sum of a hundred random gaps, which is close to the average, and when it leaves, each of its arcs passes to a different neighbour, so its load spreads over nearly every server. A bigger machine can simply be given more points."
+        },
+        {
+          "type": "text",
+          "text": "Each key is stored on N servers, its **preference list**: walk clockwise from the key and take the first N distinct servers, skipping points of a server already chosen. Amazon used N = 3. The first server on the list is the usual **coordinator** for a write, the server that forwards it to the others and collects their acknowledgements. That is a convenience, not a leader: if it is down or busy, another server on the list coordinates instead, and two coordinators can handle writes to one key at the same moment, which a leader would never allow."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "dynamo-ring",
+          "caption": "Servers placed on a hash ring. The arcs [[C|data]] owns are drawn thick, and the bars show each server's share of the keys against a fair share. [[Key 17|request]] is stored on the first three distinct servers clockwise from it. Take C out to see who inherits its keys.",
+          "task": "With at least five servers, give each enough points that the busiest holds at most 1.3 times its fair share.",
+          "goal": "even"
+        },
+        {
+          "type": "text",
+          "text": "The numbers from the figure, for six servers: with one point each, the busiest holds 2.8 times its fair share; with eight points, 1.3 times; with a hundred and twenty-eight, 1.1. Taking C out with one point each sends all of C's keys to one server; with sixty-four points they go to all five that are left."
+        }
+      ]
+    },
+    {
+      "title": "How many replies to wait for",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "With three copies of every key and no leader, each request must decide how many replicas to hear from. Dynamo leaves it to the service as two numbers. A write is sent to all N replicas and succeeds once **W** of them have acknowledged it. A read is sent to the replicas and answers once **R** of them have replied, returning the newest version among those replies. A **quorum** is such a set of replies: enough to act on, fewer than all."
+        },
+        {
+          "type": "text",
+          "text": "When R + W > N, every set of R replicas shares at least one member with every set of W replicas, because the two sets together are larger than the whole. A read therefore reaches at least one replica that holds the last acknowledged write. When R + W is N or less, a read can be answered entirely by replicas the write has not reached yet, and it returns the old value."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "dynamo-quorum",
+          "caption": "A put of [[v2|write]] coordinated by A, then a get coordinated by D, with N = 3. The write reaches B late and C later still; C happens to be the quickest to answer D. A [[red|error]] reply carries the old value v1. The switches \"B is down\" and \"Sloppy quorum\" take B out and let D stand in for it. Messages move in slow motion.",
+          "task": "Play with R = 1 and W = 2 until you see a stale read, then set R + W above 3 and play again.",
+          "goal": "quorum"
+        },
+        {
+          "type": "text",
+          "text": "The paper gives the settings services used. **N = 3, R = 2, W = 2** was the common one: reads and writes overlap, and each request waits for the faster two of three replies, so one slow or dead replica does not hold anything up. That last point is lesson 9's tail at small scale: if one replica in a hundred is slow at a given moment, waiting for all three is slow about 3% of the time, waiting for two of three about 0.03%. A service with many reads could use **R = 1, W = 3** for fast reads; a service that must never refuse a write could use **W = 1** and accept that reads may be stale."
+        },
+        {
+          "type": "text",
+          "text": "Overlap is a weaker promise than it looks.[^overlap] Two clients can write to one key at once through two coordinators, each reaching W replicas, and then the overlapping replica holds two versions that neither write knew about. Dynamo keeps both and leaves the choice to lesson 13's machinery."
+        }
+      ]
+    },
+    {
+      "title": "When a replica's home is down",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Suppose B, one of the key's three servers, is down, and W = 2. A **strict quorum** counts only the key's own three servers, so the write waits for A and C, and when two of the three are down it is refused. That breaks the second requirement in the list at the top of the lesson."
+        },
+        {
+          "type": "text",
+          "text": "Dynamo uses a **sloppy quorum** instead: a write goes to the first N healthy servers on the ring, and when one of the key's own servers is down, the next one clockwise takes its place. Here that is D. D stores the copy with a [[hint|write]] in its metadata saying it belongs to B, keeps it in a separate local store, and checks now and then whether B is back. When it is, D sends the copy to B and deletes its own. This is **hinted handoff**. Turn on \"B is down\" and \"Sloppy quorum\" in the figure above to watch it. A knows B is down only because its own requests to B time out: each server judges the others on its own, retries them now and then, and learns of lasting changes through gossip (next part). There is no global verdict, which is why D keeps checking whether B is back."
+        },
+        {
+          "type": "text",
+          "text": "The cost is precise. With a sloppy quorum, the W servers that took a write and the R servers that answer a read are no longer drawn from the same three, so R + W > N stops guaranteeing overlap. A read coordinated near A, B and C may miss the copy sitting on D. The design trades a promise about reads for a promise about writes, which is the trade the requirement asked for. Preference lists span several data centres, so the same hints carry writes through the loss of a whole site."
+        }
+      ]
+    },
+    {
+      "title": "Finding what differs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hints can be lost: D can fail before handing B its copy. So replicas also compare notes in the background, a process called **anti-entropy**. Sending every key to compare would move the whole dataset. Instead each server keeps a **Merkle tree** for each key range it holds: the leaves are hashes of small ranges of keys, and each parent is the hash of its two children."
+        },
+        {
+          "type": "diagram",
+          "id": "dynamo-merkle",
+          "caption": "Two replicas' Merkle trees for the same key range, cut into eight smaller ranges at the leaves. One leaf range holds a newer cart on replica B, so every hash on the path from that leaf to the root differs. Comparing from the root down finds it without touching the six ranges that agree."
+        },
+        {
+          "type": "text",
+          "text": "Two replicas exchange their roots. If they match, the whole range agrees and they are done, which is the usual case. If not, they compare the children and descend only into the halves that differ, so finding one differing range among a million takes about twenty levels of comparison, and only that range's keys are sent. The cost is that the trees must be recomputed when key ranges move between servers, which, with points placed at random on the ring, happened every time a server joined or left.[^strategy]"
+        },
+        {
+          "type": "text",
+          "text": "Two smaller mechanisms help. A read that sees an old version on one replica writes the newer one back to it, called **read repair**. And servers learn of each other by **gossip**: each second, every server exchanges its view of the membership with one other server chosen at random, so a change reaches all of them within a few rounds without any central list. Adding or removing a server was done by an operator's command, because a server that is unreachable for a few minutes is usually coming back.[^seeds]"
+        }
+      ]
+    },
+    {
+      "title": "What always writeable costs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Naming the trade-off means saying who pays. Here it is the application. Two replicas that accepted different writes during a failure each hold a version of the cart, and Dynamo returns both on the next read and asks the caller to merge them. For the cart, the merge is a union of the items, which keeps every addition and can bring back an item the customer deleted. Lesson 13 is about exactly that. The paper measured how often it happened: over 24 hours of the cart service, 99.94% of requests saw exactly one version.[^versions]"
+        },
+        {
+          "type": "text",
+          "text": "Other costs fall on the people running it. Every service had to choose N, R and W and understand them. Every client had to handle multiple versions. And operators had to add servers and keep an eye on Merkle-tree rebuilds and hint backlogs."
+        },
+        {
+          "type": "text",
+          "text": "When Amazon Web Services launched **DynamoDB** in January 2012, it kept the name and the key-value interface but not the leaderless design. A 2022 paper on DynamoDB describes each partition as a group of three replicas with one leader chosen by Multi-Paxos, a form of lesson 11's consensus that keeps one leader for a long run of decisions; writes go through the leader, readers can ask for a strongly consistent read, and while a failed leader is being replaced, its partition cannot take writes. Vogels wrote at the launch that few teams inside Amazon had taken up Dynamo itself, because each had to run and tune its own installation. What they took up was a service Amazon ran for them, in which a leader orders the writes to each key, so there are no versions to merge. The 2007 design lives on elsewhere: Avinash Lakshman, one of its authors, went on to build Cassandra at Facebook,[^cassandra] and Riak and LinkedIn's Voldemort followed the paper closely."
+        },
+        {
+          "type": "key_ideas",
+          "title": "The trade, named",
+          "points": [
+            "Wanted: every write accepted, with low latency at the 99.9th percentile.",
+            "Given up: a single order of writes for each key, and reads guaranteed to be fresh.",
+            "Paid by: each application, which must merge versions and live with an occasional stale read.",
+            "Choose it when a refused write costs more than a merged one; otherwise a leader per partition is simpler."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on Dynamo",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A key has N = 3 replicas, and a service uses W = 1 and R = 1. What can happen?",
+                "choices": [
+                  "A write is refused whenever any one of the three replicas is down",
+                  "A read can return a stale value",
+                  "A read always waits for all three replicas, so every read is as slow as the slowest replica"
+                ],
+                "answer": 1,
+                "why": "R + W = 2 is not more than N = 3, so the one replica that answers a read need not be the one that took the write."
+              },
+              {
+                "ask": "Why does Dynamo give each server many points on the ring?",
+                "choices": [
+                  "So that a client can find any key's servers without looking at the ring or asking any other server",
+                  "So that each key is copied to more servers than N, for extra safety when several fail at once",
+                  "So load is even and a lost server's keys spread widely"
+                ],
+                "answer": 2,
+                "why": "A share made of many small arcs is close to the average, and each arc passes to a different neighbour when the server leaves."
+              },
+              {
+                "ask": "Which requirement drove Dynamo's design more than any other?",
+                "choices": [
+                  "Cart writes must be accepted even during failures",
+                  "Every read must return the most recent write, even when the replicas sit in different data centres",
+                  "The store must answer queries on any attribute, not only the key"
+                ],
+                "answer": 0,
+                "why": "\"Always writeable\" is why there is no leader, why quorums are tunable and why replicas may hold conflicting versions."
+              },
+              {
+                "ask": "With a sloppy quorum and hinted handoff, what does the system give up?",
+                "choices": [
+                  "The ability to accept a write while two of the key's own three servers are down",
+                  "The promise that a read's replicas overlap the write's, since the write may sit on a stand-in",
+                  "Ordering: a write held by a stand-in is applied after any later write once handed back"
+                ],
+                "answer": 1,
+                "why": "A read asks the key's own servers, so it can miss a copy held by D until the hint is handed back. Hints can also be lost if D dies first, which anti-entropy repairs."
+              },
+              {
+                "ask": "Two replicas of a large key range want to find out which keys differ. What do Merkle trees let them do?",
+                "choices": [
+                  "Send every key and version to each other, compressed so the transfer is small",
+                  "Agree on a leader for the range, which then overwrites the other replica",
+                  "Compare hashes from the root down and send only the small ranges whose hashes differ"
+                ],
+                "answer": 2,
+                "why": "Matching roots settle the whole range at once; a mismatch is followed down one branch at a time to the ranges that disagree."
+              },
+              {
+                "ask": "With N = 3, R = 2, W = 2, how long does a read take?",
+                "choices": [
+                  "As long as the second-fastest replica",
+                  "As long as the slowest of the three replicas, since every copy must be compared",
+                  "As long as the fastest replica, since one reply is enough to answer once the write quorum W is 2"
+                ],
+                "answer": 0,
+                "why": "The coordinator answers after two replies, so the tail of one slow replica is cut off, as in lesson 9."
+              },
+              {
+                "ask": "Amazon's DynamoDB uses a leader for each partition, unlike the 2007 Dynamo. What does that choice buy?",
+                "choices": [
+                  "Writes that are accepted on both sides of a network partition, with no pause when a server fails",
+                  "One order of writes per key and no versions to merge, at the cost of a pause on failover",
+                  "Lower latency for every write, because the leader acknowledges as soon as it has written its own copy"
+                ],
+                "answer": 1,
+                "why": "A leader orders every write, so there are no conflicts to merge; while it is replaced, its partition cannot take writes."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "overlap": {
+      "kind": "technical",
+      "title": "Overlap is not linearizability",
+      "text": "Even a strict quorum with R + W > N does not make reads behave as if there were one copy. A read that overlaps a write in time can see the new value while a later read sees the old one, if the write has reached only some replicas. Fixing that needs extra steps, such as a read that writes back what it saw before answering. Lesson 13 names the levels of consistency."
+    },
+    "strategy": {
+      "kind": "technical",
+      "title": "Equal slices of the ring",
+      "text": "The paper describes three ways of placing points. In the first, random tokens per server, a joining server took ranges from many others, and each of them had to scan its store and rebuild its Merkle trees. Amazon moved to a ring cut into a fixed number of equal partitions, with the partitions handed out to servers. Ranges then never change shape, so a partition and its tree can move as one file."
+    },
+    "seeds": {
+      "kind": "technical",
+      "title": "Seeds",
+      "text": "Gossip alone could split into two groups that never hear of each other, if two servers joined at the same moment and each told only the other. Dynamo avoids this with a few seed servers that every server knows from its configuration and gossips with eventually."
+    },
+    "versions": {
+      "kind": "technical",
+      "title": "How often carts diverged",
+      "text": "The paper's figures for the 24 hours: 99.94% of requests saw one version, 0.00057% saw two, 0.00047% saw three and 0.00009% saw four. It adds that most of the divergence came not from failures but from many writers at once, often automated clients."
+    },
+    "cassandra": {
+      "kind": "digression",
+      "title": "Inbox search",
+      "text": "Lakshman and Prashant Malik built Cassandra for Facebook's inbox search and released it as open source in 2008. It took Dynamo's ring, gossip, hinted handoff and tunable quorums and Bigtable's data model and log-structured storage (lesson 10). It resolves conflicting writes by timestamp, last writer wins, which lesson 13 shows can lose a write."
+    }
+  }
+}

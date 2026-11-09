@@ -1,0 +1,226 @@
+{
+  "id": "routing",
+  "n": 103,
+  "title": "Across a continent in a millisecond",
+  "teaches": "Dijkstra and A*, contraction hierarchies, and customisable route planning: precompute the structure, re-weight the roads fast",
+  "branch": "maps",
+  "needs": [
+    "nearby",
+    "mapreduce"
+  ],
+  "parts": [
+    {
+      "title": "Twenty minutes at a café",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "One morning in 1956 Edsger Dijkstra, then 26 and a programmer at the Mathematical Centre in Amsterdam, was shopping in the city with his fiancée. Tired, they sat down on a café terrace for a cup of coffee, and he turned over a problem he had been set: the Centre's new computer, the ARMAC, was to be shown to the public, and he wanted a demonstration that people who were not mathematicians could follow. He chose the shortest route between two cities in the Netherlands, on a map of 64 towns. As he told it many years later, he designed the algorithm there at the table, without pencil and paper, in about twenty minutes. He did not publish it until 1959, in a three-page paper."
+        },
+        {
+          "type": "text",
+          "text": "Dijkstra's algorithm is still how a route is found from first principles. But a route planner serving a continent has a harder version of his problem. The road network of Western Europe, as used in a research benchmark of 2006, has about 18 million junctions and 42 million road segments. A map service may be asked for routes across it millions of times a minute, and each answer must come back in a few milliseconds, with today's traffic taken into account. This lesson follows the ideas that made that possible, each of which moves work from the moment of the question to some earlier moment when nobody is waiting."
+        }
+      ]
+    },
+    {
+      "title": "Settling junctions in order",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A road network becomes a **graph**: each junction a node, each stretch of road between two junctions an edge, and each edge a **weight**, the time it takes to drive. Dijkstra's algorithm keeps a priority queue of junctions ordered by the best time found so far to reach each. It repeatedly takes the nearest junction not yet finished, marks it **settled** (its time is now final), and offers each neighbour a time through it. The search grows outward from the start like a ripple, and stops when the destination is settled.[^heap]"
+        },
+        {
+          "type": "text",
+          "text": "The ripple is the problem. To find a route of a given length, Dijkstra settles every junction closer than the destination in every direction. Across Europe a long route settles millions of the 18 million junctions, and each settled junction costs a heap operation and a few scattered memory reads, around a microsecond: a few seconds for a long route. **An estimate** of what that means: at 2 seconds a route, a service answering 10,000 routes a second needs 20,000 cores doing nothing else. Dijkstra on every request is the first wrong design."
+        },
+        {
+          "type": "text",
+          "text": "Two older ideas help a little. **A*** (Peter Hart, Nils Nilsson and Bertram Raphael at SRI, 1968) adds a sense of direction: it orders the queue by the time so far plus a lower bound on the time left, so junctions toward the destination come first.[^shakey] For shortest distance the straight line is a tight bound, since roads seldom wander far from it, and A* then settles little more than a strip along the route. For driving times the natural bound, straight-line distance at the top speed of any road, is weak, since most roads are much slower than a motorway, so the ripple narrows but does not vanish. A **bidirectional** search runs two ripples at once, one forward from the start and one backward from the destination, and stops when they meet. Two circles of half the radius cover half the area of one big one."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "routing-search",
+          "caption": "A small road network of 160 junctions, with a motorway each way across (the dark lines). Orange junctions are the ones a search settled; the pale ones were settled from the destination's end. The fastest route is green. Hierarchy is the method the next part explains.",
+          "task": "Run Dijkstra, A* and Both ends, then Hierarchy, the method of the next part",
+          "goal": "ch",
+          "aspect_ratio": 1.6
+        }
+      ]
+    },
+    {
+      "title": "Shortcuts",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Long routes look alike. Leave the side streets, join the main road, take the motorway most of the way, and come off it near the end. The side streets in the middle of the country are irrelevant to almost every long trip. **Contraction hierarchies**, published in 2008 by Robert Geisberger, Peter Sanders, Dominik Schultes and Daniel Delling at Karlsruhe, turn that observation into a preprocessing step."
+        },
+        {
+          "type": "text",
+          "text": "Rank every junction by how important it is, roughly by how many shortest paths pass through it. In practice the order is chosen greedily as contraction goes: next comes whichever junction would add the fewest shortcuts for the roads it removes, with a nudge so that neighbouring junctions are spread through the order rather than all left to the end. Then remove the junctions one at a time, least important first. Removing, or **contracting**, a junction would break the shortest paths that ran through it, so whenever the way from one of its neighbours to another through it is the only quickest way, add a **shortcut** edge between those two neighbours with the combined time. If some other path, a **witness**, is just as quick without it, no shortcut is needed. When every junction is gone, the original roads and the shortcuts together form the hierarchy."
+        },
+        {
+          "type": "diagram",
+          "id": "routing-shortcut",
+          "caption": "Contracting a junction v. A shortcut keeps the quickest time from u to w only when the way through v is the quickest.",
+          "aspect_ratio": 2.79
+        },
+        {
+          "type": "text",
+          "text": "A query runs a bidirectional search in which each side only ever follows edges toward more important junctions. Both searches climb quickly to the motorway-level junctions and meet near the top: the most important junction on the quickest route can be reached from both ends by climbing alone, because contraction added a shortcut wherever a less important junction was removed from a quickest path. Each side stops once the smallest time left in its queue exceeds the best meeting found so far. The shortcuts carry them over everything in between. Each shortcut stores the junction it skipped, so unpacking is recursive: a shortcut is replaced by its two halves until only real roads are left, and that gives the route's geometry. On a continental network a query settles a few hundred junctions instead of millions and takes well under a millisecond. Preprocessing takes minutes and adds about as many shortcuts as there were roads. The search figure in the previous part, set to Hierarchy, shows the same on its network of 160 junctions: the hierarchy settles a few dozen, where Dijkstra settles well over a hundred."
+        }
+      ]
+    },
+    {
+      "title": "When the roads change",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The hierarchy's order and shortcuts were chosen for one set of weights. Traffic changes the weights every few minutes, as lesson M4 shows, and a closed road or a jam on the motorway can change which junctions matter and which shortcuts are quickest. Strictly, every change means preprocessing again, minutes for a continent, by which time the traffic has moved on."
+        },
+        {
+          "type": "text",
+          "text": "**Customisable route planning**, published in 2011 by Daniel Delling, Andrew Goldberg, Thomas Pajor and Renato Werneck at Microsoft Research and used in Bing Maps, separates the two things the hierarchy mixes. The shape of the road network, which junctions connect to which, changes rarely. The weights, how long each road takes now, change all the time. CRP works in three phases."
+        },
+        {
+          "type": "text",
+          "text": "**Partition**, once per map version and independent of any weights: cut the network into cells with as few roads crossing between cells as possible, along rivers, mountain ridges and borders, at several levels of size. **Customise**, whenever weights change: for each cell, compute the quickest time between every pair of its **boundary junctions**, the ones with a road leaving the cell, using only roads inside it. Each cell keeps these as a small table, one row and one column per boundary junction. The tables' entries, together with the roads that cross between cells, form the **overlay** graph, much smaller than the network, which stands in for the inside of every cell. Cells are independent, so all of them can be computed in parallel in seconds for a continent, and a jam in one cell means recomputing only that cell, in milliseconds. **Query**: search the start's cell and the destination's cell in full, and everywhere else move only along the overlay's shortcuts and the roads between cells. With several levels of cells the query uses the finest cells near the two ends and the coarsest in between, so a route across a continent touches few overlay edges."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "routing-crp",
+          "caption": "The same network cut into 8 cells. Squares mark the boundary junctions, between which the overlay keeps a shortcut for each cell. Tap a road to jam it (eight times slower) and see what must be recomputed.",
+          "task": "Jam a road on the green route",
+          "goal": "jam",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "CRP's queries are a few times slower than a contraction hierarchy's, some milliseconds rather than a fraction of one, because the overlay has no ranks for a search to climb: a query ripples across every overlay junction in reach, thousands rather than a few hundred. In return it takes new traffic in seconds. The principle is to separate what changes rarely from what changes often, and precompute only the first. Bigtable, in lesson 10, did it by never changing an SSTable once written and sending every new write to a small memtable; CRP never changes its partition and sends every new weight to the cheap customisation step. The open-source route planner OSRM, started at Karlsruhe, offers both methods for that reason.[^osrm]"
+        }
+      ]
+    },
+    {
+      "title": "Serving routes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Start with the memory. Eighteen million junctions and 42 million roads, plus about as many shortcuts again, at a dozen bytes an edge (a destination, a weight, a flag or a shortcut's middle junction), come to around a gigabyte, plus coordinates and road attributes. That fits on one server, so the usual design does not split a continent across machines. Each server holds the whole graph for a region and any of them can answer any query, and the service grows by adding identical replicas behind a load balancer. At a millisecond a query one core answers about a thousand a second, so 100,000 routes a second need about a hundred cores, plus room for peaks and failures."
+        },
+        {
+          "type": "text",
+          "text": "The graph itself is built from the map's data for each map version: every road segment with its length, its speed limit, its one-way rules and the turns allowed at each junction.[^turns] That is a large batch job over the whole map, of the shape lesson 8's MapReduce handles, and it should use the same version number as lesson M1's tiles, so that the route never uses a road the map does not show."
+        },
+        {
+          "type": "text",
+          "text": "A service rarely answers only single routes. Lesson M2's dispatch needs the driving time from each of dozens of nearby cars to a rider, a small table of times rather than one route, and contraction hierarchies have a variant that fills such tables in little more than the cost of one query per row. An arrival time is the route's weights added up at the moment each road will be reached, not now, which is where lesson M4's predicted speeds come in. Google has not published the details of how its own route planner works; Bing's CRP and the open-source OSRM are the designs described in the open."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on route planning",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why is running Dijkstra's algorithm on each request too slow for a continental route planner?",
+                "choices": [
+                  "It must reload the whole road network from disk for every route, which takes several seconds",
+                  "It settles every junction nearer than the destination in every direction, millions for a long route",
+                  "It finds only one route per run, so alternative routes need many separate runs of it"
+                ],
+                "answer": 1,
+                "why": "Dijkstra's ripple spreads evenly outward until it reaches the destination, so a long route settles a large share of the whole network, taking seconds."
+              },
+              {
+                "ask": "Why does searching from both ends at once settle fewer junctions than one search from the start?",
+                "choices": [
+                  "Each search can skip every other junction, since the other search covers the rest",
+                  "The backward search runs on a smaller copy of the graph with only main roads",
+                  "Two ripples of half the radius cover about half the area of one full-radius ripple"
+                ],
+                "answer": 2,
+                "why": "Area grows with the square of the radius, so two circles of radius r/2 cover πr²/2, half of πr²."
+              },
+              {
+                "ask": "In a contraction hierarchy, when does contracting junction v add a shortcut between its neighbours u and w?",
+                "choices": [
+                  "When the path u to v to w is the only quickest way from u to w",
+                  "Whenever u and w are both more important than v, whatever the path times",
+                  "When u and w are in different cells of the partition"
+                ],
+                "answer": 0,
+                "why": "The shortcut preserves a quickest path that removing v would break. If a witness path avoiding v is as quick, no shortcut is needed."
+              },
+              {
+                "ask": "A route planner must reflect traffic that changes every few minutes. Why might it use customisable route planning rather than a contraction hierarchy?",
+                "choices": [
+                  "CRP answers each query faster than a contraction hierarchy, so it can afford to wait for the traffic",
+                  "A contraction hierarchy cannot store travel times, only distances, so it ignores traffic",
+                  "CRP recomputes only the affected cells' shortcuts in milliseconds; the hierarchy needs minutes of preprocessing"
+                ],
+                "answer": 2,
+                "why": "CRP separates the network's shape, partitioned once, from the weights, applied cell by cell. Its queries are somewhat slower than a hierarchy's, which is the price."
+              },
+              {
+                "ask": "A continental road graph with its shortcuts takes about a gigabyte. How should route servers be arranged?",
+                "choices": [
+                  "Each server holds the whole region's graph, and more replicas are added for more queries",
+                  "The graph is split by region across servers, and each query hops between them",
+                  "The graph lives in a shared database that every server queries road by road"
+                ],
+                "answer": 0,
+                "why": "A gigabyte fits in one server's memory, so any replica can answer any query without network hops, and capacity grows by adding replicas."
+              },
+              {
+                "ask": "What does A* add to Dijkstra's algorithm, and why does it help less for driving times than for shortest distance?",
+                "choices": [
+                  "A cache of earlier routes steers it toward the goal, but caches go stale as traffic changes",
+                  "A lower bound on the time left steers it toward the goal, but straight line at top speed underestimates most trips badly",
+                  "Shortcuts between distant junctions steer it toward the goal, but they take hours to compute"
+                ],
+                "answer": 1,
+                "why": "A* orders the queue by time so far plus a bound on the rest. The bound must never overestimate, so it assumes motorway speed everywhere, which is far from the truth on most roads."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A road network is a weighted graph.** Junctions are nodes, roads are edges, and the weights are driving times.",
+    "**Dijkstra settles junctions in order of time from the start.** It is exact but settles millions of junctions for a long route, seconds a query on a continent.",
+    "**A* and bidirectional search narrow the ripple.** A lower bound points it toward the goal, and two half-size searches cover half the area.",
+    "**Contraction hierarchies precompute shortcuts.** Junctions are removed in order of importance, and a query climbs from both ends to meet near the top, settling a few hundred junctions.",
+    "**Weights change faster than a hierarchy can be rebuilt.** Traffic moves every few minutes; preprocessing a continent takes minutes.",
+    "**Customisable route planning separates shape from weights.** Partition once, recompute each cell's boundary shortcuts in parallel, and a jam costs one cell's work.",
+    "**A continent's graph fits on one server.** Replicate it whole and add replicas for more queries."
+  ],
+  "footnotes": {
+    "heap": {
+      "kind": "technical",
+      "title": "The priority queue",
+      "text": "With a binary heap, each settled junction and each improved time costs a step proportional to the logarithm of the queue's size, so Dijkstra on a road network takes time roughly proportional to the number of roads times that logarithm, and memory proportional to the number of junctions."
+    },
+    "shakey": {
+      "kind": "digression",
+      "title": "A robot that planned",
+      "text": "A* was invented for Shakey, a wheeled robot at the Stanford Research Institute that planned its own way around rooms and obstacles, one of the first machines to reason about its actions. Its name came from how it wobbled as it moved."
+    },
+    "osrm": {
+      "kind": "digression",
+      "title": "OSRM",
+      "text": "The Open Source Routing Machine was begun around 2010 by Dennis Luxen and Christian Vetter at Karlsruhe, where contraction hierarchies were invented, and runs on OpenStreetMap's data. It first used contraction hierarchies and later added a multi-level method in the style of CRP for maps whose weights change."
+    },
+    "turns": {
+      "kind": "technical",
+      "title": "Turns",
+      "text": "A no-left-turn sign or a slow turn across traffic cannot be put on a single road; it belongs to a pair of roads. Route planners handle this by making each road segment a node and each allowed turn an edge, which roughly triples the size of the graph, or by storing a small table of turn costs at each junction."
+    }
+  }
+}

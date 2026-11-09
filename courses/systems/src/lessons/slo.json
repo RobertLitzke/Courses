@@ -1,0 +1,282 @@
+{
+  "id": "slo",
+  "n": 24,
+  "title": "The website nobody could see inside",
+  "teaches": "What \"working\" means (SLIs, SLOs, error budgets), the four golden signals, alerting on symptoms, and storing metrics",
+  "parts": [
+    {
+      "title": "October 2013",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On Tuesday 1 October 2013 the United States government opened HealthCare.gov, where people in most states could compare health insurance plans and sign up for one under the new Affordable Care Act. Millions of people tried on the first day. Pages hung, accounts could not be created, and the step that checked people's identities often failed. Notes from the first days, later made public by Congress and reported in the press, put the number who completed enrolment on the first day in single figures."
+        },
+        {
+          "type": "text",
+          "text": "In the middle of October a small group was brought in to help, under the administration's chief technology officer, Todd Park, and later Jeff Zients, who was put in charge of the repair. Among them was Mikey Dickerson, an engineer who took leave from Google's site reliability team. What they found surprised them more than the bugs. Dozens of contractors had built the parts of the site, and there was no single place where anyone could see whether it was working: how many people were trying to sign up, how many succeeded, how long pages took, which part was failing. Teams argued from their own logs and their own impressions. One of the first things the rescue did was install monitoring across the whole system and put its numbers on a screen everyone could see, then hold a meeting every day around them.[^usds]"
+        },
+        {
+          "type": "text",
+          "text": "With the numbers visible, the team could rank problems by how many people each one hurt and fix them in that order. By the start of December the site worked for most people who used it. The lesson the rescuers drew was not about any one bug. A system nobody can measure cannot be fixed on purpose, only by luck. This lesson is about deciding what \"working\" means in numbers, watching those numbers, being woken up only when they matter, and storing them cheaply enough to keep."
+        }
+      ]
+    },
+    {
+      "title": "What working means",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Google had been running production this way for a decade by then; its 2016 book *Site Reliability Engineering* set out the vocabulary most teams now use. A **service level indicator**, an SLI, is a measured ratio: good events divided by all valid events. Valid leaves out what the service should not be blamed for, such as requests refused for bad input, health checks and test traffic. At scale nobody computes it from raw logs at query time: each load balancer keeps two counters a minute, valid and good, and the ratio is taken from the sums. \"Share of requests answered without a server error\" is one. \"Share of requests answered in under 300 ms\" is another, and it is the right way to state a latency goal, as a share of requests, because, as lesson 9 showed, an average hides the slow tail that users feel."
+        },
+        {
+          "type": "text",
+          "text": "A **service level objective**, an SLO, is a target for an SLI over a window: 99.9% of requests succeed, counted over the last 30 days. A **service level agreement**, an SLA, is a promise in a contract, with money attached if it is broken; it is usually looser than the SLO, so the team notices trouble before the lawyers do."
+        },
+        {
+          "type": "text",
+          "text": "The first instinct is a target of 100%, and it is wrong. No service reaches it, so a 100% target is broken by the first blip and then ignored. Users cannot tell 99.99% from 100% anyway, because their own phone networks and Wi-Fi fail more often than that. Targets are named by their **nines**: 99.9% is three nines, 99.99% four. By a common rule of thumb each extra nine costs about ten times as much as the one before, in spare machines, in slower releases and in people on call. The target should be the lowest one that users, measured where they are, would call working."
+        },
+        {
+          "type": "diagram",
+          "id": "scale",
+          "caption": "How long a service may fail completely in 30 days and still meet its target. Each extra nine divides the allowance by ten.",
+          "options": {
+            "title": "Total failure allowed in 30 days",
+            "unit": "minutes",
+            "log": true,
+            "items": [
+              {
+                "label": "99%",
+                "value": 432,
+                "says": "7.2 hours",
+                "color": "cost"
+              },
+              {
+                "label": "99.5%",
+                "value": 216,
+                "says": "3.6 hours",
+                "color": "cost"
+              },
+              {
+                "label": "99.9%",
+                "value": 43.2,
+                "says": "43 minutes",
+                "color": "cost",
+                "bold": true
+              },
+              {
+                "label": "99.99%",
+                "value": 4.32,
+                "says": "4.3 minutes",
+                "color": "cost"
+              },
+              {
+                "label": "99.999%",
+                "value": 0.432,
+                "says": "26 seconds",
+                "color": "cost"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Before choosing indicators, ask what users of this service are trying to do. For a website it is pages that load and actions that complete. For a storage system it is reads that return the right bytes and writes that are not lost. For a data pipeline it is fresh output: the share of hours in which yesterday's numbers were ready by 9 a.m. Measure as close to the user as possible. A server's own logs miss the requests that never reached it, which is exactly what the load balancer's logs, or a probe running from outside, will see."
+        }
+      ]
+    },
+    {
+      "title": "A budget to spend",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The SLO's complement is the **error budget**. A 99.9% target over 30 days allows 0.1% of requests to fail: about 43 minutes of complete outage, or three days of one request in a hundred failing, or a whole month of one in a thousand, or any mix of the two. The budget turns an argument into arithmetic. Developers want to ship changes; operators want nothing to change. With a budget, both agree in advance: while there is budget left, ship; when it is spent, stop shipping features and spend the time on reliability until it recovers."
+        },
+        {
+          "type": "text",
+          "text": "The budget also tells you when to wake someone. The **burn rate** is how fast the budget is being spent, compared with spending it evenly: at a burn rate of 1 it lasts exactly the window, and at 14.4 the whole month's budget would be gone in about two days. Google's follow-up book, *The Site Reliability Workbook* (2018), suggests paging when 2% of the month's budget goes in an hour (a burn rate of 14.4) or 5% in six hours (a rate of 6), and opening a ticket when 10% goes in three days (a rate of 1). Each rule also checks a short window, a twelfth as long (five minutes beside the hour), and fires only when both are over the line: the long window keeps one brief spike from paging anyone, and the short one lets the alert stop soon after the burning does. Fast burns get a person now; slow ones get a person tomorrow."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "slo-budget",
+          "caption": "A month of one service against its target, played day by day: the error budget left, the hours with failing requests, and when alerts on burn rate and on CPU would have paged someone. The month's events are made up; the alert rules are the workbook's.",
+          "task": "Guess, then play the month to the end",
+          "goal": "month",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "The two alert rows are the point of the figure. The CPU alert fires every night once a batch job starts filling the machines in the small hours. The batch job never hurts a user, and the two CPU alerts that happen to fall during the slow leak say nothing about it. A team paged twenty times a month for nothing learns to ignore the page, and then misses the night it matters. The burn-rate alerts fire only when users are failing, including the slow leak, a dependency failing 0.4% of calls for two and a half days from day 14, which a threshold on error rate would miss because 0.4% never looks alarming in a single minute. That is a burn rate of 4: no page, but a ticket within the first day. Raise the target to 99.99% and the background of one failure in five thousand is already more than the budget allows, so the alert never stops: a target set tighter than the system can meet is noise."
+        },
+        {
+          "type": "text",
+          "text": "The general rule is to **alert on symptoms, not causes**. A symptom is something users experience: errors, slowness, stale data. A cause is a guess about why: high CPU, a full disk, a restarted process. Causes belong on dashboards, where someone diagnosing a symptom can find them. A page should mean that a person must act now, and every page that does not should be fixed or deleted."
+        }
+      ]
+    },
+    {
+      "title": "What to watch",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The SRE book names **four golden signals** to watch for every service that serves requests. **Latency**: how long requests take, with failed requests counted apart, since a fast error is not a fast success. **Traffic**: how much is being asked, in requests a second or whatever unit the service deals in. **Errors**: the share of requests that fail, including those that return the wrong thing. **Saturation**: how full the service is, measured by whatever runs out first, threads, memory, a queue's length, the disk. Lesson 2 showed why saturation matters before it reaches 100%: waiting time climbs steeply well before then."
+        },
+        {
+          "type": "text",
+          "text": "Latency needs care when it is added up. Each server can report its own 99th percentile, but percentiles cannot be averaged: the mean of fifty servers' p99s is not the fleet's p99, and can be far from it. Servers instead count requests into a **histogram**, fixed buckets such as under 10 ms, 10 to 25, 25 to 50, and so on. Bucket counts can be added across servers and across minutes, and any percentile read from the sum, to the precision of the buckets. Put one bucket edge exactly at the SLO's threshold, so the share under 300 ms is exact, and widen the buckets roughly twofold elsewhere.[^hist]"
+        }
+      ]
+    },
+    {
+      "title": "Storing the numbers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every one of these numbers is a **time series**: a name, a set of labels, and a list of timestamped values. A count of requests labelled service checkout, status 500, region us-east is one series; each distinct combination of label values is another. The count of combinations, the **cardinality**, is where monitoring systems run into trouble. Before designing the store, the numbers: 50 services, 10 endpoints each, 5 status classes and 4 regions make 50 × 10 × 5 × 4 = 10,000 series for one metric. Add a label for the customer's ID, with a million customers, and the same metric becomes ten billion series. Labels with unbounded values belong in logs and traces, not in metrics."
+        },
+        {
+          "type": "text",
+          "text": "A large company collects millions of series, each sampled every ten seconds or so. Stored plainly, a point is a 64-bit timestamp and a 64-bit floating-point value, 16 bytes. Facebook's engineers, Tuomas Pelkonen and colleagues, published Gorilla in 2015, an in-memory store for the last 26 hours of Facebook's monitoring data, in front of a slower store on disk (HBase) that kept the rest, and its compression is now used widely, including in Prometheus. It rests on two observations about real series. Readings arrive at nearly regular intervals, so the change in the gap between timestamps is usually zero. And a reading is usually equal or close to the one before, so their XOR (exclusive or, which compares two numbers bit by bit and gives 1 where they differ) is all zeros or has a short run of ones in the middle."
+        },
+        {
+          "type": "diagram",
+          "id": "slo-gorilla",
+          "caption": "A minute of one server's request rate, encoded the Gorilla way. A repeated value or an unchanged gap costs a single bit; a change costs a few more.",
+          "aspect_ratio": 1.95
+        },
+        {
+          "type": "text",
+          "text": "Gorilla stores the change in the gap between timestamps, called the **delta-of-delta**: zero costs one bit, a change of up to 64 seconds either way costs 9 bits (a 2-bit prefix and 7 bits of value), and up to 256 seconds 12 bits. A value equal to the last costs one bit. A different one costs two control bits and the XOR's **meaningful bits**, the run between its leading and trailing zeros; when that run is wider than the last one's, 11 more bits say where it starts and how long it is. Nothing is rounded: every point can be read back exactly. Across Facebook's data the paper reports about 1.37 bytes a point, a twelfth of the plain 16. **An estimate** of what that buys: 10 million series at a point every 10 s is a million points a second. Over 26 hours that is 94 billion points: 1.5 TB stored plainly, about 130 GB compressed, which fits in the memory of a handful of machines.[^gorilla]"
+        },
+        {
+          "type": "text",
+          "text": "A store this size has a few more design choices. **Pull or push**: Prometheus (begun at SoundCloud in 2012) scrapes each server's metrics over HTTP, so the collector knows when a server has gone silent; pushing suits short-lived jobs that may be gone before anyone scrapes them. **Retention**: recent data at full resolution, older data downsampled to one point a minute or an hour, the way Gorilla kept 26 hours in memory and older data on disk. And **hierarchy**: Google's Monarch (2020) keeps each region's data in that region, close to the systems it watches and safe from failures elsewhere, and answers global queries by asking every region and combining the answers, the scatter and gather of lesson 9. A monitoring system must also keep working when the systems it watches do not, so it should share as little with them as possible, the same rule as lesson 23's status page."
+        },
+        {
+          "type": "key_ideas",
+          "title": "From the user back to the store",
+          "points": [
+            "Decide what users call working, and state it as a share of good events over a window.",
+            "Spend the error budget on change, and alert when it burns fast.",
+            "Page on symptoms; keep causes on dashboards.",
+            "Count latency into histograms; never average percentiles.",
+            "Watch cardinality: every label value multiplies the series."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on SLOs and monitoring",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A service has an availability SLO of 99.9% over 30 days. About how many minutes of complete outage does its error budget allow?",
+                "choices": [
+                  "About 43 minutes",
+                  "About 4 minutes",
+                  "About 7 hours"
+                ],
+                "answer": 0,
+                "why": "0.1% of 30 days of 1,440 minutes is 43.2 minutes. 4.3 minutes is 99.99%, and 7.2 hours is 99%."
+              },
+              {
+                "ask": "Which is the best indicator for a web checkout's latency?",
+                "choices": [
+                  "The share of checkout requests answered in under 500 ms, measured by each checkout server",
+                  "The mean checkout response time, measured at the load balancer, held under 500 ms",
+                  "The share of checkout requests answered in under 500 ms, measured at the load balancer"
+                ],
+                "answer": 2,
+                "why": "A share of good requests is an SLI that can be summed and given a target, and the load balancer also sees requests that never reached a server or crashed it. A mean hides the slow tail."
+              },
+              {
+                "ask": "A team pages its on-call engineer whenever CPU stays above 90% for ten minutes. Why is that a poor alert?",
+                "choices": [
+                  "CPU is measured too coarsely on modern servers to be a reliable number to alert on",
+                  "High CPU is a possible cause, not a symptom; it fires when users are fine and stays silent for many real failures",
+                  "Ten minutes is too short a window, so the alert fires on every brief spike in load"
+                ],
+                "answer": 1,
+                "why": "Users feel errors and slowness, not CPU. Alerts on causes page people for nothing and miss failures with other causes, so pages should come from symptoms such as the error budget burning."
+              },
+              {
+                "ask": "A service is failing 0.5% of requests, steadily, against a 99.9% SLO over 30 days. What is its burn rate, and what do the workbook's rules do?",
+                "choices": [
+                  "5: the budget would last about six days; the six-hour rule pages someone at once",
+                  "5: the budget would last about six days; a ticket is opened, but nobody is paged",
+                  "0.5: half the budget is being spent, so no alert fires and it can carry on"
+                ],
+                "answer": 1,
+                "why": "The budget allows 0.1% failures, so 0.5% burns it five times faster than evenly. Paging needs a rate of 6 over six hours or 14.4 over an hour; 10% in three days (rate 1) opens a ticket."
+              },
+              {
+                "ask": "Why is a 100% availability target a mistake for almost any service?",
+                "choices": [
+                  "Monitoring systems cannot measure availability precisely enough to confirm a service has reached 100%",
+                  "Contracts with customers forbid promising 100%, so the SLO would conflict with the SLA",
+                  "It cannot be met, so it is broken at once and ignored, and users cannot tell the difference from 99.99% anyway"
+                ],
+                "answer": 2,
+                "why": "A target that leaves no budget gives no room for change and no signal worth acting on, and every extra nine costs far more for a difference users' own networks hide."
+              },
+              {
+                "ask": "Someone proposes adding a user_id label to a request-count metric that has 10,000 series, for a service with two million users. What happens?",
+                "choices": [
+                  "The metric can grow toward 20 billion series, far beyond what the store can hold",
+                  "The metric doubles in size, since each request now carries one more label",
+                  "Nothing much, because a time-series store compresses repeated labels to almost nothing"
+                ],
+                "answer": 0,
+                "why": "Each distinct combination of label values is its own series, so the count multiplies: 10,000 × 2 million. Per-user detail belongs in logs or traces."
+              },
+              {
+                "ask": "Why does Gorilla's compression bring a typical monitoring point from 16 bytes to under 2?",
+                "choices": [
+                  "It stores each value at lower precision, rounding to the nearest whole number before saving",
+                  "It keeps only the points that differ from the previous one and drops the rest entirely",
+                  "Readings come at regular intervals and change little, so the change in gap and the XOR with the last value are mostly zeros"
+                ],
+                "answer": 2,
+                "why": "Delta-of-delta timestamps and XOR-ed values make the usual case a single bit, and nothing is rounded: every point can be read back exactly."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**You cannot fix what you cannot see.** One of the first things HealthCare.gov's rescuers did was install monitoring and put its numbers where everyone could see them.",
+    "**An SLI is a ratio of good events to all events.** State latency as the share of requests under a threshold, measured as close to users as possible.",
+    "**An SLO is a target over a window, and never 100%.** By a common rule of thumb each extra nine costs about ten times the last, for a difference users may not notice.",
+    "**The error budget is what the SLO leaves to spend.** 99.9% over 30 days is 43 minutes of total failure; spend it on change, and stop when it is gone.",
+    "**Alert on burn rate.** Page when the budget burns fast, open a ticket when it burns slowly, and keep causes such as CPU on dashboards.",
+    "**Watch the four golden signals.** Latency, traffic, errors and saturation, for every service that serves requests.",
+    "**Percentiles do not average.** Count latencies into histogram buckets, which add up across servers and minutes.",
+    "**Cardinality is the cost of a metric.** Every distinct combination of label values is a series, so unbounded labels such as user IDs do not belong.",
+    "**Gorilla stores a point in about 1.4 bytes.** Delta-of-delta timestamps and XOR-ed values make the common case a single bit."
+  ],
+  "footnotes": {
+    "usds": {
+      "kind": "digression",
+      "title": "What came after",
+      "text": "Several of the rescuers stayed on. In August 2014 the White House founded the United States Digital Service, with Dickerson as its first administrator, to bring engineers into government on short tours to work on systems like HealthCare.gov."
+    },
+    "hist": {
+      "kind": "technical",
+      "title": "Sketches for percentiles",
+      "text": "Fixed buckets give percentiles only as fine as the buckets. Structures such as t-digest and DDSketch adapt their buckets to the data so that any percentile comes out within a set relative error, and they still merge across servers."
+    },
+    "gorilla": {
+      "kind": "technical",
+      "title": "Where the ratio comes from",
+      "text": "Most series in Gorilla's data changed rarely or slowly; a value that never changes costs about two bits a point with a regular clock. Values that jump about, such as random measurements, compress far less, and the 1.37 bytes is an average over Facebook's mix."
+    }
+  }
+}

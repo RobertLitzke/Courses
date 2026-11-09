@@ -1,0 +1,282 @@
+{
+  "id": "tickets",
+  "n": 204,
+  "branch": "studio",
+  "needs": [
+    "limiter",
+    "payments",
+    "spanner"
+  ],
+  "title": "Fourteen million people, two million tickets",
+  "teaches": "Selling something scarce: a waiting room, holds that expire, no seat sold twice, and bots",
+  "parts": [
+    {
+      "title": "The presale",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On the morning of 15 November 2022 Ticketmaster opened a presale for Taylor Swift's Eras Tour, her first tour in five years, with dozens of stadium dates across the United States. The presale was meant for fans who had registered in advance and been sent a code. By the company's own account two days later, about 14 million people, and bots, showed up; its systems took 3.5 billion requests that day, four times their previous peak. Pages hung, queues stalled, seats vanished from baskets during payment. Ticketmaster still sold more than two million tickets that day, a record, and then cancelled the sale to the general public planned for 18 November, saying there were not enough tickets left to meet the demand.[^senate]"
+        },
+        {
+          "type": "text",
+          "text": "Selling something scarce to far more people than can have it is a design problem with its own shape: most of the work is saying no, and the one thing that must never happen is selling the same seat twice. This lesson is a design exercise. Design an on-sale for **14 million people and 2 million seats**, then compare with what happened. The same shape turns up in flash sales, hotel rooms for a big weekend, and a ride service handing out one driver to one rider."
+        }
+      ]
+    },
+    {
+      "title": "What it must do, and what it need not",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Functional.** Admit people in a fair order. Show which seats are free. Let a buyer hold a few seats while they pay, for a limited time. Sell each seat once, then issue the ticket. Keep bots and resellers' scripts from taking the seats."
+        },
+        {
+          "type": "text",
+          "text": "**Non-functional**, and here they differ by operation, which is the point. The **seat map** may be a few seconds stale: a seat shown as free that turns out to be taken costs one more click. A **hold** must be exact: two holders for one seat is the failure the whole system exists to prevent. **Payment** must happen exactly once per order, with the idempotency keys of lesson 22. And everyone who will be told no should be told quickly and cheaply, because they are 12 million of the 14."
+        },
+        {
+          "type": "text",
+          "text": "**Out of scope:** pricing and \"dynamic\" prices, resale, refunds, drawing the venue map. They matter commercially, but none of them is what breaks on the morning of the sale."
+        }
+      ]
+    },
+    {
+      "title": "The numbers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Before drawing any boxes, guess how fast the selling itself has to go."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "tickets-estimate",
+          "caption": "The estimate for a big on-sale. Refreshing every 5 seconds is a guess at what a nervous fan does with a page that isn't moving.",
+          "task": "Guess the selling rate, then try other sizes",
+          "goal": "guess"
+        },
+        {
+          "type": "text",
+          "text": "Two million seats over four hours is about 140 seats a second. One database can record 140 sales a second without noticing. The load that breaks the system is everything around the sale: 14 million people each refreshing a seat map every few seconds is 2.8 million requests a second, about twenty thousand requests a second for every seat sold a second. The design problem is not how to sell faster. It is how to keep 14 million people from all asking at once, and how to answer the 12 million who will get nothing with something cheaper than a database query."
+        }
+      ]
+    },
+    {
+      "title": "A waiting room",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The seat service in the figure can run about 160 checkout steps a second. Fans arrive faster than that. Send them straight to the seats and see what happens, then put a **waiting room** in front: a queue that admits people at a set rate, here 140 a second, and holds the rest. In the figure each fan makes one request, a single checkout step, so admitting 140 a second leaves the service a margin of 20 steps for retries and slow moments. A real fan makes several calls, seat map, hold and payment, so a real room's rate is the service's capacity divided by the calls each fan makes, less a margin of ten or twenty per cent. The figure runs in slow motion, with long links so the requests can be followed."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "tickets-room",
+          "caption": "Fans, an optional waiting room, the seat service and the seats table. Without a room, a fan whose page doesn't load in 3 seconds tries again, twice. Amber dots above a part are requests waiting there.",
+          "task": "Bring 400 or more fans a second through a waiting room",
+          "goal": "calm"
+        },
+        {
+          "type": "text",
+          "text": "Straight to the seats, a crowd of 400 a second fills the seat service's queue faster than it empties. Within seconds each request waits longer than the 3 seconds a fan will wait, so the fan gives up and tries again, which adds a request, while the service is still working through requests whose senders have already left. Its CPU is fully busy and almost none of its work produces a sale: throughput falls to nearly nothing just when demand is highest.[^metastable] With the room, the seat service never sees more than it can do, sells steadily at the admitted rate, and the queue lives in the room, where waiting is cheap and each person can be told where they stand."
+        },
+        {
+          "type": "text",
+          "text": "A waiting room is cheap to make large because it does almost nothing. Arriving, a fan gets a **signed token** holding their place and the time; the page they see is the same static page for everyone, served from a content delivery network (lesson 19), and it asks a small endpoint every half minute or so whether the token's turn has come. The room admits tokens at the rate the seat service can take, a token bucket like those of lesson D1, *Saying no politely*, at the front door, and an admitted token lets its holder into the seat map for a limited time. Everyone who arrives before the sale opens is put in a **random order** at opening time, so arriving early, or with a thousand browser tabs, buys no advantage. With rooms in several regions, the order is drawn once, centrally, over every token issued anywhere before opening, and each region admits from its part of that one list."
+        },
+        {
+          "type": "text",
+          "text": "The cheapest no comes first. If the presale is for invited fans, the invitation code is checked when the token is issued, before a person can cost the seat service anything; per-account and per-card limits (lesson D1) are checked there too. A request that is going to be refused should be refused at the edge, by a machine that keeps no state."
+        }
+      ]
+    },
+    {
+      "title": "One seat, one buyer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The data model is a row per seat: (event, section, seat) as the key, and a **state**, a **holder** and a **hold_until** time. The API is two calls. **POST /holds** with the event, the seats wanted and an idempotency key returns a hold id and its expiry, or a refusal. **POST /orders** with the hold id, a payment token and another idempotency key charges the card and turns the hold into a sale. Between them sits the buyer typing a card number, which can take minutes, so a hold must last minutes and must end by itself if the buyer walks away. Its length comes from the payment times: if 99% of payments finish within four minutes, a ten-minute hold covers them, and a payment still waiting on a slow bank extends the hold once with another conditional write."
+        },
+        {
+          "type": "text",
+          "text": "The obvious way to take a seat is to read its row, see that it is free, and write the new holder. Two buyers do it at the same moment, through two servers."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "tickets-race",
+          "caption": "Two buyers want seat 14C, through two app servers sharing one seats table. Blue: requests; green: answers; orange: writes; red: a refusal or a double sale.",
+          "task": "Play a design that sells the seat once",
+          "goal": "once"
+        },
+        {
+          "type": "text",
+          "text": "Read-then-write fails because the decision was made on a read that was already out of date when the write landed: both servers saw *free*. The fix moves the decision into the write. A **conditional write** says: set the holder to me and the expiry to ten minutes from now, *only where* the seat has no holder or its hold has expired. In SQL that is an UPDATE with the condition in its WHERE clause, and the database reports how many rows it changed: one for the winner, zero for everyone else. No lock is held while anyone types, and an abandoned hold frees itself, because the condition treats an expired hold as free. The expiry is compared against the database's own clock, never the app servers', which can disagree by more than you would like (lesson 20).[^clock]"
+        },
+        {
+          "type": "text",
+          "text": "A buyer who wants four seats together needs all four or none, so the four conditional writes go in one transaction. If seats are partitioned by (event, section), the seats a group would want together are on one shard, and the transaction never has to cross machines, avoiding the two-phase commit of lesson 20. The best sections are hot: thousands of buyers aim at the same few hundred rows at the opening second. One answer is to give each section a single owner, a process that takes all the requests for its section in order, decides in memory, and writes the results: no contention at all, and it can choose \"best four together\" for the buyer instead of making them guess a seat that is gone by the time they click it. If an owner dies, its sections are handed to another process, as conversations were in lesson D2, *Half a billion people, a few dozen engineers*: the new owner reads the sections' seats from the database, and the conditional writes stop the old owner if it was only paused."
+        },
+        {
+          "type": "text",
+          "text": "Payment follows the hold. The order call charges the card with an idempotency key (lesson 22), then turns the hold into a sale with one more conditional write, *only where* this buyer still holds the seat. If the hold expired while the bank took its time, the sale write changes zero rows and the charge is refunded; better designs mark the hold *paying* when the card is submitted, so it can't expire mid-payment."
+        },
+        {
+          "type": "key_ideas",
+          "title": "The consistency each operation needs",
+          "points": [
+            "Seat map: seconds stale is fine; serve it from a cache.",
+            "Hold: one winner per seat, by a conditional write that also honours expiry.",
+            "Payment: exactly once per order, by idempotency key.",
+            "Sale: conditional on still holding the seat."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bots, fairness, and the same problem elsewhere",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A reseller's script can be faster than any person at every step, so anti-bot measures put a cost on each step a person pays once and a script pays a million times. Registration in advance, with verification, decides who may enter at all. Tokens are bound to the account and the device that earned them, so they can't be handed to a farm of machines. Limits per account, per card and per address cap what any one buyer can take. A puzzle or a small proof of work at the room's door costs a person a second and a script farm real money. And after the sale, orders that share cards or addresses across many accounts can be cancelled."
+        },
+        {
+          "type": "text",
+          "text": "The same design answers other scarce things. A **flash sale** of 10,000 identical items doesn't need a row per item, only a counter decremented with the condition that it stays at zero or above; at tens of thousands of attempts a second, that one counter becomes the hot key, and it is split into ten counters of 1,000 on different shards, each buyer sent to one at random.[^split] A **hotel** keeps a counter per room type per night. A **ride service** treats each driver as a seat: offering a trip to a driver is a hold, a conditional write from *available* to *offered to rider 7 until 12:00:15*, and it expires in seconds if the driver doesn't accept, so no driver is ever offered to two riders at once."
+        }
+      ]
+    },
+    {
+      "title": "What happened, and what changes at scale",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Ticketmaster's statement after the presale said the demand was far beyond what it had planned for, that bot attacks and fans without presale codes had driven much of the traffic, and that it had slowed and paused sales to keep the system up. Set against the exercise, the mechanisms were familiar ones: a queue in front, holds, verified registration. What failed was the cheap no. A presale meant for invited fans was reached by many millions who weren't, and every one of them could make requests deep enough to hurt. Holds that expired while people were still paying, and baskets that emptied, are what a seat service under overload does: requests time out after their work is done, and the work is lost."
+        },
+        {
+          "type": "text",
+          "text": "**At ten times**, the answer is to keep the work proportional to seats, not to people. Every check that can be done at the edge, without state, is done there: the invite code, the token's signature, the rate limit. The seat map is a cached picture refreshed every second or two from a stream of seat changes (lesson 16), never a query per viewer. Each event's seats live in their own cell (lesson 23), so one sale's trouble can't reach another's."
+        },
+        {
+          "type": "text",
+          "text": "**At a hundred times**, or with demand that can't be predicted at all, the fair answer changes from a queue to a **lottery**: register over a week, draw winners, and give each winner a time slot with a guaranteed seat. The load becomes a scheduled trickle, bots gain nothing by speed, and nobody waits for hours to be told no. The cost is the thrill, and some buyers' sense that being early should count."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on selling something scarce",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Two million seats sell over about four hours, and 14 million people come for them. What is the main design problem?",
+                "choices": [
+                  "Recording sales fast enough, since one database can't keep up with a stadium's worth of seats",
+                  "Keeping millions of people from asking at once, and refusing most of them cheaply",
+                  "Storing the seat map, which is too large for any single server to keep in memory"
+                ],
+                "answer": 1,
+                "why": "Selling is about 140 seats a second, easy for one database. The load is everyone else: millions refreshing, about twenty thousand requests per seat sold."
+              },
+              {
+                "ask": "A seat service is overloaded and every request queues longer than buyers wait. Why can its sales fall almost to zero while its CPU is fully busy?",
+                "choices": [
+                  "It spends its time on requests whose buyers have already gone",
+                  "Its database locks every seat row during the overload, so no sale at all can be written until the load falls",
+                  "Its machines slow their clocks under heavy load, so every hold it has granted appears to expire at once"
+                ],
+                "answer": 0,
+                "why": "Work on timed-out requests is wasted, and each timeout brings a retry. A waiting room that admits only what the service can finish keeps every unit of work useful."
+              },
+              {
+                "ask": "Two app servers each read seat 14C as free, then write their own buyer as holder. What is the fix?",
+                "choices": [
+                  "Have the app servers check each other's recent writes before confirming a hold to a buyer",
+                  "Read the seat twice before writing, so a change made in between will be noticed",
+                  "Make the write conditional: set the holder only where there is none or the hold has expired"
+                ],
+                "answer": 2,
+                "why": "The race is between a read and a later write. A conditional write makes the check and the change one step in the database, which reports one changed row to exactly one winner."
+              },
+              {
+                "ask": "Why does a seat hold carry an expiry time rather than a lock released when the buyer finishes?",
+                "choices": [
+                  "Expiry times use less storage than locks do in most relational databases, which matters for millions of seats",
+                  "A hold that ends by itself frees the seat of a buyer who left",
+                  "An expiry lets two buyers share the hold, so that whichever of them pays first gets the seat"
+                ],
+                "answer": 1,
+                "why": "A lock held for a buyer who closed the tab would hold the seat forever. With hold_until in the condition, an expired hold counts as free."
+              },
+              {
+                "ask": "Everyone who arrives before a sale opens is put in random order at opening time. What does this achieve?",
+                "choices": [
+                  "It spreads the database writes evenly across all of the shards that hold the event's seats",
+                  "It removes the need for a waiting room, since arrivals are already spread out over time",
+                  "Arriving early or in many tabs gains nothing"
+                ],
+                "answer": 2,
+                "why": "First come, first served rewards whoever can arrive earliest and most often, which is what scripts do best."
+              },
+              {
+                "ask": "A flash sale has 10,000 identical items and tens of thousands of buy attempts a second. Which design keeps the stock count from becoming the bottleneck?",
+                "choices": [
+                  "One row per item; each buyer claims the lowest-numbered free row with a conditional write",
+                  "Ten counters of 1,000 on different shards, each decremented only if it stays at zero or above",
+                  "One counter read by each buyer and decremented by the app server once payment succeeds"
+                ],
+                "answer": 1,
+                "why": "One counter is a hot key, and so is \"the lowest free row\", which every buyer aims at. Splitting the count over shards spreads attempts, and the condition stops each going below zero. Reading then decrementing in the app would oversell."
+              },
+              {
+                "ask": "A ride service must never offer one driver to two riders. Which design is the same as a seat hold?",
+                "choices": [
+                  "A conditional write offering the driver, expiring in seconds",
+                  "A lock on the driver's row held until the trip ends, released by the driver's app when the rider gets out",
+                  "A queue of riders for each driver, with each driver accepting riders in the order that they asked"
+                ],
+                "answer": 0,
+                "why": "An offer is a hold: one conditional write wins, the others change nothing, and the expiry frees the driver who doesn't accept."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Most of the work is saying no.** Two million seats in four hours is 140 sales a second; fourteen million people refreshing is millions of requests a second.",
+    "**Pick the consistency per operation.** The seat map may be stale, a hold must be exact, payment happens once, and the sale is conditional on the hold.",
+    "**Overload without a queue sells nothing.** Requests time out after their work is done and retries pile on, so throughput collapses as demand peaks.",
+    "**A waiting room admits at the rate the seats can be sold.** Signed tokens, a static page from a CDN, and a token bucket at the door.",
+    "**Refuse cheaply, at the edge.** Check invitation codes, signatures and per-account limits before a request can cost anything.",
+    "**A conditional write sells a seat once.** Set the holder only where there is none or the hold has expired; one row changes for one winner.",
+    "**Holds expire by themselves.** An expiry in the condition frees abandoned seats with no clean-up, measured on the database's clock.",
+    "**Partition seats by event and section.** A group's seats share a shard, and a single owner per hot section can allocate in memory.",
+    "**The same design sells anything scarce.** Split counters for a flash sale, counters per night for hotels, and expiring offers for drivers."
+  ],
+  "footnotes": {
+    "senate": {
+      "kind": "digression",
+      "title": "A hearing",
+      "text": "The presale reached the United States Senate: its Judiciary Committee held a hearing on competition in ticketing on 24 January 2023, where a Live Nation executive blamed a bot attack for much of the trouble."
+    },
+    "metastable": {
+      "kind": "technical",
+      "title": "Staying broken",
+      "text": "A system that keeps failing after the burst that started it has passed is in a **metastable** failure: timeouts cause retries, retries keep the queue full, and the full queue causes timeouts. It recovers only when load is cut below capacity for long enough to drain, which is why refusing work early, or admitting it at a set rate, is the fix rather than more retries."
+    },
+    "clock": {
+      "kind": "technical",
+      "title": "Whose clock",
+      "text": "If each app server compared hold_until with its own clock, a server running 30 seconds fast would see holds expire early and hand out seats still being paid for. Using the database's clock (now() inside the statement) gives every decision one clock. Holds of ten minutes make small clock errors harmless, which is another reason not to make them short."
+    },
+    "split": {
+      "kind": "technical",
+      "title": "Splitting a counter",
+      "text": "With the stock in ten counters, a buyer sent to an empty one tries another before being told the sale is over, so the last few items can take a few extra tries to find. Counters can also be refilled from a central pool as they empty, which keeps the stock where the buyers are."
+    }
+  }
+}

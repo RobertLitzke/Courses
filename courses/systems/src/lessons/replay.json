@@ -1,0 +1,392 @@
+{
+  "id": "replay",
+  "n": 206,
+  "branch": "studio",
+  "needs": [
+    "mapreduce",
+    "chubby"
+  ],
+  "title": "Every night, all of history again",
+  "teaches": "Deterministic replay, a job scheduler with leases and retries, a million tasks on a shared cluster (Borg), preemptible capacity, versioned datasets, and comparing results",
+  "parts": [
+    {
+      "title": "Thirty-five tics a second",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When id Software released *Doom* in December 1993, players could record a game and send it to a friend as a **demo**, a file of a few kilobytes. A demo held no pictures at all. The game advances in steps called **tics**, 35 a second, and the demo held only what the player pressed in each tic: forward, turn, fire. Playing it back ran the whole game again from the same start, feeding in the same presses, and because every part of the game was **deterministic**, the same inputs gave the same monsters in the same places and the same shots landing on the same tics. Even the game's random numbers came from a fixed table of 256 values, read in order.[^rnd] Demos had a known weakness. Played on a different version of the game, where some rule had changed by a fraction, they **desynced**: the player's recorded presses carried on, but into a world that had drifted, and the replayed marine walked into walls."
+        },
+        {
+          "type": "text",
+          "text": "Twenty-two years later Abhishek Verma and colleagues at Google described Borg, the cluster manager that had run nearly all of Google's work for a decade (EuroSys, April 2015). A Borg **cell** was a set of machines run as one, a median of about 10,000. Production jobs, the services that answer users, ran at high priority; batch jobs, analyses and builds and tests, ran at low priority on whatever production left, and were **preempted**, stopped and moved, whenever production needed the room back. Each cell's master, the Borgmaster, was replicated five times and kept its state through Paxos, the agreement protocol of lesson 11."
+        },
+        {
+          "type": "text",
+          "text": "This lesson is a design exercise that needs both ideas. The fleet of survey vehicles from lesson D5 runs software on board that decides what to keep and tags what it sees. Each change to that software must be checked against **a million recorded scenarios**, 30 seconds each, chosen from the catalogue, every night, with the new build compared against the current one and the results on engineers' desks by 07:00. Design the system that runs it, then compare it with what Google and others published."
+        }
+      ]
+    },
+    {
+      "title": "What it must do, and what it need not",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Functional.** Run a build against a named set of scenarios, on a schedule and on demand. Split each run into tasks with an order between them: simulate, then score, then compare, then report. Retry a task whose machine died, and stop retrying one that fails every time. Compare each scenario's result with the same scenario under the baseline build and report what got worse. Build scenario sets from catalogue queries and keep each set as a fixed, named version."
+        },
+        {
+          "type": "text",
+          "text": "**Non-functional.** Results by 07:00. **Reproducible**: the same build on the same scenario gives the same result, bit for bit, next week and next year, or no one can trust a difference. A machine that dies costs minutes of work, not a night. The run should cost little, which means running on spare capacity, and one team's run must not starve another's."
+        },
+        {
+          "type": "text",
+          "text": "**Out of scope:** the simulator's physics and sensor models, which are a field of their own; the catalogue and storage of lesson D5; and the code review and build systems that hand this one a build to test."
+        }
+      ]
+    },
+    {
+      "title": "The same inputs, the same answer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A replay is useful only if it is a replay. Before anything else, guess what a very small change does to one."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "replay-drift",
+          "caption": "A puck steered by recorded inputs among round pegs, recorded once and replayed three ways. Grey is the recorded run; the coloured line is the replay.",
+          "task": "Guess, then replay with the new build that rounds to 32 bits",
+          "goal": "drift"
+        },
+        {
+          "type": "text",
+          "text": "With the same build and the same seed the replay lands on the recorded run exactly, all 600 tics, which at *Doom*'s 35 a second is about 17 seconds of play. Change one thing the recording didn't capture, a random number drawn from another seed, and the paths split within a few dozen tics. Change only the rounding, one part in ten million, and they hold together for a while and then split just as completely. Each bounce off a curved peg multiplies a small error by several times, so a difference of 0.0000001 needs only about ten bounces to become the whole width of the box. Real scenes are full of such bounces: a detector's score just over or under a threshold, an object tracked or dropped, a decision taken one tic earlier."
+        },
+        {
+          "type": "text",
+          "text": "So the simulator is built to be deterministic, and every input is recorded or pinned. Its **clock** is simulated, never the machine's. Its random numbers come from a seeded generator, with the seed stored beside the scenario. Threads may run in any order, so results are combined in a fixed order, and floating point sums, which give different answers in different orders, are added in one order every time. The build is pinned by the hash of its files and the libraries it uses. A run records the hash of every input, and a test checks each night that a small sample of last night's runs gives identical bytes; the first tic where they differ is the place to start looking."
+        },
+        {
+          "type": "text",
+          "text": "Two kinds of replay suit different software. **Open loop**: feed the recorded sensor data through the new build and compare what it says. That is enough for software that only watches, such as detectors and triggers. Software that acts changes what happens next, and a recording can't react to it: the recorded world carries on as if the old software were in charge. That needs **closed loop** simulation, where the scene's other actors are simulated too and respond. Both need determinism; closed loop needs it more, because there every small difference feeds back into the next tic."
+        }
+      ]
+    },
+    {
+      "title": "The numbers",
+      "blocks": [
+        {
+          "type": "interactive_diagram",
+          "id": "replay-estimate",
+          "caption": "The estimate for a nightly run, at one core-second for each simulated second.",
+          "task": "Guess, then make the simulator slower",
+          "goal": "guess"
+        },
+        {
+          "type": "text",
+          "text": "A million 30-second scenarios are 347 days of driving. At one core-second per simulated second that is about 8,300 core-hours, under an hour on 10,000 cores. A full sensor simulation is several times slower, say 4 core-seconds for each simulated second, and comparing needs the baseline build too: 2 × 1,000,000 × 30 × 4 core-seconds is about 67,000 core-hours a night. That is too much to buy as dedicated machines that would sit idle all day, and about right for the hours when a cluster's users are asleep."
+        },
+        {
+          "type": "text",
+          "text": "The last line of the estimate matters as much. If each comparison can flag a change by chance one time in a hundred, a million comparisons flag 10,000 scenarios every night, and no one reads 10,000 reports. Comparing results has to be designed as carefully as running them, and comes later in this lesson."
+        }
+      ]
+    },
+    {
+      "title": "A scheduler that survives its machines",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The service is a **job scheduler**, the big cousin of Unix's cron. Its API has three parts. Submitting a job: `POST /jobs` with a name, a schedule such as `0 22 * * *` (22:00 every day), the build and the scenario set, the task graph, a priority and the team whose quota pays. Watching it: `GET /jobs/{id}/runs` lists each run and its tasks' states. And stopping it. Everything lives in a **job store**, a small replicated database: a row per job with its next run time, a row per run, and a row per task with its state, its attempt count, the tasks it waits for, and a **lease**: which worker holds it and until when."
+        },
+        {
+          "type": "text",
+          "text": "Machines will die during every run, and workers will be preempted by the thousand. Before seeing the boxes, work out how tasks should be handed out. Four ways suggest themselves: hand each task to a worker and forget it; make sure each runs exactly once; send every task to two workers; or let a worker hold a task under a lease it keeps renewing, and give the task to someone else if the lease runs out. Guess which survives the clues."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "clue-board",
+          "caption": "How should a scheduler make sure every task runs, when workers die?",
+          "task": "Guess, then show the clues one by one",
+          "goal": "clues",
+          "options": {
+            "guess": "Which way of handing out tasks works?",
+            "ideas": [
+              {
+                "name": "Fire and forget",
+                "text": "Hand each task to a worker and move on to the next."
+              },
+              {
+                "name": "Exactly once",
+                "text": "Make sure each task runs once, and never a second time."
+              },
+              {
+                "name": "Everything twice",
+                "text": "Send every task to two workers and keep whichever answer arrives first."
+              },
+              {
+                "name": "Leases and retries",
+                "text": "A worker holds a task for a few minutes at a time and renews the hold; if the hold runs out, another worker takes the task."
+              }
+            ],
+            "clues": [
+              {
+                "name": "Workers die",
+                "text": "Disks and machines fail every day in a large cell (lesson 7), and preemption stops thousands of tasks a night.",
+                "rules": [
+                  "Fire and forget"
+                ]
+              },
+              {
+                "name": "Dead or slow",
+                "text": "A worker that stops answering may be dead, paused, or cut off from the network; nothing can tell the scheduler which (lesson 11).",
+                "rules": [
+                  "Exactly once"
+                ]
+              },
+              {
+                "name": "Twice the bill",
+                "text": "Running every task twice doubles 67,000 core-hours a night, and the extra copies take room the first copies need.",
+                "rules": [
+                  "Everything twice"
+                ]
+              },
+              {
+                "name": "Named by inputs",
+                "text": "Each task writes its result under the hash of all its inputs, so a second run writes the same bytes to the same name.",
+                "rules": []
+              }
+            ],
+            "end": "Leases give at least once. Results named by their inputs make a second run harmless, which is as good as exactly once."
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "replay-scheduler",
+          "caption": "The scheduler's parts. Workers pull tasks from the store; the elected scheduler only decides what is due."
+        },
+        {
+          "type": "text",
+          "text": "The **scheduler** is one process at a time, chosen by a lock service as in lesson 11, with standbys waiting. Each minute it finds jobs whose next run time has passed and writes a run for each, keyed by job and scheduled time, so a new leader that repeats the same minute finds the run already there instead of starting a second. It also marks tasks **ready** when every task they wait for is done: the job's tasks form a graph, and simulate must finish before score can start. The scheduler hands nothing to workers. Workers **pull**: each asks the store for a ready task and claims it with a conditional write, the same conditional write that sold each seat once in lesson D4, *Fourteen million people, two million tickets*, setting the lease to its own name and a time five minutes ahead. It renews the lease every minute while it works.[^lease]"
+        },
+        {
+          "type": "text",
+          "text": "If a worker dies, its lease runs out and the task becomes ready again for someone else. If it was only paused and wakes up later, it may finish a task someone else has also finished: the system runs each task **at least once**, and the tasks are made **idempotent** so that doesn't matter. Each result goes under the hash of the task's inputs, and writing it a second time changes nothing. The attempt number works as a fencing token from lesson 11: a worker whose lease has passed to attempt 3 can't mark the task done as attempt 2. A task that fails is retried with a growing wait, up to three attempts, and then marked failed and named in the report. One scenario that crashes the simulator every time otherwise retries forever and eats the cluster."
+        },
+        {
+          "type": "text",
+          "text": "Two smaller rules make cron dependable. A **missed run**, because the scheduler was down at 22:00, is caught up once when it comes back, not once for every minute it missed. And jobs carry **priorities** and **quotas**: Borg gave each team a quota of resources at each priority, refused jobs beyond it at submission rather than letting them queue for ever, and let higher priorities preempt lower ones.[^bands]"
+        }
+      ]
+    },
+    {
+      "title": "The workbench",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A cell of 15,000 cores serves users all day and is busiest at 14:00. The nightly run starts at 22:00 and is due at 07:00. Reserve cores at production priority, or run at batch priority on whatever production leaves and be preempted when it wants them back. Choose how much work goes in one task: each task takes a minute to start, fetching the build and loading the scenario, and batch tasks are also preempted at random, about one in five each hour."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "replay-bench",
+          "caption": "One night on a shared cell. Production's use rises and falls through the day; the run fills what is left, or a reservation. Prices are round figures of our own.",
+          "task": "Finish by 07:00 on preemptible cores, wasting under a tenth",
+          "goal": "night"
+        },
+        {
+          "type": "text",
+          "text": "A reservation of 4,000 cores costs about $3,840 a day whether it works or not, and still finishes both builds at 15:48, nearly nine hours after the results were due. Preemptible capacity costs a quarter as much per core-hour and offers twice the cores at night. With two-hour tasks and no checkpoints, though, a quarter of the core-hours are thrown away. At one preemption in five each hour, a two-hour task is stopped 0.4 times on average and each stop loses about an hour, half the task: a fifth of all work. The rise of production in the morning stops thousands more at once, which brings it to a quarter. Very small tasks fail the other way, spending half their time starting. Between them, around 20 to 30 minutes a task, the two losses balance. Checkpoints change the sum: a task that saves its state every five minutes loses at most five minutes when stopped, so long tasks become safe."
+        },
+        {
+          "type": "text",
+          "text": "The biggest saving isn't in scheduling. The baseline build ran last night on the same scenarios, and its results are stored under the hash of their inputs. Look the hash up first and the baseline half of the work disappears; the run then finishes a little after 02:00. Build systems do the same for compiled code: Bazel, which Google released in 2015, keeps a **remote cache** of outputs keyed by the hash of every input, so a file compiled on one machine is never compiled again on another.[^hash]"
+        },
+        {
+          "type": "text",
+          "text": "Borg filled the gaps more aggressively still. Production jobs ask for more than they use, to cover their peaks, and Borg estimated each one's real use and let batch work run in the difference, which its paper calls **reclamation**: taking back resources that were reserved but not used. The batch work is the first to be preempted if the estimate turns out low."
+        }
+      ]
+    },
+    {
+      "title": "The night the leader went away",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Besides the nightly run, the store holds smaller jobs, such as an hourly one that re-runs the scenarios engineers flagged that day. At 03:00 the machine running the scheduler loses power. Its lock-service session expires about ten seconds later, a standby takes the lock and with it a new **epoch**, a number one higher than the old leader's, and reads the job store. Every write the scheduler makes carries its epoch, and the store refuses writes from a lower one, so if the old leader was only stalled and wakes up, it can't change anything: the fencing of lesson 11. Nothing it needs was in the old leader's memory. The 03:00 hourly job may or may not have its run row: if it does, the new leader sees it; if not, the new leader writes it, and the key of job and time stops it from writing two. The 9,000 or so workers, one for each core the run holds at that hour, barely notice. They talk to the store, not to the scheduler, and go on renewing leases and claiming ready tasks; only tasks that became ready in those seconds wait a little longer."
+        },
+        {
+          "type": "text",
+          "text": "At 03:20 the job store itself loses one of its five replicas. With four left it still has a majority, as lesson 11 showed, and carries on. Had the store been one database on one machine, the whole night's run would have stopped until someone repaired it, which is why the store, not the scheduler, is the part replicated with Paxos. Keep the store small, rows about tasks and never the results themselves, and five copies of it are cheap."
+        },
+        {
+          "type": "text",
+          "text": "At 04:10 a scenario recorded in heavy snow makes the new build crash. Its task fails, waits, fails again, and is marked failed after the third attempt. The report the next morning lists it at the top, with the build, the scenario and the tic where it crashed, and the scenario becomes a test of its own."
+        }
+      ]
+    },
+    {
+      "title": "Reading a million results",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Each scenario's run produces numbers: how many objects were detected and how early, how often a trigger fired, how far from the truth a tracked object was. Comparing the new build with the baseline scenario by scenario gives a million small differences, and determinism makes every one of them real: the same build would give exactly the same numbers again. That doesn't make them important. Any change to the code nudges thousands of scenarios, through the bounces of the first figure, some a little better and some a little worse."
+        },
+        {
+          "type": "text",
+          "text": "So results are read in layers. Scenarios are grouped by what is in them, from the catalogue's tags: night, rain, cyclists, junctions. For each group the report gives the rate of each kind of failure under both builds, with a confidence interval for the difference between the two rates, from the usual test for two proportions, showing how much it could move by chance across scenarios like these. That also sizes the groups: to notice a failure rate moving from 1.0% to 1.2% takes about 16 × p(1 − p) ÷ (difference)² scenarios, 16 × 0.01 ÷ 0.002², about 40,000 a group. Only a group whose rate moved beyond its interval is flagged. Testing many groups at once still finds some by luck, so the threshold is tightened to account for the number of tests.[^fdr] A few hard rules are checked on every scenario: no crashes, nothing missed that a human had marked as essential. Then a person looks at the flagged scenarios, replayed side by side under both builds."
+        },
+        {
+          "type": "text",
+          "text": "All of this depends on comparing like with like. A scenario set is a catalogue query, `tags: night AND cyclist; recorded before 2026-10-01`, frozen into a list of segment ids with their content hashes and given a **version**, such as `night-cyclists@v7`. A version never changes. Adding new scenes makes `v8`. A result is stored with the dataset version, the build and the simulator version, so that a regression reported in March can be reproduced in June exactly, and last year's build can be run against this year's scenes to tell whether a failure is new or merely newly noticed."
+        }
+      ]
+    },
+    {
+      "title": "What others built",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Borg's design is close to the one above, at a larger scale. Its paper describes cells of about 10,000 machines, each run by a Borgmaster replicated five times with Paxos, and a separate scheduler that reads the master's state and assigns tasks. Priority bands separated monitoring, production, batch and best effort work, with quotas per band, and preemption flowing only downwards. Most of a cell's batch work ran in reclaimed resources. Google's earlier MapReduce had shown the task-level ideas in 2004 (lesson 8): a master that re-runs the tasks of a dead worker, outputs written so a duplicate is harmless, and backup copies of the slowest tasks near the end of a job."
+        },
+        {
+          "type": "text",
+          "text": "The pieces are common outside Google. Airbnb's Airflow, open-sourced in 2015, made task graphs on a schedule an ordinary tool, with each run keyed by its scheduled time so a missed night can be filled in later, a feature Airflow calls a backfill. Game studios keep the *Doom* habit: many record inputs and replay them to reproduce a bug exactly, and test each build by replaying hours of recorded play. Robotics teams run large scenario libraries every night, with deterministic simulators and datasets drawn from logs."
+        }
+      ]
+    },
+    {
+      "title": "At ten and a hundred times",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Ten times**, ten million scenarios, is 670,000 core-hours a night, more than one cell has spare. The run spreads over several cells or regions, with a layer above the cells choosing where each job goes, and the build and scenarios copied near each cell beforehand. The job store's task table grows to tens of millions of rows a night; it is split by run, and workers claim tasks in batches of ten or a hundred to cut its load. Results are too many to keep in full, so a run keeps the summary numbers for every scenario and the full tic-by-tic log only for those flagged."
+        },
+        {
+          "type": "text",
+          "text": "**A hundred times** is a bill no one pays every night. The design stops running everything and starts choosing. Each scenario records which parts of the software it exercises, and a change runs first against the scenarios that touch the code it changed. A **stratified sample**, a fixed number of scenes drawn from each group, sized as above, runs nightly; the full library runs weekly. And simulation itself comes in tiers, a fast low-fidelity one to screen every change and the full sensor simulation only for the changes that pass."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on running and reading a million replays",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A *Doom* demo recorded on one version of the game desyncs on another. Why?",
+                "choices": [
+                  "Inputs only, read by a slightly different game",
+                  "The demo file was compressed differently by the second version, and some of the recorded inputs were lost on loading",
+                  "The second version ran at a different number of tics a second, so the inputs arrived at the wrong moments"
+                ],
+                "answer": 0,
+                "why": "A replay of inputs is only as good as the determinism of what reads them; a small change in a rule grows tic by tic."
+              },
+              {
+                "ask": "A replay of the same build and scenario gives a slightly different result each time. What is the most likely cause?",
+                "choices": [
+                  "The scenario's recording has been corrupted on disk, and so it is read back differently each time",
+                  "Something the run depends on wasn't recorded or pinned, so it differs from one run to the next",
+                  "The simulator is too slow, and its results change when the scheduler gives it more cores"
+                ],
+                "answer": 1,
+                "why": "Bit-for-bit replay needs every input fixed. Look for what the run reads that the recording didn't capture."
+              },
+              {
+                "ask": "A worker pauses for ten minutes, its lease expires, and another worker runs the same task. Then the first wakes and finishes too. What keeps the result correct?",
+                "choices": [
+                  "The scheduler kills the paused worker's machine the moment that its lease on the task expires",
+                  "The second worker first checks with the first that it has stopped, and waits until it hears back",
+                  "Results named by inputs, and fenced attempts"
+                ],
+                "answer": 2,
+                "why": "No one can tell a paused worker from a dead one, so tasks run at least once and the design makes a second run harmless."
+              },
+              {
+                "ask": "The elected scheduler fails at 03:00 and a standby takes over. What does the standby need from the old leader?",
+                "choices": [
+                  "Nothing: every job, run, task and lease is in the replicated job store, which outlives any one leader",
+                  "A copy of the old leader's memory, so that it knows which tasks were handed to which of the workers",
+                  "A list of the workers, so that it can ask each one in turn what it is doing at the moment"
+                ],
+                "answer": 0,
+                "why": "Keeping all state in the store makes the leader replaceable in seconds. Workers pull from the store, so they keep working through the change."
+              },
+              {
+                "ask": "On preemptible cores, two-hour tasks with no checkpoints waste about a quarter of the core-hours. What fixes it?",
+                "choices": [
+                  "Raising the run to production priority, so that it is never preempted, and paying for that",
+                  "Tasks of 20 to 30 minutes, or checkpoints",
+                  "Tasks of one minute, so that no task can ever be preempted part of the way through its work"
+                ],
+                "answer": 1,
+                "why": "Preemption loses the work since the last save, and every task pays a minute to start. Mid-sized tasks or checkpoints balance the two losses."
+              },
+              {
+                "ask": "Comparing two builds on a million scenarios flags 10,000 changes, a 1% rate. What should the report do?",
+                "choices": [
+                  "Send all 10,000 to the engineers, since determinism means every one of the differences is real",
+                  "Ignore all of them, since the simulator is too sensitive to small changes to be any use",
+                  "Compare rates by group, with corrected thresholds"
+                ],
+                "answer": 2,
+                "why": "Every difference is real, but most are small nudges in both directions. Rates per group, intervals and thresholds adjusted for many tests find the changes that matter; hard rules are still checked everywhere."
+              },
+              {
+                "ask": "Why is a scenario set stored as a frozen version such as `night-cyclists@v7`?",
+                "choices": [
+                  "So that results from different builds and different months are compared on exactly the same scenes",
+                  "So that the catalogue's query runs faster the second time someone asks it, from a cache",
+                  "So that the scenarios take less storage space than the raw logs that they were taken from"
+                ],
+                "answer": 0,
+                "why": "A query run again later returns new scenes too, so only a frozen version makes a comparison, or a reported regression, repeatable."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A replay is only as good as its determinism.** Record or pin every input: a simulated clock, seeded random numbers, a fixed order for sums, a build pinned by hash.",
+    "**Small differences grow.** One part in ten million becomes a different run after a few bounces, so replays across builds are compared by their results, not their paths.",
+    "**Estimate before buying machines.** A million 30-second scenarios are 347 days of driving; with a full simulator and two builds, about 67,000 core-hours a night.",
+    "**Keep the scheduler's state in a small replicated store.** An elected leader decides what is due; workers pull tasks and hold them under leases.",
+    "**At least once, made harmless.** Expired leases mean tasks run twice; results named by the hash of their inputs and fenced attempts make that safe. Retry a few times, then report.",
+    "**Run batch work in the gaps.** Preemptible capacity is cheap; size tasks or checkpoint them so preemption loses little, and quotas keep teams fair.",
+    "**Never compute a result twice.** Look up results by the hash of their inputs; reusing the baseline halves the night.",
+    "**Read results in layers.** Group scenarios, compare rates against chance with thresholds adjusted for many tests, check hard rules everywhere, and freeze datasets as versions."
+  ],
+  "footnotes": {
+    "rnd": {
+      "kind": "digression",
+      "title": "Doom's random numbers",
+      "text": "*Doom*'s source code, released in 1997, has a table of 256 bytes, `rndtable`, and a function that returns the next entry each time it is called. Game logic and visual effects drew from separate positions in the table, so drawing an extra puff of smoke on one screen didn't change where a monster stepped. A demo began with both positions at zero."
+    },
+    "bands": {
+      "kind": "technical",
+      "title": "Priority bands",
+      "text": "Borg's paper describes non-overlapping priority bands: monitoring, production, batch and best effort, the last also used for tests. A task could preempt only tasks in lower bands, and never one in its own band, which prevented chains of production jobs preempting each other. Quota was granted per band, and best effort work needed none."
+    },
+    "hash": {
+      "kind": "technical",
+      "title": "Keys made of inputs",
+      "text": "A cache keyed by the hash of every input, code, data, parameters and tool versions, can never return a stale answer: change anything and the key changes. The risk runs the other way. An input left out of the key, such as an environment variable the simulator reads, lets two different runs share one key, and the cache returns the wrong result with complete confidence."
+    },
+    "fdr": {
+      "kind": "technical",
+      "title": "Many tests at once",
+      "text": "With a threshold of 1%, a hundred groups with no real change still flag one on average. The Bonferroni correction divides the threshold by the number of tests, which is safe but misses real changes. The method of Yoav Benjamini and Yosef Hochberg (1995) controls instead the share of flagged results that are false, and is the usual choice when thousands of comparisons are read at once."
+    },
+    "lease": {
+      "kind": "technical",
+      "title": "Why five minutes",
+      "text": "A lease's length trades two costs. A short lease notices a dead worker quickly, but every worker must renew it often, and 6,000 workers renewing every 10 seconds is 600 writes a second on the job store for no work done. A long lease is cheap to keep, but a dead worker's task waits that long before anyone takes it. Minutes suit tasks that run for tens of minutes."
+    }
+  }
+}

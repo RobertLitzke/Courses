@@ -1,0 +1,277 @@
+{
+  "id": "bigtable",
+  "n": 10,
+  "title": "A sorted map for the whole web",
+  "teaches": "Log-structured storage (memtable, SSTables, compaction, Bloom filters), splitting by key range, and choosing a row key",
+  "summary": [
+    "**Bigtable is a sorted map.** A value is found by row key, column and timestamp, rows are kept in key order, and only a single row can be changed atomically.",
+    "**Write the queries down before the schema.** The row key decides which rows sit together, so it should be chosen from the reads the table must answer.",
+    "**A log-structured store turns random writes into sequential ones.** Each write is appended to a commit log and put in a sorted table in memory, and a full memtable is written out whole as an immutable SSTable.",
+    "**A read merges the memtable with every SSTable.** Without help, a lookup costs one disk read per file, so files must be merged and skipped.",
+    "**Compaction merges SSTables in the background.** It keeps reads cheap and drops deleted data, at the price of writing the same bytes to disk several times.",
+    "**A Bloom filter answers \"definitely not here\" from memory.** About 10 bits per key give a 1% false-positive rate, so a lookup reads only the file that holds the row.",
+    "**Tables are split by row range into tablets of 100 to 200 MB.** Each tablet is served by one tablet server, so related rows can be scanned together.",
+    "**A row key that starts with the time sends every new write to one tablet.** A prefix such as an entity ID or a hash spreads the writes, at the cost of scans by time.",
+    "**Range partitioning and hash partitioning trade scans for balance.** Ranges keep neighbours together but make hot spots; hashes spread load but scatter every range query."
+  ],
+  "parts": [
+    {
+      "title": "Sixty products, one store",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In November 2006 the OSDI conference came to Seattle, and a team of nine from Google, with Fay Chang as first author and Jeff Dean and Sanjay Ghemawat among the rest, presented \"Bigtable: A Distributed Storage System for Structured Data\". By then Bigtable held the data of more than sixty Google products and projects. The web index kept every crawled page in it, Google Earth kept its satellite imagery, Google Analytics kept the clicks it counted for websites, and Personalized Search kept each user's history."
+        },
+        {
+          "type": "text",
+          "text": "Those products wanted very different things. Earth's tiles were large and read in bulk; Analytics wrote billions of tiny records and read them back as summaries; the crawl rewrote each page whenever it was fetched again and wanted the old copies kept for a while. What they shared was size, petabytes in all, and a need for small reads and writes at high rates. GFS (lessons 6 and 7) stores big files that are mostly appended to and read in long streams. It can overwrite bytes at an offset, but slowly and with no help in finding a record, so it is a poor place to update small records one at a time."
+        },
+        {
+          "type": "text",
+          "text": "One number decides most of the design. A spinning disk of 2006 moved its head to a new place in about 10 ms, so it could do about 100 random writes a second. The same disk could write sequentially at 50 to 100 MB a second, which is 50,000 to 100,000 records of 1 KB. A design that writes records where they belong pays for a seek each time; a design that only ever appends is limited by the disk's bandwidth instead, 500 to 1,000 times more. GFS already offered appends. The question was how to build a store that takes random updates out of nothing but appends and whole files written once."
+        },
+        {
+          "type": "text",
+          "text": "The reads come before the schema. Take the crawl, the first user. Write down what it must answer: fetch the latest copy of one page; fetch every page of one site, such as all of cnn.com; and for a page, find the text of every link that points to it, which search uses to learn what the page is about. A table built for those three reads looks different from one built for any other three, and Bigtable's design lets the user's choice of **row key** carry most of that difference."
+        }
+      ]
+    },
+    {
+      "title": "A sorted map",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The paper describes a Bigtable as a sparse, distributed, persistent, sorted map. A value is found by three things, a row key, a column and a timestamp, and the value is a string of bytes that Bigtable does not interpret. Rows are kept sorted by key, so all rows whose keys share a prefix sit together and can be read with one scan. Columns are grouped into a few **families** declared in advance, such as contents or anchor, and within a family there can be any number of columns, named as family:qualifier and created just by writing to them. A row that has nothing in a column takes no space for it, which is what sparse means here."
+        },
+        {
+          "type": "diagram",
+          "id": "bigtable-webtable",
+          "caption": "One row of the paper's example, the Webtable. The row key is the page's URL with the host name reversed, so all of CNN's pages sort together. The contents column keeps three versions of the page; the anchor family has one column for each page linking here, holding the link's text."
+        },
+        {
+          "type": "text",
+          "text": "The design answers the crawl's three reads directly. The latest copy of a page is the newest version in its contents column. Every page of a site is one scan, because the key starts with the reversed host name, com.cnn.www, and \"com.cnn.\" is a prefix of every page under cnn.com; with the URL as written, www.cnn.com would sort among millions of other www keys and its pages would sit apart from money.cnn.com. The links pointing at a page are stored in the page's own row, as the anchor family, so finding them is one row read rather than a search of the whole web. That is the habit at work: three reads written down, and a key and a family chosen for each."
+        },
+        {
+          "type": "text",
+          "text": "The interface is small. A client can write or delete cells in a row, read a row, and scan a range of rows, optionally filtering by column. Each cell keeps several versions by **timestamp**, a 64-bit number set by Bigtable or by the client, and each family says how many to keep: the last three, say, or anything newer than seven days. Any read or write within one row is atomic, however many columns it touches. There are no transactions across rows, a choice the next lessons come back to.[^rows]"
+        }
+      ]
+    },
+    {
+      "title": "Writes that never seek",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Inside Bigtable, the data for a range of rows is kept in a structure called a **log-structured merge tree**, described by Patrick O'Neil and colleagues in 1996. It has three parts, two of them on disk."
+        },
+        {
+          "type": "text",
+          "text": "A write first goes to a [[commit log|write]], a file in GFS that is only ever appended to, so the write is durable once it is there. Then it goes into the **memtable**, a sorted map held in memory, where inserting in key order costs microseconds. When the memtable grows to a set size, it is frozen, a new one is started, and the frozen one is written out to GFS in key order as one file, an **SSTable** (sorted string table). The write that started all this never moved a disk head to the place where its row belongs, because no such place exists: the data for a row is spread over the memtable and whichever SSTables have versions of it."
+        },
+        {
+          "type": "diagram",
+          "id": "bigtable-sstable",
+          "caption": "An SSTable on disk: sorted key and value pairs in blocks of about 64 KB, a block index giving each block's last key, and an optional Bloom filter. An SSTable is never modified; it is only read, and eventually replaced."
+        },
+        {
+          "type": "text",
+          "text": "SSTables are **immutable**: once written, never changed. A new value for a row goes into the memtable and later a newer SSTable. A delete writes a marker, a **tombstone**, that hides older versions until they are cleaned up.[^tombstone] Immutability is what makes the files easy to cache, copy, compress[^bmdiff] and share, and it suits GFS, which is good at writing whole files and bad at changing them."
+        },
+        {
+          "type": "text",
+          "text": "Reads pay for this. To read a row, Bigtable looks in the memtable and in every SSTable that might hold a version of it, newest first, and merges what it finds. Each SSTable lookup is cheap if its index is in memory: a binary search of the index names one block, and one disk read fetches it. The paper's benchmark shows the asymmetry on a single tablet server: about 8,800 random writes of 1 KB a second, against about 1,200 random reads, because each read went to disk and each write did not."
+        }
+      ]
+    },
+    {
+      "title": "Paying for it later",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Left alone, the SSTables pile up: a new one for every memtable flushed, and every read must look in all of them. **Compaction** keeps the pile short. In the background, a tablet server reads several SSTables, merges them in key order (a merge of sorted files reads and writes sequentially, so it runs at disk bandwidth), keeps the newest version of each cell as the family's rules say, and writes one new SSTable to replace them. A compaction that merges everything into one file also drops tombstones and the data they hid; the paper calls that a major compaction."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bigtable-lsm",
+          "caption": "One tablet's writes, as a time lapse. The memtable fills at the write rate and is flushed as a 64 MB SSTable; with compaction on, four tables of one size are merged into one. The bars at the bottom count disk reads for a lookup that misses the memtable. A model: real stores differ in their sizes and rules.",
+          "task": "Turn compaction off and play until the files pile up, then turn Bloom filters on.",
+          "goal": "bloom"
+        },
+        {
+          "type": "text",
+          "text": "The figure shows the three costs every log-structured store trades against each other. **Read amplification** is the number of files a read must touch; without compaction it grows without limit. **Write amplification** is how many times each byte is written to disk: once in the log, once in the flush, and once more in every compaction that merges it, so a store that compacts eagerly to keep reads cheap writes the same data several times. **Space amplification** is the old versions and deleted data still on disk until a compaction removes them. Compacting more often helps reads and space and costs writes; compacting less often does the reverse. Later engines offer several compaction schemes for exactly this reason. A reasonable start is a memtable of tens of megabytes (64 MB in the figure) and **size-tiered** compaction, merging files of similar size as the figure does, for tables that are mostly written; tables that are mostly read suit **leveled** compaction, which keeps each key in at most one file per level, so a read touches fewer files and every byte is rewritten more often. Either way, and a compaction running at the wrong moment is a standard cause of the tail latency of lesson 9."
+        },
+        {
+          "type": "text",
+          "text": "The second fix is to skip files without reading them. A **Bloom filter**, invented by Burton Bloom in 1970, is a bit array with a few hash functions. To add a key, hash it k ways and set those k bits. To ask about a key, hash it the same k ways: if any of the bits is 0, the key was never added, for certain; if all are 1, it probably was. A filter of 10 bits per key gives a false-positive rate just under 1%, so an SSTable's filter for a million keys is 1.2 MB, small enough to keep in memory.[^bloom] With a filter on each SSTable, a lookup asks each filter first and reads from disk only where the answer is yes: about one disk read for a row that exists, and almost none for a row that does not, which matters for a table where most lookups are for rows that are not there."
+        },
+        {
+          "type": "text",
+          "text": "The same design was later carried out of Google. Dean and Ghemawat released it as LevelDB in 2011, a single-machine library; Facebook built RocksDB from LevelDB from 2012; Apache HBase is a Bigtable built on Hadoop's file system; and Cassandra (lesson 12) stores its data the same way. When a database is described as \"LSM-based\", it is this lesson."
+        }
+      ]
+    },
+    {
+      "title": "Tablets, and the row key",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A table is split by row range into **tablets** of 100 to 200 MB each. Because rows are sorted, a tablet is a contiguous slice of keys, from one key up to the next tablet's first key. Each tablet is served by one **tablet server**, which holds its memtable and reads its SSTables from GFS; a tablet server typically served ten to a thousand tablets. A tablet that grows past its limit splits in two at a middle key, and the halves can go to different servers."
+        },
+        {
+          "type": "text",
+          "text": "A single master assigns tablets to tablet servers and moves them to balance load, much as GFS's master places chunks (lesson 6), and as there, no data passes through it. A client finds the server for a row through a three-level tree of tablet locations: a small file in Chubby, a replicated lock and naming service that lesson 11 opens up, names the root tablet, the root tablet lists the metadata tablets, and those list every user tablet. Clients cache the locations, so most lookups go straight to the right server. When a tablet server dies, the master gives its tablets to other servers, which rebuild each memtable by replaying the dead server's commit log from GFS; nothing is lost, because the log and the SSTables were never on the dead machine alone."
+        },
+        {
+          "type": "text",
+          "text": "Splitting by range is what makes the Webtable's site scan cheap: cnn.com's pages sit in one tablet or a few neighbours. It is also what makes the row key the most important decision in a Bigtable schema, because a key that puts all the busy rows next to each other puts them on one server. Consider sensors that each report a reading every second, stored with a row key that starts with the time."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bigtable-hotspot",
+          "caption": "Sensor readings written to four tablet servers, each holding a quarter of the row range. Pick a row-key design (time first, sensor then time, or a random prefix) and watch where the writes go; the text box says what two queries cost under each: \"this sensor's last day\" and \"every sensor's last minute\". Requests move in slow motion.",
+          "task": "Find a row key that spreads the writes.",
+          "goal": "spread"
+        },
+        {
+          "type": "text",
+          "text": "With the time first, every new reading sorts after every existing row, so every write lands in the last tablet: one server takes all the load, its queue fills and it turns writes away, while three servers sit idle. Splitting the hot tablet does not help, because the new right-hand half becomes the new hot tablet a moment later. Putting the sensor ID first spreads the writes over every tablet and keeps each sensor's readings together, so \"this sensor's last day\" is one short scan; the price is that \"every sensor's last minute\" must now ask every tablet. A short hash prefix spreads the load even when the IDs themselves are sequential, at the price of scattering every range query. No key is right in general. The right key is the one that fits the reads written down first."
+        },
+        {
+          "type": "text",
+          "text": "This is the general trade between the two ways of splitting data. **Range partitioning** keeps neighbouring keys together, so range scans are cheap and hot spots are easy to create. **Hash partitioning** sends each key to a place chosen by its hash, so load spreads evenly and a range scan must ask everyone. Memcached's ring in lesson 5 and Dynamo's in lesson 12 partition by hash; Bigtable, and Spanner after it, partition by range. A table serves one key order well. A second order, such as readings by sensor and also by building, usually gets a second table keyed that way and written alongside the first, and without transactions across rows (next part) the writer must cope with one of the two writes landing and the other not."
+        }
+      ]
+    },
+    {
+      "title": "What it left out",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Bigtable's guarantees stop at the edge of a row. Updating two rows together, such as moving money between two accounts or keeping an index row in step with its data row, needs the application to cope with one write landing and the other not. The paper argued that most of Google's applications did not need more. Jeff Dean said a few years later that leaving cross-row transactions out had been a mistake, because many teams went on to build their own, often incorrectly. Google added Megastore and then Spanner (lesson 20) to give transactions across rows."
+        },
+        {
+          "type": "text",
+          "text": "The single master, the coordination through Chubby and the leaning on GFS for durability all follow the pattern of lessons 6 and 7: keep the hard decisions in one small place, and let replicated storage below take care of the bytes. Google opened Bigtable to outside customers as Cloud Bigtable in 2015, still with the same data model."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Before choosing a row key",
+          "points": [
+            "List the reads the table must answer, with their rates.",
+            "Put what is read together next to each other in key order.",
+            "Check that the busiest writes don't all share one prefix, especially a time."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on Bigtable",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does a log-structured store such as Bigtable accept random writes far faster than a spinning disk can do random writes?",
+                "choices": [
+                  "Writes are appended to a log and held in a sorted table in memory, so disks write only in long runs",
+                  "It keeps every write in memory and writes nothing to disk until the machine is shut down",
+                  "It spreads each write over many disks at once, so that every disk does only a small fraction of each seek"
+                ],
+                "answer": 0,
+                "why": "A seek costs about 10 ms; appending costs only bandwidth. The commit log makes each write durable by appending, and the memtable is written out whole as an SSTable."
+              },
+              {
+                "ask": "A lookup in a log-structured store finds nothing in the memtable. Without Bloom filters, roughly how many disk reads can it take?",
+                "choices": [
+                  "Exactly one, because the block index says which file holds the row",
+                  "Up to one for each SSTable that might hold a version of the row",
+                  "None, because the SSTables' contents are cached in memory as they are written"
+                ],
+                "answer": 1,
+                "why": "Versions of a row can be in any SSTable, so a read checks each, newest first. Compaction keeps the count small and Bloom filters skip files that can't hold the key."
+              },
+              {
+                "ask": "What does a Bloom filter on an SSTable tell a read?",
+                "choices": [
+                  "Which 64 KB block of the file holds the key, so only one block is read",
+                  "The newest timestamp in the file, so older files can be skipped",
+                  "That the key is certainly not in the file, or that it probably is"
+                ],
+                "answer": 2,
+                "why": "A Bloom filter never says no to a key that was added, and says yes to a key that wasn't only rarely (about 1% at 10 bits per key), so most files can be skipped without a disk read."
+              },
+              {
+                "ask": "What does compaction cost a log-structured store?",
+                "choices": [
+                  "Nothing on disk, since it only removes files; it costs some memory while it runs",
+                  "Extra disk writes: the same data is rewritten each time it is merged into a bigger file",
+                  "Lost writes: rows changed while a compaction runs must be written again by the client"
+                ],
+                "answer": 1,
+                "why": "Merging reads files and writes new ones, so each byte is written several times in all. That write amplification is the price of cheap reads and of reclaiming space."
+              },
+              {
+                "ask": "A table stores readings from 100,000 sensors with the row key \"timestamp#sensorID\". Writes are slow while most tablet servers sit idle. Why?",
+                "choices": [
+                  "Every new row sorts after all existing rows, so all writes land in the last tablet",
+                  "The timestamps make every key unique, so Bloom filters cannot skip any files",
+                  "Range partitioning sends each sensor to a random tablet, so writes for one sensor collide"
+                ],
+                "answer": 0,
+                "why": "Tablets hold row ranges. Keys that grow with time all fall at the end of the range, onto one server, however the earlier rows were split."
+              },
+              {
+                "ask": "The same sensor table must answer \"all readings of one sensor for a day\" thousands of times a second, and \"all sensors' last minute\" once a minute. Which row key fits best?",
+                "choices": [
+                  "timestamp#sensorID, so the once-a-minute summary of every sensor is one short scan",
+                  "a random number per row, so that writes and reads both spread evenly over every server",
+                  "sensorID#timestamp, so one sensor's day is one short scan"
+                ],
+                "answer": 2,
+                "why": "The frequent query decides the key. With the sensor first, its readings are contiguous; the all-sensor query must ask every tablet, a cost paid once a minute instead of thousands of times a second."
+              },
+              {
+                "ask": "What is the main trade between partitioning a table by key range and by hash of the key?",
+                "choices": [
+                  "Ranges suit scans but invite hot spots; hashes spread load but scatter scans",
+                  "Ranges need a master to assign them while hashes need none, and both scan equally well",
+                  "Hashes keep neighbouring keys together for scans; ranges spread load evenly but scatter scans"
+                ],
+                "answer": 0,
+                "why": "Sorted ranges put similar keys on one server, good for scans and bad when the busy keys are similar. A hash puts each key somewhere unrelated to its neighbours."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "rows": {
+      "kind": "technical",
+      "title": "Why only one row",
+      "text": "Each row lives in exactly one tablet on one server, so an atomic change to it needs no coordination with any other machine. An atomic change to two rows on two servers needs a protocol that lets both agree to commit or both abort, which lesson 20 shows is slow and can block."
+    },
+    "tombstone": {
+      "kind": "technical",
+      "title": "Tombstones",
+      "text": "A delete cannot remove a value from an SSTable that is never modified, so it is written as a new entry that says \"deleted\". Reads that meet it ignore older versions. Only a compaction that merges every file holding the row can drop the tombstone and the data under it together; drop it earlier, and an older value in another file would come back."
+    },
+    "bloom": {
+      "kind": "technical",
+      "title": "Bloom filter arithmetic",
+      "text": "With m bits per key and the best number of hash functions (m × ln 2, about 7 for 10 bits), the false-positive rate is about 0.6185 to the power m. Ten bits give 0.8%; 9.6 bits give 1%; each extra 4.8 bits divides the rate by ten."
+    },
+    "bmdiff": {
+      "kind": "digression",
+      "title": "A web page and its copies",
+      "text": "Versions of the same page are nearly identical, and so are pages of one site, which sit next to each other in the Webtable. The paper used a compression scheme that looks for long repeated strings across a whole block, and reports the Webtable shrinking to about a tenth of its size, much better than compressing each page alone."
+    }
+  }
+}
