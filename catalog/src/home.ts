@@ -259,6 +259,27 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       {},
       courses.some((c) => c.release.stage === 'beta') ? el('p.beta-note', {}, el('span.beta', {}, 'Beta'), ' ', BETA_NOTE) : null,
       el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.'),
+      buildLine(),
     ),
   );
+}
+
+/**
+ * "Site build 45f2532, 2026-11-09 06:20 UTC · app id courses-2026-11": which
+ * deploy this page is, and the id in the manifest the browser is given (read
+ * back through the service worker, so a phone still on an old worker shows the
+ * old id), for checking a phone against the latest deploy.
+ */
+function buildLine(): HTMLElement {
+  const build = typeof __SITE_BUILD__ === 'string' ? __SITE_BUILD__ : 'dev';
+  const id = el('span.app-id', {}, typeof __APP_ID__ === 'string' ? __APP_ID__ : '?');
+  if (typeof fetch === 'function' && typeof location !== 'undefined' && location.protocol.startsWith('http')) {
+    void fetch('./manifest.webmanifest')
+      .then((r) => (r.ok ? (r.json() as Promise<{ id?: string }>) : null))
+      .then((m) => {
+        if (m?.id) id.textContent = m.id;
+      })
+      .catch(() => undefined);
+  }
+  return el('p.build', {}, `Site build ${build} · app id `, id);
 }

@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import { courseFilesRoute } from 'didactics/vite';
@@ -15,6 +16,23 @@ import { readCatalog, readMap } from './registry';
 // (didactics/offline, from the offline.json each course's build writes).
 
 const courses = resolve(__dirname, '../courses');
+
+/** What Chrome knows the installed app by (the manifest's id): see the note at the manifest. */
+const APP_ID = 'courses-2026-11';
+
+/** The build, shown at the foot of the catalog: the commit and when it was built, so a phone can be checked against the latest deploy. */
+function buildStamp(): string {
+  let sha = process.env.GITHUB_SHA ?? '';
+  if (!sha) {
+    try {
+      sha = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: __dirname, encoding: 'utf8' }).trim();
+    } catch {
+      sha = 'local';
+    }
+  }
+  const when = new Date().toISOString().slice(0, 16).replace('T', ' ');
+  return `${sha.slice(0, 7)}, ${when} UTC`;
+}
 /** The courses on the site, for the manifest's description: never a stale list. */
 const courseNames = readCatalog(courses).map((c) => c.title.toLowerCase());
 
@@ -35,6 +53,7 @@ function coursesModule(): Plugin {
 
 export default defineConfig({
   root: __dirname,
+  define: { __SITE_BUILD__: JSON.stringify(buildStamp()), __APP_ID__: JSON.stringify(APP_ID) },
   // Relative, so the site works from a GitHub Pages sub-path.
   base: './',
   // Ports follow the local-dev port scheme: one block of ten per web project.
@@ -70,7 +89,7 @@ export default defineConfig({
         // 2026-11-09. Saved progress belongs to the site, not the id, so a
         // reinstall under a new id keeps it; a phone that still has the old
         // app keeps working and can install this one beside it.
-        id: 'courses-2026-11',
+        id: APP_ID,
         theme_color: '#f4f1e8',
         background_color: '#f4f1e8',
         display: 'standalone',
