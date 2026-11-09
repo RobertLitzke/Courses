@@ -40,9 +40,19 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      # GitHub's file sync can take more than ten minutes on a large site, and
+      # deploy-pages caps its own timeout at ten minutes (a longer `timeout` is
+      # ignored), so a deploy that times out is tried again, twice, with the
+      # same build.
+      - id: first
         uses: actions/deploy-pages@v4
-        # GitHub's file sync can take more than the default ten minutes on a
-        # large site; twice on 2026-11-07 it timed out with the files nearly done.
-        with:
-          timeout: 1800000
+        continue-on-error: true
+      - id: second
+        if: steps.first.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - id: third
+        if: steps.second.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+      - id: deployment
+        run: echo "page_url=${{ steps.first.outputs.page_url || steps.second.outputs.page_url || steps.third.outputs.page_url }}" >> "$GITHUB_OUTPUT"
