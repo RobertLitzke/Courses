@@ -144,8 +144,11 @@ build; use `npm run build && npm run preview` to click through the site.
   poster, so the one installed app opens offline in every course. Photos,
   maps and data files are cached as they are read; each course's Settings
   page saves them all at once from the `offline.json` its build writes.
-- One installed app: the manifest's `id` is still `clouds-app`, so a phone
-  that had Clouds installed keeps the same app, now opening on the catalog.
+- One installed app, known to the browser by the manifest's `id`
+  (`catalog/vite.config.ts`). When Chrome on Android offers Install and then
+  says the app is already installed though the phone has none, change the
+  `id`: the app installs fresh, and saved progress, which belongs to the
+  site, carries over.
 - The one-file copies (`clouds.html`, `clouds-offline.html`) are still one
   per course, offered in that course's Settings; their "All courses" link goes
   to the live site.

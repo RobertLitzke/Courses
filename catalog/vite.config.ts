@@ -63,9 +63,14 @@ export default defineConfig({
         name: 'Course Catalog',
         short_name: 'Courses',
         description: `Interactive workbooks: ${courseNames.join(', ')}.`,
-        // Kept from when the site was Clouds alone, so the app already
-        // installed on a phone updates in place rather than becoming a second app.
-        id: 'clouds-app',
+        // What Chrome knows the installed app by. Changing it makes a new app:
+        // the way past an install Chrome remembers but the phone no longer has
+        // (it offers Install, then says the app is already installed). That
+        // happened with the default id on 2026-10-26 and with 'clouds-app' on
+        // 2026-11-09. Saved progress belongs to the site, not the id, so a
+        // reinstall under a new id keeps it; a phone that still has the old
+        // app keeps working and can install this one beside it.
+        id: 'courses-2026-11',
         theme_color: '#f4f1e8',
         background_color: '#f4f1e8',
         display: 'standalone',
