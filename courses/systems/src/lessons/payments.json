@@ -81,7 +81,7 @@
         },
         {
           "type": "text",
-          "text": "**An estimate** of the table's size. Suppose 300 payments a second on average, with peaks of 1,000. Stripe keeps keys for 24 hours, so the table holds about 300 × 86,400, roughly 26 million rows. At about a kilobyte each, with the stored response, that is 26 GB. The peak sets the load: at 1,000 payments a second, each reading its key row once and writing it three times, the table sees about 4,000 indexed operations a second, well within one Postgres server. A B-tree index over 26 million rows is four or five levels deep, and its upper levels stay in memory, so finding a key costs one or two page reads, well under a millisecond. A sweeper deletes rows older than a day. A retry after that is treated as a new request, which is why clients stop retrying long before then."
+          "text": "**An estimate** of the table's size. Suppose 300 payments a second on average, with peaks of 1,000. Stripe keeps keys for 24 hours, so the table holds about 300 × 86,400, roughly 26 million rows. At about a kilobyte each, with the stored response, that is 26 GB. The peak sets the load: at 1,000 payments a second, each reading its key row once and writing it three times, the table sees about 4,000 indexed operations a second, well within one Postgres server. A B-tree index over 26 million rows is three or four levels deep, and its upper levels stay in memory, so finding a key costs one or two page reads, well under a millisecond. A sweeper deletes rows older than a day. A retry after that is treated as a new request, which is why clients stop retrying long before then."
         }
       ]
     },
@@ -236,7 +236,7 @@
                 "ask": "A service saves an order to its database and then publishes an \"order paid\" event to a log. Sometimes the event never appears. Which change fixes it?",
                 "choices": [
                   "Write the event to an outbox table in the same transaction as the order, and have a relay publish it",
-                  "Publish the event first and save the order after, so the event can never be missing",
+                  "Publish the event first and save the order after it, so that the event can never be the one that goes missing",
                   "Retry the publish three times with backoff before returning from the request"
                 ],
                 "answer": 0,

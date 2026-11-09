@@ -188,7 +188,7 @@
               {
                 "ask": "Why should a chunk's three copies be on three different racks rather than three machines in one rack?",
                 "choices": [
-                  "Machines in one rack share power and a switch, so a rack failure would take all three copies at once",
+                  "One rack shares power and a switch, so its failure takes all three",
                   "Reads are faster from machines in different racks, because each rack has its own disks",
                   "The master can track at most one copy per rack in its in-memory tables"
                 ],

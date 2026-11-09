@@ -178,8 +178,8 @@
                 "ask": "A crawler keeps one queue of URLs and its fetchers wait whenever the next URL's site was asked less than a second ago. A fifth of the links point at one big site. Why does the crawl slow to about 5 pages a second?",
                 "choices": [
                   "The big site answers slowly, so every fetch from it takes far longer than a fetch from any of the other sites",
-                  "Fetchers wait on the big site's one request a second",
-                  "The queue grows too long to fit in memory, so each fetcher has to read its next URL from disk"
+                  "Every fetcher ends up waiting on the big site's one request a second",
+                  "The queue outgrows memory and is read from disk"
                 ],
                 "answer": 1,
                 "why": "A fifth of the stream belongs to a host that takes one request a second, so the stream moves at most five URLs a second."
@@ -218,8 +218,8 @@
                 "ask": "A completer stores each trie node's most asked completions in the node. What does that buy, and what does it cost?",
                 "choices": [
                   "Exact completions for every query ever typed, at the cost of a lookup that grows with the number of queries",
-                  "One node per letter typed, for a daily build",
-                  "Personal completions for every user, at the cost of a separate trie stored and rebuilt for each account"
+                  "A lookup of one node per letter typed, at the cost of rebuilding the trie daily",
+                  "Personal completions for each user, at the cost of a trie per account"
                 ],
                 "answer": 1,
                 "why": "Precomputing the lists moves the work offline. Serving becomes a lookup by prefix; yesterday's lists miss today's news, which needs a separate fast path."
@@ -228,8 +228,8 @@
                 "ask": "Suggestion requests are sharded by the first letter of the prefix. Why is that a poor choice?",
                 "choices": [
                   "Prefixes longer than one letter can't be found once the table has been split by its first letter alone",
-                  "Each shard has to hold the whole table anyway, because any prefix can complete to any query at all",
-                  "First letters are very unevenly used"
+                  "Each shard would have to hold the whole table",
+                  "First letters are very unevenly used, so a few shards take most of the load"
                 ],
                 "answer": 2,
                 "why": "Roughly one English word in nine starts with s, so that shard carries nearly three times the average, and every shard must be sized for the busiest."
@@ -238,7 +238,7 @@
                 "ask": "A suggestion shard becomes slow. What should the user see?",
                 "choices": [
                   "A spinner in the search box until the suggestions arrive, so that none are lost",
-                  "No suggestions for that keystroke: they are optional and arrive within 100 ms or not at all",
+                  "No suggestions for that keystroke, since they are optional",
                   "An error asking the user to retype the query once the shard has recovered"
                 ],
                 "answer": 1,

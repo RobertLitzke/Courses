@@ -39,7 +39,7 @@
         },
         {
           "type": "text",
-          "text": "**Out of scope:** writing the software, building the map data from surveys (the maps branch, lessons 101 to 104), and the workshop tools for cars that are already broken for other reasons."
+          "text": "**Out of scope:** writing the software, building the map data from surveys (the maps branch, lessons M1 to M4), and the workshop tools for cars that are already broken for other reasons."
         }
       ]
     },
@@ -226,8 +226,8 @@
                 "ask": "A defect breaks one device in a thousand. A 1% stage of a million-device fleet shows nothing unusual. Why?",
                 "choices": [
                   "The health gate checks only for crashes, and this defect must be causing something other than a crash",
-                  "Ten extra failures in 10,000 hide in the noise",
-                  "Defects that rare can only be found by testing in the lab, before any release reaches the fleet at all"
+                  "Ten extra failures among 10,000 devices are hidden by the ordinary background failures",
+                  "Defects that rare can only be found in the lab, before release"
                 ],
                 "answer": 1,
                 "why": "Each stage sees only faults large enough to rise above the fleet's everyday failures. Rare faults need larger stages, which is why the stages grow."
@@ -245,9 +245,9 @@
               {
                 "ask": "A car with A/B slots installs an update that crashes as it starts. What happens?",
                 "choices": [
-                  "The car stays broken until the next release reaches it and fixes the fault in the new slot",
+                  "The car stays broken until the next release fixes it",
                   "The car downloads the old version again over cellular, installs it over the new one and restarts",
-                  "The bootloader goes back to the old slot"
+                  "The bootloader sees the failed start and boots the old slot again"
                 ],
                 "answer": 2,
                 "why": "The new system marks itself good only after its health checks pass, so until then the untouched old slot is the fallback."
@@ -276,7 +276,7 @@
                 "ask": "A new map format can't be read by last month's software. How should the map be released?",
                 "choices": [
                   "Release the map to every car first, and the software that reads it a week later",
-                  "Readers first; the old format for cars not yet updated",
+                  "Software that reads both formats first, and the old map kept for cars not yet updated",
                   "Release both on the same day, so that the map and the software arrive at each car together"
                 ],
                 "answer": 1,

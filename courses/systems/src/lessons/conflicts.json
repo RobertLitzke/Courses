@@ -247,7 +247,7 @@
                 "ask": "One version of a key has the vector clock [A2 B1] and another has [A1 B2]. What should the store do?",
                 "choices": [
                   "Keep [A2 B1], because A's counter is the larger one and A is listed first",
-                  "Keep both: they are concurrent",
+                  "Keep both: neither clock is at least as large in every entry, so they are concurrent",
                   "Keep [A1 B2], because its last entry is the larger one and the last entry is the newest"
                 ],
                 "answer": 1,
@@ -256,7 +256,7 @@
               {
                 "ask": "One version has the clock [A2 B1] and another has [A3 B1]. What should the store do?",
                 "choices": [
-                  "Keep [A3 B1] and drop the other, because it has seen everything the first one saw",
+                  "Keep [A3 B1] and drop [A2 B1], which it supersedes",
                   "Keep both and return both on the next read, since they differ",
                   "Keep [A2 B1], because the older version is the one more replicas hold"
                 ],
@@ -276,8 +276,8 @@
               {
                 "ask": "Dynamo's cart merged conflicting versions by taking the union of their items. What went wrong?",
                 "choices": [
-                  "An item added on one replica could be lost when the versions met",
-                  "A removed item could reappear",
+                  "An added item could be lost",
+                  "A removed item could reappear when the versions met",
                   "Two copies of the same item were kept, so the quantities in the cart doubled after each merge"
                 ],
                 "answer": 1,
@@ -306,7 +306,7 @@
               {
                 "ask": "Which feature needs causal consistency, but nothing stronger?",
                 "choices": [
-                  "The last seat on a flight, which exactly one of two buyers may get",
+                  "The last seat on a flight",
                   "A reply in a chat thread, shown to everyone in it",
                   "The number of likes on a post, which may lag by a few likes for a few seconds"
                 ],

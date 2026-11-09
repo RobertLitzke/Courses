@@ -203,7 +203,7 @@
                 "ask": "Why could Facebook's engineers not undo the backbone change from their desks on 4 October 2021?",
                 "choices": [
                   "The internal tools and remote access they needed ran over the same network and DNS that were down",
-                  "The command had deleted the configuration backups, so there was nothing to restore",
+                  "The command had also deleted the configuration backups, so there was nothing left on any server to restore from",
                   "Policy forbade changing the backbone from outside the datacentres at any time"
                 ],
                 "answer": 0,

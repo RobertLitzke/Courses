@@ -172,7 +172,7 @@
                 "ask": "Why was GFS's single master not a bottleneck for clients reading gigabytes a second?",
                 "choices": [
                   "It ran on a much larger machine than the chunkservers, with many more disks",
-                  "Clients asked it only where each 64 MB chunk was, then read the bytes from chunkservers",
+                  "Clients asked it only where chunks were, then read from chunkservers",
                   "It kept a copy of every popular chunk in memory and served those reads itself"
                 ],
                 "answer": 1,
@@ -201,9 +201,9 @@
               {
                 "ask": "Why did the GFS master not log where each chunk's copies were stored?",
                 "choices": [
-                  "The chunkservers already know, and tell it",
+                  "The chunkservers know what they hold and report it at startup and in heartbeats",
                   "Chunk locations change so often that logging them would fill the operation log within minutes",
-                  "The locations could be computed from the chunk handle with a hash, so there was nothing to store"
+                  "The locations follow from the chunk handle by a hash"
                 ],
                 "answer": 0,
                 "why": "Each chunkserver is the authority on its own disks. Asking them avoids keeping two records in step, and a chunkserver that fails or loses a disk simply stops reporting those chunks."
@@ -212,7 +212,7 @@
                 "ask": "By 2009, what set the limit on the GFS master's memory?",
                 "choices": [
                   "The total bytes stored, since every byte of file data was also held in the master's memory as a cache",
-                  "The number of files",
+                  "The number of files, since each file's metadata sat in memory",
                   "The bandwidth of the master's network link"
                 ],
                 "answer": 1,
@@ -222,8 +222,8 @@
                 "ask": "A team is building a storage system for large log files read by batch jobs. Which first design does GFS's history argue for?",
                 "choices": [
                   "Distributed metadata from the start, since one coordinator always becomes the limit",
-                  "One coordinator, its limits written down",
-                  "No coordinator at all: clients hash file names to choose storage machines directly"
+                  "One coordinator, with the limits it will hit written down",
+                  "No coordinator: clients hash names to pick machines"
                 ],
                 "answer": 1,
                 "why": "A single coordinator makes global decisions simple and lasts as long as its load and memory stay small, which can be computed in advance. GFS carried Google for most of a decade before Colossus spread the metadata."

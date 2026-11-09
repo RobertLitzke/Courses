@@ -175,8 +175,8 @@
               {
                 "ask": "Why does Zanzibar not simply answer every check at the newest snapshot?",
                 "choices": [
-                  "The newest data must come from each shard's leader, perhaps on another continent, and an answer at a fresh snapshot cannot come from a cache",
-                  "Spanner forbids reading at the newest timestamp until commit wait has passed, which would add seconds to every check",
+                  "Fresh data must come from each shard's leader, perhaps on another continent, and a fresh snapshot cannot be served from cache",
+                  "Spanner forbids reading at the newest timestamp until commit wait has passed, which would add whole seconds to every single check",
                   "The newest snapshot may include half of a transaction that is still committing, so answers could change"
                 ],
                 "answer": 0,

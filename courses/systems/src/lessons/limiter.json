@@ -152,7 +152,7 @@
         },
         {
           "type": "text",
-          "text": "**An estimate.** A token bucket per key is a small hash in Redis, the in-memory store lesson 5 met beside memcached: the key's name, two numbers and Redis's own bookkeeping come to about 100 bytes, so a million keys need about 100 MB, which fits in one machine's memory many times over. Every request costs one call to Redis, so 50,000 requests a second means 50,000 calls a second. One Redis process handles something like 100,000 small operations a second on one core, so three processes, each holding a third of the keys by hash and each with a replica, carry the peak with room to spare. A round trip inside a datacentre is a few hundred microseconds (lesson 1), inside the millisecond budget."
+          "text": "**An estimate.** A token bucket per key is a small hash in Redis, the in-memory store lesson 14 met: the key's name, two numbers and Redis's own bookkeeping come to about 100 bytes, so a million keys need about 100 MB, which fits in one machine's memory many times over. Every request costs one call to Redis, so 50,000 requests a second means 50,000 calls a second. One Redis process handles something like 100,000 small operations a second on one core, so three processes, each holding a third of the keys by hash and each with a replica, carry the peak with room to spare. A round trip inside a datacentre is a few hundred microseconds (lesson 1), inside the millisecond budget."
         },
         {
           "type": "text",
@@ -264,7 +264,7 @@
                 "choices": [
                   "100: the refill rate times the span, whatever the bucket holds when the span begins",
                   "150: a full bucket spent at once, then the refill",
-                  "50: the bucket's size, because no more can be held at once and spent"
+                  "50: the bucket's size"
                 ],
                 "answer": 1,
                 "why": "A burst can spend what was saved, and the refill keeps coming during the span: b + rT."
@@ -283,8 +283,8 @@
                 "ask": "A per-key limiter guards an API against occasional floods; its Redis store fails. Which response is usually best, and why?",
                 "choices": [
                   "Fail closed and refuse all requests, since an unlimited API can't be trusted to stay up through a flood",
-                  "Retry Redis until it answers, so that every request is still checked against its own limit",
-                  "Fail open with a short timeout"
+                  "Retry Redis until it answers",
+                  "Fail open with a short timeout, since a rare flood costs less than an outage"
                 ],
                 "answer": 2,
                 "why": "Failing closed turns a Redis failure into a total API outage, while unlimited traffic for a while is what most days look like. A login limiter is the exception."
@@ -302,8 +302,8 @@
               {
                 "ask": "Each of 4 gateways keeps its own token bucket at a quarter of a key's 100-a-second limit. A client holds one long-lived connection, pinned to one gateway. What does it get?",
                 "choices": [
-                  "About 25 a second",
-                  "About 100 a second, because the four buckets add up to the full limit across the whole fleet",
+                  "About 25 a second, one gateway's quarter share",
+                  "About 100, the sum of the four buckets",
                   "About 400 a second, because each gateway grants the full limit to whatever traffic it sees"
                 ],
                 "answer": 0,
@@ -313,8 +313,8 @@
                 "ask": "A fleet is at 120% of capacity. Most customers send far below their rate limits, and none is over. Which design keeps payments working?",
                 "choices": [
                   "Lower every customer's rate limit by a fifth until the fleet is back under its capacity",
-                  "Shed by priority, keeping a reserve for charges",
-                  "Queue every request until capacity frees up, so that nothing at all has to be refused"
+                  "Shed by priority, so that charges keep a reserve of capacity",
+                  "Queue every request until capacity frees up"
                 ],
                 "answer": 1,
                 "why": "Customers far below their limits aren't slowed by lower limits, and a queue only delays the overload. Refusing the least important work first, with room held for charges, is what Stripe's fleet-wide shedders do."

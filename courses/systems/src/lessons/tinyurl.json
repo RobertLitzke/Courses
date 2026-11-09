@@ -193,7 +193,7 @@
                 "ask": "Why might a link-shortening service that sells click statistics answer with 302 rather than 301?",
                 "choices": [
                   "Because a 302 lets browsers cache the redirect, so pages load faster for readers",
-                  "Because a 301 may be cached by browsers, which then skip the service and the click is never counted",
+                  "Because browsers may cache a 301 and skip the service, losing the click",
                   "Because a 301 cannot carry a Location header longer than a few hundred characters"
                 ],
                 "answer": 1,
@@ -203,7 +203,7 @@
                 "ask": "In the finished design, why does the redirect path not touch the service that hands out blocks of codes?",
                 "choices": [
                   "Redirects only read existing rows, and the path that must never fail should depend on as few parts as possible",
-                  "The key service is too slow to answer within the redirect's latency budget of a few milliseconds",
+                  "The key service is too slow to answer within the redirect's latency budget of a few milliseconds, even when it is idle",
                   "The key service holds the codes in memory only, so it cannot tell which code points where"
                 ],
                 "answer": 0,
@@ -229,7 +229,7 @@
     "base62": {
       "kind": "technical",
       "title": "Base 62",
-      "text": "Writing a number in base 62 works like decimal with 62 digits: 0 to 9, then a to z, then A to Z. The number 3,500,000,000,000 needs seven of them, and 62⁶ is only 57 billion, so codes stay at six characters for the first 57 billion links and seven after."
+      "text": "Writing a number in base 62 works like decimal with 62 digits: 0 to 9, then a to z, then A to Z. The number 3,500,000,000,000 needs seven of them, and 62⁶ is only 57 billion, so codes stay at six characters or fewer for the first 57 billion links and seven after."
     },
     "redirect": {
       "kind": "technical",

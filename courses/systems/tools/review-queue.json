@@ -1,1 +1,182 @@
-[]
+[
+  {
+    "lesson": "nanosecond",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "slashdot",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "tinyurl",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "replicas",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "memcached",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "gfs",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "chunks",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "mapreduce",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "tail",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "bigtable",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "chubby",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "dynamo",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "conflicts",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "fanout",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "leases",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "kafka",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "streams",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "chaos",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "edge",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "spanner",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "zanzibar",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "payments",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "outage",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "slo",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "tiles",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "nearby",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "routing",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "traffic",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "limiter",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "chat",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "search",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "tickets",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "sensors",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "replay",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "lesson": "rollout",
+    "added": "2026-11-09",
+    "what": "New lesson, drafted and revised after a student read-through and a final technical review."
+  },
+  {
+    "description": true,
+    "added": "2026-11-09",
+    "what": "New course: catalog description written against the outline."
+  }
+]

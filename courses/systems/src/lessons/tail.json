@@ -198,8 +198,8 @@
               {
                 "ask": "A query waits for 100 servers, each of which is slow on 1% of requests. About what share of queries wait for at least one slow server?",
                 "choices": [
-                  "About 1%, since each server is slow on only 1% of requests",
-                  "About 63%",
+                  "About 1%, the rate on each server",
+                  "About 63%, since 0.99 to the power 100 is about 0.37",
                   "About 100%, since with 100 servers one is certain to be slow"
                 ],
                 "answer": 1,
@@ -209,8 +209,8 @@
                 "ask": "Every leaf server in a fan-out service reports a healthy median of 8 ms, yet users wait far longer. Which measurement would show the problem?",
                 "choices": [
                   "The mean latency of each leaf, which, unlike the median, counts every slow request",
-                  "The average of the leaves' 99th percentiles, reported once a minute by each leaf",
-                  "Latency at the root, as a distribution"
+                  "The average of the leaves' 99th percentiles",
+                  "The distribution of latency measured at the root, where users wait"
                 ],
                 "answer": 2,
                 "why": "The user waits for the slowest leaf of each query, so the root's distribution is what users feel. Averaging leaves' percentiles has no meaning, and a mean hides the tail."

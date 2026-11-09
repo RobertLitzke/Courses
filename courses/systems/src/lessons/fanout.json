@@ -181,7 +181,7 @@
                 "choices": [
                   "Its followers' timelines overflow, since each list holds only 800 entries and its tweets push out the rest",
                   "Each of its tweets must be read 30 million times from the tweet store, overloading the cache",
-                  "Each tweet needs 30 million inserts and takes minutes"
+                  "Each tweet needs 30 million timeline inserts and takes minutes to reach them all"
                 ],
                 "answer": 2,
                 "why": "The work and delay grow with the follower count; the hybrid merges such accounts in at read time instead."
@@ -189,7 +189,7 @@
               {
                 "ask": "In the hybrid design, what does a timeline read do?",
                 "choices": [
-                  "Gathers every followed account's recent tweets, exactly as fan-out on read does for every reader",
+                  "Gathers every followed account's recent tweets at read time",
                   "Fetches the pushed list and merges in the large accounts' tweets",
                   "Fetches the reader's pushed list only, since large accounts' tweets are pushed at a lower priority"
                 ],

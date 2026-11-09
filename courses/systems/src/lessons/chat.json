@@ -65,7 +65,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The obvious first design has each phone ask the server every few seconds: anything new for me? With 150 million phones asking every 5 seconds that is 30 million requests a second, almost all answered \"no\", and a message still waits 2.5 seconds on average for the next ask. Polling spends the fleet on asking. The other way is a **held connection** turns it around: the phone opens one connection, a WebSocket or a plain TCP socket with the app's own framing,[^websocket] and keeps it open; the server writes to it when there is something to say. An idle connection costs some kernel memory and a heartbeat every minute or so. The workbench below lets you set the two against each other before deciding."
+          "text": "The obvious first design has each phone ask the server every few seconds: anything new for me? With 150 million phones asking every 5 seconds that is 30 million requests a second, almost all answered \"no\", and a message still waits 2.5 seconds on average for the next ask. Polling spends the fleet on asking. The other way, a **held connection**, turns it around: the phone opens one connection, a WebSocket or a plain TCP socket with the app's own framing,[^websocket] and keeps it open; the server writes to it when there is something to say. An idle connection costs some kernel memory and a heartbeat every minute or so. The workbench below lets you set the two against each other before deciding."
         },
         {
           "type": "text",
@@ -252,8 +252,8 @@
                 "ask": "Why number messages with a counter per conversation instead of each phone's clock?",
                 "choices": [
                   "Phone clocks can't be read by the server once the message has been encrypted end to end on the phone",
-                  "A counter is shorter than a timestamp, which saves storage on every single message stored",
-                  "One owner's counter gives one order, with visible gaps"
+                  "A counter is shorter than a timestamp",
+                  "One owner's counter gives a single order, and a missing number shows as a gap"
                 ],
                 "answer": 2,
                 "why": "Phone clocks are often minutes wrong. Numbering 1, 2, 3 at the conversation's owner gives an order everyone agrees on, and a phone holding 41 and 43 can ask for 42."

@@ -234,7 +234,7 @@
                 "choices": [
                   "The phones sent forged positions that placed them on a busy road a few streets away",
                   "The street's usual speed for that hour was already slow, so a few reports tipped it over",
-                  "The pipeline counted 99 slow phones as 99 cars, and on an empty street they were the only reports"
+                  "It counted 99 slow phones as 99 cars, the only reports on an empty street"
                 ],
                 "answer": 2,
                 "why": "The data was honest; the inference was wrong. Grouping phones that move together into one observer is one defence."

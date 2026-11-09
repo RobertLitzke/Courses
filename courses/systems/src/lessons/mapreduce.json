@@ -199,8 +199,8 @@
                 "ask": "In a MapReduce job, a worker has finished five map tasks and two reduce tasks, and dies while idle, before the job ends. What must be run again?",
                 "choices": [
                   "Nothing: it was running no task, and the master already holds a record of all seven finished tasks",
-                  "Its five map tasks, whose output was on its own disk",
-                  "All seven tasks, because the master cannot trust anything a failed machine produced"
+                  "Its five map tasks, whose output sat on its own disk and is gone",
+                  "All seven, as nothing from a failed machine is trusted"
                 ],
                 "answer": 1,
                 "why": "The master's record says where the map output is, but the files themselves are gone. Reduce output lives in GFS, three copies on other machines. A task running at the moment of death would also rerun."
@@ -219,7 +219,7 @@
                 "ask": "A map function sends an alert email for every malformed record it finds. What happens when the job runs on a busy cluster?",
                 "choices": [
                   "Nothing unusual: each record is read by exactly one map task, so each alert goes out once",
-                  "Some alerts are lost, because the master discards everything a task did before it was rerun",
+                  "Some alerts are lost when the master discards rerun work",
                   "Some alerts go out more than once, as tasks are rerun or backed up"
                 ],
                 "answer": 2,
@@ -249,7 +249,7 @@
                 "ask": "A job will run on 1,000 workers. Which split of the input is the better design, and why?",
                 "choices": [
                   "50,000 small map tasks, so a lost worker's share is small and spreads widely",
-                  "1,000 map tasks, one per worker: each machine reads one long stretch of input, and the master tracks less",
+                  "1,000 map tasks, one per worker, so the master tracks less",
                   "10 large map tasks: fewer tasks means fewer intermediate files in the shuffle, less network traffic and a smaller master"
                 ],
                 "answer": 0,

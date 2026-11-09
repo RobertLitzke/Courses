@@ -160,7 +160,7 @@
                 "ask": "A route planner must reflect traffic that changes every few minutes. Why might it use customisable route planning rather than a contraction hierarchy?",
                 "choices": [
                   "CRP answers each query faster than a contraction hierarchy, so it can afford to wait for the traffic",
-                  "A contraction hierarchy cannot store travel times, only distances, so it ignores traffic",
+                  "A contraction hierarchy cannot store travel times, only distances, so it has to ignore traffic and road closures altogether",
                   "CRP recomputes only the affected cells' shortcuts in milliseconds; the hierarchy needs minutes of preprocessing"
                 ],
                 "answer": 2,
@@ -169,7 +169,7 @@
               {
                 "ask": "A continental road graph with its shortcuts takes about a gigabyte. How should route servers be arranged?",
                 "choices": [
-                  "Each server holds the whole region's graph, and more replicas are added for more queries",
+                  "Each server holds the whole graph; add replicas for more queries",
                   "The graph is split by region across servers, and each query hops between them",
                   "The graph lives in a shared database that every server queries road by road"
                 ],
@@ -181,7 +181,7 @@
                 "choices": [
                   "A cache of earlier routes steers it toward the goal, but caches go stale as traffic changes",
                   "A lower bound on the time left steers it toward the goal, but straight line at top speed underestimates most trips badly",
-                  "Shortcuts between distant junctions steer it toward the goal, but they take hours to compute"
+                  "Shortcuts between distant junctions steer it toward the goal, but they take hours to compute and must be redone for traffic"
                 ],
                 "answer": 1,
                 "why": "A* orders the queue by time so far plus a bound on the rest. The bound must never overestimate, so it assumes motorway speed everywhere, which is far from the truth on most roads."

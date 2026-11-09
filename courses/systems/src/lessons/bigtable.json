@@ -100,7 +100,7 @@
         },
         {
           "type": "text",
-          "text": "The figure shows the three costs every log-structured store trades against each other. **Read amplification** is the number of files a read must touch; without compaction it grows without limit. **Write amplification** is how many times each byte is written to disk: once in the log, once in the flush, and once more in every compaction that merges it, so a store that compacts eagerly to keep reads cheap writes the same data several times. **Space amplification** is the old versions and deleted data still on disk until a compaction removes them. Compacting more often helps reads and space and costs writes; compacting less often does the reverse. Later engines offer several compaction schemes for exactly this reason. A reasonable start is a memtable of tens of megabytes (64 MB in the figure) and **size-tiered** compaction, merging files of similar size as the figure does, for tables that are mostly written; tables that are mostly read suit **leveled** compaction, which keeps each key in at most one file per level, so a read touches fewer files and every byte is rewritten more often. Either way, and a compaction running at the wrong moment is a standard cause of the tail latency of lesson 9."
+          "text": "The figure shows the three costs every log-structured store trades against each other. **Read amplification** is the number of files a read must touch; without compaction it grows without limit. **Write amplification** is how many times each byte is written to disk: once in the log, once in the flush, and once more in every compaction that merges it, so a store that compacts eagerly to keep reads cheap writes the same data several times. **Space amplification** is the old versions and deleted data still on disk until a compaction removes them. Compacting more often helps reads and space and costs writes; compacting less often does the reverse. Later engines offer several compaction schemes for exactly this reason. A reasonable start is a memtable of tens of megabytes (64 MB in the figure) and **size-tiered** compaction, merging files of similar size as the figure does, for tables that are mostly written; tables that are mostly read suit **leveled** compaction, which keeps each key in at most one file per level, so a read touches fewer files and every byte is rewritten more often. Either way, a compaction running at the wrong moment is a common cause of the tail latency of lesson 9."
         },
         {
           "type": "text",
@@ -230,7 +230,7 @@
                 "ask": "The same sensor table must answer \"all readings of one sensor for a day\" thousands of times a second, and \"all sensors' last minute\" once a minute. Which row key fits best?",
                 "choices": [
                   "timestamp#sensorID, so the once-a-minute summary of every sensor is one short scan",
-                  "a random number per row, so that writes and reads both spread evenly over every server",
+                  "a random number per row, to spread load",
                   "sensorID#timestamp, so one sensor's day is one short scan"
                 ],
                 "answer": 2,

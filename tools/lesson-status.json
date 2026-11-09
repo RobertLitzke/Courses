@@ -228,6 +228,11 @@
       "note": "Rivers and the Salish Sea: why the water does what it does. Outline revised after a five-reader panel on 7 Nov 2026 (project files rivers/outline.md, reviews in rivers/review-2026-11-07/). Every lesson had one student read-through and a revision; the writers' uncertain facts are listed in rivers/writer-notes.md for the fact check. Photos are parked in tools/pending-photos.json.",
       "expectsPhotos": true
     },
+    "systems": {
+      "student": "done",
+      "facts": "pending",
+      "note": "Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Queued for Gemini. No photos expected."
+    },
     "bats": {
       "student": "done",
       "facts": "pending",

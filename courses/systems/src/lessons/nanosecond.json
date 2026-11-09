@@ -167,7 +167,7 @@
                 "ask": "A service gets 50 million requests a day, and its logs show the busiest hour running four times the daily average. Roughly what rate should it be built to carry?",
                 "choices": [
                   "About 500 a second, the day's count over 10⁵ seconds",
-                  "About 2,000 a second",
+                  "About 2,000 a second, four times the average of about 500",
                   "About 50,000 a second, a hundred times the average, so that no burst of any size can ever reach the limit"
                 ],
                 "answer": 1,

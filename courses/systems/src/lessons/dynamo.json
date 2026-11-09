@@ -187,7 +187,7 @@
                 "ask": "A key has N = 3 replicas, and a service uses W = 1 and R = 1. What can happen?",
                 "choices": [
                   "A write is refused whenever any one of the three replicas is down",
-                  "A read can return a stale value",
+                  "A read can miss the latest write and return a stale value, since R + W is only 2",
                   "A read always waits for all three replicas, so every read is as slow as the slowest replica"
                 ],
                 "answer": 1,
@@ -197,8 +197,8 @@
                 "ask": "Why does Dynamo give each server many points on the ring?",
                 "choices": [
                   "So that a client can find any key's servers without looking at the ring or asking any other server",
-                  "So that each key is copied to more servers than N, for extra safety when several fail at once",
-                  "So load is even and a lost server's keys spread widely"
+                  "So each key is copied to more than N servers",
+                  "So load stays even, and a lost server's keys spread over many others instead of one"
                 ],
                 "answer": 2,
                 "why": "A share made of many small arcs is close to the average, and each arc passes to a different neighbour when the server leaves."
@@ -228,7 +228,7 @@
                 "choices": [
                   "Send every key and version to each other, compressed so the transfer is small",
                   "Agree on a leader for the range, which then overwrites the other replica",
-                  "Compare hashes from the root down and send only the small ranges whose hashes differ"
+                  "Compare hashes from the root down and swap only ranges that differ"
                 ],
                 "answer": 2,
                 "why": "Matching roots settle the whole range at once; a mismatch is followed down one branch at a time to the ranges that disagree."
@@ -236,8 +236,8 @@
               {
                 "ask": "With N = 3, R = 2, W = 2, how long does a read take?",
                 "choices": [
-                  "As long as the second-fastest replica",
-                  "As long as the slowest of the three replicas, since every copy must be compared",
+                  "As long as the second-fastest of the three replicas to answer",
+                  "As long as the slowest replica, since all are compared",
                   "As long as the fastest replica, since one reply is enough to answer once the write quorum W is 2"
                 ],
                 "answer": 0,

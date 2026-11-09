@@ -17,7 +17,7 @@
         },
         {
           "type": "text",
-          "text": "Netflix's builders had to **count the cost** in its plainest form: where bytes go and who pays to move them. An hour of video at 5 Mb/s is 2.25 GB. Suppose a hundred million hours are watched in a day, all sent from a cloud region at 2 cents a gigabyte. That is 225 petabytes and about $4.5 million a day, before any of it has crossed the long-distance links between the cloud and the viewer, which would have to be built for the evening peak and sit mostly idle at 4 a.m. The design question is how to send those bytes the shortest way, at the cheapest hour."
+          "text": "Netflix's builders had to **count the cost** in its plainest form: where bytes go and who pays to move them. An hour of video at 5 Mb/s is 2.25 GB. Suppose a hundred million hours are watched in a day, all sent from a cloud region at 2 cents a gigabyte. That is 225 petabytes and about $4.5 million a day, before any of it has crossed the long-distance links between the cloud and the viewer, which would have to be built for the evening peak and sit mostly idle at 4 a.m. The problem is how to send those bytes the shortest way, at the cheapest hour."
         }
       ]
     },
@@ -135,8 +135,8 @@
               {
                 "ask": "Why did Netflix fill its edge appliances in the early morning rather than when viewers asked?",
                 "choices": [
-                  "Providers allow appliances to fetch only outside their evening peak, under the terms on which they host them",
-                  "Links are nearly idle then, and transit billed at the peak rate costs nothing extra off-peak, while a miss at 9 p.m. adds to the peak",
+                  "Providers allow appliances to fetch only outside their evening peak, under the terms on which they host them in their racks",
+                  "Links are nearly idle then, and off-peak transit costs nothing extra, while a miss at 9 p.m. adds to the billed peak",
                   "Fills check each file against the origin, which needs disks that are not busy serving"
                 ],
                 "answer": 1,
@@ -176,8 +176,8 @@
                 "ask": "Why is streaming video split into segments of a few seconds, each encoded at several bitrates?",
                 "choices": [
                   "Short files compress better than long ones, so the whole film takes less space on the servers",
-                  "The player can change quality every few seconds as bandwidth changes, and every segment is an ordinary file any HTTP cache can hold",
-                  "Each segment can be sent from a different origin, so a film never depends on a single datacentre"
+                  "The player switches quality every few seconds as bandwidth changes, and each segment is a file any HTTP cache can hold",
+                  "Each segment can be sent from a different origin datacentre, so a film never depends on any single datacentre staying up"
                 ],
                 "answer": 1,
                 "why": "Segments let the player adapt continually, and as plain files over HTTP they flow through CDNs and caches built for the web."

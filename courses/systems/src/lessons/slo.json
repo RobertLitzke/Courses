@@ -199,8 +199,8 @@
                 "ask": "A team pages its on-call engineer whenever CPU stays above 90% for ten minutes. Why is that a poor alert?",
                 "choices": [
                   "CPU is measured too coarsely on modern servers to be a reliable number to alert on",
-                  "High CPU is a possible cause, not a symptom; it fires when users are fine and stays silent for many real failures",
-                  "Ten minutes is too short a window, so the alert fires on every brief spike in load"
+                  "High CPU is a possible cause, not a symptom: it fires while users are fine and misses real failures",
+                  "Ten minutes is too short a window, so the alert fires on every brief spike in load and wakes people needlessly"
                 ],
                 "answer": 1,
                 "why": "Users feel errors and slowness, not CPU. Alerts on causes page people for nothing and miss failures with other causes, so pages should come from symptoms such as the error budget burning."
@@ -220,7 +220,7 @@
                 "choices": [
                   "Monitoring systems cannot measure availability precisely enough to confirm a service has reached 100%",
                   "Contracts with customers forbid promising 100%, so the SLO would conflict with the SLA",
-                  "It cannot be met, so it is broken at once and ignored, and users cannot tell the difference from 99.99% anyway"
+                  "It cannot be met, so it is broken at once and ignored, and users can't tell it from 99.99%"
                 ],
                 "answer": 2,
                 "why": "A target that leaves no budget gives no room for change and no signal worth acting on, and every extra nine costs far more for a difference users' own networks hide."
@@ -238,9 +238,9 @@
               {
                 "ask": "Why does Gorilla's compression bring a typical monitoring point from 16 bytes to under 2?",
                 "choices": [
-                  "It stores each value at lower precision, rounding to the nearest whole number before saving",
+                  "It stores each value at lower precision, rounding it to the nearest whole number, and packs each timestamp into one byte",
                   "It keeps only the points that differ from the previous one and drops the rest entirely",
-                  "Readings come at regular intervals and change little, so the change in gap and the XOR with the last value are mostly zeros"
+                  "Regular readings change little, so the change in gap and the XOR with the last value are mostly zeros"
                 ],
                 "answer": 2,
                 "why": "Delta-of-delta timestamps and XOR-ed values make the usual case a single bit, and nothing is rounded: every point can be read back exactly."

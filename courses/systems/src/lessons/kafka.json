@@ -211,7 +211,7 @@
         },
         {
           "type": "text",
-          "text": "The 2011 Kafka kept each partition on one broker; if its disk died, the partition's data went with it. Replication arrived in version 0.8 in 2013: each partition has a leader broker that takes writes and followers that copy them, and a producer can wait until every follower that is in step has the record before counting it written. A follower is in step, an **in-sync replica**, while it has fetched everything up to the leader's newest record within a set time, ten seconds by default in later versions; one that falls further behind is dropped from the set until it catches up. Retention also grew a second mode, **compaction**, which keeps only the newest record for each key, so a topic can serve as the full current state of a table, however old.[^compaction]"
+          "text": "The 2011 Kafka kept each partition on one broker; if its disk died, the partition's data went with it. Replication arrived in version 0.8 in 2013: each partition has a leader broker that takes writes and followers that copy them, and a producer can wait until every follower that is in step has the record before counting it written. A follower is in step, an **in-sync replica**, while it has fetched everything up to the leader's newest record within a set time, 10 seconds by default for many years and 30 seconds since version 2.5; one that falls further behind is dropped from the set until it catches up. Retention also grew a second mode, **compaction**, which keeps only the newest record for each key, so a topic can serve as the full current state of a table, however old.[^compaction]"
         }
       ]
     },
@@ -228,7 +228,7 @@
               {
                 "ask": "A consumer group's lag on a topic grows steadily all afternoon. What does that tell you?",
                 "choices": [
-                  "The group is reading more slowly than producers are writing, so it needs faster or more consumers, and enough partitions to spread them over",
+                  "The group reads more slowly than producers write, so it needs faster or more consumers, and partitions to spread them over",
                   "The brokers are deleting old segments before the group has read them, so the group has to keep starting again from the beginning",
                   "The producers are sending duplicate messages, which the group has to read and then discard one by one"
                 ],
@@ -268,8 +268,8 @@
               {
                 "ask": "Why can Kafka keep every message on disk and still be fast?",
                 "choices": [
-                  "It appends to the end of files and readers read forward, so the disk streams instead of seeking, and recent data is served from the page cache",
-                  "It keeps each partition entirely in memory and writes to disk only during quiet periods when no producers are sending",
+                  "Writes append and reads run forward, so the disk streams instead of seeking, and recent data comes from the page cache",
+                  "It keeps each partition entirely in memory and writes to disk only during quiet periods when no producer is sending anything",
                   "It compresses each message so heavily that the disk has very little to write, whatever order the writes come in"
                 ],
                 "answer": 0,
@@ -289,7 +289,7 @@
                 "ask": "A service writes an order to its database and then publishes an event about it to a log. What can go wrong?",
                 "choices": [
                   "Nothing, as long as the publish is retried until the log acknowledges it",
-                  "The log may deliver the event before the database has finished committing the order",
+                  "The log may deliver the event to its readers before the database has finished committing the order itself",
                   "A crash between the two writes leaves the database and the log disagreeing, with no record of the gap"
                 ],
                 "answer": 2,

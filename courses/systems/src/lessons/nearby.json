@@ -161,7 +161,7 @@
                 "choices": [
                   "Geohash rounds positions to the nearest kilometre, so close points can land anywhere",
                   "One of the cars sent its position in degrees and the other in radians",
-                  "They are on either side of a major cell boundary, such as the equator or the prime meridian"
+                  "They sit either side of a major cell boundary, such as the equator"
                 ],
                 "answer": 2,
                 "why": "Points in the same cell share a prefix, but nearby points across a boundary can be in cells whose names differ from the first character. That is why a search covers every cell its circle touches."

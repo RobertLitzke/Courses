@@ -214,8 +214,8 @@
                 "ask": "Everyone who arrives before a sale opens is put in random order at opening time. What does this achieve?",
                 "choices": [
                   "It spreads the database writes evenly across all of the shards that hold the event's seats",
-                  "It removes the need for a waiting room, since arrivals are already spread out over time",
-                  "Arriving early or in many tabs gains nothing"
+                  "It removes the need for a waiting room",
+                  "Arriving early, or in many tabs, gives no one an edge at opening"
                 ],
                 "answer": 2,
                 "why": "First come, first served rewards whoever can arrive earliest and most often, which is what scripts do best."
@@ -235,7 +235,7 @@
                 "choices": [
                   "A conditional write offering the driver, expiring in seconds",
                   "A lock on the driver's row held until the trip ends, released by the driver's app when the rider gets out",
-                  "A queue of riders for each driver, with each driver accepting riders in the order that they asked"
+                  "A queue of riders for each driver"
                 ],
                 "answer": 0,
                 "why": "An offer is a hold: one conditional write wins, the others change nothing, and the expiry frees the driver who doesn't accept."

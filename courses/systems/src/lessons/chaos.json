@@ -9,7 +9,7 @@
       "blocks": [
         { "type": "text", "text": "In August 2008 Netflix still made most of its money mailing DVDs, and a corruption in one of its main databases stopped it shipping them for three days. The company drew a lesson that shaped the next eight years: a single big database in its own datacentre was a single point of failure, and the way out was to move to Amazon Web Services and build every service on the assumption that any machine it ran on could disappear at any moment. The move took until January 2016.[^migration]" },
         { "type": "text", "text": "Assuming failure is easy to write in a design document and hard to make true, because the code that handles failure is the code that never runs. So in 2010 Netflix's engineers wrote a program that made it run. **Chaos Monkey** picked virtual machines in the production fleet at random and switched them off, during working hours, when the engineers who owned them were at their desks. It ran in production because a test environment has the code but not the traffic, the data or the real behaviour of the services each one calls. A service that could not lose a machine without users noticing would be found out on a Tuesday afternoon instead of at three in the morning." },
-        { "type": "text", "text": "On 21 April 2011 Amazon's largest region, in northern Virginia, had a long outage of its block storage service. Sites that ran there went down for hours, some for days. Netflix ran there too, and kept streaming with higher error rates and no large outage, which its engineers put down in part to having practised losing machines.[^aws] That is the practice to take from Netflix: **test failure on purpose**. Its subject is the failure Chaos Monkey's first version did not test, and the one that takes down large systems most often: not a machine that dies, but one that gets slow." }
+        { "type": "text", "text": "On 21 April 2011 Amazon's largest region, in northern Virginia, had a long outage of its block storage service. Sites that ran there went down for hours, some for days. Netflix ran there too, and kept streaming with higher error rates and no large outage, which its engineers put down in part to having practised losing machines.[^aws] That is the practice to take from Netflix: **test failure on purpose**. This lesson's subject is the failure Chaos Monkey's first version did not test, and the one that takes down large systems most often: not a machine that dies, but one that gets slow." }
       ]
     },
     {
@@ -69,9 +69,9 @@
               {
                 "ask": "An API server takes 500 requests a second, each calling a service that normally answers in 20 ms. The service slows to 2 s and the API has no timeout. What happens to the API's threads?",
                 "choices": [
-                  "They rise from about 10 to about 1,000, so a pool of a few hundred fills and every request waits, even those that never call that service",
+                  "They rise from about 10 to about 1,000, so a pool of a few hundred fills and even requests that skip that service wait",
                   "They stay at about 10, because each thread waits for the slow call without doing any work of its own",
-                  "They double, from about 10 to about 20, because each request now takes longer but arrives at the same rate"
+                  "They double, from about 10 to about 20, because each request now takes longer while arriving at the same rate as before"
                 ],
                 "answer": 0,
                 "why": "Little's law: threads = rate × time held. 500 × 0.02 = 10; 500 × 2 = 1,000. Once the pool is full, requests queue for threads regardless of what they call."
@@ -89,9 +89,9 @@
               {
                 "ask": "Why add random jitter to exponential backoff?",
                 "choices": [
-                  "Clients that failed together otherwise back off by the same amounts and return together, in waves an overloaded server cannot serve",
+                  "Clients that failed together otherwise back off by the same amounts and return together, in waves the server cannot serve",
                   "Random waits make it harder for an attacker to predict when a client will retry and to block its calls",
-                  "Jitter makes each client's waits shorter on average, so it gets through sooner than it would with backoff alone"
+                  "Jitter shortens each client's waits on average, so a client gets through sooner than it would with plain exponential backoff"
                 ],
                 "answer": 0,
                 "why": "Backoff alone keeps the clients in step. A random wait up to the backoff spreads them over the interval, cutting both total calls and the time until all get through."
@@ -101,7 +101,7 @@
                 "choices": [
                   "It retries each failed call immediately on a different replica of the dependency, until one of them answers",
                   "It slows down the caller's whole request rate until the dependency's error rate falls below a threshold",
-                  "After enough failures it fails calls at once for a while, using a fallback, then lets a few through to test recovery"
+                  "After repeated failures it fails calls at once, with a fallback, and later lets a few through as a test"
                 ],
                 "answer": 2,
                 "why": "Failing fast frees the caller's threads and takes load off the dependency so it can recover. The half-open test decides when to resume."

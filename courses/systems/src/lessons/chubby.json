@@ -7,7 +7,7 @@
     "**Two servers that watch each other cannot safely pick a leader.** When the link between them fails, each sees the other as dead, and both take charge.",
     "**Agreement needs a majority.** Any two majorities of the same servers share at least one member, so two sides of a split can never both decide.",
     "**Five servers survive two failures; three survive one.** Each decision costs a round trip to a majority, under a millisecond in one datacentre and tens of milliseconds across a continent.",
-    "**Raft keeps a replicated log with a leader per term.** An entry is committed once a majority holds it, and a server votes only for a candidate whose log is at least as up to date as its own.",
+    "**Raft keeps a replicated log with a leader per term.** An entry is committed once its leader has it on a majority, and a server votes only for a candidate whose log is at least as up to date as its own.",
     "**The side of a split without a majority stops.** Its leader can accept a write but never commit it, and the write is overwritten when the network heals.",
     "**A lease lets a leader act alone for a fixed time.** It must stop when the lease runs out, and nobody else may lead until it has.",
     "**A paused process doesn't know its lease has run out.** Anything a lock holder writes to should check a fencing token, a number that grows with every new holder, and refuse an old one.",
@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "Raft keeps a **replicated log**: an ordered list of commands, such as \"x=2\" or \"master is server 7\", that every server applies in the same order. Each entry records the **term** in which it was written as well as its command. Time is divided into terms numbered 1, 2, 3, and each term has at most one leader. The leader takes client writes, appends them to its own log, and sends them to the others with each heartbeat. An entry is **committed** once a majority of servers has stored it, and only committed entries are ever applied or reported to the client as done."
+          "text": "Raft keeps a **replicated log**: an ordered list of commands, such as \"x=2\" or \"master is server 7\", that every server applies in the same order. Each entry records the **term** in which it was written as well as its command. Time is divided into terms numbered 1, 2, 3, and each term has at most one leader. The leader takes client writes, appends them to its own log, and sends them to the others with each heartbeat. An entry is **committed** once the leader that wrote it has stored it on a majority of servers, and only committed entries are ever applied or reported to the client as done."
         },
         {
           "type": "text",
@@ -281,7 +281,7 @@
     "uptodate": {
       "kind": "technical",
       "title": "At least as up to date",
-      "text": "A log is more up to date if its last entry has a higher term, or the same term and a higher index. Every committed entry is on a majority, and a winning candidate needs votes from a majority, so at least one voter holds each committed entry and refuses a candidate that lacks it. A new leader therefore always has every committed entry."
+      "text": "A log is more up to date if its last entry has a higher term, or the same term and a higher index. Every committed entry is on a majority, and a winning candidate needs votes from a majority, so at least one voter holds each committed entry and refuses a candidate that lacks it. A new leader therefore always has every committed entry. One refinement: an entry left over from an earlier term counts as committed only once an entry of the current term is on a majority, since an old entry on a majority can still be overwritten by a leader that never saw it."
     },
     "flp": {
       "kind": "digression",

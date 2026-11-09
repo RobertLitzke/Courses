@@ -200,8 +200,8 @@
               {
                 "ask": "A fleet records 8 PB a day and each depot has a 10 Gb/s link moving about 108 TB a day. Which plan is realistic?",
                 "choices": [
-                  "Upgrade every depot to a 100 Gb/s link and keep everything that is recorded",
-                  "Keep a few per cent after triage on board",
+                  "Upgrade every depot to 100 Gb/s and keep it all",
+                  "Triage on board and upload only the few per cent worth keeping",
                   "Upload everything over cellular while driving, so that nothing waits for the depot at night"
                 ],
                 "answer": 1,
@@ -230,9 +230,9 @@
               {
                 "ask": "A live link lets a person at a desk guide a machine in the field. What must happen when the link drops?",
                 "choices": [
-                  "The machine stops all work and waits in place, however long the link takes to come back",
+                  "It stops in place and waits, however long the link is down",
                   "The machine goes on with whatever command it last received, for as long as the link is down",
-                  "It reaches a safe state without help"
+                  "It brings itself to a safe state on its own, without waiting for the link"
                 ],
                 "answer": 2,
                 "why": "Cellular links fail in patches. The person advises and the machine decides, so it must never need the link to be safe."
@@ -261,8 +261,8 @@
                 "ask": "In a file sync service, how is a file's new version stored after a small edit?",
                 "choices": [
                   "As a full new copy, so that each version can be read without reference to any other version",
-                  "A list of block hashes, most shared with the old one",
-                  "As a diff against the previous version, applied in order whenever the file is opened again"
+                  "As a list of block hashes, most of them shared with the old version",
+                  "As a diff against the previous version"
                 ],
                 "answer": 1,
                 "why": "Unchanged blocks keep their hashes, so an edit uploads and stores only the blocks that changed."

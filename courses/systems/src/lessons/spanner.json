@@ -169,9 +169,9 @@
               {
                 "ask": "How does Spanner stop a coordinator's death from blocking participants?",
                 "choices": [
-                  "Participants that time out ask each other for the decision and commit if every one of them voted yes",
+                  "Participants that time out ask each other for the decision, and commit if every one of them voted yes in the first round",
                   "The coordinator sends its decision to the client first, and the client passes it on if the coordinator dies",
-                  "The coordinator and each participant are Paxos groups, so the decision outlives any one machine and a new leader sends it"
+                  "Coordinator and participants are each Paxos groups, so the decision outlives any machine and a new leader sends it"
                 ],
                 "answer": 2,
                 "why": "The commit decision is written through Paxos to a majority of the coordinator group's replicas. When its leader dies, another replica takes over with the decision in its log. Participants asking each other cannot help when none heard the decision."
@@ -184,7 +184,7 @@
                   "Until the time masters' next poll narrows ε back to about 1 ms, so the stamp is precise: up to 30 s"
                 ],
                 "answer": 0,
-                "why": "The stamp can be up to ε ahead of true time, and the clock must then advance until even its earliest reading passes s, another ε. About 2ε, here 10 ms. The Paxos round runs at the same time but is a separate cost."
+                "why": "When s is set to the latest reading, the earliest reading is 2ε below it, and the leader waits until even the earliest reading passes s. That is about 2ε, here 10 ms. The Paxos round runs at the same time but is a separate cost."
               },
               {
                 "ask": "Two regions keep copies of a stock count and resolve conflicts by last writer wins, using each region's NTP-set clock. Region B's clock is 50 ms slow. A sale in A sets the count to 0; 20 ms later a restock in B sets it to 10. What survives?",
@@ -209,7 +209,7 @@
               {
                 "ask": "Why can a Spanner read-only transaction run without taking any locks?",
                 "choices": [
-                  "It reads at a single timestamp from stored versions, and any replica that has applied every write up to that timestamp can answer",
+                  "It reads stored versions at one timestamp, and any replica that has applied every write up to it can answer",
                   "It reads only from the leader of each shard, which serialises reads with writes by running them in turn",
                   "It accepts that it may see half of a transaction, because read-only work such as reports can tolerate small errors"
                 ],

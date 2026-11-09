@@ -184,8 +184,8 @@
               {
                 "ask": "A slashdotted server's processor was busy but not at its limit, its network link had room to spare, and yet new readers were turned away. What ran out?",
                 "choices": [
-                  "Memory for the page cache, so each page was rebuilt from disk",
-                  "Its pool of connection slots: slower answers meant more connections open at once, until the cap of workers was reached",
+                  "Memory for the page cache, so that every page had to be rebuilt from disk for each reader",
+                  "Its connection slots: slow answers kept more connections open until the cap was hit",
                   "Disk space, as each extra visitor added a line to the access log"
                 ],
                 "answer": 1,
@@ -196,7 +196,7 @@
                 "choices": [
                   "Add web servers, since that is where the latency shows",
                   "Raise the web servers' pool of worker threads so that each can hold several hundred more requests while they wait",
-                  "Take load off the database"
+                  "Take load off the database, by caching or by cutting its queries"
                 ],
                 "answer": 2,
                 "why": "The web servers are waiting on the database, which is the bottleneck. Capacity added anywhere else leaves the queue at the database as long as it was."
@@ -204,9 +204,9 @@
               {
                 "ask": "A page makes twenty requests to a service, each independently. About how often does a page load include at least one request slower than the service's 99th percentile?",
                 "choices": [
-                  "About one load in a hundred, the same as for a single request",
-                  "About one load in five",
-                  "Nearly every load, since twenty requests is a large sample and the slowest one in a hundred will almost always turn up among them"
+                  "About one in a hundred, as for one request",
+                  "About one load in five, since 0.99²⁰ is about 0.82",
+                  "Nearly every load, since the slowest one in a hundred will almost always turn up"
                 ],
                 "answer": 1,
                 "why": "Each request beats the 99th percentile with chance 0.99, so all twenty do with chance 0.99²⁰ ≈ 0.82. The other 18%, about one load in five, meets a slow one. That is why the 99th percentile, not the average, is what readers feel."

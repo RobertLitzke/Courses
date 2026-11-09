@@ -189,9 +189,9 @@
               {
                 "ask": "With asynchronous replication, the primary fails and a replica 3 seconds behind is promoted. What happens to the committed writes that had not yet reached that replica?",
                 "choices": [
-                  "The new primary applies them when it replays the binary log it received",
-                  "They are lost",
-                  "They wait in the load balancer's queue until the new primary is ready, and are then sent on in their original order"
+                  "It replays them from the binary log it received",
+                  "They are lost: the new primary never received them",
+                  "They wait in the load balancer's queue and are sent on later"
                 ],
                 "answer": 1,
                 "why": "Those changes were committed only on the old primary and never reached the replica. Promoting it loses them; synchronous replication is what prevents that, at the cost of slower writes."
@@ -201,7 +201,7 @@
                 "choices": [
                   "Showing one user's own journal entries, newest first",
                   "Saving a new entry written by one user",
-                  "Showing the latest entries from all of the people a user follows"
+                  "The latest entries of everyone a user follows"
                 ],
                 "answer": 2,
                 "why": "The people a user follows live on many shards, so the query becomes many queries and a merge. A single user's own reads and writes stay on one shard."

@@ -226,9 +226,9 @@
               {
                 "ask": "In a region that reads from a lagging replica, a user saves a change and reloads the page straight away. Which design shows them their change?",
                 "choices": [
-                  "Deleting the key from the local cache as soon as the write commits in the primary region",
+                  "Deleting the key from the local cache as soon as the write commits in the primary region, before the reply is sent",
                   "Taking deletes from the local replica's commit log, so the cache is cleared once the replica has the write",
-                  "A remote marker set before the write, so a miss on that key reads from the primary region until the replica catches up"
+                  "A remote marker set before the write, so misses on that key read from the primary until the replica catches up"
                 ],
                 "answer": 2,
                 "why": "The first two clear the cache, but the user's miss still reads the local replica, which has not applied the write. The marker sends just that reader, for just that key, to the primary."
