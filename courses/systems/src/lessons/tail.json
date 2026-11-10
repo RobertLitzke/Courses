@@ -4,14 +4,14 @@
   "title": "Why the slowest machine sets the pace",
   "teaches": "Percentiles, how fanning out to many servers turns rare delays into common ones, and hedged requests",
   "summary": [
-    "**A request that waits for many servers waits for the slowest.** If each of n servers is slow with chance p, the request is slow with chance 1 − (1 − p)ⁿ: 63% for 100 servers each slow 1% of the time.",
-    "**The tail of one server becomes the middle of a fan-out.** A leaf's 99th percentile is roughly the whole query's median once a query asks a hundred leaves.",
-    "**Measure percentiles, not averages.** The mean hides the slow 1% that a fan-out turns into most users' experience; record histograms, because percentiles from different servers cannot be averaged.",
-    "**Slowness has many sources that cannot all be removed.** Queues, garbage collection, compaction, a neighbour's job and a busy disk each stall a machine now and then, and at scale something always is stalled.",
-    "**An index split by document asks every shard and gets small answers back.** Split by word, it asks fewer shards but ships whole posting lists, and a common word overloads its shard.",
-    "**A hedged request sends a second copy after a short wait.** Sent after the 95th-percentile delay, it adds at most about 5% load and cuts the tail by an order of magnitude.",
-    "**Tied requests cancel the slower copy.** Each copy knows the other's server, and whichever starts work first tells the other to drop it, so queueing delay is avoided at little cost.",
-    "**Hedging feeds an overload.** When slowness comes from too much load, extra copies make it worse, so hedges and retries need a cap."
+    "**A request that waits for many servers waits for the slowest.** If each of n servers is slow with probability p, the request is slow with probability 1 − (1 − p)ⁿ, which is 63% for 100 servers that are each slow 1% of the time.",
+    "**The tail of one server becomes the middle of a fan-out.** A leaf's 99th-percentile latency becomes roughly the overall query's median latency once a query fans out to 100 leaves.",
+    "**Measure percentiles, not averages.** The mean hides the slow 1% of requests that a fan-out turns into the typical user experience; record histograms instead, because percentiles from different servers cannot be averaged.",
+    "**Slowness has many sources that cannot all be removed.** Queuing, garbage collection, compaction, noisy neighbours and disk maintenance each delay a machine occasionally, and at scale some machine is always delayed.",
+    "**An index split by document queries every shard and receives small responses.** Split by word, a query touches fewer shards but transfers entire posting lists over the network, and a common word overloads its shard.",
+    "**A hedged request sends a second copy after a short wait.** Sent after the 95th-percentile latency, it adds at most 5% to the request load and cuts tail latency significantly.",
+    "**Tied requests cancel the slower copy.** Each request includes the address of the peer server, and whichever server starts work first tells the other to drop its copy, avoiding queueing delay at minimal cost.",
+    "**Hedging worsens an overload.** When high latency is caused by saturation, duplicate requests increase the load further, so clients must cap hedged requests and retries."
   ],
   "parts": [
     {
@@ -23,12 +23,12 @@
         },
         {
           "type": "text",
-          "text": "Its starting point is a property of fan-out that is easy to state and hard to feel. The root cannot send the page until the last leaf has answered. A leaf that answers in about 8 ms almost every time is fine on its own; the trouble is the rare time it takes a second, because with a hundred leaves per query, some leaf is almost always having its rare time. Lesson 8 met the same effect in a batch job, where one slow machine held up the end of every phase. Here it happens inside every request, in milliseconds."
+          "text": "Their starting point is a property of fan-out that is easy to state and hard to feel. The root cannot send the page until the last leaf has answered. A leaf that answers in about 8 ms almost every time is fine on its own; the trouble is the rare time it takes 1 second, because with 100 leaves per query, some leaf is almost always experiencing that delay. In lesson 8, we saw the same effect in a batch job, where one slow machine held up the end of every phase. Here it happens inside every request, in milliseconds."
         },
         {
           "type": "interactive_diagram",
           "id": "tail-fan",
-          "caption": "A root waits for every leaf before it answers. Each leaf usually answers in about 8 ms, and with the chance on the second slider it is stuck behind something for 150 ms or more. Queries play one at a time in slow motion; the model's numbers are round, not Google's.",
+          "caption": "A root waits for every leaf before it answers. Each leaf usually answers in about 8 ms, and with the probability set on the second slider it is delayed for 150 ms or more. Queries play one at a time in slow motion; the model's numbers are round, not Google's.",
           "task": "Make your guess, then change the number of leaves and the chance a leaf is slow.",
           "goal": "guess"
         }
@@ -39,20 +39,20 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The arithmetic is one line. If each leaf is fast with chance 0.99, all 100 leaves are fast with chance 0.99 to the power 100, which is 0.366. The other 63% of queries wait for at least one slow leaf. With 1,000 leaves at the same 1%, it is 99.996%: practically every query is slow, though every leaf is fast 99 times in 100.[^e] The formula assumes each leaf is slow independently of the others. When slowness has a shared cause, such as a burst of traffic reaching every leaf at once, slow leaves come in groups: fewer queries are hit, but those are hit harder, and the remedies below, which rely on another machine being fast, help less."
+          "text": "The arithmetic takes one line. If each leaf is fast with a probability of 0.99, all 100 leaves are fast with a probability of 0.99 to the power 100, which is 0.366. The other 63% of queries wait for at least one slow leaf. With 1,000 leaves at the same 1% rate, 99.996% of queries wait for a slow leaf, even though every leaf is fast 99 times in 100.[^e] The formula assumes each leaf is slow independently of the others. When slowness has a shared cause, such as a burst of traffic reaching every leaf at once, slow leaves come in groups. Fewer queries are delayed, but those are delayed for longer, and the remedies below, which rely on another machine being fast, help less."
         },
         {
           "type": "text",
-          "text": "Lesson 2 introduced the **percentile**: the 99th percentile, written p99, is the latency that 99% of requests beat. The arithmetic says something unwelcome about it. The p99 of one leaf is a fact about one request in a hundred, but at the root it is below the median: with 100 leaves, 63% of queries meet at least one leaf at its 99th percentile or worse. A team that watches each leaf's median, or even its p99, can see healthy numbers everywhere while users wait."
+          "text": "In lesson 2, we introduced the **percentile**, where the 99th percentile, written p99, is the latency that 99% of requests beat. The arithmetic reveals a problem with watching single-server percentiles. The p99 of one leaf is a fact about one request in a hundred, but at the root it sits below the median, because with 100 leaves, 63% of queries meet at least one leaf at its 99th percentile or worse. A team that watches each leaf's median, or even its p99, can see healthy numbers everywhere while users wait."
         },
         {
           "type": "text",
-          "text": "Dean and Barroso measured it at the root of a real service. A single leaf request finished within 10 ms 99% of the time. Waiting for all the leaves of a query, the 99th percentile was 140 ms. Waiting for only the fastest 95% of leaves, it was 70 ms: half the query's tail latency came from the slowest 5% of its leaves."
+          "text": "Dean and Barroso measured this effect at the root of a production service. A single leaf request finished within 10 ms 99% of the time. Waiting for all the leaves of a query, the 99th-percentile latency was 140 ms. Waiting for only the fastest 95% of leaves, it was 70 ms, meaning half the query's tail latency came from the slowest 5% of its leaves."
         },
         {
           "type": "diagram",
           "id": "scale",
-          "caption": "The 99th-percentile time measured at the root of a large fan-out service, from \"The Tail at Scale\". The leaves are the same in each row; only how many of them the root waits for changes.",
+          "caption": "The 99th-percentile latency measured at the root of a large fan-out service, from \"The Tail at Scale\". The leaves are the same in each row; only the fraction of leaves the root waits for changes.",
           "options": {
             "title": "99th-percentile latency at the root",
             "unit": "ms",
@@ -78,7 +78,7 @@
         },
         {
           "type": "text",
-          "text": "So before designing anything for a fan-out service, measure the right thing: the latency at the point where the user waits, as a distribution, with its 99th and 99.9th percentiles. Amazon's Dynamo team (lesson 12) wrote their latency promises at the 99.9th percentile for the same reason."
+          "text": "Before designing a fan-out service, engineers must measure the latency at the point where the user waits, as a distribution, including its 99th and 99.9th percentiles. Amazon's Dynamo team (lesson 12) defined their latency targets at the 99.9th percentile for the same reason."
         }
       ]
     },
@@ -87,24 +87,24 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A latency **histogram** counts requests by how long they took. Drawn on a log scale of time, a typical server's looks like the one below: a tall peak where most requests land, then a long, thin tail stretching out by a factor of a hundred. The tail is so thin that on a linear scale of counts it vanishes, and so are the requests that matter for a fan-out."
+          "text": "A latency **histogram** counts requests by how long they took. When drawn on a logarithmic time scale, a typical server's histogram has a tall peak where most requests land, followed by a long, thin tail stretching out to 100 times the typical latency. On a linear count scale, the tail is so thin that it vanishes, hiding the exact requests that determine latency in a fan-out."
         },
         {
           "type": "diagram",
           "id": "tail-curve",
-          "caption": "Latency of 20,000 requests to one model server: most take about 10 ms, about one in seventy is held up by tens of milliseconds, and a few in a thousand by half a second. Lines mark the median, the mean and the 99th and 99.9th percentiles; the amber bars beyond the 99th percentile hold 1% of requests."
+          "caption": "Latency of 20,000 requests to one model server. Most requests take about 10 ms, about one in seventy is delayed by tens of milliseconds, and a few in a thousand are delayed by 500 ms. Lines mark the median, the mean and the 99th and 99.9th percentiles; the amber bars beyond the 99th percentile hold 1% of requests."
         },
         {
           "type": "text",
-          "text": "The marks show why the mean is a poor summary. It sits a little above the median, pulled up by the tail, and says nothing about how long the tail is: the same mean fits a server whose slowest request takes 50 ms and one whose slowest takes 5 seconds. The median says what a typical request sees, the 99th and 99.9th percentiles say what the unlucky ones see, and in a fan-out the unlucky ones are most users.[^merge]"
+          "text": "The markers show why the mean is a poor summary. It sits slightly above the median, pulled up by the tail, and hides the tail's length. The same mean can describe a server whose slowest request takes 50 ms and one whose slowest request takes 5 seconds. The median shows what a typical request experiences, while the 99th and 99.9th percentiles show what the slowest requests experience. In a fan-out system, most users experience those tail latencies.[^merge]"
         },
         {
           "type": "text",
-          "text": "\"The Tail at Scale\" lists where the tail comes from, and none of the sources is a bug. A request can land behind a queue (lesson 2) when a burst arrives. Several services share each machine, so one's burst of disk or network use slows the others. Background work runs on its own schedule: a garbage collector pausing the process, a storage engine compacting its files (lesson 10), a log rotating, a monitoring daemon waking up. Processors slow themselves down when they get hot or when the power budget runs short, and SSDs pause to tidy their own blocks. Each is rare on one machine and each can be reduced, but on a thousand machines some machine is always in one of them."
+          "text": "Dean and Barroso list the sources of tail latency, none of which is a bug. A request can wait in a queue (lesson 2) when a traffic burst arrives. When several services share a machine, a burst of disk or network activity from one service slows down the others. Background tasks also run on their own schedules: a garbage collector pauses the process, a storage engine compacts its files (lesson 10), a log rotates, or a monitoring daemon wakes up. Furthermore, processors throttle their clock speeds when they overheat or hit a power cap, and SSDs pause to run internal garbage collection. Each event is rare on a single machine and can be reduced, but across 1,000 machines, some machine is always experiencing one of them."
         },
         {
           "type": "text",
-          "text": "That is the article's central claim: at scale, latency variability cannot be engineered away, so the system must be built to tolerate it, much as GFS and MapReduce were built to tolerate machines that die."
+          "text": "The authors argue that at scale, engineers cannot eliminate latency variability, so they must build systems to tolerate it, much as GFS and MapReduce were built to tolerate machine failures."
         }
       ]
     },
@@ -113,24 +113,24 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 8 built an inverted index: for each word, the posting list of pages that contain it. Too big for one machine, it has to be split, and there are two ways to cut it."
+          "text": "In lesson 8, we built an inverted index containing the posting list of pages for each word. When an index grows too large for one machine, we must split it across shards using one of two methods."
         },
         {
           "type": "diagram",
           "id": "tail-partition",
-          "caption": "Two ways to split an index over four shards, for the query \"rain coffee\". Left, by document: each shard holds every word for a quarter of the pages, so the query goes to all four and each sends back a few results. Right, by word: each shard holds the full lists for some of the words, so the query goes to two shards, which must ship their whole lists."
+          "caption": "Two ways to split an index over four shards, for the query \"rain coffee\". Left, by document: each shard holds every word for a quarter of the pages, so the query goes to all four shards and each sends back a few results. Right, by word: each shard holds the full lists for some of the words, so the query goes to two shards, which must send their entire lists over the network."
         },
         {
           "type": "text",
-          "text": "Split **by document**, each shard holds a complete index of its own share of the pages. Every query goes to every shard (a **scatter**), each shard finds its best few matches using its own posting lists for both words, and the root merges the short lists (a **gather**). The answers on the wire are small, a few dozen document IDs and scores per shard, and a shard that dies loses some pages from the results rather than a whole word. The price is the fan-out: every shard sees every query."
+          "text": "When we split the index **by document**, each shard holds a complete index for its subset of the pages. The root sends every query to every shard (a **scatter**), each shard finds its best few matches by intersecting its local posting lists for the query words, and the root merges the short lists (a **gather**). The network responses are small, containing only a few dozen document IDs and scores per shard, and a failed shard removes a fraction of pages from the results rather than a whole word. The cost of this approach is the fan-out, because every shard must process every query."
         },
         {
           "type": "text",
-          "text": "Split **by word**, each shard holds the full posting lists of its share of the words. A two-word query touches only two shards, which sounds cheaper, but those shards must ship whole posting lists to be intersected somewhere, and the posting list of a common word runs to millions of entries. A popular word also sends a large share of all queries to its one shard. Web search engines, Google's included, split by document and accepted the fan-out."
+          "text": "When we split the index **by word**, each shard holds the complete posting lists for a subset of the vocabulary. A two-word query touches only two shards, which reduces fan-out, but those shards must send their entire posting lists over the network to be intersected, and the posting list for a common word contains millions of entries. A frequently searched word also routes a large fraction of all queries to a single shard, creating a bottleneck. Web search engines, including Google's, split their indexes by document and accept the resulting fan-out."
         },
         {
           "type": "text",
-          "text": "Each shard is also copied onto several replicas. The copies serve two purposes. They add throughput, since a shard's replicas split its queries between them, and they give the root a choice of where to send a request, which is what the next part uses. Shards are also cut smaller than one per machine: \"The Tail at Scale\" describes around 20 small partitions per machine, so that when one machine is overloaded, a few of its partitions can be moved elsewhere in seconds."
+          "text": "Engineers also replicate each shard across several machines. Replication serves two purposes: it increases throughput because a shard's replicas divide the query load, and it gives the root multiple targets for a request, which enables the latency reduction techniques in the next section. Engineers also divide shards into many more partitions than there are machines. Dean and Barroso describe placing around 20 small partitions on each machine, so that when a machine becomes overloaded, the system can migrate a few of its partitions to other machines within seconds."
         }
       ]
     },
@@ -139,26 +139,26 @@
       "blocks": [
         {
           "type": "text",
-          "text": "If a leaf is slow because of something local to its machine, a replica on another machine probably is not. A **hedged request** uses that: send the request to one replica, and if no answer has come within a short wait, send a copy to another replica and take whichever answers first. Sending both copies at once would cut the tail but double the load. Waiting until the first copy has been out longer than the 95th-percentile time means at most about 5% of requests get a second copy, and those are exactly the slow ones."
+          "text": "If a leaf is slow due to a local hiccup on its machine, a replica on another machine is likely operating normally. Engineers exploit this independence with a **hedged request**: the client sends the request to one replica, waits for a brief period, and if no answer arrives, sends a duplicate request to a second replica and uses whichever response arrives first. Sending both requests immediately would cut tail latency but double the system's load. If the client waits until the first request has exceeded the 95th-percentile latency before sending the second, only about 5% of requests are duplicated, targeting only the slow operations."
         },
         {
           "type": "interactive_diagram",
           "id": "tail-hedge",
-          "caption": "The same root and 100 leaves, each slow 1% of the time. Without hedging, this model's 99th percentile at the root is over 150 ms, set by the slow leaves. Turn on hedged requests: a blue dot marks a leaf whose request was copied to a second replica. Move the wait before the copy and watch the 99th percentile and the extra load in the text box. A model, in slow motion.",
+          "caption": "The same root and 100 leaves, each slow 1% of the time. Without hedging, this model's 99th-percentile latency at the root exceeds 150 ms, determined by the slow leaves. Turn on hedged requests: a blue dot marks a leaf whose request was duplicated to a second replica. Adjust the delay before sending the duplicate and watch the 99th-percentile latency and the extra load in the text box. This model runs in slow motion.",
           "task": "Turn on hedging and find a wait that brings the 99th percentile under 50 ms for less than 5% extra load.",
           "goal": "hedge"
         },
         {
           "type": "text",
-          "text": "The article gives a measured case. A benchmark read 1,000 keys from a Bigtable (lesson 10) spread over 100 servers. With a hedge sent after 10 ms, the 99.9th-percentile time to collect all 1,000 values fell from 1,800 ms to 74 ms, for 2% more requests."
+          "text": "Dean and Barroso report results from a benchmark that read 1,000 keys from a Bigtable (lesson 10) distributed across 100 servers. Sending a hedged request after a 10 ms delay reduced the 99.9th-percentile latency for collecting all 1,000 values from 1,800 ms to 74 ms, while increasing the total number of requests by only 2%."
         },
         {
           "type": "text",
-          "text": "A hedge still waits before it acts, and much of a slow request's time is spent in a queue, before any server has started on it. A **tied request** goes further: the client sends the request to two servers at once, and tells each which other server has a copy. Whichever server takes it out of its queue first tells the other to cancel. If both queues are empty, both may start, so the client adds a small delay of about a network round trip between the two sends.[^tied] Most of the time only one server does the work, and the request waits in the shorter of two queues."
+          "text": "A hedged request still waits for a timeout before acting, even though a slow request often spends most of its time waiting in a server's queue before execution even begins. A **tied request** eliminates this delay: the client sends the request to two servers simultaneously, including the identity of the peer server in each message. Whichever server pulls the request from its queue first sends a cancellation message to the other server. If both queues are empty, both servers might start executing the request at the same time, so the client waits for roughly one network round-trip time (typically under 1 ms in a datacentre) before sending the second copy.[^tied] In most cases, only one server executes the work, and the request waits only for the shorter of the two queues."
         },
         {
           "type": "text",
-          "text": "Some answers need not wait at all. A search root can return results once most shards have answered, because a page of results from 98% of the index is as good as one from 100% for nearly every query; the paper calls these **good-enough** results. A leaf that keeps answering slowly can be put on **probation**: taken out of rotation, sent copies of real requests whose answers are thrown away, so its latency can still be watched, and put back when it recovers. And a query that crashes every leaf it touches (a bug triggered by one strange query) can be caught by sending it to one or two leaves first, a **canary request**, before sending it to a thousand."
+          "text": "In some systems, the client does not need to wait for every server. A search root can return a page of results once most shards have responded, because results from 98% of the index are nearly indistinguishable from 100% for most queries; the authors call these **good-enough** results. If a leaf consistently responds slowly, the system can place it on **probation** by removing it from live traffic while continuing to send it shadow copies of requests to monitor its latency, returning it to service once it recovers. Finally, to prevent a query of death (a rare input that triggers a crash bug on every leaf it touches) from taking down the entire cluster, the root can send the query to one or two leaves first as a **canary request** before fanning it out to 1,000 machines."
         }
       ]
     },
@@ -167,11 +167,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every one of these tricks spends capacity to buy latency, and the bill depends on why requests are slow. When a few machines are slow for reasons of their own, a second copy to another machine is cheap and wins. When every machine is slow because the whole service is overloaded, a second copy adds load to machines that already have too much, makes the queues longer, and makes the next request more likely to be hedged too. Hedges are a kind of retry, and lesson 18 shows how retries without a limit turn an overload into an outage. So a hedging client caps its hedges, for example at a few percent of its requests, and stops sending them when the extra load starts to show. The wait before a hedge is not fixed either: the client sets it from recent measurements, such as the 95th percentile over the last minute, so it follows the service as it speeds up or slows down, while the cap holds whatever the percentile does."
+          "text": "Each of these techniques trades extra capacity for lower latency, and the cost depends on why requests are slow. When a few machines experience isolated delays, sending a duplicate request to another machine reduces latency at minimal cost. However, when every machine is slow because the entire service is overloaded, duplicate requests add load to saturated servers, lengthening their queues and causing even more requests to exceed the hedging threshold. Hedged requests are a form of retry, and as we will see in lesson 18, unthrottled retries can turn a temporary overload into a total outage. To prevent this, a client caps its hedged requests (for example, at 5% of total traffic) and stops hedging if the extra load rises. Rather than using a fixed timeout, the client dynamically sets the hedging delay based on recent measurements, such as the 95th-percentile latency over the past minute. This allows the threshold to adapt as the service speeds up or slows down, while the hard cap prevents runaway load."
         },
         {
           "type": "text",
-          "text": "Good-enough answers have a cost the user may not see: some results are missing. That is fine for a search page and not for a bank balance, and it has to be decided per service. Small partitions and replicas cost machines. And a team can only make these trade-offs if it measures the tail where the user waits, which is why lesson 24 builds service targets on percentiles rather than means."
+          "text": "Returning good-enough results carries a hidden cost, as the response omits some data. This trade-off is acceptable for web search results but unacceptable for a bank balance, so engineers must evaluate it for each service. Maintaining small partitions and multiple replicas also requires more servers. Engineers can only evaluate these trade-offs if they measure tail latency where the user waits, which is why in lesson 24 we will define service level objectives using percentiles rather than means."
         },
         {
           "type": "key_ideas",
@@ -203,7 +203,7 @@
                   "About 100%, since with 100 servers one is certain to be slow"
                 ],
                 "answer": 1,
-                "why": "0.99 to the power 100 is about 0.37, so 63% of queries meet at least one slow server. It is not certain: 37% still find every server fast."
+                "why": "0.99 to the power 100 is about 0.37, so 63% of queries meet at least one slow server. It is not certain, because 37% of queries still find every server fast."
               },
               {
                 "ask": "Every leaf server in a fan-out service reports a healthy median of 8 ms, yet users wait far longer. Which measurement would show the problem?",
@@ -213,7 +213,7 @@
                   "The distribution of latency measured at the root, where users wait"
                 ],
                 "answer": 2,
-                "why": "The user waits for the slowest leaf of each query, so the root's distribution is what users feel. Averaging leaves' percentiles has no meaning, and a mean hides the tail."
+                "why": "The user waits for the slowest leaf of each query, so the root's latency distribution reflects the user experience. Averaging percentiles across leaves is mathematically invalid, and a mean hides the tail."
               },
               {
                 "ask": "Why does a hedged request wait until about the 95th-percentile latency before sending its second copy?",
@@ -223,17 +223,17 @@
                   "It gives the first server time to report an error, so the copy is only sent after a failure"
                 ],
                 "answer": 1,
-                "why": "Sending at once would double the load. Waiting until a request is slower than 95% of requests means the copy goes only where it is likely to help."
+                "why": "Sending both requests at once would double the load. Waiting until a request is slower than 95% of requests ensures the duplicate is sent only when it is likely to reduce latency."
               },
               {
                 "ask": "A service is slow because every server is overloaded. What does turning on hedged requests do?",
                 "choices": [
-                  "It makes things worse: the extra copies add load to servers that already have too much",
+                  "It makes things worse, because the extra copies add load to servers that already have too much",
                   "It helps as it would anywhere, because the copy goes to a different replica",
                   "It has no effect, because the hedge is cancelled once the first copy is answered"
                 ],
                 "answer": 0,
-                "why": "Hedging works when slowness is local to a few machines. When the whole service is slow, every copy is one more request in a long queue, so hedges must be capped."
+                "why": "Hedging works when slowness is isolated to a few machines. When the whole service is overloaded, every duplicate adds another request to a long queue, which is why clients must cap hedged requests."
               },
               {
                 "ask": "A web search index is split over 1,000 shards. Why do search engines split it by document rather than by word?",
@@ -243,7 +243,7 @@
                   "Split by word, shards must ship whole posting lists and a common word overloads one shard"
                 ],
                 "answer": 2,
-                "why": "Document splitting asks every shard but each returns a few results. Word splitting asks fewer shards, but each returns a huge list and the popular words make hot spots."
+                "why": "Document splitting queries every shard, but each returns only a few results. Word splitting queries fewer shards, but each must send a long posting list over the network, and popular words create bottlenecks."
               },
               {
                 "ask": "What makes a tied request different from a hedged one?",
@@ -253,7 +253,7 @@
                   "It goes to the same server twice, so it skips the queue if the first copy is waiting"
                 ],
                 "answer": 0,
-                "why": "A tied request avoids waiting in a queue: both servers hold it, and the first to take it from its queue tells the other to drop it."
+                "why": "A tied request reduces queueing delay by queuing on two servers simultaneously; the first server to pull the request from its queue instructs the other to drop it."
               }
             ]
           }
@@ -265,22 +265,22 @@
     "e": {
       "kind": "digression",
       "title": "Where 63% comes from",
-      "text": "For n leaves each slow one time in n, the chance all are fast is (1 − 1/n)ⁿ, which tends to 1/e, about 0.368, as n grows. So whenever the fan-out matches the rarity (100 leaves at 1%, 1,000 at 0.1%) about 63% of requests meet a slow leaf."
+      "text": "For n leaves that are each slow with probability 1/n, the probability that all leaves are fast is (1 − 1/n)ⁿ, which approaches 1/e (about 0.368) as n grows. Whenever the fan-out matches the reciprocal of the slowness rate (such as 100 leaves at 1%, or 1,000 leaves at 0.1%), about 63% of requests wait for at least one slow leaf."
     },
     "merge": {
       "kind": "technical",
       "title": "Percentiles don't average",
-      "text": "The 99th percentile of a whole fleet is not the average of each server's 99th percentile, and the 99th percentile of an hour is not the average of each minute's. To combine them, keep a histogram of counts per latency bucket (buckets spaced by ratio, such as 1, 1.25, 1.6, 2 ms and on up) and add the histograms, then read the percentile off the sum."
+      "text": "The 99th percentile of an entire fleet is not the average of each server's 99th percentile, and the 99th percentile over an hour is not the average of each minute's 99th percentile. To combine measurements across servers or time windows, engineers record a histogram of request counts across latency buckets (using exponentially spaced boundaries such as 1 ms, 1.25 ms, 1.6 ms, and 2 ms), sum the bucket counts across all histograms, and calculate the percentile from the combined distribution."
     },
     "tied": {
       "kind": "technical",
       "title": "Why the small delay",
-      "text": "If both servers have empty queues, both take the request at the same moment and both cancel messages cross in flight, so the work is done twice. Sending the second copy about one network round trip later gives the first server time to start and cancel it."
+      "text": "If both servers have empty queues, both will dequeue the request simultaneously and their cancellation messages will cross in flight, causing both servers to execute the request. Waiting for roughly one network round-trip time before sending the second copy gives the first server enough time to dequeue the request and send its cancellation message."
     },
     "barroso": {
       "kind": "digression",
       "title": "The warehouse-scale computer",
-      "text": "Barroso, with Urs Hölzle, also wrote \"The Datacenter as a Computer\" (2009), which argues that a datacentre of tens of thousands of servers should be designed and programmed as one machine. \"The Tail at Scale\" is that view applied to latency: what matters is the whole computer's response, not any one server's."
+      "text": "Barroso, together with Urs Hölzle, also wrote \"The Datacenter as a Computer\" (2009), which argues that a datacentre containing tens of thousands of servers should be designed and programmed as a single machine. \"The Tail at Scale\" applies that perspective to latency, showing that engineers must optimise the response time of the entire cluster rather than individual servers."
     }
   }
 }

@@ -13,15 +13,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On 8 February 2005 Google opened Google Maps. Online maps already existed; on MapQuest, the most used, you clicked an arrow at the edge of the map and the whole page went away and came back with a new picture shifted half a screen over. On Google's you took hold of the map and dragged it, and it slid under the pointer, with new country appearing at the edges as fast as you could pull. It came from Where 2 Technologies, a small company founded in Sydney by the brothers Lars and Jens Rasmussen with Noel Gordon and Stephen Ma, which Google had bought the October before.[^ajax]"
+          "text": "On 8 February 2005 Google opened Google Maps. Online maps already existed; on MapQuest, the most used, you clicked an arrow at the edge of the map and the whole page reloaded with a new picture shifted half a screen over. On Google's map you took hold of the image and dragged it, and it slid under the pointer, with new territory appearing at the edges as fast as you could pull. It came from Where 2 Technologies, a small company founded in Sydney by the brothers Lars and Jens Rasmussen with Noel Gordon and Stephen Ma, which Google had bought the October before.[^ajax]"
         },
         {
           "type": "text",
-          "text": "The trick was that the map was not one picture. The world had been cut, at every zoom level, into square images 256 pixels on a side, called **tiles**, and the page asked the server for whichever tiles were in view, plus a border of them just outside it. As you dragged, JavaScript fetched the next squares in the background and placed them beside the ones already there. Each tile was an ordinary image file at an ordinary address, so every browser cache and every cache between the browser and Google could keep a copy."
+          "text": "The map worked this way because it was not one single image. The engineers had cut the world, at every zoom level, into square images 256 pixels on a side, called **tiles**, and the page asked the server for whichever tiles were in view, plus a border of tiles just outside the frame. As you dragged, JavaScript fetched the next squares in the background and placed them beside the ones already loaded. Each tile was a standard image file at a static URL, so every browser cache and every proxy cache between the browser and Google could keep a copy."
         },
         {
           "type": "text",
-          "text": "That design raises the questions this lesson answers. How many squares does the whole world need, down to the zoom where you can see the lanes on a road? Which of them should be drawn ahead of time, and which only when someone first looks? And when a road opens, how do you change the map that a billion cached squares already show? This lesson opens the Maps and places branch, lessons M1 to M4, which follow the systems behind an online map: its tiles, the nearest car, routes and live traffic. OpenStreetMap, the open map Steve Coast started in London in 2004, faces the same questions in public, and where its answers are public they are noted below."
+          "text": "In this lesson, we will answer the design questions that follow from this architecture. How many squares does the whole world need, down to the zoom where you can see the lanes on a road? Which of them should we render ahead of time, and which only when a user first requests them? And when a road opens, how do we update a map stored across a billion cached squares? Here we begin the Maps and places branch, lessons M1 to M4, where we examine the systems behind an online map: its tiles, finding the nearest car, route planning and live traffic. Engineers at OpenStreetMap, the open map Steve Coast started in the UK in 2004, solve these same problems in public, and we will look at their designs below."
         }
       ]
     },
@@ -30,23 +30,23 @@
       "blocks": [
         {
           "type": "text",
-          "text": "First the world must become a square. Web maps use the **Web Mercator** projection, which draws the globe on a cylinder, unrolls it, and cuts it off at about 85° north and south, where the stretched polar regions would make it taller than wide.[^mercator] At **zoom** 0 the whole square is one tile. At each zoom after that, every tile is cut into four, so zoom *z* is 2^*z* tiles across and 2^*z* down, 4^*z* in all. A tile is named by three numbers, its zoom and its column and row: 14/2624/5722 is the zoom-14 tile with downtown Seattle in it, and the tile's address on the server is built from those three numbers."
+          "text": "First we must project the globe onto a square. Web maps use the **Web Mercator** projection, which wraps the globe onto a cylinder, unrolls it, and cuts it off at about 85° north and south, where the stretched polar regions would make the map taller than it is wide.[^mercator] At **zoom** 0 the whole square is one tile. At each zoom level after that, every tile is quartered, so zoom *z* is 2^*z* tiles across and 2^*z* tiles down, or 4^*z* tiles in all. We name a tile by three numbers: its zoom, its column and its row. For example, 14/2624/5722 is the zoom-14 tile containing downtown Seattle, and the server builds the tile's URL directly from those three numbers."
         },
         {
           "type": "text",
-          "text": "First the numbers. At zoom 0 the 40,075 km of the equator are spread over 256 pixels, about 157 km a pixel. Each zoom halves that. Zoom 10 is about 150 metres a pixel, a town. Zoom 18 is about 60 cm, enough to see the lanes of a road."
+          "text": "We can calculate the resolution at each level. At zoom 0 the 40,075 km of the equator are spread over 256 pixels, giving about 157 km per pixel. Each zoom level halves that distance. Zoom 10 is about 150 metres per pixel, enough to show a town. Zoom 18 is about 60 cm per pixel, which is detailed enough to show the lanes of a road."
         },
         {
           "type": "interactive_diagram",
           "id": "tiles-pyramid",
-          "caption": "The tiles at each zoom. The square on the left shows the grid up to zoom 6 and the tile that holds Seattle; the bars count the tiles at each zoom, each line on the scale ten times the one below it.",
+          "caption": "The tiles at each zoom. The square on the left shows the grid up to zoom 6 and the tile that holds Seattle; the bars count the tiles at each zoom, with each line on the logarithmic scale representing ten times the count of the line below it.",
           "task": "Guess, then go down to zoom 18",
           "goal": "deep",
           "aspect_ratio": 1.92
         },
         {
           "type": "text",
-          "text": "Zoom 18 alone has 4^18, about 69 billion tiles, and every zoom from 0 to 18 together about 92 billion, a third more than the deepest level, since each level holds a quarter as many tiles as the next deeper one. At 20 KB a tile, a fair size for a compressed map image, drawing all of them would take nearly two petabytes, before the zooms beyond 18 that phones now use. That is the first wrong design: drawing every tile at every zoom in advance."
+          "text": "Zoom 18 alone has 4^18 tiles, which is about 69 billion tiles, and every zoom from 0 to 18 together totals about 92 billion tiles. The sum is a third more than the deepest level alone, because each level holds a quarter as many tiles as the next deeper one. At 20 KB per tile, a typical size for a compressed map image, pre-rendering all of them would take nearly 2 petabytes of storage, even before counting the zoom levels beyond 18 that phones now use. Rendering every tile at every zoom in advance is therefore impractical."
         }
       ]
     },
@@ -55,23 +55,23 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most of those tiles are never looked at. About 71% of the Earth's surface is sea, and a deep-zoom tile of open ocean is a plain blue square. A tile store can keep one copy of that square and point every ocean address at it. Of the land, most is desert, ice, forest and farmland that hardly anyone zooms into. Requests pile up instead on cities and roads, and on the zooms people use to find a street or a neighbourhood, so popularity is as skewed as it was for the films in lesson 19's edge caches: a small share of the tiles gets most of the requests."
+          "text": "Users never view most of those tiles. About 71% of the Earth's surface is sea, and a deep-zoom tile of open ocean is a plain blue square. A tile store can keep one copy of that square and point every ocean address at it. Of the land, most is desert, ice, forest and farmland that users rarely zoom into. Traffic concentrates instead on cities and roads, and on the zoom levels people use to find a street or a neighbourhood. Tile popularity follows the same skewed distribution as the video traffic in lesson 19's edge caches, where a small fraction of the tiles receives most of the requests."
         },
         {
           "type": "text",
-          "text": "So the usual design splits the pyramid. The low zooms are few and everyone sees them, so they are drawn ahead of time and kept. The deep zooms are drawn the first time someone asks for one, in about 50 milliseconds of computing for a land tile, then stored and cached like the rest. OpenStreetMap's tile servers work this way: a tile not yet drawn is drawn on request, together with its neighbours in a block of eight by eight, since drawing one block costs little more than drawing one tile.[^metatile]"
+          "text": "Because of this skew, engineers split the pyramid. The low zoom levels contain few tiles and every user views them, so we pre-render and store them ahead of time. We render the deep zoom levels on demand the first time a user requests one, which takes about 50 ms of compute time for a land tile, and then we store and cache the result. OpenStreetMap's tile servers operate this way. When a user requests an unrendered tile, the server renders it on demand alongside its neighbours in a block of 8 by 8 tiles, since rendering one block takes little more CPU time than rendering a single tile.[^metatile]"
         },
         {
           "type": "interactive_diagram",
           "id": "tiles-render",
-          "caption": "Where to draw the line between tiles drawn ahead and tiles drawn on demand. The mix of requests across zooms is a made-up but typical shape; the storage and drawing time follow from the tile counts at 20 KB and 50 ms a land tile.",
+          "caption": "Where to draw the line between tiles rendered ahead of time and tiles rendered on demand. The distribution of requests across zooms is an illustrative but typical curve; the storage and compute time follow from the tile counts at 20 KB and 50 ms per land tile.",
           "task": "Move the line down to zoom 18 and read the cost",
           "goal": "plan",
           "aspect_ratio": 2.3
         },
         {
           "type": "text",
-          "text": "With the line at zoom 12 there are 22 million tiles, of which about 6.7 million have land on them. At 20 KB for each land tile and one shared copy of the blue square for the rest, that is about 130 GB, and it can be drawn in minutes on a thousand cores, and they serve about a quarter of all requests. Each zoom further down multiplies the cost by four and adds a smaller share of the requests. The tiles drawn on demand cost the first viewer a wait, but only the first, because lesson 19's caches hold every tile after that: the browser's own cache, then the edge of a content delivery network near the reader, then the tile store. A screen of 1,920 by 1,080 pixels shows about forty tiles, and a few dozen more load for a drag, so a busy map serves hundreds of thousands of tiles a second, nearly all of them from caches."
+          "text": "With the cutoff at zoom 12 there are 22 million tiles, of which about 6.7 million contain land. At 20 KB for each land tile and one shared copy of the blue square for the ocean, storing them takes about 130 GB. We can render that set in minutes on a thousand CPU cores, and those tiles serve about a quarter of all requests. Each additional zoom level multiplies the storage and compute cost by four while covering a smaller share of requests. Rendering tiles on demand adds latency for the first viewer, but only the first, because the caching hierarchy from lesson 19 serves every subsequent request: the browser's local cache, the content delivery network (CDN) edge servers near the user, and finally the origin tile store. A screen of 1,920 by 1,080 pixels displays about 40 tiles, and dragging loads a few dozen more, so a high-traffic map service delivers hundreds of thousands of tiles a second, nearly all served from caches."
         }
       ]
     },
@@ -80,25 +80,25 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Maps change every day: a road opens, a shop closes, a name is corrected. The change shows on one tile at each zoom where it is visible, perhaps two or four if it sits near a tile's edge, so a single edit dirties about one tile per zoom. Finding them is geometry: take the edit's bounding box, widen it by the largest line width or label drawn around it, and list the tiles it overlaps at each zoom. A new version redraws only those tiles and points every other address at the previous version's copy, so it costs about as much as its changes. Low zooms change constantly because each one covers so much, so their tiles are drawn again in batches, the kind of job lesson 8's MapReduce was built for."
+          "text": "Maps change every day as roads open, shops close and names are corrected. A change appears on one tile at each zoom level where it is visible, or on two or four tiles if it sits near an edge, so a single edit invalidates about one tile per zoom level. We find the affected tiles with simple geometry: we take the edit's bounding box, widen it by the largest line width or label rendered around it, and list the tiles it overlaps at each zoom. A new map version re-renders only those modified tiles and points every other tile address at the previous version's image, so an update costs only the compute required for the changes. Low zoom levels change constantly because each tile covers a huge area, so engineers re-render those tiles in batch jobs, the kind of workload lesson 8's MapReduce was built for."
         },
         {
           "type": "text",
-          "text": "The harder part is the caches. A tile served under a plain address may sit in a million browsers and thousands of edge caches, each keeping it as long as its headers allow. Sending a purge to every edge is slow and never quite complete, and a browser cannot be reached at all. And a half-updated map is worse than an old one: a new road drawn on one tile and missing from the tile beside it ends at the tile's edge."
+          "text": "Invalidating the caches is harder. A tile served at a fixed URL may sit in a million browser caches and thousands of CDN edge caches, each retaining the file until its time-to-live (TTL) header expires. Sending a purge request to every edge server is slow and unreliable, and we cannot purge a user's browser cache at all. Furthermore, a partially updated map causes visual bugs: a new road rendered on one tile and missing from the cached tile beside it stops dead at the boundary."
         },
         {
           "type": "text",
-          "text": "The answer is to never change a tile at an address. Put a **version** of the whole map in every tile's address. A tile at a given version is fixed for ever, so it can be cached for ever.[^immutable] Each new version of the map is drawn alongside the old one, and when it is ready, the small file that tells pages the current version changes. That one file is served with a lifetime of a minute or so, while the tiles themselves are marked to be kept for a year. Pages then ask for the new addresses, and the old tiles, no longer asked for, age out of the caches by themselves."
+          "text": "To solve this, we never overwrite a tile at an existing URL. Instead, we embed a **version** number for the whole map in every tile's URL. A tile at a given version never changes, so caches can store it indefinitely.[^immutable] We render each new version of the map alongside the old one, and once the build completes, we update a small metadata file that tells client pages the current version number. We serve that metadata file with a TTL of about a minute, while the tiles themselves carry a TTL of a year. Client pages then request the new URLs, and the old tiles receive no further traffic and are eventually evicted from the caches."
         },
         {
           "type": "diagram",
           "id": "tiles-version",
-          "caption": "A versioned tile address. Nothing is ever purged: a new version means new addresses.",
+          "caption": "A versioned tile URL. Caches never need to be purged because a new version generates new URLs.",
           "aspect_ratio": 2.09
         },
         {
           "type": "text",
-          "text": "The price is a cold start: when the version changes, every edge cache misses on every tile at once, and the tile store takes a surge of requests until the caches fill again. That is a reason to change versions every few days rather than every edit, and to let edges fetch the new version's popular tiles before the switch. The same version number should cover the road data that lesson M3's route planner uses, so the map never shows a road the route planner does not know about."
+          "text": "This versioning scheme causes a cold-cache spike. When the version number increments, every CDN edge cache misses on every tile request at once, and the origin tile store absorbs a surge of traffic until the caches warm up again. To reduce this load, engineers roll out new versions every few days rather than on every edit, and pre-warm the edge caches with popular tiles before switching the metadata file. We must also apply the same version number to the road graph used by lesson M3's route planner, so the map never displays a road that the routing engine cannot use."
         }
       ]
     },
@@ -107,20 +107,20 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A raster tile is a picture: the server has chosen every colour, every line width and every label, and the phone only shows it. Rotate the map and the labels turn upside down. Want a dark style at night, or labels in another language, and the server must draw and store the whole pyramid again."
+          "text": "A raster tile is a bitmap image: the server determines every colour, line width and label during rendering, and the client device simply displays the file. If the user rotates the map, the text labels turn upside down. If a user wants a dark theme at night, or labels in another language, the server must render and store an entire duplicate pyramid."
         },
         {
           "type": "text",
-          "text": "In December 2010 Google Maps 5.0 for Android began drawing maps on the phone from **vector** data: the tiles carried the geometry of roads, coastlines and buildings, and the phone drew them, which let the map tilt into 3D and rotate with the labels upright. Mapbox published an open format for vector tiles in 2014, now widely used. Each tile holds the shapes that fall inside its square, clipped at the edges, with coordinates as whole numbers on a 4,096 by 4,096 grid, stored as small differences from the last point and packed in Protocol Buffers. The phone draws them with a style sheet it is sent once. Each tile also carries a margin of geometry a little past its edge, so a road crossing the edge is drawn the same on both sides, and the label placer avoids spots where a label would be cut."
+          "text": "In December 2010 Google Maps 5.0 for Android began rendering maps on the phone from **vector** data. The tiles carried the geometry of roads, coastlines and buildings, and the client device rendered them locally, allowing the user to tilt the map into 3D and rotate it while keeping the labels upright. Mapbox published an open specification for vector tiles in 2014 that is now an industry standard. Each vector tile holds the geometric shapes that fall inside its boundary, clipped at the edges, with coordinates quantised as integers on a 4,096 by 4,096 grid, delta-encoded from the previous point and serialised in Protocol Buffers. The phone renders the geometry using a style sheet downloaded once from the server. Each tile also includes a buffer margin of geometry extending slightly past its boundary, ensuring that a road crossing a tile edge renders cleanly on both sides and allowing the label placement algorithm to avoid clipping text across boundaries."
         },
         {
           "type": "text",
-          "text": "Counting the cost, vector tiles move work from the server's disks to the phone's processor. They are usually several times smaller than the images of the same squares, one tile serves every style and language, and a tile can be drawn larger than its own zoom, so many vector maps stop cutting new tiles a few zooms short of the deepest raster zoom, which shrinks the pyramid by a factor of four for each zoom left out. Whole regions become small enough to download for use offline. In return every client needs a full drawing engine with fonts and label placement, old phones draw slowly, and the server no longer controls exactly what the reader sees."
+          "text": "Vector tiles shift the rendering workload from the server's storage and CPUs to the client's processor and GPU. Vector tiles are typically a fraction of the byte size of equivalent raster images, a single tile supports every visual style and language, and the client can scale a tile smoothly beyond its native zoom level. Because of this scaling, many vector map services stop generating new tiles at zoom 14 or 15 rather than zoom 18, reducing the total tile count by a factor of four for each omitted level. This compression makes whole regions small enough to download for offline navigation. The trade-off is that every client application must bundle a rendering engine with font shaping and label collision detection, older devices may drop frames while rendering, and the server gives up pixel-exact control over the display."
         },
         {
           "type": "diagram",
           "id": "timeline",
-          "caption": "Map tiles on the web, from OpenStreetMap's start in 2004 to an open format for vector tiles in 2014.",
+          "caption": "Map tiles on the web, from OpenStreetMap's start in 2004 to an open specification for vector tiles in 2014.",
           "options": {
             "events": [
               {
@@ -177,57 +177,57 @@
                   "About a billion"
                 ],
                 "answer": 1,
-                "why": "Zoom 10 is 2^10 = 1,024 tiles across and 1,024 down, about 1.05 million in all."
+                "why": "Zoom 10 is 2^10 = 1,024 tiles across and 1,024 tiles down, which is 1,048,576 tiles in all."
               },
               {
-                "ask": "Why do tile services draw the low zooms ahead of time but the deepest zooms only when first requested?",
+                "ask": "Why do tile services pre-render the low zoom levels ahead of time, but render the deepest zoom levels only when first requested?",
                 "choices": [
                   "Deep-zoom tiles change too often to be worth storing, while low-zoom tiles hardly ever change",
                   "Deep-zoom tiles are drawn by the browser from low-zoom ones, so the server only stores the low ones",
                   "Low zooms are few and seen by everyone; deep zooms are vast in number and mostly never viewed"
                 ],
                 "answer": 2,
-                "why": "Each zoom has four times the tiles of the one above, and most deep tiles are sea, desert or farmland nobody looks at closely. Drawing on first view, then caching, spends effort only where people look."
+                "why": "Each zoom level has four times the tiles of the level above it, and most deep tiles cover sea, desert or farmland nobody views closely. Rendering on first request and caching the output spends compute resources only where users look."
               },
               {
-                "ask": "A map provider puts the map's version number in every tile's address. What does that buy?",
+                "ask": "A map provider embeds the map's version number in every tile's URL. What is the advantage of this design?",
                 "choices": [
                   "A tile never changes at its address, so caches keep it indefinitely and an update needs no purge",
                   "Old tiles are deleted from every browser and edge cache the moment a new version is published",
                   "Each tile can be updated on its own the moment an edit touches it, without waiting for others"
                 ],
                 "answer": 0,
-                "why": "New content gets new addresses, so nothing cached is ever wrong; old tiles stop being requested and expire. The page shows tiles from one version, so their edges match."
+                "why": "Updated map content receives new URLs, so cached tiles are never stale; old tiles stop receiving requests and are evicted over time. The client requests all tiles from a single version, ensuring adjacent tile edges match."
               },
               {
-                "ask": "What does a provider pay for switching every tile to a new version's address at once?",
+                "ask": "What is the cost of switching every tile request to a new version's URL at once?",
                 "choices": [
                   "Readers see tiles from two versions mixed on one screen until their browsers restart",
                   "Every cache misses on every tile at first, so the tile store takes a surge until caches refill",
                   "The tile store must keep both versions for ever, doubling its storage after each release"
                 ],
                 "answer": 1,
-                "why": "New addresses are cold everywhere. That is why versions change every few days rather than with each edit, and why popular tiles can be fetched ahead of the switch."
+                "why": "New URLs are uncached across all edge servers and browsers. That is why engineers update map versions every few days rather than on each edit, and pre-warm popular tiles before switching versions."
               },
               {
-                "ask": "What do vector tiles move from the server to the device?",
+                "ask": "What workload do vector tiles shift from the server to the client device?",
                 "choices": [
                   "The map data itself: the device stores the whole world and asks the server for nothing",
                   "The tile cutting: the device splits one large image into squares as needed",
                   "The drawing: the device turns geometry into pixels with a style it holds"
                 ],
                 "answer": 2,
-                "why": "The server sends shapes, not pictures. One tile serves any style, language or rotation, at the cost of a drawing engine and processor time on every client."
+                "why": "The server sends geometric shapes rather than bitmap images. A single vector tile supports any visual style, language or rotation, at the cost of running a rendering engine on the client processor."
               },
               {
-                "ask": "Storing every tile from zoom 0 to 18 at 20 KB each would take roughly how much?",
+                "ask": "Storing every tile from zoom 0 to 18 as a separate 20 KB image would require roughly how much storage?",
                 "choices": [
                   "About 2 terabytes",
                   "About 2 petabytes",
                   "About 2 exabytes"
                 ],
                 "answer": 1,
-                "why": "Zooms 0 to 18 hold about 92 billion tiles, and 92 billion × 20 KB is about 1.8 PB if every tile is stored as its own image. Sharing one copy of the plain ocean square, as part 3 describes, removes most of that."
+                "why": "Zooms 0 to 18 contain about 92 billion tiles, and 92 billion × 20 KB is about 1.84 PB if every tile is stored as a distinct file. Deduplicating the plain ocean squares, as described in part 3, eliminates most of that storage."
               }
             ]
           }
@@ -236,34 +236,34 @@
     }
   ],
   "summary": [
-    "**A web map is a pyramid of square tiles.** Zoom z has 4^z tiles of 256 pixels, each named by zoom, column and row.",
-    "**Each zoom multiplies the count by four.** Zoom 18, at about 60 cm a pixel, alone has about 69 billion tiles.",
-    "**Draw the few low zooms ahead, the vast deep ones on demand.** Most deep tiles are ocean or empty land that nobody looks at closely.",
-    "**Popularity is skewed, so caches carry the load.** Browser caches, edge caches and the tile store serve a tile drawn once to everyone after.",
-    "**Never change a tile at an address.** A map version in every tile's address lets every cache keep tiles for ever and makes updates need no purge.",
-    "**A version switch costs a cold start.** Every cache misses at once, so versions change every few days, not with every edit.",
-    "**Vector tiles send geometry instead of pictures.** The device draws them in any style or rotation, at the cost of a drawing engine on every client."
+    "**A web map is a pyramid of square tiles.** Zoom z has 4^z tiles of 256 by 256 pixels, each addressed by zoom, column and row.",
+    "**Each zoom level multiplies the tile count by four.** Zoom 18, at a resolution of about 60 cm per pixel, contains about 69 billion tiles.",
+    "**Pre-render the few low zooms and render the deep zooms on demand.** Most deep tiles cover ocean or unpopulated land that users rarely view.",
+    "**Request popularity is skewed, so caches serve most of the traffic.** Browser caches, CDN edge caches and the tile store serve a rendered tile to all subsequent viewers.",
+    "**Never overwrite a tile at an existing URL.** Embedding a map version in every tile's URL allows caches to retain tiles indefinitely and eliminates cache purges during updates.",
+    "**Switching versions causes a cache cold start.** Every cache misses when URLs change, so engineers release new versions every few days rather than with every edit.",
+    "**Vector tiles transmit geometry instead of bitmap images.** The client device renders them in any style or orientation, requiring a rendering engine on every client."
   ],
   "footnotes": {
     "ajax": {
       "kind": "digression",
-      "title": "A name for the trick",
-      "text": "Ten days after Google Maps opened, the designer Jesse James Garrett published an essay calling this way of building web pages Ajax: pages that fetch data in the background with JavaScript and update themselves without reloading. He cited Google Maps and Google Suggest as the examples."
+      "title": "A name for the pattern",
+      "text": "Ten days after Google Maps launched, the designer Jesse James Garrett published an essay naming this web architecture Ajax: pages that fetch data in the background with JavaScript and update the document without a full page reload. He cited Google Maps and Google Suggest as his primary examples."
     },
     "mercator": {
       "kind": "technical",
       "title": "Why 85 degrees",
-      "text": "Mercator's projection stretches distances more and more toward the poles, and reaches them only at infinity. Cutting it at about 85.05° north and south makes the map exactly as tall as it is wide, a square that divides cleanly into tiles. The price is that the polar regions are missing and Greenland looks as large as Africa."
+      "text": "Mercator's projection stretches distances increasingly toward the poles, reaching infinity at 90° latitude. Truncating the map at about 85.05° north and south makes the projected world equally tall and wide, forming a square that divides cleanly into quadtree tiles. The trade-off is that the polar regions are omitted and high-latitude landmasses like Greenland appear as large as Africa."
     },
     "metatile": {
       "kind": "technical",
       "title": "Metatiles",
-      "text": "Drawing a map means loading every road, label and coastline in the area, and labels need room beyond the tile's edge. Drawing a block of 8 by 8 tiles as one image and cutting it up shares that work across 64 tiles, and keeps labels from being cut off at tile edges."
+      "text": "Rendering a map requires querying the database for every road, label and coastline in the bounding box, including a margin beyond the tile's edge to place labels that cross boundaries. Rendering a block of 8 by 8 tiles as one large image and slicing it into 64 individual tiles amortises the database query across all 64 tiles and prevents text labels from being clipped at tile edges."
     },
     "immutable": {
       "kind": "technical",
-      "title": "Caching for ever",
-      "text": "An HTTP response can carry Cache-Control: max-age=31536000, immutable, which tells every cache it may keep the file for a year and need never check it. That is safe only for an address whose content will never change, which is what the version in the address guarantees."
+      "title": "Caching indefinitely",
+      "text": "An HTTP response can include the header Cache-Control: max-age=31536000, immutable, which instructs caches to retain the file for 31,536,000 seconds (one year) without revalidating it with the origin server. This is safe only when the content at a URL never changes, which versioned URLs guarantee."
     }
   }
 }

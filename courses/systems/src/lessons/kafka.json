@@ -2,22 +2,22 @@
   "id": "kafka",
   "n": 16,
   "title": "The log at the centre",
-  "teaches": "Append-only partitioned logs, offsets and consumer groups, ordering by key, retention and replay, and why sequential disk is fast",
+  "teaches": "Append-only partitioned logs, offsets and consumer groups, ordering by key, retention and replay, and why sequential disk I/O is fast",
   "parts": [
     {
       "title": "A pipeline for every pair",
       "blocks": [
         {
           "type": "text",
-          "text": "By 2010 LinkedIn ran a dozen or so systems that each held part of what its members did: Oracle databases for profiles and connections, a search index, a social graph service, a Hadoop cluster, a data warehouse, monitoring, a recommendation system. Each needed data from several of the others, and each connection was a pipeline someone had written by hand: a nightly dump, a script that polled a table, a feed in some format only two teams understood. Jay Kreps, who worked on the infrastructure, later drew it as a tangle of arrows between boxes, and said a large share of the team's time went into keeping those arrows working.[^name]"
+          "text": "By 2010 LinkedIn ran a dozen or so systems that each held part of what its members did: Oracle databases for profiles and connections, a search index, a social graph service, a Hadoop cluster, a data warehouse, monitoring, and a recommendation system. Each needed data from several of the others, and each connection was a pipeline someone had written by hand: a nightly dump, a script that polled a table, or a feed in a format only two teams understood. Jay Kreps, who worked on the infrastructure, later drew it as a tangle of arrows between boxes, and said a large share of the team's time went into keeping those arrows working.[^name]"
         },
         {
           "type": "text",
-          "text": "The arithmetic is unkind. With *n* systems that each read from each other, there can be *n*(*n* − 1) pipelines; ten systems allow ninety. Each pipeline breaks in its own way, carries its own format, and copies the data at its own speed, so two systems that should agree drift apart. Worse, much of the data was not database rows at all but **activity**: page views, searches, clicks, ads shown. Activity outnumbers database writes by orders of magnitude, and it was arriving faster every month."
+          "text": "With *n* systems that each read from each other, there can be *n*(*n* − 1) pipelines; ten systems allow ninety. Each pipeline breaks in its own way, carries its own format, and copies the data at its own speed, so two systems that should agree drift apart. Worse, much of the data was not database rows at all but **activity** events such as page views, searches, clicks, and ads shown. Activity outnumbers database writes by orders of magnitude, and its volume was growing every month."
         },
         {
           "type": "text",
-          "text": "Kreps, Neha Narkhede and Jun Rao built a system to sit in the middle. Every source writes its data once, to one place; every system that wants it reads from that place, at its own pace, and neither side needs to know the other exists. The habit here is that move: **decouple** the writers from the readers by putting something durable between them. They called it Kafka, described it in a paper at the NetDB workshop in Athens in June 2011, and released it as open source that year. The paper reports that LinkedIn was already collecting hundreds of gigabytes and close to a billion messages a day through it.[^scale]"
+          "text": "Kreps, Neha Narkhede and Jun Rao built a system to sit in the middle. Every source writes its data once, to one place; every system that wants it reads from that place, at its own pace, and neither side needs to know the other exists. This architecture **decouples** the writers from the readers by putting a durable store between them. They called it Kafka, described it in a paper at the NetDB workshop in Athens in June 2011, and released it as open source early that year. The paper reports that LinkedIn was already collecting hundreds of gigabytes and close to a billion messages a day through it.[^scale]"
         }
       ]
     },
@@ -26,11 +26,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Kafka's central data structure is a **log**: an ordered sequence of records that can only be added to at the end. Nothing in it is changed or deleted one record at a time. Each record gets a number, its **offset**, one more than the record before. A database keeps a log like this for its own recovery (lesson 15's mcsqueal read MySQL's); Kafka makes the log the product."
+          "text": "Kafka's central data structure is a **log**, an ordered sequence of records that can only be appended to at the end. Nothing in it is modified or deleted one record at a time. Each record gets a sequential number, its **offset**, which is one more than the record before. A database keeps a write-ahead log like this for its own recovery (in lesson 15, mcsqueal read MySQL's log), whereas Kafka uses the log as the primary data store."
         },
         {
           "type": "text",
-          "text": "Data is grouped into named **topics**, such as page views or clicks. A topic is split into **partitions**, and each partition is a separate log, kept on one machine (a **broker**) and numbered from offset 0. On disk a partition is a directory of **segment** files, each about a gigabyte, named by the first offset it holds. A record is appended to the newest segment; old segments are closed and, after a set time such as seven days, deleted whole. Beside each segment is a small, sparse index from offset to byte position, so a read can start anywhere. Retention sets the disk: 10,000 messages a second of 1 KB is 10 MB/s, and seven days of it is 10 MB/s × 604,800 s, about 6 TB, or 18 TB with three copies."
+          "text": "Data is grouped into named **topics**, such as page views or clicks. A topic is split into **partitions**, and each partition is a separate log kept on one machine (a **broker**) and numbered from offset 0. On disk, a partition is a directory of **segment** files, each about 1 GB, named by the first offset it holds. A record is appended to the newest segment; old segments are closed and, after a configured retention period such as seven days, deleted whole. Beside each segment is a small, sparse index mapping offsets to byte positions, so a read can start anywhere. Retention determines the required disk capacity: 10,000 messages a second of 1 KB each is 10 MB/s, and seven days of traffic is 10 MB/s × 604,800 s, which is about 6 TB, or 18 TB across three replicas."
         },
         {
           "type": "diagram",
@@ -39,11 +39,11 @@
         },
         {
           "type": "text",
-          "text": "On the wire, a **producer** sends a batch of records for a partition to the broker that holds it, which appends them and acknowledges. A **consumer** asks the broker for \"partition 2 of clicks from offset 2,079,881, up to a megabyte\" and gets back the bytes of the segment from that point. That request is the whole reading protocol. The broker does not track what each consumer has read, and it does not delete a record when it is read. A record stays until its segment ages out, however many consumers have read it, or none."
+          "text": "On the wire, a **producer** sends a batch of records for a partition to the broker that holds it, and the broker appends them and sends an acknowledgement. A **consumer** asks the broker for \"partition 2 of clicks from offset 2,079,881, up to 1 MB\" and receives the raw bytes of the segment from that point. That fetch request is the entire reading protocol. The broker does not track what each consumer has read, and it does not delete a record when it is read. A record remains on disk until its segment expires, regardless of how many consumers have read it."
         },
         {
           "type": "text",
-          "text": "Those two choices are what make the decoupling work. A consumer that falls an hour behind costs the broker nothing; it just asks for older offsets. A new system that wants the last week of clicks starts at the oldest offset and reads forward. A consumer with a bug can be fixed and wound back to yesterday's offset to process the day again."
+          "text": "Those two design choices make the decoupling work. A consumer that falls an hour behind adds no memory overhead to the broker; it simply requests older offsets from disk. A new system that needs the last week of clicks starts at the oldest offset and reads forward. If a consumer has a bug, engineers can fix the code and rewind the consumer to yesterday's offset to reprocess the day's data."
         }
       ]
     },
@@ -52,12 +52,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Keeping every message on disk sounds slow; the message queues of 2010 worked hard to keep messages in memory. Lesson 1 put a disk seek at about 10 ms. A design that writes each 1 KB message to its own place on a hard disk pays a seek each time: about 100 messages, 0.1 MB, a second per disk. The same disk writing to the end of one file never seeks, and streams at 100 MB/s or more: about 100,000 messages a second. By this estimate the order of the writes is worth a factor of about a thousand."
+          "text": "Keeping every message on disk sounds slow, which is why the message queues of 2010 worked hard to keep messages in memory. As we saw in lesson 1, a mechanical disk seek takes about 10 ms. A design that writes each 1 KB message to a random location on a hard disk pays a 10 ms seek each time, limiting throughput to about 100 messages/s (0.1 MB/s) per disk. The same disk appending sequentially to the end of one file never seeks, streaming at 100 MB/s or more, which is about 100,000 messages/s. Sequential writes increase throughput by a factor of about a thousand."
         },
         {
           "type": "diagram",
           "id": "scale",
-          "caption": "The same disks written at random and in order, with an NVMe SSD and main memory for comparison, on a scale where each mark is ten times the last. Kafka's design notes give the first pair; the others are round figures for the 2020s. The first two bars are the same disks; only the order of the writes differs.",
+          "caption": "The same disks written at random and in order, with an NVMe SSD and main memory for comparison, on a logarithmic scale where each mark is ten times the last. Kafka's design notes give the first pair; the others are round figures for the 2020s. The first two bars are the same disks; only the order of the writes differs.",
           "options": {
             "title": "How fast data can be written or read",
             "unit": "MB/s",
@@ -89,11 +89,11 @@
         },
         {
           "type": "text",
-          "text": "Kafka's documentation reports six 7,200 rpm disks in a RAID-5 array taking about 600 MB/s of writes in order and about 100 KB/s at random, a factor of over 6,000. The measured factor is larger than the estimate because six disks add up their speed when streaming, and in RAID-5 each small random write costs several disk operations, to update the parity. Appending is the order the disk is good at. Reading is mostly in order too, because consumers read forward from where they were."
+          "text": "Kafka's documentation reports six 7,200 rpm SATA disks in a RAID-5 array achieving about 600 MB/s for sequential writes and about 100 KB/s for random writes, a factor of 6,000. The measured factor is larger than our single-disk estimate because six disks combine their bandwidth when streaming, whereas each small random write in RAID-5 requires multiple disk I/O operations to update the parity blocks. Hard disks perform well on sequential appends. Reads are mostly sequential too, because consumers read forward linearly from their current offset."
         },
         {
           "type": "text",
-          "text": "Three more choices did the rest. Kafka keeps no cache of its own; it writes to files and lets the operating system's **page cache** hold recent data in spare memory, so a consumer that is keeping up reads what was just written without touching the disk. It sends batches, so one network request and one disk write carry hundreds of messages. And it sends a segment's bytes to the network with the operating system's `sendfile` call, straight from the page cache to the socket, without copying them through the broker's own memory.[^zerocopy] The paper measured one broker taking about 50,000 small messages a second sent one at a time and about 400,000 a second in batches of 50, several times what the queues it compared against managed."
+          "text": "Three additional design choices improve throughput further. First, Kafka maintains no application-level cache in the broker process; it writes directly to files and lets the operating system's **page cache** hold recent data in free memory, so a consumer that is keeping up reads newly written data from RAM without disk I/O. Second, Kafka batches records, so a single network request and disk write can carry hundreds of messages. Third, it transfers segment bytes to the network using the operating system's `sendfile` system call, moving data straight from the page cache to the network socket without copying it through the broker application's memory.[^zerocopy] In the 2011 paper's benchmarks, a single broker ingested about 50,000 small messages/s when sent individually and about 400,000 messages/s in batches of 50, outperforming the message queues tested alongside it by several multiples."
         }
       ]
     },
@@ -102,15 +102,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Order is kept within a partition and nowhere else. Two records in partition 0 are read in the order they were written; a record in partition 0 and one in partition 3 have no order at all. So a producer chooses the partition by a **key**: the partition is a hash of the key, modulo the number of partitions, and every record with the same key lands in the same partition, in order."
+          "text": "Kafka guarantees message order within a single partition, but not across partitions. Two records in partition 0 are always read in the order they were written, whereas a record in partition 0 and a record in partition 3 have no defined order relative to each other. To control placement, a producer assigns each record a **key**. The producer hashes the key modulo the number of partitions to select the target partition, ensuring that every record with the same key lands in the same partition in order."
         },
         {
           "type": "text",
-          "text": "Choosing the key is choosing what must stay in order. For a bank's account events, key by account: a deposit and the withdrawal after it must be applied in that order, and two different accounts can go in any order. For page views being counted, any key will do, and spreading them evenly matters more. Two designs fail here. Spreading records at random looks balanced and quietly reorders each account's events. Putting everything in one partition keeps a total order and caps the topic at what one broker and one consumer can do."
+          "text": "Engineers choose the key based on which events must remain ordered. For bank account events, you key by account ID: a deposit and the subsequent withdrawal must be applied in order, while events for two different accounts can be processed independently. When counting page views, ordering does not matter, so distributing records evenly across partitions is the priority. Distributing account records at random balances the load across brokers, but reorders individual accounts' events. Conversely, routing all records to a single partition preserves a global order, but limits the topic's throughput to the capacity of one broker and one consumer."
         },
         {
           "type": "text",
-          "text": "Partitions are also the unit of parallel reading, which sets their number. Within a group of consumers sharing the work (next part), each partition is read by exactly one consumer at a time. If a topic takes 60,000 messages a second and one consumer can process 4,000 a second, the topic needs at least 15 partitions for the group to keep up, and a few times that leaves room to grow, since adding partitions later changes which partition each key hashes to. After the change a key's new records go to a different partition from its old ones, and a reader can see a newer record before an older one it has not reached yet. To grow without breaking per-key order, either start with enough partitions, or create a new topic with more and move writers and then readers over at a known point. More is not free: each partition is a set of open files, a leader to elect, and data to replicate, and a hot key still lands on one partition however many there are."
+          "text": "Partitions are also the unit of parallelism for reads, which determines how many partitions you should configure. Within a consumer group sharing the workload (explained in the next section), each partition is assigned to at most one consumer at a time. If a topic receives 60,000 messages/s and one consumer can process 4,000 messages/s, the topic needs at least 15 partitions for the group to keep up. Over-provisioning by a factor of a few leaves room for traffic growth, because adding partitions later changes the modulo arithmetic for key hashing. After increasing the partition count, new records for a given key may hash to a different partition than older records, allowing a consumer to read a newer record before finishing the older ones. To add partitions without breaking per-key ordering, you can either provision enough partitions initially, or create a new topic with more partitions and migrate the producers and consumers at a coordinated point. However, having too many partitions carries overhead: each partition requires open file handles, leader election state, and replication traffic, and a single hot key will still bottleneck on one partition regardless of the total count."
         }
       ]
     },
@@ -119,26 +119,26 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **consumer group** is a set of consumers that share a topic's work: the group's partitions are dealt among its members, and each member reads its partitions forward. Each group keeps its own position in every partition, and from time to time each member **commits** its position, writing down \"I have processed partition 2 up to offset 2,079,950\". Different groups never interfere: billing, fraud detection and the data warehouse can each read every click, at their own pace."
+          "text": "A **consumer group** is a set of consumer processes that divide the work of reading a topic. The broker assigns each partition in the topic to one member of the group, and each member reads its assigned partitions sequentially. Each group tracks its own offset in every partition. Periodically, each member **commits** its offset, recording that it has processed a partition up to a specific point, such as partition 2 at offset 2,079,950. Separate consumer groups operate independently, so billing, fraud detection, and the data warehouse can each consume the entire stream of clicks at their own throughput."
         },
         {
           "type": "text",
-          "text": "The gap between the newest offset in a partition and a group's position is the group's **lag**, in messages. Lag is the first number to watch on any log: it stays small and steady while the group keeps up, and grows when the group is too slow or a member is gone."
+          "text": "The difference between the latest offset written to a partition and a consumer group's committed offset is the group's **lag**, measured in messages. Lag is the primary operational metric for any log-based consumer: it remains small and stable while the consumer group keeps pace with incoming writes, and increases when the consumers fall behind or a consumer process fails."
         },
         {
           "type": "interactive_diagram",
           "id": "kafka-log",
           "caption": "A topic of six partitions read by a group of three consumers. Tap a consumer to stop it. Rates are slowed down to be followed by eye.",
-          "task": "Stop a consumer, let its partitions move, then get the group's lag back under 10",
+          "task": "Stop a consumer, let its partitions move, then get the group's lag back under 10 messages",
           "goal": "rebalance"
         },
         {
           "type": "text",
-          "text": "When a consumer stops answering, the group notices after a **session timeout** (a few seconds; the figure uses 2) and **rebalances**: its partitions are dealt to the members left. The new owner starts each partition at the last committed offset, because that is all it knows. Messages the dead consumer had processed but not yet committed are processed a second time. This is the delivery guarantee a log gives a consumer, **at least once**: nothing is skipped, and anything may be seen twice. Committing more often shrinks the repeats but never removes them, since a consumer can always die between doing the work and writing down that it did. A consumer has to tolerate repeats; lesson 17 makes that exact."
+          "text": "When a consumer stops responding, the group coordinator detects the failure after a **session timeout** (typically a few seconds; the simulation uses 2 s) and triggers a **rebalance**, reassigning the dead consumer's partitions to the remaining active members. The new owner resumes reading each partition from the last committed offset. Any messages that the failed consumer processed after its last commit will be read and processed a second time. Consequently, a log provides **at-least-once** delivery: no messages are dropped, but messages may be delivered more than once. Committing offsets more frequently reduces the window for duplicates, but cannot eliminate them entirely, because a consumer can always crash after processing a message and before committing the offset. Downstream consumers must therefore be idempotent, a requirement we will design for in lesson 17."
         },
         {
           "type": "text",
-          "text": "The button that adds a reader from offset 0 is replay. The new reader starts with the whole retained history behind it, reads it far faster than it arrives, and then keeps up like anyone else. This is how a new search index, a new cache or a fixed version of a buggy job gets built: from the log, not from a special export.[^offsets]"
+          "text": "In the simulation, adding a reader starting at offset 0 demonstrates log replay. The new consumer starts with the entire retained history behind it, reads the backlog at high throughput until it catches up, and then processes new arrivals in real time. Engineers use log replay to populate a new search index, warm a new cache, or re-run a job after fixing a bug, reading directly from the log rather than building a custom data export.[^offsets]"
         }
       ]
     },
@@ -147,11 +147,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A traditional message queue (RabbitMQ, Amazon SQS) works differently. Each message is handed to one worker, the worker acknowledges it, and then it is deleted. A message whose worker fails is handed to another worker on its own, with no partition to stall, and one that fails over and over can be set aside in a **dead-letter queue**. That suits a pile of independent jobs: send these emails, resize these photos. A log has no dead-letter queue of its own: a consumer that cannot process a message must write it to a separate topic of failures and move on, or its whole partition stalls behind that one message. A queue does not keep history, and two systems that each want every message need two queues and a copy. A log keeps everything for its retention period, lets any number of groups read it, and keeps order per key, at the cost of handing out work a whole partition at a time."
+          "text": "A traditional message queue (such as RabbitMQ or Amazon SQS) tracks delivery per message rather than per partition. The broker hands an individual message to an available worker, waits for the worker to acknowledge it, and then deletes the message. If a worker fails, the broker reassigns just that single message to another worker without stalling other deliveries, and a message that repeatedly causes worker failures can be routed to a separate **dead-letter queue**. This model fits a pool of independent tasks, such as sending emails or resizing photos. A partitioned log has no built-in dead-letter queue; if a consumer cannot process a bad message, the consumer must explicitly write that message to a separate error topic and advance its offset, or the entire partition will stall behind that message. Conversely, a traditional queue deletes messages upon acknowledgement and cannot replay history, so if two downstream systems need the same stream of messages, you must duplicate the messages across two separate queues. A partitioned log retains all messages until they expire, supports multiple independent consumer groups, and preserves order per key, with the trade-off that work is assigned at the granularity of a partition."
         },
         {
           "type": "text",
-          "text": "The figure below has six jobs to place: feed every click to billing, fraud checks and the warehouse; send each welcome email once, from whichever worker is free; build a new search index from every profile edit so far; transcode 10,000 uploaded videos, some taking an hour; apply each account's payments in the order they were made; and retry a failed image resize, then set it aside after five tries."
+          "text": "The figure below lists six workloads to classify: feeding every click to billing, fraud checks, and the data warehouse; sending each welcome email once using whichever worker is free; building a new search index from all historical profile edits; transcoding 10,000 uploaded videos, where some take an hour; applying each account's payments in the exact order they occurred; and retrying a failed image resize up to five times before setting it aside."
         },
         {
           "type": "interactive_diagram",
@@ -207,11 +207,11 @@
         },
         {
           "type": "text",
-          "text": "The log also answers a problem that every system with a database and a message stream meets: the **dual write**. A service saves an order to its database, then publishes \"order placed\" to Kafka. If it crashes between the two, the database has the order and nobody else will ever hear of it; publish first and crash, and everyone hears of an order that does not exist. No ordering of two separate writes fixes this. Lesson 22 shows one cure, the outbox. Kreps argued for the other: make the log the record of what happened, and build the database, the caches and the search index by reading it, as lesson 15's caches were kept fresh by reading MySQL's log. Copying a database's own change log into Kafka, called **change data capture**, is how that is usually done with an existing database."
+          "text": "Using a log also addresses a reliability problem common to systems that update both a database and a message stream: the **dual write**. Suppose a service writes an order to its database and then publishes an \"order placed\" event to Kafka. If the service crashes between the two operations, the database contains the order, but downstream consumers never receive the event. If the service publishes the event first and crashes before the database commit, downstream systems act on an order that does not exist in the database. Reordering the two network calls cannot make them atomic. Lesson 22 covers one solution, the transactional outbox. Kreps proposed an alternative: treat the append-only log as the primary system of record, and populate the database, caches, and search indexes by consuming the log, just as lesson 15's caches stayed synchronised by reading MySQL's replication log. With an existing relational database, engineers typically implement this pattern using **change data capture** (CDC), where a connector reads the database's internal write-ahead log and streams the row changes into Kafka."
         },
         {
           "type": "text",
-          "text": "The 2011 Kafka kept each partition on one broker; if its disk died, the partition's data went with it. Replication arrived in version 0.8 in 2013: each partition has a leader broker that takes writes and followers that copy them, and a producer can wait until every follower that is in step has the record before counting it written. A follower is in step, an **in-sync replica**, while it has fetched everything up to the leader's newest record within a set time, 10 seconds by default for many years and 30 seconds since version 2.5; one that falls further behind is dropped from the set until it catches up. Retention also grew a second mode, **compaction**, which keeps only the newest record for each key, so a topic can serve as the full current state of a table, however old.[^compaction]"
+          "text": "The initial 2011 release of Kafka stored each partition on a single broker; if that broker's disk failed, the partition's data was lost. Replication was added in version 0.8 in 2013: each partition has one leader broker that handles all reads and writes, and follower brokers that replicate the leader's log. A producer can configure its writes to block until all **in-sync replicas** (ISRs) have written the record. A follower remains in the ISR set as long as it has fetched all records up to the leader's latest offset within a configured timeout (10 s by default in early versions, increased to 30 s in version 2.5); a follower that falls further behind is removed from the ISR set until it catches up. Kafka also added a second retention mechanism called **compaction**, which retains only the most recent record for each key, allowing a topic to store the current state of a dataset indefinitely.[^compaction]"
         }
       ]
     },
@@ -233,7 +233,7 @@
                   "The producers are sending duplicate messages, which the group has to read and then discard one by one"
                 ],
                 "answer": 0,
-                "why": "Lag is the newest offset minus the group's position. Steady growth means arrivals exceed the group's rate. More consumers help only up to one per partition."
+                "why": "Lag is the newest offset minus the group's committed offset. Steady growth means the arrival rate exceeds the group's processing throughput. Adding consumers increases throughput only up to one consumer per partition."
               },
               {
                 "ask": "Events for each bank account must be applied in the order they happened. How should they be written to a partitioned log?",
@@ -243,17 +243,17 @@
                   "All to a single partition, since that is the only way a log can keep any events in order"
                 ],
                 "answer": 1,
-                "why": "Order holds only within a partition. Keying by account keeps each account in order and still spreads accounts over partitions. Timestamps from many machines do not give a reliable order, and one partition caps throughput."
+                "why": "Order holds only within a partition. Keying by account keeps each account in order while distributing different accounts across partitions. Timestamps from multiple machines do not guarantee a reliable order, and using one partition caps throughput at the capacity of a single broker and consumer."
               },
               {
-                "ask": "A topic takes 60,000 messages a second. One consumer can process 4,000 a second. What is the least number of partitions for one group to keep up?",
+                "ask": "A topic takes 60,000 messages a second. One consumer can process 4,000 messages a second. What is the minimum number of partitions required for one consumer group to keep up?",
                 "choices": [
                   "4",
                   "15",
                   "60"
                 ],
                 "answer": 1,
-                "why": "Each partition is read by one consumer in a group, so the group can use at most one consumer per partition: 60,000 / 4,000 = 15 consumers, so at least 15 partitions."
+                "why": "Each partition is read by at most one consumer in a group. Processing 60,000 messages/s at 4,000 messages/s per consumer requires 60,000 / 4,000 = 15 consumers, which requires at least 15 partitions."
               },
               {
                 "ask": "A consumer crashes and its partitions move to another member of its group. Why are some messages processed twice?",
@@ -263,7 +263,7 @@
                   "Producers retry when a consumer crashes, so the messages it was handling are appended to the log a second time"
                 ],
                 "answer": 1,
-                "why": "Work and commit are two steps; a crash between them leaves processed but uncommitted messages, which the next owner reads again. That is at-least-once delivery."
+                "why": "Processing messages and committing offsets are separate steps. A crash between them leaves processed but uncommitted messages, which the new partition owner reads again. This behaviour is called at-least-once delivery."
               },
               {
                 "ask": "Why can Kafka keep every message on disk and still be fast?",
@@ -273,7 +273,7 @@
                   "It compresses each message so heavily that the disk has very little to write, whatever order the writes come in"
                 ],
                 "answer": 0,
-                "why": "Writes in order on a hard disk run hundreds or thousands of times faster than random ones. The operating system's page cache holds what was just written, and batching and sendfile cut the per-message cost."
+                "why": "Sequential writes on a hard disk run hundreds or thousands of times faster than random writes. The operating system's page cache serves recently written data directly from memory, while batching and `sendfile` reduce the per-message overhead."
               },
               {
                 "ask": "Which job suits a task queue better than a partitioned log?",
@@ -283,7 +283,7 @@
                   "Feeding the same stream of clicks to billing, fraud detection and a data warehouse"
                 ],
                 "answer": 1,
-                "why": "Long, uneven, independent jobs want per-message hand-out and acknowledgement. In a log, one slow message holds up its whole partition for that group. The other two need replay and several readers, which a log gives."
+                "why": "Long, uneven, independent jobs require per-message assignment and acknowledgement. In a partitioned log, one slow message blocks the entire partition for that consumer group. The other two workloads require historical replay and multiple independent readers, which a log provides."
               },
               {
                 "ask": "A service writes an order to its database and then publishes an event about it to a log. What can go wrong?",
@@ -293,7 +293,7 @@
                   "A crash between the two writes leaves the database and the log disagreeing, with no record of the gap"
                 ],
                 "answer": 2,
-                "why": "Two separate writes can be split by a crash in either order. The cures are an outbox written in the same transaction, or making the log the source and building the database from it."
+                "why": "Two separate writes to different systems can be interrupted by a crash regardless of their order. Engineers avoid dual writes by writing to an outbox table in the same database transaction, or by writing to the log first and building the database state from the log."
               }
             ]
           }
@@ -302,41 +302,41 @@
     }
   ],
   "summary": [
-    "**Put a durable log between writers and readers.** Each source writes once and each reader reads at its own pace, instead of a hand-built pipeline for every pair.",
-    "**A log is append-only and addressed by offset.** Kafka keeps a topic as partitions, each a directory of segment files on one broker, and deletes whole segments by age.",
-    "**Writing in order is what makes disk fast.** Appends stream at hundreds of MB/s where random writes manage well under one, and the page cache serves recent reads.",
-    "**Order holds only within a partition.** Key records by what must stay in order (an account, a user), and the key's hash picks the partition.",
-    "**Partitions set the parallelism.** A group uses at most one consumer per partition, so rate divided by one consumer's speed gives the least number of partitions.",
-    "**Lag is the number to watch.** It is the newest offset minus the group's position, and it grows when readers are slower than writers.",
-    "**A log delivers at least once.** After a rebalance a partition restarts from its last committed offset, so consumers must tolerate repeats.",
-    "**Replay builds new systems from history.** A new reader starts at the oldest retained offset and catches up.",
-    "**Avoid dual writes.** A database write and a separate publish can be split by a crash; use an outbox or build the database from the log."
+    "**Put a durable log between writers and readers.** Each data source writes once and each consumer reads at its own pace, replacing point-to-point pipelines between every pair of systems.",
+    "**A log is append-only and addressed by offset.** Kafka divides a topic into partitions, stores each partition as a directory of segment files on a broker, and deletes whole segments when they expire.",
+    "**Sequential disk I/O is fast.** Appending to a file streams at hundreds of megabytes a second where random writes achieve well under 1 MB/s, and the operating system's page cache serves recent reads from memory.",
+    "**Order holds only within a partition.** Assign each record a key corresponding to the entity that requires ordering (such as an account or user ID), and hash the key to select the partition.",
+    "**Partitions bound consumer parallelism.** Within a consumer group, at most one consumer reads a given partition at a time, so dividing the incoming message rate by a single consumer's throughput gives the minimum number of partitions.",
+    "**Monitor consumer lag.** Lag is the latest partition offset minus the consumer group's committed offset, and it grows whenever consumer throughput falls below producer throughput.",
+    "**A log provides at-least-once delivery.** After a rebalance, the new consumer resumes from the last committed offset, so consumers must handle duplicate messages idempotently.",
+    "**Replay builds new systems from historical data.** A new consumer group can start reading at the oldest retained offset and process the backlog until it catches up.",
+    "**Avoid dual writes.** Writing to a database and publishing to a log as two separate steps leaves the system vulnerable to partial failures if the process crashes in between; use a transactional outbox or change data capture instead."
   ],
   "footnotes": {
     "name": {
       "kind": "digression",
       "title": "Why Kafka",
-      "text": "Kreps later explained the name: since this was a system built for writing, a writer's name seemed to fit, and he liked Franz Kafka's work. Kreps's 2013 essay \"The Log: What every software engineer should know about real-time data's unifying abstraction\" made the case for the design at length."
+      "text": "Kreps later explained the name: since this was a system optimised for writing, a writer's name seemed to fit, and he liked Franz Kafka's work. Kreps's 2013 essay \"The Log: What every software engineer should know about real-time data's unifying abstraction\" made the architectural case for the design in detail."
     },
     "scale": {
       "kind": "digression",
       "title": "From a billion to trillions",
-      "text": "LinkedIn's reported volume passed a trillion messages a day by the middle of the 2010s. Kreps, Narkhede and Rao left LinkedIn in 2014 to found a company, Confluent, around it."
+      "text": "LinkedIn's Kafka clusters passed 1 trillion messages a day in 2015. Kreps, Narkhede and Rao left LinkedIn in 2014 to found Confluent, a company built around Kafka."
     },
     "zerocopy": {
       "kind": "technical",
       "title": "sendfile",
-      "text": "A plain server reads file bytes into its own memory and then writes them to a socket: two copies across the boundary between the program and the kernel, plus system calls for each. Linux's `sendfile` asks the kernel to move bytes from a file straight to a socket. It works for Kafka because the broker stores records in the same format it sends them in, and never needs to look inside."
+      "text": "A standard server reads file bytes from the kernel's page cache into user-space memory and then writes them back to a kernel socket buffer, requiring two context switches and two memory copies. Linux's `sendfile` system call instructs the kernel to copy data directly from the page cache to the network interface buffer. This zero-copy path works in Kafka because the broker stores message batches on disk in the exact wire format that consumers expect, so the broker process does not need to inspect or modify the bytes."
     },
     "offsets": {
       "kind": "technical",
       "title": "Where offsets are kept",
-      "text": "In the 2011 design, consumers stored their committed offsets in ZooKeeper (a coordination service like lesson 11's Chubby). Later versions keep them in an internal Kafka topic of their own, and a broker acting as group coordinator runs the rebalances."
+      "text": "In the 2011 design, consumers wrote their committed offsets to ZooKeeper (a coordination service similar to lesson 11's Chubby). Starting with version 0.8.2, consumers commit offsets to an internal, compacted Kafka topic named `__consumer_offsets`, and a designated broker acting as the group coordinator manages partition assignments and rebalances."
     },
     "compaction": {
       "kind": "technical",
       "title": "Compaction",
-      "text": "A compacted topic is cleaned in the background: for each key, older records are dropped once a newer one exists, and a record with an empty value deletes its key. A reader that starts at offset 0 still sees every key's latest value, so the topic can rebuild a table or a cache from scratch."
+      "text": "Broker background threads clean a compacted topic by scanning closed segments and discarding older records Whenever a newer record with the same key exists. Publishing a tombstone record (a key with a null payload) removes the key entirely after a grace period. A consumer reading from offset 0 receives the latest value for every active key, which is enough to reconstruct a database table or in-memory cache from scratch."
     }
   }
 }

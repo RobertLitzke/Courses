@@ -13,15 +13,15 @@
         },
         {
           "type": "text",
-          "text": "Facebook kept some configuration values in its [[memcache|cache]] servers, copied from a cluster of databases. An automated system watched those cached values, and when a web server found one that looked invalid, it fixed it: it queried the database for the persistent copy and wrote that back into the cache. That day an engineer changed the persistent copy of one value, and the new value was one the checker took to be invalid. So every web server that read it saw an invalid value and set out to fix it, and every fix was a query to the same database cluster. Hundreds of thousands of queries a second arrived at a cluster built for far fewer."
+          "text": "Facebook kept some configuration values in its [[memcache|cache]] servers, copied from a cluster of databases. An automated system watched those cached values, and when a web server found one that looked invalid, it queried the database for the persistent copy and wrote that back into the cache. That day an engineer changed the persistent copy of one value, and the checker took the new value to be invalid. Every web server that read it saw an invalid value and set out to fix it, and every fix was a query to the same database cluster. Hundreds of thousands of queries a second arrived at a cluster built for far fewer."
         },
         {
           "type": "text",
-          "text": "The cluster slowed, then began returning errors. The fixing code read an error from the database as one more invalid value, so it deleted the cached key and tried again. Now the deletes guaranteed misses, the misses produced queries, and the queries produced errors. Reverting the bad value did not stop it, because the loop no longer needed the bad value to keep going. In the end the engineers had to stop all traffic to that database cluster, which meant turning the site off, and bring it back slowly."
+          "text": "The cluster slowed, then began returning errors. The fixing code read an error from the database as one more invalid value, so it deleted the cached key and tried again. Now the deletes guaranteed misses, the misses produced queries, and the queries produced errors. Reverting the bad value did not stop the outage, because the loop no longer needed the bad value to keep going. In the end the engineers had to stop all traffic to that database cluster, which meant turning the site off, and bring it back slowly."
         },
         {
           "type": "text",
-          "text": "Throughout, look for a [[feedback loop|busy]]: a response to trouble that makes more of the same trouble. A cache is especially prone to one, because it sits in front of something slower and more fragile than itself, and the moment it fails to answer, the work it was absorbing goes straight to the thing behind it. This lesson is about the cache's own misses: the hot key that expires, the value that goes stale behind everyone's back, and the delete that never arrives."
+          "text": "Throughout, we will look for a [[feedback loop|busy]], a system response to overload or failure that generates more load. A cache is especially prone to feedback loops because it sits in front of a slower, more fragile storage system. The moment the cache fails to answer, the traffic it was absorbing goes straight to the database behind it. In this lesson, we examine how engineers handle cache misses, including hot keys that expire, stale values written by slow readers, and cache deletes that get lost."
         }
       ]
     },
@@ -30,30 +30,30 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Take one **hot key**, a key that is read far more than the rest: a celebrity's profile, a front-page story, a configuration value every page needs. Say 1,000 web servers read it 20,000 times a second between them. It is held in memcache in front of a database, used cache-aside as lesson 5 described: read the cache; on a miss, query the database and set the result in the cache."
+          "text": "Take one **hot key**, a key that is read far more than the rest, such as a celebrity's profile, a front-page story or a configuration value every page needs. Say 1,000 web servers read it 20,000 times a second between them. It is held in memcache in front of a database, used cache-aside as we saw in lesson 5: read the cache, and on a miss, query the database and set the result in the cache."
         },
         {
           "type": "text",
-          "text": "First the numbers. While the key is in the cache, the database never hears about it. When it expires or is deleted, the next reader misses and sends a query. If that query takes 50 ms, the key stays missing for those 50 ms, and in that time 20,000 × 0.05 = 1,000 more readers miss and each sends the same query. That burst of identical misses is a **thundering herd**. A thousand copies of one query is wasteful, and if the database stayed as fast under the herd as it was before it, the waste would end after 50 ms."
+          "text": "Consider the request rates. While the key is in the cache, the database receives zero queries for it. When the key expires or is deleted, the next reader misses and sends a query. If that query takes 50 ms, the key stays missing for those 50 ms, and in that time 20,000 × 0.05 = 1,000 more readers miss and each sends the same query. That burst of identical misses is a **thundering herd**. Sending 1,000 copies of one query wastes capacity, though if the database maintained its 50 ms latency under load, the extra traffic would end after 50 ms."
         },
         {
           "type": "text",
-          "text": "It does not stay as fast. Lesson 2 showed that waiting time grows without bound as a server nears full load. Suppose the database can run 100 queries at full speed at once, about 2,000 of these queries a second. Given more than 100, it shares its time evenly among them, so with 1,000 in flight each runs at a tenth of its speed: a model called **processor sharing**.[^ps] The herd asks for 20,000 a second. The first query, the one whose answer would end the herd, now shares the database with hundreds and then thousands of copies of itself, and each slows as more arrive. Slower answers mean a longer miss, and a longer miss means more copies. Make a guess before you run it."
+          "text": "The database does not maintain its speed. As we saw in lesson 2, queueing latency grows without bound as a server nears 100% utilisation. Suppose the database can execute 100 concurrent queries at full speed, giving a throughput of 2,000 queries a second. Given more than 100 concurrent queries, it shares its CPU time evenly among them, so with 1,000 queries in flight each runs at a tenth of its normal speed, a scheduling model called **processor sharing**.[^ps] The herd generates 20,000 queries a second. The first query, whose completion will refill the cache and end the herd, now shares the database with hundreds and then thousands of duplicate queries, and every query slows down as more arrive. Higher database latency extends the cache miss window, and a longer miss window allows more duplicate queries to arrive. Make a guess before you run the simulation."
         },
         {
           "type": "interactive_diagram",
           "id": "leases-herd",
-          "caption": "A hot key expires. The database model shares its time among the queries it holds, so a big herd slows the query that would end it. Illustrative numbers.",
+          "caption": "A hot key expires. The database model shares its CPU time among concurrent queries, so a large herd increases the latency of the query that would refill the cache. Illustrative numbers.",
           "task": "Guess, then turn leases on and play the two seconds through",
           "goal": "calm"
         },
         {
           "type": "text",
-          "text": "At 2,000 reads a second the herd is 100 queries and the key is back in 50 ms. At 4,000 it is about 270 queries and 70 ms. At 10,000 it is several thousand queries and over half a second. At 20,000 the first query takes about 40 seconds to finish, and in that time the herd grows to hundreds of thousands. The change from harmless to collapse comes over a factor of ten in traffic, and the threshold is where the herd's queries pass what the database can serve."
+          "text": "At 2,000 reads a second the herd reaches 100 queries and the key is back in the cache in 50 ms. At 4,000 reads a second it reaches about 270 queries and takes 70 ms. At 10,000 reads a second it reaches several thousand queries and takes over 500 ms. At 20,000 reads a second the first query takes about 40 seconds to finish, and in that time the herd grows to hundreds of thousands of queries. The system tips from normal operation into overload across a tenfold increase in read throughput, and the threshold is the point where the rate of cache misses exceeds the database's maximum throughput."
         },
         {
           "type": "text",
-          "text": "Two designs make this worse, and both are common. The first gives hot keys a short **time to live** (TTL), so they expire every few seconds to stay fresh; each expiry is a fresh herd. The second retries on error, the loop that turned Facebook off in 2010: once the database begins to fail, every retry adds a query to a server that is failing because it has too many."
+          "text": "Two common design choices make this overload worse. The first gives hot keys a short **time to live** (TTL) so they expire every few seconds to stay fresh, which triggers a new thundering herd on each expiry. The second retries failed queries automatically, which is the loop that took Facebook down in 2010. Once the database begins returning errors, every retry sends an additional query to a server that is already failing from overload."
         }
       ]
     },
@@ -62,23 +62,23 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In April 2013, at the NSDI conference in Lombard, Illinois, Rajesh Nishtala and his colleagues described how Facebook had built memcache into a system serving billions of requests a second over trillions of cached items: \"Scaling Memcache at Facebook\". One of the first problems they took on was the herd, and the tool they used was a **lease**."
+          "text": "In April 2013, at the NSDI conference in Lombard, Illinois, Rajesh Nishtala and his colleagues published \"Scaling Memcache at Facebook\", describing how they built memcache into a system serving billions of requests a second over trillions of cached items. One of the first problems they addressed was the thundering herd, which they solved using a **lease**."
         },
         {
           "type": "text",
-          "text": "In GFS, the master handed a chunk's primary a lease (lesson 7), and lesson 11's leader held one: a right, granted for a limited time, that lets one party act and makes everyone else hold back. Facebook's lease is the same idea at the size of one key. When a client misses, memcache gives it a [[lease token|clock]], a 64-bit number bound to that key. The token is the right to fill the key: a client that sets the key must present it."
+          "text": "In GFS, the master granted a lease to a chunk's primary (lesson 7), and in lesson 11 a consensus leader held one. A lease is a time-limited grant that permits a single node to perform an operation while other nodes wait. Facebook's lease applies the same mechanism to an individual cache key. When a client misses, the memcache server issues it a [[lease token|clock]], a 64-bit integer bound to that key. The token authorises the client to populate the key, and the client must present the token when writing the value to the cache."
         },
         {
           "type": "text",
-          "text": "The herd stops because memcache hands out a token for a given key at most once every 10 seconds. The first client to miss gets one and goes to the database. Every other client that misses in the next 10 seconds gets no token, only a note to wait a short while and read the cache again. The holder usually sets the value within a few milliseconds, so the waiters' second read is a hit. A herd of thousands becomes one query and a few thousand cheap cache reads. If the holder dies or never sets the value, the waiters go on missing until the 10 seconds are up, when the next miss gets a fresh token: a few seconds of waiting on one key is the price of never having a herd. In the figure, turning leases on keeps the database at one query however fast the key is read. The paper reports that leases cut the peak rate of database queries for a hot key from about 17,000 a second to 1,300.[^peak]"
+          "text": "The herd stops because memcache issues a token for a given key at most once every 10 seconds. The first client to miss receives a token and queries the database. Every other client that misses in the next 10 seconds receives no token, getting instead a response telling it to wait 10 ms and read the cache again. The token holder usually writes the value to the cache within a few milliseconds, so the waiting clients' second reads hit the cache. A herd of thousands of database queries becomes one query and a few thousand fast cache reads. If the token holder crashes or fails to set the value, the waiting clients continue to miss until the 10-second lease expires, when the next miss receives a new token. Up to 10 seconds of elevated read latency on a single key is the trade-off for preventing database overload. In the simulation, enabling leases keeps the database load at one query regardless of the read rate. Nishtala and his colleagues report that leases reduced peak database query throughput for hot keys from 17,000 queries a second to 1,300 queries a second.[^peak]"
         },
         {
           "type": "text",
-          "text": "For data where a slightly old answer is fine, memcache offers a shortcut. When a key is deleted, its old value is kept briefly in a side list, and a waiting client can take that value, marked as stale, instead of waiting at all. This is a trade made for each kind of data: a feed can show a value a second old, a privacy setting should not."
+          "text": "For applications that can tolerate slightly outdated data, memcache provides an optimization. When a key is deleted, the server retains its old value briefly in a recently deleted list, and a waiting client can accept that value, flagged as stale, rather than waiting and retrying. Engineers choose whether to accept stale reads based on the data type: a news feed can display a value that is 1 second old, whereas an account privacy setting cannot."
         },
         {
           "type": "text",
-          "text": "There are other ways to break up a herd, and they work at different places. A single web server can make sure it has only one query in flight per key, and make its other threads wait for that answer, which is called **request coalescing**; it shrinks a herd of 1,000 to one query per web server, still 1,000 queries if all 1,000 web servers miss together. A cache can also refresh a hot key a little before it expires, chosen at random for each reader, so the refresh is done by one early reader instead of all late ones.[^early] The lease works across every client, because the cache itself decides who fills the key."
+          "text": "Engineers can mitigate thundering herds at other layers of the system. A single web server can deduplicate concurrent misses for the same key so that it sends only one database query and makes its other local threads wait for that response. This technique, called **request coalescing**, reduces a herd across 1,000 web servers to at most one query per web server, which still produces 1,000 concurrent database queries if all 1,000 servers miss at once. Alternatively, a client can recompute a cached value slightly before its TTL expires, using a randomized threshold for each read so that one early reader updates the key before the remaining readers experience a miss.[^early] Unlike single-server coalescing, a cache lease coordinates requests across all clients because the cache server itself controls which client queries the database."
         }
       ]
     },
@@ -87,26 +87,26 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 5 explained why a writer deletes the cached key instead of setting the new value: two writers setting values can arrive at the cache in the opposite order from the database, and the cache keeps the older one. Deleting avoids that, and a delete can be repeated safely, since deleting a deleted key changes nothing. There remains one race, between a reader and a writer, that deleting does not prevent. The paper calls it a **stale set**: a client puts a value in the cache that is no longer the latest."
+          "text": "In lesson 5, we saw why a client that updates the database deletes the cached key instead of updating the cache directly: if two writers update the cache concurrently, their requests can reach the cache in the opposite order from the database commits, leaving the older value in the cache. Deleting the key avoids write-write races and is idempotent, since deleting an already missing key has no effect. However, deleting on write still leaves a race condition between a reader and a writer. The Facebook paper calls this a **stale set**, which occurs when a slow reader writes an outdated value into the cache after a concurrent update."
         },
         {
           "type": "text",
-          "text": "In the figure, reader A misses on a key and is given lease token 7, then reads the old value, v1, from the database and stalls. Writer B then commits the new value, v2, to the database and deletes the key from the cache. Finally A wakes and tries to set v1."
+          "text": "In the figure, reader A misses on a key, receives lease token 7, reads the old value v1 from the database, and then pauses (for example, due to a garbage collection pause or network delay). Writer B then commits the new value v2 to the database and deletes the key from the cache. Finally, reader A resumes and attempts to set v1 in the cache."
         },
         {
           "type": "interactive_diagram",
           "id": "leases-stale",
-          "caption": "The stale set, step by step: a slow reader fills the cache after a writer has deleted it.",
+          "caption": "A stale set: a slow reader writes an outdated value to the cache after a writer has deleted the key.",
           "task": "Play it with leases off, then with leases on",
           "goal": "fixed"
         },
         {
           "type": "text",
-          "text": "The stale value is the worst kind, because nothing will correct it. The delete has already happened, so the cache holds v1 until the key is written again or expires, and for a value that rarely changes that may be days. Leases fix it at no extra cost. The delete that B sends voids any token memcache has handed out for that key, so when A arrives with token 7, memcache knows that the value A carries may predate a write, and refuses it. The next reader misses, gets a new token, and reads v2."
+          "text": "Without leases, this race leaves the cache permanently out of sync with the database until the next write or TTL expiry. Because writer B has already sent its delete, the cache retains v1, which for an infrequently updated key can last for days. Leases prevent stale sets using the same token mechanism. When writer B deletes the key, memcache invalidates any active lease token for that key. When reader A subsequently sends its set request with token 7, memcache sees that the token has been invalidated, recognises that A's value may predate the delete, and rejects the write. The next reader misses, receives a new token, and fetches v2 from the database."
         },
         {
           "type": "text",
-          "text": "A lease does not make the cache always right. Between B's write to the database and B's delete, readers still get v1 from the cache, for a few milliseconds. What the lease guarantees is that every stale value is short-lived: once the delete arrives, no older value can be put back."
+          "text": "Leases do not provide strict consistency. In the few milliseconds between writer B committing to the database and deleting the cache key, concurrent readers still read v1 from the cache. Leases instead guarantee bounded staleness: once the cache processes the delete, no reader holding a value read before that delete can write it back into the cache."
         }
       ]
     },
@@ -115,19 +115,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "So far the web server that wrote to the database also deleted the key. That works until it doesn't. A web server can crash after its commit and before its delete, and then the old value stays cached with nothing to remove it. And Facebook ran several **front-end clusters** in each region, each with its own memcache servers holding copies of the same keys; a write must delete the key in every one of them, and a web server does not know which hold it."
+          "text": "Up to this point, the web server that updated the database also sent the delete request to memcache. This client-driven invalidation fails in two scenarios. First, if a web server crashes after committing its database transaction but before sending the cache delete, the stale value remains in the cache indefinitely. Second, Facebook operated multiple **front-end clusters** in each region, each with its own independent pool of memcache servers caching the same database keys. A database write must invalidate the key across every front-end cluster that caches it, and an individual web server does not track which clusters hold copies of a given key."
         },
         {
           "type": "text",
-          "text": "Facebook's answer was to take deletes from the one place that knows about every committed write: the database's [[commit log|write]]. Lesson 4 met this log as the stream replicas apply. A MySQL server records each committed change, in commit order, in its binary log. A web server that ran a write worked out which cached keys it made stale and embedded their names in the SQL statement, so they were recorded in the log with the change. A daemon called **mcsqueal**, running beside each database, read the commit log, pulled out those keys, batched them, and sent the deletes to every memcache cluster in the region through a set of routers."
+          "text": "Facebook solved this by generating cache deletes directly from the database's [[commit log|write]], which records every committed transaction. We saw this log in lesson 4 as the replication stream sent to read replicas. A MySQL primary records each committed change, in commit order, to its binary log. When a web server executed an SQL write transaction, it appended the names of the affected cache keys as comments in the SQL statement, causing MySQL to write those key names into the binary log alongside the data changes. A daemon called **mcsqueal**, running on each database server, tailed the binary log, extracted the cache keys, grouped them into batches, and forwarded the delete requests through a layer of routing proxies to every memcache cluster in the region."
         },
         {
           "type": "text",
-          "text": "This changes the guarantee. A delete taken from the log is sent only for a write that committed, and it is sent even if the web server that made the write has crashed, because the log outlives the server. A delete can still be late, but it will not be lost: if the daemon crashes it starts again from its place in the log. And since a delete voids any lease token on the key, a slow reader in some cluster cannot put an older value back after it: the stale-set rule again. The cost is a little delay, the time to read the log and send the batch. Batching also saved the network: deletes for many keys went out in one packet, to one router per cluster, where sending them one by one from each web server would have meant millions of small packets. The principle reaches well past caches: any copy of data (a cache, a search index, a replica) is kept right most simply by following the source's own record of changes, and lesson 16 builds a whole system on that idea."
+          "text": "Log-tailing invalidation provides stronger delivery guarantees than client-sent deletes. Because the daemon reads the commit log, it sends deletes only for transactions that actually committed, and it delivers those deletes even if the originating web server crashes immediately after committing. If the mcsqueal daemon itself crashes, it resumes reading from its last saved offset in the log upon restart, ensuring no deletes are dropped. Because each delete invalidates any active lease token on that key, slow readers in any cluster are blocked from completing stale sets. The trade-off is a slightly longer invalidation latency due to log reading and batching. Batching also reduced packet rates across the datacentre network: mcsqueal packed deletes for many keys into a single network packet sent to one router per cluster, whereas individual web servers sending point-to-point deletes would have generated millions of small packets a second. Driving secondary updates from a storage engine's commit log is a standard systems pattern for maintaining caches, search indexes and read replicas, and in lesson 16 we will design an architecture around it."
         },
         {
           "type": "text",
-          "text": "The paper has one more answer to a cache's misses, for the case where a memcache server dies. Lesson 5's consistent hashing would hand the dead server's keys to its neighbours on the ring, and with them its hot keys, which can overload a neighbour and then the next one along. Facebook instead kept a small spare pool of memcache servers, about 1% of a cluster, called the **gutter**. A client that gets no answer from a server retries at the gutter, and on a miss there fills the gutter from the database. The dead server's keys miss once each into the gutter and are then served from it, instead of falling on the database for as long as the server is down. Gutter entries expire within seconds, which stands in for invalidation, since deletes are not sent to the gutter.[^udp]"
+          "text": "Nishtala and his colleagues introduced one more mechanism to handle cache misses caused by a memcache server hardware failure. Under standard consistent hashing (lesson 5), removing a failed server from the hash ring reassigns all of its keys to its immediate neighbours on the ring. If the failed server held hot keys, that sudden shift in read load can overload a neighbouring cache server, causing a cascading failure around the ring. To prevent this, Facebook reserved a small pool of idle memcache servers, roughly 1% of the cluster's capacity, called the **gutter**. When a client request to a primary memcache server times out, the client retries the read against the gutter pool, and on a gutter miss, queries the database and writes the value into the gutter. Each key from the failed server misses once in the gutter and is then served from the gutter pool, shielding both the database and the neighbouring cache servers during the outage. Gutter entries use a short, fixed TTL of a few seconds instead of receiving explicit delete requests, trading brief staleness for keeping invalidation traffic off the gutter pool.[^udp]"
         }
       ]
     },
@@ -136,16 +136,16 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Facebook served users from datacentres in several **regions**, far apart. One region was the primary: it held the master databases, which took every write. The others held read-only replicas of those databases, kept up to date by replication, and their web servers read from their own replicas and caches. Lesson 4's replication lag returns here at the scale of an ocean: a change committed in the US can take a second or more to reach a replica in Europe."
+          "text": "Facebook served user traffic from datacentres in multiple geographic **regions**. One region was designated the primary and housed the primary MySQL databases, which processed all write transactions. The other regions housed read-only MySQL replicas updated via asynchronous replication, and web servers in those regions read from their local caches and local database replicas. As we saw in lesson 4, asynchronous replication across thousands of kilometres introduces replication lag: a write committed on the US East Coast can take 1 second or more to replicate to a datacentre in Europe."
         },
         {
           "type": "text",
-          "text": "Combine lag with a cache, and a user can undo their own change. The figure has the two fixes described below as switches, \"Deletes from the commit log\" and \"Remote marker\". Play it with both off first."
+          "text": "When asynchronous replication lag interacts with a local cache, a user can observe their own write disappear. The interactive figure models this scenario with two toggles, \"Deletes from the commit log\" and \"Remote marker\". Run the simulation with both toggles off first."
         },
         {
           "type": "interactive_diagram",
           "id": "leases-regions",
-          "caption": "A user in a replica region saves a change and reads it back. Times are illustrative; real replication lag across an ocean is often a second or more.",
+          "caption": "A user in a replica region saves a change and reads it back. Times are illustrative; replication lag across an ocean is often 1 second or more.",
           "task": "Turn on both fixes and play it to the end",
           "goal": "fixed"
         },
@@ -159,7 +159,7 @@
         },
         {
           "type": "text",
-          "text": "Memcache in front of MySQL was not the end of the story. In 2013 Facebook also described TAO, a cache built for its social graph of objects and the links between them, which reads through to the database itself and applies a client's writes to its own cached copy, so most of the races in this lesson cannot start.[^tao]"
+          "text": "Running look-aside memcache in front of MySQL had architectural limits for graph queries. In 2013 Facebook also published the design of TAO, a read-through and write-through caching layer purpose-built for its social graph of objects and associations. Because clients send all reads and writes through TAO rather than coordinating cache and database requests themselves, TAO eliminates client-driven cache races by construction.[^tao]"
         }
       ]
     },
@@ -176,12 +176,12 @@
               {
                 "ask": "A key is read 20,000 times a second. Its refill query takes 50 ms on an idle database, which can serve about 2,000 such queries a second. Why can its expiry keep it missing for many seconds?",
                 "choices": [
-                  "Every miss queries the database, and the copies slow the one query whose answer would refill the key",
+                  "Every miss queries the database, and the duplicate queries slow down the first query whose response would refill the key",
                   "Memcache refuses to store a key while other clients are still reading it, so the refill waits for a quiet moment",
                   "The cache evicts the key again as soon as it is set, because thousands of clients are asking for it at once"
                 ],
                 "answer": 0,
-                "why": "In 50 ms a thousand readers miss, ten times what the database can serve, and the database shares its time among them. The refill query slows, the miss lasts longer, and more readers pile in: a feedback loop."
+                "why": "In 50 ms a thousand readers miss, generating ten times the throughput the database can serve, and the database shares its CPU capacity among them. The refill query slows down, the miss window lasts longer, and more readers send duplicate queries, creating a feedback loop."
               },
               {
                 "ask": "How do memcache leases stop a thundering herd on a hot key?",
@@ -191,7 +191,7 @@
                   "They make the cache keep a hot key for ever, so that it never expires and never needs to be refilled"
                 ],
                 "answer": 1,
-                "why": "Only the token holder queries the database. The rest are told to wait a few milliseconds, by which time the holder has usually set the value, so their second read is a hit."
+                "why": "Only the token holder queries the database. The remaining clients are instructed to wait a few milliseconds, by which time the holder has usually populated the cache, so their retry read is a cache hit."
               },
               {
                 "ask": "Reader A misses, reads v1 from the database, and stalls. Writer B commits v2 and deletes the key. A then sets v1. With leases, what happens?",
@@ -201,7 +201,7 @@
                   "Memcache refuses A's set, because B's delete voided the lease token that A was given on its miss"
                 ],
                 "answer": 2,
-                "why": "A delete voids outstanding leases on that key. A's value may predate the write, so it is refused, and the next reader gets a fresh token and reads v2."
+                "why": "A delete invalidates outstanding lease tokens on that key. Because A's value may predate the write, memcache rejects A's set request, and the next reader receives a fresh token and reads v2."
               },
               {
                 "ask": "Why did Facebook send cache invalidations from a daemon reading the database's commit log rather than from the web servers that made the writes?",
@@ -211,7 +211,7 @@
                   "Web servers sent deletes over UDP, which loses packets, while the daemon's deletes go over TCP and so always arrive"
                 ],
                 "answer": 0,
-                "why": "A web server can crash between its commit and its delete, and does not know every cluster that holds the key. The log has every committed write, in order, and is read again from its last place after a crash. Deletes from it arrive a little later, not sooner."
+                "why": "A web server can crash between committing its transaction and sending its cache delete, and it does not track every memcache cluster that holds the key. The database commit log records every committed write in order and can be re-read from the last checkpoint after a daemon crash. Deletes sent via the log arrive slightly later, not sooner."
               },
               {
                 "ask": "What problem does a small gutter pool of spare memcache servers solve?",
@@ -221,7 +221,7 @@
                   "It stores the recently deleted values that leases hand to waiting clients as stale but acceptable answers"
                 ],
                 "answer": 1,
-                "why": "Rehashing a dead server's keys onto its neighbours can push hot keys onto a server that then fails too. The gutter, about 1% of the servers, absorbs them, with short expiry standing in for invalidation."
+                "why": "Rehashing a failed server's keys onto its consistent-hashing neighbours can shift hot keys onto a server that then fails from overload as well. The gutter pool, comprising about 1% of the cluster's servers, absorbs those misses and uses a short TTL instead of explicit invalidation."
               },
               {
                 "ask": "In a region that reads from a lagging replica, a user saves a change and reloads the page straight away. Which design shows them their change?",
@@ -231,7 +231,7 @@
                   "A remote marker set before the write, so misses on that key read from the primary until the replica catches up"
                 ],
                 "answer": 2,
-                "why": "The first two clear the cache, but the user's miss still reads the local replica, which has not applied the write. The marker sends just that reader, for just that key, to the primary."
+                "why": "The first two options clear the cache, but the user's subsequent cache miss still queries the local replica before the replicated write has arrived. The remote marker directs misses for that specific key to the primary region until replication completes."
               },
               {
                 "ask": "On 23 September 2010 reverting the bad configuration value did not end Facebook's outage. Why not?",
@@ -241,7 +241,7 @@
                   "The engineers could not find which value was bad until the site was turned off and the logs could be read"
                 ],
                 "answer": 1,
-                "why": "The loop had become self-sustaining: overload caused errors, errors caused deletes, deletes caused misses, misses caused queries. Only stopping the traffic broke it."
+                "why": "The feedback loop had become self-sustaining: database overload caused query errors, errors triggered cache deletes, deletes caused cache misses, and misses generated more database queries. Only stopping incoming traffic broke the cycle."
               }
             ]
           }
@@ -250,45 +250,45 @@
     }
   ],
   "summary": [
-    "**A miss on a hot key is a herd.** Every reader that misses in the time a refill takes sends its own query, so a 50 ms refill of a key read 20,000 times a second sends a thousand.",
-    "**A herd can feed itself.** When the copies outnumber what the database can serve, they slow the very query that would end the herd, and the miss stretches from milliseconds to seconds.",
-    "**Look for feedback loops.** Facebook's 2010 outage was a fix that queried the database on every error, and errors came from those queries; only turning traffic off broke it.",
-    "**A lease gives one client the right to refill a key.** Memcache hands out a token per key at most every 10 seconds; the rest wait a moment and read the cache again.",
-    "**The same lease stops stale sets.** A delete voids outstanding tokens, so a slow reader cannot put back a value that a writer has replaced.",
-    "**Invalidate from the commit log.** A daemon reading the database's log sends a delete for every committed write, even if the writer crashed, and batches them.",
-    "**A gutter pool catches a dead cache server's keys.** About 1% spare servers keep its load off the database and off its neighbours.",
-    "**Lag and caches together can undo a user's change.** A remote marker sends the writer's own reads to the primary region until the replica catches up."
+    "**A miss on a hot key triggers a thundering herd.** Every reader that misses during the cache refill latency sends a duplicate query, so a 50 ms refill of a key read 20,000 times a second generates 1,000 concurrent database queries.",
+    "**A thundering herd can create a feedback loop.** When concurrent duplicate queries exceed the database's capacity, they increase the latency of the query that would refill the cache, stretching the miss window from milliseconds to tens of seconds.",
+    "**Retry logic can sustain an outage.** Facebook's 2010 outage was driven by error-handling code that deleted the cached key and re-queried the database whenever a database query failed; only stopping client traffic broke the loop.",
+    "**A lease grants one client the right to refill a key.** Memcache issues a lease token per key at most once every 10 seconds, while other missing clients wait a few milliseconds and retry their cache read.",
+    "**Leases also prevent stale sets.** Deleting a key invalidates any outstanding lease tokens for it, preventing a slow reader from overwriting newer data with a value read before the delete.",
+    "**Generate invalidations from the database commit log.** A daemon tailing the database's binary log sends batched deletes for every committed write, ensuring deletes are delivered even if the web server crashes.",
+    "**A gutter pool absorbs misses from failed cache servers.** Allocating about 1% of cache servers as spares keeps a failed server's hot keys from overloading the database or neighbouring cache servers.",
+    "**Replication lag combined with caching can violate read-your-writes consistency.** Setting a remote marker in the local cache routes misses to the primary region until the local database replica catches up."
   ],
   "footnotes": {
     "johnson": {
       "kind": "digression",
       "title": "The post",
-      "text": "Johnson's post, \"More Details on Today's Outage\", opens by saying the site had been down or unreachable for many people for about 2.5 hours and ends with an apology. It is one of the earliest public accounts of a feedback loop taking down a large site, and it is short: about a page."
+      "text": "Johnson's post, \"More Details on Today's Outage\", opens by saying the site had been down or unreachable for many people for about 2.5 hours and ends with an apology. It is one of the earliest public accounts of a feedback loop taking down a large site, and it is short, taking up about a page."
     },
     "ps": {
       "kind": "technical",
       "title": "The database in the figure",
-      "text": "Processor sharing is a simplification. Real databases also queue at connection limits, time queries out and run out of memory, which tends to make collapse sharper. The numbers show the shape of the threshold, not Facebook's."
+      "text": "Processor sharing is a mathematical simplification. Production databases also queue requests at connection pool limits, time queries out and exhaust memory, which causes throughput to drop even more sharply under overload. The numbers in the simulation illustrate the queueing threshold rather than Facebook's exact hardware limits."
     },
     "peak": {
       "kind": "technical",
       "title": "Seventeen thousand to thirteen hundred",
-      "text": "The paper gives this as a measured peak for keys that see heavy reads and writes. The figure's one-query answer is the ideal; in practice tokens expire, holders fail, and different keys refill at once."
+      "text": "The paper reports this reduction as a measured peak query rate across keys experiencing heavy read and write traffic. The simulation's single-query refill represents the ideal case for a single key; in production, lease tokens expire after 10 seconds, token holders fail, and many distinct keys miss concurrently."
     },
     "early": {
       "kind": "digression",
       "title": "Refreshing early at random",
-      "text": "In 2015 Andrea Vattani, Flavio Chierichetti and Keegan Lowenstein showed how to choose when to refresh: each reader recomputes early with a probability that rises sharply near expiry and grows with how long the recomputation takes. Most reads never recompute, and usually exactly one reader refreshes just before the key would have expired."
+      "text": "In 2015 Andrea Vattani, Flavio Chierichetti and Keegan Lowenstein published an optimal probabilistic early expiration algorithm (XFetch). On each cache hit, the client recomputes the value early with a probability that increases exponentially as the key approaches its TTL expiry and scales with the time required to recompute the value. Most reads return the cached value immediately, and with high probability a single reader refreshes the key shortly before it expires."
     },
     "udp": {
       "kind": "technical",
       "title": "Gets over UDP",
-      "text": "Facebook's web servers sent memcache reads over UDP, with no connection to set up, and treated a lost packet as a miss. Sets and deletes went over TCP through mcrouter, a proxy that also sends a write to every cluster that needs it."
+      "text": "Facebook's web servers sent memcache read requests over UDP to avoid TCP connection overhead and treated dropped packets as cache misses. Write and delete requests travelled over TCP through mcrouter, a routing proxy that also broadcasts invalidations across memcache clusters."
     },
     "tao": {
       "kind": "digression",
       "title": "TAO",
-      "text": "TAO, described by Nathan Bronson and colleagues at USENIX ATC in June 2013, stores objects (people, posts, places) and associations (likes, friendships) and is tuned for the queries a social graph needs, such as the newest 50 comments on a post. Its caches are arranged in tiers with a leader cache per shard that talks to the database."
+      "text": "TAO, described by Nathan Bronson and colleagues at the USENIX Annual Technical Conference in June 2013, stores graph objects (users, posts, locations) and associations (likes, friendships, comments). It is optimised for social graph queries such as fetching the most recent 50 comments on a post, using a two-tier hierarchy of follower and leader caches in front of sharded MySQL databases."
     }
   }
 }

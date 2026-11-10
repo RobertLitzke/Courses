@@ -2,16 +2,16 @@
   "id": "mapreduce",
   "n": 8,
   "title": "Rebuilding the index on machines that fail",
-  "teaches": "Map, shuffle and reduce; moving the work to the data; re-running lost work; backup copies of slow tasks",
+  "teaches": "Map, shuffle and reduce; moving computation to the data; re-executing failed tasks; backup execution for stragglers",
   "summary": [
-    "**A job is two functions the programmer writes.** Map turns each input record into key and value pairs, the library groups the pairs by key, and reduce turns each key's values into output.",
-    "**The shuffle is where the network work is.** Each map task writes one file per reduce task to its own disk, and each reduce task fetches its file from every map task.",
-    "**Work goes to the data, not data to the work.** The master starts each map task on a machine that holds a copy of its input in GFS, because the switch at the top of the network carries far less than all the disks can read.",
-    "**A lost task is run again from its input.** Map output lives on one machine's disk, so a dead worker's finished map tasks run again; reduce output is in GFS and survives.",
-    "**Re-running is safe only for deterministic tasks with no side effects.** A task that sends an email or adds to a counter does it again on every retry and every backup copy.",
-    "**The slowest few tasks decide when the job ends.** Near the end of each phase the master starts spare copies of the tasks still running and takes whichever finishes first, for a few percent more work.",
-    "**Many small tasks beat a few big ones.** A dead or slow worker then holds only a small piece, and its lost work spreads over every other machine.",
-    "**The model is simple and the disk is the price.** Every stage writes its output out in full, so jobs that loop over the same data many times run slowly, which is why later systems kept data in memory between steps."
+    "**The programmer writes two functions to define a job.** Map turns each input record into key-value pairs, the library groups the pairs by key, and reduce turns each key's values into output.",
+    "**The shuffle is the primary network bottleneck.** Each map task writes one file per reduce task to its local disk, and each reduce task fetches its partition over the network from every map task.",
+    "**The master schedules computation on the machines holding the data.** The master starts each map task on a machine that holds a GFS replica of its input chunk, because the root switches of the network have far less bandwidth than the aggregate read throughput of the cluster's local disks.",
+    "**Failed tasks are re-executed from their input.** Map output is stored on the worker's local disk, so a dead worker's finished map tasks must be re-executed; reduce output is stored in GFS and remains available.",
+    "**Re-execution is safe only for deterministic tasks with no external side effects.** A task that sends an email or increments an external counter will repeat that action on every retry and every backup execution.",
+    "**Straggling tasks determine the total latency of a job.** Near the end of each phase, the master schedules backup instances of the remaining in-progress tasks and accepts whichever instance finishes first, trading a few percent of extra compute for lower job latency.",
+    "**Partitioning a job into many small tasks speeds up failure recovery.** A dead or slow worker holds only a small fraction of the total work, and its lost tasks can be re-executed in parallel across the rest of the cluster.",
+    "**Materialising intermediate state to disk simplifies fault tolerance at the cost of I/O latency.** Every stage writes its full output to disk, making iterative jobs that loop over the same data slow; subsequent frameworks like Spark kept intermediate data in memory between stages."
   ],
   "parts": [
     {
@@ -19,7 +19,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In December 2004, at the OSDI conference in San Francisco, Jeffrey Dean and Sanjay Ghemawat of Google presented a paper called \"MapReduce: Simplified Data Processing on Large Clusters\". It described the library Google had just rewritten its web index on. The crawler stored copies of billions of pages in GFS (lesson 6), more than 20 terabytes of them, and turning those pages into an index that answers \"which pages contain this word\" took a chain of five to ten big computations, run again every time the crawl was refreshed."
+          "text": "In December 2004, at the OSDI conference in San Francisco, Jeffrey Dean and Sanjay Ghemawat of Google presented a paper called \"MapReduce: Simplified Data Processing on Large Clusters\". It described the library on which Google had just rewritten its web indexing pipeline. The crawler stored copies of billions of pages in GFS (lesson 6), totalling more than 20 terabytes, and turning those pages into an index that answers \"which pages contain this word\" took a chain of five to ten large computations, run again every time the crawl was refreshed."
         },
         {
           "type": "text",
@@ -27,11 +27,11 @@
         },
         {
           "type": "text",
-          "text": "Some arithmetic comes first. Reading 20 TB from one disk at about 50 MB a second takes 400,000 seconds, four and a half days, before any work is done on it. Spread over 1,000 machines, each reads 20 GB in under seven minutes. So the job has to run on a thousand machines or more, and lesson 7 said what that means: a cluster of a few thousand machines loses about a thousand of them a year, roughly three a day, plus disks, plus machines that are merely slow. A job that runs for hours on most of a cluster will lose a machine part way through, often more than one."
+          "text": "We can start by calculating the disk I/O latency. Reading 20 TB from one disk at about 50 MB a second takes 400,000 seconds, or four and a half days, before any processing is done on it. Spread over 1,000 machines, each machine reads 20 GB in under seven minutes. So the job has to run on a thousand machines or more. As we saw in lesson 7, a cluster of a few thousand machines loses about a thousand of them a year, roughly three a day, plus disks, plus machines that are merely slow. A job that runs for hours on most of a cluster will lose a machine part way through, often more than one."
         },
         {
           "type": "text",
-          "text": "Put yourself in their place. You have the pages in GFS, spread in 64 MB chunks over the cluster, and a few thousand machines that each fail now and then. Before deciding how the index gets built, decide what happens when a machine dies with half its share done, and what happens when one machine runs ten times slower than the rest. The answer they published shapes everything else in the design: make every piece of work small and restartable from its input, so that running it twice does no harm."
+          "text": "Put yourself in their place. You have the pages in GFS, spread in 64 MB chunks over the cluster, and a few thousand machines that each fail now and then. Before deciding how the index gets built, you must decide what happens when a machine dies with half its share done, and what happens when one machine runs ten times slower than the rest. In their published design, they made every piece of work small and restartable from its input, so that running it twice does no harm."
         }
       ]
     },
@@ -40,7 +40,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The programmer writes two functions. **Map** takes one input record, such as a page's URL and its text, and emits any number of intermediate pairs, each a key and a value. **Reduce** takes one intermediate key and the list of every value emitted for it, and emits the output for that key. Everything between them belongs to the library: it runs map over every record, collects every pair, groups the pairs by key, and hands each key's group to reduce. That grouping step is called the **shuffle**. Every value for one key goes to one reduce task, so a key with an enormous list, such as \"the\" in an index, makes one task far longer than the rest, and hashing cannot split it. The usual fixes are to shrink the list before the shuffle (the combiner, below) or to split the hot key into several sub-keys and add their results in a second, small step."
+          "text": "The programmer writes two functions. **Map** takes one input record, such as a page's URL and its text, and emits any number of intermediate pairs, each a key and a value. **Reduce** takes one intermediate key and the list of every value emitted for it, and emits the output for that key. Everything between them is handled by the library, which runs map over every record, collects every pair, groups the pairs by key, and hands each key's group to reduce. That grouping step is called the **shuffle**. Every value for one key goes to one reduce task, so a key with an enormous list, such as \"the\" in an index, makes one task far longer than the rest, and hashing cannot split it. The usual fixes are to shrink the list before the shuffle (using the combiner, described below) or to split the hot key into several sub-keys and sum their results in a second, smaller job."
         },
         {
           "type": "text",
@@ -53,11 +53,11 @@
         },
         {
           "type": "text",
-          "text": "What is on the disk and on the wire is worth following, because it decides the cost. The user chooses two numbers, M and R. The input is split into M pieces of 16 to 64 MB, one per [[map task|request]], so there are M map tasks. A map task buffers its pairs in memory and writes them to its own machine's local disk, divided into R files by a hash of the key (hash(key) mod R), one file for each of the R [[reduce tasks|write]]. When a reduce task starts, it fetches its file from every map task's machine, M fetches over the network, sorts everything it received by key so equal keys sit together, and calls reduce once per key. Its output goes to one file in GFS. A typical job in the paper had M = 200,000 and R = 5,000 on 2,000 machines. The paper's advice for choosing them: make each map piece about one 64 MB GFS chunk, so it can be read from one machine's disk (next part); make R a small multiple of the number of machines, but not huge, since each reduce task writes its own output file. The master keeps about one byte for each pair of a map task and a reduce task, so M × R = 10⁹ pairs fits in its memory."
+          "text": "Following the disk I/O and network traffic shows what determines the job's cost. The user chooses two numbers, M and R. The input is split into M pieces of 16 to 64 MB, one per [[map task|request]], so there are M map tasks. A map task buffers its pairs in memory and writes them to its own machine's local disk, divided into R files by a hash of the key (hash(key) mod R), one file for each of the R [[reduce tasks|write]]. When a reduce task starts, it fetches its file from every map task's machine, making M fetches over the network, sorts everything it received by key so equal keys sit together, and calls reduce once per key. Its output goes to one file in GFS. A typical job in the paper had M = 200,000 and R = 5,000 on 2,000 machines. The authors advise choosing M so that each map piece is about one 64 MB GFS chunk, allowing a worker to read it from local disk (as covered in the next section), and choosing R to be a small multiple of the number of machines, though not so large that creating one output file per reduce task overwhelms GFS. The master keeps a few bytes of metadata for each pair of a map task and a reduce task, so M × R = 10⁹ pairs fits in its memory."
         },
         {
           "type": "text",
-          "text": "One machine, the **master**, holds the plan: the state of every task (waiting, running or done), which worker has it, and, for each finished map task, where its R files are. That is the same choice as GFS's single master (lesson 6), and for the same reason. The master handles only small records about tasks; the terabytes flow between workers and never pass through it."
+          "text": "One machine, the **master**, holds the job's state, tracking whether every task is waiting, running or done, which worker is running it, and the locations of the R intermediate files for each finished map task. That is the same design choice as GFS's single master (lesson 6), and for the same reason. The master handles only small metadata records about tasks, while the terabytes of data flow directly between workers and never pass through it."
         }
       ]
     },
@@ -66,15 +66,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The machines in the paper sat in a two-level tree of switches: a few dozen machines on each rack switch, the racks joined by switches above them. The root of that tree carried 100 to 200 gigabits a second in all, 12 to 25 GB a second, shared by every job on the cluster. The disks below it could read far more: 1,800 machines at about 50 MB a second each is 90 GB a second. In the paper's terabyte sort on about 1,800 machines, the input was read at a peak of about 13 GB a second. Over the network that alone would have taken half or more of the root's capacity, leaving little for the shuffle and every other job; in fact almost all of it came from local disks."
+          "text": "The machines in the paper sat in a two-level tree of switches: a few dozen machines on each rack switch, with the racks joined by switches above them. The root of that tree had 100 to 200 gigabits per second of aggregate bisection bandwidth, or 12.5 to 25 GB a second, shared by every job on the cluster. The disks below it had far higher aggregate read throughput: 1,800 machines reading at about 50 MB a second each totals 90 GB a second. In the paper's terabyte sort on about 1,800 machines, the input was read at a peak rate of about 13 GB a second. Over the network, that traffic alone would have consumed half or more of the root switches' capacity, leaving little bandwidth for the shuffle and every other job; in fact, almost all of it came from local disks."
         },
         {
           "type": "text",
-          "text": "So the master does not hand out map tasks in any order. GFS keeps three copies of every 64 MB chunk (lesson 7) and can say which machines hold them. The master gives each map task to a machine holding a copy of its input, or failing that, to a machine on the same rack as a copy, so the bytes cross one rack switch at most. The paper reports that with this rule most input was read locally and used no network at all. The rule costs nothing to follow and it is the reason the input phase could run near the disks' speed rather than the root switch's."
+          "text": "So the master does not assign map tasks to arbitrary workers. GFS keeps three replicas of every 64 MB chunk (lesson 7) and reports which machines hold them. The master assigns each map task to a machine holding a replica of its input chunk, or failing that, to a machine on the same rack as a replica, so the bytes cross one rack switch at most. The authors report that with this scheduling rule, most input was read locally and used no network bandwidth at all. The rule adds negligible scheduling overhead and allows the input phase to run near the aggregate throughput of the local disks rather than the bottleneck of the root switches."
         },
         {
           "type": "text",
-          "text": "The shuffle cannot be made local. Every reduce task needs a piece of every map task's output, so in a sort, where the intermediate data is as big as the input, the whole terabyte crosses the network once. That is the expensive step of most jobs, and the reason for two features that shrink it. A **combiner** adds up each map task's pairs before they are written, so a thousand (the, 1) pairs leave the machine as one (the, 1000);[^combiner] and intermediate files are compressed."
+          "text": "The shuffle cannot be made local. Every reduce task needs a piece of every map task's output, so in a sort, where the intermediate data is as large as the input, the whole terabyte crosses the network once. That all-to-all transfer is the network bottleneck of most jobs, and the reason for two features that reduce its volume. A **combiner** aggregates each map task's pairs before they are written to disk, so a thousand (the, 1) pairs leave the machine as one (the, 1000);[^combiner] and intermediate files are compressed."
         }
       ]
     },
@@ -83,27 +83,27 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The master pings every worker at regular intervals. A worker that stops answering is marked failed, and its tasks are rescheduled by a simple rule that follows from where each output lives:"
+          "text": "The master pings every worker at regular intervals. When a worker stops answering, the master marks it as failed and reschedules its tasks according to where each task's output is stored."
         },
         {
           "type": "text",
-          "text": "Any task it was running goes back to waiting, map or reduce. Its **finished map tasks also go back to waiting**, because their output sat on that machine's local disk and can no longer be fetched; reduce tasks that had not yet fetched from it are told to fetch from the new copy instead. Its finished reduce tasks stay finished, because their output is already in GFS, stored three times over on other machines."
+          "text": "Any map or reduce task the failed worker was running is reset to the waiting state. Its **finished map tasks are also reset to waiting**, because their output sat on that machine's local disk and can no longer be fetched; reduce tasks that had not yet fetched from it are told to fetch from the new worker that re-executes the task instead. Its finished reduce tasks stay finished, because their output is already in GFS, replicated across three other machines."
         },
         {
           "type": "text",
-          "text": "Running a task again is safe because of two promises. The first is the programmer's: map and reduce are **deterministic**, giving the same output for the same input every time, and they touch nothing outside their own output. The second is the library's: output is committed in one step. A map task tells the master the names of its R files only when it has finished, and the master ignores a second report for a task it already counts as done. A reduce task writes to a temporary file and renames it to its final name when it finishes; GFS's rename is atomic, so if two copies of a reduce task finish, the final file holds exactly one of them. Under those two promises, a job that lost workers produces the same output as one that lost none."
+          "text": "Re-executing a task is safe if the programmer and the library uphold two guarantees. First, the programmer must write **deterministic** map and reduce functions that produce the same output for the same input every time and have no side effects outside their own output. Second, the library commits task outputs atomically. A map task sends the names of its R files to the master only when it has finished, and the master ignores any subsequent completion message for a task it already marks as done. A reduce task writes to a temporary file and renames it to its final name upon completion; because GFS file renames are atomic, if two instances of a reduce task finish, the final file contains the output of exactly one of them. Under these two guarantees, a job that loses workers produces the same output as one that loses none."
         },
         {
           "type": "text",
-          "text": "Break the first promise and the guarantee goes with it. A map function that sends an email for each malformed page sends it again every time the task is rerun, and again for every backup copy (next part). A reduce function that adds its count to a counter in a database adds it twice. The fix is to keep side effects out of the tasks: write what should happen as output, and let one step after the job act on it once. Lesson 22 meets the same problem with money, where a repeated charge costs a customer."
+          "text": "If the programmer violates the first guarantee, re-execution produces incorrect results. A map function that sends an email for each malformed page sends it again every time the task is re-executed, and again for every backup task (described in the next section). A reduce function that increments a counter in an external database increments it twice. To avoid this, engineers keep side effects out of the tasks: the task writes the intended actions to its output file, and a single downstream process executes them once after the MapReduce job finishes. In lesson 22, we will handle the same idempotency problem in payment systems, where a repeated request charges a customer twice."
         },
         {
           "type": "text",
-          "text": "The paper tested the rule by killing 200 of the 1,746 worker processes several minutes into a terabyte sort. The cluster's scheduler restarted new workers on those machines, the master re-ran the lost tasks, and the sort finished in 933 seconds against 891 for an undisturbed run, about 5% longer. Small tasks are why it was so cheap: each dead worker held a few minutes of work, and that work spread over more than a thousand other machines.[^badrecords]"
+          "text": "The authors tested this recovery mechanism by killing 200 of the 1,746 worker processes several minutes into a terabyte sort. The cluster's scheduler restarted new worker processes on those machines, the master re-executed the lost map tasks, and the sort finished in 933 seconds compared to 891 seconds for an undisturbed run, an increase of about 5%. Recovery is fast because the tasks are small: each dead worker held only a few minutes of work, and the master distributed that lost work across more than a thousand surviving machines.[^badrecords]"
         },
         {
           "type": "text",
-          "text": "The master itself is the one part not covered. It writes checkpoints of its state, and the paper says a new master could start from the last one, but the implementation they described simply failed the job if the master died and let the user run it again. One master among thousands of workers is unlikely to be the machine that dies in any given hour, and a rare restart was cheaper than replicating the master. Keeping the hard part small, as GFS did, made that trade possible.[^master]"
+          "text": "The master itself has no automatic failover. It writes periodic checkpoints of its state, and the authors note that a new master could start from the last checkpoint, but their implementation simply aborted the job if the master died and left the client to resubmit it. Because a cluster has only one master among thousands of workers, the master is unlikely to fail during any single job, and occasionally restarting a job was simpler than replicating the master's state. Keeping the master's state small, as in GFS, made that trade-off practical.[^master]"
         }
       ]
     },
@@ -112,22 +112,22 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Dead machines turned out to be the easy case. The harder one was a machine that was alive and slow, which the paper calls a **straggler**. One had a failing disk whose correctable read errors cut its speed from 30 MB a second to 1 MB a second. Others were busy with other jobs the scheduler had placed beside them. One batch of machines had a bug in their start-up code that turned off the processor's caches and made them over a hundred times slower.[^caches] A straggler does not time out, so the master has no reason to take its task away, and a job cannot finish until its last task does."
+          "text": "Dead machines were straightforward to handle compared to machines that remained alive but ran slowly, which the paper calls **stragglers**. One worker had a failing disk whose correctable read errors reduced its read throughput from 30 MB a second to 1 MB a second. Other workers were slowed down by competing jobs that the cluster scheduler had placed on the same machine. One batch of machines had a bug in their BIOS configuration that disabled the processor caches, slowing execution by more than a factor of a hundred.[^caches] Because a straggler still responds to pings, the master does not mark it as failed, yet a job cannot finish until its last task completes."
         },
         {
           "type": "text",
-          "text": "The fix is called **backup tasks**. When a phase is close to done and there is nothing left to hand out, the master starts a second copy of each task still running, on a worker that has gone idle, and marks the task done as soon as either copy finishes. Most backup copies are wasted, because the original finishes first, and the paper tuned the rule so the extra work came to a few percent. In return, a job no longer waits for its worst machine. The terabyte sort with backup tasks turned off took 1,283 seconds, 44% longer than with them on."
+          "text": "Dean and Ghemawat solved this with **backup tasks**. When a map or reduce phase is nearly complete and no unassigned tasks remain, the master schedules a backup execution of each remaining in-progress task on an idle worker, and marks the task complete as soon as either the primary or the backup instance finishes. Most backup executions are discarded because the primary instance finishes first, and the authors tuned the threshold so that backup tasks increased total compute consumption by only a few percent. This small overhead prevents the slowest machine on the cluster from dictating the job's total latency. With backup tasks disabled, the terabyte sort took 1,283 seconds, which is 44% longer than the 891 seconds it took with backup tasks enabled."
         },
         {
           "type": "interactive_diagram",
           "id": "mapreduce-job",
-          "caption": "A MapReduce job on 20 workers: 200 map tasks of 3 seconds each, then 100 reduce tasks of 3 seconds. One machine has a failing disk and runs 20 times slower. Run it and note when the job finishes, then turn on backup tasks and run it again. The job is a model with round numbers, not a measurement.",
+          "caption": "A MapReduce job on 20 workers: 200 map tasks of 3 seconds each, then 100 reduce tasks of 3 seconds each. One machine has a failing disk and runs 20 times slower. Run it and note when the job finishes, then turn on backup tasks and run it again. The simulation uses simplified, round numbers rather than measurements from a production cluster.",
           "task": "Play the job with the slow machine and note its finish time, then turn backup tasks on and play it to the end.",
           "goal": "backup"
         },
         {
           "type": "text",
-          "text": "Backup copies depend on everything in the part before. Two copies of one task can only race if running a task twice is harmless, and the master can only take whichever finishes first if both would produce the same output. Lesson 9 takes the same idea from batch jobs that last minutes to requests that last milliseconds, where it is called hedging."
+          "text": "Backup tasks rely on the same determinism and atomic commit guarantees used for failure recovery. Two instances of a task can safely run concurrently only if executing a task twice causes no side effects, and the master can accept whichever instance finishes first only if both are guaranteed to produce identical output. In lesson 9, we will apply this same technique to interactive RPCs that take milliseconds rather than batch jobs that take minutes, where sending a duplicate request is called hedging."
         },
         {
           "type": "diagram",
@@ -163,24 +163,24 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The rewrite paid off in code. One phase of the indexing pipeline shrank from about 3,800 lines of C++ to about 700, because the distribution and failure handling had moved into the library, and changes to the indexing that had taken months took days. By 2007 Google was running tens of thousands of MapReduce jobs a day."
+          "text": "Moving fault tolerance and distribution into the library simplified application code. One phase of the Google indexing pipeline shrank from about 3,800 lines of C++ to about 700 lines, and indexing changes that previously took months to implement took days. By September 2007, Google was running more than ten thousand MapReduce jobs a day."
         },
         {
           "type": "text",
-          "text": "The price is the disk. Every map task writes all its output to disk, every reduce task reads it back over the network and writes its own output to GFS three times over, and a computation that needs ten steps runs ten jobs, each starting from files. That makes failure cheap, since any step can be restarted from the files before it, but it is slow for work that loops over the same data many times, such as ranking pages by following links for twenty rounds. Later systems kept the same promise of deterministic, restartable pieces and kept the data between steps in memory: Spark, from Matei Zaharia's group at Berkeley around 2010, and Google's own FlumeJava and Dataflow, which build a whole pipeline of steps from one program."
+          "text": "The performance cost of this design is disk and network I/O. Every map task writes its entire output to local disk, every reduce task reads its input across the network and writes its output to three replicas in GFS, and a ten-stage pipeline runs as ten separate MapReduce jobs that pass data through GFS files. Materialising every intermediate stage to disk makes fault recovery cheap, since any failed task or stage can restart from the preceding files, but it creates high latency for iterative algorithms that loop over the same dataset repeatedly, such as running PageRank across a web graph for twenty iterations. Subsequent frameworks retained deterministic, restartable tasks while keeping intermediate data in memory between stages: Matei Zaharia's group at UC Berkeley published Spark in 2010, and engineers at Google developed FlumeJava and Dataflow to compile multi-stage pipelines from a single program."
         },
         {
           "type": "text",
-          "text": "Outside Google the paper's design became Hadoop. Doug Cutting and Mike Cafarella had been building an open web crawler called Nutch, read the GFS and MapReduce papers, and wrote their own versions of both; from 2006 Yahoo hired Cutting and ran Hadoop on thousands of machines.[^hadoop] For about a decade, \"big data\" in most companies meant Hadoop's MapReduce."
+          "text": "Outside Google, the paper's architecture was implemented as Apache Hadoop. Doug Cutting and Mike Cafarella had been building an open-source web search engine called Nutch; after reading the GFS and MapReduce papers, they implemented open-source versions of both systems. In 2006, Yahoo hired Cutting and deployed Hadoop across clusters of thousands of machines.[^hadoop] For the next decade, most large-scale batch processing in industry ran on Hadoop MapReduce."
         },
         {
           "type": "key_ideas",
           "title": "Before writing a job",
           "points": [
-            "Say where each task's output lives, and so what is lost when its machine dies.",
-            "Keep tasks deterministic and free of side effects, so a repeat or a backup copy is harmless.",
+            "Determine where each task's output is stored (local disk vs. replicated file system) to know which tasks must be re-executed when a machine fails.",
+            "Write deterministic, side-effect-free tasks so that re-executing a failed task or running a concurrent backup task does not corrupt the output.",
             "Cut the work into many more tasks than machines.",
-            "Know which part has no backup, here the master, and what happens when it goes."
+            "Identify any single point of failure, such as the MapReduce master, and define the recovery procedure when it fails."
           ]
         }
       ]
@@ -203,7 +203,7 @@
                   "All seven, as nothing from a failed machine is trusted"
                 ],
                 "answer": 1,
-                "why": "The master's record says where the map output is, but the files themselves are gone. Reduce output lives in GFS, three copies on other machines. A task running at the moment of death would also rerun."
+                "why": "The master's record says where the map output is, but the files themselves are gone. Reduce output lives in GFS, with three copies on other machines. Any task running on the worker at the moment it failed would also be re-executed."
               },
               {
                 "ask": "Why can MapReduce run the same task twice, after a failure or as a backup copy, without corrupting the result?",
@@ -223,7 +223,7 @@
                   "Some alerts go out more than once, as tasks are rerun or backed up"
                 ],
                 "answer": 2,
-                "why": "Re-execution and backup tasks are safe only for work with no effects outside the task's own output. The alerts should be output records, sent once by a step after the job."
+                "why": "Re-execution and backup tasks are safe only for work with no effects outside the task's own output. The alerts should be emitted as output records and sent once by a separate process after the job finishes."
               },
               {
                 "ask": "Why does the MapReduce master try to start each map task on a machine that holds a copy of its input?",
@@ -233,7 +233,7 @@
                   "GFS refuses reads from machines outside the rack where a chunk is stored"
                 ],
                 "answer": 1,
-                "why": "A thousand disks reading locally deliver more than the root of the network could carry, so local reads let the input phase run at the disks' speed."
+                "why": "A thousand disks reading locally deliver higher aggregate throughput than the root switches of the network can carry, so local reads let the input phase run at disk throughput rather than network bandwidth."
               },
               {
                 "ask": "A sort of one terabyte took 44% longer with backup tasks turned off. What do backup tasks do?",
@@ -243,7 +243,7 @@
                   "Near a phase's end, they start a second copy of each running task and keep the first to finish"
                 ],
                 "answer": 2,
-                "why": "A few slow machines hold up the end of every phase. Racing a second copy against each straggler costs a few percent more work and removes that wait."
+                "why": "A few slow machines hold up the end of every phase. Running a concurrent backup instance for each straggling task adds only a few percent to total compute time and eliminates that tail latency."
               },
               {
                 "ask": "A job will run on 1,000 workers. Which split of the input is the better design, and why?",
@@ -253,7 +253,7 @@
                   "10 large map tasks: fewer tasks means fewer intermediate files in the shuffle, less network traffic and a smaller master"
                 ],
                 "answer": 0,
-                "why": "With many more tasks than workers, load evens out and a failure costs minutes of work spread thinly. The master's records grow with the number of tasks, but they are small."
+                "why": "With many more tasks than workers, load evens out across machines and a worker failure requires re-executing only a few minutes of work, which can run in parallel across many surviving workers. The master's metadata grows with the number of tasks, but each record is only a few bytes."
               }
             ]
           }
@@ -265,7 +265,7 @@
     "combiner": {
       "kind": "technical",
       "title": "The combiner",
-      "text": "Word count's map emits (the, 1) thousands of times per document. A **combiner** is an optional function, usually the reduce function itself, that the library runs on each map task's output before it is written, turning a thousand (the, 1) pairs into one (the, 1000). It works when reduce is associative and commutative, as a sum is, and it can cut the shuffle by orders of magnitude."
+      "text": "Word count's map function emits (the, 1) thousands of times per document. A **combiner** is an optional function, usually the reduce function itself, that the library runs on each map task's buffered output before writing it to disk, aggregating a thousand (the, 1) pairs into a single (the, 1000) pair. It is valid whenever the reduce function is associative and commutative, as addition is, and it can reduce shuffle network traffic by orders of magnitude."
     },
     "badrecords": {
       "kind": "technical",
@@ -275,17 +275,17 @@
     "master": {
       "kind": "technical",
       "title": "Why the master was allowed to fail",
-      "text": "A master failure in the paper's design ended the job; the user's program could check and start it again. The bet was that one machine out of thousands seldom dies in the hours a job runs, and a rare rerun cost less than the complexity of a replicated master. Lesson 11 shows what replicating a coordinator safely takes."
+      "text": "In the 2004 paper's implementation, a master failure aborted the MapReduce job, leaving the client process to detect the failure and resubmit the job. Because a job uses only one master machine out of thousands of workers, the probability of the master failing during a few hours of execution is low, and occasionally re-running a job was simpler than building a replicated, fault-tolerant master. In lesson 11, we will see the consensus protocols required to replicate a coordinator safely."
     },
     "caches": {
       "kind": "digression",
       "title": "A hundred times slower",
-      "text": "The paper mentions this bug in one sentence: code that set up machines had disabled the processor's caches, and computations on those machines slowed down by over a factor of a hundred. Nothing crashed and every health check passed, which is exactly the kind of failure that only a comparison with the other machines' speed reveals."
+      "text": "Dean and Ghemawat note this hardware misconfiguration in a single sentence: a machine initialisation script had inadvertently disabled the processor caches on a subset of worker machines, slowing down code execution on those nodes by over a factor of a hundred. Because the machines did not crash and passed all basic health checks, the fault only manifested as severe tail latency until backup tasks routed work around them."
     },
     "hadoop": {
       "kind": "digression",
       "title": "The yellow elephant",
-      "text": "Cutting named Hadoop after his son's toy, a stuffed yellow elephant, which became its logo. Its file system, HDFS, followed GFS's design closely: a single NameNode holding all metadata in memory, 64 MB blocks, three replicas."
+      "text": "Cutting named Hadoop after his son's stuffed yellow elephant, which became the project's logo. Its distributed file system, HDFS, closely followed the 2003 GFS paper's architecture, using a single NameNode to hold all file system metadata in memory and storing file data in 64 MB blocks replicated across three DataNodes."
     }
   }
 }

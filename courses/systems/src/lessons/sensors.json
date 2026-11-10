@@ -15,15 +15,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "When the Large Hadron Collider at CERN, on the border of France and Switzerland, began colliding protons for physics in March 2010, its big detectors faced a problem no network could solve. The machine was built to cross bunches of protons up to 40 million times a second, and each crossing lights up millions of detector channels. Writing all of it down would mean something like a petabyte a second. So the experiments decide what to keep where the data is born. A first **trigger**, built in custom hardware, looks at a coarse picture of each crossing within a few microseconds and keeps about a hundred thousand a second; a farm of thousands of computers then reconstructs those in more detail and keeps about a thousand a second for the disks. Roughly one crossing in forty thousand is ever written."
+          "text": "When the Large Hadron Collider at CERN, on the border of France and Switzerland, began colliding protons for physics in March 2010, its big detectors faced a problem no network could solve. The machine was built to cross bunches of protons up to 40 million times a second, and each crossing lights up millions of detector channels. Writing all of this data down would require a throughput of roughly 1 PB/s. Instead, the experiments filter the data at the source. A first **trigger**, built in custom hardware, inspects a coarse picture of each crossing within a few microseconds and keeps about 100,000 crossings a second. A farm of thousands of computers then reconstructs those events in more detail and writes about 1,000 crossings a second to disk. Roughly one crossing in 40,000 is ever saved."
         },
         {
           "type": "text",
-          "text": "Other fleets of instruments meet a smaller version of the same wall. From 2007 Google's Street View cars drove the world's roads with rings of cameras, and later laser scanners, recording far more than a car's mobile connection could send; the recordings came home on the cars' own drives. The computer scientist Andrew Tanenbaum had put the principle in a sentence in his textbook *Computer Networks*: never underestimate the bandwidth of a station wagon full of tapes hurtling down the highway.[^wagon] In 2016 Amazon took it literally with Snowmobile, a shipping container on a lorry that carried 100 PB from a customer's datacentre to its own."
+          "text": "Other fleets of instruments meet a smaller version of the same bottleneck. From 2007 Google's Street View cars drove the world's roads with rings of cameras, and later laser scanners, recording far more data than a car's mobile connection could transmit; the recordings returned on the cars' own hard drives. The computer scientist Andrew Tanenbaum had stated this principle in his textbook *Computer Networks*, noting that engineers should never underestimate the bandwidth of a station wagon full of tapes hurtling down the highway.[^wagon] In 2016 Amazon applied the same principle with Snowmobile, a shipping container on a lorry that carried 100 PB from a customer's datacentre to its own."
         },
         {
           "type": "text",
-          "text": "This lesson is a design exercise. The target: **1,000 survey vehicles**, each carrying cameras and laser scanners that record about **1 TB an hour**, driving **8 hours a day**. Engineers need anything unusual within minutes, everything kept within a day or two, and the ability to find \"every time X happened\" across years of driving. Design the pipeline, then compare it with what CERN, Amazon, Dropbox and Facebook published about theirs."
+          "text": "In this lesson, we will design a data ingestion pipeline for **1,000 survey vehicles**, each carrying cameras and laser scanners that record about **1 TB an hour**, driving **8 hours a day**. Engineers need anomalous events delivered within minutes, all retained data ingested within a day or two, and the ability to query specific scenarios across years of driving. We will design this pipeline and then compare it with the systems published by CERN, Amazon, Dropbox and Facebook."
         }
       ]
     },
@@ -32,15 +32,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** Get every byte that is worth keeping from the vehicles to the datacentre, and never lose one that was kept. Get small urgent things, a fault, a rare event a detector flagged, a vehicle's health, there within minutes. Store what arrives cheaply, for as long as the rules say. Let people find the moments they need by time, place and what was in the scene. Blur faces and number plates before anyone browses the imagery."
+          "text": "**Functional.** We must transfer every byte worth keeping from the vehicles to the datacentre without losing any retained data. We must deliver small, urgent payloads (such as a system fault, a rare event flagged by an onboard detector, or vehicle telemetry) within minutes. We need to store the ingested data cheaply for as long as retention policies require, let engineers query segments by time, location and scene contents, and blur faces and number plates before anyone browses the imagery."
         },
         {
           "type": "text",
-          "text": "**Non-functional.** Kept data is as durable as a bank's records: eleven nines a year, the figure object stores advertise, which means a store of a billion objects loses about one in a hundred years.[^nines] Moving and storing it must cost a sensible amount per vehicle. A vehicle that is offline for a week loses nothing."
+          "text": "**Non-functional.** Retained data must have a durability of eleven nines a year (the standard figure advertised by commercial object stores, meaning a store of a billion objects loses about one object every hundred years).[^nines] Network transfer and storage costs must remain economical per vehicle, and a vehicle that goes offline for a week must not lose any recorded data."
         },
         {
           "type": "text",
-          "text": "**Out of scope:** the recording software on the vehicles, the detectors that tag scenes, and what the data is then used for, such as building maps or testing new software (lesson D6). Each is a large system of its own. This one is the plumbing between them, and plumbing is where the money goes."
+          "text": "**Out of scope.** We will not design the onboard recording software, the machine-learning detectors that tag scenes, or the downstream systems that consume the data, such as map-building pipelines or simulation testing (lesson D6). Each of those is a large system of its own. We will focus on the ingestion and storage pipeline that connects them, which accounts for the bulk of the infrastructure cost."
         }
       ]
     },
@@ -49,18 +49,18 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Before drawing any boxes, guess how long a fast link would take to move one day of driving."
+          "text": "Before drawing any system diagrams, estimate how long a high-speed network link would take to transfer one day of driving data."
         },
         {
           "type": "interactive_diagram",
           "id": "sensors-estimate",
-          "caption": "The estimate for a fleet that records more than any link can move.",
+          "caption": "Throughput estimates for a fleet that records more data than a network link can transfer.",
           "task": "Guess, then try a smaller fleet and a faster link",
           "goal": "guess"
         },
         {
           "type": "text",
-          "text": "Eight petabytes a day. A 10 Gb/s link, which is a serious connection for a depot, moves about 108 TB a day, so one day of driving would take about ten weeks to upload, and the backlog would grow by 7.9 PB every day it tried. A vehicle's cellular link at 50 Mb/s, kept up for every hour it drives, carries about 2% of what it records, and every gigabyte of it costs money. The arithmetic leaves two levers, and the workbench below lets you pull each. Keep less: decide on the vehicle what is worth keeping, as CERN's triggers do. And move the bulk by the cheapest path with the most bandwidth, which for petabytes is a disk in a vehicle that is going home anyway."
+          "text": "The fleet generates 8 PB of data a day. A 10 Gb/s link, which is a fast connection for a depot, transfers at most 108 TB a day. Uploading one day of driving over that link would take over ten weeks, and the backlog would grow by 7.9 PB every day. A vehicle's cellular connection at 50 Mb/s, running continuously while it drives, can transfer about 2% of what the sensors record, and metered cellular bandwidth is expensive. This arithmetic leaves us two levers, which you can test in the workbench below. First, we can reduce the data volume by filtering on the vehicle to keep only relevant segments, just as CERN's triggers do. Second, we can move the bulk data over the cheapest path with the highest bandwidth: physical hard drives carried by vehicles that return to the depot anyway."
         }
       ]
     },
@@ -69,15 +69,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On the vehicle the recording goes into a **ring buffer**: the last half hour or so in full, with older data overwritten. Most of what passes through it is an empty road. **Triggers** mark windows to keep in full: a hard stop, an operator pressing a button, a detector on board seeing something rare, a sensor disagreeing with another. Everything else is kept at reduced rate, or as summaries, or not at all. How much to keep is worth trying in the workbench before deciding, because a factor of twenty-five here, from 100% kept to 4%, is a factor of twenty-five in every box downstream. Thresholds are set by keeping a small random sample of everything, say 0.1% of minutes, whatever the triggers say: comparing what the triggers kept with what that sample holds shows what they miss, and a trigger for a rare event is set loose, firing too often rather than too rarely, since the cost of a false alarm is a few gigabytes."
+          "text": "On the vehicle, sensor data writes continuously into a **ring buffer** that holds the last 30 minutes of full-resolution data, overwriting older recordings as new ones arrive. Most of what passes through the buffer is uneventful driving on an empty road. **Triggers** mark time windows to keep at full resolution, such as a hard braking event, an operator pressing a button, an onboard detector spotting a rare object, or two sensors producing conflicting readings. Everything else is downsampled, summarised, or discarded. You can test different retention rates in the workbench below; reducing the kept volume by a factor of 25 (from 100% to 4%) reduces the load on every downstream network link and storage tier by the same factor of 25. Engineers calibrate trigger thresholds by also saving a small random sample of all driving, say 0.1% of minutes, regardless of trigger activity. Comparing the triggered segments against that uniform sample shows what the triggers miss. Engineers set triggers for rare events with loose thresholds so they fire too often rather than too rarely, because a false alarm only costs a few gigabytes of storage."
         },
         {
           "type": "text",
-          "text": "Then the data leaves by one of two pipes, chosen by urgency. The **narrow pipe** is cellular: a vehicle's health every minute, an index of what it recorded, small thumbnails of triggered events, and the raw window of anything flagged urgent. It costs tens of megabits a second at most and dollars per gigabyte, so only small, valuable data goes this way, in minutes. The **wide pipe** is the depot: back at base each night the vehicle connects to a fast local network, or its drives are swapped for empty ones and the full ones go to the datacentre by van. Hours to days, but nearly free per byte."
+          "text": "The kept data leaves the vehicle over one of two paths, depending on urgency. The **narrow pipe** is the cellular network, which carries minute-by-minute vehicle telemetry, a metadata index of recorded segments, small thumbnails of triggered events, and the raw sensor window for any urgent fault. Cellular links provide tens of megabits a second at most and cost dollars per gigabyte, so we reserve this path for small, high-priority payloads that must arrive within minutes. The **wide pipe** is the physical depot: when the vehicle returns to base each night, it uploads data over a fast local network, or technicians swap its removable drives for empty ones and ship the full drives to the datacentre by van. This path has a latency of hours to days, but the transfer cost per byte is nearly zero."
         },
         {
           "type": "text",
-          "text": "Some fleets need a third pipe, a **live link**: a person at a desk who can see through a machine's cameras and give it guidance when it asks, a geologist steering an instrument on a distant slope. Its budget is end to end, glass to glass: encoding a frame 20 to 30 ms, a cellular uplink 50 to 100 ms on a good day, a relay 10 ms, decoding and display 20 ms, under a quarter of a second in all, at low resolution. Cellular coverage fails in patches, so the link sends over two carriers at once and uses whichever copy arrives first.[^bond] And it fails anyway, so the machine is designed never to depend on it: the person advises, the machine decides, and a dropped link leaves the machine in a safe state it can reach on its own: what lesson 23 calls **static stability**, carrying on correctly without help from the part that failed. Every exchange is written to a log, because someone will ask afterwards who decided what."
+          "text": "Some fleets require a third path, a **live link**, so a remote operator at a desk can view a machine's camera feeds and provide guidance when it requests help, such as a geologist steering a rover on a distant slope. The latency budget from camera lens to operator screen is tight: encoding a video frame takes 20 ms to 30 ms, the cellular uplink adds 50 ms to 100 ms under good conditions, a cloud relay adds 10 ms, and decoding and display take 20 ms, totalling under 250 ms at low resolution. Because cellular coverage drops out in patches, the vehicle transmits duplicate streams over two cellular carriers simultaneously and the receiver uses whichever packet arrives first.[^bond] Even with redundancy, the connection will sometimes fail, so engineers design the vehicle never to depend on the live link for safety. The remote operator provides high-level advice while the onboard computer executes control decisions, and a dropped link leaves the vehicle in a safe state that it can reach autonomously. In lesson 23, we call this property **static stability**, where a system continues operating safely without assistance from a failed dependency. The system logs every command and message so engineers can audit decisions after an incident."
         }
       ]
     },
@@ -86,22 +86,22 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A 256 GB log over a depot's Wi-Fi takes most of an hour, and links drop. An upload that starts again from the beginning after every drop may never finish. Split the file into **chunks** of a few megabytes and name each chunk by a hash of its contents, a SHA-256 of its bytes: then a reconnecting vehicle sends the store the list of hashes in the file, the store answers with the ones it lacks, and only those are sent. A drop costs one chunk. And any chunk the store already holds, a calibration file every vehicle carries, a map package, the same log copied off two drives, is never sent at all. Storage that names data by a hash of its contents like this is called **content-addressed**.[^hash] The chunk size is a trade: a 256 GB log in 4 MB chunks has 64,000 hashes, a list of 2 MB, while chunks of 4 KB would make a list of 2 GB; chunks of 1 GB would make a drop cost up to a gigabyte and find fewer shared chunks. A few megabytes sits between the two."
+          "text": "Transferring a 256 GB log file over a depot's Wi-Fi network takes most of an hour, and wireless connections drop frequently. If an upload restarts from the beginning after every disconnection, it may never finish. To make uploads resumable, the vehicle splits the file into **chunks** of a few megabytes and names each chunk by the SHA-256 hash of its byte contents. When a vehicle reconnects, it sends the storage server the list of chunk hashes that make up the file; the server replies with the hashes it is missing, and the vehicle uploads only those chunks. A dropped connection wastes at most one chunk. Furthermore, the vehicle never uploads any chunk the store already holds, such as a standard calibration file carried by every vehicle, a shared map package, or a duplicate log copied from two drives. A storage system that identifies data by the cryptographic hash of its contents is called **content-addressed**.[^hash] Choosing the chunk size involves a trade-off: splitting a 256 GB log into 4 MB chunks produces 64,000 hashes (a 2 MB manifest), whereas 4 KB chunks would produce a 2 GB manifest, and 1 GB chunks would waste up to 1 GB on a dropped connection while finding fewer duplicate chunks across files. A chunk size of a few megabytes balances manifest overhead against retry cost."
         },
         {
           "type": "interactive_diagram",
           "id": "sensors-chunks",
-          "caption": "A log uploaded whole or in chunks named by hash, over a link that drops once.",
+          "caption": "A log uploaded as a single file or in hash-named chunks over a link that drops once.",
           "task": "Upload in chunks, then move the Link drops at slider",
           "goal": "resumed"
         },
         {
           "type": "text",
-          "text": "This is how Dropbox's client syncs files: it splits each file into 4 MB blocks, hashes each with SHA-256, and uploads only blocks the server doesn't have, so an edit to one page of a large document sends a few blocks, and a file many people store is kept once. A **file sync** service is that block store plus a database of file versions, each version a list of block hashes, and a journal of changes that every client polls or is told about. When two people edit the same file offline, the server keeps both versions and the second becomes a \"conflicted copy\", because merging arbitrary files is impossible in general (lesson 13 showed what it takes for text)."
+          "text": "Dropbox's desktop client uses this exact mechanism to synchronise files: it splits each file into 4 MB blocks, hashes each block with SHA-256, and uploads only the blocks the server lacks. Editing one page of a large document transfers only the modified blocks, and a popular file stored by thousands of users is written to disk only once. A complete **file sync** service combines this content-addressed block store with a metadata database of file versions (where each version is an ordered list of block hashes) and a change journal that clients poll or subscribe to for updates. When two users edit the same file while offline, the server retains both versions and saves the second upload as a \"conflicted copy\", because automatically merging arbitrary binary file formats is impossible in general (lesson 13 showed the complexity required just to merge plain text)."
         },
         {
           "type": "text",
-          "text": "In the store, chunks are objects. The object store keeps its **metadata**, which objects exist and where their pieces are, apart from the data, as GFS kept its master apart from its chunkservers (lesson 6), and accepts big objects as a **multipart upload**, parts sent in any order and in parallel, joined into one object only when the last arrives. Listing and the catalogue read the metadata; nothing reads the bulk until someone needs the bytes."
+          "text": "Inside the datacentre, the pipeline stores chunks in an object store. The object store separates its **metadata** (the index of which objects exist and which storage nodes hold their bytes) from the raw data payloads, just as the Google File System separated its master server from its chunkservers (lesson 6). It also accepts large files via **multipart upload**, allowing clients to upload chunks in parallel and in any order, concatenating them into a single logical object only when the final chunk arrives. Directory listings and catalogue queries read only the metadata index; the system never reads the bulk storage disks until an engineer requests the underlying sensor bytes."
         }
       ]
     },
@@ -110,26 +110,26 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the large choices: how much each vehicle keeps after triage, which path carries the bulk, and whether data older than 30 days moves to cold storage. The prices are round figures of our own: $60 a month for a terabyte kept hot in three copies, $4 for a terabyte kept cold with erasure coding (lesson 7: data split into pieces plus a few extra parity pieces, any large enough set of which rebuilds it), $1 a gigabyte for cellular data. Ten depots each have a 10 Gb/s link; shipped drives go once a day from each depot by van."
+          "text": "You can now configure the pipeline's main parameters: the percentage of data each vehicle retains after onboard triage, the transport path for bulk data, and whether segments older than 30 days migrate to cold storage. The model uses representative unit costs: $60 per TB per month for hot storage replicated across three copies, $4 per TB per month for cold storage using erasure coding (which splits data into fragments plus redundant parity fragments so any sufficient subset can reconstruct the original, as covered in lesson 7), and $1 per GB for cellular bandwidth. The fleet operates out of ten depots, each equipped with a 10 Gb/s network link, or vans that ship physical drives once a day from each depot."
         },
         {
           "type": "interactive_diagram",
           "id": "sensors-bench",
-          "caption": "A year of a 1,000-vehicle fleet. The labels give bytes a day on each wire; the bill counts storage after a year and the cost of moving data.",
+          "caption": "One year of operation for a 1,000-vehicle fleet. The link labels show daily throughput on each path, and the monthly bill totals the ongoing transport cost plus the storage cost after one year of accumulation.",
           "task": "Keep up with the fleet, with old data in cold storage, for under $3 million a month",
           "goal": "keeps"
         },
         {
           "type": "text",
-          "text": "Keeping everything defeats every path: 8 PB a day is beyond even the ten depots' combined 1 PB a day, and drives that could carry it would fill a store growing by 3 exabytes a year. Keeping 4% brings it to 320 TB a day, which the ten depots' links, 100 Gb/s together, carry in about seven hours overnight. After a year that is about 117 PB. All of it hot, in three copies, is about $7 million a month; with only the last 30 days hot and the rest erasure coded in cold storage, it is about $1 million. The cellular path can only carry the small part, and it is the most expensive per byte by far: use it for what can't wait."
+          "text": "Retaining 100% of the recordings overwhelms every transport path: 8 PB a day exceeds the ten depots' combined network capacity of 1.08 PB a day, and shipping physical drives would accumulate nearly 3 EB of storage a year. Filtering the data on the vehicles down to 4% reduces the daily volume to 320 TB, which the ten depots' combined 100 Gb/s links can upload in about seven hours overnight. Over a year, the fleet accumulates about 117 PB of data. Keeping all 117 PB in three-way replicated hot storage costs about $7 million a month; keeping only the most recent 30 days hot and migrating older data to erasure-coded cold storage drops the storage bill to about $1 million a month. The cellular path has low bandwidth and the highest cost per byte, so we reserve it for urgent payloads that cannot wait until the vehicle reaches a depot."
         },
         {
           "type": "text",
-          "text": "**Retention** is the third lever, and it is partly a rule rather than a choice. Raw imagery of public streets holds faces and plates; a common policy blurs them on ingest, keeps the raw only as long as it is needed to check the blurring and the detectors, and keeps derived data, the tags, the positions, the blurred copies, much longer. Deleting is a feature to design: a person's request to be removed has to find every copy, which is one more reason the catalogue matters."
+          "text": "**Retention** policy is our third cost and compliance lever, often dictated by privacy regulations. Raw camera imagery from public streets contains human faces and vehicle licence plates. A standard ingestion pipeline runs automated blurring models on arrival, retains the unblurred raw footage only briefly to verify detector and blurring accuracy, and stores the derived data (such as object tags, trajectories, and blurred video) for much longer. Engineers must also design for targeted deletion: when a member of the public requests the removal of their personal data, the system must locate and purge every relevant segment across all storage tiers, which is another reason we need an accurate metadata catalogue."
         },
         {
           "type": "text",
-          "text": "**The failure worth working through: a depot's link is down for a week.** The vehicles' drives fill. The design has to say in advance what goes first: the pipeline uploads triggered windows before routine data, so a week's outage leaves a backlog of the least valuable data, and drives can be shipped instead. The ingest is idempotent, as lesson 22 requires: a chunk uploaded twice, or a drive read twice, stores nothing new."
+          "text": "**Handling a week-long depot network outage.** If a depot's network link goes down for a week, the vehicles' onboard drives will begin to fill up. We must design a priority queue for uploads in advance: the depot network uploads triggered event windows before routine background samples, ensuring that a prolonged outage leaves only the least valuable data waiting in the backlog, or prompts technicians to ship the physical drives by van. The ingestion pipeline is idempotent, as described in lesson 22: because chunks are content-addressed, uploading a chunk twice over Wi-Fi or reading the same chunk from a shipped drive writes no duplicate data to the store."
         }
       ]
     },
@@ -138,22 +138,22 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A store of 117 PB that nobody can search is a very expensive drawer. Engineers ask questions like \"every night-time minute with a cyclist near a junction\": to test a new detector, to build a training set, to see how often something rare really happens. Reading every log to answer is reading every byte."
+          "text": "A 117 PB object store that engineers cannot search is useless for development. Engineers need to run queries like \"find every night-time minute with a cyclist near a junction\" to test a new perception model, build a machine-learning training set, or measure how often a rare scenario occurs in the real world. Scanning every raw log file to answer that query would require reading all 117 PB from disk."
         },
         {
           "type": "interactive_diagram",
           "id": "sensors-find",
-          "caption": "A year of kept one-minute segments, with tags at round shares: night 30%, junction 20%, rain 10%, cyclist 5%, roadworks 3%.",
+          "caption": "One year of retained one-minute driving segments, tagged with approximate occurrence rates: night 30%, junction 20%, rain 10%, cyclist 5%, and roadworks 3%.",
           "task": "Ask the catalogue for two things at once",
           "goal": "found"
         },
         {
           "type": "text",
-          "text": "The **catalogue** is a database about the data, written at ingest and kept forever. Each row is a segment: the vehicle, the start and end time, the map cells it passed through (lesson M2), the software and sensor versions, where its chunks are, and tags added by detectors that run over new data in batch (lesson 8). Indexed by time, by cell and by tag, with an inverted index from tag to segments like a search engine's (lesson D3), it answers night and cyclist and junction by intersecting three lists in milliseconds, and the store is then asked only for the matching segments: at the figure's shares, if the tags are independent, about 0.35 PB instead of 117."
+          "text": "To avoid full scans, the pipeline writes a **catalogue** at ingest time: a relational or key-value database that stores metadata about the recordings forever. Each row represents a one-minute segment and records the vehicle ID, the start and end timestamps, the geographic map cells the vehicle traversed (lesson M2), the onboard software and sensor calibration versions, the object store pointers for its chunks, and scene tags generated by batch detector jobs that run over newly ingested logs (lesson 8). Because the catalogue indexes segments by time, map cell, and tag using an inverted index like a search engine (lesson D3), it can answer a query for `night AND cyclist AND junction` by intersecting three posting lists in milliseconds. The system then fetches only the matching segments from the object store: assuming the tags in the figure are statistically independent, that query reads about 0.35 PB instead of 117 PB."
         },
         {
           "type": "text",
-          "text": "Two more things follow from having one. A **dataset** becomes a saved query result frozen as a list of segment ids and versions, so a test run months later reads exactly the same data (lesson D6). And **change detection** becomes a query: segments where what the vehicle saw disagrees with the map, a new roundabout, a closed lane, become proposed edits; edits are checked and merged into a new map version, and the new version goes out to whatever uses the map like any other update, in stages (lessons M1 and D7)."
+          "text": "Maintaining a catalogue enables two additional workflows. First, a machine-learning **dataset** becomes a saved query result frozen as an immutable list of segment IDs and data versions, guaranteeing that an evaluation job run months later reads the exact same sensor bytes (lesson D6). Second, **change detection** becomes a database query: segments where the vehicle's live perception disagrees with the current high-definition map (such as a newly built roundabout or a closed lane) generate proposed map edits. Engineers or automated checks verify and merge these proposals into a new map version, which then rolls out to the fleet in stages like any other software release (lessons M1 and D7)."
         }
       ]
     },
@@ -162,15 +162,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "CERN's design is the exercise at its most extreme: triggers throw away all but about one crossing in forty thousand before anything is written, and what is kept, tens of petabytes a year, flows out from CERN through a grid of computing centres in tiers, national centres holding copies and universities doing the analysis.[^grid] The principle is the one the workbench showed: the largest saving is made where the data is born."
+          "text": "CERN's data pipeline represents source filtering at an extreme scale: hardware and software triggers discard all but one proton bunch crossing in 40,000 before writing anything to disk. The retained data, amounting to tens of petabytes a year, replicates outward from CERN across a tiered global computing grid, where national datacentres store archival copies and university clusters run physics analyses.[^grid] As our workbench model showed, filtering data at the source reduces the capacity required at every downstream stage."
         },
         {
           "type": "text",
-          "text": "Amazon's Snowball appliances and Snowmobile lorry are the wide pipe sold as a service, for exactly the case in the estimate, where a link would take months. Dropbox's chunked, content-addressed sync is the upload design; in 2016 Dropbox also described moving its blocks off Amazon S3 into its own storage system, Magic Pocket, erasure coded across datacentres, because at its size the storage bill had become the business. Facebook's f4, published in 2014, made the hot-and-cold split for photos: new photos stay in a store with several full copies, and photos that have gone quiet move to an erasure-coded warm store, which cut the space each photo took from about 3.6 times its size to about 2.1.[^f4]"
+          "text": "Amazon's Snowball storage appliances and Snowmobile container lorry package the physical wide pipe as a commercial service for datacentre migrations where network uploads would take months. Dropbox's client sync protocol pioneered chunked, content-addressed uploads at consumer scale; in 2016, Dropbox also migrated its underlying block storage off Amazon S3 into its own custom object store, Magic Pocket, which uses erasure coding across datacentres to reduce storage costs. Similarly, Facebook's f4 storage system, published in 2014, implemented hot-and-cold storage tiering for user photos: newly uploaded photos reside in a Haystack store with three full replicas to serve high read traffic, while older photos with lower request rates migrate to an erasure-coded warm store, reducing the effective storage overhead from 3.6x the raw photo size to 2.1x.[^f4]"
         },
         {
           "type": "text",
-          "text": "The triggers, the two pipes and the chunked uploads follow from the numbers. The catalogue follows from the users, who ask for moments, not files."
+          "text": "Onboard triggers, two transport pipes, and chunked uploads solve the bandwidth and storage capacity constraints, while the metadata catalogue lets engineers query specific driving scenarios without scanning petabytes of raw files."
         }
       ]
     },
@@ -179,11 +179,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Ten times the fleet** is ten times the depots and links, which scale by adding more of the same. The store grows by an exabyte a year, and the cost of cold storage, not of moving data, becomes the largest number: retention rules and how much each vehicle keeps are revisited with finance in the room."
+          "text": "**Scaling to 10,000 vehicles** requires ten times as many depots and network links, which scales horizontally by adding identical infrastructure. However, the object store now grows by more than 1 EB a year, making cold storage capacity the single largest operational expense rather than network transfer. At this scale, engineering and finance teams must tighten retention policies and lower the onboard trigger rates to keep storage growth affordable."
         },
         {
           "type": "text",
-          "text": "**A hundred times** moves the computing to the data. At each depot, servers run the detectors and the blurring overnight and send the datacentre the tags, the summaries and only the raw windows someone has asked for, much as CERN's trigger farm sits beside the detector. The catalogue becomes the largest database in the system, a sorted table keyed by (cell, time) in the style of Bigtable (lesson 10), and the store holds raw data only as long as someone has a reason to keep it."
+          "text": "**Scaling to 100,000 vehicles** requires moving computation out to the depots where the data arrives. Instead of uploading all retained raw logs to a central cloud region, local server racks at each depot run the batch perception detectors and privacy blurring overnight. The depots then upload only the generated tags, summary statistics, and the specific raw sensor windows that engineers have explicitly requested, much as CERN places its high-level trigger farm directly beside the particle detector. The central catalogue becomes the largest database in the architecture, structured as a distributed sorted table keyed by `(cell, time)` in the style of Bigtable (lesson 10), while the depots overwrite unrequested raw data as soon as their local disks fill."
         }
       ]
     },
@@ -198,14 +198,14 @@
           "options": {
             "items": [
               {
-                "ask": "A fleet records 8 PB a day and each depot has a 10 Gb/s link moving about 108 TB a day. Which plan is realistic?",
+                "ask": "A fleet records 8 PB a day and each of its ten depots has a 10 Gb/s link moving about 108 TB a day. Which plan is realistic?",
                 "choices": [
                   "Upgrade every depot to 100 Gb/s and keep it all",
                   "Triage on board and upload only the few per cent worth keeping",
                   "Upload everything over cellular while driving, so that nothing waits for the depot at night"
                 ],
                 "answer": 1,
-                "why": "Ten 100 Gb/s links could just carry 8 PB a day, but the store would then grow by about 3 exabytes a year; cellular carries about 2%. The saving that helps every box is deciding on the vehicle what to keep."
+                "why": "Ten 100 Gb/s links could barely transfer 8 PB a day, and the central object store would then grow by nearly 3 EB a year; cellular links can carry only about 2% of the data. Filtering on the vehicle reduces the load on every network link and storage tier downstream."
               },
               {
                 "ask": "Why do instrument pipelines such as the LHC's decide what to keep at the source?",
@@ -215,7 +215,7 @@
                   "Because every byte dropped there is a byte that no link, disk or later stage has to pay for"
                 ],
                 "answer": 2,
-                "why": "A factor saved at the source is saved in every box downstream. CERN's triggers keep about one crossing in forty thousand."
+                "why": "Any volume reduction achieved at the source reduces the capacity needed at every downstream network link and storage system. CERN's triggers save roughly one bunch crossing in 40,000."
               },
               {
                 "ask": "A 256 GB upload is split into 4 MB chunks named by SHA-256 hashes. The link drops at 60%. What happens on reconnecting?",
@@ -225,7 +225,7 @@
                   "The store waits for the vehicle to resend the whole file, then compares the two copies"
                 ],
                 "answer": 0,
-                "why": "A drop costs one chunk, and chunks the store already holds are never sent."
+                "why": "A dropped connection wastes at most the single chunk in flight, and chunks the object store already holds are never uploaded again."
               },
               {
                 "ask": "A live link lets a person at a desk guide a machine in the field. What must happen when the link drops?",
@@ -235,7 +235,7 @@
                   "It brings itself to a safe state on its own, without waiting for the link"
                 ],
                 "answer": 2,
-                "why": "Cellular links fail in patches. The person advises and the machine decides, so it must never need the link to be safe."
+                "why": "Cellular links fail unpredictably. Because the remote operator only advises while the onboard computer executes control, the machine must be able to reach a safe state autonomously when the connection drops."
               },
               {
                 "ask": "After a year, 117 PB are stored. Keeping all of it in three hot copies costs about $7 million a month. What cuts the bill most?",
@@ -245,7 +245,7 @@
                   "Storing two copies instead of three in the hot store, accepting a lower durability"
                 ],
                 "answer": 1,
-                "why": "Old data is rarely read. Erasure coding stores it at well under the three times its size that three copies take, on cheap dense disks, so most of the year costs a small fraction of the hot price."
+                "why": "Engineers read older data much less frequently than recent logs. Erasure coding stores cold data with far less storage overhead than the 3x multiplier of three-way replication, using dense, inexpensive disks."
               },
               {
                 "ask": "Engineers want every night-time minute with a cyclist near a junction from a year of logs. What makes that fast?",
@@ -255,7 +255,7 @@
                   "Storing the logs in date order, so that the year's night-time minutes sit next to one another on disk"
                 ],
                 "answer": 0,
-                "why": "Without a catalogue every byte must be read. With one, small indexes answer the question and the store serves only the matches."
+                "why": "Without a metadata catalogue, a query must scan every byte in the object store. With an indexed catalogue, the database intersects the tag lists in milliseconds and reads only the matching segments from storage."
               },
               {
                 "ask": "In a file sync service, how is a file's new version stored after a small edit?",
@@ -265,7 +265,7 @@
                   "As a diff against the previous version"
                 ],
                 "answer": 1,
-                "why": "Unchanged blocks keep their hashes, so an edit uploads and stores only the blocks that changed."
+                "why": "Unmodified 4 MB blocks keep the same SHA-256 hashes, so an edit uploads and stores only the specific blocks that changed."
               }
             ]
           }
@@ -274,45 +274,45 @@
     }
   ],
   "summary": [
-    "**Do the arithmetic before choosing a pipe.** 1,000 vehicles at 1 TB an hour make 8 PB a day, ten weeks of upload through a 10 Gb/s link.",
-    "**Decide what to keep where the data is born.** Triggers and a ring buffer on board cut every box downstream by the same factor.",
-    "**Two pipes, by urgency.** Small urgent data goes over cellular in minutes; the bulk goes through depots or shipped drives in hours to days.",
-    "**A live link must be optional.** Budget it glass to glass, send over two carriers, and design the machine to stay safe when it drops.",
-    "**Upload in chunks named by their hash.** A dropped link costs one chunk, and chunks the store already holds are never sent.",
-    "**Keep metadata apart from data.** The object store's index and the catalogue are small and fast; the bulk is read only when needed.",
-    "**Tier storage by age.** Recent data hot in copies, older data erasure coded and cold, and retention set by rule as well as by cost.",
-    "**Build the catalogue at ingest.** Time, place and tags, indexed, turn a scan of petabytes into a lookup and make datasets and change detection queries."
+    "**Calculate bandwidth before choosing a network link.** A fleet of 1,000 vehicles recording 1 TB an hour generates 8 PB a day, which would take over ten weeks to upload over a single 10 Gb/s link.",
+    "**Filter data at the source.** Using an onboard ring buffer and event triggers reduces the load on every downstream network link and storage tier by the same factor.",
+    "**Use two transport pipes based on urgency.** Send small, urgent telemetry and fault logs over cellular links within minutes, and move the bulk recordings via depot networks or shipped drives over hours or days.",
+    "**Design machines so the live link is optional.** Budget end-to-end latency under 250 ms, transmit over two cellular carriers simultaneously, and ensure the vehicle transitions to a safe state autonomously when the link drops.",
+    "**Upload files in content-addressed chunks.** Naming 4 MB chunks by their SHA-256 hash ensures a dropped link wastes at most one chunk, and chunks the store already holds are never uploaded again.",
+    "**Separate metadata from raw sensor bytes.** Keep the object store's chunk index and the segment catalogue in fast databases, reading the bulk storage disks only when an engineer fetches specific recordings.",
+    "**Tier storage by age and access frequency.** Keep recent recordings hot in three-way replicated storage, migrate data older than 30 days to erasure-coded cold storage, and enforce automated deletion policies for privacy compliance.",
+    "**Populate a searchable catalogue at ingest.** Indexing segments by timestamp, map cell, and scene tag turns petabyte-scale log scans into millisecond index lookups, enabling reproducible training datasets and map change detection."
   ],
   "footnotes": {
     "wagon": {
       "kind": "digression",
       "title": "The station wagon",
-      "text": "Tanenbaum's line appears in his textbook *Computer Networks*, first published in 1981. The arithmetic still holds: a van carrying a thousand 20 TB drives on a six-hour drive moves 20 PB, about 7,400 gigabits a second, more than most datacentres' links to the outside world."
+      "text": "Tanenbaum's line appears in his textbook *Computer Networks*, first published in 1981. The arithmetic still holds: a van carrying a thousand 20 TB drives on a six-hour journey moves 20 PB, achieving an effective throughput of about 7.4 Tb/s, which exceeds most datacentres' external network links."
     },
     "nines": {
       "kind": "technical",
       "title": "Eleven nines",
-      "text": "A durability of 99.999999999% a year means each object has a one in a hundred billion chance of being lost in a year. Object stores reach it by spreading copies or erasure-coded pieces across failure domains and repairing lost pieces quickly (lesson 7); the number is a model's estimate, and bugs and operator mistakes are what usually lose data."
+      "text": "An annual durability of 99.999999999% means each stored object has a one in 100 billion probability of being lost in a given year. Object stores achieve this by distributing replicas or erasure-coded fragments across independent failure domains and reconstructing lost fragments quickly when disks fail (lesson 7). This figure is a probabilistic model estimate; in practice, software bugs and operator mistakes cause most data loss."
     },
     "bond": {
       "kind": "technical",
       "title": "Two carriers at once",
-      "text": "Sending every packet over two networks and keeping the first copy to arrive doubles the data bill but cuts the chance of a gap: if each carrier drops out 2% of the time independently, both are out together about 0.04% of the time. It is the hedged request of lesson 9 applied to radio links."
+      "text": "Transmitting every packet over two cellular networks simultaneously and keeping whichever copy arrives first doubles the bandwidth cost but sharply reduces packet loss. If each carrier drops packets 2% of the time independently, both carriers fail at the same moment only 0.04% of the time. This technique applies the hedged requests of lesson 9 to wireless links."
     },
     "hash": {
       "kind": "technical",
       "title": "Naming by hash",
-      "text": "Two different chunks having the same SHA-256 hash is so unlikely that systems treat the hash as the chunk's identity. The store can also check every chunk it receives against its name, so a chunk corrupted in transit is caught and sent again."
+      "text": "The probability that two different data chunks produce the same 256-bit SHA-256 hash is so small that storage systems safely use the hash as a unique identifier. The server also computes the SHA-256 hash of every chunk it receives and compares it against the chunk's name, immediately detecting and rejecting any bytes corrupted in transit."
     },
     "grid": {
       "kind": "digression",
       "title": "The grid",
-      "text": "The Worldwide LHC Computing Grid has a Tier 0 at CERN, which keeps the first copy of the raw data, a dozen or so large Tier 1 centres around the world that keep further copies and reprocess it, and many Tier 2 centres, mostly at universities, for simulation and analysis."
+      "text": "The Worldwide LHC Computing Grid consists of a Tier 0 facility at CERN that stores the primary copy of the filtered raw data, roughly a dozen large Tier 1 national centres around the world that hold secondary replicas and run batch reprocessing, and over a hundred Tier 2 centres, mostly at universities, that run Monte Carlo simulations and end-user physics analyses."
     },
     "f4": {
       "kind": "technical",
       "title": "Warm storage",
-      "text": "Facebook's Haystack store kept new photos in several full copies for fast reads. Its 2014 f4 paper reported that most photos are read far less after their first weeks, and moved those to Reed-Solomon coded storage within and across datacentres, cutting the bytes stored per byte of photo from about 3.6 to about 2.1."
+      "text": "Facebook's Haystack storage system kept newly uploaded photos in three full replicas (plus geographic backups, totalling 3.6x overhead) to serve high request rates. Its 2014 f4 paper showed that request rates for photos drop sharply after the first few weeks, and described migrating older photos to Reed-Solomon erasure-coded storage within and across datacentres, reducing the storage footprint from 3.6 bytes per byte of photo to 2.1 bytes."
     }
   }
 }

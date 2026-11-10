@@ -231,7 +231,7 @@
     "systems": {
       "student": "done",
       "facts": "pending",
-      "note": "Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Queued for Gemini. No photos expected."
+      "note": "Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Gemini 4 Argon copy edit of every lesson 10 Nov 2026, with extra guidance for conventional technical prose (explicit verbs, units, precise terms). No photos expected."
     },
     "bats": {
       "student": "done",

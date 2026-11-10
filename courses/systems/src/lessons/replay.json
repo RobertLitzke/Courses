@@ -14,15 +14,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "When id Software released *Doom* in December 1993, players could record a game and send it to a friend as a **demo**, a file of a few kilobytes. A demo held no pictures at all. The game advances in steps called **tics**, 35 a second, and the demo held only what the player pressed in each tic: forward, turn, fire. Playing it back ran the whole game again from the same start, feeding in the same presses, and because every part of the game was **deterministic**, the same inputs gave the same monsters in the same places and the same shots landing on the same tics. Even the game's random numbers came from a fixed table of 256 values, read in order.[^rnd] Demos had a known weakness. Played on a different version of the game, where some rule had changed by a fraction, they **desynced**: the player's recorded presses carried on, but into a world that had drifted, and the replayed marine walked into walls."
+          "text": "When id Software released *Doom* in December 1993, players could record a game and send it to a friend as a **demo**, a file of a few kilobytes. A demo held no video frames at all. The game advances in steps called **tics**, at 35 tics per second, and the demo held only what the player pressed in each tic, such as forward, turn, or fire. Playing it back ran the whole game again from the same start, feeding in the same inputs. Because every part of the game was **deterministic**, the same inputs produced the same monsters in the same places and the same shots landing on the same tics. Even the game's random numbers came from a fixed table of 256 values, read in order.[^rnd] Demos had a known weakness. When played on a different version of the game where some rule had changed by a fraction, they **desynced**. The player's recorded inputs carried on into a world that had drifted, and the replayed marine walked into walls."
         },
         {
           "type": "text",
-          "text": "Twenty-two years later Abhishek Verma and colleagues at Google described Borg, the cluster manager that had run nearly all of Google's work for a decade (EuroSys, April 2015). A Borg **cell** was a set of machines run as one, a median of about 10,000. Production jobs, the services that answer users, ran at high priority; batch jobs, analyses and builds and tests, ran at low priority on whatever production left, and were **preempted**, stopped and moved, whenever production needed the room back. Each cell's master, the Borgmaster, was replicated five times and kept its state through Paxos, the agreement protocol of lesson 11."
+          "text": "Twenty-two years later, Abhishek Verma and colleagues at Google described Borg, the cluster manager that had run nearly all of Google's work for a decade (EuroSys, April 2015). A Borg **cell** was a set of machines managed as a single unit, with a median size of about 10,000 machines. Production jobs, the services that respond to users, ran at high priority. Batch jobs, such as analyses, builds, and tests, ran at low priority on whatever capacity production left unused, and were **preempted** (stopped and moved) whenever production needed the capacity back. Each cell's controller, the Borgmaster, was replicated five times and maintained its state through Paxos, the consensus protocol from lesson 11."
         },
         {
           "type": "text",
-          "text": "This lesson is a design exercise that needs both ideas. The fleet of survey vehicles from lesson D5 runs software on board that decides what to keep and tags what it sees. Each change to that software must be checked against **a million recorded scenarios**, 30 seconds each, chosen from the catalogue, every night, with the new build compared against the current one and the results on engineers' desks by 07:00. Design the system that runs it, then compare it with what Google and others published."
+          "text": "In this lesson, we will combine both ideas in a design exercise. The fleet of survey vehicles from lesson D5 runs onboard software that decides what data to keep and tags what it detects. We must check every change to that software against **a million recorded scenarios** of 30 seconds each, selected from the catalogue. Every night, we must compare the new build against the current one and deliver the results to engineers by 07:00. We will design the system that runs this workload, and then compare it with systems published by Google and others."
         }
       ]
     },
@@ -31,15 +31,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** Run a build against a named set of scenarios, on a schedule and on demand. Split each run into tasks with an order between them: simulate, then score, then compare, then report. Retry a task whose machine died, and stop retrying one that fails every time. Compare each scenario's result with the same scenario under the baseline build and report what got worse. Build scenario sets from catalogue queries and keep each set as a fixed, named version."
+          "text": "**Functional requirements.** We need to run a software build against a named set of scenarios, both on a schedule and on demand. We will split each run into a directed graph of tasks: simulate, score, compare, and report. The system must retry a task if its host machine fails, and stop retrying a task that fails deterministically on every attempt. It must compare each scenario's result with the same scenario under the baseline build and report regressions. Finally, we must construct scenario sets from catalogue queries and save each set as an immutable, named version."
         },
         {
           "type": "text",
-          "text": "**Non-functional.** Results by 07:00. **Reproducible**: the same build on the same scenario gives the same result, bit for bit, next week and next year, or no one can trust a difference. A machine that dies costs minutes of work, not a night. The run should cost little, which means running on spare capacity, and one team's run must not starve another's."
+          "text": "**Non-functional requirements.** Results must arrive by 07:00. Runs must be **reproducible** so that running the same build on the same scenario yields the exact same result, bit for bit, next week or next year; otherwise, engineers cannot trust a reported difference. A machine failure should cost minutes of lost work rather than an entire night. The run should remain inexpensive by using spare cluster capacity, and one team's workload must not starve another's."
         },
         {
           "type": "text",
-          "text": "**Out of scope:** the simulator's physics and sensor models, which are a field of their own; the catalogue and storage of lesson D5; and the code review and build systems that hand this one a build to test."
+          "text": "**Out of scope.** We will not cover the simulator's physics and sensor models, the catalogue and storage systems from lesson D5, or the code review and build systems that supply the binaries to test."
         }
       ]
     },
@@ -48,7 +48,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A replay is useful only if it is a replay. Before anything else, guess what a very small change does to one."
+          "text": "A replay is useful only if it is exact. Before we design the system, examine how a tiny numerical change affects a replay."
         },
         {
           "type": "interactive_diagram",
@@ -59,15 +59,15 @@
         },
         {
           "type": "text",
-          "text": "With the same build and the same seed the replay lands on the recorded run exactly, all 600 tics, which at *Doom*'s 35 a second is about 17 seconds of play. Change one thing the recording didn't capture, a random number drawn from another seed, and the paths split within a few dozen tics. Change only the rounding, one part in ten million, and they hold together for a while and then split just as completely. Each bounce off a curved peg multiplies a small error by several times, so a difference of 0.0000001 needs only about ten bounces to become the whole width of the box. Real scenes are full of such bounces: a detector's score just over or under a threshold, an object tracked or dropped, a decision taken one tic earlier."
+          "text": "With the same build and the same random seed, the replay matches the recorded run across all 600 tics, which at *Doom*'s rate of 35 tics per second is about 17 seconds of activity. If you change one unrecorded variable, such as drawing a random number from a different seed, the trajectories diverge within a few dozen tics. If you change only the floating-point rounding by one part in ten million, the trajectories track together briefly before diverging completely. Each collision with a curved peg multiplies a small positional error by several times, so a discrepancy of 0.0000001 requires only about ten collisions to span the entire width of the box. Real driving scenes contain similar thresholds: a detector's confidence score falling just above or below a cutoff, an object being tracked or dropped, or a control decision occurring one tic earlier."
         },
         {
           "type": "text",
-          "text": "So the simulator is built to be deterministic, and every input is recorded or pinned. Its **clock** is simulated, never the machine's. Its random numbers come from a seeded generator, with the seed stored beside the scenario. Threads may run in any order, so results are combined in a fixed order, and floating point sums, which give different answers in different orders, are added in one order every time. The build is pinned by the hash of its files and the libraries it uses. A run records the hash of every input, and a test checks each night that a small sample of last night's runs gives identical bytes; the first tic where they differ is the place to start looking."
+          "text": "Therefore, engineers build the simulator to be strictly deterministic, and record or pin every input. The simulator uses a simulated **clock** rather than the host machine's system clock. It draws random numbers from a seeded pseudoranom generator, storing the seed alongside the scenario. Because threads may execute in any order, the simulator combines thread outputs in a fixed sequence and performs floating-point additions (which are not associative) in a single deterministic order. We pin the software build using the cryptographic hash of its binaries and libraries. Each run logs the hash of every input, and an automated nightly test verifies that a small sample of the previous night's runs produces identical output bytes. If a run diverges, engineers inspect the first tic where the outputs differ."
         },
         {
           "type": "text",
-          "text": "Two kinds of replay suit different software. **Open loop**: feed the recorded sensor data through the new build and compare what it says. That is enough for software that only watches, such as detectors and triggers. Software that acts changes what happens next, and a recording can't react to it: the recorded world carries on as if the old software were in charge. That needs **closed loop** simulation, where the scene's other actors are simulated too and respond. Both need determinism; closed loop needs it more, because there every small difference feeds back into the next tic."
+          "text": "Two kinds of replay serve different testing needs. In **open-loop** replay, the system feeds recorded sensor data into the new build and compares its outputs. This suffices for passive software that only observes, such as perception detectors and data-logging triggers. Software that controls the vehicle alters future states, and a static recording cannot react when the vehicle steers differently; the recorded world continues as if the original software were still in control. Testing control software requires **closed-loop** simulation, where the simulator models the surrounding actors and makes them respond to the vehicle. Both modes require determinism, though closed-loop simulation is more sensitive because any small discrepancy feeds back into the next tic's state."
         }
       ]
     },
@@ -83,11 +83,11 @@
         },
         {
           "type": "text",
-          "text": "A million 30-second scenarios are 347 days of driving. At one core-second per simulated second that is about 8,300 core-hours, under an hour on 10,000 cores. A full sensor simulation is several times slower, say 4 core-seconds for each simulated second, and comparing needs the baseline build too: 2 × 1,000,000 × 30 × 4 core-seconds is about 67,000 core-hours a night. That is too much to buy as dedicated machines that would sit idle all day, and about right for the hours when a cluster's users are asleep."
+          "text": "One million 30-second scenarios equal 347 days of driving. At a processing rate of 1 core-second per simulated second, a full run requires about 8,333 core-hours, which finishes in under an hour on 10,000 CPU cores. A full sensor simulation runs several times slower, at roughly 4 core-seconds per simulated second, and comparing builds requires running the baseline build as well. Calculating 2 × 1,000,000 × 30 s × 4 core-seconds per second gives 240,000,000 core-seconds, or about 67,000 core-hours per night. Purchasing dedicated machines for this workload would leave them idle during the day, so we run the batch job overnight when interactive cluster usage drops."
         },
         {
           "type": "text",
-          "text": "The last line of the estimate matters as much. If each comparison can flag a change by chance one time in a hundred, a million comparisons flag 10,000 scenarios every night, and no one reads 10,000 reports. Comparing results has to be designed as carefully as running them, and comes later in this lesson."
+          "text": "The false-positive rate in our estimate is equally important. If an individual comparison flags a regression by chance 1% of the time, one million comparisons will generate 10,000 false alarms every night, which is far too many for engineers to review. We must design the statistical comparison as carefully as the execution engine, as we will see later in this lesson."
         }
       ]
     },
@@ -96,11 +96,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The service is a **job scheduler**, the big cousin of Unix's cron. Its API has three parts. Submitting a job: `POST /jobs` with a name, a schedule such as `0 22 * * *` (22:00 every day), the build and the scenario set, the task graph, a priority and the team whose quota pays. Watching it: `GET /jobs/{id}/runs` lists each run and its tasks' states. And stopping it. Everything lives in a **job store**, a small replicated database: a row per job with its next run time, a row per run, and a row per task with its state, its attempt count, the tasks it waits for, and a **lease**: which worker holds it and until when."
+          "text": "We will coordinate the workload using a **job scheduler**, a distributed equivalent of Unix's cron. Its HTTP API provides three main operations. To submit a job, a client sends `POST /jobs` with a name, a cron schedule such as `0 22 * * *` (22:00 every day), the target build and scenario set, the task dependency graph, a priority level, and the team quota to bill. To monitor progress, a client calls `GET /jobs/{id}/runs` to list each run and the states of its tasks. A third endpoint stops a running job. All state resides in a **job store**, a small replicated database containing one row per job with its next scheduled run time, one row per run, and one row per task. Each task row records its execution state, its attempt count, its upstream task dependencies, and a **lease** specifying which worker holds the task and when that lease expires."
         },
         {
           "type": "text",
-          "text": "Machines will die during every run, and workers will be preempted by the thousand. Before seeing the boxes, work out how tasks should be handed out. Four ways suggest themselves: hand each task to a worker and forget it; make sure each runs exactly once; send every task to two workers; or let a worker hold a task under a lease it keeps renewing, and give the task to someone else if the lease runs out. Guess which survives the clues."
+          "text": "During any nightly run, hardware will fail and the cluster manager will preempt thousands of workers. Before looking at the architecture diagram, consider how the scheduler should assign tasks to workers. You might consider four approaches: send each task to a worker and assume it finishes; guarantee that each task executes exactly once; send every task to two workers simultaneously; or let a worker hold a task under a time-limited lease that it periodically renews, reassigning the task if the lease expires. Test which approach survives the failure modes below."
         },
         {
           "type": "interactive_diagram",
@@ -166,15 +166,15 @@
         },
         {
           "type": "text",
-          "text": "The **scheduler** is one process at a time, chosen by a lock service as in lesson 11, with standbys waiting. Each minute it finds jobs whose next run time has passed and writes a run for each, keyed by job and scheduled time, so a new leader that repeats the same minute finds the run already there instead of starting a second. It also marks tasks **ready** when every task they wait for is done: the job's tasks form a graph, and simulate must finish before score can start. The scheduler hands nothing to workers. Workers **pull**: each asks the store for a ready task and claims it with a conditional write, the same conditional write that sold each seat once in lesson D4, *Fourteen million people, two million tickets*, setting the lease to its own name and a time five minutes ahead. It renews the lease every minute while it works.[^lease]"
+          "text": "The **scheduler** runs as a single active process elected via a distributed lock service (as in lesson 11), with standby instances waiting to take over. Once a minute, the active scheduler queries the job store for jobs whose scheduled run time has passed and inserts a run record for each, keyed by the job ID and scheduled timestamp. If a newly elected leader repeats the check for that same minute, this unique key prevents it from creating a duplicate run. The scheduler also transitions tasks to the **ready** state once all of their upstream dependencies complete; because tasks form a directed graph, the simulate task must finish before the score task can begin. The scheduler never pushes tasks directly to workers. Instead, workers **pull** work by querying the store for a ready task and claiming it with an atomic conditional write (the same mechanism used to prevent double-booking seats in lesson D4, *Fourteen million people, two million tickets*). This write sets the task's lease holder to the worker's ID and sets the expiration timestamp to five minutes in the future. The worker renews this lease every minute while executing the task.[^lease]"
         },
         {
           "type": "text",
-          "text": "If a worker dies, its lease runs out and the task becomes ready again for someone else. If it was only paused and wakes up later, it may finish a task someone else has also finished: the system runs each task **at least once**, and the tasks are made **idempotent** so that doesn't matter. Each result goes under the hash of the task's inputs, and writing it a second time changes nothing. The attempt number works as a fencing token from lesson 11: a worker whose lease has passed to attempt 3 can't mark the task done as attempt 2. A task that fails is retried with a growing wait, up to three attempts, and then marked failed and named in the report. One scenario that crashes the simulator every time otherwise retries forever and eats the cluster."
+          "text": "If a worker crashes, its lease expires and the task returns to the ready state for another worker to claim. If a worker merely pauses (for example, due to a network partition or garbage-collection pause) and resumes after its lease expires, it might finish a task that a second worker has already completed. Because the system executes each task **at least once**, we must make every task **idempotent** so that duplicate executions do not corrupt the state. Workers write each task's output to storage using the cryptographic hash of the task's inputs as the filename, so overwriting the file produces the exact same bytes. The task's attempt counter acts as a fencing token (from lesson 11): if a lease expires and increments the task to attempt 3, the database rejects a status update from the slow worker still holding attempt 2. When a task fails with an error, the system retries it with exponential backoff up to three attempts before marking it permanently failed and logging it in the morning report. Without a retry limit, a single corrupted scenario that crashes the simulator deterministically would retry forever and consume cluster capacity."
         },
         {
           "type": "text",
-          "text": "Two smaller rules make cron dependable. A **missed run**, because the scheduler was down at 22:00, is caught up once when it comes back, not once for every minute it missed. And jobs carry **priorities** and **quotas**: Borg gave each team a quota of resources at each priority, refused jobs beyond it at submission rather than letting them queue for ever, and let higher priorities preempt lower ones.[^bands]"
+          "text": "Two additional rules keep scheduled jobs predictable. First, if the scheduler is offline at 22:00, it triggers the **missed run** once upon recovery rather than launching a separate run for every minute it was down. Second, jobs enforce **priorities** and **quotas**. In Borg, each team received a resource quota for each priority band; the system rejected jobs that exceeded their quota at submission time rather than queueing them indefinitely, and allowed higher-priority tasks to preempt lower-priority ones.[^bands]"
         }
       ]
     },
@@ -183,7 +183,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A cell of 15,000 cores serves users all day and is busiest at 14:00. The nightly run starts at 22:00 and is due at 07:00. Reserve cores at production priority, or run at batch priority on whatever production leaves and be preempted when it wants them back. Choose how much work goes in one task: each task takes a minute to start, fetching the build and loading the scenario, and batch tasks are also preempted at random, about one in five each hour."
+          "text": "Consider a cluster cell of 15,000 CPU cores that serves interactive user traffic all day, peaking at 14:00. Our nightly simulation batch job starts at 22:00 and must finish by 07:00. We can either reserve dedicated cores at production priority, or run at batch priority using spare capacity left by production services, accepting that our tasks will be preempted whenever production traffic rises. We must also choose the task duration. Every task spends 1 minute starting up to fetch the build binary and load the scenario data, and batch tasks face random preemption at an average rate of 20% per hour."
         },
         {
           "type": "interactive_diagram",
@@ -194,15 +194,15 @@
         },
         {
           "type": "text",
-          "text": "A reservation of 4,000 cores costs about $3,840 a day whether it works or not, and still finishes both builds at 15:48, nearly nine hours after the results were due. Preemptible capacity costs a quarter as much per core-hour and offers twice the cores at night. With two-hour tasks and no checkpoints, though, a quarter of the core-hours are thrown away. At one preemption in five each hour, a two-hour task is stopped 0.4 times on average and each stop loses about an hour, half the task: a fifth of all work. The rise of production in the morning stops thousands more at once, which brings it to a quarter. Very small tasks fail the other way, spending half their time starting. Between them, around 20 to 30 minutes a task, the two losses balance. Checkpoints change the sum: a task that saves its state every five minutes loses at most five minutes when stopped, so long tasks become safe."
+          "text": "Reserving 4,000 dedicated cores costs about $3,840 per day regardless of utilisation, and still finishes running both builds at 15:48, nearly nine hours past the 07:00 deadline. Preemptible batch capacity costs a quarter as much per core-hour and provides twice as many available cores overnight. However, if we group work into two-hour tasks without checkpointing, preemption wastes a quarter of our total core-hours. At a preemption rate of 20% per hour, a two-hour task is interrupted 0.4 times on average, and each interruption loses an average of one hour of progress, wasting 20% of all compute work. When morning production traffic ramps up, the cluster preempts thousands of additional batch tasks simultaneously, raising total wasted work to 25%. Conversely, sizing tasks too small wastes capacity on startup overhead: a two-minute task spends half its runtime loading binaries and data. Sizing tasks between 20 and 30 minutes balances startup overhead against preemption losses. Adding periodic checkpoints changes this trade-off: if a task saves its state to storage every five minutes, a preemption loses at most five minutes of compute work, making multi-hour tasks viable."
         },
         {
           "type": "text",
-          "text": "The biggest saving isn't in scheduling. The baseline build ran last night on the same scenarios, and its results are stored under the hash of their inputs. Look the hash up first and the baseline half of the work disappears; the run then finishes a little after 02:00. Build systems do the same for compiled code: Bazel, which Google released in 2015, keeps a **remote cache** of outputs keyed by the hash of every input, so a file compiled on one machine is never compiled again on another.[^hash]"
+          "text": "We can achieve an even larger reduction in compute time by eliminating redundant runs. Because the baseline build already ran the previous night against the exact same scenarios, its outputs are already stored under the hashes of their inputs. If workers query the storage cache for an existing input hash before running the simulator, we skip the baseline simulations entirely, and the nightly job finishes shortly after 02:00. Build systems apply this same technique to source code: Bazel, which Google open-sourced in 2015, maintains a **remote cache** of build artifacts keyed by the cryptographic hash of all compilation inputs, ensuring that an unchanged source file compiled on one workstation is never recompiled on another.[^hash]"
         },
         {
           "type": "text",
-          "text": "Borg filled the gaps more aggressively still. Production jobs ask for more than they use, to cover their peaks, and Borg estimated each one's real use and let batch work run in the difference, which its paper calls **reclamation**: taking back resources that were reserved but not used. The batch work is the first to be preempted if the estimate turns out low."
+          "text": "Borg increased cluster utilisation further through resource **reclamation**. Because engineers provision production jobs with extra capacity to handle traffic spikes, Borg continuously estimated each production task's actual resource consumption and scheduled batch tasks inside the unused allocation. If a production task's traffic spiked and the estimate proved too low, Borg immediately preempted those batch tasks to reclaim the capacity."
         }
       ]
     },
@@ -211,7 +211,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Besides the nightly run, the store holds smaller jobs, such as an hourly one that re-runs the scenarios engineers flagged that day. At 03:00 the machine running the scheduler loses power. Its lock-service session expires about ten seconds later, a standby takes the lock and with it a new **epoch**, a number one higher than the old leader's, and reads the job store. Every write the scheduler makes carries its epoch, and the store refuses writes from a lower one, so if the old leader was only stalled and wakes up, it can't change anything: the fencing of lesson 11. Nothing it needs was in the old leader's memory. The 03:00 hourly job may or may not have its run row: if it does, the new leader sees it; if not, the new leader writes it, and the key of job and time stops it from writing two. The 9,000 or so workers, one for each core the run holds at that hour, barely notice. They talk to the store, not to the scheduler, and go on renewing leases and claiming ready tasks; only tasks that became ready in those seconds wait a little longer."
+          "text": "Alongside the nightly batch run, the job store manages smaller recurring jobs, such as an hourly job that replays scenarios flagged by engineers during the day. Suppose the machine hosting the active scheduler loses power at 03:00. Its session in the distributed lock service expires about 10 seconds later. A standby scheduler acquires the lock, receives a new **epoch** number incremented by one above the old leader's epoch, and reads the current state from the job store. The scheduler attaches its epoch number to every database write, and the job store rejects any write carrying a stale epoch. As covered in lesson 11, this fencing mechanism ensures that if the previous leader was merely paused and later resumes, it cannot corrupt the job state. Because the old leader held no authoritative state in local memory, the new leader loses no context. If the old leader already inserted the run record for the 03:00 hourly job before crashing, the new leader sees the record in the database; if not, the new leader inserts it, relying on the unique composite key of job ID and scheduled timestamp to prevent duplicate runs. Meanwhile, the roughly 9,000 active workers (one per CPU core allocated to the batch run at 03:00) continue uninterrupted. Because workers communicate directly with the job store rather than the scheduler, they continue renewing leases and claiming ready tasks, delaying only those downstream tasks whose dependencies completed during the 10-second failover window."
         },
         {
           "type": "text",
@@ -219,7 +219,7 @@
         },
         {
           "type": "text",
-          "text": "At 04:10 a scenario recorded in heavy snow makes the new build crash. Its task fails, waits, fails again, and is marked failed after the third attempt. The report the next morning lists it at the top, with the build, the scenario and the tic where it crashed, and the scenario becomes a test of its own."
+          "text": "At 04:10, a scenario recorded in heavy snow triggers a crash in the new software build. The worker marks the attempt failed, and the task waits for its backoff timer, fails a second time, and is marked permanently failed after its third attempt. At 07:00, the morning report highlights this crash at the top of the summary alongside the build hash, the scenario ID, and the exact simulation tic where the process terminated, allowing engineers to turn the scenario into a permanent regression test."
         }
       ]
     },
@@ -228,15 +228,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Each scenario's run produces numbers: how many objects were detected and how early, how often a trigger fired, how far from the truth a tracked object was. Comparing the new build with the baseline scenario by scenario gives a million small differences, and determinism makes every one of them real: the same build would give exactly the same numbers again. That doesn't make them important. Any change to the code nudges thousands of scenarios, through the bounces of the first figure, some a little better and some a little worse."
+          "text": "Each completed scenario task outputs quantitative metrics: how many obstacles the software detected and at what distance, how frequently a data-collection trigger fired, and the positional error of tracked vehicles relative to ground truth. Comparing the new build against the baseline across one million scenarios produces one million slight numerical differences. Because the simulator is deterministic, every difference is genuine rather than random run-to-run noise; re-running the build will produce the exact same numbers. However, a genuine difference is not necessarily a meaningful regression. As shown in our earlier pegboard simulation, any code change alters floating-point trajectories across thousands of scenarios, nudging metrics slightly higher in some scenes and slightly lower in others."
         },
         {
           "type": "text",
-          "text": "So results are read in layers. Scenarios are grouped by what is in them, from the catalogue's tags: night, rain, cyclists, junctions. For each group the report gives the rate of each kind of failure under both builds, with a confidence interval for the difference between the two rates, from the usual test for two proportions, showing how much it could move by chance across scenarios like these. That also sizes the groups: to notice a failure rate moving from 1.0% to 1.2% takes about 16 × p(1 − p) ÷ (difference)² scenarios, 16 × 0.01 ÷ 0.002², about 40,000 a group. Only a group whose rate moved beyond its interval is flagged. Testing many groups at once still finds some by luck, so the threshold is tightened to account for the number of tests.[^fdr] A few hard rules are checked on every scenario: no crashes, nothing missed that a human had marked as essential. Then a person looks at the flagged scenarios, replayed side by side under both builds."
+          "text": "To separate systematic regressions from trajectory jitter, engineers aggregate results in layers. First, the reporting pipeline groups scenarios by their catalogue metadata tags, such as `night`, `rain`, `cyclists`, or `junctions`. For each group, the report calculates the failure rate under both builds and computes a statistical confidence interval for the difference between the two proportions, estimating how much the rate could fluctuate due to sample variance across similar scenes. This statistical test also dictates the minimum group size: detecting a failure rate increase from 1.0% to 1.2% requires roughly 16 × p(1 − p) ÷ (difference)² scenarios, which evaluates to 16 × 0.01 × 0.99 ÷ 0.002², or about 40,000 scenarios per group. The report flags a group only when its metric shift exceeds the confidence interval. Because evaluating hundreds of tag groups simultaneously guarantees that some groups will cross a standard threshold by chance, the pipeline adjusts the significance threshold to account for multiple hypothesis testing.[^fdr] Separately, the pipeline enforces strict invariants on every individual scenario: zero process crashes, and zero missed detections on objects marked critical by human annotators. Engineers then inspect the flagged groups and invariant failures using a visual debugger that replays the scenario side by side under both builds."
         },
         {
           "type": "text",
-          "text": "All of this depends on comparing like with like. A scenario set is a catalogue query, `tags: night AND cyclist; recorded before 2026-10-01`, frozen into a list of segment ids with their content hashes and given a **version**, such as `night-cyclists@v7`. A version never changes. Adding new scenes makes `v8`. A result is stored with the dataset version, the build and the simulator version, so that a regression reported in March can be reproduced in June exactly, and last year's build can be run against this year's scenes to tell whether a failure is new or merely newly noticed."
+          "text": "Valid comparisons require immutable test datasets. When an engineer defines a scenario set using a catalogue query such as `tags: night AND cyclist; recorded before 2026-10-01`, the system resolves that query into an explicit list of log segment IDs and their content hashes, saving the manifest as an immutable **version** named `night-cyclists@v7`. That version never changes; appending newly recorded driving logs creates `night-cyclists@v8`. The database records every simulation result alongside the exact dataset version, build hash, and simulator version. This provenance allows engineers in June to reproduce a regression first reported in March, or to run last year's software build against this year's scenario dataset to determine whether a failure mode was introduced by recent code changes or simply exposed by newer driving logs."
         }
       ]
     },
@@ -249,7 +249,7 @@
         },
         {
           "type": "text",
-          "text": "The pieces are common outside Google. Airbnb's Airflow, open-sourced in 2015, made task graphs on a schedule an ordinary tool, with each run keyed by its scheduled time so a missed night can be filled in later, a feature Airflow calls a backfill. Game studios keep the *Doom* habit: many record inputs and replay them to reproduce a bug exactly, and test each build by replaying hours of recorded play. Robotics teams run large scenario libraries every night, with deterministic simulators and datasets drawn from logs."
+          "text": "These patterns are standard across the industry. Apache Airflow, created at Airbnb and open-sourced in 2015, popularised scheduled task graphs where each job run is keyed by its scheduled timestamp, allowing operators to populate historical intervals or catch up on missed schedules through a process Airflow calls backfilling. Video game studios still rely on *Doom*-style deterministic input logs to reproduce bugs and run automated nightly playtests across hours of recorded inputs. Similarly, autonomous vehicle and robotics teams run nightly simulation suites against millions of scenarios extracted from fleet logs."
         }
       ]
     },
@@ -258,7 +258,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Ten times**, ten million scenarios, is 670,000 core-hours a night, more than one cell has spare. The run spreads over several cells or regions, with a layer above the cells choosing where each job goes, and the build and scenarios copied near each cell beforehand. The job store's task table grows to tens of millions of rows a night; it is split by run, and workers claim tasks in batches of ten or a hundred to cut its load. Results are too many to keep in full, so a run keeps the summary numbers for every scenario and the full tic-by-tic log only for those flagged."
+          "text": "**At ten times the scale** (10 million scenarios), the nightly run consumes 670,000 core-hours, exceeding the spare overnight capacity of a single cluster cell. We must distribute the run across multiple cells and datacentres, adding a global routing layer above the cell schedulers to place jobs and pre-staging build binaries and scenario files in storage near each target cell. Because the job store's task table now accumulates tens of millions of rows per night, we partition the table by run ID and configure workers to claim and renew tasks in batches of 10 or 100 to reduce database write throughput. Storing full simulation outputs for every task becomes prohibitively expensive, so workers write only summary metrics for passing scenarios and retain full tic-by-tic telemetry logs exclusively for scenarios that fail an invariant or belong to a flagged regression group."
         },
         {
           "type": "text",
@@ -284,7 +284,7 @@
                   "The second version ran at a different number of tics a second"
                 ],
                 "answer": 0,
-                "why": "A replay of inputs is only as good as the determinism of what reads them; a small change in a rule grows tic by tic."
+                "why": "Replaying recorded inputs reproduces a run only if the simulation logic is identical; a tiny change in rules compounds tic by tic."
               },
               {
                 "ask": "A replay of the same build and scenario gives a slightly different result each time. What is the most likely cause?",
@@ -304,7 +304,7 @@
                   "Results named by their inputs, and a fencing token on each attempt's writes"
                 ],
                 "answer": 2,
-                "why": "No one can tell a paused worker from a dead one, so tasks run at least once and the design makes a second run harmless."
+                "why": "Because a distributed system cannot distinguish a paused worker from a crashed one, tasks execute at least once, and idempotent storage keys plus fencing tokens make duplicate runs harmless."
               },
               {
                 "ask": "The elected scheduler fails at 03:00 and a standby takes over. What does the standby need from the old leader?",
@@ -314,7 +314,7 @@
                   "A list of the workers, so that it can ask each one in turn what it is doing at the moment"
                 ],
                 "answer": 0,
-                "why": "Keeping all state in the store makes the leader replaceable in seconds. Workers pull from the store, so they keep working through the change."
+                "why": "Storing all state in the replicated database allows a standby scheduler to take over in seconds. Because workers pull tasks directly from the store, they continue executing during leader failover."
               },
               {
                 "ask": "On preemptible cores, two-hour tasks with no checkpoints waste about a quarter of the core-hours. What fixes it?",
@@ -324,7 +324,7 @@
                   "Tasks of one minute, so that no task can ever be preempted part of the way through its work"
                 ],
                 "answer": 1,
-                "why": "Preemption loses the work since the last save, and every task pays a minute to start. Mid-sized tasks or checkpoints balance the two losses."
+                "why": "Preemption discards any progress since the task started or last saved a checkpoint, while every task incurs a 1-minute startup cost. Sizing tasks to 20–30 minutes or writing periodic checkpoints balances both overheads."
               },
               {
                 "ask": "Comparing two builds on a million scenarios flags 10,000 changes, a 1% rate. What should the report do?",
@@ -334,7 +334,7 @@
                   "Group the changes and compare each group's rate, with thresholds corrected for many tests"
                 ],
                 "answer": 2,
-                "why": "Every difference is real, but most are small nudges in both directions. Rates per group, intervals and thresholds adjusted for many tests find the changes that matter; hard rules are still checked everywhere."
+                "why": "While determinism guarantees every numerical difference is real, most are harmless trajectory shifts in both directions. Comparing failure rates across tagged groups with multiple-testing corrections isolates systematic regressions, while strict invariants catch individual crashes."
               },
               {
                 "ask": "Why is a scenario set stored as a frozen version such as `night-cyclists@v7`?",
@@ -344,7 +344,7 @@
                   "So that the scenarios take less storage space than the raw logs that they were taken from"
                 ],
                 "answer": 0,
-                "why": "A query run again later returns new scenes too, so only a frozen version makes a comparison, or a reported regression, repeatable."
+                "why": "Re-running a live catalogue query weeks later will return newly uploaded logs, so freezing an immutable version manifest is necessary to make build comparisons and bug reports reproducible."
               }
             ]
           }
@@ -353,25 +353,25 @@
     }
   ],
   "summary": [
-    "**A replay is only as good as its determinism.** Record or pin every input: a simulated clock, seeded random numbers, a fixed order for sums, a build pinned by hash.",
-    "**Small differences grow.** One part in ten million becomes a different run after a few bounces, so replays across builds are compared by their results, not their paths.",
-    "**Estimate before buying machines.** A million 30-second scenarios are 347 days of driving; with a full simulator and two builds, about 67,000 core-hours a night.",
-    "**Keep the scheduler's state in a small replicated store.** An elected leader decides what is due; workers pull tasks and hold them under leases.",
-    "**At least once, made harmless.** Expired leases mean tasks run twice; results named by the hash of their inputs and fenced attempts make that safe. Retry a few times, then report.",
-    "**Run batch work in the gaps.** Preemptible capacity is cheap; size tasks or checkpoint them so preemption loses little, and quotas keep teams fair.",
-    "**Never compute a result twice.** Look up results by the hash of their inputs; reusing the baseline halves the night.",
-    "**Read results in layers.** Group scenarios, compare rates against chance with thresholds adjusted for many tests, check hard rules everywhere, and freeze datasets as versions."
+    "**Deterministic replay requires pinning every input.** Replace the system clock with a simulated clock, seed all random number generators, enforce a fixed reduction order for floating-point sums, and pin software builds by cryptographic hash.",
+    "**Tiny numerical differences compound rapidly.** A rounding difference of one part in ten million diverges into an entirely different trajectory after a few collisions, so engineers evaluate builds by aggregated outcome metrics rather than exact paths.",
+    "**Estimate capacity requirements before provisioning hardware.** One million 30-second scenarios equal 347 days of driving; running two builds through a 4-core-second simulator requires roughly 67,000 core-hours per night.",
+    "**Store scheduler state in a small replicated database.** An elected leader inserts scheduled runs and resolves task dependencies, while workers pull ready tasks directly from the store using time-limited leases.",
+    "**Combine at-least-once execution with idempotent outputs.** Expired leases cause duplicate task runs, which remain safe when workers write outputs under input hashes and validate attempt numbers as fencing tokens. Cap retries to prevent poison-pill tasks from exhausting the cluster.",
+    "**Run batch workloads on preemptible spare capacity.** Spare overnight capacity is inexpensive; sizing tasks to 20–30 minutes or checkpointing state minimises preemption waste, while priority quotas prevent resource starvation.",
+    "**Cache results by the hash of their inputs.** Looking up existing simulation outputs in a content-addressed cache eliminates the baseline build run and cuts nightly compute work in half.",
+    "**Aggregate metrics across frozen dataset versions.** Group scenarios by metadata tags, test failure-rate shifts using thresholds adjusted for multiple hypothesis testing, enforce strict crash invariants on every scene, and pin datasets as immutable versions."
   ],
   "footnotes": {
     "rnd": {
       "kind": "digression",
       "title": "Doom's random numbers",
-      "text": "*Doom*'s source code, released in 1997, has a table of 256 bytes, `rndtable`, and a function that returns the next entry each time it is called. Game logic and visual effects drew from separate positions in the table, so drawing an extra puff of smoke on one screen didn't change where a monster stepped. A demo began with both positions at zero."
+      "text": "*Doom*'s source code, released in 1997, contains a 256-byte array named `rndtable` and a lookup function that advances an index to return the next entry on each call. Gameplay simulation and cosmetic visual effects read from separate index pointers (`prndindex` and `rndindex`), ensuring that rendering an extra puff of smoke on a player's screen never altered monster behaviour. Starting a demo reset both indices to zero."
     },
     "bands": {
       "kind": "technical",
       "title": "Priority bands",
-      "text": "Borg's paper describes non-overlapping priority bands: monitoring, production, batch and best effort, the last also used for tests. A task could preempt only tasks in lower bands, and never one in its own band, which prevented chains of production jobs preempting each other. Quota was granted per band, and best effort work needed none."
+      "text": "The Borg paper defines four non-overlapping priority bands: monitoring, production, batch, and best-effort (also called gratis or free). A high-priority task could preempt tasks in lower bands, but never a task within its own band, preventing cascading preemption chains among production services. Teams held separate resource quotas for each band, while best-effort tasks required no quota."
     },
     "hash": {
       "kind": "technical",
@@ -386,7 +386,7 @@
     "lease": {
       "kind": "technical",
       "title": "Why five minutes",
-      "text": "A lease's length trades two costs. A short lease notices a dead worker quickly, but every worker must renew it often, and 6,000 workers renewing every 10 seconds is 600 writes a second on the job store for no work done. A long lease is cheap to keep, but a dead worker's task waits that long before anyone takes it. Minutes suit tasks that run for tens of minutes."
+      "text": "Choosing a lease duration balances recovery latency against database write load. A short lease detects crashed workers quickly, but requires frequent heartbeats: 6,000 active workers renewing a lease every 10 seconds generate 600 writes per second on the job store solely for lease maintenance. A long lease reduces database load, but leaves a crashed worker's task idle until the timer expires. A 5-minute lease renewed every 60 seconds suits batch tasks that run for 20 to 30 minutes."
     }
   }
 }

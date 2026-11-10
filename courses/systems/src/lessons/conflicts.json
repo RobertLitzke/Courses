@@ -4,14 +4,14 @@
   "title": "The item that came back",
   "teaches": "Versions and vector clocks, merging conflicting writes, CRDTs and collaborative editing, consistency models, and CAP and PACELC",
   "summary": [
-    "**Concurrent writes need a merge rule.** A store that accepts writes on two replicas at once will hold two versions of a key, and it must say what happens next.",
-    "**Last writer wins loses writes.** It keeps the version with the later timestamp, throws the other away without a word, and trusts clocks that can be wrong.",
-    "**Vector clocks tell newer from concurrent.** One counter per replica, compared entry by entry: if every entry is at least as large the version is newer, and if each is larger somewhere they are concurrent.",
-    "**A merge must keep removes as well as adds.** Dynamo's cart merged by union, so a deleted item could come back; an observed-remove set keeps both kinds of change.",
-    "**CRDTs merge without asking anyone.** Data types built so that every merge order gives the same result: counters, sets, maps and text, paid for in extra metadata.",
-    "**Shared editing works on letters, not positions.** Operational transformation rewrites each edit's position against edits made at the same time; a text CRDT gives every letter a fixed id.",
-    "**Name the consistency you offer.** Linearizable, causal, read-your-writes and eventual promise different things, and each feature needs the weakest that is still correct.",
-    "**CAP is about partitions.** While replicas cannot reach each other, each must refuse requests or answer without the others; PACELC adds that without a partition the trade is latency against consistency."
+    "**Concurrent writes need a merge rule.** A store that accepts writes on two replicas at once will hold two versions of a key, and its engineers must specify how to reconcile them.",
+    "**Last writer wins loses writes.** It keeps the version with the later timestamp, silently discards the other, and relies on physical clocks that can drift.",
+    "**Vector clocks tell newer from concurrent.** Each version carries one counter per replica, compared entry by entry: if every entry is at least as large and one is larger, the version is newer, and if each clock has a larger entry somewhere, they are concurrent.",
+    "**A merge must keep removes as well as adds.** Dynamo's cart merged by union, so a deleted item could reappear; an observed-remove set tracks both additions and removals.",
+    "**CRDTs merge without coordination.** Replicated data structures for counters, sets, maps and text guarantee that replicas converge to the same state regardless of message order, at the cost of extra metadata.",
+    "**Shared editing requires position transformation or immutable IDs.** Operational transformation rewrites each edit's index against concurrent edits, whereas a text CRDT assigns every character a fixed identifier.",
+    "**Name the consistency you offer.** Linearizable, causal, read-your-writes and eventual consistency provide different guarantees, and engineers select the weakest model that preserves correctness for a given feature.",
+    "**CAP applies during partitions.** While replicas cannot reach each other, an isolated replica must either reject requests or answer without consulting the others; PACELC adds that during normal operation the trade-off is between latency and consistency."
   ],
   "parts": [
     {
@@ -19,15 +19,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Dynamo paper that lesson 12 followed, presented at SOSP in October 2007, contains a sentence most papers would have left out. When two versions of a customer's cart conflict, the cart service merges them, and \"using this reconciliation mechanism, an add to cart operation is never lost. However, deleted items can resurface.\" A customer removes a book, the book comes back, and Amazon decided that was better than refusing the customer's next click."
+          "text": "The Dynamo paper from lesson 12, presented at SOSP in October 2007, contains a sentence most papers would have left out. When two versions of a customer's cart conflict, the cart service merges them, and \"using this reconciliation mechanism, an 'add to cart' operation is never lost. However, deleted items can resurface.\" A customer removes a book, the book comes back, and Amazon's engineers decided that was better than refusing the customer's next click."
         },
         {
           "type": "text",
-          "text": "The book comes back because of how lesson 12's design accepts writes. During a partition, or simply when two writes arrive at two coordinators at the same moment, two replicas of one key each accept a different change. When they next talk, each holds a version the other has not seen. Any store that takes writes on more than one replica at a time faces this, and it must answer two questions: how to tell whether one version replaced the other, and if neither did, what to keep."
+          "text": "The book comes back because of how the Dynamo design accepts writes. During a network partition, or simply when two writes arrive at two coordinators at the same moment, two replicas of one key each accept a different change. When they next communicate, each holds a version the other has not seen. Any data store that accepts writes on more than one replica at a time faces this conflict. Its builders must decide how to tell whether one version superseded the other, and what to retain if neither did."
         },
         {
           "type": "text",
-          "text": "The figure plays one such moment. The cart holds a book. The customer's phone adds a kettle through replica X while the customer's laptop, at almost the same moment, removes the book through replica Y, and X and Y cannot reach each other. Then the partition heals. Four rules for merging the two versions give four different carts."
+          "text": "In the interactive figure below, the cart initially holds a book. The customer's phone adds a kettle through replica X while the customer's laptop, at almost the same moment, removes the book through replica Y, while X and Y cannot reach each other. Then the partition heals. Four rules for merging the two versions produce four different carts."
         },
         {
           "type": "interactive_diagram",
@@ -47,7 +47,7 @@
         },
         {
           "type": "text",
-          "text": "Two things go wrong. The rule throws away one of two concurrent writes, every time, so it is right only where the later write really should replace the earlier one, such as a user setting a profile picture. And \"later\" is read off clocks on different machines. Clocks set by NTP, the Network Time Protocol, which adjusts a machine's clock from time servers over the network, are typically within a few milliseconds of each other and can be off by much more after a fault or a leap second, so the write that happened second can carry the earlier stamp and lose. Lesson 20 shows what it takes to build a clock whose error is known."
+          "text": "This approach has two flaws. First, the rule silently discards one of two concurrent writes every time, so it is appropriate only where a later write truly replaces the earlier one in full, such as a user updating a profile picture. Second, timestamps come from physical clocks on different machines. Clocks synchronised by NTP (the Network Time Protocol, which adjusts a machine's clock against network time servers) typically drift by a few milliseconds and can diverge much further after a hardware fault or a leap second. As a result, the write that occurred second in real time can carry an earlier timestamp and be overwritten. In lesson 20, we will examine what is required to build a clock with bounded error."
         }
       ]
     },
@@ -60,20 +60,20 @@
         },
         {
           "type": "text",
-          "text": "In 1988 Colin Fidge and Friedemann Mattern each published a way to capture that relation exactly, the **vector clock**. A version carries one counter for each replica that has written it. A replica that accepts a write increases its own counter; a version that merges two takes the larger value of each counter. This lesson writes a clock as each replica's letter followed by its counter, so [X1 Y1] means replica X has counted one write to this key and Y one; a missing letter counts as zero. Comparing two versions is entry by entry:"
+          "text": "In 1988, Colin Fidge and Friedemann Mattern independently published a data structure that captures causal history: the **vector clock**. Every version of a value carries one integer counter for each replica that has modified it. When a replica accepts a write, it increments its own counter; when a replica merges two versions, it takes the element-wise maximum of their counters. We will write a vector clock as each replica's identifier followed by its counter, so [X1 Y1] means replica X has recorded 1 write to this key and replica Y has recorded 1 write; an omitted replica has a counter of 0. Replicas compare two versions entry by entry:"
         },
         {
           "type": "key_ideas",
           "title": "Comparing two vector clocks",
           "points": [
             "Every entry of a is at most the matching entry of b, and one is smaller: a happened before b, and b replaces it. [X1] is before [X2].",
-            "Each clock has at least one entry larger than the other's: concurrent. [X2] against [X1 Y1] is concurrent: X counted a write Y never saw, and Y counted one X never saw.",
-            "All entries equal: the same version."
+            "If each clock has at least one entry strictly larger than the other's, the versions are concurrent. Comparing [X2] against [X1 Y1] shows concurrency because X recorded a second write that Y never saw, while Y recorded a write that X never saw.",
+            "If all entries are equal, the two versions are identical."
           ]
         },
         {
           "type": "text",
-          "text": "Dynamo kept a vector clock with every version. A version whose clock is before another's is dropped. Concurrent versions are all kept, and a read returns them all, called **siblings**, with their clocks. The application merges them and writes the result back with a clock that has seen both, which ends the conflict. In Dynamo's interface a read returns the list of values together with an opaque **context** holding their clocks, and a write passes that context back, which is how the store knows the new value replaces all of them. Pick \"Keep both\" in the figure to see the two versions handed to the phone. Nothing is lost, but every piece of code that reads a cart must know how to merge one.[^truncation]"
+          "text": "Dynamo attaches a vector clock to every version. If one version's clock happened before another's, the store drops the older version. If multiple versions are concurrent, the store retains all of them as **siblings** and returns them together on a read. In Dynamo's API, a read returns the list of sibling values along with an opaque **context** containing their vector clocks. The client application merges the values and passes the context back in its subsequent write, allowing the store to assign a new vector clock that supersedes all the merged siblings. Select \"Keep both\" in the figure to see both versions returned to the phone. No data is lost, but every client reading a cart must implement reconciliation logic.[^truncation]"
         }
       ]
     },
@@ -82,24 +82,24 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The cart service's merge took every item in either version, the **union**. That keeps the kettle and brings back the book, because a version that lacks the book does not say whether the book was never added or was removed. The merge needs to know which. An **observed-remove set** records it: each add carries a tag no other add has, and a remove records the tags of the adds it saw. The merge keeps every add and every remove, and an item is in the set if it has an add whose tag no remove names. The book's add was named by the laptop's remove, so the book stays out; the kettle's add was named by no remove, so the kettle stays in. If the phone had added a second book during the partition, that add's new tag would keep it."
+          "text": "Amazon's cart service reconciled siblings by taking the set **union** of the items in every version. Taking the union retains the kettle and restores the deleted book, because a version missing the book carries no record of whether the book was never added or was explicitly removed. To distinguish the two, an **observed-remove set** (OR-Set) tracks causal history per element: each addition attaches a globally unique tag to the item, and a removal records the specific tags of the additions currently present on that replica. When two replicas merge their sets, they take the union of all additions and the union of all removals; an item remains in the set if and only if it has an addition tag that does not appear in the removal set. In our example, the laptop's removal recorded the book's addition tag, so the book stays out, while no removal recorded the kettle's tag, so the kettle stays in. If the phone had added a second copy of the book during the partition, that addition would carry a fresh tag and survive the merge."
         },
         {
           "type": "text",
-          "text": "Marc Shapiro, Nuno Preguiça, Carlos Baquero and Marek Zawirski named this family in 2011: **conflict-free replicated data types**, CRDTs. A CRDT's merge gives the same result whatever order updates are merged in (it is commutative and associative) and merging one update twice changes nothing (it is idempotent), so replicas that have received the same updates hold the same value, in whatever order and however many times the updates arrived. The smallest example is a grow-only counter for likes: each replica counts its own likes in its own entry, the total is the sum of the entries, and the merge takes the larger value of each entry, so no like is counted twice or lost."
+          "text": "Marc Shapiro, Nuno Preguiça, Carlos Baquero and Marek Zawirski formalised this family of data structures in 2011 as **conflict-free replicated data types** (CRDTs). In a state-based CRDT, the merge function is commutative ($A \\sqcup B = B \\sqcup A$), associative ($(A \\sqcup B) \\sqcup C = A \\sqcup (B \\sqcup C)$) and idempotent ($A \\sqcup A = A$). Because of these three properties, any two replicas that have received the same set of updates converge to the exact same state, regardless of the order in which updates arrive or whether messages are duplicated. A straightforward example is a grow-only counter for social-media likes: in a cluster of $n$ replicas, the counter is an $n$-element vector where each replica increments only its own slot, the displayed total is the sum of all slots, and merging two counters takes the maximum of each slot."
         },
         {
           "type": "text",
-          "text": "The cost is metadata and a narrower menu. An observed-remove set keeps a tag for every add and remove, and those can only be cleaned up once every replica is known to have seen them.[^tombstones] Counters, sets, registers, maps and text have CRDT forms; a rule such as \"a bank balance may not go below zero\" does not, because two replicas can each approve a withdrawal that is fine alone and wrong together."
+          "text": "CRDTs trade extra metadata for restricted semantics. An observed-remove set allocates a unique tag for every addition and retains removal records until every replica is guaranteed to have processed them.[^tombstones] Furthermore, while counters, sets, registers, maps and plain text have CRDT formulations, invariants like \"a bank account balance must not drop below 0 USD\" cannot be enforced by a CRDT alone, because two partitioned replicas can each approve a withdrawal that satisfies the invariant locally but violates it when combined. Depending on the data's invariants, engineers choose from four approaches:"
         },
         {
           "type": "key_ideas",
           "title": "Choosing a merge rule",
           "points": [
-            "Last writer wins, where a later write really replaces an earlier one: a profile picture, a setting.",
-            "A CRDT, where the data is a counter, a set, a map or text and its merge is clear.",
-            "Siblings returned to the application, where only it knows how to merge and no write may be lost.",
-            "A single leader (lesson 11), where no merge can be right, such as a balance that must not go below zero."
+            "Last writer wins, when a later write completely supersedes an earlier one, such as updating a profile picture or a configuration setting.",
+            "A CRDT, when the data structure is a counter, set, map or text document with a mathematically sound automatic merge.",
+            "Sibling versions returned to the client application, when domain-specific reconciliation logic is required and writes must not be dropped.",
+            "A single-leader consensus group (lesson 11), when concurrent updates must be serialised to preserve a global invariant, such as an account balance that must remain at or above 0 USD."
           ]
         }
       ]
@@ -109,7 +109,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Shared documents hit the same problem with positions. Each editor applies their own keystrokes at once and sends them to the others, so two edits made at the same moment arrive at each screen in a different order. Positions count from 0, so in \"cart\" the c is at 0 and the t at 3. An edit named by position, \"delete the letter at 3\", means a different letter once someone else's insert has shifted the text."
+          "text": "Collaborative text editors encounter conflict resolution over character indices. For responsiveness, each user's client applies local keystrokes immediately to the local buffer and transmits the operations to peers asynchronously, so concurrent edits arrive at different clients in different orders. Character indices are 0-based: in the string \"cart\", 'c' is at index 0 and 't' is at index 3. An operation specified by index, such as `delete(3)`, targets the wrong character if a concurrent insertion at an earlier index has already shifted the string."
         },
         {
           "type": "interactive_diagram",
@@ -120,7 +120,7 @@
         },
         {
           "type": "text",
-          "text": "Clarence Ellis and Simon Gibbs described the first answer in 1989 for GROVE, a group outliner at MCC in Austin: **operational transformation**. Before applying a remote edit, rewrite it against every concurrent edit already applied. Alice's insert at position 1 came before position 3, so Bob's delete becomes a delete at 4. Getting the transformations right for every pair of operations and every order of arrival proved hard, and several published algorithms were later shown to diverge. Xerox PARC's Jupiter system in 1995 made it manageable by sending every edit through one central server that fixes the order, so each client transforms only against the server. Google Wave in 2009 and the rewritten Google Docs in 2010 used that design.[^wave]"
+          "text": "Clarence Ellis and Simon Gibbs published the first solution in 1989 for GROVE, a collaborative outliner built at the Microelectronics and Computer Technology Corporation (MCC) in Austin: **operational transformation** (OT). Before a client applies a remote operation, it transforms the operation's parameters against all concurrent operations that have already been applied locally. Because Alice's insertion at index 1 precedes index 3, her client transforms Bob's incoming `delete(3)` into `delete(4)`. Designing transformation functions that converge across every pair of operation types and arrival orders in a peer-to-peer network proved difficult, and several published OT algorithms were later shown to fail under multi-way concurrency. In 1995, David Nichols and colleagues at Xerox PARC simplified the state space in their Jupiter system by routing every edit through a single central server that establishes a total order; each client then only transforms its unacknowledged local edits against the server's stream. Google Wave in 2009 and the 2010 rewrite of Google Docs adopted this client-server OT architecture.[^wave]"
         },
         {
           "type": "text",
@@ -128,7 +128,7 @@
         },
         {
           "type": "text",
-          "text": "Evan Wallace described Figma's choice in October 2019. Figma has a central server, as Jupiter did, and a design document is a tree of objects with properties. Two people changing different properties never conflict; two people changing the same property of the same object are settled by **last writer wins**, where \"last\" is the order the server received them. That loses one of two concurrent changes, but the loser saw the other's change appear a moment later on screen, so nothing vanishes unseen. Figma's post called the design inspired by CRDTs and simpler than them, since the server can decide what peers would otherwise have to agree on."
+          "text": "In October 2019, co-founder Evan Wallace documented how Figma's multiplayer design tool avoids full text or tree CRDTs. Like Jupiter, Figma routes updates through a central server, and represents each design file as a scene graph of objects with key-value properties. Concurrent edits to different properties of the same object commute naturally; concurrent edits to the exact same property of the same object are resolved by **last writer wins**, ordered by arrival time at the central server. Although the server overwrites the earlier of two concurrent property changes, the user whose edit was overwritten sees the winning value render within tens of milliseconds. Wallace described Figma's architecture as CRDT-inspired, noting that relying on a central server to sequence updates avoided the metadata overhead of peer-to-peer CRDTs."
         }
       ]
     },
@@ -143,8 +143,8 @@
           "type": "key_ideas",
           "title": "Consistency models, strongest first",
           "points": [
-            "**Linearizable**: every operation seems to take effect at one instant between its start and its reply, so all readers see one order, in which an operation that finished before another started comes first. Chubby and Raft (lesson 11) give this.",
-            "**Causal**: if one write could have influenced another, every reader sees them in that order; concurrent writes may appear in different orders to different readers.",
+            "**Linearizability**: every operation appears to take effect atomically at a single point in real time between its invocation and its completion. All clients observe a single total order of operations that respects real-time ordering. Consensus systems like Chubby and Raft (lesson 11) provide linearizable reads and writes.",
+            "**Causal consistency**: operations that are causally related (where one happened before the other) are observed in the same order by every client, while concurrent operations may be observed in different orders by different clients.",
             "**Read your writes**: a client always sees its own earlier writes, whatever it sees of others' (lesson 4).",
             "**Eventual**: if writes stop, all replicas reach the same value in time. Werner Vogels made the term widely known in 2008."
           ]
@@ -152,7 +152,7 @@
         {
           "type": "interactive_diagram",
           "id": "groups",
-          "caption": "Eight features of a social site and a shop, each needing a level of consistency. The weakest model that is still correct is the one to choose, since every step up costs latency or availability.",
+          "caption": "Eight features of a social site and a shop, each needing a level of consistency. Engineers choose the weakest model that preserves correctness, because stronger consistency increases request latency or reduces availability.",
           "task": "Sort all eight",
           "goal": "sorted",
           "options": {
@@ -229,7 +229,7 @@
         },
         {
           "type": "text",
-          "text": "Naming the trade-off for a feature means saying all three: the model it needs, what a partition does to it, and the latency it pays on an ordinary day. A like counter can be PA/EL with a CRDT and nobody notices. The last seat on a flight must be PC/EC, and the price is a slower purchase and, rarely, an error page."
+          "text": "When specifying storage for an application feature, an engineer must choose the required consistency model, the failure behaviour during a partition, and the acceptable request latency during normal operation. A post's like counter can run on a PA/EL store backed by a CRDT counter without users noticing temporary divergence. Booking the final seat on a commercial flight requires a PC/EC store to prevent double-booking, at the cost of higher write latency and occasional unavailability during network faults."
         }
       ]
     },
@@ -291,7 +291,7 @@
                   "During a partition, a cut-off replica must refuse requests or risk answering with stale data"
                 ],
                 "answer": 2,
-                "why": "Partitions happen whatever the design; the choice is what a cut-off replica does. The latency trade without partitions is PACELC's addition."
+                "why": "Partitions happen whatever the design; the choice is what a cut-off replica does. The latency trade-off without partitions is PACELC's addition."
               },
               {
                 "ask": "Two editors type into one line at the same time, with no central server. What lets a text CRDT agree on the result?",
@@ -311,7 +311,7 @@
                   "The number of likes on a post, which may lag by a few likes for a few seconds"
                 ],
                 "answer": 1,
-                "why": "A reply shown before the message it answers makes no sense, so cause must come before effect; unrelated messages may still arrive in any order. The seat needs linearizability and the like count only eventual consistency."
+                "why": "A reply shown before the message it answers makes no sense, so cause must come before effect; unrelated messages may still arrive in any order. The seat needs linearizability and the like count needs only eventual consistency."
               }
             ]
           }
@@ -323,27 +323,27 @@
     "lamport": {
       "kind": "digression",
       "title": "From relativity",
-      "text": "Lamport has said the idea came from special relativity, where there is no single time for events in different places, only an order fixed by which events could have sent a signal to which. The paper also introduced logical clocks, single counters that respect happened-before, and used them to build a mutual-exclusion algorithm."
+      "text": "Lamport noted that the idea came from special relativity, where there is no universal time for events in different locations, only a partial order defined by whether a light signal could travel from one event to another. The 1978 paper also introduced scalar logical clocks (single counters that respect the happened-before relation) and used them to construct a distributed mutual-exclusion algorithm."
     },
     "truncation": {
       "kind": "technical",
       "title": "Clocks that grow",
-      "text": "A vector clock gains an entry for every replica that ever coordinates a write to the key. Dynamo capped them: when a clock had more than about ten entries, the oldest was dropped, with a timestamp kept to tell which. A truncated clock can make two related versions look concurrent, which costs an unneeded merge; the paper reports that this had not been a problem in production."
+      "text": "A vector clock gains an entry for every replica that coordinates a write to the key. To bound metadata size, Dynamo truncated vector clocks: when a clock exceeded a threshold of 10 entries, the replica removed the entry with the oldest last-updated timestamp. A truncated clock can cause a descendant version to appear concurrent with its ancestor, triggering an unnecessary merge, though the Dynamo authors reported that they had not encountered this issue in production."
     },
     "tombstones": {
       "kind": "technical",
       "title": "Cleaning up",
-      "text": "A remove's record must stay until every replica has merged the add it names, or a replica that has not heard of the remove could merge the add back in. Knowing that every replica has seen something needs the replicas to agree, which is the coordination CRDTs were meant to avoid, so real systems clean up rarely and in the background."
+      "text": "A removal record (tombstone) must remain in the set until every replica has processed the addition it cancels; otherwise, a replica that has not yet seen the removal could re-introduce the added tag during a future merge. Determining that every replica has observed an operation requires cluster-wide coordination, so production systems run garbage collection infrequently as a background process."
     },
     "cap": {
       "kind": "technical",
       "title": "What the proof means by each word",
-      "text": "In Gilbert and Lynch's proof, consistency means linearizable, availability means every request to a replica that has not failed gets an answer, and a partition means any messages between replicas may be lost. The theorem says nothing about weaker models: a system can be available during a partition and still give read-your-writes or causal consistency to clients that stay with one replica."
+      "text": "In Gilbert and Lynch's formal model, Consistency specifically means atomic (linearizable) data objects, Availability means every request received by a non-failing node must eventually return a response, and Partition tolerance means the network may drop an arbitrary number of messages between nodes. The theorem does not preclude weaker consistency models during a partition: an available system can still provide read-your-writes or causal consistency to clients pinned to a reachable replica."
     },
     "wave": {
       "kind": "digression",
       "title": "Google Wave",
-      "text": "Google Wave, announced in May 2009, let many people edit a conversation at once, built on Jupiter-style transformation. Google stopped developing it in August 2010, but its engineers and its approach went into the collaborative editing that Google Docs gained that year."
+      "text": "Google Wave, announced in May 2009, allowed multiple users to edit rich-text conversation threads concurrently using Jupiter-style operational transformation. Google cancelled standalone development of Wave in August 2010, and its core engineering approach was integrated into the collaborative editing engine launched for Google Docs later that year."
     }
   }
 }

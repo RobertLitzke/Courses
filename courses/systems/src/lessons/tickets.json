@@ -8,55 +8,55 @@
     "spanner"
   ],
   "title": "Fourteen million people, two million tickets",
-  "teaches": "Selling something scarce: a waiting room, holds that expire, no seat sold twice, and bots",
+  "teaches": "Selling scarce inventory: virtual waiting rooms, expiring holds, preventing double-selling, and mitigating bots",
   "parts": [
     {
       "title": "The presale",
       "blocks": [
         {
           "type": "text",
-          "text": "On the morning of 15 November 2022 Ticketmaster opened a presale for Taylor Swift's Eras Tour, her first tour in five years, with dozens of stadium dates across the United States. The presale was meant for fans who had registered in advance and been sent a code. By the company's own account two days later, about 14 million people, and bots, showed up; its systems took 3.5 billion requests that day, four times their previous peak. Pages hung, queues stalled, seats vanished from baskets during payment. Ticketmaster still sold more than two million tickets that day, a record, and then cancelled the sale to the general public planned for 18 November, saying there were not enough tickets left to meet the demand.[^senate]"
+          "text": "On the morning of 15 November 2022, Ticketmaster opened a presale for Taylor Swift's Eras Tour, her first tour in five years, with 52 stadium dates across the United States. The presale was meant for fans who had registered in advance and received an access code. By the company's own account two days later, about 14 million users and bots showed up. Its systems took 3.5 billion requests that day, four times their previous peak. Pages hung, queues stalled, and seats vanished from shopping baskets during payment. Ticketmaster still sold more than 2 million tickets that day, a record, and then cancelled the general public sale planned for 18 November, citing insufficient remaining inventory to meet demand.[^senate]"
         },
         {
           "type": "text",
-          "text": "Selling something scarce to far more people than can have it is a design problem with its own shape: most of the work is saying no, and the one thing that must never happen is selling the same seat twice. This lesson is a design exercise. Design an on-sale for **14 million people and 2 million seats**, then compare with what happened. The same shape turns up in flash sales, hotel rooms for a big weekend, and a ride service handing out one driver to one rider."
+          "text": "Selling a scarce item to far more buyers than inventory allows is a distinct systems design problem. Most of the system's work consists of rejecting requests, and the primary invariant is that no seat may be sold twice. In this lesson, we will design a ticketing system for **14 million users and 2 million seats**, and then compare our design with the Ticketmaster outage. This same architecture applies to retail flash sales, hotel reservations for peak weekends, and ride-hailing dispatch systems matching one driver to one rider."
         }
       ]
     },
     {
-      "title": "What it must do, and what it need not",
+      "title": "Requirements and scope",
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** Admit people in a fair order. Show which seats are free. Let a buyer hold a few seats while they pay, for a limited time. Sell each seat once, then issue the ticket. Keep bots and resellers' scripts from taking the seats."
+          "text": "**Functional requirements.** The system must admit users in a fair order, display available seats, allow a buyer to hold selected seats for a limited time during checkout, sell each seat at most once, issue the ticket, and prevent automated bots and reseller scripts from exhausting the inventory."
         },
         {
           "type": "text",
-          "text": "**Non-functional**, and here they differ by operation, which is the point. The **seat map** may be a few seconds stale: a seat shown as free that turns out to be taken costs one more click. A **hold** must be exact: two holders for one seat is the failure the whole system exists to prevent. **Payment** must happen exactly once per order, with the idempotency keys of lesson 22. And everyone who will be told no should be told quickly and cheaply, because they are 12 million of the 14."
+          "text": "**Non-functional requirements.** Consistency and latency requirements vary by operation. The **seat map** may be a few seconds stale, because displaying a recently taken seat as available only costs the user an extra click. A **hold** requires strict consistency, as assigning two holds to one seat is the exact failure the system exists to prevent. **Payment** must execute at most once per order, using the idempotency keys from lesson 22. Finally, the system must reject the 12 million unsuccessful users quickly and with minimal compute cost."
         },
         {
           "type": "text",
-          "text": "**Out of scope:** pricing and \"dynamic\" prices, resale, refunds, drawing the venue map. They matter commercially, but none of them is what breaks on the morning of the sale."
+          "text": "**Out of scope.** We will not cover dynamic pricing, secondary resale, refunds, or rendering the venue map. These features matter commercially, but they are not the bottlenecks that cause outages when a sale opens."
         }
       ]
     },
     {
-      "title": "The numbers",
+      "title": "Throughput estimates",
       "blocks": [
         {
           "type": "text",
-          "text": "Before drawing any boxes, guess how fast the selling itself has to go."
+          "text": "Before designing the architecture, we should estimate the required transaction throughput."
         },
         {
           "type": "interactive_diagram",
           "id": "tickets-estimate",
-          "caption": "The estimate for a big on-sale. Refreshing every 5 seconds is a guess at what a nervous fan does with a page that isn't moving.",
-          "task": "Guess the selling rate, then try other sizes",
+          "caption": "Throughput estimates for a large ticket sale. A 5-second refresh interval approximates the behaviour of an anxious user waiting on a stalled page.",
+          "task": "Estimate the write throughput for sales, then test different traffic parameters",
           "goal": "guess"
         },
         {
           "type": "text",
-          "text": "Two million seats over four hours is about 140 seats a second. One database can record 140 sales a second without noticing. The load that breaks the system is everything around the sale: 14 million people each refreshing a seat map every few seconds is 2.8 million requests a second, about twenty thousand requests a second for every seat sold a second. The design problem is not how to sell faster. It is how to keep 14 million people from all asking at once, and how to answer the 12 million who will get nothing with something cheaper than a database query."
+          "text": "Selling 2 million seats over 4 hours averages about 140 seats per second. A single relational database can easily commit 140 transactions per second. The load that overwhelms the system comes from read and status requests around the sale: 14 million users refreshing a seat map every 5 seconds generates 2.8 million requests per second, or 20,000 requests for every seat sold. The engineering challenge is not increasing write throughput for sales, but preventing 14 million clients from querying the backend simultaneously, while serving the 12 million users who will not get tickets using something much cheaper than a database query."
         }
       ]
     },
@@ -65,26 +65,26 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The seat service in the figure can run about 160 checkout steps a second. Fans arrive faster than that. Send them straight to the seats and see what happens, then put a **waiting room** in front: a queue that admits people at a set rate, here 140 a second, and holds the rest. In the figure each fan makes one request, a single checkout step, so admitting 140 a second leaves the service a margin of 20 steps for retries and slow moments. A real fan makes several calls, seat map, hold and payment, so a real room's rate is the service's capacity divided by the calls each fan makes, less a margin of ten or twenty per cent. The figure runs in slow motion, with long links so the requests can be followed."
+          "text": "The seat service in the simulation below has a capacity of 160 checkout requests per second, while users arrive at a higher rate. If you route traffic directly to the seat service, the queue overflows. Instead, you can place a **waiting room** in front of the service to buffer incoming traffic and admit users at a fixed rate of 140 users per second. In this simulation, each admitted user makes a single checkout request, so an admission rate of 140 users per second leaves a headroom of 20 requests per second for retries and latency spikes. In a production system, a user makes multiple requests (loading the seat map, placing a hold, and submitting payment), so you would set the admission rate to the service's capacity divided by the average number of requests per user, minus a 10% to 20% safety margin. The simulation runs at reduced speed with high network latency so you can observe individual requests."
         },
         {
           "type": "interactive_diagram",
           "id": "tickets-room",
-          "caption": "Fans, an optional waiting room, the seat service and the seats table. Without a room, a fan whose page doesn't load in 3 seconds tries again, twice. Amber dots above a part are requests waiting there.",
-          "task": "Bring 400 or more fans a second through a waiting room",
+          "caption": "Clients, an optional waiting room, the seat service, and the seats database table. Without a waiting room, a client whose request times out after 3 seconds retries up to two times. Amber dots above a component represent queued requests.",
+          "task": "Handle an arrival rate of 400 or more users per second using a waiting room",
           "goal": "calm"
         },
         {
           "type": "text",
-          "text": "Straight to the seats, a crowd of 400 a second fills the seat service's queue faster than it empties. Within seconds each request waits longer than the 3 seconds a fan will wait, so the fan gives up and tries again, which adds a request, while the service is still working through requests whose senders have already left. Its CPU is fully busy and almost none of its work produces a sale: throughput falls to nearly nothing just when demand is highest.[^metastable] With the room, the seat service never sees more than it can do, sells steadily at the admitted rate, and the queue lives in the room, where waiting is cheap and each person can be told where they stand."
+          "text": "When 400 users per second bypass the waiting room, requests arrive at the seat service faster than it can process them. Within seconds, the queueing delay exceeds the 3-second client timeout. Clients time out and send retry requests, increasing the queue length further while the service spends its CPU cycles processing requests for clients that have already disconnected. Although CPU utilisation stays at 100%, effective throughput (goodput) drops near zero right when demand peaks.[^metastable] With a waiting room in place, the seat service receives traffic strictly within its capacity and processes sales at a steady rate of 140 seats per second. The queue moves to the waiting room, where holding connections is cheap and the system can report queue positions to users."
         },
         {
           "type": "text",
-          "text": "A waiting room is cheap to make large because it does almost nothing. Arriving, a fan gets a **signed token** holding their place and the time; the page they see is the same static page for everyone, served from a content delivery network (lesson 19), and it asks a small endpoint every half minute or so whether the token's turn has come. The room admits tokens at the rate the seat service can take, a token bucket like those of lesson D1, *Saying no politely*, at the front door, and an admitted token lets its holder into the seat map for a limited time. Everyone who arrives before the sale opens is put in a **random order** at opening time, so arriving early, or with a thousand browser tabs, buys no advantage. With rooms in several regions, the order is drawn once, centrally, over every token issued anywhere before opening, and each region admits from its part of that one list."
+          "text": "A waiting room scales cheaply because it performs minimal computation per user. Upon arrival, a client receives a **signed token** containing their queue identifier and timestamp. The client views a static HTML page served from a content delivery network (lesson 19), which polls a lightweight endpoint every 30 seconds to check if their token's number has been reached. The waiting room admits tokens at the seat service's capacity rate using a token bucket algorithm (as covered in lesson D1, *Saying no politely*). Once admitted, the token grants temporary access to the seat map. To prevent users from gaining an advantage by arriving hours early or opening thousands of browser tabs, the system collects all tokens issued before the sale starts and shuffles them into a **random order** at the opening timestamp. In a multi-region deployment, a central coordinator shuffles the pre-sale tokens across all regions once, and each regional waiting room admits users from its assigned partition of the global list."
         },
         {
           "type": "text",
-          "text": "The cheapest no comes first. If the presale is for invited fans, the invitation code is checked when the token is issued, before a person can cost the seat service anything; per-account and per-card limits (lesson D1) are checked there too. A request that is going to be refused should be refused at the edge, by a machine that keeps no state."
+          "text": "A system should reject invalid requests as early and cheaply as possible. For an invite-only presale, the edge servers validate the invitation code before issuing a waiting room token, before the request ever reaches the seat service. The edge layer also enforces per-account and per-card rate limits (lesson D1). Stateless edge servers should filter out any request that can be rejected without querying the core database."
         }
       ]
     },
@@ -93,26 +93,26 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The data model is a row per seat: (event, section, seat) as the key, and a **state**, a **holder** and a **hold_until** time. The API is two calls. **POST /holds** with the event, the seats wanted and an idempotency key returns a hold id and its expiry, or a refusal. **POST /orders** with the hold id, a payment token and another idempotency key charges the card and turns the hold into a sale. Between them sits the buyer typing a card number, which can take minutes, so a hold must last minutes and must end by itself if the buyer walks away. Its length comes from the payment times: if 99% of payments finish within four minutes, a ten-minute hold covers them, and a payment still waiting on a slow bank extends the hold once with another conditional write."
+          "text": "The database schema uses one row per seat, with a composite primary key of (event, section, seat), alongside **state**, **holder**, and **hold_until** columns. The API exposes two endpoints. **POST /holds** accepts the event ID, the requested seat IDs, and an idempotency key, returning either a hold ID with an expiration timestamp or a rejection. **POST /orders** accepts the hold ID, a payment token, and a second idempotency key, charges the payment method, and converts the hold into a completed sale. Because a buyer needs time to enter payment details, a hold must last for several minutes and expire automatically if the buyer abandons the checkout. Engineers set the hold duration based on payment latency percentiles: if 99% of checkouts complete within 4 minutes, a 10-minute hold accommodates almost all buyers, while an active payment awaiting a slow bank response can extend the hold once via an additional conditional write."
         },
         {
           "type": "text",
-          "text": "The obvious way to take a seat is to read its row, see that it is free, and write the new holder. Two buyers do it at the same moment, through two servers."
+          "text": "A naive implementation checks seat availability by reading the seat row, verifying that the state is free, and writing the new holder ID. Consider what happens when two buyers request the same seat simultaneously through two different application servers."
         },
         {
           "type": "interactive_diagram",
           "id": "tickets-race",
-          "caption": "Two buyers want seat 14C, through two app servers sharing one seats table. Blue: requests; green: answers; orange: writes; red: a refusal or a double sale.",
-          "task": "Play a design that sells the seat once",
+          "caption": "Two buyers request seat 14C simultaneously through two application servers connected to a shared seats table. Blue dots represent read requests, green dots represent responses, orange dots represent writes, and red dots indicate a rejected write or a double sale.",
+          "task": "Run the simulation using a concurrency control mechanism that prevents double-selling",
           "goal": "once"
         },
         {
           "type": "text",
-          "text": "Read-then-write fails because the decision was made on a read that was already out of date when the write landed: both servers saw *free*. The fix moves the decision into the write. A **conditional write** says: set the holder to me and the expiry to ten minutes from now, *only where* the seat has no holder or its hold has expired. In SQL that is an UPDATE with the condition in its WHERE clause, and the database reports how many rows it changed: one for the winner, zero for everyone else. No lock is held while anyone types, and an abandoned hold frees itself, because the condition treats an expired hold as free. The expiry is compared against the database's own clock, never the app servers', which can disagree by more than you would like (lesson 20).[^clock]"
+          "text": "The read-then-write pattern fails due to a race condition: both application servers read the row before either write commits, so both observe the seat as *free*. To fix this, we combine the check and the update into an atomic **conditional write**. The query instructs the database to set the holder to the current buyer and the expiration time to 10 minutes in the future *only if* the seat currently has no holder or its existing hold has expired. In SQL, this is an UPDATE statement with the state and expiration checks in the WHERE clause. The database executes the update atomically and returns the number of modified rows: 1 row for the winning request, and 0 rows for any concurrent requests. This approach avoids holding long-lived database locks while a user types their credit card details, and abandoned holds free themselves automatically because subsequent conditional writes treat expired holds as available. To prevent clock drift between application servers from corrupting hold durations (lesson 20), the query evaluates expiration timestamps against the database server's internal clock.[^clock]"
         },
         {
           "type": "text",
-          "text": "A buyer who wants four seats together needs all four or none, so the four conditional writes go in one transaction. If seats are partitioned by (event, section), the seats a group would want together are on one shard, and the transaction never has to cross machines, avoiding the two-phase commit of lesson 20. The best sections are hot: thousands of buyers aim at the same few hundred rows at the opening second. One answer is to give each section a single owner, a process that takes all the requests for its section in order, decides in memory, and writes the results: no contention at all, and it can choose \"best four together\" for the buyer instead of making them guess a seat that is gone by the time they click it. If an owner dies, its sections are handed to another process, as conversations were in lesson D2, *Half a billion people, a few dozen engineers*: the new owner reads the sections' seats from the database, and the conditional writes stop the old owner if it was only paused."
+          "text": "A buyer requesting four adjacent seats requires an all-or-nothing allocation, so the application wraps the four conditional writes in a single database transaction. If we partition the seats table by (event, section), adjacent seats always reside on the same database shard. The transaction executes locally on one machine without requiring a distributed two-phase commit (lesson 20). However, popular sections create hot shards, as thousands of buyers target the same few hundred rows when the sale opens. To eliminate lock contention on the database, we can route all requests for a given section to a single dedicated worker process. This section owner queues requests in memory, allocates seats sequentially, and writes the decisions to the database. Because the process holds the section's exact state in memory, it can also automatically assign the best available adjacent seats, rather than forcing users to click specific seats on a map that is already stale. If a section owner process crashes, the cluster reassigns its sections to another worker, using the same failover pattern as the chat servers in lesson D2 (*Half a billion people, a few dozen engineers*). The new owner loads the current seat states from the database, while conditional writes prevent a paused old owner from overwriting newer allocations."
         },
         {
           "type": "text",
@@ -122,33 +122,33 @@
           "type": "key_ideas",
           "title": "The consistency each operation needs",
           "points": [
-            "Seat map: seconds stale is fine; serve it from a cache.",
-            "Hold: one winner per seat, by a conditional write that also honours expiry.",
-            "Payment: exactly once per order, by idempotency key.",
+            "Seat map: serving cached data that is a few seconds stale is acceptable.",
+            "Hold: enforce a single buyer per seat using an atomic conditional write that checks for expired holds.",
+            "Payment: guarantee at-most-once charging per order using an idempotency key.",
             "Sale: conditional on still holding the seat."
           ]
         }
       ]
     },
     {
-      "title": "Bots, fairness, and the same problem elsewhere",
+      "title": "Bot mitigation, fairness, and related systems",
       "blocks": [
         {
           "type": "text",
-          "text": "A reseller's script can be faster than any person at every step, so anti-bot measures put a cost on each step a person pays once and a script pays a million times. Registration in advance, with verification, decides who may enter at all. Tokens are bound to the account and the device that earned them, so they can't be handed to a farm of machines. Limits per account, per card and per address cap what any one buyer can take. A puzzle or a small proof of work at the room's door costs a person a second and a script farm real money. And after the sale, orders that share cards or addresses across many accounts can be cancelled."
+          "text": "Automated scalping scripts execute HTTP requests much faster than human users, so effective bot mitigation imposes a validation cost on every participant that is negligible for a single human but expensive to run at scale. Advance registration with identity verification filters who can enter the waiting room. Binding waiting room tokens to the authenticated account and client device prevents operators from transferring tokens from a harvesting cluster to checkout scripts. Enforcing purchasing limits per account, payment card, and billing address caps the inventory any single actor can acquire. Requiring a cryptographic proof-of-work challenge or interactive puzzle at the waiting room entrance costs a human user one second of compute time, but forces a botnet operator to pay for significant CPU capacity. Finally, asynchronous post-sale audits can identify and cancel orders that reuse credit cards or physical addresses across multiple accounts."
         },
         {
           "type": "text",
-          "text": "The same design answers other scarce things. A **flash sale** of 10,000 identical items doesn't need a row per item, only a counter decremented with the condition that it stays at zero or above; at tens of thousands of attempts a second, that one counter becomes the hot key, and it is split into ten counters of 1,000 on different shards, each buyer sent to one at random.[^split] A **hotel** keeps a counter per room type per night. A **ride service** treats each driver as a seat: offering a trip to a driver is a hold, a conditional write from *available* to *offered to rider 7 until 12:00:15*, and it expires in seconds if the driver doesn't accept, so no driver is ever offered to two riders at once."
+          "text": "This architecture generalises to other high-contention inventory systems. An e-commerce **flash sale** for 10,000 identical items does not require a database row per item; instead, it uses an inventory counter decremented via a conditional write checking that the count remains at 0 or above. Under a load of tens of thousands of requests per second, a single counter row becomes a database bottleneck, so engineers shard the inventory into ten counters of 1,000 items across separate database instances and route buyers to a shard at random.[^split] Similarly, a **hotel reservation system** maintains an availability counter per room type for each calendar night. A **ride-hailing service** models each available driver as a single seat: dispatching a ride offer executes a conditional write changing the driver's state from *available* to *offered to rider 7 until 12:00:15*. If the driver does not accept within 15 seconds, the hold expires automatically, ensuring the platform never assigns the same driver to two riders simultaneously."
         }
       ]
     },
     {
-      "title": "What happened, and what changes at scale",
+      "title": "The Ticketmaster outage and scaling further",
       "blocks": [
         {
           "type": "text",
-          "text": "Ticketmaster's statement after the presale said the demand was far beyond what it had planned for, that bot attacks and fans without presale codes had driven much of the traffic, and that it had slowed and paused sales to keep the system up. Set against the exercise, the mechanisms were familiar ones: a queue in front, holds, verified registration. What failed was the cheap no. A presale meant for invited fans was reached by many millions who weren't, and every one of them could make requests deep enough to hurt. Holds that expired while people were still paying, and baskets that emptied, are what a seat service under overload does: requests time out after their work is done, and the work is lost."
+          "text": "In its post-incident statement, Ticketmaster reported that traffic far exceeded capacity projections, driven largely by bot attacks and millions of uninvited users without presale codes, forcing engineers to throttle admission rates and pause queues to prevent a total outage. Ticketmaster's architecture already used the standard components from our design: a virtual waiting room, expiring seat holds, and advance fan verification. The primary failure occurred at the edge filtering layer. Because the system allowed millions of users without valid presale codes to enter the queues and generate backend traffic, unauthenticated requests consumed capacity meant for verified buyers. When the backend seat service became overloaded, active buyers experienced expiring holds during checkout and disappearing shopping baskets: classic symptoms of requests timing out in internal queues after completing database writes, causing the client session to lose state."
         },
         {
           "type": "text",
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "title": "Check",
+      "title": "Review questions",
       "blocks": [
         {
           "type": "quiz",
@@ -171,74 +171,74 @@
           "options": {
             "items": [
               {
-                "ask": "Two million seats sell over about four hours, and 14 million people come for them. What is the main design problem?",
+                "ask": "Two million seats sell over about 4 hours, and 14 million people try to buy them. What is the main systems design problem?",
                 "choices": [
-                  "Recording sales fast enough, since one database can't keep up with a stadium's worth of seats",
-                  "Keeping millions of people from asking at once, and refusing most of them cheaply",
+                  "Recording sales fast enough, since one database cannot keep up with a stadium's worth of seats",
+                  "Keeping millions of people from querying the backend at once, and rejecting most of them cheaply",
                   "Storing the seat map, which is too large for any single server to keep in memory"
                 ],
                 "answer": 1,
-                "why": "Selling is about 140 seats a second, easy for one database. The load is everyone else: millions refreshing, about twenty thousand requests per seat sold."
+                "why": "Writing the sales requires about 140 transactions per second, which a single database easily handles. The bottleneck comes from read traffic: millions of users refreshing the seat map generate roughly 20,000 requests per seat sold."
               },
               {
-                "ask": "A seat service is overloaded and every request queues longer than buyers wait. Why can its sales fall almost to zero while its CPU is fully busy?",
+                "ask": "A seat service is overloaded and every request sits in its queue longer than the client timeout. Why can its completed sales fall almost to zero while its CPU utilisation remains at 100%?",
                 "choices": [
-                  "It spends its time on requests whose buyers have already gone",
-                  "Its database locks every seat row during the overload, so no sale at all can be written until the load falls",
-                  "Its machines slow their clocks under heavy load, so every hold it has granted appears to expire at once"
+                  "It spends its CPU cycles processing timed-out requests for clients that have already disconnected",
+                  "Its database locks every seat row during the overload, so no sale can be written until the load falls",
+                  "Its machines slow their system clocks under heavy load, so every hold it has granted appears to expire at once"
                 ],
                 "answer": 0,
-                "why": "Work on timed-out requests is wasted, and each timeout brings a retry. A waiting room that admits only what the service can finish keeps every unit of work useful."
+                "why": "Compute spent on timed-out requests is wasted, and each timeout triggers a client retry that adds to the queue. A waiting room that limits admission to the service's processing capacity ensures every request completes before the client times out."
               },
               {
-                "ask": "Two app servers each read seat 14C as free, then write their own buyer as holder. What is the fix?",
+                "ask": "Two application servers each read seat 14C as free, and then both write their own buyer as the holder. What is the fix?",
                 "choices": [
-                  "Have the app servers check each other's recent writes before confirming a hold to a buyer",
-                  "Read the seat twice before writing, so a change made in between will be noticed",
-                  "Make the write conditional: set the holder only where there is none or the hold has expired"
+                  "Have the application servers check each other's recent writes before confirming a hold to a buyer",
+                  "Read the seat row twice before writing, so a change made in between will be noticed",
+                  "Use an atomic conditional write: set the holder only where there is no current holder or the hold has expired"
                 ],
                 "answer": 2,
-                "why": "The race is between a read and a later write. A conditional write makes the check and the change one step in the database, which reports one changed row to exactly one winner."
+                "why": "The race condition occurs in the gap between the read and the subsequent write. An atomic conditional write combines the state check and the update into a single database operation, modifying 1 row for the winning request and 0 rows for the losing request."
               },
               {
-                "ask": "Why does a seat hold carry an expiry time rather than a lock released when the buyer finishes?",
+                "ask": "Why does a seat hold use an expiration timestamp rather than a lock that the client explicitly releases when checkout finishes?",
                 "choices": [
-                  "Expiry times use less storage than locks do in most relational databases, which matters for millions of seats",
-                  "A hold that ends by itself frees the seat of a buyer who left",
-                  "An expiry lets two buyers share the hold, so that whichever of them pays first gets the seat"
+                  "Expiration timestamps use less storage than locks do in most relational databases, which matters for millions of seats",
+                  "A self-expiring hold automatically frees the seat if the buyer closes their browser or abandons checkout",
+                  "An expiration timestamp lets two buyers share the hold, so that whichever of them pays first gets the seat"
                 ],
                 "answer": 1,
-                "why": "A lock held for a buyer who closed the tab would hold the seat forever. With hold_until in the condition, an expired hold counts as free."
+                "why": "An explicit lock held by a client that disconnects or closes its browser tab would leave the seat locked indefinitely. Checking hold_until in the conditional write's WHERE clause allows subsequent queries to treat an expired hold as available."
               },
               {
-                "ask": "Everyone who arrives before a sale opens is put in random order at opening time. What does this achieve?",
+                "ask": "Everyone who arrives in the waiting room before a sale opens is shuffled into a random order at the opening timestamp. What does this achieve?",
                 "choices": [
                   "It spreads the database writes evenly across all of the shards that hold the event's seats",
                   "It removes the need for a waiting room",
-                  "Arriving early, or in many tabs, gives no one an edge at opening"
+                  "Arriving hours early, or opening many browser tabs, gives no one an advantage when the queue opens"
                 ],
                 "answer": 2,
                 "why": "First come, first served rewards whoever can arrive earliest and most often, which is what scripts do best."
               },
               {
-                "ask": "A flash sale has 10,000 identical items and tens of thousands of buy attempts a second. Which design keeps the stock count from becoming the bottleneck?",
+                "ask": "A flash sale has 10,000 identical items and tens of thousands of purchase attempts per second. Which database design prevents the inventory count from becoming a write bottleneck?",
                 "choices": [
-                  "One row per item; each buyer claims the lowest-numbered free row with a conditional write",
-                  "Ten counters of 1,000 on different shards, each decremented only if it stays at zero or above",
-                  "One counter read by each buyer and decremented by the app server once payment succeeds"
+                  "One row per item; each buyer claims the lowest-numbered available row with a conditional write",
+                  "Ten counters of 1,000 items on different shards, each decremented conditionally only if it remains at 0 or above",
+                  "One counter read by each buyer and decremented by the application server once payment succeeds"
                 ],
                 "answer": 1,
                 "why": "One counter is a hot key, and so is \"the lowest free row\", which every buyer aims at. Splitting the count over shards spreads attempts, and the condition stops each going below zero. Reading then decrementing in the app would oversell."
               },
               {
-                "ask": "A ride service must never offer one driver to two riders. Which design is the same as a seat hold?",
+                "ask": "A ride-hailing service must never offer the same driver to two riders at once. Which dispatch design uses the same concurrency pattern as a seat hold?",
                 "choices": [
-                  "A conditional write offering the driver, expiring in seconds",
-                  "A lock on the driver's row held until the trip ends, released by the driver's app when the rider gets out",
-                  "A queue of riders for each driver"
+                  "A conditional write setting the driver's state to offered, with an expiration timestamp a few seconds in the future",
+                  "A database lock on the driver's row held until the trip ends, released by the driver's app when the rider exits the vehicle",
+                  "A first-in, first-out queue of riders assigned to each individual driver"
                 ],
                 "answer": 0,
-                "why": "An offer is a hold: one conditional write wins, the others change nothing, and the expiry frees the driver who doesn't accept."
+                "why": "A ride dispatch offer acts just like a seat hold: one atomic conditional write succeeds while concurrent attempts modify 0 rows, and the short expiration timestamp frees the driver if they do not accept the trip."
               }
             ]
           }
@@ -247,36 +247,36 @@
     }
   ],
   "summary": [
-    "**Most of the work is saying no.** Two million seats in four hours is 140 sales a second; fourteen million people refreshing is millions of requests a second.",
-    "**Pick the consistency per operation.** The seat map may be stale, a hold must be exact, payment happens once, and the sale is conditional on the hold.",
-    "**Overload without a queue sells nothing.** Requests time out after their work is done and retries pile on, so throughput collapses as demand peaks.",
-    "**A waiting room admits at the rate the seats can be sold.** Signed tokens, a static page from a CDN, and a token bucket at the door.",
-    "**Refuse cheaply, at the edge.** Check invitation codes, signatures and per-account limits before a request can cost anything.",
-    "**A conditional write sells a seat once.** Set the holder only where there is none or the hold has expired; one row changes for one winner.",
-    "**Holds expire by themselves.** An expiry in the condition frees abandoned seats with no clean-up, measured on the database's clock.",
+    "**Most of the system's work is rejecting traffic.** Selling 2 million seats over 4 hours requires only 140 write transactions per second, whereas 14 million users refreshing a page generates millions of read requests per second.",
+    "**Match consistency guarantees to each operation.** The seat map can be served stale from a cache, placing a hold requires strict atomic consistency, payment processing requires idempotency keys, and finalising the sale requires a conditional check on the hold.",
+    "**Unbuffered overload causes goodput to collapse.** When queueing delay exceeds client timeouts, servers spend 100% of their CPU cycles on abandoned requests while client retries amplify the load.",
+    "**A waiting room throttles admission to match backend capacity.** Issue cryptographically signed tokens, serve a static waiting page from a CDN, and regulate admission into the checkout service with a token bucket.",
+    "**Reject invalid traffic at the stateless edge.** Validate invitation codes, token signatures, and per-account rate limits at the edge before requests consume backend database capacity.",
+    "**Prevent double-selling with atomic conditional writes.** Update the seat holder in a single SQL statement only where the seat has no holder or the existing hold has expired.",
+    "**Use self-expiring holds evaluated against the database clock.** Including an expiration timestamp in the conditional write automatically reclaims abandoned seats without requiring background cleanup jobs or distributed locks.",
     "**Partition seats by event and section.** A group's seats share a shard, and a single owner per hot section can allocate in memory.",
-    "**The same design sells anything scarce.** Split counters for a flash sale, counters per night for hotels, and expiring offers for drivers."
+    "**The same concurrency patterns apply to any scarce inventory.** Use sharded conditional counters for retail flash sales, per-night counters for hotel rooms, and short-lived expiring holds for ride-hailing driver dispatch."
   ],
   "footnotes": {
     "senate": {
       "kind": "digression",
-      "title": "A hearing",
-      "text": "The presale reached the United States Senate: its Judiciary Committee held a hearing on competition in ticketing on 24 January 2023, where a Live Nation executive blamed a bot attack for much of the trouble."
+      "title": "A Senate hearing",
+      "text": "The presale outage prompted an investigation by the United States Senate: its Judiciary Committee held a hearing on ticketing competition on 24 January 2023, where Live Nation Entertainment's president and CFO, Joe Berchtold, attributed much of the disruption to an unprecedented bot attack."
     },
     "metastable": {
       "kind": "technical",
-      "title": "Staying broken",
-      "text": "A system that keeps failing after the burst that started it has passed is in a **metastable** failure: timeouts cause retries, retries keep the queue full, and the full queue causes timeouts. It recovers only when load is cut below capacity for long enough to drain, which is why refusing work early, or admitting it at a set rate, is the fix rather than more retries."
+      "title": "Metastable failures",
+      "text": "A system that remains in a degraded state even after the initial traffic spike subsides is experiencing a **metastable** failure. Request timeouts trigger client retries, the retries keep the server queues saturated, and the saturated queues cause new requests to time out. The system can recover only if incoming load drops well below capacity long enough for the queues to drain, which is why shedding load at the edge or throttling admission with a waiting room is necessary."
     },
     "clock": {
       "kind": "technical",
-      "title": "Whose clock",
-      "text": "If each app server compared hold_until with its own clock, a server running 30 seconds fast would see holds expire early and hand out seats still being paid for. Using the database's clock (now() inside the statement) gives every decision one clock. Holds of ten minutes make small clock errors harmless, which is another reason not to make them short."
+      "title": "Database clock authority",
+      "text": "If each application server compared hold_until against its local system clock, an application server with a clock drifting 30 seconds fast would treat active holds as expired and reassign seats while the original buyers were still submitting payment. Evaluating timestamps using the database's internal clock (such as calling now() inside the SQL statement) establishes a single time authority for all conditional writes. Setting hold durations to 10 minutes also ensures that minor clock skew between client countdown timers and the database remains harmless."
     },
     "split": {
       "kind": "technical",
-      "title": "Splitting a counter",
-      "text": "With the stock in ten counters, a buyer sent to an empty one tries another before being told the sale is over, so the last few items can take a few extra tries to find. Counters can also be refilled from a central pool as they empty, which keeps the stock where the buyers are."
+      "title": "Sharding an inventory counter",
+      "text": "When inventory is partitioned across ten sharded counters, a buyer routed to an exhausted shard must retry against remaining shards before the system reports that the item is sold out, which adds a few extra internal requests as the final items sell. Alternatively, workers can dynamically reallocate inventory from a central database pool to individual shard counters as they deplete."
     }
   }
 }

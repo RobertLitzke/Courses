@@ -4,15 +4,15 @@
   "title": "A disk dies every day",
   "teaches": "Replication and re-replication, leases that pick a primary, checksums, at-least-once appends, and erasure coding",
   "summary": [
-    "**At scale, failure is the normal case.** Ten thousand disks failing at 3% a year is almost one a day, and a cluster loses whole racks a couple of dozen times a year.",
-    "**Put copies in different failure domains.** Three copies in one rack die together; three copies on three racks survive any single rack.",
-    "**Repair the most endangered first.** A chunk down to one copy should not wait behind chunks that still have two.",
-    "**Repair from many machines at once.** A dead disk's chunks have copies spread over the whole cluster, so many machines can rebuild it in parallel in minutes.",
-    "**Don't trust a disk to return what was written.** GFS kept a checksum for every 64 KB and checked it on every read and in idle scans.",
-    "**A lease names one copy to order the writes.** The master grants it for 60 seconds at a time and will not grant it to another until it has expired.",
-    "**Record append is at-least-once.** A failed append is retried, so a record can appear more than once and some copies hold padding; readers must skip both.",
-    "**Erasure codes store half as much as three copies.** Reed-Solomon 6+3 stores 1.5 bytes per byte and survives any three losses, but rebuilding a lost block reads six.",
-    "**Replicate hot data, code cold data.** Copies make reads and repairs cheap; codes make storage cheap, and the bill decides where the line goes."
+    "**At scale, hardware failure is routine.** Ten thousand disks failing at 3% a year averages nearly one dead disk a day, and a large cluster loses whole racks around twenty times a year.",
+    "**Place replicas in separate failure domains.** Three copies in one rack fail together when the rack's switch or power supply dies, whereas three copies across three racks survive any single rack failure.",
+    "**Repair the most endangered chunks first.** A chunk down to one surviving copy should be re-replicated ahead of chunks that still have two copies.",
+    "**Reconstruct lost data from many machines in parallel.** Because the surviving copies of a dead disk's chunks sit on hundreds of machines across the cluster, those machines can copy the data in parallel and finish the repair in minutes.",
+    "**Verify disk reads with checksums.** GFS stored a 32-bit checksum for every 64 KB block and verified it on every read and during background scans.",
+    "**Use leases so a single primary orders writes.** The master grants a 60-second lease to one replica and waits for the lease to expire before assigning a new primary if the first stops responding.",
+    "**Record append provides at-least-once delivery.** When an append fails on a secondary, the client retries at a new offset, leaving duplicate records on some replicas and padding on others that readers must filter out.",
+    "**Erasure codes trade repair bandwidth for storage capacity.** Reed-Solomon 6+3 stores 1.5 bytes per byte of raw data and tolerates any three losses, half the disk space of three replicas, but reconstructing a lost block requires reading six surviving blocks.",
+    "**Replicate hot data and erasure-code cold data.** Replication keeps reads and repairs cheap for active files, while erasure coding reduces disk count for older, rarely read data."
   ],
   "parts": [
     {
@@ -20,7 +20,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In October 2009 Jeff Dean gave a talk at a workshop on large distributed systems, held at Big Sky, Montana, and put up a slide listing what a typical new Google cluster went through in its first year. About a thousand individual machine failures. Thousands of hard disk failures. About twenty rack failures, each taking 40 to 80 machines away at once for one to six hours. One power distribution unit failing, taking 500 to 1,000 machines with it for about six hours. Several router failures and network maintenances, an overheating event that shut most machines down within minutes, and a steady background of slow disks, bad memory and machines that worked only some of the time.[^dean]"
+          "text": "In October 2009 Jeff Dean gave a talk at a workshop on large distributed systems, held at Big Sky, Montana, and put up a slide listing what a typical new Google cluster went through in its first year. It saw about a thousand individual machine failures, thousands of hard disk failures, and about twenty rack failures, each taking 40 to 80 machines offline at once for one to six hours. One power distribution unit failed, taking 500 to 1,000 machines with it for about six hours. There were also several router failures and network maintenances, an overheating event that shut down most machines within minutes, and a steady background of slow disks, bad memory and machines that worked only some of the time.[^dean]"
         },
         {
           "type": "diagram",
@@ -40,7 +40,7 @@
         },
         {
           "type": "text",
-          "text": "Studies published in 2007, one by Google of its own disks and one by Bianca Schroeder and Garth Gibson of disks at several large sites, put the annual failure rate of disks at about 2 to 4% on average, several times what the makers' data sheets claimed, and higher for older disks: over 8% a year for three-year-old disks in Google's study, and up to 13% at some sites.[^disks] Before designing anything, the arithmetic, at a middling rate: 10,000 disks failing at 3% a year is 300 a year, nearly one a day. A design that treats a dead disk as an emergency has an emergency every day. GFS, lesson 6's file system, was built on the opposite assumption, stated on its first page: component failures are the norm, not the exception. This lesson is about what that assumption costs and how GFS paid for it."
+          "text": "Studies published in 2007, one by Google of its own disks and one by Bianca Schroeder and Garth Gibson of disks at several large sites, put the annual failure rate of disks at about 2% to 4% on average, several times what the makers' data sheets claimed, and higher for older disks: over 8% a year for three-year-old disks in Google's study, and up to 13% at some sites.[^disks] Before we design anything, consider the arithmetic at a middling rate: 10,000 disks failing at 3% a year is 300 disks a year, or nearly one a day. A system that treats a dead disk as an emergency has an emergency every day. The designers of GFS, the file system from lesson 6, started from the opposite assumption on the first page of their paper, treating component failures as the norm rather than the exception. In this lesson, we will examine what that assumption costs and how the GFS engineers paid for it."
         }
       ]
     },
@@ -49,19 +49,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The first defence is copies. GFS stored each chunk three times, on three chunkservers. One dead disk, or one dead machine, leaves two copies and no data lost. Where the copies go matters as much as how many there are. Machines in a rack share a power supply and a network switch, so when the rack fails they all disappear together. The set of things that fail together is a **failure domain**: a disk, a machine, a rack, a power unit, a building. Three copies in one rack are one failure domain, and a rack failure, which happens about twenty times a year, destroys all three."
+          "text": "The first defence is replication. GFS stored each chunk three times, on three chunkservers. One dead disk, or one dead machine, leaves two copies and no lost data. Where the copies go matters as much as how many there are. Machines in a rack share a power supply and a network switch, so when the rack fails they all go offline together. The set of components that fail together is a **failure domain**, such as a disk, a machine, a rack, a power unit or a building. Three copies in one rack sit in a single failure domain, and a rack failure, which happens about twenty times a year, destroys all three."
         },
         {
           "type": "interactive_diagram",
           "id": "chunks-fault",
-          "caption": "150 chunks, three copies each, on twelve machines in three racks. Each square is a copy: pale grey while its chunk has three copies, dark grey at two, red at one. Tap a machine to fail it, or a rack's name to fail the whole rack; the master starts making new copies at once.",
+          "caption": "150 chunks, three copies each, on twelve machines in three racks. Each square is a copy: pale grey while its chunk has three copies, dark grey at two copies, and red at one copy. Tap a machine to fail it, or a rack's name to fail the whole rack; the master starts making new copies at once.",
           "goal": "safe",
           "task": "Fail a rack with rack-aware placement off, then turn it on, fail a rack again, and let the repairs finish.",
           "aspect_ratio": 1.68
         },
         {
           "type": "text",
-          "text": "With copies placed at random, a few chunks out of 150 happen to have all three copies in the same rack, and failing that rack loses them. With **rack-aware placement**, each chunk's copies on three different racks, no single rack failure can take more than one copy of anything. GFS's master spread copies across racks for this reason. It costs network: a write must cross from one rack to another, and the links between racks are scarcer than the links inside one. The same reasoning extends upward, which is why later systems spread copies across power units, buildings and regions, each wider domain costing more bandwidth and more latency on every write."
+          "text": "With copies placed at random, a few chunks out of 150 happen to have all three copies in the same rack, and failing that rack loses them. With **rack-aware placement**, which puts each chunk's copies on three different racks, no single rack failure can take more than one copy of any chunk. GFS's master spread copies across racks for this reason. This placement costs network bandwidth because a write must cross from one rack to another, and the links between racks have less capacity than the links inside one. Engineers apply the same reasoning at larger scales, spreading copies across power units, buildings and regions, where each wider domain costs more bandwidth and adds more latency on every write."
         }
       ]
     },
@@ -70,19 +70,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Copies buy time, not safety. A chunk that has lost one copy is one failure further from loss than before, so the master must make a new copy, **re-replication**, before another failure catches it. The master knows, from its tables, exactly which chunks lost a copy when a machine stopped sending heartbeats, and it orders copies made from the surviving ones."
+          "text": "Replication buys time rather than permanent safety. A chunk that has lost one copy is one failure closer to data loss than before, so the master must make a new copy, a process called **re-replication**, before another failure catches it. When a machine stops sending heartbeats, the master checks its tables to see exactly which chunks lost a copy, and orders new copies made from the surviving ones."
         },
         {
           "type": "text",
-          "text": "Two choices make repair fast enough. The first is the order. A chunk with one copy left should not wait behind chunks that still have two, so GFS repaired the most endangered chunks first, and also put chunks that were blocking a running program ahead of the rest. Turn off the figure's \"Most endangered first\" toggle, fail a rack with rack-aware placement off, and watch how long the red chunks wait. In the paper's own test, two chunkservers were killed at once, leaving 266 chunks with a single copy; those were back to at least two copies within two minutes, while the rest of the repair continued behind them.[^test]"
+          "text": "Two design choices make repair fast enough. The first is prioritization. A chunk with one copy left should not wait behind chunks that still have two, so GFS repaired the most endangered chunks first, and also prioritized chunks that were blocking a running program. Turn off the figure's \"Most endangered first\" toggle, fail a rack with rack-aware placement off, and watch how long the red chunks wait. In the paper's own benchmark, engineers killed two chunkservers at once, leaving 266 chunks with a single copy; those returned to at least two copies within two minutes, while the rest of the repair continued behind them.[^test]"
         },
         {
           "type": "text",
-          "text": "The second is parallelism. A dead disk's chunks have their other copies spread over hundreds of machines, so hundreds of machines can each copy a little of it at once. A 4 TB disk copied by one machine at 100 MB a second takes eleven hours. Copied by 100 machines at 50 MB a second each, it takes about 13 minutes. In the same test the paper describes, a chunkserver holding 600 GB was killed and its 15,000 chunks were fully restored in 23 minutes. That is 40 MB a chunk on average, not 64: the last chunk of each file is only partly full, and a chunk file on disk is only as large as its data. The master also limits how many copies run at once, so that repair traffic does not crowd out the programs using the cluster: a repair that is too aggressive is its own kind of outage."
+          "text": "The second choice is parallelism. Because the remaining copies of a dead disk's chunks sit on hundreds of other machines, hundreds of machines can each copy a small portion of the data at the same time. Copying a 4 TB disk from one machine at 100 MB/s takes eleven hours. Copying it across 100 machines at 50 MB/s each takes about 13 minutes. In the same benchmark from the paper, engineers killed a chunkserver holding 600 GB and restored all 15,000 of its chunks in 23 minutes. Those chunks averaged 40 MB rather than the 64 MB maximum because the last chunk of each file is only partly full, and a chunk file on disk uses only as much space as its data. The master also caps the number of concurrent copy operations on each machine and across the network so that repair traffic does not starve client applications of bandwidth."
         },
         {
           "type": "text",
-          "text": "A rough durability estimate shows why repair speed matters so much. Take disks that fail at 3% a year and a repair that restores a lost copy within half an hour. The chance that a particular disk fails in a given half hour is 0.03 × 0.5 / 8,760, about 1.7 in a million. A chunk is lost only if, after one copy fails, the disks holding both others fail before the repairs finish: roughly 2 × (1.7 × 10⁻⁶)², about 6 × 10⁻¹². Each chunk has a copy fail about 0.09 times a year (three copies at 3%), so the 16 million chunks of a petabyte expect about 0.09 × 1.6 × 10⁷ × 6 × 10⁻¹², about 10⁻⁵ losses a year. Stretch the repair to a day and the chance per disk grows 48 times and its square about 2,300 times: about one chunk lost every fifty years. The sum assumes disks fail independently, and they do not. A rack or a power unit takes many disks at once, which is why placing copies across failure domains matters more than the exact disk failure rate."
+          "text": "A rough durability estimate shows why repair speed matters so much. Assume disks fail at 3% a year and a repair restores a lost copy within 0.5 hours. The probability that a specific disk fails in a given half hour is 0.03 × 0.5 / 8,760, or about 1.7 in a million. We lose a chunk only if, after one copy fails, the disks holding both remaining copies fail before the 0.5-hour repair finishes: roughly 2 × (1.7 × 10⁻⁶)², or about 6 × 10⁻¹². Each chunk loses a copy about 0.09 times a year (three copies at 3% each), so across the 16 million chunks of a petabyte we expect about 0.09 × 1.6 × 10⁷ × 6 × 10⁻¹², which is about 10⁻⁵ lost chunks a year. If we stretch the repair time to 24 hours, the failure probability per disk during the repair window grows 48 times and its square grows about 2,300 times, resulting in about one chunk lost every fifty years. This calculation assumes disks fail independently, which is not true in practice. A rack or a power unit takes many disks offline at once, which is why placing copies across failure domains matters more than the exact disk failure rate."
         }
       ]
     },
@@ -91,11 +91,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A disk that dies is the easy case: it stops answering, and everyone knows. A disk that returns the wrong bytes is worse. Firmware bugs, a bad cable, a flipped bit in a controller's memory or a write that went to the wrong place can each give back data that is not what was written, with no error. On a thousand disks that happens often enough to matter, and copying a corrupted chunk spreads the damage."
+          "text": "A disk that dies completely is the easy case because it stops answering and the failure is obvious. A disk that returns corrupted bytes is worse. Firmware bugs, a bad cable, a flipped bit in a controller's memory or a misdirected write can each return data that differs from what was written, without reporting an error. Across thousands of disks, silent corruption happens often enough to matter, and re-replicating a corrupted chunk spreads the damage."
         },
         {
           "type": "text",
-          "text": "GFS did not trust its disks. Each chunkserver divided every chunk into blocks of 64 KB and kept a 32-bit **checksum** for each, a short number computed from the block's bytes, stored apart from the data. On every read, the chunkserver recomputed the checksum and compared; a mismatch meant the block was bad, so it answered with an error, the client read another copy, and the master had a fresh copy made and the bad one deleted. Chunkservers also scanned chunks that nobody had read for a while, so that corruption in cold data was found before the good copies were needed.[^checksum] Checksums cost a little processor time on each read and a little memory, and they are why a copy is worth anything."
+          "text": "The GFS engineers did not trust their disks. Each chunkserver divided every chunk into 64 KB blocks and kept a 32-bit **checksum** for each block, a short number computed from the block's bytes and stored separately from the data. On every read, the chunkserver recomputed the checksum and compared the two values. A mismatch meant the block was corrupted, so the chunkserver returned an error to the client, the client read from another replica, and the master scheduled a fresh copy and deleted the bad one. During idle periods, chunkservers also scanned chunks that had not been read recently, catching corruption in cold data before a failure made those copies necessary.[^checksum] Computing checksums costs a small amount of CPU time on each read and a little memory, but without them a replica cannot be trusted."
         }
       ]
     },
@@ -104,27 +104,27 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Three copies must also agree. If two clients write to the same chunk at once, all three copies must apply the two writes in the same order, or they end up different. Somebody has to choose the order, and asking the master for every write would put it back on the data path. GFS's answer was a **lease**: permission, granted for a limited time, to act for everyone. The master grants a lease on a chunk to one of its three copies, which becomes the **primary**, for 60 seconds, and the primary renews it while writes continue. The primary picks the order of every write to that chunk. The other two, the secondaries, apply writes in the order the primary gives."
+          "text": "Three replicas must also stay consistent. If two clients write to the same chunk concurrently, all three replicas must apply the two writes in the same order, or they will end up with different data. One machine has to choose the order, and routing every write through the master would make the master a bottleneck again. To avoid this, GFS used a **lease**, which is a time-limited grant of authority to sequence operations. The master grants a 60-second lease on a chunk to one of its three replicas, which becomes the **primary**, and the primary renews the lease while writes continue. The primary chooses the serial order for every write to that chunk, and the other two replicas, the secondaries, apply writes in the exact order the primary dictates."
         },
         {
           "type": "text",
-          "text": "The lease's expiry is what makes it safe. If the master loses touch with the primary, it cannot tell whether the primary has died or is only cut off and still ordering writes. So it waits until the lease has run out before granting a new one to another copy, and a cut-off primary that cannot renew stops acting when its lease ends. There are never two primaries at once, as long as neither machine's clock runs fast or slow by more than a small known margin over the length of a lease; the master covers that margin by waiting a little longer than the lease before granting a new one. The lease's length is a trade. A long lease means fewer renewals, but when a primary dies, writes to its chunks stop until the lease runs out, up to the full 60 seconds. A short lease recovers in seconds but has every primary renewing often, which is load on the master; GFS carried renewals on the heartbeats chunkservers sent anyway, so they cost almost nothing. Lesson 11 builds leases into elections, and lesson 15 uses them for a cache."
+          "text": "The lease's expiration ensures safety when the network fails. If the master loses contact with the primary, it cannot tell whether the primary has crashed or is merely separated by a network partition while still ordering writes. The master therefore waits until the lease expires before granting a new lease to another replica, and a disconnected primary that cannot renew its lease stops ordering writes when its time runs out. This guarantees there are never two primaries at once, provided neither machine's clock drifts by more than a small, bounded margin over the 60-second duration; the master accounts for clock drift by waiting slightly longer than the lease duration before issuing a new one. Choosing the lease duration is a trade-off. A long lease requires fewer renewals, but when a primary crashes, writes to its chunks stall until the lease expires, adding up to 60 seconds of write unavailability. A short lease recovers in seconds but requires every primary to renew frequently, adding load to the master; GFS piggybacked lease renewals on the regular heartbeat messages that chunkservers already sent, reducing the overhead to almost zero. In lesson 11 we will combine leases with leader election, and in lesson 15 we will use them to keep caches consistent."
         },
         {
           "type": "text",
-          "text": "GFS also split a write's data from its order. The client first pushes the bytes along a chain of the three chunkservers, nearest first, each passing data on as it arrives, so each machine's network link carries the data once. Only then does the client ask the primary to commit, a short message. The most common write in GFS was **record append**: add this record to the end of the file, wherever the end is, which many programs could do to the same file at once without coordinating among themselves."
+          "text": "The GFS engineers also decoupled the flow of data from the flow of control. The client first pushes the data bytes along a chain of the three chunkservers, starting with the nearest machine, and each replica forwards the bytes to the next as they arrive so that each machine's network link carries the payload only once. Only after all three replicas have received the data does the client send a short control message asking the primary to commit the write. The most common write operation in GFS was **record append**, which appends a record to the end of a file at whatever offset GFS chooses, allowing many clients to write to the same file concurrently without coordinating among themselves."
         },
         {
           "type": "interactive_diagram",
           "id": "chunks-seq",
-          "caption": "A record append to one chunk, in time running down the page. Magenta messages, the colour of the one in charge, carry the lease and the order; orange messages carry the record's bytes, and the purple marks show where each copy stored it.",
+          "caption": "A record append to one chunk, with time running down the page. Magenta messages, representing control flow, carry the lease and the write order; orange messages carry the record's data bytes, and the purple marks show the offset where each replica stored the record.",
           "goal": "retry",
           "task": "Play the case where one secondary fails to apply the record.",
           "aspect_ratio": 1.29
         },
         {
           "type": "text",
-          "text": "If any copy fails to apply an append, the client is told it failed and tries again, and the retry goes at a new offset. The copies that had applied the first attempt now hold the record twice, and the one that failed holds a gap. So GFS promised this: once an append succeeds, the record is in the file at least once, and the successful attempt sits at the same offset on every copy. Around it, copies may hold duplicates from earlier attempts, or **padding**, filler bytes in space that holds no record (left by a failed attempt, or added when a record would not fit in what remained of a chunk). Delivery that may repeat but never loses a record is called **at-least-once**. Applications coped by writing a unique ID and a checksum into each record, and readers skipped padding and records they had already seen. This was a deliberate trade: the file system stayed simple and fast, and every application that read the files did a little extra work. Lesson 17 shows how stream processors turn at-least-once delivery into counts that are exactly right."
+          "text": "If any replica fails to apply a record append, the primary returns an error to the client, the client retries the operation, and the retry writes the data at a new offset. The replicas that succeeded on the first attempt now hold the record twice, while the replica that failed has a gap at the first offset. Because of this, GFS guaranteed only that once an append succeeds, the record is written at least once, and the successful attempt sits at the same offset on every replica. Around that offset, replicas may hold duplicate records from earlier failed attempts, or **padding**, which consists of filler bytes in space that holds no valid record (left behind by a failed attempt, or inserted when a record would not fit in the remaining space of a 64 MB chunk). A delivery guarantee that may duplicate records but never drops them is called **at-least-once** delivery. Client applications handled this by embedding a unique ID and a checksum inside each record, allowing readers to filter out padding and duplicate IDs. The GFS engineers made this trade-off deliberately to keep the file system simple and fast, shifting a small amount of deduplication work onto client applications. In lesson 17, we will see how stream processors convert at-least-once delivery into exact counts."
         }
       ]
     },
@@ -133,34 +133,34 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Three copies cost three times the disk. For data read often, the copies earn it: reads can go to any of three machines, and a lost copy is rebuilt by reading one other. For data read rarely, such as last year's logs, the third copy is mostly a bill. **Erasure coding** gives the same protection for less. Split the data into k blocks and compute m extra **parity** blocks from them, so that any k of the k + m blocks are enough to rebuild all of them. The common family is Reed-Solomon codes, named for the two mathematicians who published them in 1960 and long used on CDs and in satellite links."
+          "text": "Keeping three replicas multiplies storage capacity costs by three. For frequently read data, the extra copies earn their keep because reads can be spread across three machines, and rebuilding a lost replica requires reading from only one surviving machine. For rarely read data, such as last year's logs, the third replica is mostly an unnecessary expense. **Erasure coding** provides the same fault tolerance with less storage overhead. We split a chunk of data into k data blocks and compute m additional **parity** blocks from them, such that any k of the k + m total blocks suffice to reconstruct the original data. The most common family is Reed-Solomon codes, named after the two mathematicians who published them in 1960 and widely used on CDs and in satellite communications."
         },
         {
           "type": "diagram",
           "id": "chunks-cost",
-          "caption": "Three copies against two Reed-Solomon codes: what each stores, how many losses it survives, and how many blocks must be read to rebuild one that is lost.",
+          "caption": "Three replicas compared with two Reed-Solomon codes, showing the storage overhead, how many concurrent failures each survives, and how many blocks must be read to reconstruct a lost block.",
           "aspect_ratio": 2
         },
         {
           "type": "text",
-          "text": "Reed-Solomon 6+3 stores 1.5 bytes for each byte of data, half of what three copies store, and survives any three losses, where three copies survive two. The cost moves to repair and reads. Rebuilding a lost block means reading six others from six machines, six times the network traffic of copying one replica, and a reader whose block is on a dead machine must wait for that rebuild. Counting the cost in machines: 10 PB of data on 20 TB disks needs 1,500 disks with three copies and 750 with 6+3. Facebook's f4 store, described in 2014, kept older photos with Reed-Solomon 10+4 for the same reason, and the 6+3 code is the default in Hadoop's file system.[^codes] Google's successor to GFS, Colossus, used erasure codes widely."
+          "text": "Reed-Solomon 6+3 stores 1.5 bytes for every 1 byte of raw data, half the storage overhead of three replicas, and tolerates any three concurrent block losses, whereas three replicas tolerate only two. The trade-off is higher network and CPU cost during repairs and degraded reads. Reconstructing one lost block requires reading six blocks from six different machines, generating six times the network traffic of copying a single replica, and a client trying to read a block on a dead machine must wait for that reconstruction to finish. If we count the cost in hardware, storing 10 PB of raw data on 20 TB disks requires 1,500 disks with three-way replication, compared to 750 disks with Reed-Solomon 6+3. Engineers at Facebook built their f4 storage system, published in 2014, using Reed-Solomon 10+4 for older photos for this exact reason, and 6+3 is a standard erasure coding policy in the Hadoop Distributed File System (HDFS).[^codes] Google's successor to GFS, Colossus, also adopted erasure coding across its clusters."
         },
         {
           "type": "text",
-          "text": "Choosing k and m for your own data comes down to three numbers. m is how many blocks of a stripe can be lost before the repair finishes, and the durability sum above sets it: m = 3 survives as many losses as four copies would. k sets the price: storage is (k + m) / k, which falls as k grows, but rebuilding a lost block reads k others, and the k + m blocks need k + m separate failure domains, or a rack failure can take several of one stripe at once. 6+3 needs nine racks and stores 1.5 bytes a byte; 10+4 needs fourteen and stores 1.4. A small cluster with few racks is limited to small k whatever the storage saving."
+          "text": "When you choose k and m for your own storage system, you are balancing three numbers. The parameter m is the number of blocks in a stripe that can fail concurrently before repair finishes, which you choose using the durability calculation from earlier; m = 3 tolerates as many concurrent failures as four-way replication. The parameter k determines the storage overhead, which is (k + m) / k times the raw data. That ratio shrinks as k grows, but reconstructing a lost block requires reading k surviving blocks over the network, and placing the k + m blocks safely requires at least k + m distinct failure domains so that a single rack failure cannot take out multiple blocks from the same stripe. Reed-Solomon 6+3 requires at least nine racks and stores 1.5 bytes per raw byte, while 10+4 requires at least fourteen racks and stores 1.4 bytes per raw byte. A small cluster with only a few racks must use a small k, regardless of the potential storage savings."
         },
         {
           "type": "text",
-          "text": "Most large stores therefore do both: new and frequently read data as copies, older data re-encoded with a code once it has cooled. Where to draw that line is a cost calculation, disks saved against network and repair time spent, and it is worth doing with the real numbers for the data in question."
+          "text": "Because of this trade-off, most large storage systems use both techniques: they write new, frequently accessed data as three replicas, and background jobs re-encode older data into erasure-coded stripes once read traffic cools down. Deciding when to convert replicas into coded stripes is an engineering trade-off between disk capacity saved and network bandwidth spent on encoding and repair, which you can calculate from the access patterns of your data."
         },
         {
           "type": "key_ideas",
           "title": "Hold on to",
           "points": [
-            "Failures a day = disks × annual failure rate / 365.",
-            "Copies in different failure domains; repair the most endangered first, from many machines at once.",
-            "A lease lets one copy order the writes; the master waits out its expiry before giving it to another.",
-            "Reed-Solomon k+m: (k + m)/k bytes stored per byte, survives m losses, reads k to rebuild one."
+            "Failures per day = number of disks × annual failure rate / 365.",
+            "Place replicas in separate failure domains, and repair the most endangered chunks first from many machines in parallel.",
+            "A lease designates one replica as the primary to sequence writes; when the primary is unreachable, the master waits for the lease to expire before assigning a new primary.",
+            "Reed-Solomon k+m stores (k + m) / k bytes per byte of data, tolerates m concurrent failures, and reads k blocks to reconstruct one lost block."
           ]
         }
       ]
@@ -183,7 +183,7 @@
                   "About once an hour"
                 ],
                 "answer": 1,
-                "why": "20,000 × 2% = 400 a year, a little more than one a day. Replacing disks and repairing their data has to be routine work, not an incident."
+                "why": "20,000 disks × 2% = 400 disks a year, or a little more than one disk a day. Replacing failed disks and re-replicating their data must be automated background work rather than an operational emergency."
               },
               {
                 "ask": "Why should a chunk's three copies be on three different racks rather than three machines in one rack?",
@@ -193,7 +193,7 @@
                   "The master can track at most one copy per rack in its in-memory tables"
                 ],
                 "answer": 0,
-                "why": "A rack is a failure domain: its machines fail together. Spreading copies over racks means no single rack failure removes more than one copy, at the cost of writes crossing between racks."
+                "why": "A rack is a failure domain whose machines fail together when a shared power supply or top-of-rack switch dies. Spreading replicas across racks ensures no single rack failure removes more than one copy, at the cost of inter-rack network traffic on every write."
               },
               {
                 "ask": "After two machines fail, some chunks have two copies left and a few have one. In what order should the master make new copies?",
@@ -203,7 +203,7 @@
                   "Chunks with two copies first, because there are more of them and they finish sooner"
                 ],
                 "answer": 1,
-                "why": "A chunk with one copy is a single failure from loss. Repairing it first shrinks the window of risk most; GFS also moved up chunks that were blocking running programs."
+                "why": "A chunk down to a single copy is one failure away from permanent data loss. Re-replicating it first shrinks the window of vulnerability the most; GFS also prioritized chunks whose loss was actively blocking client applications."
               },
               {
                 "ask": "What does a GFS lease guarantee, and what does it rely on?",
@@ -213,7 +213,7 @@
                   "That one copy at most orders writes, relying on expiry and on clocks that drift little"
                 ],
                 "answer": 2,
-                "why": "The master waits out a lease before granting a new one, so even a primary that is cut off but alive stops ordering writes before another starts. That needs clocks that run at about the same rate."
+                "why": "The master waits for an existing lease to expire before granting a new one, so even a primary that is separated by a network partition stops sequencing writes before the new primary starts. That guarantee requires machine clocks whose drift over the lease duration is bounded."
               },
               {
                 "ask": "A record append fails on one secondary and the client retries successfully. What can a reader of the file now find?",
@@ -223,7 +223,7 @@
                   "Nothing until the master repairs the chunk, since a failed append locks it against reads"
                 ],
                 "answer": 1,
-                "why": "Record append is at-least-once. Copies that applied the first try keep it, and the retry lands at a new offset on all of them. Applications put IDs and checksums in records to filter them."
+                "why": "Record append provides at-least-once delivery. Replicas that wrote the first attempt keep those bytes, and the retry writes the record at a higher offset across all three replicas. Client applications embed unique IDs and checksums in records to filter out padding and duplicates."
               },
               {
                 "ask": "Why does Reed-Solomon 6+3 cost more network than three copies when a disk is lost?",
@@ -233,7 +233,7 @@
                   "It must rewrite all nine blocks of a stripe whenever any one of them is rebuilt"
                 ],
                 "answer": 0,
-                "why": "With copies, repair reads one surviving copy. With a code, any lost block is computed from k others, so repair traffic is k times larger, and a read of a lost block waits for it."
+                "why": "With replication, repairing a lost copy reads one surviving replica over the network. With an erasure code, reconstructing any lost block requires reading k surviving blocks, multiplying the repair network traffic by k."
               },
               {
                 "ask": "A service stores 5 PB of photos: the newest 200 TB get almost all the reads, the rest are rarely opened. Which layout is best?",
@@ -243,7 +243,7 @@
                   "Three copies of the recent photos, and a Reed-Solomon code for the older ones"
                 ],
                 "answer": 2,
-                "why": "Copies make the many reads of hot data cheap and fast to repair; a code halves the disk for the cold bulk, where slower repair and reads rarely matter. That is the split Facebook's f4 made."
+                "why": "Replication keeps the frequent reads of hot data fast and cheap to repair, while erasure coding cuts disk usage in half for the cold data, where slower degraded reads and heavier repair traffic rarely happen. That is the tiered architecture Facebook used for f4."
               }
             ]
           }
@@ -260,12 +260,12 @@
     "disks": {
       "kind": "technical",
       "title": "How often disks fail",
-      "text": "Google's study (Pinheiro, Weber and Barroso) found annual failure rates from under 2% for disks in their first year to over 8% for disks three years old. Schroeder and Gibson found replacement rates of 2 to 4% across several sites and up to 13% at some, several times the makers' quoted figures. Both appeared at the FAST conference in February 2007."
+      "text": "Google's study (Pinheiro, Weber and Barroso) found annual failure rates from under 2% for disks in their first year to over 8% for disks three years old. Schroeder and Gibson found replacement rates of 2% to 4% across several sites and up to 13% at some, several times the makers' quoted figures. Both appeared at the FAST conference in February 2007."
     },
     "test": {
       "kind": "digression",
       "title": "Killing chunkservers on purpose",
-      "text": "The GFS paper's measurements section describes killing chunkservers in a working cluster to time the repairs. Deliberately breaking production systems to check that they recover became a practice of its own, which lesson 18 meets at Netflix."
+      "text": "The GFS paper's measurements section describes killing chunkservers in a working cluster to time the repairs. Deliberately breaking production systems to verify that they recover became an engineering discipline of its own, which we will examine in lesson 18 at Netflix."
     },
     "checksum": {
       "kind": "technical",
@@ -275,7 +275,7 @@
     "codes": {
       "kind": "technical",
       "title": "Cheaper repairs",
-      "text": "Codes have since been designed to cut the repair cost. Microsoft's Azure storage used local reconstruction codes (2012), which add extra parity over small groups so that most single losses are rebuilt from a few blocks, not k. Facebook's f4 kept a further XOR copy across datacentres so a whole building could be lost."
+      "text": "Engineers have since designed erasure codes that cut the repair cost. Microsoft's Azure storage introduced Local Reconstruction Codes in 2012, which add extra parity blocks over smaller subgroups of data blocks so that any single block loss can be reconstructed by reading only a few blocks rather than all k. Facebook's f4 also kept an extra XOR parity block across datacentres so the system could survive the loss of an entire building."
     }
   }
 }

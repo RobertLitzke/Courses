@@ -2,15 +2,15 @@
   "id": "slashdot",
   "n": 2,
   "title": "The link that took a website down",
-  "teaches": "What happens between a click and the reply, why waiting time explodes as a server nears full load, and Little's law",
+  "teaches": "Request latency, why queueing delay grows sharply as a server nears full utilisation, and Little's law",
   "summary": [
-    "**Most of a web request's time is round trips.** A first HTTPS request pays for DNS, a TCP handshake and a TLS handshake before the server does any work; reused connections skip them.",
-    "**Utilisation is the share of time a server is busy.** It is the arrival rate times the work per request, divided by how many requests it can work on at once.",
-    "**Waiting grows as 1 / (1 − utilisation).** A request's time at a server doubles at 50% busy, is ten times its work at 90% and a hundred times at 99%.",
-    "**A percentile describes the slow requests.** The median is the time half the requests beat; the 99th percentile is the time all but one in a hundred beat, and it climbs faster than the median under load.",
-    "**Little's law links rate, time and what is inside.** Requests in a system equal the arrival rate times the time each spends there, for any system that keeps up.",
-    "**A server near full load is slow before it is down.** Slower answers mean more requests inside at once, which fill pools and queues until new arrivals are refused.",
-    "**Find the box that saturates first.** Adding capacity anywhere else changes nothing; more web servers do not help a full database.",
+    "**Network round trips dominate initial web request latency.** A cold HTTPS request requires a DNS lookup, a TCP handshake, and a TLS handshake before the server receives the HTTP request; connection reuse eliminates the handshakes on subsequent requests.",
+    "**Utilisation is the fraction of time a resource is busy.** For a server, utilisation equals the request arrival rate multiplied by the processing time per request, divided by the number of requests the server can process in parallel.",
+    "**Queueing delay grows in proportion to 1 / (1 − utilisation).** Under random arrivals, average total time at a server is double the processing time at 50% utilisation, ten times the processing time at 90% utilisation, and a hundred times at 99% utilisation.",
+    "**Percentiles measure tail latency.** The median (p50) is the latency that half of requests complete within, while the 99th percentile (p99) is the latency that 99% of requests complete within.",
+    "**Little's law relates arrival rate, latency, and concurrency.** In any stable system, the average number of concurrent requests inside the system equals the arrival rate multiplied by the average time each request spends in the system.",
+    "**High utilisation exhausts concurrency limits before CPU capacity.** As queueing delays increase average request duration, more connections remain open concurrently, filling thread pools and socket queues until the server rejects new arrivals.",
+    "**System throughput is limited by the first component to saturate.** Adding capacity to non-bottleneck components does not improve performance; adding web servers will not speed up a saturated database.",
     "**One well-written machine goes a long way.** Ask whether the load needs more than one before designing for many, and keep headroom at the peak."
   ],
   "parts": [
@@ -19,11 +19,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Slashdot, started in 1997, was a page of links and comments for programmers. By 1999 it had hundreds of thousands of readers, and a link from its front page could send tens of thousands of them to a small website within an hour. Those websites were usually one machine in a university office or a cheap hosting company. Many of them stopped answering. Readers came to call it the **Slashdot effect**, and a site that had gone down that way had been \"slashdotted\".[^adler]"
+          "text": "Slashdot, started in 1997, was a page of links and comments for programmers. By 1999 it had hundreds of thousands of readers, and a link from its front page could send tens of thousands of them to a small website within an hour. Those websites usually ran on one machine in a university office or at a cheap hosting company. Many of them stopped answering. Readers came to call it the **Slashdot effect**, and a site that had gone down that way had been \"slashdotted\".[^adler]"
         },
         {
           "type": "text",
-          "text": "What happened to those machines is the subject of this lesson, because it is what happens to every server under load. A server that handled 20 visitors a second comfortably did not get 20% slower when 24 arrived. It got slower by far more than that, then slower still, and then stopped answering altogether, while its processor was still not doing much more work than before. Before reading on, think about where the time went. The answer is in two parts: what a single request costs, and what happens when requests wait for each other."
+          "text": "In this lesson, we examine what happened to those machines, because the same mechanics apply to every server under load. A server that comfortably handled 20 requests a second did not get 20% slower when 24 requests a second arrived. Its latency grew by far more than that, then grew further, until the server stopped answering altogether, even while its processor was not doing much more work than before. To understand where the latency comes from, we must look at two factors: the baseline latency of a single request, and the queueing delays that build up when concurrent requests wait on the same server."
         }
       ]
     },
@@ -32,21 +32,21 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 1 gave the costs of single operations. A web request strings several together. Take a reader in Seattle opening a page on a server in Virginia, a round trip of about 70 ms. The browser first asks the **Domain Name System** (DNS) for the server's address, unless it already has it; the DNS server it asks is usually nearby, so this costs tens of milliseconds, not a trip across the country. It then opens a TCP connection, which takes one round trip: the browser sends an opening message (SYN) and the server acknowledges it (SYN-ACK). Then TLS, the encryption layer, settles on the encryption keys both sides will use: one more round trip in TLS 1.3, assumed here, and two in the older TLS 1.2.[^tls] Only then does the request itself go out, the server do its work, and the reply come back."
+          "text": "In Lesson 1, we covered the latency of single operations, and a web request strings several of them together. Consider a reader in Seattle opening a page on a server in Virginia, with a network round-trip time of about 70 ms. The browser first queries the **Domain Name System** (DNS) for the server's IP address, unless it has already cached it; because the DNS server is usually nearby, this lookup takes about 30 ms rather than a full trip across the country. The browser then opens a TCP connection, which takes one round trip: the browser sends an opening message (SYN) and the server acknowledges it (SYN-ACK). Next, TLS, the encryption layer, negotiates the encryption keys that both sides will use. This handshake takes one more round trip in TLS 1.3, which we assume here, and two round trips in the older TLS 1.2.[^tls] Only then does the browser send the HTTP request, the server process it, and the response travel back."
         },
         {
           "type": "diagram",
           "id": "slashdot-request",
-          "caption": "One HTTPS request from Seattle to a server in Virginia, with a cold start: no cached address, no open connection. The server's own work is 12 ms of 252.",
+          "caption": "One HTTPS request from Seattle to a server in Virginia, with a cold start: no cached address and no open connection. The server's own processing time is 12 ms out of 252 ms.",
           "aspect_ratio": 1.76
         },
         {
           "type": "text",
-          "text": "Of 252 ms, the server spends 12. Three round trips across the country take 210 (TCP, TLS, then the request and its reply) and the DNS lookup 30: the speed of light, paid three times over. This is the first habit of the course in its plainest form: before speeding anything up, find where the time goes. Here the gains are in round trips. Keeping connections open and reusing them (a second request on the same connection takes 82 ms), putting a server closer to the reader, or caching the DNS answer each save more than any change to the server's code could."
+          "text": "Out of a total latency of 252 ms, the server spends 12 ms processing the request. Three round trips across the country take 210 ms (for TCP, TLS, and the request and response), and the local DNS lookup takes 30 ms. Before optimising a system, you should break down its latency to find the largest contributors. Here, network round trips dominate the total time. Keeping connections open and reusing them (a second request on the same connection takes 82 ms), placing a server closer to the reader, or caching the DNS response will each reduce latency more than optimising the server's application code."
         },
         {
           "type": "text",
-          "text": "In 1999 the server's own work was larger, a few tens of milliseconds to build a page from files and a database. That was still small beside the network. So the slashdotted servers did not die because each request was expensive. They died because requests began to wait for one another."
+          "text": "In 1999, a server took a few tens of milliseconds of processing time to build a page from files and a database. That processing time was still small compared to the network latency. The slashdotted servers did not fail because processing an individual request was slow. They failed because incoming requests queued behind one another."
         }
       ]
     },
@@ -55,31 +55,31 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A server's **utilisation** is the share of time it is busy. If requests arrive at 30 a second and each needs 20 ms of work, the server is busy 30 × 0.02 = 0.6 of each second: 60%. A server that can work on several requests at once, say eight on eight processor cores, divides by eight. At 100% it is doing all the work it can; past 100% the work arrives faster than it can be done and the queue grows without end."
+          "text": "A server's **utilisation** is the fraction of time it spends actively processing requests. If 30 requests arrive per second and each requires 20 ms of processing time, a single-core server is busy for 30 × 0.02 s = 0.6 s of each second, giving a utilisation of 60%. For a server that processes multiple requests in parallel, such as eight requests across eight processor cores, we divide that figure by eight. At 100% utilisation, the server is operating at its maximum throughput; past 100%, requests arrive faster than the server can process them, and the queue grows without bound."
         },
         {
           "type": "text",
-          "text": "Below 100% there is still waiting, because requests do not arrive evenly. Visitors click independently, so sometimes three arrive within a millisecond and sometimes none for 50 ms. A request that arrives while the server is busy waits its turn. The busier the server, the more likely a new request finds others ahead of it, and the longer the line it finds. Assume requests arrive at random, independently of one another, and that their work times vary at random too. Then a request that arrives finds, on average, utilisation / (1 − utilisation) requests already at the server, and each of them costs it a whole work time. Adding its own work, the average time a request spends at the server, waiting plus working, is the work time divided by (1 − utilisation).[^mm1]"
+          "text": "Even below 100% utilisation, requests still wait in a queue because they do not arrive at even intervals. Visitors click independently, so three requests might arrive within a single millisecond, followed by none for 50 ms. A request that arrives while the server is busy must wait in the queue. As utilisation increases, a new arrival is more likely to find the server busy, and the existing queue will be longer. If we assume that requests arrive randomly and independently, and that their processing times also vary randomly, an arriving request finds an average of utilisation / (1 − utilisation) requests already at the server, and each of them adds one average processing time to its wait. Adding the request's own processing time, the average total time a request spends at the server (queueing time plus processing time) equals the processing time divided by (1 − utilisation).[^mm1]"
         },
         {
           "type": "text",
-          "text": "Averages hide the requests people notice, so this course measures latency in **percentiles**. Sort a minute's requests by how long each took. The **median**, or 50th percentile, is the time half of them beat. The **99th percentile**, written p99, is the time that all but the slowest one in a hundred beat. A page that makes several requests, or a reader who visits several pages, meets the 99th percentile often, so it is the number to design for. Lesson 9 returns to why it matters more as systems grow."
+          "text": "Because averages hide the slowest requests that users notice most, engineers measure latency using **percentiles**. If you sort one minute of requests by their latency, the **median**, or 50th percentile, is the latency that 50% of requests completed within. The **99th percentile**, written p99, is the latency that 99 out of 100 requests completed within. Because a single web page often makes multiple requests, and a reader visits multiple pages, users encounter 99th-percentile latency frequently, making p99 the standard target for system design. We will return to why tail percentiles matter even more in larger systems in Lesson 9."
         },
         {
           "type": "interactive_diagram",
           "id": "slashdot-queue",
-          "caption": "One server, 20 ms of work per request, requests arriving at random. Dots are requests in flight (slow motion); amber dots over the server are requests waiting. Below, the time a request spends at the server against how busy it is, on a scale where each line is about three times the last.",
+          "caption": "A single server requiring 20 ms of processing time per request, with requests arriving at random. The moving dots represent requests in flight (shown in slow motion), and the amber dots above the server represent requests waiting in the queue. The chart below plots the total time a request spends at the server against server utilisation on a logarithmic scale, where each horizontal line represents roughly three times the latency of the line below it.",
           "goal": "ninety",
-          "task": "Guess, then raise the load until the server is 90% busy or more.",
+          "task": "Estimate the latency, then increase the arrival rate until the server reaches 90% utilisation or higher.",
           "aspect_ratio": 1.42
         },
         {
           "type": "text",
-          "text": "At 50% busy a request's average time at the server has doubled, from 20 ms of work to 40 ms. At 90% it is 200 ms, ten times the work. At 99% it is 2 seconds, a hundred times. The 99th percentile climbs alongside. Under the same assumptions the times are spread out in a particular way (exponentially), which puts the 99th percentile at about 4.6 times the average whatever the load: at 90% busy, one request in a hundred spends nearly a second at a server that does 20 ms of work on it. The curve is gentle at first and nearly vertical at the end, and the bend comes well before 100%."
+          "text": "At 50% utilisation, a request's average time at the server doubles from 20 ms of processing time to 40 ms total. At 90% utilisation, the average time reaches 200 ms (ten times the processing time), and at 99% utilisation, it reaches 2 seconds (a hundred times the processing time). The 99th-percentile latency climbs at the same rate. Under these queueing assumptions, total request times follow an exponential distribution, which places the 99th percentile at about 4.6 times the average latency regardless of the load. At 90% utilisation, 1% of requests take nearly 1 second on a server that needs only 20 ms to process each one. The latency curve remains flat at low utilisation and turns nearly vertical as it approaches 100%, with the sharp rise beginning well before the server reaches full capacity."
         },
         {
           "type": "text",
-          "text": "That is the first half of the slashdotted server's story. A machine that ran at 60% before the link went up and 90% after did not get 50% slower; its answers took four times as long. Latency is mostly waiting, and a server near full load is slow well before it is down."
+          "text": "This queueing behaviour explains the first stage of a slashdotted server's failure. A machine whose utilisation rose from 60% before the link was posted to 90% afterwards did not become 50% slower; its average server response time increased fourfold, from 50 ms to 200 ms. At high utilisation, queueing delay dominates total latency, causing a server to become slow well before it runs out of CPU capacity."
         }
       ]
     },
@@ -88,19 +88,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The second half needs one more relation. In 1961 John Little proved that for any system that keeps up with its arrivals, the average number of things inside it equals the rate at which they arrive times the average time each spends inside.[^little] It holds for a shop, a motorway or a server: 1,000 requests a second that each take 0.2 seconds means 200 requests inside at any moment."
+          "text": "To understand the second stage of the failure, we use a theorem from queueing theory. In 1961, John Little proved that for any stable system, the average number of concurrent items inside the system equals the average arrival rate multiplied by the average time each item spends inside.[^little] This relationship holds for customers in a shop, cars on a motorway, or requests in a server. A system receiving 1,000 requests per second, where each request takes 0.2 seconds to complete, holds an average of 200 concurrent requests in flight at any moment."
         },
         {
           "type": "text",
-          "text": "Web servers of 1999 typically gave each open connection a process or thread of its own, and capped how many they would run. A common setting for the Apache web server allowed 150.[^apache] Suppose a site gets 100 requests a second and answers each in 0.2 s, network time included: 20 connections are open at once, far below the cap. A Slashdot link brings 500 a second. Even if each answer still took 0.2 s, that is 100 open at once. But the server is now near full load, so each answer takes longer, say 0.5 s, and 500 × 0.5 = 250 connections want to be open. The cap is 150. New readers wait in the operating system's queue for a free slot, their browsers time out and retry, and the server spends its time on connections whose readers have already given up."
+          "text": "In 1999, web servers typically assigned a dedicated operating system process or thread to each open connection and set a fixed limit on the total number of concurrent processes. A standard configuration for the Apache web server limited this pool to 150 processes.[^apache] Suppose a website receives 100 requests a second and completes each connection in 0.2 seconds, including network round trips. By Little's law, the server holds an average of 20 open connections at once, well below its 150-process limit. If a Slashdot link increases the arrival rate to 500 requests a second, and each connection still took 0.2 seconds, the server would hold 100 open connections. However, because the higher arrival rate pushes the server to high utilisation, queueing delays increase the average connection time to 0.5 seconds. At that latency, the system requires 500 req/s × 0.5 s = 250 concurrent connections. Because Apache caps the pool at 150 processes, incoming connections fill the operating system's listen queue while waiting for a free process. Readers' browsers time out and retry, and the server wastes its capacity processing requests for clients that have already disconnected."
         },
         {
           "type": "text",
-          "text": "Retries are how overload feeds itself. A reader who gives up and reloads adds a second request while the first is still in the queue, so a server that is already behind receives more work, not less. Three defences recur through this course. A **timeout** bounds how long a client waits, and a server should drop work whose client has stopped waiting. **Backoff** makes a client that failed wait before retrying, a growing and partly random time, so that a crowd of failed clients does not return all at once. **Load shedding** turns away, quickly and with an error, the requests a server cannot answer in time, so that those it accepts are answered at their usual speed. A fast refusal costs the server almost nothing; a slow success that arrives after the reader has gone costs it a full request."
+          "text": "Client retries make an overloaded server worse. When a user gives up and reloads the page, the browser sends a second request while the first is still sitting in the server's queue, increasing the arrival rate on a system that is already past its capacity. Engineers use three standard mechanisms to prevent retry cascades, which we will use throughout this course. A **timeout** limits how long a client waits for a response, and a server should cancel any queued or in-progress work once its client disconnects. **Backoff** requires a client to wait before retrying a failed request, increasing the delay after each failure and adding a random jitter so that thousands of clients do not retry at the exact same moment. **Load shedding** rejects excess requests immediately with an error code when the server's queue reaches a threshold, allowing the server to process accepted requests with low latency. Returning a fast error takes negligible CPU time, whereas completing a slow response after the client has timed out wastes the full processing time of a request."
         },
         {
           "type": "text",
-          "text": "Waiting raised the time per request, Little's law turned the longer time into more requests inside, and the cap turned those into refusals. The machine's processor was busy but not overwhelmed; it ran out of slots. In 1999 Dan Kegel wrote a page called \"The C10K problem\" asking how one server could hold ten thousand connections open at once. The answer, which most servers now use, was to stop giving each connection a thread and let one thread watch many connections, working on whichever has data ready (an **event loop**).[^c10k] That raised the cap, but it did not repeal the queueing curve: a server at 95% busy is slow however it holds its connections."
+          "text": "In summary, queueing delays increased the average time per request, Little's law translated that higher latency into more concurrent connections, and the fixed process limit caused the server to reject new arrivals. The server's CPU was not at 100% utilisation, but the server exhausted its connection slots. In 1999, engineer Dan Kegel published \"The C10K problem\", which asked how a single server could manage 10,000 concurrent connections. Modern web servers solve this by replacing thread-per-connection pools with an **event loop**, where a single thread monitors thousands of connections and processes whichever socket has data ready.[^c10k] Event loops removed the low cap on concurrent connections, but they do not change the queueing curve: a server running at 95% CPU utilisation will still suffer high queueing delays regardless of how it manages its sockets."
         }
       ]
     },
@@ -109,23 +109,23 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Real sites soon had more than one box: a **load balancer** spreading requests over several web servers, and a database behind them. Each box has its own capacity and its own queueing curve, and the one with the least room, the **bottleneck**, decides how much the whole site can carry. A box is **full** when its waiting line has reached its limit: from then on each new arrival is turned away with an error. Before drawing more boxes, find out which one fills first."
+          "text": "To handle higher traffic, websites moved beyond a single machine, placing a **load balancer** in front of multiple web servers, which in turn query a shared backend database. Each component in this architecture has its own maximum throughput and its own queueing curve. The component with the lowest capacity relative to the traffic, known as the **bottleneck**, determines the maximum throughput of the entire system. A component becomes **saturated** (or full) when its request queue reaches its maximum limit, causing it to drop or reject any subsequent arrivals with an error. Before adding machines to a system, you must identify which component saturates first."
         },
         {
           "type": "interactive_diagram",
           "id": "slashdot-flow",
-          "caption": "A balancer, web servers that each handle 100 requests a second, and one database that handles 500 a second. The bar under each box shows how busy it is. The small meter above a box is its waiting line against its limit (40 for the database, 60 for each web server): amber while it fills, red and marked full when the next request would be turned away. Slow motion.",
+          "caption": "A load balancer, web servers with a capacity of 100 requests a second each, and a single database with a capacity of 500 requests a second. The bar beneath each component shows its percentage utilisation. The vertical meter above each component shows its current queue length relative to its maximum queue capacity (40 requests for the database, 60 requests for each web server), turning amber as the queue fills and red when the queue is full and rejecting new requests. Shown in slow motion.",
           "goal": "database",
-          "task": "Raise the load and add web servers until the database's waiting line is full while the web servers still have room.",
+          "task": "Increase the request rate and add web servers until the database queue saturates while the web servers still have spare capacity.",
           "aspect_ratio": 1.29
         },
         {
           "type": "text",
-          "text": "With two web servers the site carries 200 requests a second; at 180 the web servers sit at 90% and answers slow, while the database idles at 36%. Adding web servers fixes that, up to a point. With six web servers and 480 requests a second, the database is at 96% and the web servers at 80%. Add a seventh web server and nothing improves, because every request still needs the database. A team that watches the web servers' latency climb and adds more web servers has spent money on the wrong box."
+          "text": "With two web servers, the system has a maximum capacity of 200 requests a second. At an arrival rate of 180 requests a second, the web servers run at 90% utilisation and suffer high queueing delays, while the database sits at 36% utilisation. Adding more web servers reduces their utilisation, up to a limit. With six web servers and an arrival rate of 480 requests a second, the database runs at 96% utilisation while the web servers run at 80% utilisation. Adding a seventh web server will not reduce overall latency or increase throughput, because every request still queries the saturated database. If an engineering team sees high response latencies on the web servers and responds by adding more web servers, they are scaling the wrong component."
         },
         {
           "type": "text",
-          "text": "The fix for a full database is different in kind, and it is where the next three lessons go: copies of the database for reading (lesson 4), a cache in front of it (lesson 5), or splitting the data across several databases (lesson 4 again). Each of those starts from knowing that the database is the box that fills first."
+          "text": "Scaling a saturated database requires different architectural patterns, which we will cover in the next two lessons: adding read replicas to serve read queries (Lesson 4), placing a cache in front of the database (Lesson 5), or partitioning the data across multiple independent databases (Lesson 4). Each of these designs begins with identifying the database as the system's bottleneck."
         }
       ]
     },
@@ -134,19 +134,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The other side of this lesson is how much one machine can carry when it is written with the queue in mind. In January 2012 WhatsApp's engineers wrote that a single one of their servers held more than two million open connections at once.[^whatsapp] Around 2016 Stack Overflow, one of the busiest websites in the world, served its pages from nine web servers and four database servers, and its engineers wrote that each ran at a small fraction of its capacity.[^so] Neither was designed as a large distributed system first."
+          "text": "Conversely, a single server can support high throughput and concurrency when engineers design it to avoid connection limits and high utilisation. In January 2012, WhatsApp's engineers reported that a single server in their production fleet handled more than two million concurrent connections.[^whatsapp] In 2016, Stack Overflow, one of the most visited websites in the world, served all of its traffic from nine web servers and four database servers, with each machine running at low average utilisation.[^so] Neither company began by building a complex distributed system."
         },
         {
           "type": "text",
-          "text": "So the first question about any design is whether its load needs more than one machine, and the second is how much headroom it keeps. A server planned to run at 50 to 70% busy at the peak hour stays on the gentle part of the curve when a burst comes; one planned for 95% sits on the steep part every evening. The curve turns a latency target into a utilisation target. If the 99th percentile at the server must stay under ten times the work time, then 4.6 / (1 − u) ≤ 10, so u must stay under about 54%. Spare capacity costs money, and running hot costs latency. Both are choices to make with the numbers in front of you."
+          "text": "When designing a system, you should first calculate whether the expected load requires more than one machine, and then decide how much capacity headroom to maintain. A server provisioned to run at 50% to 70% utilisation during peak traffic stays on the flat portion of the queueing curve and can absorb short traffic bursts, whereas a server provisioned for 95% utilisation operates on the steep part of the curve every evening. You can use the queueing formula to convert a latency target directly into a maximum utilisation target. For example, if the 99th-percentile latency at the server must remain under ten times the baseline processing time, then 4.6 / (1 − u) ≤ 10, which means utilisation (u) must stay below 54%. Provisioning spare capacity increases hardware costs, while running at high utilisation increases tail latency. You must balance this trade-off using the system's latency and traffic numbers."
         },
         {
           "type": "key_ideas",
           "title": "Hold on to",
           "points": [
             "Time at a server ≈ work time / (1 − utilisation): ×2 at 50%, ×10 at 90%, ×100 at 99%.",
-            "Little's law: requests inside = arrival rate × time each spends inside.",
-            "The bottleneck is the box with the least room; capacity added elsewhere is wasted."
+            "Little's law states that concurrent requests in a system = arrival rate × average time per request.",
+            "The bottleneck is the component that saturates first; adding capacity to non-bottleneck components does not increase system throughput."
           ]
         }
       ]
@@ -162,64 +162,64 @@
           "options": {
             "items": [
               {
-                "ask": "A server needs 10 ms of work per request. Load rises until it is 90% busy. About how long does an average request now spend at the server?",
+                "ask": "A server requires 10 ms of processing time per request. Traffic increases until the server reaches 90% utilisation. What is the approximate average total time a request now spends at the server?",
                 "choices": [
-                  "About 11 ms, the work plus a tenth for the extra load",
-                  "About 100 ms, ten times the work, nearly all of it waiting",
-                  "About 19 ms, because the load has nearly doubled from half"
+                  "About 11 ms, equal to the processing time plus 10% for the high load",
+                  "About 100 ms, which is ten times the processing time, with 90 ms spent waiting in the queue",
+                  "About 19 ms, because the utilisation has nearly doubled from 50%"
                 ],
                 "answer": 1,
-                "why": "With random arrivals the time at a server is the work divided by (1 − utilisation): 10 ms / 0.1 = 100 ms. The extra 90 ms is waiting behind other requests."
+                "why": "With random arrivals, the average total time at a server is the processing time divided by (1 − utilisation), which gives 10 ms / (1 − 0.9) = 100 ms. The additional 90 ms is queueing delay spent waiting behind earlier requests."
               },
               {
-                "ask": "A service answers 2,000 requests a second and each request takes 50 ms from arrival to reply. How many requests are inside the service at any moment, on average?",
+                "ask": "A service handles 2,000 requests a second, and each request takes an average of 50 ms from arrival to response. On average, how many concurrent requests are in flight inside the service at any moment?",
                 "choices": [
-                  "40",
-                  "100",
-                  "400"
+                  "40 requests",
+                  "100 requests",
+                  "400 requests"
                 ],
                 "answer": 1,
-                "why": "Little's law: requests inside = arrival rate × time inside = 2,000 × 0.05 s = 100. A pool of worker threads smaller than that would be full."
+                "why": "By Little's law, concurrent requests = arrival rate × average latency = 2,000 req/s × 0.05 s = 100 requests. A server configured with a pool of fewer than 100 worker threads would run out of available threads."
               },
               {
-                "ask": "A slashdotted server's processor was busy but not at its limit, its network link had room to spare, and yet new readers were turned away. What ran out?",
+                "ask": "During a traffic spike, a slashdotted server's CPU utilisation remained below 100% and its network link had spare bandwidth, yet the server rejected new connections. Which resource was exhausted?",
                 "choices": [
-                  "Memory for the page cache, so that every page had to be rebuilt from disk for each reader",
-                  "Its connection slots: slow answers kept more connections open until the cap was hit",
-                  "Disk space, as each extra visitor added a line to the access log"
+                  "RAM for the page cache, forcing the server to read every page from disk",
+                  "Worker process slots, because higher latencies kept connections open longer until the server hit its concurrency limit",
+                  "Disk storage, because each incoming request appended a line to the access log"
                 ],
                 "answer": 1,
-                "why": "Queueing raised the time per request, Little's law turned the longer times into more open connections, and the cap on workers turned those into refusals and timeouts."
+                "why": "Queueing delays increased the average time per request, Little's law translated those longer durations into a higher number of concurrent open connections, and the fixed cap on worker processes caused the server to reject additional connections."
               },
               {
-                "ask": "A site's web servers show rising latency. Their processors are at 40% while the database is at 95%. What should the team do first?",
+                "ask": "A website's monitoring shows rising response latency on its web servers. The web servers are at 40% CPU utilisation, while the backend database is at 95% CPU utilisation. What should the engineering team do first?",
                 "choices": [
-                  "Add web servers, since that is where the latency shows",
-                  "Raise the web servers' pool of worker threads so that each can hold several hundred more requests while they wait",
-                  "Take load off the database, by caching or by cutting its queries"
+                  "Add more web servers, because the latency increase was measured on the web tier",
+                  "Increase the worker thread limit on the web servers so they can hold more concurrent requests in memory",
+                  "Reduce load on the database by caching responses or optimising slow queries"
                 ],
                 "answer": 2,
-                "why": "The web servers are waiting on the database, which is the bottleneck. Capacity added anywhere else leaves the queue at the database as long as it was."
+                "why": "The web servers show high latency because their threads are waiting on responses from the database, which is the bottleneck. Adding capacity to the web tier leaves the database at 95% utilisation and does not reduce its queueing delay."
               },
               {
-                "ask": "A page makes twenty requests to a service, each independently. About how often does a page load include at least one request slower than the service's 99th percentile?",
+                "ask": "A web page makes 20 independent requests to a backend service. Approximately what fraction of page loads will experience at least one request slower than the service's 99th-percentile (p99) latency?",
                 "choices": [
-                  "About one in a hundred, as for one request",
-                  "About one load in five, since 0.99²⁰ is about 0.82",
-                  "Nearly every load, since the slowest one in a hundred will almost always turn up"
+                  "About 1 in 100 page loads, matching the 99th-percentile rate of a single request",
+                  "About 1 in 5 page loads, because 0.99²⁰ is approximately 0.82",
+                  "Nearly every page load, because the slowest 1% of requests will occur on almost every page"
                 ],
                 "answer": 1,
                 "why": "Each request beats the 99th percentile with chance 0.99, so all twenty do with chance 0.99²⁰ ≈ 0.82. The other 18%, about one load in five, meets a slow one. That is why the 99th percentile, not the average, is what readers feel."
               },
               {
-                "ask": "A first HTTPS request from Seattle to Virginia takes about 250 ms, of which the server's work is 12 ms. Which change cuts the most time from a reader's later requests?",
+                "ask": "An initial HTTPS request from Seattle to Virginia takes 252 ms, of which server processing time accounts for 12 ms. Which change reduces latency the most for the user's subsequent requests?",
                 "choices": [
-                  "Rewriting the server's code so that it does its work in 6 ms",
-                  "Keeping the connection open so later requests skip the TCP and TLS handshakes",
-                  "Moving the database onto faster flash storage"
+                  "Optimising the server application code to cut processing time from 12 ms to 6 ms",
+                  "Keeping the connection open and reusing it so subsequent requests skip the TCP and TLS handshakes",
+                  "Migrating the database to faster NVMe flash storage"
                 ],
                 "answer": 1,
-                "why": "The handshakes cost two round trips, about 140 ms. Reusing the connection saves them on every later request; halving the server's work saves 6 ms."
+                "why": "The TCP and TLS handshakes require two cross-country network round trips, taking about 140 ms. Reusing an open connection eliminates both handshakes on subsequent requests, whereas halving the server processing time saves only 6 ms."
               }
             ]
           }
@@ -231,37 +231,37 @@
     "adler": {
       "kind": "digression",
       "title": "Measuring the effect",
-      "text": "In 1999 Stephen Adler, a physicist at Brookhaven National Laboratory, published \"The Slashdot Effect: An Analysis of Three Internet Publications\", counting hits a minute on his own and others' sites before and after a link went up. The traffic rose within minutes of posting and fell away over a day or two."
+      "text": "In 1999 Stephen Adler, a physicist at Brookhaven National Laboratory, published \"The Slashdot Effect: An Analysis of Three Internet Publications\", measuring requests per minute on his own and others' sites before and after a Slashdot link was posted. Traffic surged within minutes of the post and subsided over a day or two."
     },
     "tls": {
       "kind": "technical",
       "title": "Handshakes",
-      "text": "TLS 1.2 needs two round trips before the request can go; TLS 1.3, published in 2018, needs one, and a browser returning to a server it has spoken to recently can send its request in the first message. QUIC, the transport under HTTP/3, folds the TCP and TLS handshakes into one round trip."
+      "text": "TLS 1.2 requires two network round trips before the client can send its HTTP request. TLS 1.3, published in 2018, requires one round trip, and a client reconnecting to a server it has communicated with recently can send data in its first message (0-RTT). QUIC, the transport protocol underlying HTTP/3, combines the transport and cryptographic handshakes into a single round trip."
     },
     "mm1": {
       "kind": "technical",
       "title": "Where the curve comes from",
-      "text": "The formula is for a single server with arrivals at random (a Poisson process) and work times that vary at random around their mean (exponentially), which queueing theory calls an M/M/1 queue. Steadier work times wait less, but every queue with random arrivals has the same shape: gentle at first, then steep as utilisation nears one."
+      "text": "This formula applies to a single server where requests arrive according to a Poisson process (random, independent arrivals) and processing times follow an exponential distribution, a model known in queueing theory as an M/M/1 queue. Systems with more uniform processing times experience shorter queues, but any queue with random arrivals follows the same curve: flat at low load, then rising steeply as utilisation approaches 100%."
     },
     "little": {
       "kind": "digression",
       "title": "John Little's proof",
-      "text": "John Little, at MIT, published the proof in 1961; the rule had been used for years before that without one. Its strength is what it does not assume: nothing about the order requests are served in, how their times vary or how they arrive, only that the system is in a steady state."
+      "text": "John Little, a professor at MIT, published the formal mathematical proof in 1961, though operations researchers had used the formula empirically for years beforehand. The theorem is notable because it requires almost no assumptions: it holds regardless of the arrival distribution, the processing time distribution, or the order in which requests are served, provided the system is in a steady state where it does not fall permanently behind its arrivals."
     },
     "apache": {
       "kind": "technical",
       "title": "One process per connection",
-      "text": "Apache 1.3, the most common web server of the time, ran a pool of processes and gave each connection one of them until the reply was sent. Its MaxClients setting capped the pool, and many installations used 150. A slow reader on a slow modem held a process for the whole time it took to send them the page."
+      "text": "Apache 1.3, the dominant web server in 1999, maintained a pool of operating system processes and assigned one process exclusively to each TCP connection until the response finished transmitting. Its `MaxClients` directive capped the size of this process pool, and the default configuration in many distributions was 150. A user on a slow dial-up modem occupied a server process for the entire time required to transfer the page over the network."
     },
     "c10k": {
       "kind": "digression",
       "title": "Ten thousand connections",
-      "text": "Kegel's page surveyed the ways operating systems let one thread wait on many connections (select, poll, and the newer kqueue on BSD and epoll on Linux) and became the starting point for servers such as nginx, first released in 2004."
+      "text": "Kegel's paper surveyed the operating system APIs that allow a single thread to monitor thousands of network sockets (such as `select` and `poll`, and the more scalable `kqueue` on BSD and `epoll` on Linux). His analysis motivated the event-driven architecture of modern web servers such as nginx, which Igor Sysoev first released publicly in 2004."
     },
     "so": {
       "kind": "technical",
       "title": "Stack Overflow's servers",
-      "text": "Nick Craver, then an engineer at Stack Overflow, listed the hardware in a 2016 blog post, \"Stack Overflow: The Architecture, 2016 Edition\": nine web servers, four SQL Server machines in two pairs, and a few servers for caching, search and tags. Each pair of database servers had a copy ready to take over (lesson 4)."
+      "text": "Nick Craver, then a systems engineer and architecture lead at Stack Overflow, documented the company's hardware fleet in a 2016 blog post, \"Stack Overflow: The Architecture - 2016 Edition\". The setup used nine web servers, four SQL Server database machines arranged in two clusters, and a small number of machines for Redis caching, Elasticsearch, and tag processing. Each database cluster included a secondary replica ready to take over if the primary failed (see Lesson 4)."
     },
     "whatsapp": {
       "kind": "digression",

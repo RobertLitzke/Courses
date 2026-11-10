@@ -15,11 +15,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 2015 Matt Ranney, then chief systems architect at Uber, gave a talk on how its dispatch system worked. Every driver's phone running the app sent its position to Uber's servers every few seconds, about every four, whether or not the driver had a passenger. A rider opening the app expected to see the cars near them moving on the map within a second, and a request for a ride had to find a free car close by and offer it the trip. Behind both was one question asked thousands of times a second: which of the cars moving about this city are near this point now?"
+          "text": "In 2015 Matt Ranney, then chief systems architect at Uber, gave a talk on how its dispatch system worked. Every driver's phone running the app sent its position to Uber's servers about every four seconds, whether or not the driver had a passenger. A rider opening the app expected to see the nearby cars moving on the map within a second, and a ride request had to find a free car close by and offer it the trip. Both operations required answering one question thousands of times a second: which of the cars moving around this city are near this point right now?"
         },
         {
           "type": "text",
-          "text": "A database answers \"find the row with this key\" quickly because its index is sorted, and nearness in one dimension is nearness in the sorted order. A position has two dimensions, latitude and longitude, and no single sort order keeps every pair of nearby points together. This lesson is about the tricks that come close: cutting the map into cells and numbering them so that nearby cells mostly get nearby numbers, which turns \"what is near here?\" into a few lookups in an ordinary sorted or hashed store. Lesson M1's tiles already cut the map into cells, named by zoom, column and row; what they lack is a single number in which nearby tiles get nearby values."
+          "text": "A database answers \"find the row with this key\" quickly because its index is sorted, and nearness in one dimension matches nearness in the sorted order. A position has two dimensions, latitude and longitude, and no single sort order keeps every pair of nearby points together. In this lesson, we will examine techniques that approximate a two-dimensional sort by cutting the map into cells and numbering them so that nearby cells usually receive nearby numbers. This numbering turns a spatial query into a few lookups in an ordinary sorted or hashed store. In lesson M1, we cut the map into tiles named by zoom, column and row, but those tiles lacked a single number in which nearby tiles received nearby values."
         }
       ]
     },
@@ -28,11 +28,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Start with the load. Suppose a million drivers online at the busiest hour, each sending a position every four seconds: 250,000 updates a second. An update is a driver's ID, a latitude, a longitude, a time and a state (free, offered a trip, carrying a passenger), about 50 bytes, so 12.5 MB a second comes in. Each update replaces the last one from the same driver, and a position is useless after half a minute. The whole live picture is a million records of 50 bytes, 50 MB: it fits in the memory of one ordinary server many times over. Reads are fewer but each is a search; say 100,000 searches a second at the peak."
+          "text": "We can start by calculating the load. Suppose one million drivers are online during the busiest hour, and each sends a position every four seconds, generating 250,000 updates a second. An update consists of a driver's ID, a latitude, a longitude, a timestamp and a state (free, offered a trip, or carrying a passenger). At about 50 bytes per update, 12.5 MB a second of data arrives. Each update replaces the previous one from the same driver, and a position is stale after 30 seconds. The entire live dataset is one million records of 50 bytes, or 50 MB, which fits easily in the memory of a single ordinary server. Read requests are less frequent, but each one is a spatial search, peaking at around 100,000 searches a second."
         },
         {
           "type": "text",
-          "text": "The first design that comes to mind is a table of drivers in a relational database, with an index on latitude and one on longitude, and a query for rows whose latitude and longitude both fall within a small box around the rider. It fails twice. An index on latitude narrows the search only to a band around the whole planet: the latitudes of Manhattan run on through Spain, Italy, Turkey and northern China, and every driver along that band stays in the running until the longitude check throws them out. And each of the 250,000 updates a second rewrites two index entries on disk and in a log, for data that will be thrown away four seconds later. Positions belong in memory, with a copy appended to a log such as lesson 16's Kafka for anyone who needs the history later."
+          "text": "The first design you might consider is a table of drivers in a relational database, with one index on latitude and another on longitude, queried for rows whose latitude and longitude both fall within a small bounding box around the rider. This approach fails for two reasons. First, an index on latitude narrows the search only to a band around the entire planet. The latitudes of Manhattan run through Spain, Italy, Turkey and northern China, and every driver along that band remains a candidate until the longitude check filters them out. Second, each of the 250,000 updates a second rewrites two index entries on disk and in a write-ahead log for data that will be overwritten four seconds later. You should keep live positions in memory, and append a copy to an append-only log such as Kafka (lesson 16) for systems that need the historical trace."
         }
       ]
     },
@@ -41,15 +41,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 2008 Gustavo Niemeyer published **geohash**, which turns a position into a short string.[^geohash] It halves the range of longitude and writes a 1 if the point is in the east half and a 0 if in the west, then does the same for latitude, and so on, alternating, each bit halving the cell. The bits are written five at a time as characters of a 32-letter alphabet. Every extra character divides the cell's area by 32: five characters name a cell about 5 km on a side, six about 1.2 km by 0.6 km, seven about 150 m. Points in the same cell share a prefix, so a store sorted by geohash keeps each cell's drivers together, and a cell's drivers are one range scan."
+          "text": "In 2008 Gustavo Niemeyer published **geohash**, which encodes a geographic position into a short string.[^geohash] The algorithm halves the longitude range and writes a 1 if the point falls in the eastern half or a 0 if it falls in the western half. It then halves the latitude range in the same way, alternating between longitude and latitude so that each bit halves the cell's area. The bits are encoded five at a time as characters from a 32-character alphabet. Each additional character divides the cell's area by 32. At the equator, five characters name a cell about 4.9 km on a side, six characters name a cell of about 1.2 km by 0.6 km, and seven characters name a cell of about 150 m on a side. Points in the same cell share a prefix, so a key-value store sorted by geohash keeps each cell's drivers contiguous, and reading a cell's drivers requires a single range scan."
         },
         {
           "type": "text",
-          "text": "Two problems follow. The first is edges. Two cars a metre apart on either side of a cell boundary are in different cells, and at the biggest boundaries, the equator or the prime meridian, their geohashes share not even a first character. So a search never scans only the rider's cell: it scans every cell its circle touches, which for a circle smaller than a cell means the rider's cell and up to eight around it. The second is that one cell size does not fit a whole country. A cell that holds three drivers in Montana holds three hundred in Manhattan at six in the evening."
+          "text": "Two problems follow from this grid. The first is boundary effects. Two cars 1 m apart on opposite sides of a cell boundary sit in different cells, and at the largest boundaries, the equator or the prime meridian, their geohashes do not even share a first character. Because of this, a search cannot scan only the rider's cell. It must scan every cell that the search circle intersects, which for a circle smaller than a cell means scanning the rider's cell and up to eight surrounding cells. The second problem is that a single cell size does not suit an entire country. A cell size that holds three drivers in Montana will hold three hundred drivers in Manhattan at 18:00."
         },
         {
           "type": "text",
-          "text": "A **quadtree** (Raphael Finkel and Jon Bentley, 1974) adapts to density: start with one square, and whenever a square holds more than some number of points, split it into four. Cities end up cut fine and countryside coarse, so every cell holds about the same number. **Hexagons** answer a different problem: the centres of a square's four edge neighbours are one cell width from its own centre and those of its four corner neighbours about 1.41 widths, while all six of a hexagon's neighbours have centres the same distance away, which makes hexagons better for spreading a count of riders or drivers smoothly over an area."
+          "text": "A **quadtree** (Raphael Finkel and Jon Bentley, 1974) adapts to varying density. You start with one square, and whenever a square holds more than a set maximum number of points, you split it into four smaller squares. Cities are subdivided into fine cells and rural areas remain coarse, so every leaf cell holds roughly the same number of drivers. **Hexagons** solve a different problem: the centres of a square's four edge neighbours are 1 cell width from its own centre, while the centres of its four corner neighbours are about 1.41 cell widths away. All six of a hexagon's neighbours have centres at the exact same distance, which makes hexagonal grids better for smoothing rider or driver counts over an area."
         },
         {
           "type": "interactive_diagram",
@@ -61,7 +61,7 @@
         },
         {
           "type": "text",
-          "text": "In the city centre a fixed grid of 2.5 km squares makes a search scan a few hundred drivers to find the few dozen within a kilometre and a half; the quadtree's small city cells scan far fewer. Move the search into the country and the grid and the quadtree both scan nearly empty cells. The quadtree's price is that its cells change as drivers move, so the tree must be kept up to date or rebuilt every few seconds."
+          "text": "In the city centre, a fixed grid of 2.5 km squares forces a search to scan a few hundred drivers to find the few dozen within 1.5 km, whereas the quadtree's smaller city cells require scanning far fewer drivers. If you move the search into the countryside, both the fixed grid and the quadtree scan nearly empty cells. The drawback of a dynamic quadtree is that its cell boundaries shift as drivers move, so the system must continuously update or rebuild the tree every few seconds."
         }
       ]
     },
@@ -70,11 +70,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Geohash numbers its cells along a **Z-order curve**: interleaving the bits visits the four quarters of a square in the order of the letter Z, then each quarter's quarters the same way. Cells next to each other in the numbering are usually next to each other on the map, but the curve makes long jumps, from the end of one Z to the start of the next, and cells side by side across a jump get numbers far apart."
+          "text": "Geohash numbers its cells along a **Z-order curve**: interleaving the longitude and latitude bits visits the four quadrants of a square in the shape of the letter Z, and recursively visits each quadrant's sub-quadrants in the same order. Cells that are adjacent in the numbering are usually adjacent on the map, but the curve makes long diagonal jumps from the end of one Z to the start of the next, giving some adjacent cells on the map numbers that are far apart."
         },
         {
           "type": "text",
-          "text": "Google's **S2** library, written by Eric Veach, numbers cells along a **Hilbert curve** instead, a path that visits every cell of a grid while always stepping to a neighbour, so consecutive numbers are always adjacent cells.[^hilbert] S2 puts the Earth inside a cube, projects each of the cube's six faces onto the sphere, and cuts each face as a quadtree up to 30 levels deep, where a cell is about a centimetre across. A cell's 64-bit ID is its face and its path down the tree, in Hilbert order. Any region, a circle round a rider or the outline of a city, becomes a **covering**: a handful of cells of mixed sizes, and so a handful of ranges of IDs."
+          "text": "Google's **S2** library, written by Eric Veach, numbers cells along a **Hilbert curve** instead. This space-filling curve visits every cell of a grid while only ever stepping to an immediate edge neighbour, ensuring that consecutive numbers always correspond to adjacent cells.[^hilbert] S2 encloses the Earth in a cube, projects each of the cube's six faces onto the sphere, and subdivides each face as a quadtree up to 30 levels deep, where a leaf cell is about 1 cm across. A cell's 64-bit ID encodes its cube face and its path down the tree in Hilbert order. The library approximates any query region, such as a circle around a rider or the boundary of a city, with a **covering** consisting of a small set of cells of mixed sizes, which translates into a small number of ID ranges."
         },
         {
           "type": "interactive_diagram",
@@ -86,11 +86,11 @@
         },
         {
           "type": "text",
-          "text": "This is what makes cells useful to the stores of earlier lessons. Bigtable (lesson 10) keeps rows sorted by key, so a table keyed by S2 cell ID, with the item's own ID after it, answers \"everything in this region\" with a few range scans. A hashed store such as lesson 12's Dynamo cannot scan ranges, but it can hold one entry per cell listing what is in it, and a search reads the few cells of its covering by key."
+          "text": "This numbering allows us to store spatial data in the databases from earlier lessons. Bigtable (lesson 10) keeps rows sorted by key, so a table keyed by the S2 cell ID concatenated with the item's ID can return everything in a region using a few range scans. A hash-partitioned store such as Dynamo (lesson 12) cannot perform range scans, but it can store one record per cell containing the list of drivers inside it, allowing a search to fetch the cells of its covering by their exact keys."
         },
         {
           "type": "text",
-          "text": "Uber released its own grid, **H3**, in 2018. It covers the Earth with hexagons at 16 resolutions, from cells with edges about 1,100 km long down to edges under a metre, each cell holding about seven of the next size down.[^pentagons] Uber uses it to count supply and demand across a city, to set prices by area and to forecast, the jobs where equal distance to every neighbour matters. For finding the nearest car, squares in a sorted store are simpler; for counting across a city, hexagons are smoother."
+          "text": "Uber open-sourced its own spatial index, **H3**, in 2018. H3 covers the Earth with hexagons at 16 resolutions, ranging from cells with edges about 1,100 km long down to cells with edges under 1 m, with each cell containing roughly seven child cells at the next resolution down.[^pentagons] Uber uses H3 to aggregate supply and demand across a city, to calculate surge pricing by area and to forecast load, which are tasks where uniform distance to every neighbour prevents distortion. For finding the nearest car, square cells in a sorted store are simpler to query; for aggregating metrics across a city, hexagons avoid directional bias."
         }
       ]
     },
@@ -103,11 +103,11 @@
         },
         {
           "type": "text",
-          "text": "One server could hold all of it, but not answer 250,000 updates and 100,000 searches a second with room to spare, nor survive its own failure. So the index is split by cell across many servers, each owning the cells that consistent hashing (lessons 5 and 12) gives it. Uber built a library for this, Ringpop: the servers find each other and agree on who is alive by gossip, place themselves on a hash ring, and any server receiving a request for a cell forwards it to the cell's owner.[^swim] A search whose circle crosses cells on two or three servers asks each of them, a small fan-out. Lesson 9 showed that a fanned-out request waits for the slowest server it asks, which costs little at two or three."
+          "text": "A single server has enough memory to hold the entire index, but it cannot process 250,000 updates and 100,000 searches a second with safe headroom, nor can it survive a hardware failure on its own. Instead, we shard the index by cell across many servers, assigning each server a subset of cells using consistent hashing (lessons 5 and 12). Uber built the Ringpop library to manage this sharding: servers discover each other and track cluster membership via a gossip protocol, place themselves on a hash ring, and forward any incoming request to the server that owns the target cell.[^swim] A search whose query circle overlaps cells on two or three servers queries each of them in parallel, requiring a small fan-out. As we saw in lesson 9, a fanned-out request must wait for the slowest responding server, which adds minimal tail latency when fanning out to only two or three nodes."
         },
         {
           "type": "text",
-          "text": "Splitting by cell has the same weakness as lesson 10's row keys that start with a timestamp: load follows the cells, and the cells are not equal. A city centre at rush hour sends most updates to the few servers that own its cells."
+          "text": "Sharding by cell suffers from the same hotspot problem as the timestamp-prefixed row keys in lesson 10. Request load follows the cells, and the cells do not receive equal traffic. During rush hour, a city centre directs a large fraction of the updates to the few servers that own its cells."
         },
         {
           "type": "interactive_diagram",
@@ -119,7 +119,7 @@
         },
         {
           "type": "text",
-          "text": "To grow the design by ten times, 2.5 million updates a second: at 100,000 updates a second for a server working in memory, that is 25 shards, and a search still touches only the two or three servers its cells live on. At a hundred times, 250 shards, and a search still touches two or three. What grows badly is a hot city, and the fix is the quadtree's idea applied to the shards: cut the busy cells finer, at a deeper S2 level, so a busy centre spreads over many owners, and leave the countryside in large cells."
+          "text": "Suppose we scale the system tenfold to handle 2.5 million updates a second. If one in-memory server handles 100,000 updates a second, we need 25 shards, and a spatial search still queries only the two or three servers that own the relevant cells. Scaling a hundredfold to 25 million updates a second requires 250 shards, while a search still touches only two or three servers. The bottleneck is a dense city, and we can fix it by applying the quadtree concept to our sharding scheme: we subdivide high-traffic cells into smaller cells at a deeper S2 level so that a busy city centre hashes across many servers, while leaving rural areas in large cells."
         }
       ]
     },
@@ -128,11 +128,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The nearest free car is not always the right one to send. Suppose rider A asks first. Driver X is 2 minutes from A and driver Y is 3 minutes away. A moment later rider B asks, and B is 2 minutes from X but 10 minutes from Y. Sending each rider the nearest free car as they ask gives A the car X and leaves B with Y: 2 + 10 = 12 minutes of driving to pick both up. Waiting a couple of seconds, collecting both requests, and matching them together gives A the car Y and B the car X: 3 + 2 = 5 minutes. Batching trades a short wait for every rider against much less driving across the city, and the matching becomes an assignment problem solved over each batch."
+          "text": "Dispatching the nearest free car to each rider in order of request is not always optimal. Suppose rider A requests a ride first, when driver X is 2 minutes away from A and driver Y is 3 minutes away. A moment later rider B requests a ride, and B is 2 minutes from X but 10 minutes from Y. Assigning each rider the nearest free car as the requests arrive gives car X to rider A and leaves car Y for rider B, requiring 2 + 10 = 12 minutes of driving to pick up both riders. If the system instead waits 2 seconds, collects both requests, and matches them together, it assigns car Y to rider A and car X to rider B, requiring 3 + 2 = 5 minutes of driving. Batching trades a few seconds of waiting latency for a large reduction in total driving time across the city, turning dispatch into a bipartite matching problem solved over each batch."
         },
         {
           "type": "text",
-          "text": "Then the offer. The chosen driver is offered the trip and has a few seconds to accept; if not, the next driver in line is offered it. A driver must never be offered two trips at once, which is a lesson 11 problem in miniature: the driver's state changes from free to offered only if it is still free, a compare-and-set on the one server that owns that driver's record, so two searches that both found the same free driver cannot both win."
+          "text": "Once the system selects a match, it sends an offer to the chosen driver, who has a few seconds to accept before the system moves on to the next candidate. The dispatch system must never offer the same driver two trips at the same time. We can prevent double-booking using the atomic operations from lesson 11: the server owning the driver's record updates the driver's state from free to offered using a compare-and-swap operation, ensuring that if two concurrent searches select the same free driver, only one succeeds."
         },
         {
           "type": "key_ideas",
@@ -157,74 +157,74 @@
           "options": {
             "items": [
               {
-                "ask": "Two cars are a metre apart, but their geohashes share no prefix at all. What explains it?",
+                "ask": "Two cars are 1 m apart, but their geohashes share no prefix at all. What explains this?",
                 "choices": [
                   "Geohash rounds positions to the nearest kilometre, so close points can land anywhere",
                   "One of the cars sent its position in degrees and the other in radians",
-                  "They sit either side of a major cell boundary, such as the equator"
+                  "They sit on opposite sides of a major cell boundary, such as the equator"
                 ],
                 "answer": 2,
-                "why": "Points in the same cell share a prefix, but nearby points across a boundary can be in cells whose names differ from the first character. That is why a search covers every cell its circle touches."
+                "why": "Points in the same cell share a prefix, but nearby points across a boundary can fall into cells whose names differ starting from the very first character. Because of this, a search must scan every cell that its query circle touches."
               },
               {
-                "ask": "A million drivers each send a position every 4 seconds. How many updates a second must the system take, and where should the latest positions live?",
+                "ask": "One million drivers each send a position every 4 seconds. How many updates a second must the system handle, and where should it store the latest positions?",
                 "choices": [
-                  "250,000 a second, in memory, with a copy appended to a log",
-                  "4 million a second, on disk in an indexed table",
-                  "25,000 a second, in a relational table with indexes on latitude and longitude"
+                  "250,000 updates a second, in memory, with a copy appended to a log",
+                  "4 million updates a second, on disk in an indexed table",
+                  "25,000 updates a second, in a relational table with indexes on latitude and longitude"
                 ],
                 "answer": 0,
-                "why": "1,000,000 ÷ 4 = 250,000. Each update overwrites the last and is stale within seconds, so memory suits it; the history goes to a log for later use."
+                "why": "1,000,000 ÷ 4 s = 250,000 updates a second. Each update overwrites the previous position and becomes stale within seconds, so in-memory storage suits the live workload while an append-only log preserves the history."
               },
               {
-                "ask": "Why does a table indexed on latitude answer \"drivers within 2 km of this point\" poorly?",
+                "ask": "Why does a database table indexed on latitude perform poorly when answering \"find drivers within 2 km of this point\"?",
                 "choices": [
                   "Latitude cannot be stored in an index, because it is a floating-point number",
-                  "The latitude index narrows the search only to a band around the whole planet",
+                  "The latitude index narrows the search only to a band around the entire planet",
                   "An index on latitude sorts drivers by distance from the equator, not from the rider"
                 ],
                 "answer": 1,
-                "why": "A thin range of latitudes still crosses every longitude, so the query reads every driver in every city in that band before the longitude test discards them."
+                "why": "A 4 km band of latitudes circles the globe across every longitude, so the query must scan every driver in every city along that band before filtering them by longitude."
               },
               {
-                "ask": "Why is a quadtree a better fit than a fixed grid for drivers spread over a country?",
+                "ask": "Why is a quadtree a better fit than a fixed grid for indexing drivers spread across a country?",
                 "choices": [
                   "It needs no updating as drivers move, because its cells never change",
                   "It gives every cell six neighbours at equal distances, which a grid cannot",
-                  "It splits cells where drivers are dense, so each cell holds about the same number"
+                  "It splits cells where drivers are dense, so each cell holds roughly the same number of drivers"
                 ],
                 "answer": 2,
-                "why": "A fixed grid's city cells overflow while its rural cells sit empty. The quadtree adapts its cell size to density, at the cost of keeping the tree current as drivers move."
+                "why": "In a fixed grid, city cells hold hundreds of drivers while rural cells sit empty. A quadtree adapts its cell size to the local density, at the cost of updating the tree as drivers move."
               },
               {
-                "ask": "What does numbering cells along a Hilbert curve give a store sorted by cell ID?",
+                "ask": "What advantage does numbering cells along a Hilbert curve provide to a database sorted by cell ID?",
                 "choices": [
                   "Every cell's ID is shorter, so the store holds more cells in the same memory and scans faster",
-                  "Consecutive IDs are always neighbouring cells, so a two-dimensional region becomes a few range scans",
+                  "Consecutive IDs always represent neighbouring cells, so a two-dimensional region maps to a few range scans",
                   "Each cell's four neighbours have IDs one apart, so any circular search is a single range scan"
                 ],
                 "answer": 1,
-                "why": "The Hilbert curve never jumps, so nearby cells mostly fall in a few runs of consecutive IDs. It cannot make every neighbour consecutive in two dimensions, so a search still needs several ranges."
+                "why": "The Hilbert curve never jumps across the map, so nearby cells group into a small number of contiguous ID runs. Because no one-dimensional curve can make all four neighbours consecutive in two dimensions, a search still requires several range scans."
               },
               {
-                "ask": "Driver positions are sharded by cell. At rush hour the one server that owns the city centre's few cells is overloaded while the others idle. What is the best fix?",
+                "ask": "Driver positions are sharded by cell. At rush hour, the single server that owns the city centre's few cells is overloaded while the other servers sit idle. What is the best fix?",
                 "choices": [
-                  "Cut the busy cells finer, so the city centre's load spreads over more owners",
+                  "Subdivide the busy cells into smaller cells, so the city centre's load spreads across more servers",
                   "Add more servers to the ring, keeping every cell at the size it is now",
                   "Send each update to every server, so any of them can answer any search"
                 ],
                 "answer": 0,
-                "why": "Each hot cell is owned by one server however many servers the ring has, so adding servers leaves the hot cells where they are. Finer cells where drivers are dense turn a few hot keys into many, which hashing then spreads."
+                "why": "A single hot cell maps to one server regardless of how many servers are on the hash ring, so adding servers does not split a hot cell's load. Subdividing dense areas into finer cells turns a few hot keys into many keys, which consistent hashing distributes across the cluster."
               },
               {
-                "ask": "Two riders and two drivers: A is 2 minutes from X and 3 from Y; B is 2 minutes from X and 10 from Y. A asks first. Which matching is better, and how is it found?",
+                "ask": "With two riders and two drivers, rider A is 2 minutes from driver X and 3 minutes from driver Y, while rider B is 2 minutes from driver X and 10 minutes from driver Y. Rider A requests a ride first. Which assignment is better, and how does the system find it?",
                 "choices": [
                   "A gets X and B gets Y, 12 minutes in all, found by giving each rider the nearest free car",
                   "A gets X and B waits for X to finish, found by queueing riders for the nearest car",
                   "A gets Y and B gets X, 5 minutes in all, found by matching a short batch of requests together"
                 ],
                 "answer": 2,
-                "why": "Greedy matching gives A the nearest car and strands B 10 minutes away. Batching a couple of seconds of requests and solving the assignment together cuts total pickup time from 12 minutes to 5."
+                "why": "Greedy matching assigns the nearest car to A and leaves B with a car 10 minutes away. Batching requests over a couple of seconds and solving the assignment problem across the batch reduces the total pickup time from 12 minutes to 5 minutes."
               }
             ]
           }
@@ -233,35 +233,35 @@
     }
   ],
   "summary": [
-    "**Do the arithmetic before choosing a store.** A million drivers every four seconds is 250,000 updates a second of data that is stale within seconds, so it lives in memory with a copy logged.",
-    "**An index on latitude and longitude is the wrong tool.** A latitude range is a band round the planet, and the updates would rewrite the indexes constantly.",
-    "**Cells turn a position into a key.** Geohash interleaves the bits of latitude and longitude, so points in one cell share a prefix.",
-    "**Search every cell the circle touches.** Nearby points across a boundary can have unrelated cell names.",
-    "**A quadtree fits cell size to density; hexagons give equal neighbours.** Fine cells in cities, coarse in the country; hexagons suit counting demand.",
-    "**S2 numbers cells along a Hilbert curve.** A region becomes a covering of a few cells and a few range scans in a sorted store.",
-    "**Shard by cell and split the hot cells.** Load follows cells, so busy centres are cut finer to spread over more servers.",
-    "**Matching a batch beats the nearest car.** Waiting a couple of seconds to assign several requests together can cut total pickup time a great deal."
+    "**Calculate the load before choosing a database.** One million drivers sending updates every 4 seconds generates 250,000 updates a second of data that expires within seconds, so you should hold the current state in memory and append a copy to a log.",
+    "**Separate indexes on latitude and longitude perform poorly.** A latitude range selects a band around the entire planet, and high-frequency updates constantly rewrite the on-disk indexes.",
+    "**Spatial cells convert a two-dimensional coordinate into a one-dimensional key.** Geohash interleaves the bits of longitude and latitude so that points within the same cell share a string prefix.",
+    "**Query every cell that intersects the search radius.** Nearby points on opposite sides of a cell boundary can have completely different cell prefixes.",
+    "**A quadtree adapts cell size to point density, while hexagons provide equidistant neighbours.** Subdivide cells finely in cities and coarsely in rural areas, and use hexagonal grids when smoothing demand counts across a map.",
+    "**S2 numbers cells along a Hilbert curve.** Any geographic region maps to a covering of a few cells, which translates into a few range scans in a sorted key-value store.",
+    "**Shard by cell and subdivide hot cells.** Because update traffic follows driver density, split busy city cells at a finer resolution to spread their load across more servers.",
+    "**Batch matching outperforms greedy nearest-neighbour dispatch.** Collecting requests for a couple of seconds and solving the assignment problem across the batch reduces total driving time."
   ],
   "footnotes": {
     "geohash": {
       "kind": "digression",
       "title": "A short link for a place",
-      "text": "Niemeyer launched geohash as a public service at geohash.org, a short link for a location in the way TinyURL (lesson 3) gave short links for web pages: a position became a few characters you could paste anywhere. Its use as a database key came after."
+      "text": "Niemeyer launched geohash as a public web service at geohash.org to provide short URLs for geographic coordinates, much as TinyURL (lesson 3) provided short links for web pages. Encoding a coordinate as a short alphanumeric string that could be pasted into a URL came first; using those strings as database keys came later."
     },
     "hilbert": {
       "kind": "digression",
       "title": "Hilbert's curve",
-      "text": "David Hilbert described the curve in 1891 as a curiosity: repeat its construction for ever and the path passes through every point of the square. Programs stop after a fixed number of levels, which gives a path through every cell of a grid that never jumps."
+      "text": "David Hilbert described his space-filling curve in 1891 as a mathematical curiosity: if you repeat its recursive construction infinitely, the one-dimensional line passes through every point in a two-dimensional square. Spatial indexes stop after a fixed number of subdivisions, producing a path that visits every cell of a grid without ever jumping to a non-adjacent cell."
     },
     "pentagons": {
       "kind": "technical",
       "title": "Twelve pentagons",
-      "text": "A sphere cannot be covered with hexagons alone. H3 starts from an icosahedron, a solid of 20 triangles, and at every resolution there are exactly 12 pentagons, at its corners, placed in the oceans. A hexagon's seven children do not exactly fill it, so a cell's area is only roughly the sum of its children's."
+      "text": "A sphere cannot be tiled using hexagons alone. H3 starts with a regular icosahedron (a polyhedron with 20 triangular faces) and places a pentagon at each of its 12 vertices, orienting the icosahedron so that all 12 pentagons fall in the oceans. These 12 pentagons remain at every resolution. Because a hexagon's seven child cells do not perfectly tile its boundary, a parent cell's area is only approximately equal to the sum of its seven children's areas."
     },
     "swim": {
       "kind": "technical",
       "title": "Gossip",
-      "text": "Ringpop's membership used SWIM (Abhinandan Das, Indranil Gupta and Ashish Motivala, 2002): each server pings a random other one now and then, asks others to try when a ping goes unanswered, and passes news of who has joined or died along with its pings, so word of a failure reaches every server in a few rounds without any central list."
+      "text": "Ringpop's membership protocol was based on SWIM (Abhinandan Das, Indranil Gupta and Ashish Motivala, 2002). Each server periodically pings a randomly chosen peer, asks a few other peers to probe the target if the ping times out, and piggybacks cluster membership changes onto its ping messages. News of a server joining or failing reaches the entire cluster in a few rounds without requiring a central coordinator."
     }
   }
 }

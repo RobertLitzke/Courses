@@ -2,16 +2,16 @@
   "id": "nanosecond",
   "n": 1,
   "title": "How long is a nanosecond?",
-  "teaches": "The costs every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers",
+  "teaches": "The latencies every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers",
   "summary": [
-    "**Light covers about 30 cm in a nanosecond.** In glass fibre it covers about 20 cm, so every 100 km of cable adds a millisecond to a round trip.",
-    "**The costs span nine powers of ten.** A reference to the processor's own cache takes about a nanosecond, a memory reference 100 ns, a datacentre round trip about half a millisecond, a disk seek 10 ms, a trip to Europe and back 150 ms.",
-    "**Ratios matter more than the exact values.** A memory reference is about five thousand times faster than a datacentre round trip, which is about twenty times faster than a disk seek; the ratios decide designs and change slowly.",
-    "**Another machine's memory can beat your own disk.** A round trip inside a building costs less than one seek, which is why caches on other machines work.",
-    "**Flash and fast networks moved the middle of the ladder.** Memory latency, disk seeks and the speed of light hardly moved between 2009 and 2026.",
-    "**A day is about 10⁵ seconds.** So a million events a day is about ten a second, and a year is about 3 × 10⁷ seconds.",
-    "**Build for the peak, not the average.** Traffic in the busiest hour often runs two to ten times the daily mean.",
-    "**Estimate before drawing boxes.** Round numbers, worked in a minute, often settle whether a design needs one machine or a hundred."
+    "**Light in a vacuum travels about 30 cm in a nanosecond.** In glass fibre it travels about 20 cm in a nanosecond, so every 100 km of cable adds 1 ms to a round trip.",
+    "**Hardware latencies span nine orders of magnitude.** Reading from the processor's L1 cache takes about 1 ns, a main memory reference takes 100 ns, a datacentre round trip takes about 0.5 ms, a spinning disk seek takes 10 ms, and a round trip from the US to Europe takes 150 ms.",
+    "**Relative ratios matter more than exact latencies.** A main memory reference is about five thousand times faster than a datacentre round trip, which in turn is about twenty times faster than a spinning disk seek; these ratios guide system architecture and change slowly over time.",
+    "**Reading from another server's memory is faster than reading from a local spinning disk.** A network round trip inside a datacentre takes 0.5 ms while a local disk seek takes 10 ms, which is why distributed in-memory caches improve performance.",
+    "**Solid-state drives and faster networks reduced latencies in the middle of the ladder.** Main memory latency, spinning disk seek times, and the speed of light in fibre changed very little between 2009 and 2026.",
+    "**A day has roughly 10⁵ seconds.** Consequently, 1 million events per day equals an average throughput of about 10 events per second, and a year has roughly 3 × 10⁷ seconds.",
+    "**Provision capacity for peak load, not the daily average.** Throughput during the busiest hour typically runs two to ten times the daily average.",
+    "**Estimate throughput and storage before designing the architecture.** A minute of back-of-the-envelope arithmetic often determines whether your system requires a single server or a hundred."
   ],
   "parts": [
     {
@@ -19,11 +19,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From the late 1960s, the Navy computer scientist Grace Hopper handed out pieces of wire at her lectures, each cut to 29.97 centimetres: the distance light travels in one billionth of a second, a **nanosecond**.[^hopper] Admirals had asked her why a message by satellite took so long, and she wanted them to see that the delay was distance, not faulty equipment. For a **microsecond**, a millionth of a second, she brought a coil of wire nearly 300 metres long."
+          "text": "From the late 1960s, the Navy computer scientist Grace Hopper handed out pieces of wire at her lectures, each cut to 29.98 centimetres, which is the distance light travels in one billionth of a second, a **nanosecond**.[^hopper] Admirals had asked her why a message by satellite took so long, and she wanted them to see that the delay was caused by distance, not faulty equipment. For a **microsecond**, a millionth of a second, she brought a coil of wire nearly 300 metres long."
         },
         {
           "type": "text",
-          "text": "Every large computer system is built on a handful of such times: how long it takes to read from memory, from a disk, from another machine across the room or across an ocean. This course calls the time between asking for something and having the answer its **latency**. The asking is a **request**, a message to a server, and the answer is its **reply**. Each later lesson leans on the times in this one. Treat them as starting points: the numbers that count for your own system are the ones you measure on it, with a benchmark of a disk or a timed request between two of your own machines."
+          "text": "Every large computer system is built on a handful of such durations: how long it takes to read from memory, from a disk, from another machine across the room or across an ocean. We call the elapsed time between sending a message and receiving the answer its **latency**. The outgoing message to a server is a **request**, and the response is its **reply**. In later lessons, we will rely on the latencies introduced here. Treat them as starting points, because the numbers that count for your own system are the ones you measure on it, using a disk benchmark or a timed request between two of your own machines."
         }
       ]
     },
@@ -37,22 +37,22 @@
         {
           "type": "interactive_diagram",
           "id": "nanosecond-ladder",
-          "caption": "The ladder of costs, each gridline ten times the last. Switch between Dean's 2009 table and round figures for 2026, and turn on the human scale.",
+          "caption": "The ladder of latencies, where each gridline represents ten times the duration of the last. Switch between Dean's 2009 table and round figures for 2026, and turn on the human scale.",
           "goal": "human",
           "task": "Turn on the human scale and read the bottom rows.",
           "aspect_ratio": 1.25
         },
         {
           "type": "text",
-          "text": "The bars sit on a scale where each gridline is ten times the one before, because nothing else could fit them on one page. A processor keeps copies of recently used memory in a small, fast store of its own, a **cache**; reading from the smallest and fastest of these, the L1 cache, takes four or five clock cycles, about a nanosecond.[^l1] A reference to main memory takes 100 ns, two hundred times longer. A [[round trip inside a datacentre|request]] takes about half a millisecond, five thousand times a memory reference. Moving the head of a [[spinning disk|data]] to a new track, a seek, takes 10 ms, and a round trip across the Atlantic takes 150 ms. From top to bottom the ladder covers nine powers of ten."
+          "text": "The bars sit on a logarithmic scale where each gridline represents ten times the duration of the one before, because a linear scale could not fit them on one page. A processor keeps copies of recently used memory in a small, fast store of its own called a **cache**; reading from the smallest and fastest of these, the L1 cache, takes four or five clock cycles, or about 1 ns.[^l1] A reference to main memory takes 100 ns, which is one hundred times longer than a 1 ns cache read (or two hundred times Dean's 2009 figure of 0.5 ns). A [[round trip inside a datacentre|request]] takes about 0.5 ms, five thousand times longer than a memory reference. Moving the head of a [[spinning disk|data]] to a new track, a seek, takes 10 ms, and a round trip across the Atlantic takes 150 ms. From top to bottom the ladder covers nine orders of magnitude."
         },
         {
           "type": "text",
-          "text": "The human scale stretches every bar by the same factor, so that a memory reference takes one second. A round trip to another machine in the same building then takes more than an hour, a disk seek more than a day, and the trip to Europe and back about seventeen days. Nobody keeps the exact figures in their head. Engineers who design these systems keep the ratios, such as memory against network and network against disk."
+          "text": "The human scale multiplies every bar by ten million, so that a 100 ns memory reference takes one second. On this scale, a round trip to another machine in the same building takes more than an hour, a disk seek takes more than a day, and the trip to Europe and back takes about seventeen days. Nobody memorises the exact figures. Engineers who design these systems remember the relative ratios, such as memory latency compared to network latency, and network latency compared to disk latency."
         },
         {
           "type": "text",
-          "text": "One ratio surprises people. Sending a request to another machine in the same datacentre and getting an answer back from its memory, about 0.5 ms, is twenty times faster than one seek on your own disk. \"Memory is fast and the network is slow\" is the wrong rule. Another machine's memory, a short hop away, beats your own disk. Lesson 5 is built on that: a whole tier of machines that do nothing but hold data in memory for the others."
+          "text": "One ratio often surprises people. Sending a request to another machine in the same datacentre and getting an answer back from its memory takes about 0.5 ms, which is twenty times faster than one 10 ms seek on your own local disk. Assuming that local storage is fast and the network is slow will lead you to the wrong design. Reading from another machine's memory a short network hop away is faster than reading from your own spinning disk. In lesson 5, we will use this ratio to design a dedicated tier of machines that hold data in memory for the rest of the system."
         }
       ]
     },
@@ -61,15 +61,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Switch the ladder to 2026 and the middle changes. [[Flash storage|data]], the chips of a solid-state drive, arrived in servers after 2009 and reads a random 4 KB block in tens of microseconds, about a hundred times faster than a disk seek, with no head to move. Networks inside datacentres went from 1 gigabit a second to 100 and more, so the time to push 2 KB onto the wire fell from 20 µs to a fraction of one. Reading a megabyte in a row from memory got faster too, because each memory channel now moves more bits at once and a server has more channels."
+          "text": "If you switch the ladder to 2026, the middle values change. [[Flash storage|data]], made of solid-state drive chips, became standard in servers after 2009 and reads a random 4 KB block in tens of microseconds. Because there is no physical head to move, flash is about a hundred times faster than a disk seek. Network bandwidth inside datacentres increased from 1 gigabit per second (Gbps) to 100 Gbps and more, so the transmission time to push 2 KB onto the wire fell from 20 µs to a fraction of a microsecond. Reading 1 MB sequentially from memory became faster too, because each memory channel now transfers more bits per second and a server has more channels."
         },
         {
           "type": "text",
-          "text": "Three rows hardly moved: memory, the disk seek and the trip to Europe. A reference to main memory still takes about 100 ns, because the time is set by the chips' design and their distance from the processor, and that has not shrunk much. Spinning disks still seek in milliseconds and still hold most of the world's cold data, the data that is rarely read, because they are the cheapest place to keep it.[^disks] The trip to Europe still takes 150 ms, because it is set by the speed of light in glass and the length of the cables, and no engineering will shorten either much. A design that rested on one of those three is still right; one built around the slow random read of a disk had to change when flash made such reads cheap."
+          "text": "Three latencies hardly changed: main memory access, the disk seek and the round trip to Europe. A reference to main memory still takes about 100 ns, because this latency is governed by the memory chips' internal design and their physical distance from the processor, neither of which has shrunk much. Spinning disks still take milliseconds to seek and still hold most of the world's cold data (data that is rarely read) because they remain the cheapest storage medium per gigabyte.[^disks] The round trip to Europe still takes 150 ms, because it is limited by the speed of light in glass and the length of the undersea cables, and no engineering will shorten either much. A system design that depended on one of those three latencies in 2009 is still valid today, whereas a design built around the high latency of random disk reads had to be updated once flash storage made random reads fast."
         },
         {
           "type": "text",
-          "text": "The latencies that matter are also not always where you expect them. In 2012 John Carmack, the programmer behind *Doom* and *Quake*, complained that he could send a packet across the Atlantic faster than he could get a pixel onto his own screen. The pixel spent longer than the packet's whole trip in buffers between the game, the graphics driver and the display's own processing.[^carmack] Nobody had measured the screen because everyone assumed it was fast. The habit this lesson builds is to put a number on each step, including the ones that seem too quick to matter."
+          "text": "High latencies also occur in unexpected components. In 2012 John Carmack, the programmer behind *Doom* and *Quake*, noted that he could send a packet across the Atlantic in less time than it took to display a pixel on his local monitor. The pixel spent more time waiting in queues and buffers between the game, the graphics driver and the display's internal processor than the packet spent crossing the ocean.[^carmack] Engineers had rarely measured display latency because they assumed local hardware was fast. When you evaluate a system, you should measure the latency of every step, including the ones that seem negligible."
         }
       ]
     },
@@ -78,16 +78,16 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Light in a vacuum covers 30 cm in a nanosecond, Hopper's wire. In optical fibre it is slowed by the glass to about two thirds of that, 20 cm a nanosecond or 200 km a millisecond.[^fibre] A round trip goes there and back, so each 100 km between two machines adds at least one millisecond."
+          "text": "Light in a vacuum travels 30 cm in a nanosecond, the length of Hopper's wire. In optical fibre, the glass slows light down to about two thirds of its vacuum speed, which is 20 cm per nanosecond or 200 km per millisecond.[^fibre] Because a network round trip must travel to the destination and back, every 100 km of fibre between two machines adds at least 1 ms of latency."
         },
         {
           "type": "text",
-          "text": "Seattle to London is about 7,700 km along the shortest path over the Earth. Out and back is 15,400 km, which at 200 km a millisecond is 77 ms. That is a floor that no faster computer can lower. Real round trips run longer, often 130 to 150 ms, because cables do not follow great circles and every router on the way adds a little."
+          "text": "The great-circle distance from Seattle to London is about 7,700 km. A round trip is 15,400 km, which at 200 km per millisecond gives a minimum latency of 77 ms. That is a physical lower bound that faster computers cannot reduce. Actual network round trips take longer, often 130 ms to 150 ms, because fibre optic cables do not follow straight great-circle paths and every router along the route adds processing and queueing delay."
         },
         {
           "type": "diagram",
           "id": "scale",
-          "caption": "The shortest possible round trip from Seattle, at 200 km a millisecond in fibre along the shortest path over the Earth. Real networks take one and a half to two times as long.",
+          "caption": "The minimum possible round-trip latency from Seattle, calculated at 200 km per millisecond in fibre along the shortest path over the Earth. Real networks take one and a half to two times as long.",
           "options": {
             "title": "Least round trip from Seattle, ms",
             "unit": "ms",
@@ -104,12 +104,12 @@
         },
         {
           "type": "text",
-          "text": "These numbers decide where data can live. A service that must answer a reader in London within 100 ms cannot ask a database in Seattle twice on the way. A design that writes every change to three continents before answering has a floor of a few hundred milliseconds on every write, however fast its machines are. Later lessons keep running into this floor: lesson 20's global database pays it on purpose, and lesson 19's video network exists to avoid it."
+          "text": "These physical limits dictate where you can place data. If your service must reply to a user in London within 100 ms, your London server cannot make two sequential requests to a database in Seattle before replying. If you design a system that replicates every write across three continents before confirming it to the user, every write will have a minimum latency of a few hundred milliseconds, regardless of how fast the servers are. We will encounter this physical lower bound throughout the course: in lesson 20 we will examine a global database that accepts this latency penalty to guarantee consistency, and in lesson 19 we will design a video delivery network built to avoid it."
         }
       ]
     },
     {
-      "title": "Before drawing any boxes, the numbers",
+      "title": "Estimating throughput and capacity",
       "blocks": [
         {
           "type": "text",
@@ -118,27 +118,27 @@
         {
           "type": "interactive_diagram",
           "id": "nanosecond-estimate",
-          "caption": "From people a day to requests a second. Guess the average rate first; then the sliders work the estimate through.",
+          "caption": "Converting daily active users to requests per second. Estimate the average throughput first, then use the sliders to calculate the result.",
           "goal": "guess",
-          "task": "Guess the average requests a second for a million users making ten requests a day each.",
+          "task": "Estimate the average throughput in requests per second for a million users making ten requests per day each.",
           "aspect_ratio": 2.3
         },
         {
           "type": "text",
-          "text": "Ten million requests a day is about 100 a second on average. No service gets its traffic evenly. Most of it arrives in waking hours of the time zones it serves, more on some days than others, and in bursts when something is in the news. The busiest hour of a typical service runs two to ten times its daily average, so the 100 becomes 200 to 1,000 a second at the peak, and the service must be built for the peak.[^peak] For a service that already runs, the factor comes from its own logs: count requests in each hour of a busy week and divide the largest count by the average. A capacity plan that divides a day's traffic by the seconds in a day and stops there is wrong by that factor at exactly the time it matters."
+          "text": "Ten million requests per day equals an average throughput of about 100 requests per second. However, user traffic never arrives at a uniform rate. Most requests arrive during the waking hours of the time zones your system serves, traffic is higher on some days than others, and load spikes when a major event is in the news. Because the busiest hour of a typical service experiences two to ten times its daily average throughput, an average of 100 requests per second becomes 200 to 1,000 requests per second at peak load, and you must provision the service to handle that peak.[^peak] If your service is already running in production, you can calculate its peak-to-average ratio from its request logs by counting the requests in each hour of a busy week and dividing the highest hourly count by the overall hourly average. If you calculate capacity by dividing a day's total traffic by 86,400 seconds and provisioning only for that average, your servers will become overloaded during peak hours."
         },
         {
           "type": "text",
-          "text": "Here is the habit in full, on a made-up photo service. People upload ten million photos a day, each about 2 MB. Storage: 20 TB a day, about 7 PB a year, so this will not fit on one machine and needs a storage system that spreads over many (lessons 6 and 7). Upload bandwidth: 20 TB over 10⁵ seconds is 200 MB a second on average, about 1.6 gigabits a second, a few times that at the peak: one fast network link could carry it. Uploads a second: about 100 on average, 500 at a peak five times the average. If each takes 5 ms of server time to check and record, the peak needs 2.5 seconds of work every second, three processor cores. The arithmetic took a minute and already says which part is hard (storing petabytes) and which is not (counting uploads)."
+          "text": "We can apply this estimation method to a hypothetical photo service where users upload ten million photos per day, each about 2 MB in size. For storage capacity, ten million photos at 2 MB each require 20 TB per day, or about 7 PB per year; this volume will not fit on a single machine and requires a distributed storage system (which we will cover in lessons 6 and 7). For network bandwidth, transferring 20 TB over 10⁵ seconds requires an average throughput of 200 MB per second, or about 1.6 gigabits per second (Gbps), rising to several gigabits per second at peak load, which a single modern network interface can handle. For request throughput, ten million uploads over 10⁵ seconds is about 100 uploads per second on average, or 500 uploads per second if peak load is five times the average. If each upload requires 5 ms of CPU time to validate and record, handling 500 uploads per second at peak requires 2,500 ms (2.5 seconds) of CPU work every second, which takes three processor cores. A minute of arithmetic shows that storing petabytes of data requires a distributed system, while processing the upload requests requires only a single server."
         },
         {
           "type": "key_ideas",
           "title": "Carry these",
           "points": [
-            "Memory 100 ns; datacentre round trip 0.5 ms; disk seek 10 ms; a continent away 50 to 150 ms.",
-            "Fibre: 200 km a millisecond, so 1 ms of round trip for every 100 km.",
-            "A day is about 10⁵ seconds; a year about 3 × 10⁷. A million a day is about 10 a second.",
-            "Peak traffic is two to ten times the daily average."
+            "Memory reference: 100 ns; datacentre round trip: 0.5 ms; disk seek: 10 ms; cross-continental round trip: 50 ms to 150 ms.",
+            "Light in fibre travels at 200 km per millisecond, which adds at least 1 ms of round-trip latency for every 100 km of distance.",
+            "A day has about 10⁵ seconds, and a year has about 3 × 10⁷ seconds. One million events per day is about 10 events per second.",
+            "Peak traffic is typically two to ten times the daily average throughput."
           ]
         }
       ]
@@ -154,64 +154,64 @@
           "options": {
             "items": [
               {
-                "ask": "A server can read a value from its own spinning disk, or ask another server in the same datacentre that holds the value in memory. Which is usually faster, and why?",
+                "ask": "A server can read a value from its own spinning disk, or request it from another server in the same datacentre that holds the value in memory. Which operation has lower latency, and why?",
                 "choices": [
-                  "Its own disk, because any trip over the network costs more than any local read",
-                  "The other server, because a datacentre round trip of about 0.5 ms beats a 10 ms seek",
-                  "They take about the same time, because both are limited by the speed of memory"
+                  "Reading from its own disk, because any trip over the network takes longer than any local storage read",
+                  "Requesting it from the other server, because a datacentre round trip of about 0.5 ms is faster than a 10 ms disk seek",
+                  "They take about the same time, because both operations are limited by the speed of main memory"
                 ],
                 "answer": 1,
-                "why": "A round trip inside a building costs about half a millisecond, a disk seek about ten. Another machine's memory is twenty times closer in time than your own disk, which is why caches on separate machines pay off."
+                "why": "A network round trip inside a datacentre takes about 0.5 ms, whereas a spinning disk seek takes about 10 ms. Reading from another machine's memory over the local network is twenty times faster than seeking on a local disk, which is why in-memory caches on separate servers reduce latency."
               },
               {
-                "ask": "A service gets 50 million requests a day, and its logs show the busiest hour running four times the daily average. Roughly what rate should it be built to carry?",
+                "ask": "A service receives 50 million requests per day, and its logs show that throughput during the busiest hour is four times the daily average. Roughly what throughput in requests per second should you provision it to handle?",
                 "choices": [
-                  "About 500 a second, the day's count over 10⁵ seconds",
-                  "About 2,000 a second, four times the average of about 500",
-                  "About 50,000 a second, a hundred times the average, so that no burst of any size can ever reach the limit"
+                  "About 500 requests per second, dividing the daily total by 10⁵ seconds",
+                  "About 2,000 requests per second, which is four times the average of about 500 requests per second",
+                  "About 50,000 requests per second, or a hundred times the average, so that no traffic spike can ever reach the system's limit"
                 ],
                 "answer": 1,
-                "why": "50 million over 10⁵ seconds is about 500 a second on average, and the busiest hour runs four times that, about 2,000. 500 is the average, which the service passes every afternoon; 50,000 buys twenty-five times more machines than the peak needs."
+                "why": "Dividing 50 million requests by 10⁵ seconds gives an average throughput of about 500 requests per second, and multiplying by the peak factor of four gives about 2,000 requests per second during the busiest hour. Provisioning for 500 requests per second means the service will overload every afternoon, while provisioning for 50,000 requests per second buys twenty-five times more servers than the peak requires."
               },
               {
-                "ask": "Why does a request from Seattle to a server in London take at least 77 ms to come back, however fast the machines are?",
+                "ask": "Why does a request from Seattle to a server in London have a minimum round-trip latency of at least 77 ms, regardless of how fast the machines are?",
                 "choices": [
-                  "Light in fibre covers about 200 km a millisecond, and the round trip is 15,400 km",
-                  "Undersea cables carry less bandwidth than land cables, so packets wait their turn",
-                  "Each of the routers on the way takes several milliseconds to look up the route"
+                  "Light in optical fibre travels at about 200 km per millisecond, and the round-trip distance is 15,400 km",
+                  "Undersea cables have lower bandwidth than land cables, so packets must wait in queues",
+                  "Each router along the path takes several milliseconds to look up the next hop in its routing table"
                 ],
                 "answer": 0,
-                "why": "The floor is set by distance: 7,700 km each way at 200 km a millisecond in glass. Routers and indirect cable paths add more on top, which is why real round trips are nearer 130 to 150 ms."
+                "why": "The minimum latency is set by physical distance: 7,700 km each way at 200 km per millisecond in glass fibre. Routing delays and indirect cable paths add further latency, bringing actual round trips to between 130 ms and 150 ms."
               },
               {
-                "ask": "Between 2009 and 2026, which of these changed least?",
+                "ask": "Between 2009 and 2026, which of these latencies changed the least?",
                 "choices": [
-                  "The time to read a random 4 KB block from a server's storage",
-                  "The time to push 2 KB onto a datacentre network link",
-                  "The time for one reference to main memory"
+                  "The time to read a random 4 KB block from a server's persistent storage",
+                  "The transmission time to push 2 KB onto a datacentre network link",
+                  "The time required for one reference to main memory"
                 ],
                 "answer": 2,
-                "why": "Flash made random storage reads about a hundred times faster than a disk seek, and networks went from 1 to 100 gigabits a second. A main memory reference is still about 100 ns."
+                "why": "Solid-state drives made random storage reads about a hundred times faster than a spinning disk seek, and datacentre network links increased from 1 Gbps to 100 Gbps. A main memory reference still takes about 100 ns."
               },
               {
-                "ask": "On a scale where a main memory reference takes one second, about how long does a disk seek take?",
+                "ask": "On a scaled timeline where a 100 ns main memory reference takes one second, about how long does a 10 ms disk seek take?",
                 "choices": [
                   "About a minute and a half",
                   "About a day",
                   "About a year"
                 ],
                 "answer": 1,
-                "why": "A seek is about 10 ms and a memory reference 100 ns, a ratio of 100,000. One second times 100,000 is about 28 hours."
+                "why": "A disk seek takes about 10 ms and a memory reference takes 100 ns, which is a ratio of 100,000 to 1. Multiplying one second by 100,000 gives 100,000 seconds, or about 27.8 hours."
               },
               {
-                "ask": "A team estimates that its new service will store 30 TB a year and take 200 writes a second at the peak. Which conclusion about the writes and the stored data does that support?",
+                "ask": "An engineering team estimates that its new service will store 30 TB of data per year and handle 200 writes per second at peak load. Which conclusion about the write throughput and storage capacity does this estimate support?",
                 "choices": [
-                  "Both could fit one well-equipped database server for a few years",
-                  "The data must be spread across hundreds of machines from the first day, since a year of growth is measured in terabytes",
-                  "None yet, because estimates are too rough to make design choices with"
+                  "A single well-equipped database server can handle both the storage volume and the write throughput for a few years",
+                  "The team must partition the data across hundreds of servers from day one, because annual storage growth is measured in terabytes",
+                  "Neither conclusion, because back-of-the-envelope estimates are too imprecise to guide architecture decisions"
                 ],
                 "answer": 0,
-                "why": "Tens of terabytes and a few hundred writes a second are within one large server's reach. The reads still need their own estimate, which this one leaves out. The point of the arithmetic is to make that call early, before designing for a scale that is not there."
+                "why": "A single large server can accommodate tens of terabytes of solid-state storage and process a few hundred writes per second. You would still need to estimate read throughput separately, as it is not given here. Performing this arithmetic early prevents you from building a complex distributed system when a single server is sufficient."
               }
             ]
           }
@@ -220,36 +220,36 @@
     }
   ],
   "footnotes": {
-    "l1": {"kind": "technical", "title": "Why the ladder's L1 line goes up", "text": "Dean's 2009 table gives half a nanosecond for an L1 cache reference, but an L1 hit has taken about four clock cycles for twenty years, and at the 2 to 3 GHz of 2009 that was nearer 1.5 to 2 ns. Today's 4 to 5 GHz cores bring it to about a nanosecond. L1 did not get slower; the old figure was optimistic, which is why the 2026 line sits above it."},
+    "l1": {"kind": "technical", "title": "Why the ladder's L1 line goes up", "text": "Dean's 2009 table gives 0.5 ns for an L1 cache reference, but an L1 hit has taken about four clock cycles for twenty years. At the 2 GHz to 3 GHz clock speeds common in 2009, four cycles took 1.3 ns to 2 ns. Modern 4 GHz to 5 GHz processor cores complete four cycles in about 1 ns. L1 cache access did not get slower; Dean's 2009 figure was optimistic, which is why the 2026 bar sits above it."},
     "hopper": {
       "kind": "digression",
       "title": "Hopper's nanoseconds",
-      "text": "Grace Hopper (1906 to 1992) worked on the Harvard Mark I in the 1940s, wrote one of the first compilers, and led the work that became COBOL. She kept handing out nanoseconds into the 1980s, including on David Letterman's show in 1986, and for a picosecond, a thousandth of a nanosecond, she handed out grains of pepper."
+      "text": "Grace Hopper (1906–1992) programmed the Harvard Mark I in the 1940s, wrote one of the first compilers, and helped develop the COBOL programming language. She continued handing out nanosecond wires into the 1980s, including an appearance on David Letterman's television show in 1986, and she handed out individual grains of pepper to represent a picosecond, a thousandth of a nanosecond."
     },
     "norvig": {
       "kind": "digression",
       "title": "Where the table came from",
-      "text": "Peter Norvig's essay \"Teach Yourself Programming in Ten Years\" (2001) listed approximate times for a handful of operations on a typical PC. Dean's version, from his talks of 2009 and 2010, added the datacentre rows, and others have since redrawn it for newer hardware. The exact values differ between versions; the order of the rows has stayed the same."
+      "text": "Peter Norvig's essay \"Teach Yourself Programming in Ten Years\" (2001) listed approximate latencies for a handful of operations on a typical personal computer. Dean's version, presented in his talks in 2009 and 2010, added the datacentre network rows, and other engineers have since updated the table for newer hardware. While exact latencies vary across versions, the relative order of the operations has remained largely the same."
     },
     "disks": {
       "kind": "technical",
       "title": "Why disks are still slow",
-      "text": "A spinning disk reads by moving an arm to the right track and waiting for the platter to turn the data under the head. At 7,200 turns a minute, half a turn takes about 4 ms, and the arm adds a few more. A disk that reads a long run without moving the arm streams 200 MB a second or more, so the same disk is slow for scattered reads and fast for long ones. Lesson 10 builds a storage engine around that difference."
+      "text": "A spinning hard disk reads data by moving a mechanical arm to the target concentric track and waiting for the rotating platter to bring the sector under the read head. At 7,200 revolutions per minute, half a rotation takes about 4.2 ms, and moving the arm takes several milliseconds more. Once the head is positioned, reading contiguous data along a track without moving the arm streams data at 200 MB per second or more, meaning the same disk has high latency for random reads and high throughput for sequential reads. In lesson 10, we will examine a database storage engine designed around that difference."
     },
     "carmack": {
       "kind": "digression",
       "title": "The slow pixel",
-      "text": "Carmack explained that a frame passes through several buffers: the game draws it, the graphics driver queues it, and many displays process the picture before showing it. Each step adds a frame or more at 60 frames a second, about 17 ms each, and they add up to more than a trip across the ocean. His interest was virtual reality headsets, where that delay makes people feel ill."
+      "text": "Carmack explained that a rendered frame passes through several queues and buffers: the game engine draws it, the graphics driver queues it, and the monitor's internal electronics process the image before illuminating the pixels. At a refresh rate of 60 frames per second, each buffered frame adds about 16.7 ms of latency, and together they exceed the 77 ms minimum round-trip time across the Atlantic. Carmack was building virtual reality headsets, where tens of milliseconds of latency between head movement and display update cause motion sickness."
     },
     "fibre": {
       "kind": "technical",
       "title": "Slower in glass",
-      "text": "Light in glass travels at the speed of light in a vacuum divided by the glass's refractive index, about 1.47 for the fibre used in long cables, so about 204,000 km a second. Some trading firms pay for microwave links between exchanges because radio through air is about half as fast again as light in fibre."
+      "text": "Light in glass travels at the speed of light in a vacuum divided by the glass's refractive index, which is about 1.47 for the silica fibre used in long-distance telecom cables, giving a propagation speed of about 204,000 km per second. High-frequency trading firms pay for line-of-sight microwave links between financial exchanges because radio waves travel through air at nearly the vacuum speed of light, making them about 50 per cent faster than light in optical fibre."
     },
     "peak": {
       "kind": "technical",
       "title": "Peaks within peaks",
-      "text": "The peak hour is an average too. Within it, requests arrive in bursts lasting seconds, and a server sized exactly for the hour's average will queue during them. Lesson 2 shows how quickly that queue grows as a server nears its limit."
+      "text": "The throughput during the peak hour is still an hourly average. Within that hour, requests arrive in short bursts lasting only seconds, and a server provisioned strictly for the hourly average will build up a queue of waiting requests during those bursts. In lesson 2, we will see how rapidly queueing delay grows as a server approaches 100 per cent utilisation."
     }
   }
 }

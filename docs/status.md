@@ -19,7 +19,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Fungi](#fungi) | 0.3 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
-| [Systems at Scale](#systems) | 0.1 beta | 35 | 0 | 0 | 35 | 35 | 0 | 0 |
+| [Systems at Scale](#systems) | 0.1 beta | 35 | 0 | 0 | 0 | 35 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -38,7 +38,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Fungi | 0.3 beta | 2026-11-08 | no: 25 to fact-check, 24 awaiting photos |
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
-| Systems at Scale | 0.1 beta | 2026-11-09 | no: 35 to copy-edit, 35 to fact-check |
+| Systems at Scale | 0.1 beta | 2026-11-09 | no: 35 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -495,45 +495,45 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Systems at Scale <a id="systems"></a>
 
-`courses/systems`, version 0.1 (beta, 2026-11-09). Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Queued for Gemini. No photos expected. Its catalog description waits for Gemini (queued 2026-11-09).
+`courses/systems`, version 0.1 (beta, 2026-11-09). Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Gemini 4 Argon copy edit of every lesson 10 Nov 2026, with extra guidance for conventional technical prose (explicit verbs, units, precise terms). No photos expected.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | How long is a nanosecond? (`nanosecond`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | The costs every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers. |
-| 2 | The link that took a website down (`slashdot`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | What happens between a click and the reply, why waiting time explodes as a server nears full load, and Little's law. |
-| 3 | A shorter link, a billion times (`tinyurl`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | How a design is worked out on paper: what it must do, the numbers, the API and the data, then the boxes; and handing out short unique keys. |
-| 4 | When the database can't keep up (`replicas`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Read replicas and replication lag, reading your own writes, and splitting users across databases. |
-| 5 | A cache in spare memory (`memcached`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Caching in front of a database, hit-rate arithmetic, invalidation, and consistent hashing. |
-| 6 | One master, a thousand disks (`gfs`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Splitting metadata from data, big blocks, and why one coordinator can be the right first design. |
-| 7 | A disk dies every day (`chunks`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Replication and re-replication, leases that pick a primary, checksums, at-least-once appends, and erasure coding. |
-| 8 | Rebuilding the index on machines that fail (`mapreduce`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Map, shuffle and reduce; moving the work to the data; re-running lost work; backup copies of slow tasks. |
-| 9 | Why the slowest machine sets the pace (`tail`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Percentiles, how fanning out to many servers turns rare delays into common ones, and hedged requests. |
-| 10 | A sorted map for the whole web (`bigtable`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Log-structured storage (memtable, SSTables, compaction, Bloom filters), splitting by key range, and choosing a row key. |
-| 11 | Who is in charge? (`chubby`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Agreement by majority (Paxos and Raft), leader leases, fencing tokens, and keeping the agreeing part small. |
-| 12 | A shopping cart that never says no (`dynamo`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Consistent hashing with virtual nodes, replicas along the ring, quorums (N, R, W), hinted handoff, and Merkle-tree repair. |
-| 13 | The item that came back (`conflicts`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Versions and vector clocks, merging conflicting writes, CRDTs and collaborative editing, consistency models, and CAP and PACELC. |
-| 14 | Who pays for a tweet? (`fanout`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Fan-out on write and on read, the hybrid for accounts with millions of followers, and IDs that sort by time. |
-| 15 | When every cache misses at once (`leases`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Thundering herds and stale sets, leases, invalidation from the database's log, and caches across regions. |
-| 16 | The log at the centre (`kafka`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Append-only partitioned logs, offsets and consumer groups, ordering by key, retention and replay, and why sequential disk is fast. |
-| 17 | Counting clicks that arrive late (`streams`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Event time and processing time, windows and watermarks, exactly-once effects by deduplication, and sketches for heavy hitters. |
-| 18 | Breaking things on purpose (`chaos`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Timeouts, retries with backoff and jitter, retry storms, circuit breakers, bulkheads, load shedding, and Chaos Monkey. |
-| 19 | A third of the evening's internet (`edge`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Content delivery networks, caching at the edge, adaptive bitrate video, filling caches off-peak, and the cost of moving bytes. |
-| 20 | A clock you can trust (`spanner`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Why wall clocks lie, two-phase commit and why it blocks, TrueTime's bounded uncertainty, and commit wait. |
-| 21 | Who may see this file? (`zanzibar`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Permissions as relation tuples, the "new enemy" problem and consistency tokens, and answering ten million checks a second. |
-| 22 | Charging a card exactly once (`payments`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | The two generals problem, idempotency keys, a double-entry ledger, the outbox, and reconciliation. |
-| 23 | One command, four hours (`outage`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | Blast radius, cells and shuffle sharding, static stability, safe changes, and dependency loops. |
-| 24 | The website nobody could see inside (`slo`) |  | awaiting Gemini review (queued 2026-11-09) | Fact check | What "working" means (SLIs, SLOs, error budgets), the four golden signals, alerting on symptoms, and storing metrics. |
-| M1 | A map of the world in squares (`tiles`) | Maps and places | awaiting Gemini review (queued 2026-11-09) | Fact check | Tile pyramids, how many tiles each zoom needs, pre-rendering against rendering on demand, vector tiles, and versioned map updates. |
-| M2 | Finding the nearest car (`nearby`) | Maps and places | awaiting Gemini review (queued 2026-11-09) | Fact check | Cells and space-filling curves (geohash, quadtrees, S2, H3), a stream of location updates held in memory, and sharding by cell. |
-| M3 | Across a continent in a millisecond (`routing`) | Maps and places | awaiting Gemini review (queued 2026-11-09) | Fact check | Dijkstra and A*, contraction hierarchies, and customisable route planning: precompute the structure, re-weight the roads fast. |
-| M4 | Ninety-nine phones in a handcart (`traffic`) | Maps and places | awaiting Gemini review (queued 2026-11-09) | Fact check | Turning phones' positions into road speeds, map matching, windows, privacy and spoofing, and predicting arrival times. |
-| D1 | Saying no politely (`limiter`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits. |
-| D2 | Half a billion people, a few dozen engineers (`chat`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | A chat service: long-lived connections, delivery and read receipts, ordering in a conversation, message storage, presence and push. |
-| D3 | From crawl to suggestion (`search`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type. |
-| D4 | Fourteen million people, two million tickets (`tickets`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | Selling something scarce: a waiting room, holds that expire, no seat sold twice, and bots. |
-| D5 | More data than the network can carry (`sensors`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue. |
-| D6 | Every night, all of history again (`replay`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | Deterministic replay, a job scheduler with leases and retries, a million tasks on a shared cluster (Borg), preemptible capacity, versioned datasets, and comparing results. |
-| D7 | One update, 8.5 million screens (`rollout`) | Design studio | awaiting Gemini review (queued 2026-11-09) | Fact check | Shipping software and data to a fleet: staged rollouts behind health gates, A/B partitions that fall back, signed updates (TUF and Uptane), deltas and offline devices, compatible versions, and watching fleet health. |
+| 1 | How long is a nanosecond? (`nanosecond`) |  | awaiting fact check |  | The latencies every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers. |
+| 2 | The link that took a website down (`slashdot`) |  | awaiting fact check |  | Request latency, why queueing delay grows sharply as a server nears full utilisation, and Little's law. |
+| 3 | A shorter link, a billion times (`tinyurl`) |  | awaiting fact check |  | How to work out a system design on paper: defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys. |
+| 4 | When the database can't keep up (`replicas`) |  | awaiting fact check |  | Read replicas and replication lag, reading your own writes, and splitting users across databases. |
+| 5 | A cache in spare memory (`memcached`) |  | awaiting fact check |  | Caching in front of a database, hit-rate arithmetic, invalidation, and consistent hashing. |
+| 6 | One master, a thousand disks (`gfs`) |  | awaiting fact check |  | Splitting metadata from data, big blocks, and why one coordinator can be the right first design. |
+| 7 | A disk dies every day (`chunks`) |  | awaiting fact check |  | Replication and re-replication, leases that pick a primary, checksums, at-least-once appends, and erasure coding. |
+| 8 | Rebuilding the index on machines that fail (`mapreduce`) |  | awaiting fact check |  | Map, shuffle and reduce; moving computation to the data; re-executing failed tasks; backup execution for stragglers. |
+| 9 | Why the slowest machine sets the pace (`tail`) |  | awaiting fact check |  | Percentiles, how fanning out to many servers turns rare delays into common ones, and hedged requests. |
+| 10 | A sorted map for the whole web (`bigtable`) |  | awaiting fact check |  | Log-structured storage (memtable, SSTables, compaction, Bloom filters), splitting by key range, and choosing a row key. |
+| 11 | Who is in charge? (`chubby`) |  | awaiting fact check |  | Agreement by majority (Paxos and Raft), leader leases, fencing tokens, and keeping the agreeing part small. |
+| 12 | A shopping cart that never says no (`dynamo`) |  | awaiting fact check |  | Consistent hashing with virtual nodes, replicas along the ring, quorums (N, R, W), hinted handoff, and Merkle-tree repair. |
+| 13 | The item that came back (`conflicts`) |  | awaiting fact check |  | Versions and vector clocks, merging conflicting writes, CRDTs and collaborative editing, consistency models, and CAP and PACELC. |
+| 14 | Who pays for a tweet? (`fanout`) |  | awaiting fact check |  | Fan-out on write and on read, the hybrid for accounts with millions of followers, and IDs that sort by time. |
+| 15 | When every cache misses at once (`leases`) |  | awaiting fact check |  | Thundering herds and stale sets, leases, invalidation from the database's log, and caches across regions. |
+| 16 | The log at the centre (`kafka`) |  | awaiting fact check |  | Append-only partitioned logs, offsets and consumer groups, ordering by key, retention and replay, and why sequential disk I/O is fast. |
+| 17 | Counting clicks that arrive late (`streams`) |  | awaiting fact check |  | Event time and processing time, windows and watermarks, exactly-once effects by deduplication, and sketches for heavy hitters. |
+| 18 | Breaking things on purpose (`chaos`) |  | awaiting fact check |  | Timeouts, retries with backoff and jitter, retry storms, circuit breakers, bulkheads, load shedding, and Chaos Monkey. |
+| 19 | A third of the evening's internet (`edge`) |  | awaiting fact check |  | Content delivery networks, caching at the edge, adaptive bitrate video, filling caches off-peak, and the cost of moving bytes. |
+| 20 | A clock you can trust (`spanner`) |  | awaiting fact check |  | Why wall clocks lie, two-phase commit and why it blocks, TrueTime's bounded uncertainty, and commit wait. |
+| 21 | Who may see this file? (`zanzibar`) |  | awaiting fact check |  | Permissions as relation tuples, the "new enemy" problem and consistency tokens, and answering ten million checks a second. |
+| 22 | Charging a card exactly once (`payments`) |  | awaiting fact check |  | The two generals problem, idempotency keys, a double-entry ledger, the outbox, and reconciliation. |
+| 23 | One command, four hours (`outage`) |  | awaiting fact check |  | Blast radius, cells and shuffle sharding, static stability, safe changes, and dependency loops. |
+| 24 | The website nobody could see inside (`slo`) |  | awaiting fact check |  | What "working" means (SLIs, SLOs, error budgets), the four golden signals, alerting on symptoms, and storing metrics. |
+| M1 | A map of the world in squares (`tiles`) | Maps and places | awaiting fact check |  | Tile pyramids, how many tiles each zoom needs, pre-rendering against rendering on demand, vector tiles, and versioned map updates. |
+| M2 | Finding the nearest car (`nearby`) | Maps and places | awaiting fact check |  | Cells and space-filling curves (geohash, quadtrees, S2, H3), a stream of location updates held in memory, and sharding by cell. |
+| M3 | Across a continent in a millisecond (`routing`) | Maps and places | awaiting fact check |  | Dijkstra and A*, contraction hierarchies, and customisable route planning: precomputing the network structure to re-weight roads quickly. |
+| M4 | Ninety-nine phones in a handcart (`traffic`) | Maps and places | awaiting fact check |  | Turning phone positions into road speeds, map matching, windowing, privacy and spoofing, and predicting arrival times. |
+| D1 | Saying no politely (`limiter`) | Design studio | awaiting fact check |  | Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits. |
+| D2 | Half a billion people, a few dozen engineers (`chat`) | Design studio | awaiting fact check |  | A chat service: long-lived connections, delivery and read receipts, ordering in a conversation, message storage, presence and push. |
+| D3 | From crawl to suggestion (`search`) | Design studio | awaiting fact check |  | A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type. |
+| D4 | Fourteen million people, two million tickets (`tickets`) | Design studio | awaiting fact check |  | Selling scarce inventory: virtual waiting rooms, expiring holds, preventing double-selling, and mitigating bots. |
+| D5 | More data than the network can carry (`sensors`) | Design studio | awaiting fact check |  | Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue. |
+| D6 | Every night, all of history again (`replay`) | Design studio | awaiting fact check |  | Deterministic replay, a job scheduler with leases and retries, a million tasks on a shared cluster (Borg), preemptible capacity, versioned datasets, and comparing results. |
+| D7 | One update, 8.5 million screens (`rollout`) | Design studio | awaiting fact check |  | Shipping software and data to a fleet: staged rollouts behind health gates, A/B partitions that fall back, signed updates (TUF and Uptane), deltas and offline devices, compatible versions, and watching fleet health. |
 
 ## Not started
 

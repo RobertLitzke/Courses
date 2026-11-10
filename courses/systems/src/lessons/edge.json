@@ -9,15 +9,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In June 2012 Netflix announced Open Connect, its own network for delivering video. Instead of paying other companies to carry its films, it would build servers packed with disks and give them, free, to internet providers to install inside their own networks, and put more at the exchange points where networks meet. Each server would hold the films its neighbourhood was likely to watch, so most of an evening's viewing would travel a few miles, from a rack in the provider's building to the homes it served."
+          "text": "In June 2012 Netflix announced Open Connect, its own network for delivering video. Instead of paying other companies to carry its films, Netflix built servers packed with disks, gave them free of charge to internet service providers (ISPs) to install inside their own networks, and placed more at the exchange points where networks interconnect. Each server held the films that local subscribers were likely to watch, so most of an evening's video traffic travelled only a few miles from a rack in the provider's building to the homes it served."
         },
         {
           "type": "text",
-          "text": "The scale explains the decision. Within a few years Sandvine, a company that sells traffic-measuring equipment to providers, was reporting Netflix as about a third of all downstream internet traffic in North America at evening peak.[^sandvine] An HD stream runs at about 5 Mb/s. A million people watching at once is 5 Tb/s, and a large provider at 9 p.m. can have that many. One film of two hours at 5 Mb/s is 4.5 GB."
+          "text": "Traffic volume drove this decision. By 2011 Sandvine, a company that sells traffic-measuring equipment to providers, reported that Netflix accounted for about a third of all downstream internet traffic in North America during the evening peak.[^sandvine] An HD stream runs at about 5 Mb/s. A million simultaneous viewers require 5 Tb/s of throughput, a load a large provider can see at 9 p.m. A two-hour film streamed at 5 Mb/s transfers 4.5 GB of data."
         },
         {
           "type": "text",
-          "text": "Netflix's builders had to **count the cost** in its plainest form: where bytes go and who pays to move them. An hour of video at 5 Mb/s is 2.25 GB. Suppose a hundred million hours are watched in a day, all sent from a cloud region at 2 cents a gigabyte. That is 225 petabytes and about $4.5 million a day, before any of it has crossed the long-distance links between the cloud and the viewer, which would have to be built for the evening peak and sit mostly idle at 4 a.m. The problem is how to send those bytes the shortest way, at the cheapest hour."
+          "text": "Netflix's engineers had to **count the cost** of network routing and egress bandwidth. An hour of video at 5 Mb/s is 2.25 GB. If subscribers watch 100 million hours a day, serving that video from a cloud region at $0.02 per gigabyte transfers 225 petabytes and costs about $4.5 million a day. That figure excludes the cost of carrying the traffic across long-distance links between the cloud and the viewer, which must be provisioned for the evening peak and sit mostly idle at 4 a.m. The engineering problem is to route those bytes over the shortest path during off-peak hours."
         }
       ]
     },
@@ -26,11 +26,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Netflix did not invent the idea. In 1998 Tom Leighton, a mathematician at MIT, and his graduate student Danny Lewin founded Akamai on the consistent hashing they had published the year before (lesson 5), to spread popular web content over thousands of caching servers placed in many networks.[^lewin] A **content delivery network** (CDN) is that: servers near the readers, each holding copies of popular content, with a way of sending each reader to a near one, usually by answering the reader's DNS lookup with a nearby server's address. The company whose content it is runs the **origin**, which holds everything. A CDN server that does not hold what is asked for fetches it from the origin and keeps a copy: **pull-through** caching, lesson 5's cache-aside run by the cache itself."
+          "text": "Netflix did not invent this architecture. In 1998 MIT mathematician Tom Leighton and his graduate student Danny Lewin founded Akamai using the consistent hashing algorithm they had published the year before (lesson 5), which distributes popular web content across thousands of caching servers located inside many networks.[^lewin] A **content delivery network** (CDN) places servers near users, stores copies of popular content on each server, and routes each user to a nearby server, usually by answering a DNS lookup with that server's IP address. The content owner operates the **origin** server, which stores the complete catalogue. When a CDN server receives a request for an uncached file, it fetches the file from the origin and stores a local copy. This mechanism is **pull-through** caching, which is lesson 5's cache-aside pattern executed by the cache itself."
         },
         {
           "type": "text",
-          "text": "Moving bytes costs different amounts depending on whose wires they cross. Clouds charge for data leaving them by the gigabyte, a few cents each. A network that buys **transit**, the right to reach the rest of the internet through a bigger network, usually pays per megabit a second of its peak rate, measured at the 95th percentile of each month's five-minute samples.[^p95] Two networks that exchange roughly equal traffic often **peer**: connect directly and charge each other nothing. A server inside the provider's own network costs the provider rack space and power, and saves it transit, because the bytes never leave. Bytes are cheapest when they travel least."
+          "text": "Data transfer costs depend on which network boundaries the traffic crosses. Cloud providers charge an egress fee of a few cents per gigabyte for data leaving their regions. A network that buys **transit** (the ability to reach the rest of the internet through a larger upstream provider) usually pays per megabit per second of its peak throughput, measured at the 95th percentile of each month's five-minute samples.[^p95] Two networks that exchange roughly equal volumes of traffic often **peer**, connecting directly without charging each other. Hosting an appliance inside the ISP's own network costs the ISP rack space and power, but eliminates transit fees for that traffic because the bytes never cross an external boundary. Data transfer is cheapest when the path is shortest."
         }
       ]
     },
@@ -39,7 +39,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An edge server cannot hold everything; a streaming catalogue, with every film at a dozen bitrates, runs to petabytes. It does not need to, because viewing is lopsided. Tonight's new series and last week's hit get a large share of all viewing, and the thousandth most popular film gets little. A common model, close to many real catalogues, is that the title at popularity rank *k* is watched in proportion to 1/*k*: the second title half as much as the first, the hundredth a hundredth as much, a **Zipf** distribution."
+          "text": "An edge server cannot store the entire catalogue; a video library encoded at a dozen bitrates per title requires petabytes of storage. However, full storage is unnecessary because viewing demand is skewed. New series and recent hits account for a large share of total streams, while the thousandth most popular film receives very few requests. In a common model that matches many real catalogues, the title at popularity rank *k* is requested in proportion to 1/*k*: the second most popular title is watched half as much as the first, and the hundredth title is watched one-hundredth as much. This pattern is a **Zipf** distribution."
         },
         {
           "type": "interactive_diagram",
@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "Holding a tenth of the catalogue serves about three quarters of the viewing. Serving 90% takes well over a third of the catalogue, and the last few per cent need nearly all of it. Each doubling of the cache gains less than the one before: the **long tail** of titles that are each rarely watched but together add up to a lot. Steeper popularity, a larger *s*, makes a small cache better; flatter popularity makes every cache worse. So CDNs are built in **tiers**: small fast caches nearest the readers hold the head of the curve, larger ones further back (at exchange points, or in a region) hold more of the tail, and only the true rarities go back to the origin."
+          "text": "Caching 10% of the catalogue serves about 75% of all requests. Serving 90% of requests requires caching well over a third of the catalogue, and serving the final few percentage points requires storing nearly all of it. Doubling the cache capacity yields diminishing returns because of the **long tail** of unpopular titles, which are rarely requested individually but represent a significant fraction of traffic in aggregate. A steeper popularity curve (a larger exponent *s*) increases the hit ratio of a small cache, whereas a flatter curve reduces the hit ratio for any cache size. Because of this distribution, engineers build CDNs in **tiers**: small, fast caches closest to users store the most popular titles, larger caches at exchange points or regional hubs store a wider selection from the tail, and only requests for the rarest titles travel all the way to the origin."
         }
       ]
     },
@@ -59,19 +59,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Pull-through caching has two costs in this setting. The first viewer of a title in a neighbourhood waits while the edge server fetches it from far away, and that fetch happens at the moment of demand, which for video is the evening peak, when the provider's links to the outside are fullest."
+          "text": "Pull-through caching introduces two problems for video delivery. First, the initial viewer of a title in a local area experiences higher startup latency while the edge server fetches the file from a distant origin. Second, that upstream fetch occurs at the moment of demand, which for residential video is the evening peak when the ISP's external transit links are most congested."
         },
         {
           "type": "text",
-          "text": "Netflix had something most CDNs do not: a catalogue it controls, and a good idea of what each region will watch tomorrow (the new releases, what was popular today, what is popular among similar viewers). So Open Connect does not wait to be asked. Each night, software in the cloud works out which files every appliance should hold, and the appliances fetch them during a **fill window** in the small hours, when the links are nearly idle and a provider paying for transit at its 95th percentile pays nothing extra for them. In the evening the appliance serves what it already holds. This is called **pre-positioning**, and it trades a prediction problem for most of the miss traffic. The window sets the fill rate: a box that must take in 20 TB of new files in six hours needs 20 × 10¹² × 8 bits / 21,600 s, about 7.4 Gb/s. The prediction is judged by the share of the evening's bytes the box served from its own disks rather than fetched: its hit ratio."
+          "text": "Unlike general-purpose CDNs, Netflix controls its entire catalogue and can forecast regional demand for the next day based on new releases, recent viewing trends, and user demographics. Consequently, Open Connect appliances do not rely solely on pull-through caching. Each night, control-plane software in the cloud calculates which files each appliance should store. The appliances download those files during an overnight **fill window** when network links are mostly idle, allowing ISPs that pay for transit at the 95th percentile to import the data at no additional transit cost. During the evening peak, the appliance serves the pre-loaded files from local storage. This technique is called **pre-positioning**, and it replaces peak-hour cache misses with an offline forecasting calculation. The duration of the fill window dictates the required ingest throughput: an appliance downloading 20 TB of new video over six hours requires 20 × 10¹² × 8 bits / 21,600 s, or about 7.4 Gb/s. Engineers evaluate the forecasting model by measuring the appliance's hit ratio, which is the percentage of evening bytes served from local disk rather than fetched over the network."
         },
         {
           "type": "text",
-          "text": "The appliances themselves were built to push as many bytes as possible out of one box. By around 2017 Netflix's engineers were serving about 100 Gb/s from one server, and in 2021 they described a single FreeBSD server sending about 400 Gb/s of encrypted video, by moving the encryption into the operating system's kernel so that file data goes from disk to network card without being copied through the program.[^ktls] At 5 Mb/s a stream, one such box serves about 80,000 viewers."
+          "text": "Netflix designed the appliances to maximise egress throughput per server. By 2017, Netflix engineers were serving about 100 Gb/s from a single appliance. In 2021, they demonstrated a single FreeBSD server delivering 400 Gb/s of TLS-encrypted video by offloading encryption into the operating system kernel, allowing file data to move from disk to the network interface card without copying bytes into user-space memory.[^ktls] At 5 Mb/s per stream, one 400 Gb/s server can support about 80,000 concurrent viewers."
         },
         {
           "type": "text",
-          "text": "The control plane stayed in the cloud: sign-in, browsing, recommendations, choosing which appliance serves a viewer, and the nightly fill plans all run in Amazon's regions (lesson 18's services). Only the video bytes come from the edge. It is lesson 6's split between control and data, at the scale of a continent: the small, complicated decisions in one place, and the heavy data flowing by the shortest path."
+          "text": "Netflix kept its control plane in the cloud: user authentication, catalogue browsing, recommendations, appliance selection, and nightly fill calculations all run in AWS regions (using the microservice architecture from lesson 18). Only the video segments are served from the edge appliances. This architecture applies the control plane and data plane separation from lesson 6 at a continental scale, centralising complex state management while routing high-volume video data over the shortest physical path."
         }
       ]
     },
@@ -80,11 +80,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The last few miles are the least predictable. A home's bandwidth changes from minute to minute as other people in the house start downloads and the neighbourhood's cable fills up. A player that asks for one fixed quality is either wasting a good connection or starving on a poor one."
+          "text": "The access network between the ISP and the home has variable throughput. A household's available bandwidth fluctuates from minute to minute as other devices start downloads or as the shared local cable loop becomes congested. A video player that requests a single fixed bitrate either underutilises a fast connection or stalls when throughput drops."
         },
         {
           "type": "text",
-          "text": "Modern streaming cuts each video into **segments** a few seconds long, and encodes every segment at several bitrates, an **encoding ladder**; Netflix's fixed ladder in the early 2010s ran from 235 kb/s to 5,800 kb/s for 1080p.[^ladder] A manifest file lists the rungs. The player fetches one segment at a time over plain HTTP, choosing a rung for each, and keeps a **buffer** of segments fetched but not yet shown. Apple's HTTP Live Streaming (2009) and the MPEG-DASH standard (2012) both work this way. Because each segment is an ordinary file, every CDN server, every HTTP cache, is a video server."
+          "text": "Modern video streaming divides each title into **segments** that are a few seconds long and encodes each segment at multiple bitrates to form an **encoding ladder**. In the early 2010s, Netflix used a fixed ladder ranging from 235 kb/s up to 5,800 kb/s for 1080p video.[^ladder] A manifest file lists the available bitrates and segment URLs. The client player downloads one segment at a time over standard HTTP, selecting a bitrate for each request, and maintains a local **buffer** of downloaded segments awaiting playback. Apple's HTTP Live Streaming (HLS, released in 2009) and the MPEG-DASH standard (published in 2012) both use this design. Because each segment is a static file, any standard HTTP cache or CDN server can deliver video without specialized streaming software."
         },
         {
           "type": "interactive_diagram",
@@ -95,7 +95,7 @@
         },
         {
           "type": "text",
-          "text": "The fixed player fetches 5.8 Mb/s segments over a 2 Mb/s link: each four-second segment takes nearly twelve seconds to arrive, the buffer drains, and the picture freezes again and again. The adaptive player drops to a lower rung when the bandwidth falls, keeps its buffer, and climbs back afterwards. Its picture is softer for a minute, and it never stops. Viewers forgive a softer picture far more readily than a frozen one, so players aim to never empty the buffer first and to show the best quality second. Te-Yuan Huang and colleagues at Stanford, working with Netflix, showed in 2014 that choosing the rung mainly from the buffer's level stalled less than choosing it from bandwidth estimates alone. The figure's adaptive player combines the two: it picks a low rung when the buffer is nearly empty and the top one when it is nearly full, but never a rung above 80% of the bandwidth it measured on the last segment."
+          "text": "In the simulation, the fixed-bitrate player continues requesting 5.8 Mb/s segments over a 2 Mb/s connection. Each four-second segment takes nearly twelve seconds to download, which drains the playback buffer and causes repeated stalls. The adaptive bitrate (ABR) player switches to a lower bitrate when throughput drops, preserving its playback buffer, and steps back up to higher bitrates when throughput recovers. The video resolution drops for a minute, but playback continues uninterrupted. Because viewers tolerate temporary resolution drops much better than playback stalls, ABR algorithms prioritise preventing buffer underruns over maximising video resolution. In 2014, Te-Yuan Huang and colleagues at Stanford, in collaboration with Netflix, demonstrated that selecting bitrates primarily based on current buffer occupancy resulted in fewer stalls than relying on throughput estimates alone. The adaptive player in the figure combines both signals: it selects a low bitrate when the buffer is nearly empty and the highest bitrate when the buffer is full, while capping its selection at 80% of the throughput measured during the previous segment download."
         }
       ]
     },
@@ -104,11 +104,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Netflix built its own CDN because it was a third of the evening's traffic, it had one catalogue it controlled, and video is forgiving of a cache's weaknesses: large files, read whole, rarely changed. Each of those conditions is a reason most companies rent instead. A site with a few hundred terabytes a month buys a CDN by the gigabyte and is done. The break-even is arithmetic. A few hundred terabytes a month averages under 1 Gb/s, nothing to build for. An appliance serving 40 Gb/s at the evening peak saves its provider 40 Gb/s of transit; at an assumed $0.50 per Mb/s a month, that is $20,000 a month, set against the box's price spread over its life, its rack and power, and the staff to run a fleet of them. A site of user uploads, such as YouTube, cannot predict tomorrow's viewing from its catalogue; it relies on pull-through caching for most of its long tail and pre-positions only what it can see coming."
+          "text": "Netflix built its own CDN because it generated a third of peak evening traffic, controlled a single predictable catalogue, and served workloads suited to caching: large, immutable files read sequentially. Most companies do not meet these criteria and rent capacity from commercial CDNs instead. A website transferring a few hundred terabytes a month can pay a commercial CDN per gigabyte. The build-versus-buy decision comes down to throughput and cost. A few hundred terabytes a month averages less than 1 Gb/s of throughput, which does not justify deploying dedicated hardware. By contrast, an Open Connect appliance serving 40 Gb/s during the evening peak saves the host ISP 40 Gb/s of upstream transit. Assuming a transit price of $0.50 per Mb/s per month, a single appliance saves $20,000 a month in transit fees, which offsets the amortised hardware cost, rack space, power, and operational staffing. Meanwhile, platforms hosting user-generated content, such as YouTube, cannot reliably predict regional demand across millions of new uploads; they rely on pull-through caching for the long tail and pre-position only the most popular videos."
         },
         {
           "type": "text",
-          "text": "The reasoning carries over to anything with a skewed popularity curve and readers spread across the world: map tiles (the next branch's first lesson), software updates, game downloads, and the static parts of every web page. Find the head of the curve, put it near the readers, and move it when the network is idle."
+          "text": "These caching principles apply to any system with a skewed popularity distribution and geographically distributed users, including map tiles (covered in the next lesson), operating system updates, game downloads, and static web assets. Engineers identify the most frequently requested objects, cache them near the users, and replicate them during off-peak hours."
         }
       ]
     },
@@ -130,7 +130,7 @@
                   "Viewers in a neighbourhood watch the same titles, so a bigger cache only stores more copies of them"
                 ],
                 "answer": 0,
-                "why": "With Zipf popularity the share of views grows only with the logarithm of the cache size. Big gains come from the head of the curve; the tail needs ever more space for each per cent."
+                "why": "Under a Zipf distribution with exponent s = 1, the cumulative share of views grows proportionally to the logarithm of the cache size. The most popular titles provide the largest hit-rate gains, while the long tail requires exponentially more storage for each additional percentage point."
               },
               {
                 "ask": "Why did Netflix fill its edge appliances in the early morning rather than when viewers asked?",
@@ -140,7 +140,7 @@
                   "Fills check each file against the origin, which needs disks that are not busy serving"
                 ],
                 "answer": 1,
-                "why": "Networks are sized and billed for their peak. Moving bytes off-peak is nearly free, and pre-positioned files mean evening views do not cross the provider's outside links at all."
+                "why": "Networks are provisioned and billed based on peak throughput. Transferring data during off-peak hours incurs no additional transit charges, and pre-positioning files ensures that evening streams do not traverse the provider's external transit links."
               },
               {
                 "ask": "A video player's buffer is falling fast and holds only six seconds. What should an adaptive player do with the next segment?",
@@ -150,7 +150,7 @@
                   "Fetch it at a lower bitrate, so it arrives in less time than it plays and the buffer stops draining"
                 ],
                 "answer": 2,
-                "why": "A segment at a bitrate below the bandwidth downloads faster than real time. Viewers mind stalls far more than a softer picture, so protecting the buffer comes first."
+                "why": "A segment encoded at a bitrate lower than the available network throughput downloads faster than real-time playback. Because viewers find playback stalls much more disruptive than temporary drops in resolution, the player prioritises maintaining the buffer."
               },
               {
                 "ask": "A service streams 100 million hours of video a day at 5 Mb/s straight from a cloud region at 2 cents a gigabyte. Roughly what does the data cost?",
@@ -160,7 +160,7 @@
                   "About $4.5 million a day"
                 ],
                 "answer": 2,
-                "why": "An hour at 5 Mb/s is 5 × 10⁶ × 3,600 / 8 = 2.25 GB. 100 million hours is 225 million GB, and at $0.02 that is $4.5 million a day. Forgetting to divide bits by 8 gives the $36 million."
+                "why": "An hour of video at 5 Mb/s is 5 × 10⁶ bits/s × 3,600 s / 8 bits/byte = 2.25 GB. Streaming 100 million hours transfers 225 million GB, which at $0.02 per GB costs $4.5 million a day. Failing to divide bits by 8 yields the incorrect $36 million figure."
               },
               {
                 "ask": "A site hosts videos uploaded by its users, and most are watched a handful of times. Which way of filling its CDN suits most of its catalogue?",
@@ -170,7 +170,7 @@
                   "Serving every video from the origin, since caching is of no use to a catalogue with a long tail"
                 ],
                 "answer": 0,
-                "why": "Pre-positioning needs a good prediction and a manageable catalogue. A long tail of uploads fills from the origin on demand, while the head of the curve is still worth caching close to readers."
+                "why": "Pre-positioning requires predictable demand and a bounded catalogue. A long tail of user uploads must be fetched from the origin on demand via pull-through caching, while popular uploads at the head of the distribution still benefit from edge caching."
               },
               {
                 "ask": "Why is streaming video split into segments of a few seconds, each encoded at several bitrates?",
@@ -180,7 +180,7 @@
                   "Each segment can be sent from a different origin datacentre, so a film never depends on any single datacentre staying up"
                 ],
                 "answer": 1,
-                "why": "Segments let the player adapt continually, and as plain files over HTTP they flow through CDNs and caches built for the web."
+                "why": "Splitting video into segments allows the client player to adjust bitrate dynamically, and serving segments as standard HTTP files allows them to be stored by ordinary web caches and CDNs."
               },
               {
                 "ask": "Netflix ran sign-in, browsing and recommendations in a cloud region, and served video from appliances inside internet providers. What principle does that split follow?",
@@ -190,7 +190,7 @@
                   "Keep the small, complex control decisions in one place, and send the heavy data by the shortest path"
                 ],
                 "answer": 2,
-                "why": "It is the control path and data path split from GFS (lesson 6): decisions are small and change often; bytes are large and travel best directly to the reader."
+                "why": "This architecture separates the control plane from the data plane, just like the Google File System (lesson 6): control requests are small and stateful, whereas video transfers are large and benefit from short network paths."
               }
             ]
           }
@@ -199,40 +199,40 @@
     }
   ],
   "summary": [
-    "**Count where the bytes go.** At 5 Mb/s, an hour of video is 2.25 GB, and a hundred million hours a day is hundreds of petabytes.",
-    "**Bytes are cheapest when they travel least.** Cloud egress is paid by the gigabyte and transit by the peak rate, while traffic kept inside a provider's network is nearly free.",
-    "**A CDN puts copies near readers.** Servers in many networks hold popular content, readers are sent to a near one, and misses go to the origin.",
-    "**Popularity is steep, with a long tail.** A cache of a tenth of a catalogue can serve three quarters of the viewing, and each doubling after that gains less.",
-    "**Fill when the network is idle.** Pre-positioning tomorrow's likely titles overnight moves the miss traffic out of the evening peak.",
-    "**Keep control central and data at the edge.** Netflix ran decisions in the cloud and sent only video bytes from appliances inside providers.",
-    "**Adaptive bitrate keeps video playing.** Segments a few seconds long at several bitrates let the player drop quality instead of stalling.",
-    "**Build a CDN only when size, a catalogue you control and large files all hold.** Netflix had all three; most services lack one and rent."
+    "**Calculate data transfer volumes.** At 5 Mb/s, an hour of video is 2.25 GB, so streaming 100 million hours a day transfers 225 petabytes.",
+    "**Short network paths minimise transfer costs.** Cloud egress is billed per gigabyte and upstream transit is billed by peak throughput, whereas traffic served from inside an ISP's own network avoids external transit fees.",
+    "**A CDN caches content near users.** Edge servers deployed across many networks store popular files, DNS or HTTP routing directs each user to a nearby server, and cache misses fetch from the origin.",
+    "**Content popularity follows a steep distribution with a long tail.** Caching 10% of a catalogue can serve 75% of requests, while each subsequent doubling of cache capacity yields smaller hit-rate gains.",
+    "**Pre-position content during off-peak hours.** Downloading predicted titles into edge caches overnight shifts cache-fill traffic out of the billed evening peak.",
+    "**Centralise the control plane and distribute the data plane.** Netflix executed stateful application logic in the cloud while streaming high-volume video bytes from edge appliances inside ISP networks.",
+    "**Adaptive bitrate streaming prevents playback stalls.** Encoding video into multi-second segments across a ladder of bitrates allows the client player to reduce resolution when throughput drops rather than draining its buffer.",
+    "**Building a dedicated CDN requires massive scale, a predictable catalogue, and cache-friendly files.** Netflix met all three conditions, whereas most services lack at least one and rent commercial CDN capacity instead."
   ],
   "footnotes": {
     "sandvine": {
       "kind": "technical",
       "title": "Measuring a third",
-      "text": "Sandvine's reports were built from equipment at many providers, and its figures for Netflix's share of North American peak downstream traffic ran from about 30% in 2011 to the high 30s by the middle of the decade. They are estimates from a sample of networks, not a census."
+      "text": "Sandvine's reports aggregated measurements from deep-packet inspection equipment deployed at partner ISPs. Its estimates for Netflix's share of North American peak downstream traffic rose from roughly 30% in 2011 to over 35% by 2015. These figures represent a sample of participating networks rather than a complete census."
     },
     "lewin": {
       "kind": "digression",
       "title": "Danny Lewin",
-      "text": "Lewin, Akamai's chief technology officer, was a passenger on American Airlines Flight 11 on 11 September 2001 and was killed when it was flown into the World Trade Center. He was 31."
+      "text": "Lewin, Akamai's co-founder and chief technology officer, was a passenger on American Airlines Flight 11 on 11 September 2001 and was killed during the hijacking before the plane was flown into the World Trade Center. He was 31."
     },
     "p95": {
       "kind": "technical",
       "title": "The 95th percentile",
-      "text": "The provider's traffic rate is sampled every five minutes for a month, the top 5% of samples (about 36 hours) are thrown away, and the highest remaining sample is the rate billed. Short bursts are free; whatever runs every evening is paid for, and whatever runs at 4 a.m. usually is not."
+      "text": "To calculate 95th-percentile billing, the upstream provider samples traffic throughput every five minutes over a month, discards the highest 5% of samples (about 36 hours of traffic), and bills based on the highest remaining sample. Brief traffic spikes do not increase the bill; sustained evening peak traffic determines the monthly cost, while traffic transferred at 4 a.m. adds nothing."
     },
     "ktls": {
       "kind": "technical",
       "title": "Encryption in the kernel",
-      "text": "Serving HTTPS normally means reading file data into the server program, encrypting it there and writing it back to the kernel for the network. With the encryption done inside the kernel, or on the network card itself, the data can go straight from the page cache to the wire, as Kafka's sendfile did in lesson 16."
+      "text": "Serving HTTPS normally requires reading file data from the kernel into user-space memory, encrypting it within the application process, and writing the ciphertext back to the kernel's network stack. By performing TLS encryption directly inside the kernel (using kTLS) or offloading it to the network interface card, the operating system can transfer data straight from the page cache to the network card via sendfile, similar to the zero-copy mechanism used by Kafka in lesson 16."
     },
     "ladder": {
       "kind": "digression",
       "title": "A ladder per title",
-      "text": "In December 2015 Netflix moved from one ladder for everything to a ladder chosen for each title. A cartoon of flat colours looks fine at a far lower bitrate than a grainy war film, so each title got the rungs its own pictures needed, which saved bandwidth on simple titles and raised quality on hard ones."
+      "text": "In December 2015, Netflix replaced its fixed encoding ladder with per-title encoding optimisation. Because animation with flat colours compresses much more efficiently than a grainy action film, Netflix generated a custom bitrate ladder for each video based on its visual complexity, reducing bandwidth consumption on simple scenes and improving visual quality on complex ones."
     }
   }
 }

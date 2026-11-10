@@ -4,15 +4,15 @@
   "title": "A cache in spare memory",
   "teaches": "Caching in front of a database, hit-rate arithmetic, invalidation, and consistent hashing",
   "summary": [
-    "**A cache trades memory and staleness for speed and database load.** It answers repeated reads from memory and lets the database see only the misses.",
-    "**The database sees (1 − hit rate) of the reads.** Going from 90% hits to 99% cuts the database's load to a tenth, so measure the hit rate before anything else.",
-    "**memcached is a hash table in RAM, spread by the client.** Servers keep no disk copy, make no replicas and never talk to each other; the client hashes each key to choose a server.",
-    "**With cache-aside the application does the work.** It reads the cache, goes to the database on a miss, and fills the cache with what it found.",
-    "**Delete the cache entry on a write; don't set it.** Two writers setting the cache can finish in the wrong order and leave an old value there indefinitely; deletes agree in any order.",
-    "**A time to live bounds how stale an entry can be.** It costs misses on entries that had not changed, and catches the invalidations that went wrong.",
-    "**Placing keys by key mod n moves almost every key when n changes.** Going from 10 servers to 11 moves about 91% of keys, and every one of those is a miss.",
-    "**Consistent hashing moves only the keys that must move.** On a ring, adding an eleventh server moves about 1/11 of the keys, the ones on its arc.",
-    "**A cache becomes something the database depends on.** Once the database is sized for the misses, losing the cache sends it the full load."
+    "**A cache trades memory and data freshness for lower latency and reduced database load.** It answers repeated reads from memory so that the database processes only the misses.",
+    "**The database receives (1 − hit rate) of the reads.** Raising the hit rate from 90% to 99% cuts the database load to a tenth, making the hit rate the primary metric to monitor.",
+    "**memcached is an in-memory hash table partitioned by the client.** Servers keep no disk copies, maintain no replicas and never communicate with each other; the client hashes each key to select a server.",
+    "**With cache-aside the application coordinates the cache and the database.** It reads from the cache, queries the database on a miss, and writes the result back to the cache.",
+    "**Delete the cache entry on a write rather than updating it.** Two concurrent writers updating the cache can arrive out of order and leave a stale value in place indefinitely, whereas two deletes leave the entry empty in either order.",
+    "**A time to live bounds how stale an entry can become.** It causes misses on entries that have not changed, and acts as a fallback when invalidations fail.",
+    "**Assigning keys by hash modulo n moves almost every key when n changes.** Growing a cluster from 10 servers to 11 moves about 91% of the keys, turning the next read of each moved key into a miss.",
+    "**Consistent hashing moves only the keys that need to move.** On a ring, adding an eleventh server moves about 1/11 of the keys, which are the ones on the new server's arc.",
+    "**A database provisioned for cache misses depends on the cache.** Once the database is sized only for the miss traffic, a cache failure exposes it to the full read workload."
   ],
   "parts": [
     {
@@ -20,15 +20,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "By 2003 LiveJournal's databases were busy again, now with reads. Lesson 4's clusters had divided the writes, but the same popular journal entries, friends lists and user records were read thousands of times a second, and each read was a query on a database. Meanwhile the web servers, dozens of them, each had memory to spare: they needed processor time to build pages, not much RAM to hold them."
+          "text": "By 2003 LiveJournal's databases were busy again, now with reads. The clusters from Lesson 4 had divided the writes, but the same popular journal entries, friends lists and user records were read thousands of times a second, and each read was a query on a database. Meanwhile the web servers, dozens of them, each had memory to spare. They needed processor time to build pages, but not much RAM to hold them."
         },
         {
           "type": "text",
-          "text": "In May 2003 Brad Fitzpatrick wrote a program to put that spare memory to work. It ran on any machine with RAM to give and did one thing: store a value under a key and hand it back when asked. He called it **memcached**. It kept nothing on disk, made no copies, and its servers did not know about each other. If one restarted, whatever it held was gone, and the program reading from it went to the database instead, as it would have without the cache. Within a few years Facebook, Wikipedia, YouTube, Twitter and thousands of other sites ran it.[^memcached]"
+          "text": "In May 2003 Brad Fitzpatrick wrote a program to put that spare memory to work. It ran on any machine with RAM to give and stored values under keys, handing them back when asked. He called it **memcached**. It kept nothing on disk, made no copies, and its servers did not know about each other. If one restarted, whatever it held was gone, and the program reading from it queried the database instead, as it would have without the cache. Within a few years Facebook, Wikipedia, YouTube, Twitter and thousands of other sites ran it.[^memcached]"
         },
         {
           "type": "text",
-          "text": "A **cache** is any store that keeps copies of data from a slower source so that repeated reads can be answered faster. The question this lesson keeps asking is how much a given cache actually saves, and what it costs in return. Both come down to one number, the hit rate, defined below."
+          "text": "A **cache** is any store that keeps copies of data from a slower source so that repeated reads can be answered with lower latency. In this lesson, we will evaluate how much load and latency a cache saves, and what it costs in return. Both come down to one number, the hit rate, defined below."
         }
       ]
     },
@@ -37,17 +37,17 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On each server memcached is a **hash table** in memory. Each item holds a key of up to 250 bytes, a value of up to a megabyte, an expiry time and a few flags. When memory runs out, it throws away the item that has gone longest without being read; this is called evicting the **least recently used** (LRU) item, and it means the cache fills itself with whatever is read most without anyone deciding what that is.[^slabs] The client talks to it over TCP in lines of plain text: set a key with a value and a lifetime, get a key, delete a key."
+          "text": "On each server memcached is a **hash table** in memory. Each item holds a key of up to 250 bytes, a value of up to 1 megabyte, an expiry time and a few flags. When memory runs out, it discards the item that has gone longest without being read; this is called evicting the **least recently used** (LRU) item, and it means the cache fills itself with whatever is read most without an administrator configuring it.[^slabs] The client communicates with the server over TCP in lines of plain text to set a key with a value and a lifetime, get a key, or delete a key."
         },
         {
           "type": "diagram",
           "id": "memcached-wire",
-          "caption": "What memcached says on the wire and keeps in memory. A get that finds nothing answers END, and the application goes to the database.",
+          "caption": "What memcached sends over the network and keeps in memory. A get command that finds nothing returns END, and the application queries the database.",
           "aspect_ratio": 1.47
         },
         {
           "type": "text",
-          "text": "The cluster has no leader and no shared state. The client library holds the list of servers and picks one for each key by hashing it, so the same key always goes to the same server. Lesson 1's ladder says why a cache on another machine is worth asking: a round trip inside the datacentre costs about half a millisecond, while a database query that touches disk costs several milliseconds, and one that has to queue behind others (lesson 2) costs more."
+          "text": "The cluster has no leader and no shared state. The client library holds the list of servers and picks one for each key by hashing it, so the same key always goes to the same server. The latency figures from Lesson 1 show why querying a cache on another machine is worthwhile. A network round trip inside the datacentre takes about 0.5 ms, while a database query that reads from disk takes several milliseconds, and one that queues behind other queries (Lesson 2) takes even longer."
         }
       ]
     },
@@ -56,27 +56,27 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The usual way to use memcached is called **cache-aside**: the application asks the cache first. If the item is there, a **hit**, that is the answer. If not, a **miss**, the application queries the database, sends the reply on, and stores it in the cache for next time. The cache never talks to the database; the application does both halves."
+          "text": "The usual way to use memcached is called **cache-aside**, where the application queries the cache first. If the item is there (a **hit**), the cache returns the answer. If not (a **miss**), the application queries the database, sends the reply on, and stores it in the cache for next time. The cache never communicates with the database; the application handles both steps."
         },
         {
           "type": "text",
-          "text": "The **hit rate**, the share of reads the cache answers, decides almost everything. With a hit rate h, the database sees (1 − h) of the reads. The average read takes h times the cache's time plus (1 − h) times the database's. Take 20,000 reads a second, a database that can answer 4,000, a cache read of 0.5 ms and a database read of 10 ms."
+          "text": "The **hit rate**, the fraction of reads the cache answers, determines the system's performance. With a hit rate h, the database receives (1 − h) of the reads. The mean read latency is h times the cache latency plus (1 − h) times the database latency. Consider a workload of 20,000 reads a second, a database with a capacity of 4,000 reads a second, a cache read latency of 0.5 ms and a database read latency of 10 ms."
         },
         {
           "type": "interactive_diagram",
           "id": "memcached-flow",
-          "caption": "Cache-aside at 20,000 reads a second in front of a database that can take 4,000 (the dots run at a two-hundredth of that, in slow motion). Blue dots are requests and green dots are answers: a request answered at the cache is a hit, and one that goes on to the database is a miss.",
+          "caption": "Cache-aside at 20,000 reads a second in front of a database with a capacity of 4,000 reads a second (the dots run at a two-hundredth of that rate, in slow motion). Blue dots are requests and green dots are responses. A request answered at the cache is a hit, and one that proceeds to the database is a miss.",
           "goal": "ninetynine",
-          "task": "Guess how much the database's load falls from 90% hits to 99%, then raise the hit rate to 99%.",
+          "task": "Estimate how much the database load falls when the hit rate rises from 90% to 99%, then raise the hit rate to 99%.",
           "aspect_ratio": 2.9
         },
         {
           "type": "text",
-          "text": "At 90% hits the database sees 2,000 reads a second, half its capacity, and the average read takes 1.45 ms. At 99% it sees 200, and the average is 0.6 ms. Going from 90 to 99 looks like a small improvement and is a tenfold cut in database load, because what matters is the misses, and they fell from ten in a hundred to one. At 80% the database gets 4,000 and is full. Small changes in the hit rate near the top move the database's load by large factors, which is why it is the first number to measure on any cache, and to keep measuring."
+          "text": "At a 90% hit rate the database receives 2,000 reads a second, half its capacity, and the mean read latency is 1.45 ms. At 99% the database receives 200 reads a second, and the mean latency is 0.6 ms. Increasing the hit rate from 90% to 99% looks like a small improvement, but it cuts database load tenfold because the miss rate falls from 10% to 1%. At an 80% hit rate the database receives 4,000 reads a second and reaches saturation. Small changes in a high hit rate change the database load by large factors, which is why engineers monitor the hit rate closely."
         },
         {
           "type": "text",
-          "text": "What sets the hit rate is how reads are spread over keys and how much memory the cache has. Reads on most sites are very uneven: a small share of items gets most of the reads. If the most-read 5% of items take 90% of the reads, a cache that holds those 5% has a 90% hit rate, and doubling its memory may add only a few points. To size a cache, log the keys read over a busy hour, sort them by how often each was read, and add up the sizes of the most-read keys until they cover the hit rate you want; that total, the **working set**, is the memory the cache needs. The arithmetic runs the other way too. Once a database is sized for the misses, it depends on the cache: if the hit rate falls from 99% to 90% because a cache server restarted empty, the database's load rises tenfold. Many reads missing at once and landing on the database together is a **miss storm**, and lesson 15 is about surviving one."
+          "text": "The hit rate depends on how reads are distributed across keys and how much memory the cache has. Read distributions on most sites are heavily skewed, meaning a small fraction of items receives most of the reads. If the most popular 5% of items account for 90% of the reads, a cache large enough to hold that 5% achieves a 90% hit rate, and doubling its memory may add only a few percentage points. To size a cache, you can log the keys read over a busy hour, sort them by request frequency, and sum the sizes of the most-read keys until they cover your target hit rate. That total, the **working set**, is the memory capacity the cache requires. This arithmetic also works in reverse. Once a database is provisioned only for the misses, it depends on the cache to survive. If the hit rate drops from 99% to 90% because a cache server restarts empty, the database load increases tenfold. When many reads miss at once and hit the database together, they cause a **miss storm**, which we will address in Lesson 15."
         }
       ]
     },
@@ -85,23 +85,23 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A cache holds copies, and copies go stale when the original changes. There are two ways to limit that. The first is a **time to live** (TTL): each item expires after, say, five minutes, and the next read refills it. An entry is never more than five minutes stale, at the cost of misses on items that had not changed. The second is **invalidation**: when the application writes to the database, it also removes or replaces the cache entry. Done right, readers see changes at once; done wrong, they see old data indefinitely. Most systems use both, invalidation for freshness and a TTL as a backstop for the invalidations that fail.[^karlton] Choose the TTL from how stale each kind of data may be: a user's display name can be an hour out of date, a count of items left in stock perhaps a few seconds. A TTL much shorter than the time between reads of a key turns every read into a miss."
+          "text": "A cache holds copies, and copies become stale when the underlying data changes. Engineers use two mechanisms to bound staleness. The first is a **time to live** (TTL), where each item expires after a set duration, such as five minutes, and the next read fetches a fresh copy from the database. An entry is never more than five minutes stale, at the cost of misses on items that have not changed. The second mechanism is **invalidation**: when the application writes to the database, it also removes or updates the cache entry. When invalidation works, readers see changes immediately; when it fails, they read stale data indefinitely. Most systems combine both, using invalidation for freshness and a TTL as a fallback for failed invalidations.[^karlton] You choose the TTL based on how much staleness each type of data can tolerate: a user's display name can be an hour out of date, whereas an inventory count might tolerate only a few seconds of staleness. A TTL much shorter than the average time between reads of a key turns every read into a miss."
         },
         {
           "type": "text",
-          "text": "The obvious invalidation is to update the cache with the new value on every write. That has a race. Two writers change the same row at about the same moment: A writes v1 to the database, then B writes v2. Each then sends its value to the cache. If A is held up between its two steps, by a pause in its runtime or a slow network, B's set arrives first and A's second. The database holds v2 and the cache holds v1, and nothing will correct it until the entry expires."
+          "text": "The simplest invalidation strategy is to update the cache with the new value on every write, but this introduces a race condition. Suppose two writers update the same row at nearly the same time: writer A writes v1 to the database, and then writer B writes v2. Each writer then sends its value to the cache. If writer A is delayed between its two steps by a runtime pause or a slow network packet, writer B's cache update arrives first and writer A's arrives second. The database now holds v2 while the cache holds v1, and the cache will serve stale data until the entry expires."
         },
         {
           "type": "interactive_diagram",
           "id": "memcached-race",
           "caption": "Two writers update the same row, and writer A pauses briefly between updating the database and updating the cache. Time runs down the page.",
           "goal": "delete",
-          "task": "Play it with set on write, then with delete on write.",
+          "task": "Run the simulation with set on write, then with delete on write.",
           "aspect_ratio": 1.47
         },
         {
           "type": "text",
-          "text": "Deleting the entry instead of setting it removes this race. Two deletes in either order leave the cache empty, and the next read fetches the current value from the database. The cost is one extra miss after every write. A narrower race remains, where a reader fetches an old value from the database just before a write and puts it in the cache just after the delete; Facebook met it at scale and solved it with leases, in lesson 15."
+          "text": "Deleting the entry instead of setting it prevents this race condition. Two deletes in either order leave the cache entry empty, and the next read fetches the current value from the database. The trade-off is one extra miss after every write. A narrower race condition remains, in which a reader fetches an old value from the database just before a write and writes it to the cache just after the delete. Facebook encountered this race at scale and solved it with leases, as we will see in Lesson 15."
         }
       ]
     },
@@ -110,23 +110,23 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The first memcached clients chose a server the obvious way: hash the key to a number and take it modulo the number of servers. With ten servers, a key whose hash is 4,417 goes to server 7. It spreads keys evenly and costs nothing to compute. It also fails badly the day a server is added or removed. With eleven servers, 4,417 mod 11 is 6, and almost every key's server changes in the same way: going from 10 to 11 moves about ten keys in eleven, 91% of them. Each moved key is a miss on its new server, so adding cache capacity briefly takes the hit rate from 90% to about 8%: only the one key in eleven that stayed put can still hit. By the arithmetic of the hits and misses section, misses go from 10% of reads to 92%, about nine times the database's usual load."
+          "text": "Early memcached clients chose a server by hashing the key to an integer and taking the remainder modulo the number of servers. With 10 servers, a key whose hash is 4,417 goes to server 7. Modulo hashing distributes keys evenly and is fast to compute, but it fails when a server is added or removed. With 11 servers, 4,417 mod 11 is 6, and almost every key maps to a different server. Growing the cluster from 10 servers to 11 moves about 10 keys in 11 (91%). Each moved key causes a miss on its new server, so adding cache capacity temporarily drops the hit rate from 90% to about 8%, as only the one key in 11 that stayed in place can still hit. By our earlier arithmetic, misses rise from 10% of reads to 92%, sending the database more than nine times its normal load."
         },
         {
           "type": "text",
-          "text": "In 1997 David Karger and colleagues at MIT published a way around this for web caches, which they called **consistent hashing**.[^karger] Hash the servers onto a circle as well as the keys, and give each key to the first server clockwise from it. Adding a server puts one new point on the circle, and only the keys between it and the server before it change hands, about one key in eleven when there are eleven. Removing a server hands its keys to the next one round and moves nothing else."
+          "text": "In 1997 David Karger and colleagues at MIT published a solution to this problem for web caches, which they called **consistent hashing**.[^karger] We hash both the servers and the keys onto a circle, and assign each key to the first server clockwise from its position. Adding a server places one new point on the circle, so only the keys between the new server and the previous one change hands, which is about 1/11 of the keys in an 11-server cluster. Removing a server hands its keys to the next server clockwise and leaves all other keys in place."
         },
         {
           "type": "interactive_diagram",
           "id": "memcached-ring",
-          "caption": "Keys hashed onto a circle. With mod n they move to new servers almost wholesale; on a ring only the new server's arc changes hands.",
+          "caption": "Keys hashed onto a circle. With modulo n hashing, keys move to new servers almost entirely; on a ring, only the keys on the new server's arc change hands.",
           "goal": "both",
-          "task": "Add a server with mod n, then switch to the ring and add one there.",
+          "task": "Add a server with modulo n hashing, then switch to the ring and add one there.",
           "aspect_ratio": 1.47
         },
         {
           "type": "text",
-          "text": "One server at one point on the circle owns an uneven arc: some servers get twice their share of keys and some half. The fix is to put each server at many points round the circle, so the arcs average out; with a hundred or more points each, servers' shares come within roughly 10% of one another. Lesson 12 covers it with Amazon's Dynamo, which made it famous. Memcached clients took up consistent hashing in 2007, when Last.fm released a library called libketama that did exactly this, with each server at 160 points, and other client libraries copied it."
+          "text": "If each server is placed at only one point on the circle, the arcs between them will have uneven lengths, giving some servers twice their share of keys and others half. To even out the distribution, we place each server at many points around the circle so the arc lengths average out. With 100 or more points per server, the key counts on each server stay within roughly 10% of one another. We will revisit this technique in Lesson 12 with Amazon's Dynamo, which popularised it. Memcached clients adopted consistent hashing in 2007 when engineers at Last.fm released libketama, a library that placed each server at 160 points on the ring, and other client libraries soon copied the design."
         }
       ]
     },
@@ -135,19 +135,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The trade a cache makes is now in numbers. It buys lower latency and a database a tenth or a hundredth as large. It costs memory, which is cheap when it is spare and not when it is bought for the purpose. It costs freshness: every design with a cache must say how stale a read may be, and for which reads. It costs code: with cache-aside every read path handles the miss and every write path handles invalidation. And it costs a dependency the database did not have, because a database sized for the misses cannot carry the full load."
+          "text": "We can now quantify the trade-offs of adding a cache. It reduces read latency and allows the database to be a tenth or a hundredth of the size it would otherwise need to be. In exchange, it requires memory, which is free when spare RAM is available on web servers, but adds hardware cost when provisioned on dedicated machines. It reduces data freshness, requiring you to specify how stale each type of read is allowed to be. It adds application complexity, because with cache-aside every read path must handle misses and every write path must handle invalidation. Finally, it introduces an operational dependency, because a database provisioned only for the miss traffic cannot handle the full read workload if the cache fails."
         },
         {
           "type": "text",
-          "text": "Cache-aside is not the only arrangement. A **read-through** cache fetches from the database itself on a miss, so the application sees only the cache. A **write-through** cache takes writes and passes them on to the database, keeping itself current. Both move the miss and invalidation logic out of the application, and both make the cache part of the path that must not fail. Memcached chose the simplest arrangement, a cache that knows nothing about the database, and left the rest to the application, which is part of why it was easy to adopt everywhere."
+          "text": "Cache-aside is not the only caching architecture. A **read-through** cache fetches data from the database itself on a miss, so the application communicates only with the cache. A **write-through** cache accepts writes and forwards them to the database, updating its own state at the same time. Both architectures move the miss and invalidation logic out of the application, and both place the cache directly on the critical path that must not fail. Memcached implemented a cache that knows nothing about the database and left the coordination to the application, which made it straightforward to adopt across different systems."
         },
         {
           "type": "key_ideas",
           "title": "Hold on to",
           "points": [
-            "Database load = (1 − hit rate) × reads; mean latency = h × cache + (1 − h) × database.",
-            "Delete on write, with a TTL behind it.",
-            "On a ring, adding the nth server moves about 1/n of the keys; with mod n almost all of them."
+            "Database load = (1 − hit rate) × read rate; mean latency = h × cache latency + (1 − h) × database latency.",
+            "Delete the cache entry on write, and set a TTL as a fallback.",
+            "On a consistent-hashing ring, adding the nth server moves about 1/n of the keys, whereas modulo n hashing moves almost all of them."
           ]
         }
       ]
@@ -170,67 +170,67 @@
                   "38,000"
                 ],
                 "answer": 0,
-                "why": "The database sees the misses: (1 − 0.95) × 40,000 = 2,000. At 99% it would see 400."
+                "why": "The database receives the misses, which is (1 − 0.95) × 40,000 = 2,000 reads a second. At a 99% hit rate it would receive 400 reads a second."
               },
               {
-                "ask": "A team can raise its cache's hit rate from 90% to 99% by adding memory. What does that do to the database's read load?",
+                "ask": "A team raises its cache hit rate from 90% to 99% by adding memory. What effect does this have on the database's read load?",
                 "choices": [
-                  "Cuts it by about a tenth, since 99 is about ten percent more than 90",
-                  "Cuts it to a tenth, since misses fall from ten in a hundred to one",
-                  "Leaves it almost the same, since most reads were hits already"
+                  "It reduces the load by about a tenth, since 99% is a tenth higher than 90%",
+                  "It reduces the load to a tenth, since misses fall from ten in a hundred to one in a hundred",
+                  "It leaves the load almost unchanged, since most reads were hits already"
                 ],
                 "answer": 1,
-                "why": "The database's load is the miss rate times the reads. Misses fall from 10% to 1%, so the database sees a tenth as many reads."
+                "why": "The database load equals the miss rate multiplied by the total read rate. Misses fall from 10% to 1%, so the database receives a tenth as many reads."
               },
               {
-                "ask": "Why should a writer delete the cache entry after updating the database, rather than set it to the new value?",
+                "ask": "Why should a writer delete the cache entry after updating the database, rather than setting it to the new value?",
                 "choices": [
                   "Deleting is faster on the cache server than storing a new value of the same size, so writes return sooner",
-                  "Two sets can land in the wrong order; two deletes cannot",
+                  "Two concurrent sets can arrive out of order, whereas two deletes leave the same result in either order",
                   "A set can fail when memory is full, leaving the old value cached"
                 ],
                 "answer": 1,
-                "why": "If writer A sets v1 after writer B sets v2, the cache keeps v1 while the database holds v2. Two deletes leave the entry empty, and the next read fetches the current value."
+                "why": "If writer A sets v1 after writer B sets v2, the cache retains v1 while the database holds v2. Two deletes leave the entry empty regardless of order, and the next read fetches the current value from the database."
               },
               {
-                "ask": "A memcached cluster places keys by hash mod n. It grows from 20 servers to 21 during the evening peak. What happens?",
+                "ask": "A memcached cluster assigns keys by hash modulo n. It grows from 20 servers to 21 during the evening peak. What happens?",
                 "choices": [
-                  "About one key in twenty-one moves, so the hit rate dips by a few points",
-                  "Nothing moves until each item's time to live runs out, so the change is spread over minutes",
-                  "About twenty keys in twenty-one move to a new server, so nearly every read misses at once"
+                  "About one key in 21 moves, so the hit rate dips by a few percentage points",
+                  "Nothing moves until each item's time to live expires, so the change is spread over several minutes",
+                  "About 20 keys in 21 map to a different server, so nearly every read misses at once"
                 ],
                 "answer": 2,
-                "why": "With mod n almost every key's server changes when n does. Each moved key is a miss, and the database suddenly sees nearly the full read load. Consistent hashing would move about 1/21 of the keys."
+                "why": "With modulo n hashing, almost every key maps to a different server when n changes. Each moved key causes a miss, and the database suddenly receives nearly the full read workload. Consistent hashing moves only about 1/21 of the keys."
               },
               {
                 "ask": "On a consistent-hashing ring with ten cache servers, one server fails. Which keys change server?",
                 "choices": [
-                  "Only the keys that were on the failed server, which pass to the next server clockwise",
-                  "About half of all keys, since the remaining nine must even out the load between them",
-                  "All keys, since every key's position on the ring is recomputed from the new count"
+                  "Only the keys that were assigned to the failed server, which move to the next server clockwise",
+                  "About half of all keys, since the remaining nine servers must rebalance the load among themselves",
+                  "All keys, since every key's position on the ring is recomputed from the new server count"
                 ],
                 "answer": 0,
-                "why": "Each key belongs to the first server clockwise from it. Removing one server's point changes the owner only of the keys on its arc."
+                "why": "Each key belongs to the first server clockwise from its position. Removing one server's point on the ring changes the owner only for the keys on its arc."
               },
               {
-                "ask": "A database can take 3,000 reads a second. The site serves 50,000 reads a second through a cache with a 98% hit rate. A cache server restart drops the hit rate to 90% for a few minutes. What happens?",
+                "ask": "A database has a capacity of 3,000 reads a second. The site serves 50,000 reads a second through a cache with a 98% hit rate. A cache server restarts and drops the hit rate to 90% for a few minutes. What happens?",
                 "choices": [
-                  "The database's load goes from 1,000 to 5,000 reads a second, beyond what it can take",
-                  "The database's load rises by about eight percent and stays within its capacity",
-                  "Nothing at the database, because cache misses are answered from the other cache servers"
+                  "The database load rises from 1,000 to 5,000 reads a second, exceeding its capacity",
+                  "The database load rises by about 8% and stays within its capacity",
+                  "The database load does not change, because cache misses are answered by the other cache servers"
                 ],
                 "answer": 0,
-                "why": "At 98% the database sees 2% of 50,000, 1,000 a second. At 90% it sees 10%, 5,000 a second. A database sized for the misses depends on the hit rate staying high."
+                "why": "At a 98% hit rate, the database receives 2% of 50,000 reads, or 1,000 reads a second. At 90%, it receives 10%, or 5,000 reads a second. A database provisioned only for the misses depends on the hit rate staying high."
               },
               {
-                "ask": "Why did memcached keep no copy on disk and no replicas?",
+                "ask": "Why did memcached keep no copies on disk and no replicas?",
                 "choices": [
-                  "Disks and networks of 2003 were too slow to keep up with the rate of writes to a cache",
-                  "Everything in it could be rebuilt from the database, so losing a server cost misses, not data",
-                  "Copies would have needed the servers to elect a leader, which no software of the time could do"
+                  "Disks and networks in 2003 were too slow to keep up with the write throughput of a cache",
+                  "Every entry could be rebuilt from the database, so losing a server caused cache misses rather than data loss",
+                  "Replication would have required the servers to elect a leader, which software of the time could not do"
                 ],
                 "answer": 1,
-                "why": "The database stays the source of truth. A lost cache server costs a burst of misses, and leaving out durability and replication kept the program small, fast and easy to run."
+                "why": "The database remains the source of truth. Losing a cache server causes a burst of misses, and omitting disk persistence and replication kept memcached simple, fast and easy to operate."
               }
             ]
           }
@@ -242,22 +242,22 @@
     "memcached": {
       "kind": "digression",
       "title": "Perl, then C",
-      "text": "The first memcached was written in Perl and was soon rewritten in C for speed. Fitzpatrick's company Danga released it as free software, and its plain text protocol meant clients appeared quickly in every language a website was written in."
+      "text": "The first version of memcached was written in Perl in May 2003, and Anatoly Vorobey rewrote it in C that summer for performance. Fitzpatrick's company Danga Interactive released it as free software, and its plain-text protocol made it easy for developers to write client libraries in every major programming language."
     },
     "slabs": {
       "kind": "technical",
       "title": "Slabs",
-      "text": "To avoid the slow fragmentation that comes from allocating and freeing values of every size, memcached carves its memory into pages of fixed-size chunks (slabs), each class a little larger than the last, and stores each item in the smallest chunk that fits it. Each class keeps its own least-recently-used list."
+      "text": "To avoid the memory fragmentation caused by allocating and freeing values of arbitrary sizes, memcached divides its memory into 1 MB pages and slices each page into fixed-size chunks called slabs. Each slab class holds chunks slightly larger than the previous class, and memcached stores each item in the smallest chunk that fits it. Each slab class maintains its own least-recently-used eviction list."
     },
     "karlton": {
       "kind": "digression",
       "title": "Two hard things",
-      "text": "A line often attributed to Phil Karlton, a programmer at Netscape, says there are only two hard things in computer science: cache invalidation and naming things. Programmers have been adding a third, off-by-one errors, ever since."
+      "text": "An observation attributed to Phil Karlton, a programmer at Netscape, states that there are only two hard things in computer science: cache invalidation and naming things. Programmers often add off-by-one errors as a third."
     },
     "karger": {
       "kind": "digression",
       "title": "From web caches to Akamai",
-      "text": "Karger's group was working on spreading web pages over many caches so that a popular page would not swamp any one of them. Two of the people involved, Tom Leighton and Danny Lewin, founded Akamai in 1998 on the idea, and it became the first large content delivery network (lesson 19)."
+      "text": "Karger's group designed consistent hashing to distribute web pages across proxy caches so that a popular page would not overload any single machine. Two of the paper's co-authors, Tom Leighton and Danny Lewin, founded Akamai in 1998 using this research, building the first large content delivery network (Lesson 19)."
     }
   }
 }

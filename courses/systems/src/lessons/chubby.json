@@ -4,14 +4,14 @@
   "title": "Who is in charge?",
   "teaches": "Agreement by majority (Paxos and Raft), leader leases, fencing tokens, and keeping the agreeing part small",
   "summary": [
-    "**Two servers that watch each other cannot safely pick a leader.** When the link between them fails, each sees the other as dead, and both take charge.",
-    "**Agreement needs a majority.** Any two majorities of the same servers share at least one member, so two sides of a split can never both decide.",
-    "**Five servers survive two failures; three survive one.** Each decision costs a round trip to a majority, under a millisecond in one datacentre and tens of milliseconds across a continent.",
-    "**Raft keeps a replicated log with a leader per term.** An entry is committed once its leader has it on a majority, and a server votes only for a candidate whose log is at least as up to date as its own.",
-    "**The side of a split without a majority stops.** Its leader can accept a write but never commit it, and the write is overwritten when the network heals.",
+    "**Two servers monitoring each other cannot safely elect a leader.** When the network link between them fails, each server sees the other stop responding and promotes itself, resulting in split brain.",
+    "**Safe agreement requires a majority quorum.** Because any two majorities of the same group overlap by at least one server, two sides of a network partition cannot both reach a decision.",
+    "**A five-server group tolerates two failures; a three-server group tolerates one.** Committing a write requires a network round trip to a majority of servers, taking less than 1 ms within a datacentre and 30 to 70 ms across a continent.",
+    "**Raft maintains a replicated log managed by at most one leader per term.** A log entry is committed once the leader replicates it to a majority of servers, and voters only elect candidates whose logs are at least as up to date as their own.",
+    "**A partitioned minority cannot commit writes.** An isolated leader on the minority side of a split can append writes to its local log, but cannot commit them, and the cluster overwrites those uncommitted entries once the partition heals.",
     "**A lease lets a leader act alone for a fixed time.** It must stop when the lease runs out, and nobody else may lead until it has.",
-    "**A paused process doesn't know its lease has run out.** Anything a lock holder writes to should check a fencing token, a number that grows with every new holder, and refuse an old one.",
-    "**Keep consensus small and coarse.** Use it to elect a leader and store a little configuration, and keep it off the path of every request."
+    "**A paused process cannot detect that its lease has expired.** Storage systems must verify a monotonically increasing fencing token on every write and reject requests carrying older tokens.",
+    "**Restrict consensus to small metadata and infrequent updates.** Use a coordination service to elect leaders and store configuration, keeping consensus rounds off the high-throughput request path."
   ],
   "parts": [
     {
@@ -19,19 +19,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "At 22:52 UTC on 21 October 2018, engineers replacing a failing piece of optical network equipment at GitHub cut the link between its network hub on the US East Coast and its main East Coast datacentre. The link came back 43 seconds later. In those seconds GitHub's failover tooling, a system called Orchestrator that manages its MySQL databases, saw the East Coast primaries as unreachable and promoted replicas on the West Coast to take their place. Applications began writing to the West. But the East Coast primaries had accepted a few seconds of writes that had not yet reached the West, because replication between them was asynchronous (lesson 4), and now the West had writes the East did not have."
+          "text": "At 22:52 UTC on 21 October 2018, engineers replacing a failing piece of 100G optical network equipment at GitHub cut the link between its network hub on the US East Coast and its main East Coast datacentre. The link came back 43 seconds later. In those seconds GitHub's failover tooling, a system called Orchestrator that manages its MySQL databases, saw the East Coast primaries as unreachable and promoted replicas on the West Coast to take their place. Applications began writing to the West Coast databases. However, the East Coast primaries had accepted a few seconds of writes that had not yet reached the West Coast, because replication between them was asynchronous (lesson 4), and now the West Coast held writes the East Coast lacked."
         },
         {
           "type": "text",
-          "text": "Two sets of databases each held writes the other lacked, and no automatic process could merge them. GitHub chose to keep the site in a degraded state rather than lose data, and spent the next 24 hours and 11 minutes restoring backups, replaying writes and checking them. The engineers' post-incident report, published nine days later, is a careful account of how a correct failover decision still left them with two histories."
+          "text": "Two sets of databases each held writes the other lacked, and no automatic process could merge them. GitHub chose to keep the site in a degraded state rather than lose data, and spent the next 24 hours and 11 minutes restoring backups, replaying writes and checking them. The engineers' post-incident report, published nine days later, explains how a valid failover decision still left them with two conflicting write histories."
         },
         {
           "type": "text",
-          "text": "The question of who is in charge has sat under this course since lesson 4. GFS (lesson 6) and Bigtable (lesson 10) each have a single master, MapReduce (lesson 8) a single master per job, and lesson 4's databases a single primary. Each of those designs is simple only while everyone agrees which machine is the one. When the machine fails, or seems to, something has to choose a new one, and every machine must come to the same answer even while messages are lost and clocks disagree."
+          "text": "We have deferred the question of how to elect a leader since lesson 4. GFS (lesson 6) and Bigtable (lesson 10) each have a single master, MapReduce (lesson 8) has a single master per job, and the databases in lesson 4 have a single primary. Each of those designs is simple only while every machine agrees on which server is the leader. When that server fails, or appears to fail, the system must choose a replacement, and every machine must reach the same decision even while network packets drop and clocks drift."
         },
         {
           "type": "text",
-          "text": "Try the obvious design first. A primary and a standby send each other a **heartbeat**, a small \"I am alive\" message, every second; if the standby hears nothing for ten seconds, it promotes itself. When the primary dies, this works. When the network between them fails and both stay up, each sees the other go silent, the standby promotes itself, the primary carries on, and two machines accept writes for the same data. This is called **split brain**, and no choice of timeout prevents it, because from either side a dead machine and an unreachable one look exactly alike."
+          "text": "Consider a simple two-server design. A primary and a standby send each other a **heartbeat**, a small \"I am alive\" message, every second; if the standby hears nothing for ten seconds, it promotes itself. When the primary dies, this works. When the network between them fails and both stay up, each sees the other go silent, the standby promotes itself, the primary carries on, and two machines accept writes for the same data. This failure mode is called **split brain**, and no timeout duration prevents it, because from either side a dead machine and an unreachable machine are indistinguishable."
         }
       ]
     },
@@ -40,15 +40,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Google met the problem early and kept meeting it. At OSDI in Seattle in November 2006, the same conference as Bigtable, Mike Burrows presented \"The Chubby lock service for loosely-coupled distributed systems\". Its motivation was practical. Google's engineers needed leader election again and again, for the GFS master, for the Bigtable master, for MapReduce's job masters, and each team that wrote its own got it subtly wrong. Rather than hand them a correct library for **consensus**, the problem of getting several machines to agree on one value while some may crash or be cut off, which they would have to build their programs around, Burrows built a service they could call."
+          "text": "Google encountered this problem repeatedly. At the OSDI conference in Seattle in November 2006, where Google also presented Bigtable, Mike Burrows presented \"The Chubby lock service for loosely-coupled distributed systems\". Google's engineers needed leader election for the GFS master, the Bigtable master, and MapReduce's job masters, and each team that wrote its own implementation made subtle errors. Rather than distribute a software library for **consensus**, the problem of getting several machines to agree on one value even when some crash or disconnect, Burrows built a central network service that applications could call."
         },
         {
           "type": "text",
-          "text": "A Chubby **cell** is five servers, usually in different racks of one datacentre. It looks to clients like a small file system of directories and small files, each of which can also be held as a lock. To become the GFS master, a server opens a known file and asks for its lock; whoever holds the lock is the master, and writes its own address into the file so clients can find it. Bigtable used Chubby to elect its master, to keep a file for each live tablet server (lesson 10), and to store the location of its root tablet. Its most common use turned out to be as a name service: small, rarely changed records that thousands of machines read."
+          "text": "A Chubby **cell** consists of five servers, usually placed in different racks within one datacentre. To clients, it looks like a small file system of directories and small files, any of which can also be acquired as a lock. To become the GFS master, a server opens a designated file and requests its lock; the server that acquires the lock becomes the master and writes its network address into the file so clients can find it. Bigtable used Chubby to elect its master, to track active tablet servers (lesson 10) via per-server files, and to store the location of its root tablet. Engineers ended up using Chubby most heavily as a name service, storing small, rarely changed records that thousands of machines read."
         },
         {
           "type": "text",
-          "text": "Chubby's design follows a rule this lesson keeps returning to: keep the part that must agree small. A cell agrees only on changes to its few kilobytes of files and locks, a few hundred a second at most, and its locks are **coarse**, held for hours or days, not taken for every request. The tens of thousands of clients of one cell mostly read cached copies of files, which the cell's master invalidates when they change. The work that moves terabytes, GFS's chunk traffic and Bigtable's reads and writes, never passes through Chubby."
+          "text": "To keep Chubby fast and reliable, Burrows kept the state requiring agreement small. A cell agrees only on changes to a few kilobytes of files and locks, at a rate of a few hundred operations a second at most, and its locks are **coarse**, held for hours or days rather than acquired for every request. The tens of thousands of clients connected to one cell mostly read cached copies of files, which the cell's master invalidates when the files change. High-volume traffic, such as GFS chunk transfers and Bigtable reads and writes, never passes through Chubby."
         }
       ]
     },
@@ -57,34 +57,34 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Inside a Chubby cell, the five servers agree using **Paxos**, a protocol Leslie Lamport described in a paper submitted in 1990 and published, after a long delay, in 1998.[^parliament] Paxos is famous for being hard to follow, and in 2014 Diego Ongaro and John Ousterhout at Stanford published **Raft**, a protocol with the same guarantees designed to be understood. The figures here use Raft, and the ideas carry over."
+          "text": "Inside a Chubby cell, the five servers agree using **Paxos**, a protocol Leslie Lamport described in a paper submitted in 1990 and published, after a long delay, in 1998.[^parliament] Because Paxos is notoriously difficult to understand and implement, Diego Ongaro and John Ousterhout at Stanford published **Raft** in 2014, a protocol with the same guarantees designed for clarity. We will use Raft in our diagrams, as the underlying principles are identical."
         },
         {
           "type": "text",
-          "text": "Everything rests on one fact about majorities. Of five servers, any two groups of three share at least one server. So if every decision needs the agreement of a majority, two decisions can never be made without some server taking part in both, and that server can refuse to agree to the second if it contradicts the first. A network split cannot produce two majorities, because there are not enough servers to go round. The cost is availability: with five servers, the group keeps working while any three are up and talking, survives any two servers failing, and stops once three have failed. Three servers survive one failure. A sixth server lets the group survive no more failures, because a majority of six is four, so groups have odd sizes. Protocols like this are judged on two properties: **safety**, that nothing wrong is ever decided, such as two leaders in one term or two different values committed; and **liveness**, that a decision is eventually made. A majority rule keeps safety always and gives up liveness while no majority can talk."
+          "text": "Both protocols rely on a mathematical property of majorities: out of five servers, any two groups of three share at least one server. If every decision requires the agreement of a majority, two decisions can never be made without at least one server participating in both, and that overlapping server will refuse to approve a second decision that contradicts the first. A network partition cannot create two separate majorities, because there are only five servers in total. The trade-off is availability: a five-server group continues operating while any three servers are running and communicating, tolerates the failure of any two servers, and halts if three fail. A three-server group tolerates one failure. Adding a sixth server does not allow the group to survive more failures, because a majority of six is four, so engineers configure consensus groups with an odd number of servers. Distributed systems engineers evaluate these protocols on two properties: **safety**, the guarantee that the system never makes an invalid decision (such as electing two leaders in one term or committing two different values for the same log entry), and **liveness**, the guarantee that the system eventually makes a decision. Majority-rule protocols preserve safety under all network conditions and sacrifice liveness whenever a majority of servers cannot communicate."
         },
         {
           "type": "text",
-          "text": "Raft keeps a **replicated log**: an ordered list of commands, such as \"x=2\" or \"master is server 7\", that every server applies in the same order. Each entry records the **term** in which it was written as well as its command. Time is divided into terms numbered 1, 2, 3, and each term has at most one leader. The leader takes client writes, appends them to its own log, and sends them to the others with each heartbeat. An entry is **committed** once the leader that wrote it has stored it on a majority of servers, and only committed entries are ever applied or reported to the client as done."
+          "text": "Raft maintains a **replicated log**, an ordered sequence of commands such as \"x=2\" or \"master is server 7\" that every server applies in the exact same order. Each log entry records the command alongside the **term** number in which the leader wrote it. Raft divides time into sequential terms numbered 1, 2, 3, and guarantees that at most one leader can be elected in any given term. The leader accepts client writes, appends them to its local log, and sends them to the followers alongside its regular heartbeats. A log entry is **committed** once the leader that created it has replicated it to a majority of servers; servers only apply committed entries to their state and only report committed writes as successful to the client."
         },
         {
           "type": "text",
-          "text": "When a follower hears no heartbeat for its **election timeout**, a few hundred milliseconds chosen at random so that servers rarely time out together, it starts a new term, votes for itself, and asks the others for their votes. Each server gives one vote per term, and only to a candidate whose log is at least as up to date as its own.[^uptodate] A candidate with votes from a majority is the leader for that term and starts sending heartbeats at once. Any server that sees a message with a higher term than its own steps back to follower: a term number is the cluster's way of saying which leader is newest."
+          "text": "When a follower receives no heartbeats during its **election timeout**, a duration of a few hundred milliseconds randomized per server so that followers rarely time out simultaneously, it increments the term number, votes for itself, and requests votes from the other servers. Each server casts at most one vote per term, and votes only for a candidate whose log is at least as up to date as its own.[^uptodate] A candidate that collects votes from a majority of servers becomes the leader for that term and immediately begins sending heartbeats. Any server that receives a message carrying a higher term number than its own immediately steps down to become a follower; the cluster uses term numbers to identify the most recent leader."
         },
         {
           "type": "interactive_diagram",
           "id": "chubby-raft",
-          "caption": "Five servers running Raft, time running down the page. S1 leads term 1 and commits x=2, then crashes. Grey arrows are empty heartbeats, orange arrows carry log entries, violet arrows are votes; replies to empty heartbeats are left out. Under the timeline, each server's log at the moment shown. Timings are round numbers chosen to be easy to follow.",
-          "task": "Play it to the end: watch who becomes leader and when x=3 is committed.",
+          "caption": "Five servers running Raft, with time flowing down the page. S1 leads term 1, commits x=2, and crashes. Grey arrows represent empty heartbeats, orange arrows carry log entries, and violet arrows represent votes; replies to empty heartbeats are omitted. The boxes below the timeline show each server's log at the selected moment. Timings are rounded for clarity.",
+          "task": "Play the simulation to the end to see which server becomes leader and when the cluster commits x=3.",
           "goal": "elected"
         },
         {
           "type": "text",
-          "text": "Now the costs, in numbers. A committed write costs the leader one round trip to the nearest majority, plus a write to disk on each server before it answers. Within one datacentre a round trip is well under a millisecond (lesson 1), so a consensus group can commit thousands of small writes a second. Spread across a continent to survive the loss of a whole region, the round trip is 30 to 70 ms, and every write pays it. A leader failure costs an election timeout before anyone notices, plus a round of votes: hundreds of milliseconds to seconds, during which nothing commits.[^flp]"
+          "text": "We can calculate the latency of these operations directly. Committing a write requires one network round trip from the leader to the nearest majority of servers, plus a synchronous disk write on each participating server before it replies. Within a single datacentre, a network round trip takes less than 1 ms (lesson 1), allowing a consensus group to commit thousands of small writes per second. When servers are distributed across a continent to survive the loss of an entire region, the network round trip takes 30 to 70 ms, adding that latency to every write. If the leader fails, the cluster cannot commit any writes during the election timeout and the subsequent voting round, which takes between a few hundred milliseconds and several seconds.[^flp]"
         },
         {
           "type": "text",
-          "text": "Three practical questions follow from this. A client finds the leader by asking any server, which answers with the leader it knows of, and caches the answer until a request fails. A write whose reply never arrives may or may not have been committed, so the client retries it with a request id of its own, and the leader skips a command whose id it has already applied (lesson 22 builds this for payments). And the election timeout must sit well above a heartbeat interval plus a round trip and a disk write, or elections start while the leader is healthy, yet well below the time between failures: the Raft paper suggests 150 to 300 ms within one datacentre."
+          "text": "Engineers must handle three operational details when connecting clients to Raft. First, a client finds the leader by querying any server in the group, which returns the address of the current leader, and the client caches that address until a request fails. Second, if a network failure drops the reply to a write request, the client cannot tell whether the write was committed; to prevent duplicate writes on retry, the client attaches a unique ID to every request, and the leader ignores any command whose ID already appears in the log (we will build this mechanism for payment systems in lesson 22). Third, engineers must configure the election timeout to be significantly longer than the heartbeat interval plus a network round trip and disk write, so followers do not trigger unnecessary elections while the leader is healthy, but short enough to recover quickly when the leader crashes; the Raft paper recommends an election timeout of 150 to 300 ms within a single datacentre."
         }
       ]
     },
@@ -93,22 +93,22 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The case that broke two-server failover is the one a majority rule is built for. Before playing it, predict the outcome."
+          "text": "Majority voting prevents the split-brain failure that breaks two-server failover. Before running the next simulation, try to predict which write will survive."
         },
         {
           "type": "interactive_diagram",
           "id": "chubby-split",
-          "caption": "The same five servers. Partway through, the network splits S1, the leader, and S2 from the other three; red crosses are messages lost at the split. Later it heals. Make your guess, then play it through.",
-          "task": "Guess which write survives, then play it to the end.",
+          "caption": "The same five servers. Partway through, a network partition isolates S1 (the initial leader) and S2 from the other three servers; red crosses mark packets dropped at the partition boundary. Later, the network heals. Predict the outcome, then play the simulation.",
+          "task": "Predict which write survives, then play the simulation to the end.",
           "goal": "split"
         },
         {
           "type": "text",
-          "text": "S1 does not know it has been cut off. It is still leader of term 1, accepts x=2, and sends it out; S2 stores it and answers; the other three never receive it. Two copies out of five is not a majority, so S1 cannot commit x=2, and its client waits. S1 is a leader that can do nothing, which is exactly what a majority rule asks of it. On the other side, S3's election timeout runs out, it starts term 2, wins the votes of S4 and S5, three of five, and commits x=3 with them. When the network heals, the first message S1 receives carries term 2, so S1 steps down, and the new leader's log overwrites the uncommitted x=2 on S1 and S2. Raft promises only that committed entries survive, and x=2 was never committed."
+          "text": "S1 cannot immediately detect that it has been isolated. Remaining the leader of term 1, it accepts the write x=2 from a client and sends the entry to its followers; S2 writes the entry to disk and acknowledges it, while the packets to the other three servers drop. Because two servers out of five do not form a majority, S1 cannot commit x=2, and the client's request hangs. S1 remains a leader but cannot commit new state. On the other side of the partition, S3's election timeout expires; it increments the term to 2, wins votes from S4 and S5 to form a three-server majority, and commits the write x=3 across those three servers. When the network heals, S1 receives a heartbeat from S3 carrying term 2, steps down to become a follower, and overwrites the uncommitted x=2 entry on both its own log and S2's log with the new leader's log. Raft guarantees only that committed entries persist; because x=2 was never committed, the cluster safely discards it."
         },
         {
           "type": "text",
-          "text": "GitHub's Orchestrator ran its own leader election with Raft across three sites, and in October 2018 it behaved like this figure: the side with the majority chose the West Coast. The trouble was below it. The MySQL primaries in the East did not take part in any consensus; they accepted writes on their own and copied them to the West later. Agreement on who was in charge did nothing to stop the old primary from acting in the seconds before it heard, and its writes had no majority to make them safe. The next part is about that gap."
+          "text": "During the October 2018 outage, GitHub's Orchestrator ran its own leader election using Raft across three sites, and the majority partition promoted the West Coast databases as designed. The failure occurred in the storage layer below Orchestrator. The MySQL primaries on the East Coast did not participate in consensus; they accepted local writes directly and replicated them asynchronously to the West Coast. Although Orchestrator agreed on which database was the new primary, it had no mechanism to stop the isolated East Coast primary from accepting writes during the seconds before it learned it had been demoted, and those writes did not require a majority quorum."
         }
       ]
     },
@@ -117,22 +117,22 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Consensus makes a decision safe. Acting on it is a separate problem, because a leader that has been replaced does not find out until a message tells it so, and in a split no such message arrives. The usual answer is a **lease**, which lesson 7 met in GFS: permission to act alone for a fixed time, such as ten seconds, renewed before it runs out. The leader stops acting the moment its lease expires unless it has renewed it, and the group promises not to choose another leader until that lease must have expired. Chubby's master held such a lease from the other replicas, and each client's session with Chubby was a lease too, about twelve seconds long, renewed by keep-alive messages; a lock held by a client whose session expired was released.[^clocks]"
+          "text": "While consensus guarantees that servers agree on who the leader is, acting safely on that leadership requires an additional mechanism, because a deposed leader does not know it has been replaced until it receives a network message, which a network partition can block. Engineers solve this using a **lease**, a mechanism we saw in GFS in lesson 7, which grants a server permission to act as leader for a fixed duration, such as 10 seconds, and must be renewed before it expires. The leader must halt operations the instant its lease expires unless it has successfully renewed it, and the remaining servers guarantee they will not elect a new leader until the old lease has fully expired. In Chubby, the master held a lease granted by the other replicas, and each client maintained a session lease with Chubby lasting about 12 seconds, renewed via keep-alive messages; if a client's session lease expired, Chubby automatically released any locks that client held.[^clocks]"
         },
         {
           "type": "text",
-          "text": "Leases have a hole that no lock service can close on its own. The holder of a lease checks its clock and decides it still has time, and then it stops: a garbage-collection pause, a virtual machine moved to another host, a page of memory swapped to disk. Pauses of several seconds happen in production. When the process resumes, it has no way to know that time passed. It finishes the write it was in the middle of, and the lease it relied on expired long ago."
+          "text": "However, time-based leases have a vulnerability that a lock service cannot fix by itself. Suppose a client checks its local clock, verifies that its lease has remaining time, and begins a write operation, but then its process pauses: the language runtime triggers a stop-the-world garbage collection, the hypervisor migrates the virtual machine to another physical host, or the operating system swaps a page of memory to disk. Execution pauses lasting several seconds occur regularly in production. When the process resumes execution, it proceeds directly to the next instruction without rechecking the clock, sending out the write long after its lease has expired."
         },
         {
           "type": "interactive_diagram",
           "id": "chubby-fencing",
-          "caption": "A lock with a lease of 100 ms. Client 1 takes it, then pauses for garbage collection past the end of its lease; client 2 takes the lock and writes. With fencing tokens on, client 1's grant carries token 33 and client 2's carries 34. Run it without fencing, then with it.",
-          "task": "Run it with fencing tokens on, to the end.",
+          "caption": "A lock granted with a 100 ms lease. Client 1 acquires the lock, then pauses for garbage collection until after its lease expires; meanwhile, client 2 acquires the lock and writes to storage. When fencing tokens are enabled, client 1's lock grant includes token 33 and client 2's grant includes token 34. Run the simulation without fencing tokens, then with fencing tokens enabled.",
+          "task": "Run the simulation with fencing tokens enabled to the end.",
           "goal": "fenced"
         },
         {
           "type": "text",
-          "text": "The fix is to let the thing being protected do the last check. With each grant of the lock, the lock service hands out a **fencing token**, a number that is larger for every new holder; a Raft term number or the index of the log entry that granted the lock will do. The holder sends its token with every write, and the storage remembers the largest token it has seen and refuses anything smaller. The paused client's write arrives with token 33 after storage has seen 34, and is refused. Chubby offered exactly this in 2006 as a **sequencer**, a string naming the lock and its generation number that a server could check; Martin Kleppmann's 2016 essay on distributed locking gave it the name fencing token. Without fencing, a lock service can say who should be in charge but cannot stop an old holder from acting."
+          "text": "To prevent stale writes, the storage server must verify the lock's validity on every write. Whenever the lock service grants a lock, it issues a **fencing token**, an integer that increases monotonically with each new lock acquisition (such as the Raft term number or the log index of the lock grant). The client must attach its fencing token to every write request, and the storage system records the highest token number it has processed, rejecting any write carrying a smaller token. When the paused client finally sends its write carrying token 33, the storage server sees that it has already processed token 34 and rejects the request. Chubby implemented this mechanism in 2006 under the name **sequencer**, a byte string containing the lock name and generation number that storage servers could verify; distributed systems researcher Martin Kleppmann introduced the term fencing token in a 2016 analysis of distributed locking. Without fencing tokens, a lock service can elect a new leader, but cannot stop a paused former leader from corrupting storage."
         }
       ]
     },
@@ -141,16 +141,16 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Consensus is easy to describe and hard to build. In 2007 three Google engineers, Tushar Chandra, Robert Griesemer and Joshua Redstone, published \"Paxos Made Live\" about turning Paxos into the replicated database under Chubby. Their account is mostly about everything the protocol leaves out: disks that silently corrupt data, snapshots so the log doesn't grow forever, changing which servers are in the group, a leader lease, so that the leader can answer reads alone, without a round of messages, knowing no other leader can exist until the lease runs out, and testing a system whose bugs appear only under rare orderings of failures. The protocol itself fits on a page; the paper describes the years of engineering around it."
+          "text": "While the core rules of consensus fit on a single page, building a production consensus service requires years of engineering. In 2007, Google engineers Tushar Chandra, Robert Griesemer, and Joshua Redstone published \"Paxos Made Live\", detailing the work required to turn Lamport's Paxos algorithm into the replicated database underlying Chubby. Most of their engineering effort went into features the theoretical paper omits: handling disks that silently corrupt data, taking snapshots so the replicated log does not grow indefinitely, dynamically reconfiguring group membership, implementing leader leases so the master can serve read requests locally without running a consensus round, and testing a distributed state machine whose bugs surface only under rare combinations of network and hardware failures."
         },
         {
           "type": "text",
-          "text": "That is why the advice is to use consensus for little, and to use someone else's. Elect a leader with it, store small configuration in it, and let the leader do the real work on its own, fenced by its term. Bigtable's data never went through Chubby; only the decisions about who served which tablet did. Open-source systems followed Chubby's design. ZooKeeper, built at Yahoo and described in 2010, became the coordinator for Hadoop, Kafka (lesson 16) and many others; etcd, built at CoreOS in 2013 on Raft, holds the state of every Kubernetes cluster."
+          "text": "Because consensus protocols are slow and difficult to implement correctly, you should use an existing battle-tested service and restrict it to managing small metadata. Use the consensus service to elect a leader and store configuration records, and let the elected leader process high-volume traffic directly, using its term number as a fencing token. Bigtable never routed table data through Chubby; it used Chubby only to record which tablet server managed which tablet. Later open-source infrastructure copied Chubby's architecture: ZooKeeper, built at Yahoo and published in 2010, served as the coordination service for Hadoop and early versions of Kafka (lesson 16), while etcd, built at CoreOS in 2013 using Raft, stores the cluster state and configuration for Kubernetes."
         },
         {
           "type": "diagram",
           "id": "timeline",
-          "caption": "Agreement in distributed systems, from theory to the services that use it.",
+          "caption": "The evolution of consensus protocols and the coordination services built on them.",
           "options": {
             "spacing": "even",
             "events": [
@@ -207,61 +207,61 @@
           "options": {
             "items": [
               {
-                "ask": "A primary and a standby database watch each other with heartbeats, and the standby promotes itself after ten seconds of silence. What happens when the network between them fails but both stay up?",
+                "ask": "A primary and a standby database monitor each other with heartbeats, and the standby promotes itself after 10 seconds of silence. What happens when the network link between them fails while both servers remain running?",
                 "choices": [
-                  "Nothing harmful: the standby waits ten seconds, and by then the primary has noticed and stopped",
-                  "Both accept writes: each thinks the other is dead",
-                  "Neither accepts writes, because each waits for the other to confirm it is still alive before acting"
+                  "Nothing harmful: the standby waits 10 seconds, and by then the primary has detected the failure and halted",
+                  "Both accept writes, because each server concludes the other is dead",
+                  "Neither accepts writes, because each waits for the other to confirm it is still alive before processing requests"
                 ],
                 "answer": 1,
-                "why": "A machine that is down and one that is unreachable look the same from outside. With two servers there is no majority to break the tie, so both take charge: split brain."
+                "why": "From the perspective of a remote server, a crashed machine and a machine cut off by a network partition are indistinguishable. With only two servers, neither side can form a majority to break the tie, so both act as primary, causing a split-brain failure."
               },
               {
-                "ask": "Why do consensus protocols such as Paxos and Raft require a majority for every decision?",
+                "ask": "Why do consensus protocols such as Paxos and Raft require a majority of servers to approve every decision?",
                 "choices": [
-                  "Any two majorities share a server, so two conflicting decisions can never both be made",
-                  "A majority is the fewest servers that can hold a copy of every entry in the log",
-                  "Majority voting is faster than waiting for all servers, and speed is what prevents conflicts"
+                  "Any two majorities share at least one server, ensuring the group cannot approve two conflicting decisions",
+                  "A majority is the minimum number of servers needed to store a complete copy of the log",
+                  "Majority voting has lower latency than waiting for all servers, and low latency prevents conflicting writes"
                 ],
                 "answer": 0,
-                "why": "The overlap is the point. Some server takes part in both decisions and refuses the second if it contradicts the first, and a split cannot hold two majorities."
+                "why": "Because any two majorities overlap by at least one server, at least one server participates in both decisions and will reject the second if it conflicts with the first. Furthermore, a network partition cannot create two separate majorities."
               },
               {
-                "ask": "A five-server Raft group is split into two servers (including the leader) and three. What happens to writes sent to the old leader?",
+                "ask": "A five-server Raft group is partitioned into one side of two servers (containing the current leader) and another side of three servers. What happens to client writes sent to the isolated old leader?",
                 "choices": [
-                  "They are committed on the side of two and copied to the other side when the network heals",
-                  "They are refused at once, because the leader detects the split from the missing replies and stops accepting writes",
-                  "Never committed, since two of five is not a majority; later overwritten"
+                  "They are committed on the two-server side and merged into the three-server side when the network heals",
+                  "They are rejected immediately, because the leader detects the partition from the missing heartbeat replies and steps down",
+                  "They are never committed because two of five servers is not a majority, and are later overwritten"
                 ],
                 "answer": 2,
                 "why": "The old leader can append the write but not commit it. The side of three elects a new leader in a higher term, and its log replaces the uncommitted entries afterwards."
               },
               {
-                "ask": "A team wants its consensus group to survive two servers failing at once. What is the smallest group, and why?",
+                "ask": "An engineering team needs its consensus group to continue operating when two servers fail simultaneously. What is the smallest group size that meets this requirement, and why?",
                 "choices": [
-                  "Four servers, since two failures leave two, which is half of the group",
-                  "Five servers, since two failures leave three, a majority of five",
-                  "Three servers, since one survivor can still serve reads and writes"
+                  "Four servers, because two failures leave two running servers, which is half of the group",
+                  "Five servers, because two failures leave three running servers, which forms a majority of five",
+                  "Three servers, because a single surviving server can still process reads and writes"
                 ],
                 "answer": 1,
                 "why": "A group of n works while a majority is up. Five keeps three after two failures; four needs three of four and so survives only one."
               },
               {
-                "ask": "A client holds a lock with a lease, stops for a long garbage-collection pause, and wakes after the lease has expired and another client has taken the lock. What prevents its write from corrupting the data?",
+                "ask": "A client acquires a lock with a time-bound lease, freezes during a long garbage-collection pause until after the lease expires and a second client acquires the lock, and then resumes execution. What mechanism prevents the first client's delayed write from corrupting storage?",
                 "choices": [
-                  "The lease itself: the client's lock library refuses to send writes once the lease has expired",
-                  "A shorter lease, so the pause is always longer than the time the client could hold the lock",
-                  "A fencing token: the storage refuses writes carrying a lower token than one it has already seen"
+                  "The lease itself: the client's lock library automatically aborts outgoing writes once the local lease timer expires",
+                  "A shorter lease duration, ensuring the garbage-collection pause lasts longer than the lock grant",
+                  "A fencing token: the storage server rejects any write carrying a token number lower than the highest token it has already processed"
                 ],
                 "answer": 2,
-                "why": "The paused client checked its lease before the pause and does not know time passed. Only the storage, which sees both clients' writes, can reject the stale one."
+                "why": "Because the paused client checked its clock before the pause began, it resumes execution unaware that its lease has expired. Only the storage server, which receives requests from both clients, can compare the monotonically increasing fencing tokens and reject the stale write."
               },
               {
-                "ask": "Why did Chubby's design advise coarse locks held for hours, not locks taken for each request?",
+                "ask": "Why did Chubby's designers build it for coarse-grained locks held for hours or days, rather than fine-grained locks acquired for each individual request?",
                 "choices": [
-                  "Each lock change is a consensus round, so changes must be rare and off the request path",
-                  "Long-held locks need no keep-alive messages, so a client cannot lose one by pausing for a while",
-                  "Fine-grained locks would need more than five replicas, and Chubby cells were fixed at five servers"
+                  "Every lock acquisition requires a consensus write round, so lock state changes must be infrequent and kept off the main data path",
+                  "Long-held locks do not require keep-alive messages, preventing clients from losing locks during short network hiccups",
+                  "Fine-grained locking requires more than five replicas to scale, and Chubby cells were architecturally limited to five servers"
                 ],
                 "answer": 0,
                 "why": "Consensus costs a majority round trip and a disk write per change. Used to elect a leader that then works alone, it is needed rarely; sessions still use leases and keep-alives whatever the lock's length."
@@ -276,7 +276,7 @@
     "parliament": {
       "kind": "digression",
       "title": "The part-time parliament",
-      "text": "Lamport wrote Paxos up as the story of the parliament of an imaginary Greek island, whose legislators kept wandering out of the chamber. Reviewers found the story distracting and the paper waited eight years for publication, in 1998. In 2001 he wrote \"Paxos Made Simple\", which begins: \"The Paxos algorithm, when presented in plain English, is very simple.\""
+      "text": "Lamport framed his original Paxos paper as an archaeological account of the parliament on the fictional Greek island of Paxos, whose legislators frequently wandered in and out of the chamber. Reviewers found the allegory distracting, delaying the paper's publication for eight years until 1998. In 2001, Lamport published a follow-up paper, \"Paxos Made Simple\", whose abstract consists of a single sentence: \"The Paxos algorithm, when presented in plain English, is very simple.\""
     },
     "uptodate": {
       "kind": "technical",

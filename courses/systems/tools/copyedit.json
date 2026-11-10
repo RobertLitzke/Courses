@@ -10,5 +10,6 @@
     "utilisation",
     "optimise",
     "catalogue"
-  ]
+  ],
+  "voice": "Write straightforward, conventional technical documentation. Strip out any faux-profound or aphoristic tone. Replace dramatic colons, omitted verbs (gapping) and overly simplified phrasing (such as \"where the time goes\") with standard, explicit engineering terminology. Always include units of measurement. Make the reader or the engineer the subject of a sentence, not the \"lesson\" or the \"steps\". In particular, as guidance (exceptions are fine where they read better):\n1. Use precise technical terms (latency, queueing, bottleneck, throughput) rather than vague plain-English substitutes (\"where the time goes\", \"requests waiting for each other\").\n2. No dramatic colons that deliver a punchline, maxim or takeaway at the end of a sentence.\n3. No inanimate agency: write \"In this lesson, we will design...\" rather than \"This lesson designs...\".\n4. No verb ellipsis and no dropped units: write \"210 ms\", not \"210\", and keep the verbs in compound clauses.\n5. No theatrical mentoring (\"say it out loud\", \"paid three times over\"); explain concepts plainly."
 }

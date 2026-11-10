@@ -15,11 +15,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In April 1998, at the World Wide Web conference in Brisbane, two Stanford graduate students, Sergey Brin and Larry Page, presented a paper called \"The Anatomy of a Large-Scale Hypertextual Web Search Engine\". It described a working search engine, Google, running on machines in a Stanford lab, and it described all of it: a crawler that fetched pages, an indexer that turned them into lists of which words appear where, and a searcher that answered queries from those lists. Its collection was about 24 million pages. Six years later, in December 2004, a Google engineer named Kevin Gibbs put up an experiment on Google Labs that finished your query while you typed it; by 2008 it was on the main search page for everyone."
+          "text": "In April 1998, at the World Wide Web conference in Brisbane, two Stanford graduate students, Sergey Brin and Larry Page, presented a paper called \"The Anatomy of a Large-Scale Hypertextual Web Search Engine\". It described a working search engine, Google, running on machines in a Stanford lab. The paper covered the entire system, including a crawler that fetched pages, an indexer that turned them into lists of which words appear where, and a searcher that answered queries from those lists. Its collection held about 24 million pages. Six years later, in December 2004, a Google engineer named Kevin Gibbs launched Google Suggest on Google Labs to finish queries as users typed them; by 2008 it was on the main search page for everyone."
         },
         {
           "type": "text",
-          "text": "Those three systems, a crawler, an index and a completer, each make a good design on its own, and together they show how the work in a large system splits into what is done ahead of time and what is done while someone waits. This lesson is a design exercise in three short parts. The targets: crawl **a billion pages a month** without being a nuisance to anyone's website; answer a query over the index in **under 200 ms**; and suggest completions in **under 100 ms per keystroke**. Design each part, then compare with what was published."
+          "text": "Those three systems (a crawler, an index and a completer) are each worth designing on their own, and together they show how to split the work in a large system between batch processing done ahead of time and real-time serving done while a user waits. In this lesson, we will design all three parts to meet specific targets. We want to crawl **a billion pages a month** without overloading anyone's website, answer a query over the index in **under 200 ms**, and suggest completions in **under 100 ms per keystroke**. You will design each part and then compare your work with the published systems."
         }
       ]
     },
@@ -28,15 +28,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Crawler, functional.** Start from a list of seed URLs; fetch pages; extract links; fetch those; obey each site's rules about what may be fetched; never fetch the same URL twice in a crawl, and notice when two URLs hold the same page; come back to pages that change. **Non-functional:** no site gets more than about one request a second from us; a billion pages a month; a crawler machine dying loses no more than a few minutes of work."
+          "text": "**Crawler, functional.** Start from a list of seed URLs, fetch those pages, extract their links, and fetch the linked pages. Obey each site's rules about what may be fetched. Never fetch the same URL twice in a crawl, detect when two URLs hold the same page, and revisit pages that change. **Non-functional.** Send no site more than about one request a second, crawl a billion pages a month, and lose no more than a few minutes of work when a crawler machine fails."
         },
         {
           "type": "text",
-          "text": "**Out of scope:** ranking quality, the decades-long work of deciding which page is best; running a page's JavaScript to see what a browser would; images and video; spam beyond plain duplicates; ads. They matter, but none changes the shape of the three systems."
+          "text": "**Out of scope.** We will skip ranking quality (the decades-long work of deciding which page is best), executing a page's JavaScript to render what a browser sees, indexing images and video, filtering spam beyond plain duplicates, and serving ads. These tasks matter, but none of them changes the architecture of the three core systems."
         },
         {
           "type": "text",
-          "text": "**An estimate.** A month is about 2.6 million seconds, so a billion pages a month is about **400 pages a second**, all day. At about 100 KB of HTML a page that is 40 MB a second, some 320 megabits a second of download, and **100 TB of raw pages a month**, perhaps 25 TB compressed. Each page also needs a DNS lookup for its host unless we remember it, and at 400 a second the resolver would be our bottleneck long before the network: the crawler keeps its own DNS cache. The index for a billion pages, at about 300 distinct words a page and about 3 bytes per entry, is about 0.9 TB of postings; with word positions for phrase searches it is a few terabytes: too big for one machine's memory, small for a cluster."
+          "text": "**An estimate.** A month is about 2.6 million seconds, so a billion pages a month comes to about **400 pages a second**, all day. At roughly 100 KB of HTML per page, that is 40 MB a second (about 320 megabits a second of download bandwidth) and **100 TB of raw pages a month**, or perhaps 25 TB compressed. Each page also needs a DNS lookup for its host unless we cache the address. At 400 lookups a second, the DNS resolver would become our bottleneck long before the network does, so the crawler keeps its own DNS cache. The index for a billion pages, at about 300 distinct words per page and 3 bytes per entry, takes about 0.9 TB of postings. Adding word positions for phrase searches brings it to a few terabytes, which is too large for one machine's memory, but small for a cluster."
         }
       ]
     },
@@ -45,7 +45,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The obvious crawler keeps one queue of URLs to fetch, the **frontier**, and a pool of fetchers that each take the next URL, fetch it, add the links they find to the back, and repeat. Being polite means waiting a second between requests to the same site, so a fetcher whose next URL is for a site it hit a moment ago has to wait. Links are not spread evenly over the web: a big site links mostly to itself, so a large share of what the crawler finds points at a handful of hosts. Guess what that does to the simple design."
+          "text": "A basic crawler keeps one queue of URLs to fetch, called the **frontier**, and a pool of fetchers that each take the next URL, download the page, add its links to the back of the queue, and repeat. Being polite means waiting a second between requests to the same site, so a fetcher whose next URL belongs to a recently visited site has to wait. Links are not spread evenly across the web. Because a large site links mostly to itself, a high proportion of discovered URLs point to a handful of hosts. Predict what that distribution does to this simple design."
         },
         {
           "type": "interactive_diagram",
@@ -56,15 +56,15 @@
         },
         {
           "type": "text",
-          "text": "One polite queue manages about 5 pages a second with 200 fetchers, because a fifth of the URLs belong to the big site, which can take one request a second, so the whole crawl moves at the big site's pace: every fetcher ends up holding a big-site URL and waiting its turn. Drop the politeness and it runs at 400 pages a second, with 80 of them aimed at one website, which looks to its owner like an attack. The fix, from the Mercator crawler that Allan Heydon and Marc Najork described in 1999, is **a queue per host**. The frontier keeps one queue for each site and a heap ordered by when each site may next be asked; a fetcher takes the site that is ready soonest, fetches one URL from its queue, and the site goes back in the heap a second later. Fetchers never wait while some site is ready, and no site sees more than one request a second. The big site's URLs pile up in its own queue instead of blocking everyone else's."
+          "text": "With 200 fetchers, a single polite queue manages only about 5 pages a second. Because a fifth of the URLs belong to the big site, which accepts only one request a second, the whole crawl moves at that site's pace as every fetcher ends up holding a big-site URL and waiting its turn. If you drop the politeness limit, the crawler runs at 400 pages a second, but 80 of those requests hit one website, which looks like a denial-of-service attack to its owner. The fix, from the Mercator crawler that Allan Heydon and Marc Najork described in 1999, is **a queue per host**. The frontier keeps one queue for each site and a min-heap ordered by the time each site may next be contacted. A fetcher pops the site that is ready soonest, fetches one URL from its queue, and pushes the site back into the heap with a timestamp one second in the future. Fetchers never wait while another site is ready, and no site sees more than one request a second. The big site's URLs accumulate in its own queue instead of blocking the others."
         },
         {
           "type": "text",
-          "text": "Mercator put a second layer in front: several **priority queues**, so important or fast-changing pages are fed to the per-host queues first. The rest of the crawler is bookkeeping that the numbers force:"
+          "text": "In Mercator, Heydon and Najork placed a second layer in front of the host queues: several **priority queues** that feed important or fast-changing pages into the per-host queues first. The rest of the crawler handles the bookkeeping required by the scale of the web."
         },
         {
           "type": "text",
-          "text": "**Rules.** Each site's robots.txt, a short file at its root saying what crawlers may fetch, is fetched once and cached for a day.[^robots] **Seen URLs.** Before a URL joins the frontier it is checked against everything already queued or fetched. Ten billion URLs at 100 bytes each is a terabyte, too much to check in memory, so the test is a Bloom filter (lesson 10): at about 10 bits a URL and seven hash functions, ten billion fit in 12.5 GB with a false positive rate just under 1%, which costs a few new pages a crawl that are wrongly skipped, a price worth paying. **Duplicate pages.** The same article appears under many URLs; a **simhash** fingerprint, 64 bits computed so that similar pages get fingerprints differing in only a few bits, finds near-copies without comparing pages with each other.[^simhash] **Traps.** A calendar page with a \"next month\" link goes on forever; capping the depth and the URL length per site stops it. **Freshness.** A news front page changes hourly and an archived paper never, so each URL's next visit is scheduled from how often it has been seen to change: a page that changed on 3 of its last 10 daily visits is visited about every three days, and the interval is halved after a visit that finds a change and lengthened after one that doesn't, between an hour and a few months."
+          "text": "**Rules.** The crawler fetches each site's `robots.txt` (a short file at the root directory listing paths that crawlers should ignore) once and caches it for a day.[^robots] **Seen URLs.** Before a URL joins the frontier, the crawler checks it against every URL already queued or fetched. Ten billion URLs at 100 bytes each take a terabyte, which is too large to check in memory, so we use a Bloom filter (lesson 10). At about 10 bits per URL and seven hash functions, ten billion URLs fit in 12.5 GB of RAM with a false positive rate just under 1%. That rate causes the crawler to skip a small fraction of new pages, which is an acceptable trade-off. **Duplicate pages.** Because the same article often appears under many URLs, the crawler computes a 64-bit **simhash** fingerprint designed so that similar pages produce fingerprints differing in only a few bits, detecting near-copies without comparing pages pairwise.[^simhash] **Traps.** A calendar page with a \"next month\" link generates infinite URLs; capping the directory depth and URL length per site stops the crawler from getting stuck. **Freshness.** A news front page changes hourly while an archived paper never changes, so the crawler schedules each URL's next visit based on its observed change rate. A page that changed on 3 of its last 10 daily visits is checked about every three days. The crawler halves this interval after finding a change and lengthens it when the page stays the same, keeping the wait between an hour and a few months."
         }
       ]
     },
@@ -73,7 +73,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Searching a billion pages for a word by reading them all would take hours. An **inverted index** turns the question around ahead of time: for every word, a **posting list** of the documents that contain it, sorted by document id. A query for two words walks both lists side by side and keeps the ids in both. The ids are stored as gaps from the one before, which are small numbers and take a byte or two each.[^varint]"
+          "text": "Searching a billion pages for a word by scanning them all would take hours. An **inverted index** prepares the answers ahead of time by storing, for every word, a **posting list** of the documents that contain it, sorted by document ID. To answer a two-word query, the searcher steps through both lists in parallel and keeps the IDs that appear in both. Because the list is sorted, each ID is stored as the difference (or gap) from the previous ID; these small numbers take only a byte or two each.[^varint]"
         },
         {
           "type": "diagram",
@@ -82,11 +82,11 @@
         },
         {
           "type": "text",
-          "text": "Building the index is lesson 8's example of MapReduce: map reads pages and emits (word, document id) pairs, the shuffle sorts them by word, and reduce writes each word's list. Serving it means splitting it, and there are two ways. Split by **word** and a query for \"seattle weather\" asks two machines, but the list for a common word is enormous and must be shipped between machines to be intersected. Split by **document** and each shard holds a complete little index of its own pages: every shard is asked, each finds its own best ten, and a root merges them. Decide which you would choose before reading on. Search engines chose documents. The price is that every query touches every shard, so the slowest shard sets the latency, and the hedged requests and replicas of lesson 9 are what keep the 99th percentile under the 200 ms budget."
+          "text": "As we saw with MapReduce in lesson 8, building the index is a batch job: the map phase reads pages and emits (word, document ID) pairs, the shuffle phase sorts them by word, and the reduce phase writes each word's posting list. To serve the index from memory, we must partition it across machines in one of two ways. If we partition by **word**, a query for \"seattle weather\" contacts only two machines, but the posting list for a common word is huge and must be sent over the network to intersect with the other list. If we partition by **document**, each shard holds a complete index for a subset of pages; every shard searches its own slice for the top ten matches, and a root server merges those short lists. Decide which partitioning scheme you would choose before reading on. Web search engines partition by document. Because every query must contact every shard, the slowest shard sets the overall response time, so engineers use hedged requests and replicas (lesson 9) to keep 99th-percentile latency under the 200 ms budget."
         },
         {
           "type": "text",
-          "text": "The same index answers **place search**: divide the map into small squares, **cells**, each named by a short code, and add the code of each place's cell as a word, such as \"cell:89c25\", and a query for \"coffee\" near a point becomes \"coffee\" intersected with the cells that cover a circle around it (lesson M2, *Finding the nearest car*, builds these cells), ranked by distance as well as popularity. A **results cache** in front catches the most common queries whole. New pages reach the index through a small, frequently rebuilt index of recent pages that every query also asks, merged with the big one built in batches."
+          "text": "The same index structure handles **place search**. We divide the map into small square **cells**, each named by a short code, and index the cell code of a business or landmark as if it were a word on the page, such as \"cell:89c25\". A query for \"coffee\" near a location becomes an intersection of the posting list for \"coffee\" with the lists for the cells covering a circle around that point (as constructed in lesson M2, *Finding the nearest car*), ranked by distance and popularity. In front of the shards, a **results cache** stores full answers for the most common queries. To include newly crawled pages without waiting for the daily batch build, every query also checks a small, frequently rebuilt index of recent documents and merges those results with the main index."
         }
       ]
     },
@@ -95,7 +95,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A completer has a tighter budget than search: a person types a letter about every 150 ms, and a suggestion that arrives after the next letter is useless. The data is the query log: every query people asked yesterday, with how often. The structure that matches prefixes is a **trie**, a tree with one letter on each edge, so every query is a path from the root and every node is a prefix. Finding the three most asked queries under a prefix by visiting every node below it costs time in proportion to the size of that subtree. Before opening the figure, decide what a node could store so that a lookup no longer has to walk everything below it."
+          "text": "An autocomplete system has a tighter latency budget than search: a person types a character roughly every 150 ms, and a suggestion that arrives after the next keystroke is useless. We build suggestions from the query log, which records every query users asked yesterday and its frequency. A natural data structure for matching prefixes is a **trie**, a tree with one character on each edge, where every query is a path from the root and every node represents a prefix. However, finding the three most frequent queries under a prefix by traversing every node in its subtree takes time proportional to the subtree's size. Before opening the figure, decide what data each node could store so a lookup does not have to walk the subtree below it."
         },
         {
           "type": "interactive_diagram",
@@ -106,11 +106,11 @@
         },
         {
           "type": "text",
-          "text": "With the top three stored, a lookup touches one node per letter typed, however many queries share the prefix. That moves all the work to the build: once a day, a MapReduce over the query log counts each query, emits it for every one of its prefixes, and keeps the best ten per prefix (the figure keeps three, to stay readable). And once every prefix has its answer stored, the trie is no longer needed to serve: it is just a table, **prefix → ten completions**, a key-value lookup that can be sharded and replicated like any other. Each day's table is loaded beside the old one under a new version number; servers switch to it once every shard has it, and the old one is dropped, so there is never a moment with no table. The build also drops offensive and unsafe completions, which is easier with a human-reviewed list in a batch job than at query time."
+          "text": "When each node stores its top three completions, a lookup visits at most one node per character typed, no matter how many queries share that prefix. This design moves the heavy computation to the daily batch build: a MapReduce job over the query log counts each unique query, emits the query for every one of its prefixes, and keeps the top ten per prefix (the figure shows three for readability). Once every prefix holds its precomputed answer, we no longer need the trie pointers at serving time. We can flatten the structure into a hash table mapping **prefix → ten completions**, turning autocomplete into a key-value lookup that can be sharded and replicated like any other. Each day's new table is loaded into memory alongside the old one under a new version number; servers switch traffic to the new table once every shard has loaded it, and then drop the old version. The batch build also filters out offensive and unsafe completions, which is much easier to manage with a human-reviewed blocklist during an offline job than at query time."
         },
         {
           "type": "text",
-          "text": "The daily table misses what is new this hour: an earthquake, a match result. A second, fast path counts queries over the last hour with a count-min sketch and a heap of the heaviest (lesson 17) and merges trending completions into the stored ones. A user's own recent searches are merged on the device, so nothing personal sits in the shared table."
+          "text": "A daily table misses breaking events from the past hour, such as an earthquake or a match result. A second, real-time pipeline counts queries over the last hour using a count-min sketch and a heap of the heaviest hitters (lesson 17), merging trending completions into the daily table's results. A user's own recent searches are merged locally on the client device, keeping personal history out of the shared table."
         }
       ]
     },
@@ -119,7 +119,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Serving the table is where the load is. Say 100,000 searches a second at peak, each typed in about eight keystrokes. Choose when the browser asks, whether an edge cache (lesson 19) answers some requests near the user, and how the table is split into shards. Each suggestion server answers about 20,000 lookups a second from memory."
+          "text": "Serving this table generates high request rates. Suppose the system handles 100,000 searches a second at peak, and each search averages eight keystrokes. You can choose when the browser sends a request, whether an edge cache (lesson 19) answers requests near the user, and how to partition the table across shards. Each suggestion server can handle about 20,000 lookups a second from memory."
         },
         {
           "type": "interactive_diagram",
@@ -134,7 +134,7 @@
         },
         {
           "type": "text",
-          "text": "**The failure worth working through: a suggestion shard is slow.** Suggestions are optional, so the right answer to a slow shard is no suggestions, not a slow search box. The browser cancels the request for \"sea\" the moment \"seat\" is typed, the server drops work for requests already cancelled, and anything that misses a 100 ms deadline is simply not shown. Each shard has replicas, so a dead one costs nothing visible. The crawler's version of the same principle: a fetcher that dies loses only the URLs it held, which go back in their sites' queues after a lease on them expires (lesson 11)."
+          "text": "**Handling a slow suggestion shard.** Because autocomplete suggestions are optional, the right response to a slow shard is to show no suggestions rather than stall the search box. The browser cancels an in-flight request for \"sea\" the moment the user types \"seat\", the server aborts work on cancelled requests, and the client drops any response that misses the 100 ms deadline. Because each shard is replicated, a failed server causes no visible disruption. The crawler uses a similar fault-tolerance pattern: when a fetcher machine fails, it loses only the URLs it was actively downloading, and those URLs return to their host queues once their leases expire (lesson 11)."
         }
       ]
     },
@@ -143,11 +143,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The 1998 paper's crawler was a URL server feeding a few crawler processes, each keeping hundreds of connections open at once and its own DNS cache, which together managed something like a hundred pages a second. Fetched pages were compressed into a repository; an indexer parsed them into hits, a word and its position and font size, and wrote them to \"barrels\" partly sorted by word; a sorter finished the job into the inverted index; and the searcher answered from it, ranking with the link analysis the paper became famous for.[^pagerank] The shape is the one this lesson reached: a frontier, fetchers, an inverted index built by sorting, and a searcher reading posting lists. What changed over the next decade was scale: Mercator's per-host queues, MapReduce for the build (lesson 8), Bigtable for the crawled pages (lesson 10), and serving split by document across thousands of machines (lesson 9)."
+          "text": "In Brin and Page's 1998 paper, a single URL server fed several crawler processes, each maintaining hundreds of open network connections and its own DNS cache to fetch roughly a hundred pages a second in total. The system compressed fetched pages into a repository; an indexer parsed the HTML into \"hits\" (recording each word, its position, and its font size) and wrote them to intermediate files called \"barrels\" that were partially sorted by word; a sorter then reorganized the barrels into the final inverted index. The searcher read posting lists from this index and ranked results using the PageRank link analysis that made the paper famous.[^pagerank] That early architecture matches the design we reached in this lesson: a frontier, parallel fetchers, an inverted index built by sorting, and a searcher intersecting posting lists. Over the next decade, Google scaled each component up by adopting per-host queues like Mercator's, MapReduce for index builds (lesson 8), Bigtable for storing crawled pages (lesson 10), and document-partitioned serving across thousands of machines (lesson 9)."
         },
         {
           "type": "text",
-          "text": "Google Suggest's launch post said it drew on the overall popularity of searches, computed ahead of time, rather than on anything personal: the precomputed top list per prefix, built from logs. Place search is the same index with geography added as words. The parts you probably designed differently are the ones driven by what the web is like rather than by what computers are like: a fifth of links pointing at one site, the same page under twenty URLs, calendars with no last page."
+          "text": "When Google Suggest launched, engineers noted that it ranked completions by overall search popularity computed ahead of time rather than personal history, using a precomputed top list per prefix built from query logs. Similarly, geographic search uses the standard inverted index with map cell codes indexed as words. Where a first-time design usually differs from production systems is in handling the quirks of the web rather than the limits of the hardware: a fifth of discovered links pointing to a single host, identical pages repeated across twenty URLs, and calendar widgets with infinite links."
         }
       ]
     },
@@ -156,11 +156,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Ten billion pages a month** is 4,000 pages a second and one crawler machine can't hold the frontier. Split it by host: hash each site's name to one crawler machine, which owns that site's queue, its robots.txt and its politeness clock, so politeness stays a local decision with no coordination. A machine that finds a link to a site it doesn't own sends it to the owner, in batches. **A hundred times** forces a choice the requirements never stated, between coverage and freshness: there is not enough bandwidth to recheck everything often, so the recrawl schedule becomes the product, and the index splits into tiers, a small fresh tier rebuilt in minutes, a large main tier rebuilt daily, and an archive."
+          "text": "**Ten billion pages a month** requires fetching 4,000 pages a second, where a single machine can no longer hold the frontier. We partition the frontier by host, hashing each domain name to a specific crawler machine that manages that site's queue, its `robots.txt` file, and its politeness timer. Keeping a host on one machine keeps politeness checks local without cross-machine coordination. When a crawler extracts a link belonging to a host it does not own, it batches the URL and sends it over the network to the machine that owns that domain. **A hundred billion pages a month** forces a trade-off between coverage and freshness, because bandwidth limits prevent recrawling the entire web frequently. The recrawl schedule becomes a core design decision, and the index splits into tiers: a small fresh tier rebuilt every few minutes, a main tier rebuilt daily, and a massive archive tier for rarely queried pages."
         },
         {
           "type": "text",
-          "text": "For suggestions, growth is mostly breadth: a table per language and region, since \"football\" completes differently in London and Dallas, each built from its own logs and cached at the edges that serve that region."
+          "text": "For autocomplete, scaling up mostly means adding breadth: maintaining a separate prefix table for each language and region, since \"football\" has different completions in London and Dallas. Each regional table is built from local query logs and cached at the edge locations serving that region."
         }
       ]
     },
@@ -182,7 +182,7 @@
                   "The queue outgrows memory and is read from disk"
                 ],
                 "answer": 1,
-                "why": "A fifth of the stream belongs to a host that takes one request a second, so the stream moves at most five URLs a second."
+                "why": "A fifth of the URL stream belongs to a host that accepts only one request a second, so the entire stream can advance by at most five URLs a second."
               },
               {
                 "ask": "What does a frontier with a queue per host and a heap of ready times achieve?",
@@ -192,7 +192,7 @@
                   "Duplicate URLs are removed automatically, because each host's queue can only hold any one URL once"
                 ],
                 "answer": 0,
-                "why": "A big site's URLs wait in their own queue, and the heap hands each free fetcher the site allowed soonest, so speed and politeness stop conflicting."
+                "why": "A big site's URLs wait in their own queue, and the heap hands each free fetcher the site allowed soonest, so throughput and politeness stop conflicting."
               },
               {
                 "ask": "A crawler must check 10 billion URLs for \"already seen\" with little memory. Which structure fits, and what does it cost?",
@@ -202,7 +202,7 @@
                   "A Bloom filter at about 10 bits a URL, which costs a few new URLs wrongly skipped as seen"
                 ],
                 "answer": 2,
-                "why": "A Bloom filter never misses a URL it has seen, and at 10 bits each needs about 12.5 GB; its rare false positives skip a few new pages, which a crawl can afford."
+                "why": "A Bloom filter never misses a URL it has seen, and at 10 bits per URL it needs about 12.5 GB of RAM; its rare false positives skip a few new pages, which a crawl can afford."
               },
               {
                 "ask": "Why do web search engines split their index by document rather than by word?",
@@ -212,7 +212,7 @@
                   "Splitting by word can't be built with MapReduce, because one reducer would have to see every document's words at once"
                 ],
                 "answer": 0,
-                "why": "By word, a common word's list is enormous and must be intersected across machines. By document, the cost is asking every shard, which hedging and replicas handle."
+                "why": "When partitioning by word, a common word's posting list is enormous and must be sent across the network to be intersected. When partitioning by document, every shard must be queried, which engineers manage using hedged requests and replicas."
               },
               {
                 "ask": "A completer stores each trie node's most asked completions in the node. What does that buy, and what does it cost?",
@@ -222,7 +222,7 @@
                   "Personal completions for each user, at the cost of a trie per account"
                 ],
                 "answer": 1,
-                "why": "Precomputing the lists moves the work offline. Serving becomes a lookup by prefix; yesterday's lists miss today's news, which needs a separate fast path."
+                "why": "Precomputing the lists moves the work offline. Serving becomes a direct lookup by prefix; yesterday's lists miss today's news, which requires a separate fast path."
               },
               {
                 "ask": "Suggestion requests are sharded by the first letter of the prefix. Why is that a poor choice?",
@@ -232,7 +232,7 @@
                   "First letters are very unevenly used, so a few shards take most of the load"
                 ],
                 "answer": 2,
-                "why": "Roughly one English word in nine starts with s, so that shard carries nearly three times the average, and every shard must be sized for the busiest."
+                "why": "Roughly one English word in nine starts with s, so that shard carries nearly three times the average load, and every shard must be sized to match the busiest one."
               },
               {
                 "ask": "A suggestion shard becomes slow. What should the user see?",
@@ -242,7 +242,7 @@
                   "An error asking the user to retype the query once the shard has recovered"
                 ],
                 "answer": 1,
-                "why": "Suggestions only help if they arrive before the next letter. Cancelling stale requests and dropping late ones keeps the search box fast when a part of the system isn't."
+                "why": "Suggestions only help if they arrive before the next keystroke. Cancelling stale requests and dropping late ones keeps the search box responsive when a backend shard slows down."
               }
             ]
           }
@@ -251,36 +251,36 @@
     }
   ],
   "summary": [
-    "**Split the work between ahead of time and while someone waits.** Crawling, indexing and building completions run in batches so that a query or a keystroke is a lookup.",
-    "**A billion pages a month is about 400 a second.** About 40 MB a second of HTML and 100 TB a month of raw pages.",
-    "**One queue for the frontier stalls behind the biggest site.** Politeness turns a fifth of links to one host into a crawl of five pages a second.",
-    "**A queue per host and a heap of ready times fix it.** Fetchers take whichever site may be asked soonest; big sites' URLs wait in their own queues.",
-    "**Remember what has been seen cheaply.** A Bloom filter for URLs, a simhash fingerprint for near-duplicate pages, a cache for DNS and robots.txt.",
-    "**An inverted index maps words to sorted lists of documents.** Built by MapReduce, split by document, and searched by asking every shard and merging.",
-    "**Store each prefix's top completions.** A trie with precomputed lists becomes a prefix-to-list table served from memory, with a fast path for trends.",
-    "**Shard by hash, not by letter, and cache the short prefixes.** First letters are uneven; hashing spreads prefixes, and an edge cache takes the hottest ones.",
-    "**Optional answers should fail quietly.** A slow shard means no suggestions for one keystroke, not a slow search box."
+    "**Split the work between batch processing and real-time serving.** Crawling, indexing and building completions run in batches ahead of time so that serving a query or a keystroke is a fast lookup.",
+    "**A billion pages a month is about 400 pages a second.** At 100 KB per page, that equals 40 MB a second of HTML and 100 TB a month of raw pages.",
+    "**A single frontier queue stalls behind the biggest site.** With a one-second politeness delay, having a fifth of all links point to one host limits the whole crawl to five pages a second.",
+    "**A queue per host and a min-heap of ready times keep fetchers busy.** Fetchers always take whichever site may be contacted soonest, while a large site's URLs wait in its own queue.",
+    "**Track seen data with compact structures.** Use a Bloom filter for seen URLs, a simhash fingerprint for near-duplicate pages, and local caches for DNS and `robots.txt`.",
+    "**An inverted index maps words to sorted lists of document IDs.** Build it with MapReduce, partition it by document across shards, and search it by querying every shard and merging the top results.",
+    "**Precompute each prefix's top completions.** A trie with precomputed top lists flattens into a prefix-to-list hash table served from memory, paired with a real-time pipeline for hourly trends.",
+    "**Partition by hash, not by first letter, and cache short prefixes.** First letters have an uneven distribution; hashing spreads prefixes evenly across shards, while an edge cache absorbs the hottest short prefixes.",
+    "**Degrade quietly when optional features fail.** A slow suggestion shard should result in no suggestions for that keystroke, rather than a stalled search box."
   ],
   "footnotes": {
     "varint": {
       "kind": "technical",
       "title": "A byte or two",
-      "text": "In **variable-byte encoding** each byte carries seven bits of the number and one bit saying whether another byte follows, so a gap under 128 takes one byte and one under 16,384 takes two. Common words have small gaps, because they appear in most documents, so their long lists compress best. Faster schemes pack many gaps into a block with the same bit width."
+      "text": "In **variable-byte encoding**, each byte carries seven bits of the integer and one continuation bit indicating whether another byte follows, so a gap under 128 takes one byte and a gap under 16,384 takes two. Common words have small gaps because they appear in most documents, so their long posting lists compress well. Faster decoding schemes pack blocks of gaps together using a shared bit width."
     },
     "robots": {
       "kind": "digression",
       "title": "robots.txt",
-      "text": "In 1994 Martijn Koster, after a badly written crawler swamped a server he ran, proposed a file at a site's root listing paths that robots should leave alone. It was a convention for 28 years before it became a standard, RFC 9309, in 2022. Nothing enforces it: it works because well-run crawlers obey it."
+      "text": "In 1994, after a poorly written web crawler swamped a server he ran, Martijn Koster proposed placing a text file at a site's root directory to list paths that automated crawlers should ignore. The `robots.txt` file remained an informal convention for 28 years before the IETF standardised it as RFC 9309 in 2022. The file cannot enforce access control on its own; it works because well-behaved crawlers choose to obey it."
     },
     "simhash": {
       "kind": "technical",
       "title": "Simhash",
-      "text": "Moses Charikar described the idea in 2002: hash every word of a page to 64 bits, add up the hashes bit by bit with each word's weight, counting a 1 as +1 and a 0 as −1, and keep the sign of each sum. Pages that share most of their words get fingerprints that differ in few bits. Gurmeet Manku, Arvind Jain and Anish Das Sarma reported in 2007 that, for Google's crawl of about 8 billion pages, near-duplicates could be taken as those within 3 bits of each other, and showed how to find them fast."
+      "text": "Moses Charikar introduced simhash in 2002. To compute a page's 64-bit fingerprint, you hash every word to 64 bits, add up the hashes bit by bit weighted by word frequency (counting a 1 bit as +1 and a 0 bit as -1), and record the sign of each of the 64 sums. Pages that share most of their words produce fingerprints that differ in only a few bit positions. In 2007, Gurmeet Singh Manku, Arvind Jain and Anish Das Sarma reported that across Google's crawl of 8 billion pages, near-duplicate documents differed in at most 3 of the 64 bits, and showed how to detect matches quickly in memory."
     },
     "pagerank": {
       "kind": "digression",
       "title": "Ranking by links",
-      "text": "The paper's PageRank scores a page by the pages that link to it, each link weighted by its source's own score, as if a reader clicked at random forever and the score were how often they landed on the page. Lesson 8's MapReduce is a natural way to compute it, one round of map and reduce per step of the random walk."
+      "text": "PageRank scores each web page according to the pages that link to it, weighting each incoming link by the source page's own score. The model represents a random surfer who clicks links endlessly, where a page's score is the fraction of time the surfer spends on that page. As shown in lesson 8, MapReduce fits this calculation naturally, running one map-and-reduce pass per step of the random walk."
     }
   }
 }

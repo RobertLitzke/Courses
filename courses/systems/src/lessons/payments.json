@@ -13,15 +13,15 @@
         },
         {
           "type": "text",
-          "text": "A shop's server meets the same two generals every time it takes a payment. It sends a request to a payments company's API: charge this card $40. Thirty seconds pass with no reply and the connection drops. Three different histories fit what the shop can see. The request was lost on the way and nothing happened. The charge is still being worked on. Or the card was charged, and the reply was lost on its way back. If the shop gives up, a customer may have paid for an order that does not exist. If it tries again, the customer may pay twice."
+          "text": "A shop's server meets the same two generals every time it takes a payment. It sends a request to a payments company's API to charge a card $40. Thirty seconds pass with no reply and the connection drops. Three different histories fit what the shop can see. The request was lost on the way and nothing happened. The charge is still being processed. Or the card was charged, and the reply was lost on its way back. If the shop gives up, a customer may have paid for an order that does not exist. If it tries again, the customer may pay twice."
         },
         {
           "type": "text",
-          "text": "Before drawing any boxes, write down what must stay true whatever fails. Each order the customer places is charged at most once, and every charge that happens is recorded where the business can see it. A statement like that, which must hold at every moment and after every crash, is an **invariant**. The rest of this lesson is a set of designs that keep those two sentences true over a network that loses messages."
+          "text": "Before drawing any boxes, we must write down what needs to stay true whatever fails. Each order the customer places is charged at most once, and every charge that happens is recorded where the business can see it. A statement like that, which must hold at every moment and after every crash, is an **invariant**. In the rest of this lesson, we will examine a set of designs that keep those two guarantees true over a network that loses messages."
         },
         {
           "type": "text",
-          "text": "Stripe, the payments company, published its answer in 2017 in two posts by its engineer Brandur Leach: one on designing an API around **idempotency keys**, and one showing how to build them on an ordinary Postgres database. The idea does not solve the two generals problem, which has no solution. It changes the question, so that the shop no longer needs to know which of the three histories happened."
+          "text": "Stripe, the payments company, published its answer in 2017 in two blog posts by engineer Brandur Leach, one on designing an API around **idempotency keys**, and another showing how to build them on an ordinary Postgres database. The design does not solve the two generals problem, which has no solution. Instead, it changes the problem so that the shop no longer needs to know which of the three histories happened."
         }
       ]
     },
@@ -30,11 +30,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An operation is **idempotent** if doing it twice has the same effect as doing it once. Setting a field to 5 is idempotent; adding 5 to it is not. \"Charge this card $40\" is an addition, so a retry adds another $40. Lesson 18's retries with backoff assumed that the thing being retried was safe to repeat; for a charge it is not, until the server makes it so.[^http]"
+          "text": "An operation is **idempotent** if doing it twice has the same effect as doing it once. Setting a field to 5 is idempotent; adding 5 to it is not. \"Charge this card $40\" is an addition, so a retry adds another $40. The retries with backoff in lesson 18 required the retried operation to be safe to repeat; a card charge is not safe to repeat until the server makes it so.[^http]"
         },
         {
           "type": "text",
-          "text": "The client makes up a random, unique key for each operation it means to perform once, such as one checkout, and sends it with the request in a header (\"Idempotency-Key: k7…\"). On a retry it sends the same key. The server keeps every key it has seen with the result of the work it did. A request whose key is new is worked on as usual; a request whose key is known gets back the stored result, and nothing is done again.[^uuid]"
+          "text": "The client generates a random, unique key for each operation it intends to perform once, such as a single checkout, and sends it with the request in an HTTP header (\"Idempotency-Key: k7…\"). On a retry, it sends the same key. The server stores every key it has seen along with the result of the work it performed. A request with a new key is processed as usual; a request with a known key receives the stored result without repeating the operation.[^uuid]"
         },
         {
           "type": "interactive_diagram",
@@ -46,15 +46,15 @@
         },
         {
           "type": "text",
-          "text": "With the reply lost and no key, the card network sees two separate authorisations and charges $80. With a key, the API recognises the second request as the first one again and sends the saved reply without touching the card network. When it is the request that was lost, the key changes nothing, because there was no first charge to repeat."
+          "text": "With the reply lost and no key, the card network sees two separate authorisations and charges $80. With a key, the API recognises the second request as a duplicate of the first and returns the saved reply without contacting the card network. When the initial request is lost instead of the reply, the key changes nothing, because no first charge was ever made."
         },
         {
           "type": "text",
-          "text": "The key belongs to the operation, not to one HTTP request. The shop should make it once, when the customer presses Pay, store it with the order, and send it on every retry, including retries made after the shop's own server has restarted. A key generated fresh for each attempt protects nothing."
+          "text": "The key belongs to the logical operation, not to an individual HTTP request. The shop must generate the key once when the customer presses Pay, store it with the order, and send it on every retry, including retries made after the shop's own server restarts. Generating a fresh key for each attempt provides no protection."
         },
         {
           "type": "text",
-          "text": "The client still cannot tell the three histories apart, but it no longer has to: it retries with the same key, after a backoff, until it gets a definite answer. This is lesson 17's recipe for an effect that happens exactly once: deliver at least once, and remove the repeats where the effect is applied."
+          "text": "The client still cannot tell the three histories apart, but it no longer needs to. It retries with the same key after a backoff delay until it receives a definite answer. We saw this mechanism in lesson 17 to achieve exactly-once execution, combining at-least-once delivery with deduplication where the state change is applied."
         }
       ]
     },
@@ -63,7 +63,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Leach's post describes the server side as a table with one row per key. The row holds the key and the account it belongs to, a fingerprint (a hash) of the request body, a **recovery point** saying how far the work has got, a time at which the row was locked, and, once the work is done, the response to send back."
+          "text": "Leach's post describes the server side as a database table with one row per key. The row holds the key, the account it belongs to, a fingerprint (a cryptographic hash) of the request body, a **recovery point** recording how far execution has progressed, a timestamp showing when the row was locked, and, once execution finishes, the HTTP response to return."
         },
         {
           "type": "diagram",
@@ -73,15 +73,15 @@
         },
         {
           "type": "text",
-          "text": "The fingerprint guards against a client bug. A request that arrives with a known key but a different body (another amount, another card) is not a retry, and Stripe refuses it with an error rather than guessing which was meant. The lock guards against two copies of the same request running at once: a retry that arrives while the first try is still working finds the row locked and is told to come back later. If the server holding the lock dies, the lock expires after a while and another server may take the request over, the same idea as lesson 11's leases."
+          "text": "The fingerprint guards against client bugs. A request that arrives with a known key but a different body (such as a different dollar amount or card number) is not a valid retry, and Stripe rejects it with an error rather than guessing the client's intent. The lock prevents two concurrent copies of the same request from executing simultaneously. A retry that arrives while the first attempt is still in flight finds the row locked and receives an error instructing it to back off and retry later. If the server holding the lock crashes, the lock expires after a timeout so another server can take over the request, using the same lease mechanism covered in lesson 11."
         },
         {
           "type": "text",
-          "text": "The hard step is the call to the card network. It is a [[request|request]] to someone else's computer over a network, so it cannot sit inside a database transaction, and the server can crash after it is sent and before the answer is saved. Leach's design splits the work into the phases in the figure above: a transaction that records the key and a pending charge, the call to the card network, a transaction that saves the network's answer (recovery point charge_created), and one that saves the reply to send back (finished). Everything between two outside calls happens in one database transaction, which ends by writing the new recovery point. A retry reads the row, skips the phases already finished, and carries on from the last recovery point. For the outside call itself, the payments company does what the shop did: it passes a unique reference on to the card network, so that the network can recognise a repeat of the call. That covers the case the phases exist for. If the server crashes after the network has charged the card but before the second transaction commits, the row still stands at its first recovery point; the retry makes the call again with the same reference, and the network sends back its first answer instead of charging twice."
+          "text": "The hardest step is the network call to the card network. Because it is a [[request|request]] to an external system over a network, it cannot be rolled back by a local database transaction, and the server might crash after sending the request but before saving the response. Leach's design splits execution into the phases shown in the figure above: a transaction that records the key and a pending charge, the external call to the card network, a transaction that saves the network's response (advancing the recovery point to charge_created), and a final transaction that saves the formatted response to return to the client (finished). All work between external calls executes inside a single database transaction that commits alongside the updated recovery point. When a retry arrives, the server reads the row, skips any completed phases, and resumes execution from the last recorded recovery point. For the external call itself, the payments company uses the same pattern as the shop, passing a unique reference ID to the card network so the network can deduplicate repeated calls. If the server crashes after the card network processes the charge but before the second database transaction commits, the row remains at the first recovery point. A subsequent retry calls the card network again with the same reference ID, and the network returns its original response instead of charging the card twice."
         },
         {
           "type": "text",
-          "text": "**An estimate** of the table's size. Suppose 300 payments a second on average, with peaks of 1,000. Stripe keeps keys for 24 hours, so the table holds about 300 × 86,400, roughly 26 million rows. At about a kilobyte each, with the stored response, that is 26 GB. The peak sets the load: at 1,000 payments a second, each reading its key row once and writing it three times, the table sees about 4,000 indexed operations a second, well within one Postgres server. A B-tree index over 26 million rows is three or four levels deep, and its upper levels stay in memory, so finding a key costs one or two page reads, well under a millisecond. A sweeper deletes rows older than a day. A retry after that is treated as a new request, which is why clients stop retrying long before then."
+          "text": "**An estimate** of the table's size: assume the system processes an average of 300 payments per second, with peaks of 1,000 payments per second. Stripe retains keys for 24 hours, so the table holds about 300 × 86,400, or roughly 26 million rows. At about 1 KB per row including the stored response, the table requires 26 GB of storage. Peak traffic determines the database load. At 1,000 payments per second, where each payment reads its key row once and updates it three times, the table handles about 4,000 indexed operations per second, which fits comfortably on a single Postgres server. A B-tree index over 26 million rows is three or four levels deep, and its upper levels remain cached in RAM, so looking up a key requires one or two disk page reads and takes less than 1 ms. A background worker deletes rows older than 24 hours. Any retry arriving after 24 hours is treated as a brand-new request, which is why clients must stop retrying well before that deadline."
         }
       ]
     },
@@ -90,11 +90,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The second half of the invariant is that every charge is recorded. The obvious design is an accounts table with a balance column, and a statement that subtracts $40 from one row and adds it to another. Two things go wrong with it. A bug that applies the same payment twice leaves no trace: the balance is simply wrong, and there is no record of how it got that way. And no one can answer the question every finance team asks sooner or later, which is why this balance is what it is."
+          "text": "The second half of our invariant requires recording every completed charge. A naive design uses an accounts table with a mutable balance column, executing an SQL update that subtracts $40 from one row and adds $40 to another. This approach has two flaws. First, a bug that applies the same payment twice overwrites the balance in place, leaving no audit trail of how the corruption occurred. Second, the table cannot show the history of transactions that produced a given balance, which every finance team eventually needs to audit."
         },
         {
           "type": "text",
-          "text": "Merchants in Italy had solved this by the fifteenth century, and Luca Pacioli wrote their method down in 1494.[^pacioli] In **double-entry** bookkeeping every movement of money is recorded as two or more entries that sum to zero: money that arrives somewhere left somewhere else. Entries are only ever added, never changed. A mistake is corrected by a new transaction that reverses it, so the books keep the mistake and its correction side by side, the way lesson 16's log keeps every event. A balance is not stored as a number to update; it is the sum of an account's entries, which can be recomputed at any time and kept in a cache for speed.[^cents]"
+          "text": "Merchants in Italy solved this problem by the fifteenth century, and Luca Pacioli published their method in 1494.[^pacioli] In **double-entry** bookkeeping, every movement of money is recorded as two or more ledger entries that sum to zero, ensuring that money credited to one account is debited from another. Entries are append-only and never modified in place. Engineers and accountants fix a mistake by appending a new transaction that reverses the original entries, preserving both the mistake and its correction side by side, just as the append-only log in lesson 16 preserves every event. An account's balance is defined as the sum of its ledger entries rather than a mutable number; the system can recompute the exact balance from the entries at any time, while maintaining a cached value for fast reads.[^cents]"
         },
         {
           "type": "diagram",
@@ -104,11 +104,11 @@
         },
         {
           "type": "text",
-          "text": "In the figure the merchant is owed $40 at once, the payments company keeps a fee of $1.46 (2.9% plus 30 cents, a common price for a card payment), the card network pays the $40 over a day or two later, and the remaining $38.54 goes to the merchant's bank as a payout. Each of the four transactions sums to zero, and when all four are done only the fee is left, as the company's income and as cash at its bank."
+          "text": "In the figure, the merchant is credited $40 immediately, the payments company takes a fee of $1.46 (2.9% plus 30 cents, a standard processing rate), the card network settles the $40 a day or two later, and the remaining $38.54 is transferred to the merchant's bank account as a payout. Each of the four transactions sums to zero. Once all four complete, the intermediate accounts net to zero, leaving only the $1.46 fee recorded as company revenue and as cash in its bank account."
         },
         {
           "type": "text",
-          "text": "The ledger makes the invariant something a program can check. Every transaction must sum to zero; every account's cached balance must equal the sum of its entries; the sum of everything must be zero. A query that tests these runs every few minutes, and a failure pages someone, because it means a bug has broken the books."
+          "text": "This ledger structure allows an automated program to verify the accounting invariants continuously. Every transaction's entries must sum to zero, every account's cached balance must equal the sum of its historical entries, and the sum of all balances across the entire ledger must equal zero. A verification query checks these rules every few minutes and pages an on-call engineer if any check fails, alerting the team immediately when a software bug corrupts the books."
         }
       ]
     },
@@ -117,11 +117,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A charge that is recorded is not finished. A receipt must be emailed, the fraud system wants to see it, the shop's order must be marked paid, and analytics counts it. These services learn about it from an event in a log such as Kafka. Lesson 16 named the trap: writing to the database and then publishing to the log is a **dual write**, and a crash between the two leaves them disagreeing."
+          "text": "Recording a charge in the ledger does not complete the checkout workflow. Downstream services need to email a receipt, evaluate the transaction for fraud, mark the shop's order as paid, and update analytics dashboards. These services learn about the payment by consuming an event from a message log such as Kafka. As we saw in lesson 16, committing to a database and then publishing to a message log over the network is an unsafe **dual write**, because if the process crashes between the two operations, the database and the log fall out of sync."
         },
         {
           "type": "text",
-          "text": "The **outbox** removes the gap. In the same database transaction that saves the order, the app inserts a row into an outbox table holding the event. Either both rows commit or neither does. A separate process, the relay, reads unsent rows from the outbox, publishes each to the log, and then marks it sent. If the relay crashes after publishing and before marking, it publishes the same event again when it restarts, so the log can hold a repeat. Each event therefore carries an ID, and consumers ignore an ID they have seen, as in lesson 17."
+          "text": "The **transactional outbox** pattern eliminates this window of inconsistency. Within the same database transaction that inserts the order and ledger entries, the application inserts a row containing the event payload into an outbox table. Because both writes share a transaction, either both commit or neither does. A separate background worker, called the relay, polls the outbox table for unsent rows, publishes each event to the message log, and updates the row to mark it as sent. If the relay crashes after publishing an event to the log but before marking the database row as sent, it will re-read and republish the same event when it restarts, creating a duplicate in the log. To handle duplicates, each event carries a unique ID, and downstream consumers deduplicate incoming events by tracking which IDs they have already processed, using the pattern from lesson 17."
         },
         {
           "type": "interactive_diagram",
@@ -133,11 +133,11 @@
         },
         {
           "type": "text",
-          "text": "A close relative of the outbox skips the extra table. The database already writes every committed change to its own log, so a process can read that log and turn each change into an event, which is called change data capture.[^cdc] Lesson 15 met the same idea at Facebook, where a daemon read the database's commit log and sent the caches a delete for every key that changed. Either way, the event comes from the database's own record of what committed, so it cannot disagree with it."
+          "text": "A related pattern avoids the explicit outbox table altogether. Because the database already writes every committed modification to its internal write-ahead log, a separate process can tail that log and convert each committed row change into a message log event, a technique called change data capture (CDC).[^cdc] We saw Facebook use this approach in lesson 15, where a daemon tailed the MySQL replication log to send cache-invalidation deletes whenever a database row changed. Whether an architecture uses an explicit outbox table or change data capture, the published event is derived directly from the database's commit record, guaranteeing that the message log matches the database state."
         },
         {
           "type": "text",
-          "text": "Merchants outside the company learn of the same events from **webhooks**: the payments company sends an HTTP request to an address the merchant registered, signs it so the merchant can check where it came from, and retries with backoff for days until the merchant's server answers with success. Webhooks therefore arrive at least once and sometimes out of order, so a merchant should handle each event ID once and, when order matters, fetch the payment's current state rather than trusting the order of arrival."
+          "text": "External merchants receive these notifications via **webhooks**. The payments company sends an HTTP POST request containing the event payload to a URL registered by the merchant, includes a cryptographic signature header so the merchant can verify the sender's authenticity, and retries failed deliveries with exponential backoff for several days until the merchant's server returns an HTTP 2xx success code. Because webhook delivery is at-least-once and retries can cause events to arrive out of chronological order, the merchant's server must deduplicate incoming webhooks by event ID and, whenever ordering matters, query the payments API for the payment's current state rather than relying on the arrival order of the webhooks."
         }
       ]
     },
@@ -150,11 +150,11 @@
         },
         {
           "type": "text",
-          "text": "Card payments also come in two steps. An **authorisation** reserves the money on the customer's card; a **capture** takes it, perhaps days later when the goods ship. An authorisation that is never captured lapses, after about a week on most cards. This lets a shop check a card is good without taking money for something that may never ship. In this lesson's invariant a charge means money taken, a capture; a lapsed authorisation takes nothing. The same idempotency key still guards both steps, because a duplicate authorisation ties up the customer's credit until it lapses."
+          "text": "Card payments also split execution into two distinct steps. An **authorisation** places a hold on the funds on the customer's card, while a **capture** actually transfers the money, often days later when the physical goods ship from the warehouse. An authorisation that is never captured expires automatically, typically after seven days on most consumer credit networks. Separating these steps allows a merchant to verify that a card has sufficient funds at checkout without taking the customer's money before the item ships. Under the invariant we defined earlier, a completed charge corresponds to a capture, as an expired authorisation transfers no money. Both the authorisation request and the capture request require their own idempotency keys, because accidentally sending a duplicate authorisation places a second hold on the customer's credit line until the duplicate expires."
         },
         {
           "type": "text",
-          "text": "Each payment is a small **state machine**: created, then authorised, then captured, and later perhaps refunded or disputed; or failed, or expired when an authorisation lapses. Every change of state is one ledger transaction and one outbox event in the same database transaction, and a change the machine does not allow, such as refunding a payment never captured, is refused. A refund is a new transaction that reverses the charge's entries. A **chargeback**, a customer disputing the charge with their bank, arrives weeks later in the network's files as money taken back, and is recorded the same way, with its own fee. Most shops never see a card number at all: the card form is served by the payments company, which keeps numbers in a separate, tightly audited vault and gives the shop a **token** that stands for the card, so the shop's servers, logs and backups hold nothing worth stealing."
+          "text": "The system models each payment as a formal **state machine**: a payment starts as created, moves to authorised, transitions to captured, and may later move to refunded or disputed; alternatively, it may transition from created to failed, or from authorised to expired if the hold lapses before capture. Every state transition executes as a single database transaction that appends the corresponding ledger entries and writes an event to the outbox table. The state machine rejects invalid transitions, such as attempting to refund a payment that was never captured. A valid refund appends a new ledger transaction whose entries reverse the original capture. A **chargeback**, which occurs when a cardholder disputes a charge directly with their issuing bank, arrives weeks later inside the card network's daily settlement files as a forced reversal of funds, and the ledger records it in the same append-only manner alongside a dispute fee. Finally, to minimise security risk, most merchants never handle raw card numbers at all. Instead, the payments company serves the checkout input fields directly inside an isolated browser frame, stores the sensitive card numbers in a heavily audited vault, and returns a random identifier called a **token** to the merchant's server, ensuring that the merchant's databases, application logs, and backups contain no card numbers that an attacker could steal."
         },
         {
           "type": "text",
@@ -164,10 +164,10 @@
           "type": "key_ideas",
           "title": "The invariants, written down",
           "points": [
-            "Each operation the client means once carries one key, reused on every retry.",
-            "Every ledger transaction sums to zero, and entries are never changed.",
-            "Every committed order has an event, because both are written in one transaction.",
-            "Every line in the bank's file matches a ledger entry, or is on a list someone is working through."
+            "Each operation the client intends to perform once carries a unique idempotency key, reused on every retry.",
+            "Every ledger transaction sums to zero, and existing ledger entries are never modified.",
+            "Every committed order produces an event, because the application writes both rows in a single database transaction.",
+            "Every line in the bank's settlement file either matches an internal ledger entry or triggers an alert for investigation."
           ]
         }
       ]
@@ -259,36 +259,36 @@
     }
   ],
   "summary": [
-    "**Silence is not failure.** A request that gets no reply may have done its work, and no protocol can make both sides certain, as the two generals problem shows.",
-    "**Write the invariant first.** \"Each order is charged at most once and every charge is recorded\" is what every later design in a payment system serves.",
-    "**An idempotency key makes a retry safe.** The client makes one key per operation and reuses it; the server stores each key's result and replays it instead of working again.",
-    "**The server's key table needs a fingerprint and a lock.** A different body under a known key is refused, and a retry that arrives while the first is running is told to wait.",
-    "**Split the work at outside calls.** Each phase is one database transaction ending at a recovery point, so a retry resumes where the last try stopped.",
-    "**A ledger is append-only and sums to zero.** Double entry records each movement as entries that balance, balances are sums, and mistakes are fixed with reversing entries.",
-    "**The outbox ends dual writes.** The event is written in the same transaction as the order, and a relay publishes it at least once, with consumers dropping repeats by ID.",
-    "**Reconcile against the outside world.** Matching the bank's files line by line against the ledger catches what no internal check can.",
-    "**Sagas replace distributed transactions across companies.** Each step is local and has a compensating step, at the cost of halfway states being visible."
+    "**Silence is not failure.** A request that gets no reply may have completed its work, and no network protocol can guarantee certainty for both sides, as the two generals problem demonstrates.",
+    "**Write the invariant first.** \"Each order is charged at most once and every charge is recorded\" is the requirement that every component in a payment system is built to maintain.",
+    "**An idempotency key makes a retry safe.** The client generates one unique key per logical operation and reuses it on every retry; the server stores each key's result and returns the saved response instead of repeating the operation.",
+    "**The server's key table needs a fingerprint and a lock.** A request with a different body under a known key is rejected with an error, and a retry that arrives while the first request is still executing is instructed to back off and wait.",
+    "**Split the work at outside calls.** Each phase executes as a single database transaction that commits a recovery point, allowing a retry to resume where the previous attempt stopped.",
+    "**A ledger is append-only and sums to zero.** Double-entry bookkeeping records every money movement as balanced entries, calculates account balances as the sum of those entries, and corrects mistakes by appending reversing entries.",
+    "**The outbox eliminates dual writes.** The application writes the event to an outbox table in the same database transaction as the order, and a background relay publishes the event at least once while consumers deduplicate repeats by event ID.",
+    "**Reconcile against external systems.** Matching the bank's daily settlement files line by line against the internal ledger catches discrepancies across network boundaries that internal checks cannot see.",
+    "**Sagas replace distributed transactions across services.** Each step commits locally and defines a compensating transaction to undo its work on failure, trading strict isolation for availability without holding long-lived locks."
   ],
   "footnotes": {
     "generals": {
       "kind": "digression",
       "title": "Why no protocol works",
-      "text": "Suppose some protocol let both generals be sure, and take the shortest one. Its last message might be caught. The sender never learns whether it arrived, so the sender acts the same either way; and because the protocol must still end in agreement when that message is lost, the receiver must act the same without it too. Neither general depends on the last message, so the protocol works without it, and a shorter one exists, which contradicts the choice. Gray told the story in his 1978 notes on database operating systems."
+      "text": "Suppose a deterministic protocol exists that guarantees certainty for both generals, and consider the one that requires the fewest messages. Suppose its final message is caught in the valley. The sender never learns whether that final message arrived, so the sender's decision to attack must be the same either way. Because the protocol must still result in both generals acting together even when the final message is lost, the receiver must also make the exact same decision without receiving it. Neither general's action depends on the final message, which means the protocol works without sending it at all. That produces a shorter working protocol, contradicting our assumption that we started with the shortest one. Jim Gray gave the problem its name in his 1978 "
     },
     "http": {
       "kind": "technical",
       "title": "Idempotent methods in HTTP",
-      "text": "The HTTP standard calls GET, PUT and DELETE idempotent: putting the same document twice, or deleting the same one twice, leaves the same result. POST, which most APIs use to create things such as charges, is not, which is why the key is needed."
+      "text": "The HTTP specification defines GET, PUT, and DELETE as idempotent methods, meaning that uploading the exact same document to a path twice with PUT, or deleting the same resource twice with DELETE, leaves the server in the same state. POST, which most APIs use to trigger actions or create resources such as card charges, is not idempotent by default, which is why the client must supply an explicit idempotency key."
     },
     "uuid": {
       "kind": "technical",
       "title": "Making keys unique",
-      "text": "A version 4 UUID has 122 random bits. A system would have to make billions of them a second for many years before two were likely to match, so clients can make keys without asking anyone, unlike lesson 3's short codes, which needed a counter or a collision check."
+      "text": "A version 4 UUID contains 122 random bits. A system would have to generate billions of UUIDs per second for decades before facing a meaningful probability of a collision, so clients can generate unique idempotency keys locally without coordinating with a central server, unlike the short URL codes in lesson 3 that required a shared counter or database collision check."
     },
     "pacioli": {
       "kind": "digression",
       "title": "Pacioli's book",
-      "text": "Pacioli was a Franciscan friar and mathematician, and a friend of Leonardo da Vinci. His Summa de arithmetica, printed in Venice in 1494, included a section on the bookkeeping Venetian merchants already used. He did not invent it, but his account spread it across Europe."
+      "text": "Luca Pacioli was a Franciscan friar, mathematician, and collaborator of Leonardo da Vinci. His textbook Summa de arithmetica, printed in Venice in 1494, included a treatise describing the double-entry bookkeeping system that Venetian merchants had developed during the Renaissance. Although Pacioli did not invent the method, his book standardized the practice and spread it across Europe."
     },
     "cents": {
       "kind": "technical",
@@ -298,7 +298,7 @@
     "cdc": {
       "kind": "technical",
       "title": "Change data capture",
-      "text": "Most databases keep a log of committed changes for their own replicas (lesson 4): MySQL's binlog, Postgres's write-ahead log. Change data capture tools read that log as a replica would and publish each change as an event. Debezium is a widely used open-source one."
+      "text": "Relational databases record every committed modification in an internal log to support crash recovery and replication (as covered in lesson 4), such as MySQL's binary log (binlog) or Postgres's write-ahead log (WAL). Change data capture (CDC) tools such as Debezium connect to the database as a replica, stream the committed changes from that log, and publish each row modification as an event to a message broker like Kafka."
     }
   }
 }

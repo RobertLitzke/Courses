@@ -9,19 +9,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "At 9:37 in the morning, Pacific time, on Tuesday 28 February 2017, an engineer on Amazon's S3 team was looking into why S3's billing system was running slowly in US East, Amazon's largest region, in northern Virginia. Following an established playbook, the engineer ran a command to take a small number of servers out of service from one of the subsystems the billing system used. One of the command's inputs was typed wrongly, and a much larger set of servers was removed."
+          "text": "At 9:37 a.m. Pacific time on Tuesday 28 February 2017, an engineer on Amazon's S3 team was investigating why S3's billing system was running slowly in US East, Amazon's largest region, in northern Virginia. Following an established playbook, the engineer ran a command to take a small number of servers out of service from one of the subsystems the billing system used. One of the command's inputs was typed wrongly, and the tool removed a much larger set of servers."
         },
         {
           "type": "text",
-          "text": "Among them were servers of two subsystems that every S3 request in the region needed. The **index** subsystem held the metadata and location of every object in the region, and every read, list or write of an object went through it. The **placement** subsystem chose where new objects would be stored. Both had to be restarted from scratch, and S3 in US East stopped serving requests. Amazon's summary said that neither had been fully restarted in the larger regions for many years, and that both had grown a great deal since; the restart, with its safety checks, took far longer than anyone expected. Reads came back a little after 1 p.m. and writes at 1:54, a little over four hours after the command."
+          "text": "Among them were servers for two subsystems that every S3 request in the region needed. The **index** subsystem held the metadata and location of every object in the region, and every read, list or write of an object went through it. The **placement** subsystem chose where new objects would be stored. Engineers had to restart both from scratch, and S3 in US East stopped serving requests. Amazon's post-incident summary noted that neither subsystem had been fully restarted in the larger regions for many years, and that both had grown substantially since then; the restart, with its safety checks, took far longer than anyone expected. Reads recovered at 1:18 p.m. and writes at 1:54 p.m., just over four hours after the command ran."
         },
         {
           "type": "text",
-          "text": "Much of the web stopped with it, because thousands of companies kept their images, files and pages in S3. So did other Amazon services in the region that stored things in S3. Amazon could not even mark S3 as broken on its own status page for the first two hours, because the page's administration console kept its files in S3."
+          "text": "Much of the web stopped with it, because thousands of companies kept their images, files and pages in S3. So did other Amazon services in the region that stored data in S3. For the first two hours, Amazon could not even mark S3 as down on its own status page, because the page's administration console stored its status icons in S3."
         },
         {
           "type": "text",
-          "text": "Nothing in S3 had broken by itself. A person made one mistake with a tool that allowed it, and the mistake reached every customer in the region. This lesson is about the designs that limit how far one mistake or one failure can reach, and the designs that keep a system running while the thing it depends on is down. Lesson 18 kept one slow dependency from dragging its callers down; here the question is what happens when a whole subsystem goes."
+          "text": "Nothing in S3 had failed on its own. One person made one mistake with a tool that allowed it, and the mistake affected every customer in the region. In this lesson, we will study the designs that limit how far a single mistake or failure can reach, and the designs that keep a system running while a dependency is down. In Lesson 18, we kept one slow dependency from dragging its callers down; here, we examine what happens when an entire subsystem fails."
         }
       ]
     },
@@ -30,19 +30,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The **blast radius** of a failure is the share of users, requests or data it touches. Engineers ask the question in two directions: how much can one change damage, and how much can one bad input damage. The second has a name of its own. Either can be counted from the design: for each component, list the customers whose requests pass through it, and the largest share is the design's worst blast radius. A **poison request** is one that crashes whichever server handles it, a malformed query that trips a bug, say. Its client gets no answer and retries, the load balancer sends the retry to another server, and that one crashes too.[^poison]"
+          "text": "The **blast radius** of a failure is the share of users, requests or data it affects. Engineers measure this in two ways: how much damage one change can cause, and how much damage one bad input can cause. We can calculate either from the system design by listing the customers whose requests pass through each component; the largest share is the design's worst-case blast radius. A bad input that crashes whichever server handles it, such as a malformed query that triggers a bug, is called a **poison request**. When the client gets no answer and retries, the load balancer sends the retry to another server, which crashes as well.[^poison]"
         },
         {
           "type": "text",
-          "text": "In one shared fleet, every customer's requests can land on every server, so one poison request, retried, can take down every server in turn. The first fix is **cells**: split the fleet into several complete, independent copies of the service, each with its own servers and its own data, and assign each customer to one. A thin routing layer in front sends each request to its customer's cell. A failure, a bad deploy or a poison request then reaches one cell's customers, and no more."
+          "text": "In a single shared fleet, any customer's request can land on any server, so one retried poison request can take down every server in turn. The first defence is **cells**, where engineers split the fleet into several complete, independent copies of the service, each with its own servers and data, and assign each customer to one cell. A thin routing layer in front directs each request to its customer's cell. A component failure, a bad deployment or a poison request then affects only the customers in that single cell."
         },
         {
           "type": "text",
-          "text": "Cells pay for that in pooling. Each cell needs its own spare capacity for its own peaks, so the fleet as a whole runs emptier than one shared pool, and a customer who outgrows a cell has to be moved. The router must also be kept small and simple, because it is the one part every customer shares. It holds a table from customer to cell rather than a hash, so that one customer can be moved without moving others, and new customers go to the newest cell with room. The table belongs to the control plane, and the router keeps routing on its last copy when that is down, the property of the next part."
+          "text": "Cells trade away resource pooling. Each cell needs its own spare capacity to handle its own peak load, so the fleet as a whole runs at lower utilisation than a single shared pool, and engineers must migrate any customer who outgrows a cell. We must also keep the router small and simple, because it is the one component every customer shares. The router uses a lookup table mapping customers to cells rather than a hash function, so we can move one customer without moving others, and assign new customers to the newest cell with spare capacity. The control plane manages this table, while the router continues routing with its last cached copy if the control plane goes down, a property we cover in Part 3."
         },
         {
           "type": "text",
-          "text": "**Shuffle sharding** does better with the same machines. Instead of fixed cells, each customer gets its own random handful of the servers. Take eight servers and give each customer two. There are 8 × 7 ÷ 2 = 28 different pairs, so 28 customers can each have a different pair. A poison request from one customer kills its two servers. Any other customer shares at most one of them, and still has its other server, so it slows down but keeps working. Only a customer with exactly the same pair would lose everything, and there is none."
+          "text": "**Shuffle sharding** achieves better isolation on the same number of machines. Instead of fixed cells, each customer is assigned a random subset of servers. Suppose we have 8 servers and assign 2 servers to each customer. There are 8 × 7 ÷ 2 = 28 unique pairs, so 28 customers can each get a distinct pair. A poison request from one customer crashes their 2 servers. Any other customer shares at most 1 of those failed servers and still has 1 healthy server remaining, so their requests suffer reduced capacity rather than a total outage. Only a customer assigned the exact same pair would lose service completely, and none exists."
         },
         {
           "type": "interactive_diagram",
@@ -63,11 +63,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most large systems have two halves. The **data plane** does the work customers pay for: it serves requests, stores and returns objects, forwards packets. The **control plane** changes the data plane: it launches servers, applies configuration, moves customers between cells. The data plane runs all the time and is kept simple. The control plane runs now and then, does complicated things, and is the more likely half to break."
+          "text": "Most large systems divide into two parts. The **data plane** handles customer traffic by serving requests, storing and returning objects, and forwarding packets. The **control plane** manages the data plane by launching servers, pushing configuration updates, and migrating customers between cells. The data plane runs continuously and has a simple design. The control plane runs less frequently, coordinates complex state changes, and fails more often."
         },
         {
           "type": "text",
-          "text": "A data plane is **statically stable** if it keeps working, unchanged, while its control plane is down: it runs on the last configuration it was given and does not need to ask for anything new. The common way to lose that property is innocent. A server checks with a configuration service on each request, or a cache refills from the control plane every few minutes, and the next time the control plane fails, the data plane fails with it."
+          "text": "A data plane is **statically stable** if it keeps operating unchanged while its control plane is down, running on the last configuration it received without fetching anything new. Engineers often break this property inadvertently. If a server queries a configuration service on every request, or if a local cache expires and must refill from the control plane every few minutes, a control-plane outage will take down the data plane too."
         },
         {
           "type": "interactive_diagram",
@@ -79,7 +79,7 @@
         },
         {
           "type": "text",
-          "text": "Amazon's own guidance applies the same rule to capacity. A service spread across three availability zones in one region (separate groups of datacentres, each with its own power and network[^zones]) that must survive losing one could plan to launch new servers in the other two when it happens. But launching servers is a control-plane action, and the event that took out a zone may be slowing the control plane too. A statically stable service runs enough in each zone already. If any one zone is lost, the other two must carry everything, so each zone needs half the load, and three zones together run 1.5 times the capacity the load needs. The extra half is the price, paid every day, of not needing anything new on the worst day."
+          "text": "Amazon's architectural guidelines apply the same rule to server capacity. Consider a service spread across three availability zones in a single region (separate groups of datacentres, each with independent power and networking[^zones]) that must survive the loss of one zone. We could plan to launch new servers in the remaining two zones when a zone fails. However, launching servers requires the control plane, and the failure that knocked out the zone might also impair or overload the control plane. A statically stable service pre-provisions enough capacity in every zone. If one zone goes down, the remaining two zones must carry 100% of the traffic, so each zone must hold enough capacity for 50% of the total load. Across all three zones, the fleet runs at 150% of the capacity required for peak traffic. Paying for that extra 50% capacity every day ensures the system does not depend on the control plane during an outage."
         }
       ]
     },
@@ -88,11 +88,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On 4 October 2021, at about 15:40 UTC, Facebook, Instagram and WhatsApp disappeared from the internet for about six hours. Santosh Janardhan, Facebook's vice president of infrastructure, explained the next day. During routine maintenance, a command meant to check the capacity of the backbone, the network linking Facebook's datacentres, instead took down every connection in it. A tool that audited such commands should have stopped it, and a bug in the audit tool let it through."
+          "text": "On 4 October 2021, at about 15:40 UTC, Facebook, Instagram and WhatsApp disappeared from the internet for roughly six hours. Santosh Janardhan, Facebook's vice president of infrastructure, published the cause the next day. During routine maintenance, an engineer ran a command to assess the available capacity of the backbone network that connects all of Facebook's datacentres. Instead, the command disconnected every link in the backbone. An automated audit tool was supposed to block such commands, but a bug in the audit tool allowed it to execute."
         },
         {
           "type": "text",
-          "text": "Facebook's DNS servers, which tell the world's computers where to find facebook.com, were built to stop advertising their own routes to the internet if they could not reach the datacentres, a sensible rule for one unhealthy site. With every datacentre unreachable at once, every DNS server withdrew, and the rest of the internet could no longer find Facebook at all. The same loss of DNS and network broke the internal tools engineers would normally use to find and undo the change. Engineers had to go to the datacentres in person, and the buildings and machines were, by design, hard to get into and hard to change even from inside."
+          "text": "Facebook's authoritative DNS servers, which translate facebook.com into IP addresses for the rest of the internet, were configured to withdraw their routing announcements via BGP (Border Gateway Protocol) whenever they lost their connection to the datacentres. That rule is sensible when a single location becomes unhealthy. When every datacentre disconnected at once, every DNS server withdrew its routes, making Facebook unreachable across the internet. Losing DNS and backbone connectivity also broke the internal tools engineers needed to diagnose and revert the change. Staff had to travel to the router facilities in person, where the buildings and servers were designed to resist physical entry and unauthorized local changes."
         },
         {
           "type": "interactive_diagram",
@@ -104,11 +104,11 @@
         },
         {
           "type": "text",
-          "text": "This is a **dependency loop**: the tools to fix X need X. S3's status page had the same shape on a smaller scale. Loops are easy to build without noticing, because each arrow on its own is reasonable: of course the tools use the company's DNS, of course remote access runs over the company's network. Finding them takes the drawing in the figure, made on purpose and kept up to date, and then a separate way in for the worst day: out-of-band access (a separate management network with its own links and logins, used only when the main one is down), a status page on someone else's servers, written procedures on paper."
+          "text": "This failure mode is a **dependency loop**, where the tools required to repair system X depend on system X running. S3's status page failed for the same reason on a smaller scale. Engineers introduce these loops easily because each individual dependency makes sense in normal operation: internal tools resolve names using the company's DNS, and remote management traffic runs over the company's backbone network. To spot loops, engineers must maintain an explicit dependency graph like the one in the figure, and maintain an independent recovery path for total outages. That includes out-of-band management access (a separate network with independent links and authentication, reserved for emergencies), an external status page hosted on a different provider, and printed recovery procedures."
         },
         {
           "type": "text",
-          "text": "Coming back took care too. As the datacentres returned, power use jumped by tens of megawatts, and caches across the fleet were cold. Facebook brought services back in steps, which it said it had rehearsed in drills.[^power]"
+          "text": "Restoring service also required care. As datacentres reconnected, power consumption jumped by tens of megawatts, and caches across the fleet were empty. Engineers restored traffic gradually, following recovery drills they had previously practised.[^power]"
         }
       ]
     },
@@ -117,15 +117,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Both outages began with a person making a planned change, and that is the common case. Google's book on running production systems put the share of outages that follow a change to a live system at about 70%. The defences are about the change, not the person, and Amazon's summary of the S3 outage is a list of them."
+          "text": "Both the S3 and Facebook outages began with an engineer executing a planned change, which is the most common trigger for major incidents. Google's Site Reliability Engineering handbook estimates that roughly 70% of outages result from changes to a live system. Effective defences constrain the change mechanism rather than relying on human perfection, and Amazon's post-mortem for the S3 outage outlines the standard controls."
         },
         {
           "type": "text",
-          "text": "**Limit what a tool can do in one step.** Amazon changed its capacity tool to remove servers more slowly, and to refuse any removal that would take a subsystem below the capacity it needs. A tool that can remove any number of servers in one command will one day be asked to. **Make the blast radius small enough to restart.** S3's index had grown so large that restarting it took hours; Amazon said it had already planned to split the index into smaller cells and moved that work up. A cell is also a unit you can restart, test and recover on its own. **Practise recovery.** A restart path nobody has run for years is a path nobody knows the length of. **Roll changes out in stages**, one cell or one zone at a time. Each stage waits a set time and compares the new version's error rate and latency, lesson 24's signals, with the cells still on the old one; if they are worse, the rollout stops and rolls itself back without waiting for a person. Lesson D7, in the design studio, works through staged rollouts in detail."
+          "text": "**Limit what a tool can do in one step.** Amazon modified its capacity tool to remove servers slowly, and to reject any command that would reduce a subsystem below its minimum required capacity. If a tool allows an operator to remove an arbitrary number of servers in one command, someone eventually will. **Make the blast radius small enough to restart.** S3's index subsystem had grown so large that a cold restart took hours; Amazon accelerated an existing plan to partition the index into smaller cells. A cell provides a bounded unit that engineers can restart, test and recover quickly. **Practise recovery.** If no one has executed a full cold restart in years, no one knows how long it will take or where it will stall. **Roll changes out in stages**, one cell or availability zone at a time. Each stage pauses for a set duration and compares the error rate and latency (the signals from Lesson 24) against cells still running the previous version; if metrics degrade, the deployment system halts and rolls back automatically. In Lesson D7 of the design studio, we will design a staged rollout system in detail."
         },
         {
           "type": "text",
-          "text": "Each of these trades speed for safety. Staged rollouts make every deploy slower; out-of-band networks cost money and must be secured; limits in tools annoy the engineer who, this once, really does need to remove four hundred servers. The question to ask of each is how much of the business one mistake should be able to reach."
+          "text": "Every one of these controls trades speed and convenience for safety. Staged rollouts make every deployment take longer; out-of-band networks cost money to run and secure; rate limits in administration tools slow down the engineer who genuinely needs to decommission 400 servers at once. When choosing these limits, you must decide what fraction of the system a single mistake is allowed to take down."
         },
         {
           "type": "key_ideas",
@@ -167,7 +167,7 @@
                   "1 in 12"
                 ],
                 "answer": 0,
-                "why": "There are 12 × 11 × 10 ÷ 6 = 220 different sets of three. Only a customer with the same set loses all its servers when those three die."
+                "why": "There are 12 × 11 × 10 ÷ 6 = 220 different sets of 3 servers. Only a customer assigned the exact same set loses all 3 servers when those machines crash."
               },
               {
                 "ask": "What do cells give up in capacity, compared with one shared fleet of the same size?",
@@ -226,35 +226,35 @@
     }
   ],
   "summary": [
-    "**Blast radius is the share one failure reaches.** Ask it of every server, request, deploy and command.",
-    "**A poison request can crash a whole shared fleet.** Retries carry it from server to server.",
-    "**Cells contain failures.** Independent copies of the stack, each serving a slice of customers, behind a thin router; the cost is lost pooling.",
-    "**Shuffle sharding gives each customer its own random set of servers.** With 8 servers and 2 each there are 28 sets, and a customer who shares one server with a poisoned one keeps the other.",
-    "**A statically stable data plane runs without its control plane.** It uses the last configuration it was given and needs nothing new to keep working.",
-    "**Pre-provision instead of reacting.** Three zones that must survive losing one run 1.5 times the load all the time.",
-    "**Find dependency loops before they find you.** The tools that fix a system must not depend on that system; keep a way in from outside.",
-    "**Most outages follow a change.** Limit what one command can do, roll out in stages, keep cells small enough to restart, and practise recovery."
+    "**Blast radius is the share of a system one failure reaches.** Measure it for every server, request, deployment and administrative command.",
+    "**A poison request can crash an entire shared fleet.** Client retries carry the crashing request from server to server.",
+    "**Cells contain failures.** Run independent copies of the stack, each serving a subset of customers behind a thin router, at the cost of lower capacity pooling.",
+    "**Shuffle sharding assigns each customer a random subset of servers.** With 8 servers and 2 per customer there are 28 combinations, so a customer who shares 1 server with an affected customer still has 1 working server left.",
+    "**A statically stable data plane keeps running without its control plane.** Servers continue operating on their last known configuration without fetching new state.",
+    "**Pre-provision capacity instead of launching servers during an outage.** A service across 3 availability zones that must survive losing 1 zone must run at 1.5 times its peak load at all times.",
+    "**Eliminate dependency loops in recovery tools.** The tools required to fix a system must not depend on that system running; maintain an out-of-band management network.",
+    "**Most outages are triggered by planned changes.** Rate-limit administrative tools, roll out changes in stages, keep cells small enough to restart quickly, and practise cold restarts."
   ],
   "footnotes": {
     "poison": {
       "kind": "technical",
       "title": "Queries of death",
-      "text": "Google's engineers call these queries of death. The usual defences are cells or shuffle shards to contain them, and a server that notes which request it was working on when it crashed so that a repeat can be refused."
+      "text": "Google's engineers call these queries of death. The standard defences are cells or shuffle shards to contain them, and logging the active request to disk before processing it so a server that crashes and restarts can recognize and reject the repeated query."
     },
     "route53": {
       "kind": "digression",
       "title": "Shuffle sharding at Route 53",
-      "text": "Route 53 answers DNS queries for its customers' domains, and DNS services are a favourite target of floods of traffic. With shuffle sharding, a flood aimed at one domain overloads only that domain's four name servers, and almost every other domain shares at most one or two of them with it. MacCárthaigh described the design in a 2014 AWS post and later in Amazon's Builders' Library."
+      "text": "Route 53 answers DNS queries for its customers' domains, and DNS services are a frequent target of distributed denial-of-service (DDoS) attacks. With shuffle sharding, a traffic flood aimed at one domain overloads only that domain's 4 assigned name servers, while almost every other domain shares at most 1 or 2 of those servers. Colm MacCárthaigh described this design in a 2014 talk and later in the Amazon Builders' Library."
     },
     "zones": {
       "kind": "technical",
       "title": "Availability zones",
-      "text": "An availability zone is one or more datacentres in a region with their own power, cooling and network, a few miles from the others, so that a fire or a power failure in one does not reach the rest. Nearby enough for round trips of a millisecond or two, far enough apart to fail separately."
+      "text": "An availability zone consists of one or more datacentres within a region, built with independent power, cooling and networking a few kilometres from other zones so that a fire or power outage in one does not affect the rest. Zones sit close enough together for network round-trip latencies of 1 to 2 ms, yet far enough apart to fail independently."
     },
     "power": {
       "kind": "digression",
       "title": "Turning a datacentre back on",
-      "text": "A datacentre that suddenly goes from idle to full load draws its power all at once, and that surge can trip electrical systems. Its caches also start empty, so the first wave of requests all go to the databases behind them, the thundering herd of lesson 15, in which many requests miss an empty cache at once and all fall on the database. Facebook brought traffic back in stages for both reasons."
+      "text": "When a datacentre jumps from idle to full load, its power draw spikes all at once, which can trip electrical breakers. Its caches also start cold, so every request in the first wave misses the cache and hits the underlying databases (the thundering herd problem from Lesson 15). Facebook ramped traffic back up in stages to prevent both problems."
     }
   }
 }
