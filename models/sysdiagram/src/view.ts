@@ -249,10 +249,21 @@ export function systemView(sys: System, into: SVGElement, o: ViewOptions): Syste
         e.bar.setAttribute('width', String(Math.max(0, (W - 6) * Math.min(1, p.busy / p.servers))));
         const n = p.waiting.length;
         while (e.queue.firstChild) e.queue.firstChild.remove();
-        const shown = Math.min(n, 8);
-        for (let i = 0; i < shown; i++) e.queue.append(svg('circle', { cx: -W / 2 + 5 + i * 7, cy: -H / 2 - 6, r: 2.6, fill: C.busy }));
-        if (n > shown) e.queue.append(text(-W / 2 + 5 + shown * 7, -H / 2 - 3, `+${n - shown}`, { fill: C.busy, size: 9 }));
-        if (p.rejected > 0 && n >= p.queue) e.queue.append(svg('circle', { cx: W / 2 - 4, cy: -H / 2 - 6, r: 3.2, fill: C.error }));
+        if (Number.isFinite(p.queue)) {
+          // A line with a limit: a meter against the limit, red when full (the next arrival is turned away).
+          const full = n >= p.queue;
+          const mw = W - 6;
+          e.queue.append(
+            svg('rect', { x: -W / 2 + 3, y: -H / 2 - 9, width: mw, height: 4, rx: 2, fill: 'none', stroke: C.soft, 'stroke-width': 0.8 }),
+            svg('rect', { x: -W / 2 + 3, y: -H / 2 - 9, width: mw * Math.min(1, n / p.queue), height: 4, rx: 2, fill: full ? C.error : C.busy }),
+          );
+          // The count only once the line is half full, so a row of lightly loaded boxes stays quiet.
+          if (n * 2 >= p.queue) e.queue.append(text(W / 2 - 3, -H / 2 - 12, full ? `full ${n}/${p.queue}` : `${n}/${p.queue}`, { anchor: 'end', fill: full ? C.error : C.soft, size: 9, bold: full }));
+        } else {
+          const shown = Math.min(n, 8);
+          for (let i = 0; i < shown; i++) e.queue.append(svg('circle', { cx: -W / 2 + 5 + i * 7, cy: -H / 2 - 6, r: 2.6, fill: C.busy }));
+          if (n > shown) e.queue.append(text(-W / 2 + 5 + shown * 7, -H / 2 - 3, `+${n - shown}`, { fill: C.busy, size: 9 }));
+        }
       }
     }
     while (dotLayer.firstChild) dotLayer.firstChild.remove();

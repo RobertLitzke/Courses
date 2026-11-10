@@ -109,15 +109,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Real sites soon had more than one box: a **load balancer** spreading requests over several web servers, and a database behind them. Each box has its own capacity and its own queueing curve, and the one with the least room, the **bottleneck**, decides how much the whole site can carry. Before drawing more boxes, find out which one fills first."
+          "text": "Real sites soon had more than one box: a **load balancer** spreading requests over several web servers, and a database behind them. Each box has its own capacity and its own queueing curve, and the one with the least room, the **bottleneck**, decides how much the whole site can carry. A box is **full** when its waiting line has reached its limit: from then on each new arrival is turned away with an error. Before drawing more boxes, find out which one fills first."
         },
         {
           "type": "interactive_diagram",
           "id": "slashdot-flow",
-          "caption": "A balancer, web servers that each handle 100 requests a second, and one database that handles 500 a second. Bars under each box show how busy it is; amber dots are requests waiting. Slow motion.",
+          "caption": "A balancer, web servers that each handle 100 requests a second, and one database that handles 500 a second. The bar under each box shows how busy it is. The small meter above a box is its waiting line against its limit (40 for the database, 60 for each web server): amber while it fills, red and marked full when the next request would be turned away. Slow motion.",
           "goal": "database",
-          "task": "Raise the load and add web servers until the database is the box that is full.",
-          "aspect_ratio": 1.47
+          "task": "Raise the load and add web servers until the database's waiting line is full while the web servers still have room.",
+          "aspect_ratio": 1.29
         },
         {
           "type": "text",

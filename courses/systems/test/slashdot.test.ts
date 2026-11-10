@@ -1,7 +1,8 @@
 // @vitest-environment happy-dom
 import { describe, expect, it } from 'vitest';
 import { FIGURES } from '../src/figures';
-import { inFlight, REQUEST, slowdown } from '../src/figures/slashdot';
+import { mm1Quantile } from 'sysdiagram/queueing';
+import { DB_QUEUE, inFlight, measureServer, REQUEST, slowdown } from '../src/figures/slashdot';
 import { context, guess, setSlider } from './helpers';
 
 // Run the live diagrams by hand: every figure is on screen, and frames come when pumped.
@@ -69,10 +70,29 @@ describe('slashdot: the figures', () => {
     pump(40);
     await Promise.resolve();
     expect(done).toBe(false);
+    // Six web servers at 470 a second put the database at 94%: busy, but its line is not full.
     setSlider(h.node, 1, 6);
     setSlider(h.node, 0, 470);
     pump(60);
     await Promise.resolve();
+    expect(done).toBe(false);
+    // Six carry up to 600 a second but the database only 500, so at 530 its line reaches the limit.
+    setSlider(h.node, 1, 6);
+    setSlider(h.node, 0, 530);
+    pump(60);
+    await Promise.resolve();
     expect(done).toBe(true);
+    expect(h.node.querySelector('.fig-readout')!.textContent).toContain(`of ${DB_QUEUE}`);
+  });
+
+  it('the measured points sit on the theory curves, at any load', () => {
+    for (const rate of [15, 40]) {
+      const m = measureServer(rate, 20, 25);
+      const rho = (rate * 20) / 1000;
+      expect(m.median / mm1Quantile(rho, 20, 0.5)).toBeGreaterThan(0.8);
+      expect(m.median / mm1Quantile(rho, 20, 0.5)).toBeLessThan(1.25);
+      expect(m.p99 / mm1Quantile(rho, 20, 0.99)).toBeGreaterThan(0.75);
+      expect(m.p99 / mm1Quantile(rho, 20, 0.99)).toBeLessThan(1.3);
+    }
   });
 });

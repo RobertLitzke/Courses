@@ -6,7 +6,7 @@ import { svg } from 'didactics/dom';
 import { line, redraw, small, still } from 'didactics/draw';
 import { mm1Quantile, mm1Time } from 'sysdiagram/queueing';
 import { duration } from 'sysdiagram/numbers';
-import { liveDiagram, statsLine, type PartSpec, type System } from './diagram';
+import { liveDiagram, statsLine, System, type PartSpec } from './diagram';
 import { axes, COL, figure, guessFirst, legend, slider, type ColorKey } from './kit';
 
 /** One HTTPS request from Seattle to a server in Virginia, ms: [label, start, end, colour]. */
@@ -43,8 +43,31 @@ export const slowdown = (rho: number) => mm1Time(rho, 1);
 export const inFlight = (perSec: number, seconds: number) => perSec * seconds;
 
 const W = 440;
+
+/**
+ * What a server doing `serviceMs` of work on requests arriving at random `rate` a second really delivers,
+ * measured by running the same model for `seconds` of its own clock. A few seconds of a busy server are too
+ * few to show the long-run curve (the line it builds takes seconds to come and go), so the live figure
+ * measures this way, not from the slow-motion run on screen.
+ */
+export function measureServer(rate: number, serviceMs: number, linkMs: number, seconds = 1800, seed = 2) {
+  const sys = new System({
+    parts: [
+      { id: 'users', kind: 'client', x: 0, y: 0, rps: rate, timeoutMs: 1e9 },
+      { id: 'srv', kind: 'server', x: 1, y: 0, serviceMs, servers: 1 },
+    ],
+    links: [{ from: 'users', to: 'srv', ms: linkMs }],
+    seed,
+    keepMs: seconds * 1000,
+  });
+  sys.run(seconds * 1000);
+  const s = sys.stats(seconds * 1000);
+  return { median: s.p50 - 2 * linkMs, p99: s.p99 - 2 * linkMs, mean: s.mean - 2 * linkMs, count: s.count };
+}
 const SERVICE = 20;
 const LINK = 25;
+/** How many requests the database will hold waiting; the next one is turned away. */
+export const DB_QUEUE = 40;
 
 export const FIGS = {
   'slashdot-request': () => {
@@ -94,25 +117,26 @@ export const FIGS = {
       ]),
     );
     const busy = new Busy(6000);
+    let meas = measureServer(rate, SERVICE, LINK);
     const d = liveDiagram(ctx, { parts, links: [{ from: 'users', to: 'srv', ms: LINK }], seed: 2 }, {
       w: W, h: 310, lines: 4, speed: 200,
       onFrame: (sys) => {
         const rho = (rate * SERVICE) / 1000;
-        const s = sys.stats(6000);
-        const m50 = s.p50 - 2 * LINK;
-        const m99 = s.p99 - 2 * LINK;
+        const m50 = meas.median;
+        const m99 = meas.p99;
         const u = busy.sample(sys).get('srv') ?? 0;
-        redraw(marks, ...(s.count > 20 ? ax.dots([[rho, Math.max(m50, 10)], [rho, Math.max(m99, 10)]], COL.ink, 3.4) : []), line(ax.X(rho), 112, ax.X(rho), 262, COL.request, 1, { 'stroke-dasharray': '2 3' }));
+        redraw(marks, ...(meas.count > 20 ? ax.dots([[rho, Math.max(m50, 10)], [rho, Math.max(m99, 10)]], COL.ink, 3.4) : []), line(ax.X(rho), 112, ax.X(rho), 262, COL.request, 1, { 'stroke-dasharray': '2 3' }));
         if (!open()) return;
         d.f.readout.textContent = `${Math.round(rho * 100)}% busy (measured ${Math.round(u * 100)}%): on average a request spends ${slowdown(rho).toFixed(1)}× its 20 ms of work at the server. `
           + `Theory: median ${duration(mm1Quantile(rho, SERVICE, 0.5))}, 99th percentile ${duration(mm1Quantile(rho, SERVICE, 0.99))}. `
-          + (s.count > 20 ? `Measured: ${duration(Math.max(m50, 0))} and ${duration(Math.max(m99, 0))}.` : 'Measuring.');
+          + (meas.count > 20 ? `Measured over 30 simulated minutes: ${duration(Math.max(m50, 0))} and ${duration(Math.max(m99, 0))}.` : 'Measuring.');
       },
     });
     d.f.svg.append(chart, marks);
     const rs = slider('Requests a second', 2, 49, 1, rate, (v) => `${v} a second (${Math.round(v * SERVICE / 10)}% busy)`, (v) => {
       rate = v;
       d.sys.setRate('users', v);
+      meas = measureServer(v, SERVICE, LINK);
       if (v * SERVICE >= 900 && t.goal === 'ninety') t.done();
     }, 'request');
     d.f.controls.append(rs.node);
@@ -131,12 +155,12 @@ export const FIGS = {
     let webs = 2;
     const spec = () => {
       const ws = Array.from({ length: webs }, (_, i) => i);
-      const top = 150 - ((webs - 1) * 48) / 2;
+      const top = 170 - ((webs - 1) * 54) / 2;
       const parts: PartSpec[] = [
-        { id: 'users', kind: 'client', label: 'Readers', x: 50, y: 150, rps: rate, timeoutMs: 3000 },
-        { id: 'lb', kind: 'lb', label: 'Balancer', x: 152, y: 150, servers: 8, policy: { type: 'spread', mode: 'least' } },
-        ...ws.map((i): PartSpec => ({ id: `w${i}`, kind: 'server', label: `Web ${i + 1}`, x: 272, y: top + i * 48, serviceMs: 20, servers: 2, queue: 60 })),
-        { id: 'db', kind: 'db', label: 'Database', x: 388, y: 150, serviceMs: 8, servers: 4, queue: 120 },
+        { id: 'users', kind: 'client', label: 'Readers', x: 50, y: 170, rps: rate, timeoutMs: 3000 },
+        { id: 'lb', kind: 'lb', label: 'Balancer', x: 152, y: 170, servers: 8, policy: { type: 'spread', mode: 'least' } },
+        ...ws.map((i): PartSpec => ({ id: `w${i}`, kind: 'server', label: `Web ${i + 1}`, x: 272, y: top + i * 54, serviceMs: 20, servers: 2, queue: 60 })),
+        { id: 'db', kind: 'db', label: 'Database', x: 388, y: 170, serviceMs: 8, servers: 4, queue: DB_QUEUE },
       ];
       const links = [
         { from: 'users', to: 'lb', ms: 20 },
@@ -147,7 +171,7 @@ export const FIGS = {
     };
     let busy = new Busy(2000);
     const d = liveDiagram(ctx, spec(), {
-      w: W, h: 300, lines: 4, speed: 70,
+      w: W, h: 340, lines: 4, speed: 70,
       onFrame: (sys) => {
         const u = busy.sample(sys);
         const web = [...u].filter(([id]) => id.startsWith('w')).map(([, v]) => v);
@@ -155,12 +179,15 @@ export const FIGS = {
         const db = u.get('db') ?? 0;
         const s = sys.stats(2000);
         const flight = Number.isFinite(s.mean) ? inFlight(s.goodput, s.mean / 1000) : 0;
-        d.f.readout.textContent = `Web servers ${Math.round(webAvg * 100)}% busy, database ${Math.round(db * 100)}% busy. ${statsLine(s)} `
+        const dbPart = sys.part('db');
+        const dbLine = dbPart.waiting.length >= DB_QUEUE ? `Database FULL: its waiting line is at its limit of ${DB_QUEUE}, so new requests are turned away. `
+          : `Database waiting line ${dbPart.waiting.length} of ${DB_QUEUE}. `;
+        d.f.readout.textContent = dbLine + `Web servers ${Math.round(webAvg * 100)}% busy, database ${Math.round(db * 100)}% busy. ${statsLine(s)} `
           + (flight ? `Inside at once: ${Math.round(s.goodput)} a second × ${duration(s.mean)} ≈ ${Math.round(flight)}.` : '');
-        if (db >= 0.9 && webAvg < 0.85 && t.goal === 'database') t.done();
+        if (dbPart.waiting.length >= DB_QUEUE && webAvg < 0.9 && t.goal === 'database') t.done();
       },
     });
-    const rs = slider('Requests a second', 50, 600, 10, rate, (v) => `${v}`, (v) => { rate = v; d.sys.setRate('users', v); }, 'request');
+    const rs = slider('Requests a second', 50, 700, 10, rate, (v) => `${v}`, (v) => { rate = v; d.sys.setRate('users', v); }, 'request');
     const ws = slider('Web servers', 1, 6, 1, webs, (v) => `${v} (${v * 100} a second between them)`, (v) => {
       webs = v;
       d.rebuild(spec());
