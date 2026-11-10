@@ -171,7 +171,7 @@ export const FIGS = {
     };
     let busy = new Busy(2000);
     const d = liveDiagram(ctx, spec(), {
-      w: W, h: 340, lines: 4, speed: 70,
+      w: W, h: 340, lines: 7, speed: 70,
       onFrame: (sys) => {
         const u = busy.sample(sys);
         const web = [...u].filter(([id]) => id.startsWith('w')).map(([, v]) => v);
