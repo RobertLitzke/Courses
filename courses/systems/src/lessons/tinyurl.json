@@ -8,7 +8,7 @@
     "**State what is out of scope.** Explicitly excluding secondary subsystems such as click analytics and spam filtering keeps them from complicating the core architecture.",
     "**Capacity estimates dictate the architecture.** Generating 100 million links a month produces 40 writes a second and 3 TB of data over five years: a single database handles the writes and storage, while the 4,000 to 10,000 reads a second require an in-memory cache.",
     "**Optimise the schema for the dominant query.** A single table indexed by the short code as its primary key serves redirects with one lookup, matching a workload where reads outnumber writes a hundred to one.",
-    "**Random keys collide early due to the birthday problem.** Across N possible keys, a 50% collision probability occurs after roughly 1.2 √N draws, meaning a keyspace of 3.5 trillion seven-character codes sees its first likely collision after just 2.2 million links.",
+    "**Random keys collide early due to the birthday problem.** Across N possible keys, the chance that any two keys match reaches 50% after roughly 1.2 √N draws, so a keyspace of 3.5 trillion seven-character codes has an even chance of at least one collision after just 2.2 million links.",
     "**Allocate sequential IDs in blocks to avoid bottlenecks.** Assigning each application server a range of 1,000 counter values preserves collision-free generation while keeping the central counter off the critical write path.",
     "**Truncated URL hashes still collide and require database checks.** Hashing the destination address also maps every user who shortens the same URL to a single shared record.",
     "**HTTP 301 versus 302 trades server load against analytics.** A 301 permanent redirect lets browsers cache the destination and bypass the service on repeat clicks, saving bandwidth at the cost of visibility and control."
@@ -92,12 +92,12 @@
           "id": "tinyurl-keys",
           "caption": "The probability of at least one collision among randomly chosen codes, plotted against the number of codes generated. Change the alphabet size and code length to see how the curve shifts.",
           "goal": "guess",
-          "task": "Estimate how many random codes we can generate before the chance of a collision reaches 50%.",
+          "task": "Estimate how many random codes we can generate before the chance of any collision among them reaches 50%.",
           "aspect_ratio": 1.86
         },
         {
           "type": "text",
-          "text": "It takes about 2.2 million codes. This is the **birthday problem**: in a room of 23 people there is a 50% chance that two share a birthday, even though there are 365 days in a year, because collision probability depends on the number of pairs, and 23 people form 253 pairs. Across N possible codes, a 50% chance of a collision occurs after about 1.2 √N codes; √(3.5 trillion) is 1.87 million, giving roughly 2.2 million codes. In general, n random selections produce about n² / 2N collisions, so across 6 billion links a purely random scheme would generate (6 × 10⁹)² / (7 × 10¹²), or about 5.1 million collisions. Therefore, we must check every random code before returning it: insert the new row only if that primary key does not already exist, and generate a fresh random code if it does. Because the database enforces uniqueness on the primary key during insertion, and because the keyspace is 99.8% empty, a collision retry is rarely needed. Random generation with database retries is simple and works well."
+          "text": "It takes about 2.2 million codes. This is the **birthday problem**: in a room of 23 people there is a 50% chance that two share a birthday, even though there are 365 days in a year, because collision probability depends on the number of pairs, and 23 people form 253 pairs. Across N possible codes, the chance that any two of them match reaches 50% after about 1.2 √N codes; √(3.5 trillion) is 1.87 million, giving roughly 2.2 million codes. In general, n random selections produce about n² / 2N collisions, so across 6 billion links a purely random scheme would generate (6 × 10⁹)² / (7 × 10¹²), or about 5.1 million collisions. Therefore, we must check every random code before returning it: insert the new row only if that primary key does not already exist, and generate a fresh random code if it does. Because the database enforces uniqueness on the primary key during insertion, and because the keyspace is 99.8% empty, a collision retry is rarely needed. Random generation with database retries is simple and works well."
         },
         {
           "type": "text",
@@ -109,7 +109,7 @@
         },
         {
           "type": "text",
-          "text": "A common flawed approach is to hash the long URL (using MD5 or SHA-256) and take the first seven characters of the output. Because a truncated hash behaves like a random string of the same length, it still suffers a 50% collision probability after 2.2 million links and still requires a database uniqueness check and retry loop on insert. Worse, hashing the URL assigns the exact same code to every user who shortens the same address. While deduplicating identical URLs saves storage, it causes separate users to share one link record, colliding on custom expiry times and individual click counts. Whichever generation scheme we choose, we must uphold our initial requirement that an assigned code never changes its destination."
+          "text": "A common flawed approach is to hash the long URL (using MD5 or SHA-256) and take the first seven characters of the output. Because a truncated hash behaves like a random string of the same length, it still reaches a 50% chance of at least one collision after 2.2 million links and still requires a database uniqueness check and retry loop on insert. Worse, hashing the URL assigns the exact same code to every user who shortens the same address. While deduplicating identical URLs saves storage, it causes separate users to share one link record, colliding on custom expiry times and individual click counts. Whichever generation scheme we choose, we must uphold our initial requirement that an assigned code never changes its destination."
         }
       ]
     },
@@ -170,14 +170,14 @@
                 "why": "Six billion rows at 500 bytes is 3 TB, and 40 writes a second is a light write load for a single machine. The 4,000 to 10,000 redirects a second are the bottleneck we must design for, using an in-memory cache and database read replicas."
               },
               {
-                "ask": "Seven-character codes drawn from a 62-character alphabet provide about 3.5 trillion unique possibilities. If each new link is assigned a random code without checking existing rows, roughly how many links can be created before the probability of a collision reaches 50%?",
+                "ask": "Seven-character codes drawn from a 62-character alphabet provide about 3.5 trillion unique possibilities. If each new link is assigned a random code without checking existing rows, roughly how many links can be created before the probability of any collision among them reaches 50%?",
                 "choices": [
                   "After about 2 million links",
                   "After about 2 billion links",
                   "After about 1.7 trillion links"
                 ],
                 "answer": 0,
-                "why": "By the birthday problem, a 50% chance of a collision occurs after about 1.2 times the square root of the keyspace size, and 1.2 × 1.87 million is roughly 2.2 million codes."
+                "why": "By the birthday problem, the chance of at least one collision among all codes reaches 50% after about 1.2 times the square root of the keyspace size, and 1.2 × 1.87 million is roughly 2.2 million codes."
               },
               {
                 "ask": "Which method of generating short codes guarantees zero collisions without querying a central service on every write request?",

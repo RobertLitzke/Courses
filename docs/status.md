@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-10. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-11. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
@@ -19,7 +19,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Fungi](#fungi) | 0.3 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
-| [Systems at Scale](#systems) | 0.1 beta | 35 | 0 | 0 | 0 | 35 | 0 | 0 |
+| [Systems at Scale](#systems) | 0.1 beta | 35 | 0 | 0 | 1 | 35 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -38,7 +38,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Fungi | 0.3 beta | 2026-11-08 | no: 25 to fact-check, 24 awaiting photos |
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
-| Systems at Scale | 0.1 beta | 2026-11-09 | no: 35 to fact-check |
+| Systems at Scale | 0.1 beta | 2026-11-09 | no: 1 to copy-edit, 35 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -501,7 +501,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- | --- | --- |
 | 1 | How long is a nanosecond? (`nanosecond`) |  | awaiting fact check |  | The latencies every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers. |
 | 2 | The link that took a website down (`slashdot`) |  | awaiting fact check |  | Request latency, why queueing delay grows sharply as a server nears full utilisation, and Little's law. |
-| 3 | A shorter link, a billion times (`tinyurl`) |  | awaiting fact check |  | How to work out a system design on paper: defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys. |
+| 3 | A shorter link, a billion times (`tinyurl`) |  | awaiting Gemini review (queued 2026-11-11) | Fact check | How to work out a system design on paper: defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys. |
 | 4 | When the database can't keep up (`replicas`) |  | awaiting fact check |  | Read replicas and replication lag, reading your own writes, and splitting users across databases. |
 | 5 | A cache in spare memory (`memcached`) |  | awaiting fact check |  | Caching in front of a database, hit-rate arithmetic, invalidation, and consistent hashing. |
 | 6 | One master, a thousand disks (`gfs`) |  | awaiting fact check |  | Splitting metadata from data, big blocks, and why one coordinator can be the right first design. |

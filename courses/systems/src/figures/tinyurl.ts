@@ -44,7 +44,7 @@ export const FIGS = {
       x: 50, y: 24, w: 350, h: 170, xmin: 3, xmax: 13, ymin: 0, ymax: 1,
       xticks: [3, 5, 7, 9, 11, 13], yticks: [0, 0.5, 1],
       xfmt: (v) => say(10 ** v), yfmt: (v) => `${v * 100}%`,
-      xlabel: 'codes handed out at random', ylabel: 'chance two are the same', ink: COL.ink, grid: COL.grid,
+      xlabel: 'codes handed out at random', ylabel: 'chance any two match', ink: COL.ink, grid: COL.grid,
     });
     const paint = () => {
       const N = keySpace(alpha, len);
@@ -57,9 +57,9 @@ export const FIGS = {
       const parts: SVGElement[] = [...ax.parts];
       if (open()) {
         parts.push(ax.path(curve, COL.error, 2));
-        if (Math.log10(half) <= 13) parts.push(line(ax.X(Math.log10(half)), 24, ax.X(Math.log10(half)), 194, COL.error, 1, { 'stroke-dasharray': '3 3' }), small(ax.X(Math.log10(half)) + 4, 36, `even chance at ${say(half)}`, { fill: COL.error }));
+        if (Math.log10(half) <= 13) parts.push(line(ax.X(Math.log10(half)), 24, ax.X(Math.log10(half)), 194, COL.error, 1, { 'stroke-dasharray': '3 3' }), small(ax.X(Math.log10(half)) + 4, 36, `50% at ${say(half)}`, { fill: COL.error }));
         parts.push(line(ax.X(lx), 24, ax.X(lx), 194, COL.request, 1.5), small(ax.X(lx) - 4, 186, `${say(links)} links`, { anchor: 'end', fill: COL.request, halo: COL.paper }));
-        f.readout.textContent = `${alpha}^${len} = ${say(N)} codes. Drawn at random, an even chance of a repeat comes after ${say(half)}. At ${say(links)} links: ${Math.round(collisionChance(links, N) * 1000) / 10}% chance of one, about ${say(expectedPairs(links, N))} repeats expected.`;
+        f.readout.textContent = `${alpha}^${len} = ${say(N)} codes. Drawn at random, the chance that any two match reaches 50% after ${say(half)}. At ${say(links)} links: ${Math.round(collisionChance(links, N) * 1000) / 10}% chance of at least one repeat, about ${say(expectedPairs(links, N))} repeats expected.`;
       }
       redraw(g, ...parts);
     };
@@ -68,7 +68,7 @@ export const FIGS = {
     const ns = slider('Links handed out', { min: 1e3, max: 1e13, value: links, scale: 'log', show: say, onInput: (v) => { links = v; paint(); }, color: 'request' });
     f.controls.append(ab.node, ls.node, ns.node);
     const open = guessFirst(t, f, {
-      ask: 'Seven characters from 62 symbols make 3.5 trillion codes. If each new link gets a code at random, after how many links is there an even chance that two share one?',
+      ask: 'Seven characters from 62 symbols make 3.5 trillion codes. If each new link gets a code at random, after how many links is there an even chance that any two of them share a code?',
       options: ['About 2,000', 'About 2 million', 'About 2 billion', 'About 1.7 trillion'],
       answer: 1,
       sliders: [ls, ns],
