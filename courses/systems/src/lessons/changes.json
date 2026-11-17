@@ -1,0 +1,232 @@
+{
+ "id": "changes",
+ "n": 105,
+ "branch": "maps",
+ "needs": [
+  "traffic",
+  "labels",
+  "validation"
+ ],
+ "betterAfter": [
+  "rollout"
+ ],
+ "title": "When the world changes",
+ "teaches": "Change detection: observations against a reference map, independent evidence, triage by risk, human review tiers, and safe publishing and rollback",
+ "parts": [
+  {
+   "title": "A slur on the map of New York",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On 29 August 2018, people using Snapchat, the Citi Bike app, the property site StreetEasy and other apps saw New York City labelled on their maps with an antisemitic slur. All of the apps drew their maps from Mapbox, a company that supplies map data and map rendering to thousands of applications, and Mapbox's data draws partly on OpenStreetMap, which anyone can edit. Mapbox fixed the label within hours. The next day its chief executive, Eric Gundersen, said the name had been changed by a vandal, and that Mapbox's automated checks had caught the change and held it for review, but a person reviewing it had approved it.[^mapbox]"
+    },
+    {
+     "type": "text",
+     "text": "The automated part of the process had done its job. The failure was in the human tier: a single reviewer, working through a queue, made one wrong decision, and the decision reached every map that showed New York. A change to the name of the largest city in the United States has the same review path as a change to the opening hours of a shop, unless the system is designed to treat them differently."
+    },
+    {
+     "type": "text",
+     "text": "In this lesson, we will design the system that keeps the fleet's world map from lesson P3 in step with a changing world. Roads close, turns are banned, shops move, and the fleet's cameras, users' reports and outside sources all notice. The system must find the changes, decide which ones to believe, publish them quickly, and keep the next New York label off millions of screens."
+    }
+   ]
+  },
+  {
+   "title": "What it must do, and what it need not",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Functional.** The system must collect observations that disagree with the current map; group observations of the same change; estimate how confident it is that each change is real; decide by the change's risk whether it is published automatically, reviewed by one person or reviewed by two; publish accepted changes through the checks of lesson P4; and roll back any change, or every change from one source, quickly."
+    },
+    {
+     "type": "text",
+     "text": "**Non-functional.** A road closure should reach the map within hours; a moved shop within days is fine. Wrong changes that reach users should be rare in proportion to how many people they reach. Reviewers' time is the scarce resource, so it must go to the changes where a person's judgement matters most."
+    },
+    {
+     "type": "text",
+     "text": "**Out of scope.** We will not design the detectors that read signs and lane markings from camera images, or the labeling platform the reviewers' tools are built on (lesson P2)."
+    }
+   ]
+  },
+  {
+   "title": "Evidence that agrees",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A **change** starts as an **observation** that disagrees with the map: a camera on a fleet vehicle reads a no-left-turn sign at a junction where the map allows the turn, phones stop driving down a road that the map says is open (the traffic data of lesson M4), a user reports that a shop has closed, a city publishes a list of road works. One observation proves little. Detectors misread signs, phones take detours for many reasons, and some reports are mistakes or vandalism."
+    },
+    {
+     "type": "text",
+     "text": "Confidence comes from **independent** observations that agree. Two cameras on different vehicles on different days reading the same sign count for much more than two readings from one vehicle a second apart, which share the same lighting, the same lens and the same misreading. Ten reports from one account count once. Observations that share a vehicle, an account, a time or a source are grouped and counted as one, the same group leakage that lesson P1 guarded against when splitting evaluation data, and the spoofed phones of lesson M4 are the reason to check. The system combines the independent evidence for each proposed change into a confidence score, and lesson P2's calibration rule applies: among changes scored at 95%, about 95% should turn out to be real, checked on a sample that people verify."
+    }
+   ]
+  },
+  {
+   "title": "Triage by risk",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Confidence is one axis; the other is the cost of being wrong. A wrong change costs roughly in proportion to how many people it reaches and how much harm it does to each. A shop's moved entrance is seen by a few hundred people and costs each of them a short walk. A banned turn affects thousands of routes. A closed motorway, or a city's name, is seen by millions. The system assigns each change a **risk tier** from its kind and the **prominence** of the place, measured by how often that part of the map is viewed or routed through."
+    },
+    {
+     "type": "text",
+     "text": "Each tier gets its own path. Low-risk changes with high confidence publish automatically. Everything else goes to people, and the highest tier, the names of cities and countries, closures of major roads, anything on the most viewed parts of the map, needs **two reviewers** who decide independently, so one person's slip cannot reach millions of screens. The reviewers work in a queue with the same leases and qualifications as the labelers in lesson P2. Their capacity is fixed, and the confidence threshold for automatic publishing decides how much work reaches them."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "changes-triage",
+     "caption": "A day of proposed map changes. The threshold decides how many low-risk changes skip people; the reviewers' capacity decides whether a queue builds. Rates are round figures of our own.",
+     "task": "Put two reviewers on the high-risk tier, keep the wait under a day, and keep wrong data under 100,000 views a day",
+     "goal": "balanced"
+    },
+    {
+     "type": "text",
+     "text": "The queue behaves like the server of lesson 2. When reviews arrive faster than reviewers can do them, the queue grows every day and the wait grows with it, by Little's law the queue length divided by the rate of review. A higher bar for automatic publishing makes each automatic change safer and sends more work to people, so beyond some point it makes the system worse: road closures wait days in a queue full of shops. Most of the wrong data that reaches users comes from the middle tier, which is common enough to matter and too common to review twice."
+    }
+   ]
+  },
+  {
+   "title": "Publishing, and taking it back",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Accepted changes do not go straight into the map. They are applied to the next version through the pipeline of lesson P3 and pass through the checks of lesson P4 before the pointer moves, so a change that would, for example, disconnect a motorway from the rest of the road graph is caught even after a person approved it. Urgent changes, such as a closure for a fire, can be published to the routing service's live overlay within minutes and folded into the next full version later."
+    },
+    {
+     "type": "text",
+     "text": "Every change carries its evidence and its source, so it can be **rolled back** on its own, and so can every change from one source or one account at once. When a vandal is found, the system lists every change that account's observations contributed to and reverts them as a batch. A rollback is itself a change, published as a new version, so the history of the map stays intact."
+    },
+    {
+     "type": "text",
+     "text": "The system also watches its own outcome. Users' error reports, routes that people stop following, and later fleet observations that contradict a published change are all evidence that a change was wrong. Each wrong change that got through is traced back to the tier and the decision that let it through, and the thresholds are adjusted, as an error budget would be spent and replenished in lesson 24."
+    }
+   ]
+  },
+  {
+   "title": "What others built",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "OpenStreetMap relies on its community to review edits after they are made. Volunteers watch changes in their areas with tools such as OSMCha, which flags suspicious edits, and data consumers such as Mapbox add their own filtering before they publish. Google Maps accepts suggested edits from its users and checks them before publishing, using automated signals and, for some edits, people."
+    },
+    {
+     "type": "text",
+     "text": "Every large map maintains some version of this triage, because no map provider can afford to review every change or to publish every change unreviewed. The design questions are the ones in this lesson: what counts as independent evidence, how risk is measured, and where people are placed."
+    }
+   ]
+  },
+  {
+   "title": "At ten and a hundred times",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**At ten times** (a hundred thousand proposed changes a day), the reviewers are organised by region and language, the queue is sharded by region with each region's capacity sized to its share of the work, and automatic publishing covers most of the low tier, with a random sample of automatic decisions reviewed every day to measure how often they are wrong."
+    },
+    {
+     "type": "text",
+     "text": "**At a hundred times**, the observations come mostly from fleets and phones rather than people, and change detection becomes a streaming system: observations are matched to map features as they arrive, grouped by feature and evidence source in windows, and scored continuously, with the techniques of lesson 17. People review only the highest tiers and samples of everything else, and the measurements of how often each tier is wrong become the system's main control."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Seven questions on keeping a map in step with the world",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "A proposed change renames a capital city. The automated checks flag it, and one reviewer approves it. Which design change most directly prevents a repeat?",
+        "choices": [
+         "Lowering the confidence threshold for automatic publishing in every tier",
+         "Requiring two independent reviewers for changes to the most prominent names and roads",
+         "Removing the automated checks, since the reviewer overrode them anyway"
+        ],
+        "answer": 1,
+        "why": "The automation worked and one person's decision failed. For changes that reach millions of people, two independent reviewers make a single slip harmless."
+       },
+       {
+        "ask": "Ten observations of a new turn ban arrive within one minute, all from one vehicle's camera. How should the system count them?",
+        "choices": [
+         "As ten pieces of evidence, enough to publish automatically",
+         "As roughly one piece of evidence, because they share a vehicle, a camera and a moment",
+         "As no evidence at all, because fleet cameras cannot read signs reliably"
+        ],
+        "answer": 1,
+        "why": "Observations that share a source share its errors. Confidence comes from independent observations that agree: different vehicles, days and sources."
+       },
+       {
+        "ask": "The team raises the bar for automatic publishing from 80% to 99% confidence, with the same number of reviewers. A week later road closures take days to appear. Why?",
+        "choices": [
+         "Fewer low-risk changes publish automatically, so the review queue grows beyond the reviewers' capacity and everything waits behind it",
+         "The higher bar makes the automated checks slower to run",
+         "Road closures are always published automatically, and the higher bar now blocks them"
+        ],
+        "answer": 0,
+        "why": "Every change that fails the automatic bar becomes work for the fixed pool of reviewers. When arrivals exceed capacity the queue grows each day, and by Little's law the wait grows with it."
+       },
+       {
+        "ask": "What should decide a change's risk tier?",
+        "choices": [
+         "The confidence score of the evidence for it",
+         "What kind of change it is and how many people view or route through that part of the map",
+         "Which source proposed it"
+        ],
+        "answer": 1,
+        "why": "Risk is the cost of being wrong, which grows with how many people a change reaches and how much it affects them. Confidence is a separate axis."
+       },
+       {
+        "ask": "A reviewer approves a change that would cut a motorway off from the rest of the road network. How can the system still catch it?",
+        "choices": [
+         "It cannot; a reviewer's approval is final",
+         "Approved changes go into the next version and through the publish checks, which test whole-graph invariants such as connectivity",
+         "By having a second reviewer look at every change in every tier"
+        ],
+        "answer": 1,
+        "why": "Review and publish checks catch different things. A person judges whether a change is real; the checks of lesson P4 test whether the resulting map still makes sense as a whole."
+       },
+       {
+        "ask": "An account is found to have submitted many false reports over a month. What makes cleaning up quick?",
+        "choices": [
+         "Every change records the observations and sources behind it, so all changes that relied on the account can be listed and rolled back together",
+         "Rolling the whole map back to the version from a month ago",
+         "Waiting for later fleet observations to correct each change on its own"
+        ],
+        "answer": 0,
+        "why": "Provenance on each change makes rollback by source possible. Rolling back the whole map would also undo a month of real changes."
+       },
+       {
+        "ask": "Most of the wrong data reaching users comes from the medium tier. What is the most likely reason?",
+        "choices": [
+         "Medium-tier changes are reviewed by less experienced people",
+         "Medium-tier changes are common enough to add up and prominent enough to matter, but too many to review twice",
+         "Medium-tier changes are never reviewed by people"
+        ],
+        "answer": 1,
+        "why": "The low tier reaches few people and the high tier gets two reviewers; the middle tier has neither protection, so the system measures it closely and adjusts its thresholds."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A change starts as an observation that disagrees with the map.** One observation proves little; detectors misread, phones detour, and some reports are vandalism.",
+  "**Count independent evidence.** Observations that share a vehicle, an account, a moment or a source count as one.",
+  "**Calibrate confidence.** Among changes scored at 95%, about 95% should be real, checked on a sample people verify.",
+  "**Tier by risk, not by confidence alone.** Risk is how many people a wrong change would reach and how much it would cost them.",
+  "**Put people where judgement matters most.** Automatic publishing for low risk and high confidence, one reviewer for the middle, two independent reviewers for the most prominent names and roads.",
+  "**Reviewers are a queue.** When reviews arrive faster than people can do them, the wait grows every day, so the automatic threshold and the reviewer count are set together.",
+  "**Publish through the checks, roll back by source.** Approved changes still pass whole-map checks, and provenance lets every change from one source be reverted at once."
+ ],
+ "footnotes": {
+  "mapbox": {
+   "kind": "technical",
+   "title": "Where the edit came from",
+   "text": "Gundersen's account, reported by TechCrunch on 30 August 2018, said Mapbox's AI-based system had flagged the change and that a human reviewer had then approved it, and that the company was still investigating where the edit had entered. He cautioned against blaming OpenStreetMap's volunteer community for it."
+  }
+ }
+}
