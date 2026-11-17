@@ -31,7 +31,7 @@ describe('labels: the line', () => {
 });
 
 describe('labels: the figures', () => {
-  it('bench: done with two labelers, a clear guideline and an audit', async () => {
+  it('bench: done with two labellers, a clear guideline and an audit', async () => {
     let done = false;
     const h = FIGURES['labels-bench'](context(), 'trusted');
     h.done!.then(() => (done = true));

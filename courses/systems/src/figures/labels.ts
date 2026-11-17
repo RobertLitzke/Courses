@@ -1,4 +1,4 @@
-// Lesson P2, A million labels, and which are wrong: a labeling line where the
+// Lesson P2, A million labels, and which are wrong: a labelling line where the
 // reader sets the overlap, how confident the model must be for its own label to
 // skip people, how clear the guideline is, and whether a random sample is
 // audited; and a still of the label record, an append-only history from which
@@ -10,13 +10,13 @@ import { COL, figure, frame, named, pick, slider, tint } from './kit';
 import { drawBoard, type BoardBox, type BoardWire } from './limiter';
 
 // ---------------------------------------------------------------------------
-// The labeling line.
+// The labelling line.
 
-/** Share of items that are hard; error rates of one labeler on easy and on clear hard items. */
+/** Share of items that are hard; error rates of one labeller on easy and on clear hard items. */
 export const HARD = 0.2;
 export const EASY_ERR = 0.03;
 export const HARD_ERR = 0.15;
-/** On an ambiguous item, labelers who read the guideline the same way give the same wrong answer this often. */
+/** On an ambiguous item, labellers who read the guideline the same way give the same wrong answer this often. */
 export const AMBIG_ERR = 0.5;
 /** An expert who settles a disagreement, and how often the expert is wrong. */
 export const EXPERT_ERR = 0.05;
@@ -25,7 +25,7 @@ export const LABEL_MIN = 1;
 export const EXPERT_MIN = 3;
 /** Share of items audited when audits are on. */
 export const AUDIT_SHARE = 0.02;
-/** 300 labelers for 7 hours a day. */
+/** 300 labellers for 7 hours a day. */
 export const WORKFORCE_MIN = 300 * 7 * 60;
 
 export interface LabelChoices {
@@ -39,7 +39,7 @@ export interface LabelChoices {
   audit: boolean;
 }
 
-/** Error after combining k independent labelers who each err with chance e. */
+/** Error after combining k independent labellers who each err with chance e. */
 export function combined(e: number, k: 1 | 2 | 3): number {
   if (k === 1) return e;
   if (k === 2) return e * e + 2 * e * (1 - e) * EXPERT_ERR;
@@ -74,7 +74,7 @@ export function outcome(o: LabelChoices): LabelOutcome {
   const fromModel = sk.share * sk.err;
   const trueErr = fromLabelers + fromAmbiguity + fromModel;
   const goldOnly = (1 - HARD) * combined(EASY_ERR, o.overlap) + HARD * combined(HARD_ERR, o.overlap);
-  // Two labelers disagree on clear items with chance 2e(1 − e); on ambiguous items they agree.
+  // Two labellers disagree on clear items with chance 2e(1 − e); on ambiguous items they agree.
   const disagree = o.overlap === 2 ? (1 - HARD) * 2 * EASY_ERR * (1 - EASY_ERR) + HARD * (1 - o.ambiguity) * 2 * HARD_ERR * (1 - HARD_ERR) : 0;
   const costPer1000 = 1000 * people * (o.overlap * LABEL_MIN + disagree * EXPERT_MIN) + (o.audit ? 1000 * AUDIT_SHARE * EXPERT_MIN : 0);
   return { fromLabelers, fromAmbiguity, fromModel, trueErr, measuredErr: o.audit ? trueErr : goldOnly, costPer1000, perDay: (WORKFORCE_MIN / costPer1000) * 1000 };
@@ -100,7 +100,7 @@ export const FIGS = {
       const boxes: BoardBox[] = [
         { id: 'items', x: 62, y: 60, label: 'New items', sub: '1,000', shape: 'pill', color: 'request', w: 100 },
         { id: 'model', x: 200, y: 60, label: 'Model pre-labels', sub: 'with a confidence', color: 'model', w: 120 },
-        { id: 'people', x: 360, y: 30, label: `${o.overlap} labeler${o.overlap > 1 ? 's' : ''} each`, sub: o.overlap === 2 ? 'expert settles disputes' : o.overlap === 3 ? 'majority wins' : 'one answer', color: 'busy', stack: o.overlap > 1, w: 130 },
+        { id: 'people', x: 360, y: 30, label: `${o.overlap} labeller${o.overlap > 1 ? 's' : ''} each`, sub: o.overlap === 2 ? 'expert settles disputes' : o.overlap === 3 ? 'majority wins' : 'one answer', color: 'busy', stack: o.overlap > 1, w: 130 },
         { id: 'labels', x: 530, y: 60, label: 'Labels', sub: 'to training and evaluation', shape: 'store', color: 'data', w: 120, h: 40 },
         { id: 'audit', x: 360, y: 104, label: 'Random audit', sub: '2% re-labelled by experts', color: 'answer', faded: !o.audit, w: 130 },
       ];
@@ -129,13 +129,13 @@ export const FIGS = {
       };
       row(160, 'Measured error', [[r.measuredErr, o.audit ? COL.answer : COL.soft, '']]);
       row(188, 'True error', [[r.fromLabelers, COL.busy, ''], [r.fromAmbiguity, COL.error, ''], [r.fromModel, COL.model, '']]);
-      const key: [string, string][] = [['labelers\' slips', COL.busy], ['same wrong reading', COL.error], ['model labels unseen', COL.model]];
+      const key: [string, string][] = [['labellers\' slips', COL.busy], ['same wrong reading', COL.error], ['model labels unseen', COL.model]];
       key.forEach(([text, col], i) => parts.push(svg('rect', { x: x0 + i * 140, y: 218, width: 10, height: 10, fill: tint(col, 0.6) }), small(x0 + 14 + i * 140, 227, text)));
       redraw(bars, ...parts);
       f.readout.textContent = [
-        `${count(r.costPer1000)} labeler-minutes per 1,000 labels: about ${count(r.perDay)} labels a day from 300 labelers.`,
+        `${count(r.costPer1000)} labeller-minutes per 1,000 labels: about ${count(r.perDay)} labels a day from 300 labellers.`,
         o.audit ? `The audit measures ${pc(r.measuredErr)} wrong, which is the true figure.` : `Gold questions report ${pc(r.measuredErr)} wrong; the true figure is ${pc(r.trueErr)}.`,
-        r.fromAmbiguity > r.fromLabelers ? 'Most errors are agreed on: labelers share one wrong reading of the guideline.' : r.fromModel > r.fromLabelers ? 'Most errors are the model\'s own labels, accepted without anyone looking.' : 'Most errors are individual slips, which overlap and adjudication can catch.',
+        r.fromAmbiguity > r.fromLabelers ? 'Most errors are agreed on: labellers share one wrong reading of the guideline.' : r.fromModel > r.fromLabelers ? 'Most errors are the model\'s own labels, accepted without anyone looking.' : 'Most errors are individual slips, which overlap and adjudication can catch.',
       ].join('\n');
       if (moved && o.audit && r.trueErr <= 0.03 && r.perDay >= 33_000) t.done();
     };
@@ -160,8 +160,8 @@ export const FIGS = {
     const head = ['When', 'Who', 'Guideline', 'Pre-label shown', 'Label', 'Kind'];
     head.forEach((h, i) => parts.push(small(cols[i], 40, h, { bold: true, soft: true })));
     const rows: [string, string, string, string, string, string, string][] = [
-      ['3 Mar 10:02', 'labeler 141', 'v12', 'cyclist 0.71', 'cyclist', 'label', COL.busy],
-      ['3 Mar 10:04', 'labeler 208', 'v12', 'cyclist 0.71', 'pedestrian', 'label', COL.busy],
+      ['3 Mar 10:02', 'labeller 141', 'v12', 'cyclist 0.71', 'cyclist', 'label', COL.busy],
+      ['3 Mar 10:04', 'labeller 208', 'v12', 'cyclist 0.71', 'pedestrian', 'label', COL.busy],
       ['3 Mar 15:30', 'expert 9', 'v12', 'none', 'pedestrian', 'adjudication', COL.answer],
       ['20 Apr 09:12', 'policy', 'v13', 'none', 'pedestrian with bicycle', 'reclassified', COL.clock],
     ];

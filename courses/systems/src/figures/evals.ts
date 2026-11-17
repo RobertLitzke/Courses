@@ -161,7 +161,7 @@ export const FIGS = {
       if (open && all > 0 && o.change <= -0.02 && slice === 'worse' && o.share <= 0.02) t.done();
     };
     const share = slider('Slice share of real driving', { min: 0.005, max: 0.2, scale: 'log', value: o.share, show: pct, onInput: (v) => { o.share = v; paint(); }, color: 'request' });
-    const n = slider('Slice examples in the eval set', { min: 100, max: 20_000, scale: 'log', step: 50, value: o.n, show: count, onInput: (v) => { o.n = v; paint(); }, color: 'data' });
+    const n = slider('Slice examples, each from its own drive', { min: 100, max: 20_000, scale: 'log', step: 50, value: o.n, show: count, onInput: (v) => { o.n = v; paint(); }, color: 'data' });
     const change = slider('True change on the slice', { min: -0.06, max: 0.02, step: 0.005, value: o.change, show: (v) => `${pts(v)} points`, onInput: (v) => { o.change = v; paint(); }, color: 'error' });
     const how = named(pick(['Separate scores', 'Paired examples'], 1, (i) => { o.paired = i === 1; paint(); }), 'Compare:');
     f.controls.append(share.node, n.node, change.node, how.node);
