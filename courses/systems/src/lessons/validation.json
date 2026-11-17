@@ -1,0 +1,272 @@
+{
+ "id": "validation",
+ "n": 304,
+ "branch": "data",
+ "needs": [
+  "datasets",
+  "chaos"
+ ],
+ "betterAfter": [
+  "slo"
+ ],
+ "title": "The numbers that quietly went wrong",
+ "teaches": "Checking data before it is published: contracts and control totals, invariant and statistical checks, quarantine, write-audit-publish, and data SLIs",
+ "parts": [
+  {
+   "title": "Sixteen thousand missing results",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On Friday 2 October 2020, during the second wave of Covid in England, Public Health England's daily figures showed about 7,000 new positive tests. Over that weekend the figures jumped: almost 13,000 on Saturday and almost 23,000 on Sunday. The jump was not a sudden rise in infections. On 4 October Public Health England announced that 15,841 positive results from the period between 25 September and 2 October had not been included in the published counts, and that their details had not reached the contact-tracing system on time."
+    },
+    {
+     "type": "text",
+     "text": "The commercial laboratories sent their results as CSV files, plain text with one line per record. Part of the process that collected them loaded each file into a Microsoft Excel template in the older XLS format, which holds at most 65,536 rows. Each test result took up several rows, so a template could hold only about 1,400 cases, and when a file had more, the rows beyond the limit were dropped without any error.[^xls] The people tested had been told their results; what was delayed was the national count and the tracing of their contacts. Nothing in the process compared the number of results a laboratory had sent with the number that arrived."
+    },
+    {
+     "type": "text",
+     "text": "Before reading on, consider which single check would have caught this on the first day."
+    },
+    {
+     "type": "text",
+     "text": "In this lesson, we will design the checks that stand between a nightly build of the fleet's world map, from lesson P3, and the dozen teams that read it. A wrong version is worse than a late one. A broken service fails loudly and someone is paged, but a dataset with a region missing or a unit misread looks normal to every system that reads it, and the error spreads into routing graphs, search results and training data before anyone notices."
+    }
+   ]
+  },
+  {
+   "title": "What it must do, and what it need not",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Functional.** The checks must reject malformed input when it arrives, catch outputs that are well formed but wrong, keep rejected records where people can inspect them, and stop a bad version from being published without anyone having to act. Each check must have an owner, and each producer of data must know what it has promised to send."
+    },
+    {
+     "type": "text",
+     "text": "**Non-functional.** A check must run in minutes, so that a nightly publish is not delayed by hours. False alarms must be rare, a few a month at most, or people will learn to override them. The time from a problem in a source to the right person hearing about it should be under an hour."
+    },
+    {
+     "type": "text",
+     "text": "**Out of scope.** We will not design the fixing of bad source data, which is the source team's job, or the evaluation of models trained on the data, which is lesson P1's."
+    }
+   ]
+  },
+  {
+   "title": "Contracts and control totals",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most data problems start where one team hands data to another, so the design starts there. A **data contract** is a written agreement, kept in version control beside the code, between a team that produces a dataset and the teams that consume it. It states the schema, what each field means and in which units, how fresh the data will be, roughly how much will arrive, and who is told when the contract is broken. A producer runs the contract's checks in its own build pipeline before sending anything, which catches most mistakes before they leave the team that made them."
+    },
+    {
+     "type": "text",
+     "text": "The contract should also require a **control total** with every delivery: the number of records, and a checksum computed over them, sent separately from the data itself. The receiver counts what it actually loaded and compares. Banks have reconciled batches this way for decades, and it is the single check that would have caught the Covid case on its first day: 1,400 rows loaded against several thousand sent."
+    }
+   ]
+  },
+  {
+   "title": "Checks on the way in and on the way out",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Checks fall into two kinds. **Invariant checks** test rules that must always hold, and each record either passes or fails: every field has the right type, speed limits lie between 5 and 130 km/h, every road segment's end points exist, IDs are unique, every place is inside some country. They are cheap and exact, and they run at ingestion, on each source as it arrives."
+    },
+    {
+     "type": "text",
+     "text": "Invariant checks cannot see data that is valid record by record and wrong as a whole: a region with half its roads, a day's file from a source that sent yesterday's file again, speeds that are all in range but in the wrong unit for one country. **Statistical checks** compare the output with what is expected: the number of records per region, the distribution of each important field, the share of records that changed since the last version, each compared region by region. Two choices make these work. They should judge the size of a change, such as \"the number of roads in this region fell by 12%\", against a threshold the owner chose, rather than asking whether a change is statistically significant, because with millions of records almost any change is significant. And they should compare with two baselines: recent history, which adapts to normal change, and a fixed reference version, which does not adapt and therefore catches a slow drift that recent history would absorb."
+    },
+    {
+     "type": "text",
+     "text": "Some changes are real. A source adds a country, a new road network opens, a team renames a category. The design lets the owner of a change **declare** it in advance, with the expected effect on counts, so that the checks expect it rather than alarm on it. Data for machine-learning models needs one more check: that no feature has silently become empty or constant, which happens when an upstream field is renamed and the pipeline fills in a default. A model trained on that data learns to ignore the feature, and nothing fails."
+    }
+   ]
+  },
+  {
+   "title": "Write, audit, publish",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Checks are useful only if a failure stops the publish. The pattern called **write-audit-publish** builds each version as a staged snapshot that no consumer can see, runs every check against it, and moves the catalogue's pointer from lesson P3 only if all of them pass. When a check fails, the pointer does not move and the consumers carry on with the last good version."
+    },
+    {
+     "type": "diagram",
+     "id": "validation-wap",
+     "caption": "Write, audit, publish: a version is built where nobody can read it, checked, and published only by moving the pointer."
+    },
+    {
+     "type": "text",
+     "text": "Records that fail an invariant check at ingestion are not dropped. They go to a **quarantine** table, the data equivalent of the dead-letter queue in lesson 17, with the check that rejected them, and they are counted. A count of quarantined records is itself checked: a source whose quarantine jumps from 50 records a night to 50,000 has broken something, even though every published record is valid."
+    },
+    {
+     "type": "text",
+     "text": "Blocking a publish has a cost: every consumer's data becomes a day older. The design states the trade-off explicitly. Each dataset has a freshness objective, such as \"never more than 48 hours old\", and a named owner who may force a publish past a failed check after looking at it, with the override and its reason recorded. A partial failure raises a second question: if one region fails and three pass, the pipeline can publish the three and keep the last good version of the fourth. That keeps most of the map fresh, but a version that mixes two days' data can break roads that cross the region boundary, so the release manifest records which regions are at which version and consumers that need consistency across regions can wait."
+    }
+   ]
+  },
+  {
+   "title": "A month of nights",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The workbench runs thirty nightly builds with five things going wrong: a truncated file, a unit misread, a region missing, a region slowly losing roads to a bug, and one legitimate change, a source adding a country. Each statistical check alarms when a region's numbers move further from its baseline than the threshold you set, measured in standard deviations of ordinary night-to-night variation. Find a set of checks and a threshold that stop every fault without a flood of false alarms."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "validation-bench",
+     "caption": "Thirty nightly builds, four faults and one legitimate change. Each check sees some faults; the threshold trades false alarms against how soon a slow drift is caught.",
+     "task": "Stop every fault, with at most one false alarm a month and no alarm for the declared change",
+     "goal": "guarded"
+    },
+    {
+     "type": "text",
+     "text": "No single check catches everything, and the threshold cannot be both low enough to see a slow drift early and high enough to be quiet on ordinary nights. A threshold of about 3 standard deviations, with a check against a fixed reference, sees the drift within the month at about one false alarm a month across four regions; a team that wanted to see the drift sooner would add a slower, more sensitive check that reports to a dashboard rather than blocking the publish."
+    }
+   ]
+  },
+  {
+   "title": "Data quality as service levels",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Lesson 24 measured a service with **service level indicators**: the share of requests answered, and answered quickly. A dataset has its own indicators. **Freshness** is how old the newest published version is. **Completeness** is the share of expected records that are present, by region and by source. **Correctness** is the share of records that are right, which can only be estimated, from the audits of lesson P2, from checks against independent sources, and from the error reports consumers file. Each gets an objective, an error budget and an alert, as service indicators do, and the owner of the dataset is paged when one is burning fast."
+    },
+    {
+     "type": "text",
+     "text": "Most of the failures of this lesson are failures of ownership as much as of code. The Covid spreadsheet had no owner who was responsible for the number of rows coming out matching the number going in. A data contract names that owner, the checks enforce the contract, and the indicators tell the owner how well the contract is being met."
+    }
+   ]
+  },
+  {
+   "title": "What others built",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Amazon's Deequ, described by Sebastian Schelter and colleagues in 2018, runs declared checks and computed statistics over very large tables on Apache Spark, keeps the history of each statistic, and flags a value that moves away from its history. Google's TensorFlow Data Validation, described by Eric Breck and colleagues in 2019, infers a schema from data, checks each new batch against it, and compares the distributions of training and serving data, with thresholds on the size of the difference rather than on significance.[^tfdv] Netflix described write-audit-publish for its data warehouse, built on the snapshots of Apache Iceberg: a job writes to a branch of the table, the audit runs against the branch, and publishing is a fast-forward of the main branch to it."
+    },
+    {
+     "type": "text",
+     "text": "Open-source tools such as Great Expectations and dbt's tests let teams write invariant checks as code beside their pipelines, and data catalogues record owners and contracts. The parts are standard; deciding which checks block a publish, what the thresholds are, and who may override them is the design."
+    }
+   ]
+  },
+  {
+   "title": "At ten and a hundred times",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**At ten times** (hundreds of tables, every region of the world), nobody can write each check by hand. The pipeline profiles each table's history and proposes checks and thresholds, which owners review and accept. Alerts are grouped by cause, because one broken source can fail dozens of downstream checks in one night, and the owner should get one alert, not forty."
+    },
+    {
+     "type": "text",
+     "text": "**At a hundred times**, the data contracts become the organisation's map of who depends on whom. Lineage from lesson P3 tells the pipeline which consumers a failed check affects, so the alert goes to them as well as to the producer, and a change to a contract is reviewed by its consumers like a change to an API. Blast radius matters as it did in lesson 23: publishing per region, with independent checks, means a bad source can hold back one region rather than the whole world."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Seven questions on checking data before it ships",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "A partner sends a daily file of 40,000 records. On one day an import step silently keeps only the first 30,000. Which check catches it on the first day?",
+        "choices": [
+         "A schema check that every field in each loaded record has the right type",
+         "A control total sent with the file, compared with the count actually loaded",
+         "A distribution check comparing the loaded records with a fixed reference version"
+        ],
+        "answer": 1,
+        "why": "Each of the 30,000 loaded records is valid, and their distribution may look normal. Only a count sent by the producer, compared with the count received, shows that records are missing."
+       },
+       {
+        "ask": "A region's road count falls by about 1% a night for three weeks because of a bug. A check compares each night's count with the average of the previous week, and never alarms. Why?",
+        "choices": [
+         "The baseline moves with the drift, so each night looks close to the recent nights before it",
+         "A 1% change is too small for any statistical check to detect at all",
+         "The check runs on the whole world, not on each region"
+        ],
+        "answer": 0,
+        "why": "A check against recent history adapts to normal change, and it adapts to slow faults too. A comparison with a fixed reference version does not adapt, so a slow drift eventually crosses its threshold."
+       },
+       {
+        "ask": "A source is about to add a new country, which will raise the place count by 8% overnight. How should the pipeline avoid a false alarm without weakening its checks?",
+        "choices": [
+         "Raise the volume threshold above 8% for every region, permanently",
+         "Let the source's owner declare the change in advance, with its expected effect, so the checks expect it",
+         "Switch the volume check off for the night of the change"
+        ],
+        "answer": 1,
+        "why": "Declaring the change keeps the checks as strict as before for everything else. Raising thresholds or switching checks off would also hide a real fault arriving the same night."
+       },
+       {
+        "ask": "An audit fails on tonight's build of the map. What do consumers see under write-audit-publish?",
+        "choices": [
+         "The new version, with the failing records removed",
+         "Nothing at all until the failure has been fixed and the build has passed",
+         "The last good version, because the pointer did not move"
+        ],
+        "answer": 2,
+        "why": "The build is written where no one can read it, and only a passing audit moves the pointer. Consumers keep the last good version: a day older, but right."
+       },
+       {
+        "ask": "One region of four fails its checks. The team publishes the other three and keeps the last good version of the fourth. What risk does that create?",
+        "choices": [
+         "None, because each region's data is independent of the others",
+         "Data that crosses the region boundary, such as roads, may not match between two days' versions",
+         "The three published regions will fail their checks again tomorrow"
+        ],
+        "answer": 1,
+        "why": "Partial publishing keeps most data fresh, but mixes versions. The manifest records which regions are at which version, so consumers that need consistency across regions can wait for a whole version."
+       },
+       {
+        "ask": "A model's accuracy drops slowly over a month, though every pipeline check passes. Investigation shows an upstream field was renamed and the feature pipeline has been filling in a default ever since. Which check would have caught it?",
+        "choices": [
+         "A check that the feature's values are not all the same, or empty",
+         "A check on the number of rows the feature pipeline produces each day",
+         "A schema check that the feature column exists and has the right type"
+        ],
+        "answer": 0,
+        "why": "The column exists, has the right type and the right number of rows, but every value is the default. A check on the feature's distribution, such as how many distinct values it has, catches a feature that has silently gone constant."
+       },
+       {
+        "ask": "A statistical check alarms whenever a region's numbers move beyond 2 standard deviations. Across four regions and two checks it raises about five false alarms a month. What is the likely long-term effect, and the fix?",
+        "choices": [
+         "People learn to override the alarm; raise the threshold to about 3 and add a separate, more sensitive check that reports without blocking",
+         "Nothing harmful, since a false alarm only costs a day's freshness; keep the threshold where it is",
+         "The data becomes more correct; lower the threshold further so even more is caught"
+        ],
+        "answer": 0,
+        "why": "Frequent false alarms train people to ignore or override them, which defeats the gate. A blocking check needs a threshold quiet on ordinary nights; earlier warnings can go to a dashboard."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Bad data fails silently.** A dataset with a region missing or a unit misread looks normal to every reader, so it must be checked before it is published.",
+  "**Write a data contract at every handoff.** Schema, meaning and units, freshness, volume and an owner, checked by the producer before it sends anything.",
+  "**Send a control total with every delivery.** A count and checksum compared on arrival catches lost records that every other check misses.",
+  "**Invariants per record, statistics per region.** Judge statistical checks by the size of a change, against recent history and a fixed reference, and let owners declare expected changes.",
+  "**Write, audit, publish.** Build where nobody can read, check, and move the pointer only on a pass; a failed audit leaves consumers on the last good version.",
+  "**Quarantine, don't drop.** Rejected records are kept, counted and visible, and the count itself is checked.",
+  "**Name the trade-offs.** A blocked publish is right but stale, so freshness has an objective and an owner who can override on the record; partial publishing mixes versions.",
+  "**Measure data like a service.** Freshness, completeness and correctness get objectives, budgets and alerts."
+ ],
+ "footnotes": {
+  "xls": {
+   "kind": "technical",
+   "title": "Why 65,536",
+   "text": "The XLS format used by Excel 97 to 2003 numbers rows with 16 bits, so a sheet holds 2¹⁶ = 65,536 rows. The XLSX format introduced with Excel 2007 holds 1,048,576. Public Health England moved to XLSX templates and split the work into smaller batches within days."
+  },
+  "tfdv": {
+   "kind": "technical",
+   "title": "Distances, not tests",
+   "text": "TensorFlow Data Validation compares two distributions of a categorical feature by the largest difference in the share of any one value (the L-infinity distance), and of a numeric feature by the Jensen-Shannon divergence. Both are measures of how different the distributions are, independent of how many records there are, so a threshold on them means the same thing for a table of a thousand rows and of a billion."
+  }
+ }
+}
