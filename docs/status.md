@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-11. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-17. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
@@ -19,7 +19,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Fungi](#fungi) | 0.3 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
-| [Systems at Scale](#systems) | 0.1 beta | 35 | 0 | 0 | 1 | 35 | 0 | 0 |
+| [Systems at Scale](#systems) | 0.1 beta | 35 | 6 | 0 | 1 | 35 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -38,7 +38,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Fungi | 0.3 beta | 2026-11-08 | no: 25 to fact-check, 24 awaiting photos |
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
-| Systems at Scale | 0.1 beta | 2026-11-09 | no: 1 to copy-edit, 35 to fact-check |
+| Systems at Scale | 0.1 beta | 2026-11-09 | no: 6 lessons to write, 1 to copy-edit, 35 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -527,6 +527,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | M2 | Finding the nearest car (`nearby`) | Maps and places | awaiting fact check |  | Cells and space-filling curves (geohash, quadtrees, S2, H3), a stream of location updates held in memory, and sharding by cell. |
 | M3 | Across a continent in a millisecond (`routing`) | Maps and places | awaiting fact check |  | Dijkstra and A*, contraction hierarchies, and customisable route planning: precomputing the network structure to re-weight roads quickly. |
 | M4 | Ninety-nine phones in a handcart (`traffic`) | Maps and places | awaiting fact check |  | Turning phone positions into road speeds, map matching, windowing, privacy and spoofing, and predicting arrival times. |
+| M5 | When the world changes (`changes`) | Maps and places | planned, listed as coming |  | Change detection: observations against a reference map, independent evidence, triage by risk, human review tiers, and safe publishing and rollback. |
 | D1 | Saying no politely (`limiter`) | Design studio | awaiting fact check |  | Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits. |
 | D2 | Half a billion people, a few dozen engineers (`chat`) | Design studio | awaiting fact check |  | A chat service: long-lived connections, delivery and read receipts, ordering in a conversation, message storage, presence and push. |
 | D3 | From crawl to suggestion (`search`) | Design studio | awaiting fact check |  | A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type. |
@@ -534,6 +535,11 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | D5 | More data than the network can carry (`sensors`) | Design studio | awaiting fact check |  | Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue. |
 | D6 | Every night, all of history again (`replay`) | Design studio | awaiting fact check |  | Deterministic replay, a job scheduler with leases and retries, a million tasks on a shared cluster (Borg), preemptible capacity, versioned datasets, and comparing results. |
 | D7 | One update, 8.5 million screens (`rollout`) | Design studio | awaiting fact check |  | Shipping software and data to a fleet: staged rollouts behind health gates, A/B partitions that fall back, signed updates (TUF and Uptane), deltas and offline devices, compatible versions, and watching fleet health. |
+| P1 | Is the new model better? (`evals`) | Data and evaluation pipelines | planned, listed as coming |  | An evaluation pipeline that gates model releases: held-out and golden sets, slices, paired comparisons and noise, leaks between training and evaluation, and the gates from offline to shadow. |
+| P2 | A million labels, and which are wrong (`labels`) | Data and evaluation pipelines | planned, listed as coming |  | A labeling platform: the label record, guidelines and their versions, overlap and agreement, gold questions and audits, model pre-labels, and active learning. |
+| P3 | A dataset everyone builds on (`datasets`) | Data and evaluation pipelines | planned, listed as coming |  | A versioned dataset from many sources: conflation and stable IDs, immutable versions and deltas, pinned consumers, lineage, deletion, and incremental updates checked by full rebuilds. |
+| P4 | The numbers that quietly went wrong (`validation`) | Data and evaluation pipelines | planned, listed as coming |  | Checking data before it is published: contracts and control totals, invariant and statistical checks, quarantine, write-audit-publish, and data SLIs. |
+| P5 | Training and serving from the same facts (`features`) | Data and evaluation pipelines | planned, listed as coming |  | Feature stores: training and serving skew, point-in-time joins on availability time, offline and online stores, and logging against backfilling. |
 
 ## Not started
 

@@ -42,6 +42,7 @@ const COMING: SystemsLesson[] = [
   coming('nearby', 102, 'Finding the nearest car', 'Cells and space-filling curves (geohash, quadtrees, S2, H3), a stream of location updates held in memory, and sharding by cell', { branch: 'maps', needs: ['tiles', 'bigtable', 'dynamo'] }),
   coming('routing', 103, 'Across a continent in a millisecond', 'Dijkstra and A*, contraction hierarchies, and customisable route planning: precompute the structure, re-weight the roads fast', { branch: 'maps', needs: ['nearby', 'mapreduce'] }),
   coming('traffic', 104, 'Ninety-nine phones in a handcart', 'Turning phones\' positions into road speeds, map matching, windows, privacy and spoofing, and predicting arrival times', { branch: 'maps', needs: ['routing', 'streams'] }),
+  coming('changes', 105, 'When the world changes', 'Change detection: observations against a reference map, independent evidence, triage by risk, human review tiers, and safe publishing and rollback', { branch: 'maps', needs: ['traffic', 'labels', 'validation'], betterAfter: ['rollout'] }),
   coming('limiter', 201, 'Saying no politely', 'Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits', { branch: 'studio', needs: ['memcached', 'chaos'] }),
   coming('chat', 202, 'Half a billion people, a few dozen engineers', 'A chat service: long-lived connections, delivery and read receipts, ordering in a conversation, message storage, presence and push', { branch: 'studio', needs: ['kafka', 'fanout', 'conflicts'] }),
   coming('search', 203, 'From crawl to suggestion', 'A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type', { branch: 'studio', needs: ['mapreduce', 'tail', 'bigtable'] }),
@@ -49,12 +50,18 @@ const COMING: SystemsLesson[] = [
   coming('sensors', 205, 'More data than the network can carry', 'Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue', { branch: 'studio', needs: ['chunks', 'kafka', 'edge'] }),
   coming('replay', 206, 'Every night, all of history again', 'Deterministic replay, a million jobs on a cluster scheduler (Borg), preemptible capacity, and comparing results', { branch: 'studio', needs: ['mapreduce', 'chubby'] }),
   coming('rollout', 207, 'One update, 8.5 million screens', 'Shipping software and data to a fleet: staged rollouts, canaries and automatic rollback, A/B partitions, signed updates, offline devices, fleet health', { branch: 'studio', needs: ['outage', 'slo'] }),
+  coming('evals', 301, 'Is the new model better?', 'An evaluation pipeline that gates model releases: held-out and golden sets, slices, paired comparisons and noise, leaks between training and evaluation, and the gates from offline to shadow', { branch: 'data', needs: ['streams', 'tail'], betterAfter: ['replay'] }),
+  coming('labels', 302, 'A million labels, and which are wrong', 'A labeling platform: the label record, guidelines and their versions, overlap and agreement, gold questions and audits, model pre-labels, and active learning', { branch: 'data', needs: ['evals'] }),
+  coming('datasets', 303, 'A dataset everyone builds on', 'A versioned dataset from many sources: conflation and stable IDs, immutable versions and deltas, pinned consumers, lineage, deletion, and incremental updates checked by full rebuilds', { branch: 'data', needs: ['labels', 'mapreduce', 'chubby'] }),
+  coming('validation', 304, 'The numbers that quietly went wrong', 'Checking data before it is published: contracts and control totals, invariant and statistical checks, quarantine, write-audit-publish, and data SLIs', { branch: 'data', needs: ['datasets', 'chaos'], betterAfter: ['slo'] }),
+  coming('features', 305, 'Training and serving from the same facts', 'Feature stores: training and serving skew, point-in-time joins on availability time, offline and online stores, and logging against backfilling', { branch: 'data', needs: ['datasets', 'bigtable'] }),
 ];
 
-/** The branches: maps and places, and the design studio. */
+/** The branches: maps and places, the design studio, and data and evaluation pipelines. */
 export const BRANCHES: TreeBranch[] = [
   { id: 'maps', title: 'Maps and places', promise: 'Map tiles, the nearest car, routes across a continent and traffic from phones', from: 'edge', color: 'var(--teal)', prefix: 'M' },
   { id: 'studio', title: 'Design studio', promise: 'Whole designs from a blank page, then how a real team did it', from: 'chaos', color: 'var(--sun)', prefix: 'D' },
+  { id: 'data', title: 'Data and evaluation pipelines', promise: 'Whether a new model is better, labels you can trust, one dataset many teams build on, and catching bad data before it ships', from: 'streams', color: 'var(--rose)', prefix: 'P' },
 ];
 
 /** How many lessons the trunk has: "Lesson 3 of 24". */
