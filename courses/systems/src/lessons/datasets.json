@@ -23,7 +23,7 @@
         },
         {
           "type": "text",
-          "text": "In this lesson, we will design a dataset that many teams build on in a way that can answer those questions: what exactly a team used, where each record came from, and how to remove something from every version that holds it. Our dataset is the fleet's world map, the roads, places and buildings that the routing, search, rendering and machine-learning teams all depend on, built from several sources and published every day."
+          "text": "In this lesson, we will design a dataset that many teams build on in a way that can answer those questions: what exactly a team used, where each record came from, and how to remove something from every version that holds it. Our dataset is the world map used by the survey fleet of lesson D5, a thousand vehicles with cameras that record the roads they drive: the roads, places and buildings that the routing, search, rendering and machine-learning teams all depend on, built from several sources and published every day."
         }
       ]
     },
@@ -36,7 +36,7 @@
         },
         {
           "type": "text",
-          "text": "**Non-functional.** A change in a source should reach a published version within a few hours. A published version must never change. A rollback must take seconds."
+          "text": "**Non-functional.** A change in a source should reach the next daily version. A published version must never change. A rollback must take seconds."
         },
         {
           "type": "text",
@@ -58,7 +58,7 @@
         },
         {
           "type": "text",
-          "text": "Downstream teams store these IDs: the search index, the routing graph, saved places in users' accounts, training examples that mention a place. So the ID must be **stable**: the same café keeps the same ID in every version, even though the pipeline rebuilds the match every day. The pipeline keeps an **ID registry**, a table from each ID to the source records it was last matched with, and new matches look up the registry before minting a new ID. Three rules cover the hard cases. An ID is never reused for a different thing. When two things turn out to be one, one ID is retired with a \"replaced by\" pointer to the other. When one thing turns out to be two, the old ID stays with the larger part and the other gets a new ID, with the split recorded. Consumers read a changelog of retired and replaced IDs with each version."
+          "text": "Downstream teams store these IDs: the search index, the routing graph, saved places in users' accounts, training examples that mention a place. So the ID must be **stable**: the same café keeps the same ID in every version, even though the pipeline rebuilds the match every day. The pipeline keeps an **ID registry**, a table from each ID to the source records it was last matched with, and new matches look up the registry before creating, or minting, a new ID. Three rules cover the hard cases. An ID is never reused for a different thing. When two things turn out to be one, one ID is retired with a \"replaced by\" pointer to the other. When one thing turns out to be two, the old ID stays with the larger part and the other gets a new ID, with the split recorded. Consumers read a changelog of retired and replaced IDs with each version."
         }
       ]
     },
@@ -84,11 +84,11 @@
         },
         {
           "type": "text",
-          "text": "Consumers **pin** a version. The routing team builds its graph from 2026-11-17 and keeps using it until its own tests pass on a newer one; the rendering team may move sooner. A consumer that wants only what changed reads a **delta**, the records added, changed and removed between two versions. Each delta names the version it starts from and the version it produces, so a consumer that missed one notices the gap, and checks that applying the delta to its pinned version produces the next one, by comparing counts and a checksum published with each version. The pipeline keeps old versions for a fixed period, say 90 days, and then deletes the files that no remaining manifest lists, sparing any files that a staged build, not yet published, has already written."
+          "text": "Consumers **pin** a version. The routing team builds its graph from 2026-11-17 and keeps using it until its own tests pass on a newer one; the rendering team may move sooner. A consumer that wants only what changed reads a **delta**, the records added, changed and removed between two versions. Each delta names the version it starts from and the version it produces, so a consumer that missed one notices the gap, and checks that applying the delta to its pinned version produces the next one, by comparing counts and a checksum published with each version. The pipeline keeps old versions for a fixed period, say 90 days, so a consumer must move off a version before it expires, and the catalogue warns teams whose pinned version is within two weeks of expiry. The pipeline then deletes the files that no remaining manifest lists, sparing any files that a staged build, not yet published, has already written."
         },
         {
           "type": "text",
-          "text": "The manifest also carries **lineage**: the exact input snapshots and code that produced the version. Lineage works in both directions. Backwards, it answers where a wrong speed limit came from: which source record, which input snapshot, which build. Forwards, it answers what must be rebuilt when an input turns out to be wrong: every version, and every downstream dataset or model, whose lineage includes it. Lineage per table or per file, rather than per record, is small enough to store for years, and it finds the snapshot and the build. Finding the exact source record needs the second half of the design: each record carries, for each attribute, the source record it came from, as the conflation step recorded it."
+          "text": "The manifest also carries **lineage**: the exact input snapshots and code that produced the version. Lineage works in both directions. Backwards, it answers where a wrong speed limit came from: which input snapshot and which build, and, with the per-attribute sources described below, which source record. Forwards, it answers what must be rebuilt when an input turns out to be wrong: every version, and every downstream dataset or model, whose lineage includes it. Lineage per table or per file, rather than per record, is small enough to store for years, and it finds the snapshot and the build. Finding the exact source record needs the second half of the design: each record carries, for each attribute, the source record it came from, as the conflation step recorded it."
         }
       ]
     },
@@ -101,7 +101,7 @@
         },
         {
           "type": "text",
-          "text": "The second is a **backfill**: rebuilding past versions with new code, because a bug is fixed or a new attribute is added. A backfill produces new versions alongside the old ones; it never edits a published version. Each backfill job writes whole partitions, a region at a time, so a backfill that fails halfway can be run again without leaving duplicates, the idempotence that lesson D6's tasks depend on."
+          "text": "The second is a **backfill**: rebuilding past versions with new code, because a bug is fixed or a new attribute is added. A backfill produces new versions alongside the old ones; it never edits a published version. Each backfill job writes whole partitions, one region's files at a time, so a backfill that fails halfway can be run again without leaving duplicates, the idempotence (running a task twice gives the same result as running it once) that lesson D6's tasks depend on."
         },
         {
           "type": "text",
@@ -114,11 +114,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Each day's version can be produced in two ways. An **incremental** build applies the day's changes from each source to yesterday's version. It is fast and cheap, a few hours on a small cluster, but it depends on yesterday's version being right. A bug that loses one update in a thousand is never corrected, because nothing ever looks at that record again. A **full rebuild** runs every source from scratch through the whole pipeline, as a MapReduce job (lesson 8) over everything. It starts from no carried-over state, so it is free of the errors that accumulate in yesterday's version, such as a lost update or an update applied out of order, but it takes a day or more and uses roughly a hundred times the compute."
+          "text": "Each day's version can be produced in two ways. An **incremental** build applies the day's changes from each source to yesterday's version. It is fast and cheap, a few hours on a small cluster, but it depends on yesterday's version being right. A bug that loses one update in a thousand is never corrected, because nothing ever looks at that record again. A **full rebuild** runs every source from scratch through the whole pipeline, as a MapReduce job (lesson 8) over everything. It starts from none of yesterday's built tables, so it is free of the errors that accumulate in yesterday's version, such as a lost update or an update applied out of order, but it takes a day or more and, as an estimate for a map of our size, roughly a hundred times the compute."
         },
         {
           "type": "text",
-          "text": "The common answer is to use both. The daily version is built incrementally. Separately, a **rolling rebuild** rebuilds one region from scratch each day, and the pipeline compares, or diffs, the rebuilt region against the incremental version of it. A difference larger than an agreed tolerance means one of the two is wrong, and it is almost always the incremental job. For the diff to mean anything, the rebuild must read the same pinned input snapshots as the incremental build, and the same ID registry, suppression list and log of manual edits, because a rebuild that minted fresh IDs or dropped a moderator's correction would differ everywhere. The rebuild must also be deterministic, with sorted inputs and a pinned matching model, or the diff would never be quiet. When the two differ, an engineer reviews a per-attribute diff, and the rebuild's result usually wins, shipping as an ordinary new version through the checks of lesson P4. The rebuild shares the matching model and the conflation code with the incremental build, so a bug in that shared code makes both wrong in the same way and the diff stays quiet. Those bugs are found by the checks of lesson P4 and by audits against ground truth, not by the rebuild."
+          "text": "The common answer is to use both. The daily version is built incrementally. Separately, a **rolling rebuild** rebuilds one region from scratch each day, and the pipeline compares, or diffs, the rebuilt region against the incremental version of it. A difference larger than an agreed tolerance means one of the two is wrong, and it is usually the incremental job, because only the incremental job carries its results forward from one day to the next. For the diff to mean anything, the rebuild must read the same pinned input snapshots as the incremental build, and the same ID registry, suppression list and log of manual edits (corrections people have made by hand), because a rebuild that minted fresh IDs or dropped a moderator's correction would differ everywhere. The rebuild must also be deterministic, with sorted inputs and a pinned matching model, or the diff would never be quiet. When the two differ, an engineer reviews a per-attribute diff, and the rebuild's result usually wins, shipping as an ordinary new version through the checks of lesson P4. The rebuild shares the matching model and the conflation code with the incremental build, so a bug in that shared code makes both wrong in the same way and the diff stays quiet. Those bugs are found by the checks of lesson P4 and by audits against ground truth, what people find when they check the real world, not by the rebuild. The registry, suppression list and edit log are shared state too, so they are append-only and have checks of their own, such as no ID pointing at two live things."
         },
         {
           "type": "interactive_diagram",
@@ -138,7 +138,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Overture Maps Foundation, founded in December 2022 by Amazon Web Services, Meta, Microsoft and TomTom, publishes an open map built by conflating OpenStreetMap with data from its members and others. Its first release came in July 2023. It announced its Global Entity Reference System, GERS, the same year: each feature gets an ID intended to stay the same across releases, and from June 2024 each monthly release came with a changelog of the IDs added, removed and changed. GERS was declared generally available in June 2025, in a release that replaced every earlier ID.[^overture] OpenStreetMap itself publishes a full copy of its database weekly, the planet file, and a stream of changes every minute, so consumers can either load a snapshot or apply deltas to keep one current."
+          "text": "The Overture Maps Foundation, founded in December 2022 by Amazon Web Services, Meta, Microsoft and TomTom, publishes an open map built by conflating OpenStreetMap with data from its members and others. Its first release came in July 2023. It announced its Global Entity Reference System, GERS, the same year: each feature gets an ID intended to stay the same across releases, and from June 2024 each monthly release came with a changelog of the IDs added, removed and changed. GERS was declared generally available in June 2025, in a release that replaced every earlier ID.[^overture] That reset broke every stored reference to an old ID, the case this lesson's registry and replaced-by records exist to avoid. OpenStreetMap itself publishes a full copy of its database weekly, the planet file, and a stream of changes every minute, so consumers can either load a snapshot or apply deltas to keep one current."
         },
         {
           "type": "text",
@@ -170,7 +170,7 @@
           "options": {
             "items": [
               {
-                "ask": "The routing team built its graph from yesterday's map version, and today's version has a bad batch of speed limits. What should happen?",
+                "ask": "The routing team built its graph from yesterday's map version, the rendering team reads whatever the pointer names, and today's version has a bad batch of speed limits. What should happen?",
                 "choices": [
                   "Fix the speed limits in today's version in place, so every team sees the corrected values at once",
                   "Publish a corrected version today, and ask the routing team to rebuild from it at once",
@@ -184,7 +184,7 @@
                 "choices": [
                   "Every stored reference to a place, in saved places, routing graphs and training data",
                   "Only search, which can rebuild its index from the new version overnight",
-                  "Only the delta files, because they compare versions by ID and would show every record as changed"
+                  "Only the ID registry itself, which nothing outside the pipeline reads"
                 ],
                 "answer": 0,
                 "why": "Other teams store the IDs. A rebuild must read the ID registry and carry IDs over; new IDs are minted only for new things, and merged or split things are recorded with replaced-by pointers."
@@ -207,10 +207,10 @@
                   "A tombstone, plus a logged rewrite of retained versions that contain it"
                 ],
                 "answer": 2,
-                "why": "Deletion pulls against immutability. A tombstone in a suppression list covers new versions, whichever build makes them; retained versions must be rewritten as a recorded exception, because deleting whole versions would break every consumer pinned to them. Keeping retention short and provenance per attribute makes this practical."
+                "why": "Deletion pulls against immutability. A tombstone in a suppression list covers new versions, whichever build makes them; retained versions must be rewritten, the one recorded exception to the rule that a published version never changes. Consumers see new file names and a new manifest for each rewritten version, with a deletion notice, while deleting whole versions would break every consumer pinned to them. Keeping retention short and provenance per attribute makes this practical."
               },
               {
-                "ask": "A wrong speed limit appears in a navigation app. Which piece of the design lets an engineer find the source record and build that produced it?",
+                "ask": "A wrong speed limit appears in a navigation app. Which parts of the design let an engineer find the source record and build that produced it?",
                 "choices": [
                   "Lineage in the version's manifest: the input snapshots and code commit that built it, with per-attribute sources",
                   "The delta files, which list everything that changed between two versions",
@@ -227,7 +227,7 @@
                   "Backfill the past 90 days of versions with the new categories, so history agrees"
                 ],
                 "answer": 1,
-                "why": "Narrowing what `restaurant` means changes the field's meaning under every consumer who counts or filters by it, and backfilling would also edit what pinned consumers already read. A new field with a new name, and a deprecation period for the old one, lets every consumer move when ready."
+                "why": "Narrowing what `restaurant` means changes the field's meaning under every consumer who counts or filters by it, and a backfill would write new versions in which `restaurant` already means something different, so consumers comparing old and new counts would see a drop with no cause. A new field with a new name, and a deprecation period for the old one, lets every consumer move when ready."
               },
               {
                 "ask": "Two builds finish within a second of each other, and both try to publish. What keeps the catalogue consistent?",

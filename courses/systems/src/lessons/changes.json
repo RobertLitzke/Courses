@@ -18,11 +18,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On 30 August 2018, people using Snapchat, the Citi Bike app, the property site StreetEasy and other apps saw New York City labelled on their maps with an antisemitic slur. All of the apps drew their maps from Mapbox, a company that supplies map data and map rendering to thousands of applications, and Mapbox's data draws on several sources, including OpenStreetMap, which anyone can edit. The label was live for about four hours, and Mapbox removed it within an hour of a customer reporting it. The same day its chief executive, Eric Gundersen, said the name had been changed by a vandal.[^mapbox]"
+          "text": "On 30 August 2018, people using Snapchat, the Citi Bike app, the property site StreetEasy and other apps saw New York City labelled on their maps with an antisemitic slur. All of the apps drew their maps from Mapbox, a company that supplies map data and map rendering to thousands of applications, and Mapbox's data draws on several sources, including OpenStreetMap, which anyone can edit. The label was live for about four hours, and Mapbox removed it within an hour of a customer reporting it. The same day its chief executive, Eric Gundersen, said the name had been changed by a vandal. Mapbox said the edit came in through one of its data sources; it did not say which, and Gundersen cautioned against blaming OpenStreetMap's volunteers.[^mapbox]"
         },
         {
           "type": "text",
-          "text": "Mapbox's own account explained how the edit got through. Its review tool had marked the edit as significant, because it changed a major feature, and sent it to a person. That person was one of the reviewers working through more than 70,000 flagged changes a day, and approved it, and the decision reached every map that showed New York. Mapbox's changes afterwards included redundant review, so that one person could not be a single point of failure, and weighting each change by how much it would affect customers."
+          "text": "Mapbox's own account explained how the edit got through. Its review tool had marked the edit as significant, because it changed a major feature, and sent it to a person. That person was one of the reviewers who together worked through more than 70,000 flagged changes a day, and approved it, and the decision reached every map that showed New York. Mapbox's changes afterwards included redundant review, so that one person could not be a single point of failure, and weighting each change by how much it would affect customers."
         },
         {
           "type": "text",
@@ -56,7 +56,7 @@
         },
         {
           "type": "text",
-          "text": "Confidence comes from **independent** observations that agree. Two cameras on different vehicles on different days reading the same sign count for much more than two readings from one vehicle a second apart, which share the same lighting, the same lens and the same misreading. Ten reports from one account count once. Observations that share a source, such as a vehicle, an account or a device, are grouped and counted as one, the same group leakage that lesson P1 guarded against when splitting evaluation data, and the spoofed phones of lesson M4 are the reason to check. Time matters only within one source. A real closure makes many independent vehicles detour at the same time, which is strong evidence, while ten readings from one vehicle in a minute are one. Cameras that run the same detector model also share its systematic misreadings, so agreement among vehicles on one software version counts for less than the number of vehicles suggests. An account's record counts too: a report from an account whose past reports were usually right starts with more confidence than one from an account created yesterday. The system combines the independent evidence for each proposed change into a confidence score, and lesson P2's calibration rule applies: among changes scored at 95%, about 95% should turn out to be real, checked on a sample that people verify."
+          "text": "Confidence comes from **independent** observations that agree. Two cameras on different vehicles on different days reading the same sign count for much more than two readings from one vehicle a second apart, which share the same lighting, the same lens and the same misreading. Ten reports from one account count once. Observations that share a source, such as a vehicle, an account or a device, are grouped and counted as one, the same group leakage that lesson P1 guarded against when splitting evaluation data, and the spoofed phones of lesson M4, which sent fake positions to fake a traffic jam, are the reason to check. Within one source, more observations in a short time add almost nothing: ten readings from one vehicle in a minute are one. Across independent sources, agreement at the same time is strong evidence, as when a real closure makes many vehicles detour at once. Cameras that run the same detector model also share its systematic misreadings, so agreement among vehicles on one software version counts for less than the number of vehicles suggests. An account's record counts too: a report from an account whose past reports were usually right starts with more confidence than one from an account created yesterday. The system combines the independent evidence for each proposed change into a confidence score, and lesson P2's calibration rule applies: among changes scored at 95%, about 95% should turn out to be real, checked on a sample that people verify."
         }
       ]
     },
@@ -65,11 +65,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Confidence is one axis; the other is the cost of being wrong. A wrong change costs roughly in proportion to how many people it reaches and how much harm it does to each. A shop's moved entrance is seen by a few hundred people and costs each of them a short walk. A banned turn affects thousands of routes. A closed motorway, or a city's name, is seen by millions. The system assigns each change a **risk tier** from its kind and the **prominence** of the place, measured by how often that part of the map is viewed or routed through."
+          "text": "Confidence is one axis; the other is the cost of being wrong. A wrong change costs roughly in proportion to how many people it reaches and how much harm it does to each. A shop's moved entrance is seen by a few hundred people and costs each of them a short walk. A banned turn changes the routes of thousands of drivers. A closed motorway, or a city's name, is seen by millions. The system assigns each change a **risk tier** from its kind and the **prominence** of the place, measured by how often that part of the map is viewed or routed through. Each kind of change has a base tier, a shop low, a road rule medium, a closure or a place name high, and a change on a very prominent place moves up one tier, so a renamed shop in Times Square is reviewed like a banned turn."
         },
         {
           "type": "text",
-          "text": "Each tier gets its own path. Low-risk changes with high confidence publish automatically. Everything else goes to people, and the highest tier, the names of cities and countries, closures of major roads, anything on the most viewed parts of the map, needs **two reviewers** who decide independently, so one person's slip cannot reach millions of screens. The reviewers work in a queue with the same leases and qualifications as the labellers in lesson P2. A reviewer clears about 400 changes a day. Their capacity is fixed, and the confidence threshold for automatic publishing decides how much work reaches them."
+          "text": "Each tier gets its own path. Low-risk changes with high confidence publish automatically. Everything else goes to people. The middle tier gets one reviewer, and the highest tier, the names of cities and countries, closures of major roads, anything on the most viewed parts of the map, needs **two reviewers** who decide independently, so one person's slip cannot reach millions of screens. The reviewers work in a queue with the same leases and qualifications as the labellers in lesson P2. A reviewer clears about 400 changes a day, so 10,000 proposed changes a day with none published automatically would take 25 reviewers. The team's capacity is fixed on any given day, and the confidence threshold for automatic publishing decides how much work reaches them."
         },
         {
           "type": "interactive_diagram",
@@ -80,7 +80,7 @@
         },
         {
           "type": "text",
-          "text": "The queue behaves like the server of lesson 2. Reviewers take the highest-risk and most urgent changes first, so when reviews arrive faster than reviewers can do them, the overload shows first as low-risk changes waiting longer and longer, and then, once the priority work alone exceeds capacity, as closures slipping too. A new change waits about the queue length divided by the rate of review; in a stable queue, Little's law relates the average queue length and the average wait in the same way. A higher bar for automatic publishing makes each automatic change safer and sends more work to people, so beyond some point it makes the system worse, because the queue grows every day and every change waits longer. In our figures, most of the wrong data that reaches users comes from the middle tier. The low tier reaches few people and the high tier gets two reviewers, while the middle tier has neither protection and is common enough to add up."
+          "text": "The queue behaves like the server of lesson 2. Reviewers take the highest-risk and most urgent changes first, so when reviews arrive faster than reviewers can do them, the overload shows first as low-risk changes waiting longer and longer, and then, once the priority work alone exceeds capacity, as closures slipping too. A new change waits about the queue length divided by the rate of review: 2,000 changes waiting for reviewers who clear 4,000 a day is half a day. In a stable queue, Little's law (queue length equals arrival rate times average wait) gives the same relation between the averages. A higher bar for automatic publishing makes each automatic change safer and sends more work to people, so beyond some point it makes the system worse: once more changes reach people each day than they can clear, the queue grows every day and every change waits longer. In a model with the figure's rates, most of the wrong data that reaches users comes from the middle tier. The low tier reaches few people and the high tier gets two reviewers, while the middle tier has neither protection and is common enough to add up."
         }
       ]
     },
@@ -89,7 +89,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Accepted changes do not go straight into the map. They are applied to the next version through the pipeline of lesson P3 and pass through the checks of lesson P4 before the pointer moves, so a change that would, for example, disconnect a motorway from the rest of the road graph is caught even after a person approved it. Urgent changes, such as a closure for a fire, can be published to the routing service's live overlay within minutes and folded into the next full version later. An urgent closure that no further evidence confirms expires from the overlay after a set time, so a false report cannot close a road indefinitely."
+          "text": "Accepted changes do not go straight into the map. They are applied to the next version through the pipeline of lesson P3 and pass through the checks of lesson P4 before the pointer moves, so a change that would, for example, disconnect a motorway from the rest of the road graph (the roads as links between junctions) is caught even after a person approved it. Urgent changes, such as a closure for a fire reported by the fire service or confirmed by many vehicles, can be published after one reviewer's approval to the routing service's live overlay, a small layer of temporary changes applied on top of the published map, within minutes, and folded into the next full version later. An urgent closure that no further evidence confirms expires from the overlay after a set time, so a false report cannot close a road indefinitely."
         },
         {
           "type": "text",
@@ -97,7 +97,7 @@
         },
         {
           "type": "text",
-          "text": "The system also watches its own outcome. Users' error reports, routes that people stop following, and later fleet observations that contradict a published change are all evidence that a change was wrong. Each wrong change that got through is traced back to the tier and the decision that let it through, and the thresholds are adjusted, as an error budget would be spent and replenished in lesson 24."
+          "text": "The system also watches its own outcome. Users' error reports, routes that people stop following, and later fleet observations that contradict a published change are all evidence that a change was wrong. Each wrong change that got through is traced back to the tier and the decision that let it through, and the thresholds are adjusted, the way an error budget is managed in lesson 24: each wrong change uses some of a tier's allowance, and a tier that overspends gets a stricter threshold."
         }
       ]
     },
@@ -138,10 +138,10 @@
           "options": {
             "items": [
               {
-                "ask": "A proposed change renames a capital city. The automated checks flag it, and one reviewer approves it. Which design change most directly prevents a repeat?",
+                "ask": "A proposed change renames a capital city. The automated checks flag it as significant, because it touches a major feature, and one reviewer approves it. Which design change most directly prevents a repeat?",
                 "choices": [
                   "Lowering the confidence threshold for automatic publishing in every tier",
-                  "Adding a second automated check that compares new names with a list of offensive terms",
+                  "A second automated check that compares new names with a list of known offensive terms",
                   "Requiring two independent reviewers for changes to the most prominent names and roads"
                 ],
                 "answer": 2,
@@ -165,7 +165,7 @@
                   "Road closures are always published automatically, and the higher bar now blocks them"
                 ],
                 "answer": 1,
-                "why": "Every change that fails the automatic bar becomes work for the fixed pool of reviewers. When arrivals exceed capacity the queue grows each day, and a new change waits about the queue length divided by the review rate. A queue ordered by risk would delay the shops first, but only until priority work alone exceeds capacity."
+                "why": "Every change that fails the automatic bar becomes work for the fixed pool of reviewers. When arrivals exceed capacity the queue grows each day, and a new change waits about the queue length divided by the review rate. "
               },
               {
                 "ask": "What should decide a change's risk tier?",
@@ -178,10 +178,10 @@
                 "why": "Risk is the cost of being wrong, which grows with how many people a change reaches and how much it affects them. Confidence is a separate axis."
               },
               {
-                "ask": "A reviewer approves a change that would cut a motorway off from the rest of the road network. How can the system still catch it?",
+                "ask": "A change to a junction's turn rules is placed, correctly, in the middle tier, and one reviewer approves it. Applied to the map, it would cut a motorway off from the rest of the road network. How can the system still catch it?",
                 "choices": [
-                  "A second reviewer for every motorway change",
-                  "A rule that motorway changes publish only after a week",
+                  "A second reviewer for every turn-rule change",
+                  "A rule that turn changes publish only after a week",
                   "Approved changes go into the next version and through the publish checks, which test whole-graph invariants such as connectivity"
                 ],
                 "answer": 2,
@@ -198,7 +198,7 @@
                 "why": "Provenance on each change makes rollback by source possible. Rolling back the whole map would also undo a month of real changes, and a higher threshold protects only future changes."
               },
               {
-                "ask": "In the workbench, most of the wrong data reaching users comes from the medium tier. What is the reason?",
+                "ask": "In the figure, most of the wrong data reaching users comes from the medium tier. What is the reason?",
                 "choices": [
                   "Medium-tier changes are common enough to add up and prominent enough to matter, but too many to review twice",
                   "Medium-tier changes are reviewed by less experienced people",

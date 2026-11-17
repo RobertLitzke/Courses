@@ -21,7 +21,7 @@
         },
         {
           "type": "text",
-          "text": "The commercial laboratories sent their results as CSV files, plain text with one line per record. Part of the process that collected them loaded each file into a Microsoft Excel template in the older XLS format, which holds at most 65,536 rows. Each test result took up several rows, so a template could hold only about 1,400 cases, and when a file had more, the rows beyond the limit were dropped without any error.[^xls] The people tested had been told their results; what was delayed was the national count and the tracing of their contacts. Nothing in the process compared the number of results a laboratory had sent with the number that arrived."
+          "text": "The commercial laboratories sent their results as CSV files, plain text with one line per record. Part of the process that collected them loaded each file into a Microsoft Excel template in the older XLS format, which holds at most 65,536 rows. Each case took up many rows, so a template could hold only about 1,400 cases, and when a file had more, the rows beyond the limit were dropped without any error.[^xls] The people tested had been told their results; what was delayed was the national count and the tracing of their contacts. Nothing in the process compared the number of results a laboratory had sent with the number that arrived."
         },
         {
           "type": "text",
@@ -29,7 +29,7 @@
         },
         {
           "type": "text",
-          "text": "In this lesson, we will design the checks that stand between a nightly build of the fleet's world map, from lesson P3, and the dozen teams that read it. A wrong version is worse than a late one. A broken service fails loudly and someone is paged, but a dataset with a region missing or a unit misread looks normal to every system that reads it, and the error spreads into routing graphs, search results and training data before anyone notices."
+          "text": "In this lesson, we will design the checks that stand between a nightly build of the world map from lesson P3 and the teams that read it, such as routing, search, rendering and machine learning. A wrong version is worse than a late one. A broken service fails loudly and someone is paged, but a dataset with a region missing or a unit misread looks normal to every system that reads it, and the error spreads into routing graphs, search results and training data before anyone notices."
         }
       ]
     },
@@ -42,7 +42,7 @@
         },
         {
           "type": "text",
-          "text": "**Non-functional.** A check must run in minutes, so that a nightly publish is not delayed by hours. False alarms must be rare, a few a month at most, or people will learn to override them. The time from a problem in a source to the right person hearing about it should be under an hour."
+          "text": "**Non-functional.** A check must run in minutes, so that a nightly publish is not delayed by hours. False alarms must be rare, about one a month at most, or people will learn to override them. The time from a problem in a source to the right person hearing about it should be under an hour."
         },
         {
           "type": "text",
@@ -59,7 +59,7 @@
         },
         {
           "type": "text",
-          "text": "The contract should also require a **control total** with every delivery: the number of records, and a checksum computed over them, sent separately from the data itself. The receiver counts what it actually loaded and compares. Banks have reconciled batches this way for decades, and it is the single check that would have caught the Covid case on its first day, with about 1,400 cases loaded from a file that held several thousand. The receiver also checks that every expected delivery arrived at all, since a file that never comes has no control total to compare."
+          "text": "The contract should also require a **control total** with every delivery: the number of records, and a checksum computed over them, sent separately from the data itself. The receiver counts what it actually loaded and compares. It is the single check that would have caught the Covid case on its first day, with about 1,400 cases loaded from a file that held several thousand. The receiver also checks that every expected delivery arrived, and treats a file without its total, or a total without its file, as a failed delivery."
         }
       ]
     },
@@ -68,15 +68,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Checks fall into two kinds. **Invariant checks** test rules that must always hold, and the data either passes or fails. Some apply to each record on its own: every field has the right type, a speed limit is between 5 and 140 km/h or marked as having none, every place is inside some country. These are cheap and exact, and they run at ingestion, on each source as it arrives. Others need the whole built version, so they run in the audit described below: IDs are unique, every road segment's end points exist, every reference points at a record that is there, the major roads still form one connected network, and the share of IDs retired or newly minted since the last version is within its usual range."
+          "text": "Checks fall into two kinds. **Invariant checks** test rules that must always hold, and the data either passes or fails. Some apply to each record on its own: every field has the right type, a speed limit is between 5 and 140 km/h or marked as having none, every place is inside some country. These are cheap and exact, and they run at ingestion, on each source as it arrives. Others need the whole built version, so they run in the audit described below: IDs are unique, every road segment's end points exist, every reference points at a record that is there, and the major roads still form one connected network."
         },
         {
           "type": "text",
-          "text": "Invariant checks cannot see data that is valid record by record and wrong as a whole: a region with half its roads, a day's file from a source that sent yesterday's file again, speeds that are all in range but in the wrong unit for one country. **Statistical checks** compare the output with what is expected: the number of records per region, the distribution of each important field, the share of records that changed since the last version, each compared region by region. Two choices make these work. They should judge the size of a change, such as \"the number of roads in this region fell by 12%\", against a threshold the owner chose, rather than asking whether a change is statistically significant, because with millions of records almost any change is significant. Measuring a change in units of a region's ordinary night-to-night variation is still a measure of size: it asks whether tonight is unusual for this region, not whether some difference exists. And they should compare with two baselines: recent history, which adapts to normal change, and a fixed reference version, which does not adapt and therefore catches a slow drift that recent history would absorb. The fixed reference must itself be replaced from time to time, say each quarter after a review, or legitimate growth will eventually trip it."
+          "text": "Invariant checks cannot see data that is valid record by record and wrong as a whole: a region with half its roads, a day's file from a source that sent yesterday's file again, speeds that are all in range but in the wrong unit for one country. **Statistical checks** compare the output with what is expected: the number of records per region, the distribution of each important field, the share of records that changed since the last version, and the share of IDs retired or newly created, each compared region by region. Two choices make these work. They should judge the size of a change, such as \"the number of roads in this region fell by 12%\", against a threshold the owner chose, rather than asking whether a change is statistically significant, because with millions of records almost any change is significant. Measuring a change in units of the region's ordinary night-to-night noise is still a judgement of size, because the threshold then means unusual for this region. If a region's road count moves by about 1% on an ordinary night, one standard deviation is about 1% of its count. And they should compare with two baselines: recent history, which adapts to normal change, and a fixed reference version, which does not adapt and therefore catches a slow drift that recent history would absorb. The fixed reference must itself be replaced from time to time, say each quarter after a review, or legitimate growth will eventually trip it."
         },
         {
           "type": "text",
-          "text": "Some changes are real. A source adds a country, a new road network opens, a team renames a category. The design lets the owner of a change **declare** it in advance, with the expected effect on counts, so that the checks expect it rather than alarm on it. Data for machine-learning models needs one more check: that no feature has silently become empty or constant, which happens when an upstream field is renamed and the pipeline fills in a default. A model trained on that data learns to ignore the feature, and nothing fails."
+          "text": "Some changes are real. A source adds a country, a new road network opens, a team renames a category. The design lets the owner of a change **declare** it in advance, with the expected effect on counts, so that the checks expect it rather than alarm on it. Data for machine-learning models needs one more check: that no **feature**, an input column a model learns from, has silently become empty or constant, which happens when an upstream field is renamed and the pipeline fills in a default. A model trained on that data learns to ignore the feature, and nothing fails."
         }
       ]
     },
@@ -98,7 +98,7 @@
         },
         {
           "type": "text",
-          "text": "Blocking a publish has a cost, because every consumer's data becomes a day older. We state the trade-off explicitly. Each dataset has a freshness objective, such as \"never more than 48 hours old\", and a named owner who may force a publish past a failed check after looking at it, with the override and its reason recorded. A partial failure raises a second question: if one region fails and three pass, the pipeline can publish the three and keep the last good version of the fourth. That keeps most of the map fresh, but a version that mixes two days' data can break roads that cross the region boundary, so the release manifest records which regions are at which version and consumers that need consistency across regions can wait."
+          "text": "Blocking a publish has a cost, because every consumer's data becomes a day older. We state the trade-off explicitly. Each dataset has a freshness objective, such as \"never more than 48 hours old\", and a named owner who may force a publish past a failed check after looking at it, with the override and its reason recorded. A partial failure raises a second question, and an exception to the rule that the pointer moves only if every check passes: if one region fails and three pass, the pipeline can publish the three and keep the last good version of the fourth. That keeps most of the map fresh, but a version that mixes two days' data can break roads that cross the region boundary, so the release manifest records which regions are at which version and consumers that need consistency across regions can wait."
         }
       ]
     },
@@ -127,7 +127,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In lesson 24 we measured services with **service level indicators**, and added three for data products: freshness, completeness and correctness. The checks in this lesson produce those numbers. **Freshness** is how old the newest published version is, read from the catalogue. **Completeness** is the share of expected records that are present, by region and by source, from control totals and per-region counts. **Correctness** is the share of records that are right, which can only be estimated, from the audits of lesson P2, from checks against independent sources, and from the error reports consumers file. Each gets an objective, an error budget and an alert, as service indicators do, and the owner of the dataset is paged when one is burning fast."
+          "text": "In lesson 24 we measured services with **service level indicators**, and added three for data products: freshness, completeness and correctness. The checks in this lesson produce those numbers. **Freshness** is how old the newest published version is, read from the catalogue. **Completeness** is the share of expected records that are present, by region and by source, from control totals and per-region counts. **Correctness** is the share of records that are right, which can only be estimated, from the audits of lesson P2, from checks against independent sources, and from the error reports consumers file. Each gets an objective, an error budget and an alert, as service indicators do, and the owner of the dataset is paged when one is burning its error budget fast."
         },
         {
           "type": "text",
@@ -172,7 +172,7 @@
           "options": {
             "items": [
               {
-                "ask": "A partner sends a daily file of 40,000 records. On one day an import step silently keeps only the first 30,000. Which check catches it on the first day?",
+                "ask": "A partner's contract requires a record count with each daily file of 40,000 records. On one day an import step silently keeps only the first 30,000. Which check catches it on the first day?",
                 "choices": [
                   "A schema check that every field in each loaded record has the right type",
                   "A control total sent with the file, compared with the count actually loaded",
@@ -182,17 +182,17 @@
                 "why": "Each of the 30,000 loaded records is valid, and their distribution may look normal. Only a count sent by the producer, compared with the count received, shows that records are missing."
               },
               {
-                "ask": "A region's road count falls by about 0.2% a night for three weeks because of a bug; its ordinary night-to-night variation is about 1%. A check compares each night's count with the average of the previous week and never alarms. Why?",
+                "ask": "A region's road count falls by about 0.2% a night for three weeks because of a bug; its ordinary night-to-night variation is about 1%. A check with a threshold of 3 standard deviations compares each night's count with the average of the previous week and never alarms. Why?",
                 "choices": [
                   "The baseline moves with the drift, so each night looks close to the recent nights before it",
                   "The check should use the median of the week, which resists outliers",
                   "A week is too short; a month of history would have caught it"
                 ],
                 "answer": 0,
-                "why": "A check against recent history adapts to normal change, and to slow faults too: the count is never more than about 1% below the week's average, which is ordinary noise. A longer window or a median adapts the same way, only more slowly. After three weeks the count is about 4% below a fixed reference version, which does not adapt, so the drift crosses its threshold."
+                "why": "A check against recent history adapts to normal change, and to slow faults too: the count is never more than about 1% below the week's average, which is ordinary noise. A longer window or a median adapts the same way, only more slowly. After three weeks, at 0.2% a night for 21 nights, the count is about 4% below a fixed reference version, which does not adapt, so the drift crosses its threshold."
               },
               {
-                "ask": "A source is about to add a new country, which will raise the place count by 8% overnight. How should the pipeline avoid a false alarm without weakening its checks?",
+                "ask": "A source is about to add a new country, which will raise the place count by 8% overnight. How should the pipeline handle it?",
                 "choices": [
                   "Raise the volume threshold above 8% for every region, permanently",
                   "Switch the volume check off for the night of the change",
@@ -222,17 +222,17 @@
                 "why": "Partial publishing keeps most data fresh, but mixes versions. The manifest records which regions are at which version, so consumers that need consistency across regions can wait for a whole version."
               },
               {
-                "ask": "A model's accuracy drops slowly over a month, though every pipeline check passes. Investigation shows an upstream field was renamed and the feature pipeline has been filling in a default ever since. Which check would have caught it?",
+                "ask": "A road-type feature used to hold about 30 distinct values. After an upstream change it holds 2, though the column exists, has the right type and has the right number of rows, and every pipeline check passes. Which check would have caught it?",
                 "choices": [
                   "A check on the number of rows the feature pipeline produces each day",
-                  "A check that the feature's values are not all the same, or empty",
+                  "A check on how many distinct values the feature holds, against its history",
                   "A schema check that the feature column exists and has the right type"
                 ],
                 "answer": 1,
-                "why": "The column exists, has the right type and the right number of rows, but every value is the default. A check on the feature's distribution, such as how many distinct values it has, catches a feature that has silently gone constant."
+                "why": "The column exists, has the right type and the right number of rows, but its values have collapsed to two, typically a default filled in where a renamed upstream field used to be. A check on the feature's distribution, such as how many distinct values it holds, catches a feature that has silently gone nearly constant."
               },
               {
-                "ask": "A statistical check alarms whenever a region's numbers move beyond 2 standard deviations. Across four regions and two checks it raises about ten false alarms a month. What is the likely long-term effect, and the fix?",
+                "ask": "A statistical check alarms whenever a region's numbers move beyond 2 standard deviations. Across four regions and two checks it raises about ten false alarms a month, against a target of about one. What is the likely long-term effect, and the fix?",
                 "choices": [
                   "People learn to override it; raise the threshold, and warn earlier on a dashboard",
                   "Little harm, since each alarm costs a day; let each one hold only the affected region",
@@ -254,7 +254,7 @@
     "**Invariants on records and on the whole version, statistics per region.** Judge statistical checks by the size of a change, against recent history and a fixed reference, and let owners declare expected changes.",
     "**Write, audit, publish.** Build where nobody can read, check, and move the pointer only on a pass; a failed audit leaves consumers on the last good version.",
     "**Quarantine, don't drop.** Rejected records are kept, counted and visible, and the count itself is checked.",
-    "**Name the trade-offs.** A blocked publish is right but stale, so freshness has an objective and an owner who can override on the record; partial publishing mixes versions.",
+    "**Name the trade-offs.** A blocked publish leaves consumers on data that is right but a day old, so freshness has an objective and an owner who can override on the record; partial publishing mixes versions.",
     "**Measure data like a service.** Freshness, completeness and correctness get objectives, budgets and alerts."
   ],
   "footnotes": {
@@ -266,7 +266,7 @@
     "tfdv": {
       "kind": "technical",
       "title": "Distances, not tests",
-      "text": "TensorFlow Data Validation compares two distributions of a categorical feature by the largest difference in the share of any one value (the L-infinity distance), and of a numeric feature by the Jensen-Shannon divergence. Both measure how different the distributions are. Unlike a p-value, they do not shrink towards zero as the table grows, though on a small table the measured value is noisy."
+      "text": "TensorFlow Data Validation compares two distributions of a categorical feature by the largest change in the share of any one value (the L-infinity distance), and of a numeric feature by a standard measure of how far apart two histograms are (the Jensen-Shannon divergence). Both measure how different the distributions are. A significance test answers a different question, whether any difference exists, and on a large table it says yes to tiny differences; these distances stay small for small differences however large the table, though on a small table they are noisy."
     }
   }
 }

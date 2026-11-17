@@ -13,11 +13,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every result in lesson P1 depends on labels: someone has to have marked which boxes are pedestrians before a pipeline can count how many the model found. In March 2021 Curtis Northcutt, Anish Athalye and Jonas Mueller, of MIT and Amazon Web Services, published a study of the labels in the test sets of ten of the most widely used machine-learning benchmarks, including ImageNet, CIFAR-10, MNIST and QuickDraw. They used a statistical method that flags examples whose given label disagrees with what a trained model confidently predicts, and then asked people on Amazon's Mechanical Turk, five to an example, to check each flagged one.[^cl]"
+          "text": "Every result in lesson P1 depends on labels: someone has to have marked which boxes are pedestrians before a pipeline can count how many the model found. In March 2021 Curtis Northcutt, Anish Athalye and Jonas Mueller, of MIT and Amazon Web Services, published a study of the labels in the test sets of ten of the most widely used machine-learning benchmarks, including ImageNet, CIFAR-10, MNIST and QuickDraw. They used a statistical method called confident learning, which flags examples whose given label disagrees with what a trained model confidently predicts, and then asked people on Amazon's Mechanical Turk, five to an example, to check each flagged one.[^cl]"
         },
         {
           "type": "text",
-          "text": "On average at least 3.3% of the test labels across the ten sets were wrong. ImageNet's validation set, the set on which a decade of image models had been ranked, held 2,916 errors, about 6% of its 50,000 images. QuickDraw's test set was about 10% wrong. The errors also changed conclusions. When the authors made mislabelled examples a larger share of the ImageNet test set, a smaller image model ranked above a larger one, whose lead had partly come from matching the wrong labels.[^flip]"
+          "text": "On average at least 3.3% of the test labels across the ten sets were wrong. ImageNet's validation set, the set on which a decade of image models had been ranked, held 2,916 errors, about 6% of its 50,000 images. QuickDraw's test set was about 10% wrong. The errors also changed conclusions. When the authors built test sets in which mislabelled examples made up a larger share, a smaller image model ranked above a larger one, whose lead had partly come from matching the wrong labels. The original test sets did not show the reversal, but they showed how close it was.[^flip]"
         },
         {
           "type": "text",
@@ -47,11 +47,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A million labels a month is about 33,000 a day. Our items are a frame with a few boxes or one clip tag, which take a trained labeller about a minute each, and a workforce of three hundred labellers can give each item about four minutes of attention in total, but not much more. That budget decides the platform's design: every check of quality costs labeller-minutes that are then not spent producing labels."
+          "text": "A million labels a month is about 33,000 a day. Our items are a frame with a few boxes or one clip tag, which take a trained labeller about a minute each, and three hundred labellers working seven-hour days give about 126,000 minutes a day, so each of the 33,000 items can get about four minutes of attention in total, but not much more. That budget decides the platform's design: every check of quality costs labeller-minutes that are then not spent producing labels."
         },
         {
           "type": "text",
-          "text": "One labeller per item costs 1 minute per label and leaves every individual mistake in place. Two labellers per item, with an expert settling the cases where they disagree, costs a little over 2 minutes and catches most individual slips. Letting the model's own label through without a person whenever the model is very confident costs nothing for those items, and its errors go straight into the training data unseen."
+          "text": "One labeller per item costs 1 minute per label and leaves every individual mistake in place. Two labellers per item, with an expert settling the cases where they disagree, costs a little over 2 minutes and catches most individual slips. Letting the model's own label through without a person whenever the model is very confident costs no labeller time for those items, though it needs the calibration checks described below, and its errors go straight into the training data unseen."
         }
       ]
     },
@@ -60,11 +60,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **label** is an answer attached to an item by a person or a model: a box with a class, a tag on a clip. Every label is made under a **labelling guideline**, the document that says what counts: whether a person pushing a bicycle is a pedestrian or a cyclist, whether a parked car's open door is part of the car, how small an object must be to be left unlabelled. Guidelines change often, as teams meet cases the guideline did not foresee, and a change to the guideline is the most common cause of a bad batch: half the labels made under the old reading and half under the new one."
+          "text": "A **label** is an answer attached to an item by a person or a model: a box with a class, a tag on a clip. Every label is made under a **labelling guideline**, the document that says what counts: whether a person pushing a bicycle is a pedestrian or a cyclist, whether a parked car's open door is part of the car, how small an object must be to be left unlabelled. Guidelines change often, as teams meet cases the guideline did not foresee, and a change to the guideline is a common cause of a bad batch: half the labels made under the old reading and half under the new one."
         },
         {
           "type": "text",
-          "text": "The platform's central data structure follows from that. Each label is an immutable **label event**: the item and its version, who or what produced it, the guideline version, the model suggestion shown at the time if any, the time spent, and a timestamp. Events are only ever appended. The **current label** of an item is a view computed from its events by a rule (the expert's ruling if there is one, otherwise the agreed answer), and the view can be recomputed whenever the rule or the guideline changes."
+          "text": "The platform's central data structure follows from that. Each label is an immutable **label event**: the item and its version, who or what produced it, the guideline version, the model suggestion shown at the time if any, the time spent, and a timestamp. Events are only ever appended. The **current label** of an item is a view computed from its events by a rule: the latest reclassification under the current guideline if there is one, otherwise the expert's ruling, otherwise the agreed answer. A guideline change is recorded as new events, and the view is then recomputed."
         },
         {
           "type": "diagram",
@@ -86,7 +86,7 @@
         },
         {
           "type": "text",
-          "text": "**Overlap** sends the same item to two or three labellers independently. **Agreement** is how often their answers match. For tags it is a share of items; for boxes, two boxes match when they overlap enough, usually when the area they share is at least half the area they cover together (an **intersection over union** of 0.5). Disagreements go to an expert, or the majority answer wins with three labellers.[^ds] "
+          "text": "**Overlap** sends the same item to two or three labellers independently. **Agreement** is how often their answers match. For tags it is a share of items; for boxes, two boxes match when they overlap enough, usually when the area they share is at least half the area they cover together (an **intersection over union** of 0.5). Disagreements go to an expert, or the majority answer wins with three labellers; a better combination weights each labeller by a statistical estimate of how reliable they are, the Dawid and Skene model.[^ds] "
         },
         {
           "type": "text",
@@ -109,7 +109,7 @@
         },
         {
           "type": "text",
-          "text": "No amount of overlap fixes an unclear guideline; the fix is to rewrite the guideline, which is why the platform tracks disagreement by guideline section and sends the sections with most disputes back to the team that owns the guideline. Overlap is worth paying for on hard task types and for new labellers, and a platform often adjusts it per labeller: a labeller whose gold accuracy is high gets single-labelled work, and one whose accuracy drops gets more overlap and fewer tasks."
+          "text": "No amount of overlap fixes an unclear guideline; the fix is to rewrite the guideline, which is why the platform tracks audit errors by guideline section, along with the disputes labellers raise, and sends the sections with the most errors back to the team that owns the guideline. Overlap is worth paying for on hard task types and for new labellers, and a platform often adjusts it per labeller: a labeller whose gold accuracy is high gets single-labelled work, and one whose accuracy drops gets more overlap and fewer tasks."
         }
       ]
     },
@@ -118,7 +118,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A model trained on earlier labels can do part of the work. In **model-assisted labelling**, it draws its own boxes first and the labeller corrects them, which is often several times faster than drawing from nothing. It has a cost that is easy to miss: people tend to accept a suggestion that is nearly right, a bias called **anchoring**, so a model's systematic mistakes survive review more often than they would if the labeller started from a blank frame. The platform measures anchoring by seeding a few gold items with deliberately wrong suggestions and counting how often they are accepted."
+          "text": "A model trained on earlier labels can do part of the work. In **model-assisted labelling**, it draws its own boxes first and the labeller corrects them, which can be much faster than drawing from nothing. It has a cost that is easy to miss: people tend to accept a suggestion that is nearly right, a bias called **anchoring**, so a model's systematic mistakes survive review more often than they would if the labeller started from a blank frame. The platform measures anchoring by seeding a few gold items with deliberately wrong suggestions and counting how often they are accepted."
         },
         {
           "type": "text",
@@ -126,7 +126,7 @@
         },
         {
           "type": "text",
-          "text": "The model can also choose what to label. **Active learning** sends people the items the model is least certain about, or the items least like anything in the training data, instead of a random sample. For a fleet that records far more than anyone can label, this concentrates the labelling budget on the cases that teach the model most; the onboard triggers of lesson D5 are a first stage of the same idea. Active learning has one important side effect: the items it chooses are deliberately unusual, so error rates and model accuracy measured on them say nothing about ordinary driving. The platform therefore always keeps a separate stream of randomly chosen items, labelled with the same care, for audits and for the evaluation sets of lesson P1. Labels for evaluation and golden sets start from a blank frame, never from a suggestion made by a model under comparison, because anchoring would pull the right answers towards that model and flatter it in lesson P1."
+          "text": "The model can also choose what to label. **Active learning** sends people the items the model is least certain about, or the items least like anything in the training data, instead of a random sample. For a fleet that records far more than anyone can label, this concentrates the labelling budget on the cases that teach the model most; the onboard triggers of lesson D5 are a first stage of the same idea. Active learning has one important side effect: the items it chooses are deliberately unusual, so error rates and model accuracy measured on them say nothing about ordinary driving. The platform therefore always keeps a separate stream of randomly chosen items, labelled with the same care, for audits and for the evaluation sets of lesson P1. Labels for evaluation and golden sets, including the disagreements that shadow mode sends here in lesson P1, start from a blank frame, never from a suggestion made by a model under comparison, because anchoring would pull the right answers towards that model and flatter it in lesson P1."
         }
       ]
     },
@@ -135,11 +135,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The platform is a queue of tasks with many producers and many consumers, built on the same parts as the job scheduler of lesson D6. Each task carries a type (boxes on a frame, tags on a clip), the guideline version, a priority and a deadline. Labellers hold **qualifications** per task type, earned on a test set and kept up by their gold accuracy, and pull tasks they are qualified for. A labeller claims a task with a lease, as D6's workers do, so a labeller who walks away does not hold an item forever. Teams share the workforce through quotas, and a team with a release deadline can buy priority within its quota."
+          "text": "The platform is a queue of tasks with many producers and many consumers, built on the same parts as the job scheduler of lesson D6. Each task carries a type (boxes on a frame, tags on a clip), the guideline version, a priority and a deadline. Labellers hold **qualifications** per task type, earned on a test set and kept up by their gold accuracy, and pull tasks they are qualified for. A labeller claims a task with a **lease**, a claim that expires unless renewed, as the workers in lesson D6 do, so a task abandoned by a labeller who walks away returns to the queue. Teams share the workforce through quotas, and a team with a release deadline can raise the priority of its tasks within its quota."
         },
         {
           "type": "text",
-          "text": "Before any image reaches the queue, a separate service detects faces and number plates and blurs them, because labellers often work for an outside vendor and see thousands of images of public streets a day. The platform records which version of the blurring model processed each image, as it records everything else. The blurred copy is for labellers only. Training reads the original images under access control, or the team decides to train and test on blurred images, because a model trained on blurred faces and run on the vehicle's unblurred cameras would meet a difference between training and serving (lesson P5)."
+          "text": "Before any image reaches the queue, a separate service detects faces and number plates and blurs them, because labellers often work for an outside vendor and see thousands of images of public streets a day. The platform records which version of the blurring model processed each image, as it records everything else. The blurred copy is for labellers only. Training reads the original images under access control. A team that trains on blurred images instead must also blur what the vehicle's model sees, because a model trained on blurred faces and run on unblurred cameras would meet a difference between training and serving (lesson P5)."
         }
       ]
     },
@@ -161,7 +161,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**At ten times** (ten million labels a month), the workforce grows to thousands across several vendors, and quality must be measured per vendor and per site as well as per labeller. Guidelines multiply with task types, and each one has an owner, a version history and a changelog that labellers see. Labeller drift, a slow change in how a whole group reads a guideline, shows up as a trend in gold accuracy and in audit results, and the platform alerts on it the way we alerted on a service's error rate in lesson 24."
+          "text": "**At ten times** (ten million labels a month), the workforce grows to thousands across several vendors, and quality must be measured per vendor and per site as well as per labeller. Guidelines multiply with task types, and each one has an owner, a version history and a changelog that labellers see. Labeller drift, a slow change in how a whole group reads a guideline, shows up as a trend in gold accuracy and in audit results, and the platform alerts on it the way we alerted on a service's error rate in lesson 24, on SLOs."
         },
         {
           "type": "text",
@@ -193,7 +193,7 @@
                 "ask": "A team lets its model label any item it is at least 95% confident about, with no person involved. What must it check before trusting those labels?",
                 "choices": [
                   "That the model is at least as accurate as the labellers on the gold questions",
-                  "That among items labelled at 95% confidence about 95% are right, checked on a random audited sample for each model version",
+                  "That about 95% of items labelled at 95% are right, for each class and slice, checked by audit for each version",
                   "That the model's average confidence on an audited sample is at least 95%"
                 ],
                 "answer": 1,
@@ -213,7 +213,7 @@
                 "ask": "Active learning sends labellers only the frames the model is least sure about. Six months later, a team proposes building next quarter's evaluation set from those labelled frames. What is the problem?",
                 "choices": [
                   "Frames chosen by a model can't be labelled as accurately as random frames",
-                  "The frames are too old, because six months of driving has changed the roads",
+                  "The frames were labelled by more experienced labellers, so they are too clean",
                   "Those frames are deliberately unusual, so scores on them don't describe ordinary driving; evaluation needs a random stream"
                 ],
                 "answer": 2,

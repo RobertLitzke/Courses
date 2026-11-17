@@ -14,7 +14,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "When someone orders a meal through Uber Eats, the app shows an estimated delivery time before they pay, and a machine-learning model computes it. In September 2017 Jeremy Hermann and Mike Del Balso, engineers at Uber, described Michelangelo, the platform Uber had built over the previous two years to train and serve models like that one. Before Michelangelo, they wrote, teams built their own one-off systems; Michelangelo made sure that the same data and the same batch pipeline were used both to train a model and to serve it."
+          "text": "When someone orders a meal through Uber Eats, the app shows an estimated delivery time before they pay, and a machine-learning model computes it: a function fitted by **training** on past orders to predict a number from its inputs, then **serving** that prediction to live requests. In September 2017 Jeremy Hermann and Mike Del Balso, engineers at Uber, described Michelangelo, the platform Uber had built over the previous two years to train and serve models like that one. Before Michelangelo, they wrote, teams built their own one-off systems; Michelangelo made sure that the same data and the same batch pipeline were used both to train a model and to serve it."
         },
         {
           "type": "text",
@@ -22,7 +22,7 @@
         },
         {
           "type": "text",
-          "text": "Michelangelo's answer was a shared **feature store**: a team defines a feature once, the platform computes it both for training and for serving from that one definition, and other teams can find and reuse it. In this lesson, we will design one. Our example is the routing team's arrival-time model from lesson M4, which reads features about every road segment on a route, such as its speed over the last 15 minutes and its usual speed at this hour, and which serves millions of predictions an hour."
+          "text": "Michelangelo's answer was a shared **feature store**: a team defines a feature once, the platform computes it both for training and for serving from that one definition, and other teams can find and reuse it. In this lesson, we will design one. The Uber story is the motivation; our design example is a different model, the routing team's arrival-time model from lesson M4, which reads features about every road segment on a route, such as its speed over the last 15 minutes and its usual speed at this hour, and which serves millions of predictions an hour."
         }
       ]
     },
@@ -35,7 +35,7 @@
         },
         {
           "type": "text",
-          "text": "**Non-functional.** Reading a request's features must take under 10 ms at the 99th percentile, at tens of thousands of requests a second. Streaming features should be a few minutes old at most; when the stream falls further behind, the online store must notice from each value's age and fall back to the same default that training used. A training set must be reproducible from its definition months later."
+          "text": "**Non-functional.** Reading a request's features must take under 10 ms at the 99th percentile (99 requests in 100 must be faster), at tens of thousands of requests a second. Streaming features should be a few minutes old at most; when the stream falls further behind, the online store must notice from each value's age (the time since it became available) and fall back to the same default that training used, here the segment's usual speed at that hour of the week. A training set must be reproducible from its definition months later."
         },
         {
           "type": "text",
@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "\"As of the example's time\" needs care, because every feature value has two times attached to it. Its **event time** is the moment it describes: the average speed for the 15 minutes ending at 12:30. Its **availability time** is when the pipeline had finished computing it and the service could read it, perhaps 12:38 if the streaming job runs eight minutes behind. These are the two clocks of lesson 17. Serving at 12:30 can only read values available by 12:30, which describe 12:22 at best. A join on event time gives training the value about 12:30, which serving never has at 12:30. The correct join is on availability time."
+          "text": "\"As of the example's time\" needs care, because every feature value has two times attached to it. Its **event time** is the moment it describes: the average speed for the 15 minutes ending at 12:30. Its **availability time** is when the pipeline had finished computing it and the service could read it, perhaps 12:38 if the streaming job runs eight minutes behind. These are two of the clocks of lesson 17, where availability time was the third. Serving at 12:30 can only read values available by 12:30, which describe 12:22 at best. A join on event time gives training the value about 12:30, which serving never has at 12:30. The correct join is on availability time."
         },
         {
           "type": "interactive_diagram",
@@ -76,7 +76,7 @@
         },
         {
           "type": "text",
-          "text": "The latest-value join gives the best offline score of the three and the worst in service, which makes it dangerous: every offline test says the model is excellent. The event-time join is wrong by a smaller amount that grows with the pipeline's lag, and it is easy to build by accident, because the event time is the obvious timestamp to join on. Joining on availability time gives an offline score that predicts the real one, so the offline numbers in lesson P1's evaluation mean something."
+          "text": "The latest-value join gives the best offline score of the three, because the leaked congestion makes the offline test easy to pass, and the worst in service, which makes it dangerous: every offline test says the model is excellent. The event-time join is wrong by a smaller amount that grows with the pipeline's lag, and it is easy to build by accident, because the event time is the obvious timestamp to join on. Joining on availability time gives an offline score that predicts the real one, which the team can confirm by comparing the offline score with the error measured in service afterwards."
         }
       ]
     },
@@ -94,15 +94,15 @@
         },
         {
           "type": "text",
-          "text": "The **offline store** holds every value of every feature with its event time and availability time, in columnar files partitioned by date, the format the versioned datasets of lesson P3 use. Point-in-time joins run over it as batch jobs. The **online store** holds only the latest value of each feature for each key, such as a road segment's ID, in a key-value store like Bigtable (lesson 10) or Dynamo (lesson 12), so a lookup is one read by key. A batch job computes features that change slowly, such as the usual speed at each hour of the week, and writes to both stores. A streaming job computes features that change quickly, such as the speed over the last 15 minutes, writes the latest value to the online store, and appends every value it computes to the offline store, with both times, so training can later see exactly what serving saw."
+          "text": "The **offline store** holds every value of every feature with its event time and availability time, in columnar files (stored by column rather than by row, so a scan reads only the columns it needs) in folders split by date, the format the versioned datasets of lesson P3 use. Point-in-time joins run over it as batch jobs. The **online store** holds only the latest value of each feature for each key, such as a road segment's ID, in a key-value store like Bigtable (lesson 10) or Dynamo (lesson 12), so a lookup is one read by key. A batch job computes features that change slowly, such as the usual speed at each hour of the week, and writes to both stores. A streaming job computes features that change quickly, such as the speed over the last 15 minutes, writes the latest value to the online store, and appends every value it computes to the offline store, with both times, so training can later see exactly what serving saw."
         },
         {
           "type": "text",
-          "text": "The model and its features must also agree on versions. A model trained on version 3 of \"speed over the last 15 minutes\" must be served version 3, even after version 4 is defined, so the online store can hold both while models move across, and the model's metadata records which feature versions it needs, as the software and data versions on a vehicle must match in lesson D7. "
+          "text": "The model and its features must also agree on versions. A model trained on version 3 of \"speed over the last 15 minutes\" must be served version 3, even after version 4 is defined, so the online store holds both, serving each model the version it was trained on until it is retrained on the new one, and the model's metadata records which feature versions it needs, as the software and data versions on a vehicle must match in lesson D7. "
         },
         {
           "type": "text",
-          "text": "Two kinds of input need care beyond the two stores. **Request-time features**, such as a route's length or the hour of the request, are computed from the request itself rather than looked up, and they need one shared definition too: a training query that computes the hour in UTC and a service that computes it in local time produce skew like any other. Keys can also change. When the map is rebuilt (lesson P3), a road segment may be split in two or merged with its neighbour, and its feature history and online row would be lost with its old ID. The feature store therefore keys features by the stable IDs that the dataset's ID registry keeps, and follows the registry's record of splits and merges to carry history across. "
+          "text": "Two more things need care beyond the two stores. **Request-time features**, such as a route's length or the hour of the request, are computed from the request itself rather than looked up, and they need one shared definition too: a training query that computes the hour in UTC and a service that computes it in local time produce skew like any other. Keys can also change. When the map is rebuilt (lesson P3), a road segment may be split in two or merged with its neighbour. Its feature history, stored under the old ID, would then be lost. The map's ID registry records every split and merge, so the feature store follows that record to carry history from the old IDs to the new ones. "
         }
       ]
     },
@@ -111,11 +111,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "At peak the routing service makes about 20,000 arrival-time predictions a second. A route crosses about 50 road segments, and the model reads four features for each, so each prediction needs about 200 feature values, and the service reads about 4 million values a second. If each value were a separate lookup, a request would fan out to many servers and wait for the slowest, the problem of lesson 9. The online store therefore keeps all of a segment's features in one row, and the service reads the 50 rows of a route in one batched request. Batching saves round trips but not fan-out: 50 keys hashed across many shards still touch many servers, and the request still waits for the slowest. The usual remedies are the ones from lesson 9, replicas and hedged requests, and for road segments a simpler one. All the segments' features fit in tens of gigabytes, as the next paragraph shows, so the routing service can keep its own copy in memory, refreshed from the stream, and read features with no network call at all."
+          "text": "At peak the routing service makes about 20,000 arrival-time predictions a second. A route crosses about 50 road segments, and the model reads four features for each, so each prediction needs about 200 feature values, and the service reads about 4 million values a second. If each value were a separate lookup, a request would fan out to many servers and wait for the slowest, the problem of lesson 9. The online store therefore keeps all of a segment's features in one row, and the service reads the 50 rows of a route in one batched request. Batching saves round trips but not fan-out: 50 keys hashed across many shards still touch many servers, and the request still waits for the slowest. The usual remedies are the ones from lesson 9, replicas and hedged requests, and for road segments a simpler one. All the segments' features fit in tens of gigabytes, as the next paragraph shows, so each routing server can keep its own copy of all of them in memory, refreshed from the stream, and read features with no network call at all."
         },
         {
           "type": "text",
-          "text": "The online store's size is set by keys, not history: 100 million road segments with a few hundred bytes of features each is tens of gigabytes, small enough to keep in memory across a modest cluster. The offline store grows with history: a value every minute for every busy segment, kept for two years, is hundreds of terabytes, which is why it lives in cheap columnar files."
+          "text": "The online store's size is set by keys, not history: 100 million road segments with a few hundred bytes of features each is tens of gigabytes, small enough to keep in memory on one large server. The offline store grows with history: a value of about 100 bytes every minute for each of 5 million busy segments, kept for two years, is about 500 TB, which is why it lives in cheap columnar files."
         }
       ]
     },
@@ -137,7 +137,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Michelangelo's feature store held batch features computed with Hive and Spark and near-real-time features computed from Kafka streams, served from Cassandra, and let teams share features across models. Since then, feature stores have become a standard part of machine-learning platforms. Feast, released as open source by the Indonesian company Gojek and Google Cloud in 2019, provides the registry, the offline and online stores and the point-in-time join over storage a team already has. Airbnb built Zipline for the same purpose and in 2024 released its successor, Chronon, as open source with Stripe; Chronon computes each value exactly as of the example's timestamp, and measures the remaining difference between training and serving by backfilling logged requests and comparing the results with the values that were served, the comparison described above."
+          "text": "Michelangelo's feature store held batch features and streaming features computed from Kafka (lesson 16), served them from Cassandra, a key-value store, and let teams share features across models. Since then, feature stores have become a standard part of machine-learning platforms. Feast, released as open source by the Indonesian company Gojek and Google Cloud in 2019, provides the registry, the offline and online stores and the point-in-time join over storage a team already has. Airbnb built Zipline for the same purpose and in 2024 released its successor, Chronon, as open source with Stripe; Chronon computes each value exactly as of the example's timestamp, and measures the remaining difference between training and serving by backfilling logged requests and comparing the results with the values that were served, the comparison described above."
         },
         {
           "type": "text",
@@ -172,11 +172,11 @@
                 "ask": "A model scores much better in offline tests than in production. Its training set took each feature's value at the end of each day. What is the most likely cause?",
                 "choices": [
                   "Training saw values from after each example's time, information serving never has",
-                  "The model is too small to learn the patterns that production data contains",
+                  "Training joined each feature on its event time, not its availability time",
                   "Production traffic is busier than the training data, so the servers are slower"
                 ],
                 "answer": 0,
-                "why": "A value from the end of the day includes what happened after the example, so the model learns to rely on the future. A point-in-time join gives each example only what was known at its moment."
+                "why": "A value from the end of the day includes what happened after the example, so the model learns to rely on the future; an event-time join also causes skew, but a smaller one, and it does not explain a value taken at the end of the day. A point-in-time join gives each example only what was known at its moment."
               },
               {
                 "ask": "A streaming feature describes the 15 minutes ending at 12:30 but is ready to read at 12:38. A training example is a trip requested at 12:30. Which value should the training join give it?",
@@ -191,12 +191,12 @@
               {
                 "ask": "The training query fills a missing speed with 0, and the serving code fills it with the road's speed limit. What design removes this kind of skew?",
                 "choices": [
-                  "A rule that every team reviews its serving code once a quarter",
+                  "A test that compares the two paths' outputs on a sample each night",
                   "Removing every example with a missing value from training",
                   "One feature definition, including its default, that computes values for both training and serving"
                 ],
                 "answer": 2,
-                "why": "Skew from two implementations disappears when there is only one. A feature store computes both paths from one definition, defaults included."
+                "why": "Skew from two implementations disappears when there is only one. A feature store computes both paths from one definition, defaults included. A nightly comparison finds the skew but leaves both implementations in place to drift again."
               },
               {
                 "ask": "Serving needs 200 feature values per prediction within 10 ms, at 20,000 predictions a second. Why not read them from the offline store?",
@@ -252,7 +252,7 @@
     "**Two stores, one definition.** Columnar history for training scans, a key-value store of latest values for millisecond lookups, both fed by the same batch and streaming jobs.",
     "**Keep a request's feature reads few and close.** Batching saves round trips; replicas, hedged requests or a local in-memory copy deal with fan-out.",
     "**Log or backfill, and compare.** Logged values have no skew but no history; backfills give history at once; comparing them finds skew before the model ships.",
-    "**Version features with models.** A model is served the feature versions it was trained on until it is retrained."
+    "**Version features with models.** The store holds old and new versions while models move across, serving each model the version it was trained on."
   ],
   "footnotes": {
     "rules": {

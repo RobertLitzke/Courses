@@ -29,7 +29,7 @@
         },
         {
           "type": "text",
-          "text": "In this lesson, we will design an **evaluation pipeline**: the system that decides whether a new version of a machine-learning model is better than the current one and safe to release. Our example is the fleet of survey vehicles from lesson D5. A perception model on each vehicle detects cars, pedestrians and cyclists in the camera and laser data, and the team retrains it every week on newly labelled data. Every new version must be shown to be at least as good as the current one, everywhere it matters, before it reaches the fleet. We will design that pipeline and then compare it with what Google and others have published."
+          "text": "In this lesson, we will design an **evaluation pipeline**: the system that decides whether a new version of a machine-learning model is better than the current one and safe to release. Our example is the fleet of survey vehicles from lesson D5, a thousand vehicles with cameras and laser scanners that record the roads they drive. A perception model on each vehicle detects cars, pedestrians and cyclists in the camera and laser data, and the team retrains it every week on newly labelled data. Every new version must be shown to be at least as good as the current one, everywhere it matters, before it reaches the fleet. We will design that pipeline and then compare it with what Google and others have published."
         }
       ]
     },
@@ -42,7 +42,7 @@
         },
         {
           "type": "text",
-          "text": "The **training data** are the examples the model was fitted to. A model scored on its own training data is like code tested only against the inputs its author tuned it on, and it will look better than it is. So every team keeps **held-out data**, examples the training program never reads, and measures the model on those. Two kinds of held-out set do different jobs. A **golden set** is small, perhaps a few thousand examples, labelled with great care by experts, versioned, and used rarely so that nobody tunes the model against it. A broad held-out set is large, drawn from ordinary driving, and labelled by the normal labelling process of lesson P2, which makes it noisier. Teams track trends on the broad set and make release decisions on both."
+          "text": "The **training data** are the examples the model was fitted to. A model scored on its own training data is like code tested only against the inputs its author tuned it on, and it will look better than it is. So every team keeps **held-out data**, examples the training program never reads, and measures the model on those. Two kinds of held-out set do different jobs. A **golden set** is small, perhaps 5,000 examples, labelled with great care by experts, versioned, and used rarely so that nobody tunes the model against it. A broad held-out set is large, drawn from ordinary driving, and labelled by the normal labelling process of lesson P2, which makes it noisier. Teams track trends on the broad set and make release decisions on both."
         },
         {
           "type": "text",
@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "Each detection has a confidence score, and the model reports a detection only when the score is above a **threshold**. Raising the threshold trades recall for precision. A new version's scores are usually distributed differently from the old one's, so comparing the two at the same threshold is unfair to one of them; the pipeline tunes each version's threshold to the same precision on a separate validation split, and then compares recall on the evaluation set. Tuning the threshold on the same examples it is scored on would flatter both models, the small slices most. In the rest of this lesson, \"accuracy\" means recall at the agreed precision. "
+          "text": "Each detection has a confidence score, and the model reports a detection only when the score is above a **threshold**. Raising the threshold trades recall for precision. A new version's scores are usually distributed differently from the old one's, so comparing the two at the same threshold is unfair to one of them; the pipeline tunes each version's threshold to the same precision on a **validation split**, a further set of examples kept for choosing settings and kept apart from the held-out data the release is judged on, and then compares recall on the evaluation set. Tuning the threshold on the same examples it is scored on would flatter both models, the small slices most, because with few examples a threshold can fit the chance quirks of the sample. In the rest of this lesson, \"accuracy\" means recall at the agreed precision, not the plain share of answers that are right that Gender Shades reported. "
         }
       ]
     },
@@ -76,7 +76,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The broad evaluation set holds about 50,000 labelled frames sampled from ordinary driving; the golden set holds 5,000. A slice that is 1% of driving, such as cyclists at night, therefore has only about 500 frames in the broad set and 50 in the golden set if both are sampled in proportion to driving. Scoring one model on 55,000 frames takes a few GPU-hours. Replaying the scenario library of lesson D6 through both models takes tens of thousands of core-hours, so it runs only for candidates that pass the cheaper checks."
+          "text": "The broad evaluation set holds about 50,000 labelled frames sampled from ordinary driving; the golden set holds 5,000. A slice that is 1% of driving, such as cyclists at night, therefore has only about 500 frames in the broad set and 50 in the golden set if both are sampled in proportion to driving. As planning estimates of our own, scoring one model on 55,000 frames takes a few GPU-hours, while replaying the recorded scenario library of lesson D6 through both models takes tens of thousands of core-hours, so replay runs only for candidates that pass the cheaper checks."
         },
         {
           "type": "text",
@@ -89,11 +89,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Suppose the candidate model is 1 point better than the current one on most driving and 3 points worse on cyclists at night. The overall score weights each slice by its share of the data. If cyclists at night are 1% of driving, their 3-point loss moves the overall score by only 0.03 points, and the total still rises by almost a point. A team watching only that number ships a model that is worse at the thing it should least be worse at. So the pipeline reports every protected slice separately, and the release gate looks at each one."
+          "text": "Suppose the candidate model is 1 point better than the current one on most driving and 3 points worse on cyclists at night. The overall score weights each slice by its share of the data. If cyclists at night are 1% of driving, their 3-point loss moves the overall score by only 0.03 points, and the total still rises by almost a point. A team watching only that number ships a model that is worse at the thing it should least be worse at. So the pipeline reports every protected slice separately, and the release gate looks at each one. Measuring each group separately is also what would have caught the Gender Shades failure before release."
         },
         {
           "type": "text",
-          "text": "Reporting a slice is not the same as measuring it well. Any score from a sample of examples is uncertain: scoring the same model on two random halves of an evaluation set gives two different numbers. The pipeline therefore reports each difference with a **confidence interval**, a range that would contain the true difference in 95 runs out of 100. When the interval is wide, the pipeline cannot tell whether the model got better or worse. Sample size sets the width, and small slices have few examples. In the workbench below, the candidate is 3 points worse on cyclists at night. Predict what a gate sees when the evaluation set holds 200 examples of that slice."
+          "text": "Reporting a slice is not the same as measuring it well. Any score from a sample of examples is uncertain: scoring the same model on two random halves of an evaluation set gives two different numbers. The pipeline therefore reports each difference with a **confidence interval**, built so that if the whole evaluation were repeated many times on fresh samples, about 95 in every 100 intervals would contain the true difference. When the interval is wide, the pipeline cannot tell whether the model got better or worse. Sample size sets the width, and small slices have few examples. In the workbench below, the candidate is 3 points worse on cyclists at night. Predict what a gate sees when the evaluation set holds 200 examples of that slice, with both models scored on the same examples. Most driving improves by 1 point throughout."
         },
         {
           "type": "interactive_diagram",
@@ -112,11 +112,11 @@
         },
         {
           "type": "text",
-          "text": "The intervals also depend on what counts as one sample. Frames from the same drive are not independent: two frames a second apart show almost the same scene, so 500 night-cyclist frames from 40 drives carry little more information than 40 examples would. The unit of independence is the drive, or the scene within it. The pipeline therefore computes each interval by a **bootstrap**: it draws whole drives at random, with replacement, many times over, recomputes the paired difference for each draw, and reads the interval from the spread of those results. Oversampling a slice means collecting it from many different drives, not more frames from the same few. "
+          "text": "The intervals also depend on what counts as one sample. Frames from the same drive are not independent. They share the weather, the light, the road and often the same cyclist, so a model that fails on one tends to fail on the rest, and 500 night-cyclist frames from 40 drives carry little more information than 40 examples would. The unit of independence is the drive, or the scene within it. The pipeline therefore computes each interval by a **bootstrap**: it picks 40 drives at random from the slice's 40, with replacement, so some drives appear twice and some not at all, and recomputes the paired difference on the frames of the drives picked. It repeats this a thousand times, and the middle 95% of the thousand differences is the interval. Oversampling a slice means collecting it from many different drives, not more frames from the same few. "
         },
         {
           "type": "text",
-          "text": "A net gain can also hide new failures. A **negative flip** is an example the current model got right and the candidate gets wrong. A candidate with a net gain of 1 point may have fixed 400 examples and broken 300, and people who rely on the current model meet the 300 as new failures. The pipeline counts flips for each protected slice and shows the broken examples to engineers. Training adds noise of its own. Training the same model twice with different random **seeds** (the random starting values and order of examples that each training run draws) gives two models whose scores differ by small amounts, and which can behave very differently on rare inputs.[^seeds] A candidate must beat the spread of several seeds, not one lucky run, so for large changes the team trains several seeds and compares the spread."
+          "text": "A net gain can also hide new failures. A **negative flip** is an example the current model got right and the candidate gets wrong. On a 10,000-example set, a candidate with a net gain of 1 point may have fixed 400 examples and broken 300, and people who rely on the current model meet the 300 as new failures. The pipeline counts flips for each protected slice and shows the broken examples to engineers. Training adds noise of its own. Training the same model twice with different random **seeds** (the random starting values and order of examples that each training run draws) gives two models whose scores differ by small amounts, and which can behave very differently on rare inputs.[^seeds] A candidate must beat the spread of several seeds, not one lucky run, so for small gains the team trains several seeds and compares the spread."
         }
       ]
     },
@@ -136,7 +136,7 @@
         },
         {
           "type": "text",
-          "text": "Splitting by drive removes the twins, but the same street on another day still looks much like the training data, so the score remains slightly optimistic for streets the fleet has never driven. The usual design splits by place and by time: whole areas and whole weeks are held out together. Each place, a map cell a few hundred metres across, is assigned to training or evaluation by a stable hash of the cell's ID alone, so the same street never appears on both sides on different days, and an example never moves between training and evaluation as the dataset grows. The most recent weeks of driving are held out as a separate time split, and the parts of drives that run along the edge of a held-out cell are left out of both. If assignment were random on each rebuild, last week's evaluation frames could be this week's training frames."
+          "text": "Splitting by drive removes the twins, but the same street on another day still looks much like the training data, so the score remains slightly optimistic for streets the fleet has never driven. The usual design splits by place and by time: whole areas and whole weeks are held out together. Each place, a map cell a few hundred metres across, is assigned to training or evaluation by a stable hash of the cell's ID alone, so the same street never appears on both sides on different days, and an example never moves between training and evaluation as the dataset grows. The most recent weeks of driving are held out as a separate time split, and the parts of drives that run along the edge of a held-out cell are left out of both, because a drive that crosses a cell boundary would otherwise carry the neighbouring streets into both sets. If assignment were random on each rebuild, last week's evaluation frames could be this week's training frames."
         },
         {
           "type": "text",
@@ -157,7 +157,15 @@
         },
         {
           "type": "text",
-          "text": "The **gate** then applies written rules. Some rules are hard: block if any protected slice is clearly worse than the margin, or if any slice cannot be measured precisely enough to tell, or if the candidate breaks a list of individual examples that must never fail. Some rules test the model as the vehicle will run it: compiled for the vehicle's processor and run on a bench unit, it must stay within a latency and memory limit, which no score on a GPU cluster measures. Some rules score whole tracks rather than single frames: how often an object's class flickers between frames, how often a track breaks and restarts, and how long after an object appears the model first detects it steadily. Others are soft and produce warnings for a person to weigh, such as a large number of negative flips in a slice that is not protected. A model that passes the offline gate is not yet shipped. It runs next in **shadow mode**: on a sample of vehicles, the candidate receives the same live inputs as the current model and its outputs are logged and compared, but nothing acts on them. Shadow mode shows the candidate on today's roads rather than on last month's evaluation set, and every disagreement it logs goes to the labelling queue of lesson P2, so the cases where the two models differ become next week's training and evaluation data. Only then does the staged rollout of lesson D7 begin, and monitoring continues after release, as labels for the fleet's new data arrive days or weeks later."
+          "text": "The **gate** then applies written rules. Some rules are hard: block if any protected slice is clearly worse than the margin, or if any slice cannot be measured precisely enough to tell, or if the candidate breaks a list of individual examples that must never fail. "
+        },
+        {
+          "type": "text",
+          "text": "Some rules test the model as the vehicle will run it: compiled for the vehicle's processor and run on a bench unit, it must stay within a latency and memory limit, which no score on a GPU cluster measures. Some rules score whole **tracks**, a track being the sequence of detections of one object across frames, rather than single frames: how often an object's class flickers between frames, how often a track breaks and restarts, and how long after an object appears the model first detects it steadily. "
+        },
+        {
+          "type": "text",
+          "text": "Other rules are soft and produce warnings for a person to weigh, such as a large number of negative flips in a slice that is not protected. A model that passes the offline gate is not yet shipped. It runs next in **shadow mode**: on a sample of vehicles, the candidate receives the same live inputs as the current model and its outputs are logged and compared, but nothing acts on them. Shadow mode shows the candidate on today's roads rather than on last month's evaluation set, and every disagreement it logs goes to the labelling queue of lesson P2, where people label those frames from blank rather than from either model's output, so the cases where the two models differ become next week's training and evaluation data. Only then does the staged rollout of lesson D7 begin, and monitoring continues after release, as labels for the fleet's new data arrive days or weeks later. "
         },
         {
           "type": "text",
@@ -170,11 +178,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 2019 Margaret Mitchell and colleagues at Google proposed **model cards**, short documents shipped with a model that report its performance on slices chosen for its intended use, with the evaluation data described. A model card is the public form of the release report above. Google's TensorFlow Extended (TFX) platform builds the gate into its pipeline: its Evaluator component computes sliced measures for a candidate, compares them with the current model against configured thresholds, and marks the candidate \"blessed\" only if every threshold passes, and the component that deploys models refuses one without a blessing.[^tfx]"
+          "text": "In 2019 Margaret Mitchell and colleagues at Google proposed **model cards**, short documents shipped with a model that report its performance on slices chosen for its intended use, with the evaluation data described. A model card is a public summary of part of what the release report holds. Google's TensorFlow Extended (TFX) platform builds the gate into its pipeline: its Evaluator component computes sliced measures for a candidate, compares them with the current model against configured thresholds, and marks the candidate \"blessed\" only if every threshold passes, and the component that deploys models refuses one without a blessing.[^tfx]"
         },
         {
           "type": "text",
-          "text": "The investigation of the Uber test vehicle crash in Tempe, Arizona, in March 2018 shows why track-level measures belong in the gate. The vehicle's perception system detected a woman pushing a bicycle across a road at night 5.6 seconds before impact, but never classified her as a pedestrian. It changed her classification several times, and each change discarded the object's tracking history, so the system could not predict her path.[^tempe] A per-frame score could count many of those frames as correct detections. Groups that build driving systems now publish their evaluation in terms of scenario categories and safety-critical events rather than single averages, and run nightly simulation suites like the one in lesson D6."
+          "text": "The investigation of the Uber test vehicle crash in Tempe, Arizona, in March 2018 shows why track-level measures belong in the gate. The vehicle's perception system detected a woman pushing a bicycle across a road at night 5.6 seconds before impact, but never classified her as a pedestrian. It changed her classification several times, and each change discarded the object's tracking history, so the system could not predict her path.[^tempe] A per-frame score would count every frame in which some object was detected in the right place as a hit, while the path prediction, which needed a stable track, was never made. The Board found the safety driver's inattention to be the probable cause; the perception failure was one of the conditions that left the driver as the last defence. Some developers of driving systems now describe their evaluation in terms of scenario categories and safety-critical events rather than single averages, and run nightly simulation suites like the one in lesson D6."
         }
       ]
     },
@@ -202,7 +210,7 @@
           "options": {
             "items": [
               {
-                "ask": "A new detector is 0.8 points better overall and 2 points worse on pedestrians in rain, who are 2% of driving. The evaluation set holds 3,000 oversampled examples of that slice, and the regression is clearly outside the interval. What should the release gate do?",
+                "ask": "A new detector is 0.8 points better overall and 2 points worse on pedestrians in rain, who are 2% of driving. The team named that slice as protected in advance, the evaluation set holds 3,000 oversampled examples of it, and the regression is clearly outside the interval. What should the release gate do?",
                 "choices": [
                   "Pass it, because the overall score improved and that score is weighted to real driving",
                   "Block it, because a protected slice is clearly worse than the agreed margin",
@@ -232,7 +240,7 @@
                 "why": "Both models face the same examples, so their shared successes and failures cancel. A paired comparison counts fixed and broken examples among the disagreements; treating the scores as independent samples counts each model's sampling noise separately and inflates the variance several times over."
               },
               {
-                "ask": "A model scores 97% on its held-out frames and 88% on streets in the same city that it never drove. The frames were assigned to training or evaluation one at a time. What is the most likely cause?",
+                "ask": "A model scores 96% on its held-out frames and 86% on streets in the same city that it never drove. The frames were assigned to training or evaluation one at a time. What is the most likely cause?",
                 "choices": [
                   "The new city's labels are worse than the old city's, so the model looks worse there than it really is",
                   "Held-out frames had near-identical neighbours from the same drives in training, so the score was optimistic",
@@ -254,7 +262,7 @@
               {
                 "ask": "A candidate passes every offline gate. Before the staged rollout, it runs on a sample of vehicles receiving the same live inputs as the current model, with its outputs logged but never acted on. What does this stage find that the offline gates cannot?",
                 "choices": [
-                  "Faults in the labels of the evaluation set, which the offline gates take as correct",
+                  "Regressions on the protected slices of the golden set",
                   "Whether the candidate's output agrees with the labels of the golden set",
                   "How the model behaves on today's roads and inputs, which may differ from the evaluation sets"
                 ],
@@ -269,7 +277,7 @@
                   "The candidate is worse, because its gain is smaller than the seed spread"
                 ],
                 "answer": 1,
-                "why": "Training is not deterministic in the way replay is: different seeds give models that differ. A gain smaller than the seed-to-seed spread could come from luck in one training run, so the candidate must beat that spread."
+                "why": "Two training runs on the same data with different seeds produce different models. A gain smaller than the seed-to-seed spread could come from luck in one training run, so the candidate must beat that spread."
               }
             ]
           }
@@ -285,7 +293,7 @@
     "**Count what broke, and beat the seeds.** Negative flips are new failures even under a net gain, and a gain must exceed the spread from retraining with different random seeds.",
     "**Split by place and time.** Neighbouring frames are near-copies, so evaluation data are held out by whole areas and weeks, assigned by a stable hash and kept where training jobs cannot read them.",
     "**Store predictions, compute scores.** A predictions table keyed by model version, evaluation-set version and example makes every slice and measure a query, and every result reproducible.",
-    "**Offline gates come first, not last.** Cheap sets, then replay, then shadow mode on live data, then the staged rollout; a named owner signs off from a stored release report."
+    "**Offline gates come before shadow mode and rollout.** Cheap sets, then replay, then shadow mode on live data, then the staged rollout; a named owner signs off from a stored release report."
   ],
   "footnotes": {
     "shades": {
