@@ -22,7 +22,7 @@ defineCourse({
   branches: BRANCHES,
   welcome: el('div', {},
     el('p', {}, 'Every large computer system was once small. A website ran on one machine until a link on a popular page brought it down; a database kept up until the writes did not; a cluster of a thousand cheap disks lost one every day. Each lesson opens on one of those moments, with the people who met it and the year, and works through the design they published: what it had to do, the numbers that shaped it, the data structure at its centre, what it gave up and how it behaves when parts of it fail.'),
-    el('p', {}, 'The trunk runs roughly in the order the systems were built, from the late 1990s to the 2020s, and the figures are live: send requests through a design, push the load up, fail a server or cut a link and watch what happens. One branch takes the same ideas to maps and places. The other, the design studio, starts from a blank page each time and works a whole system out before comparing it with what a real team built.')),
+    el('p', {}, 'The trunk runs roughly in the order the systems were built, from the late 1990s to the 2020s, and the figures are live: send requests through a design, push the load up, fail a server or cut a link and watch what happens. One branch takes the same ideas to maps and places. Another, the design studio, starts from a blank page each time and works a whole system out before comparing it with what a real team built. The third follows the data behind machine-learning systems: deciding whether a new model is better, trusting labels, publishing a dataset many teams build on, and stopping bad data before anyone reads it.')),
   figures: FIGURES,
   prose,
   // "Lesson 3 of 24": the trunk's whole plan.

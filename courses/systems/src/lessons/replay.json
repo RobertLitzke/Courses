@@ -68,6 +68,10 @@
         {
           "type": "text",
           "text": "Two kinds of replay serve different testing needs. In **open-loop** replay, the system feeds recorded sensor data into the new build and compares its outputs. This suffices for passive software that only observes, such as perception detectors and data-logging triggers. Software that controls the vehicle alters future states, and a static recording cannot react when the vehicle steers differently; the recorded world continues as if the original software were still in control. Testing control software requires **closed-loop** simulation, where the simulator models the surrounding actors and makes them respond to the vehicle. Both modes require determinism, though closed-loop simulation is more sensitive because any small discrepancy feeds back into the next tic's state."
+        },
+        {
+          "type": "text",
+          "text": "Open-loop replay of a log therefore has a **fidelity limit**. Once the new build drives differently from the recorded one, braking a second earlier for example, the recorded cars behind it carry on as if nothing had changed, and the replay can report a collision that would not have happened or miss one that would. Teams handle this in two ways. They stop scoring an open-loop replay from the moment the new build's path departs from the recorded path by more than a set distance, and they run the scenarios that diverge in closed-loop simulation, with the other road users driven by behaviour models. Closed-loop results are only as good as those models, so a team checks them against what real road users did in the logs before trusting a regression the simulator reports."
         }
       ]
     },
@@ -236,6 +240,14 @@
         },
         {
           "type": "text",
+          "text": "The report becomes a **gate** when its result decides whether the build may move on towards the fleet. The gate states its rules before the run: the invariants that must hold on every scenario, the groups whose failure rate may not rise by more than a stated margin, and the overall metrics that must not fall. A gate must also be trusted, because a gate that blocks good builds by chance is soon bypassed by habit. Scenarios whose result changes between two runs of the same build are **flaky**, usually because of a determinism bug, a timeout on a loaded machine or a dependency on the host. The nightly determinism check finds them. The gate moves each flaky scenario to a quarantine list that does not count towards its decision, files a bug against it, and reports the size of the list every night so that it cannot grow unnoticed. A failure is re-run once before it blocks anything; if the re-run does not reproduce it, it is treated as flaky, and if it does, it blocks the build."
+        },
+        {
+          "type": "text",
+          "text": "Determinism removes noise from the simulator, but not from the software under test. A perception model trained twice on the same data with different random seeds gives two models that differ on many scenarios by chance alone. A gate comparing model versions must therefore know that noise floor, measured by training the same model more than once, before it treats a difference as a regression. Lesson P1 builds an evaluation pipeline for model versions on these ideas."
+        },
+        {
+          "type": "text",
           "text": "Valid comparisons require immutable test datasets. When an engineer defines a scenario set using a catalogue query such as `tags: night AND cyclist; recorded before 2026-10-01`, the system resolves that query into an explicit list of log segment IDs and their content hashes, saving the manifest as an immutable **version** named `night-cyclists@v7`. That version never changes; appending newly recorded driving logs creates `night-cyclists@v8`. The database records every simulation result alongside the exact dataset version, build hash, and simulator version. This provenance allows engineers in June to reproduce a regression first reported in March, or to run last year's software build against this year's scenario dataset to determine whether a failure mode was introduced by recent code changes or simply exposed by newer driving logs."
         }
       ]
@@ -360,7 +372,9 @@
     "**Combine at-least-once execution with idempotent outputs.** Expired leases cause duplicate task runs, which remain safe when workers write outputs under input hashes and validate attempt numbers as fencing tokens. Cap retries to prevent poison-pill tasks from exhausting the cluster.",
     "**Run batch workloads on preemptible spare capacity.** Spare overnight capacity is inexpensive; sizing tasks to 20–30 minutes or checkpointing state minimises preemption waste, while priority quotas prevent resource starvation.",
     "**Cache results by the hash of their inputs.** Looking up existing simulation outputs in a content-addressed cache eliminates the baseline build run and cuts nightly compute work in half.",
-    "**Aggregate metrics across frozen dataset versions.** Group scenarios by metadata tags, test failure-rate shifts using thresholds adjusted for multiple hypothesis testing, enforce strict crash invariants on every scene, and pin datasets as immutable versions."
+    "**Aggregate metrics across frozen dataset versions.** Group scenarios by metadata tags, test failure-rate shifts using thresholds adjusted for multiple hypothesis testing, enforce strict crash invariants on every scene, and pin datasets as immutable versions.",
+    "**Log replay cannot react.** Once a new build behaves differently, the recorded world is wrong, so diverging scenarios move to closed-loop simulation with checked behaviour models.",
+    "**A gate must be trusted to be obeyed.** State its rules before the run, re-run a failure once, quarantine flaky scenarios openly, and measure the noise between two trainings of the same model."
   ],
   "footnotes": {
     "rnd": {

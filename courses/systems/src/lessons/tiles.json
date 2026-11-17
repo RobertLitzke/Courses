@@ -99,6 +99,14 @@
         {
           "type": "text",
           "text": "This versioning scheme causes a cold-cache spike. When the version number increments, every CDN edge cache misses on every tile request at once, and the origin tile store absorbs a surge of traffic until the caches warm up again. To reduce this load, engineers roll out new versions every few days rather than on every edit, and pre-warm the edge caches with popular tiles before switching the metadata file. We must also apply the same version number to the road graph used by lesson M3's route planner, so the map never displays a road that the routing engine cannot use."
+        },
+        {
+          "type": "text",
+          "text": "Because a version is published by changing one small metadata file, that change is also the place to stop a bad map. Before the file moves to a new version, a set of checks runs on it: every tile that should exist does, no tile failed to render, the count of roads and labels in each region is within a few per cent of the previous version's, and a sample of tiles is compared with the previous version's images so that a large change nobody expected is held for a person to look at. A version that fails a check stays unpublished, and clients keep the last good version, which is out of date but correct. The metadata also records which source data and which code produced each version, so a wrong tile can be traced back to the edit that caused it. Lesson P4 builds these checks in detail, and lesson P3 builds the record of where each version came from."
+        },
+        {
+          "type": "text",
+          "text": "Devices that keep the map offline, such as phones with downloaded regions or cars with a built-in navigation map, cannot fetch tiles on demand. For them the service publishes, beside each version, a **delta** from each of the last few versions: the list of tiles that changed, the new tiles' bytes, and a hash of the complete result. A device applies the delta to its stored copy, checks the hash, and switches to the new version only if the hash matches, so a download interrupted halfway leaves the old map working. A device several versions behind applies deltas in sequence, or downloads the region again if it is too far behind. Lesson D7 delivers deltas like these to a fleet of cars."
         }
       ]
     },
@@ -165,7 +173,7 @@
         {
           "type": "quiz",
           "id": "check",
-          "caption": "Six questions on map tiles",
+          "caption": "Eight questions on map tiles",
           "task": "Choose the best answer to each",
           "options": {
             "items": [
@@ -228,6 +236,26 @@
                 ],
                 "answer": 1,
                 "why": "Zooms 0 to 18 contain about 92 billion tiles, and 92 billion × 20 KB is about 1.84 PB if every tile is stored as a distinct file. Deduplicating the plain ocean squares, as described in part 3, eliminates most of that storage."
+              },
+              {
+                "ask": "A new map version has rendered, but one region has 30% fewer roads than the previous version, and no edit explains the drop. What should happen?",
+                "choices": [
+                  "The version stays unpublished, the metadata file keeps pointing at the previous version, and the drop goes to a person to investigate",
+                  "The version is published, since every tile rendered without an error, and the missing roads are fixed in the next version",
+                  "Only the affected region's tiles are purged from the CDN so that they are rendered again on demand"
+                ],
+                "answer": 0,
+                "why": "A map can render cleanly and still be wrong. Because publishing is a single change to the metadata file, holding that change keeps every client on the last good version, which is stale but correct, while someone finds out why the roads disappeared."
+              },
+              {
+                "ask": "A car with a built-in navigation map has been parked for three months and is three versions behind. Deltas exist from each of the last four versions. What should it download?",
+                "choices": [
+                  "The three deltas in sequence, checking the hash after each and switching only when the final result matches",
+                  "Only the newest delta, applied directly to its three-month-old copy",
+                  "Nothing until it can stream tiles on demand, since offline maps cannot be updated"
+                ],
+                "answer": 0,
+                "why": "A delta lists the tiles changed since one particular version, so it applies only to that version. Applying them in order brings the copy forward one step at a time, and the hash check makes sure an interrupted or corrupt update never replaces the working map."
               }
             ]
           }
@@ -242,6 +270,8 @@
     "**Request popularity is skewed, so caches serve most of the traffic.** Browser caches, CDN edge caches and the tile store serve a rendered tile to all subsequent viewers.",
     "**Never overwrite a tile at an existing URL.** Embedding a map version in every tile's URL allows caches to retain tiles indefinitely and eliminates cache purges during updates.",
     "**Switching versions causes a cache cold start.** Every cache misses when URLs change, so engineers release new versions every few days rather than with every edit.",
+    "**Check a version before the pointer moves.** Tile counts, render failures and changes against the last version are checked first; a failed version stays unpublished, and clients keep the last good one.",
+    "**Offline devices take deltas between versions.** A device applies the changed tiles, checks the hash of the result, and switches only if it matches.",
     "**Vector tiles transmit geometry instead of bitmap images.** The client device renders them in any style or orientation, requiring a rendering engine on every client."
   ],
   "footnotes": {

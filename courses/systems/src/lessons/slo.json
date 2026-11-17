@@ -82,6 +82,10 @@
         {
           "type": "text",
           "text": "Before choosing indicators, ask what users of the service are trying to do. For a website, users want pages that load and actions that complete. For a storage system, they want reads that return the right bytes and writes that are not lost. For a data pipeline, they want fresh output, such as the share of hours in which yesterday's numbers were ready by 9 a.m. You should measure as close to the user as possible. A server's own logs miss the requests that never reached it, whereas the load balancer's logs, or an external probe, will capture them."
+        },
+        {
+          "type": "text",
+          "text": "A data product needs indicators of its own, because a pipeline can run on time and still publish the wrong numbers. **Freshness** is the share of the time the newest published data is younger than a threshold, such as 99% of hours in which the map in service was built from data less than 24 hours old. **Completeness** is the share of expected records that arrived, measured against a count the source declares, such as the rows in each supplier's file or the number of regions in a build. **Correctness** is the share of checked records that are right, measured by validation rules on every version and by a small random sample that people verify by hand. Freshness and completeness can be measured exactly on every run. Correctness can only be estimated from a sample, so its SLO is stated with the sample size behind it: 99.5% correct, measured on 2,000 records a week, is known only to within about 0.3 percentage points. Lesson P4 builds the checks that produce these numbers."
         }
       ]
     },
@@ -132,7 +136,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every metric is stored as a **time series**: a metric name, a set of key-value labels, and a sequence of timestamped values. A request counter labelled with service `checkout`, status `500` and region `us-east` is one time series; each distinct combination of label values creates another series. The total number of series, known as the **cardinality**, is the primary scaling bottleneck for monitoring systems. Consider the numbers before we design the store: 50 services, 10 endpoints per service, 5 HTTP status classes and 4 regions produce 50 × 10 × 5 × 4 = 10,000 time series for a single metric. If you add a label for customer ID across a million customers, that one metric expands to ten billion series. Labels with unbounded values belong in logs and traces, not in time-series metrics."
+          "text": "Every metric is stored as a **time series**: a metric name, a set of key-value labels, and a sequence of timestamped values. A request counter labelled with service `checkout`, status `500` and region `us-east` is one time series; each distinct combination of label values creates another series. The total number of series, known as the **cardinality**, is the primary scaling bottleneck for monitoring systems. Consider the numbers before we design the store: 50 services, 10 endpoints per service, 5 HTTP status classes and 4 regions produce 50 × 10 × 5 × 4 = 10,000 time series for a single metric. If you add a label for customer ID across a million customers, that one metric expands to ten billion series. Labels with unbounded values belong in logs and traces, not in time-series metrics. The same arithmetic limits quality metrics broken down by slice, such as a model's accuracy per country, per weather condition and per vehicle model (lesson P1): 200 countries, 5 conditions and 10 models give 10,000 series for each metric. That is affordable when the slices are a fixed list chosen in advance, and unaffordable when a label is taken from whatever value each record carries. "
         },
         {
           "type": "text",
@@ -171,7 +175,7 @@
         {
           "type": "quiz",
           "id": "check",
-          "caption": "Seven questions on SLOs and monitoring",
+          "caption": "Eight questions on SLOs and monitoring",
           "task": "Choose the best answer to each",
           "options": {
             "items": [
@@ -244,6 +248,16 @@
                 ],
                 "answer": 2,
                 "why": "Delta-of-delta timestamps and XOR-ed floating-point values compress an unchanged interval and an unchanged value to a single bit each, without rounding: every point is reconstructed exactly."
+              },
+              {
+                "ask": "A nightly job publishes a dataset that ten teams read. It has finished on time every night for a month, yet one team found that a region was missing for three days. Which indicator would have caught it?",
+                "choices": [
+                  "Completeness: the share of expected regions and rows present in each published version, measured against what the sources declared",
+                  "Availability: the share of nights on which the job finished without an error",
+                  "Latency: the share of nights on which the job finished before 06:00"
+                ],
+                "answer": 0,
+                "why": "The job ran and finished on time, so availability and latency were both perfect. The fault was missing data, which only a completeness indicator measures, by comparing what was published with what was expected."
               }
             ]
           }
@@ -254,6 +268,7 @@
   "summary": [
     "**You cannot fix what you cannot measure.** One of the first things HealthCare.gov's rescuers did was install monitoring and put its metrics on a screen where everyone could see them.",
     "**An SLI is the ratio of good events to valid events.** State latency as the share of requests faster than a threshold, measured as close to users as possible.",
+    "**Data products have SLIs of their own.** Freshness, completeness and correctness measure whether published data is recent, whole and right, which a pipeline that runs on time can still fail.",
     "**An SLO is a target over a time window, and never 100%.** By a common rule of thumb, each extra nine costs about ten times as much as the last, for a difference users may not notice.",
     "**The error budget is the unreliability the SLO allows.** A 99.9% target over 30 days gives 43 minutes of total outage; spend that budget on shipping changes, and freeze feature releases when it runs out.",
     "**Alert on burn rate.** Page an engineer when the budget burns fast, open a ticket when it burns slowly, and keep underlying causes such as CPU utilisation on dashboards.",

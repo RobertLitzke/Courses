@@ -32,7 +32,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** We must transfer every byte worth keeping from the vehicles to the datacentre without losing any retained data. We must deliver small, urgent payloads (such as a system fault, a rare event flagged by an onboard detector, or vehicle telemetry) within minutes. We need to store the ingested data cheaply for as long as retention policies require, let engineers query segments by time, location and scene contents, and blur faces and number plates before anyone browses the imagery."
+          "text": "**Functional.** We must transfer every byte worth keeping from the vehicles to the datacentre without losing any retained data. We must deliver small, urgent payloads (such as a system fault, a rare event flagged by an onboard detector, or vehicle telemetry) within minutes. We need to store the ingested data cheaply for as long as retention policies require, let engineers find every recorded instance of a described scenario, such as a cyclist crossing a junction at night, within an hour of asking, and blur faces and number plates before anyone browses the imagery."
         },
         {
           "type": "text",
@@ -40,7 +40,7 @@
         },
         {
           "type": "text",
-          "text": "**Out of scope.** We will not design the onboard recording software, the machine-learning detectors that tag scenes, or the downstream systems that consume the data, such as map-building pipelines or simulation testing (lesson D6). Each of those is a large system of its own. We will focus on the ingestion and storage pipeline that connects them, which accounts for the bulk of the infrastructure cost."
+          "text": "**Out of scope.** We will not design the onboard recording software, the machine-learning detectors that tag scenes, or the downstream systems that consume the data, such as map-building pipelines, simulation testing (lesson D6), labelling (lesson P2) and model evaluation (lesson P1). We will design the handoff to them. Each of those is a large system of its own. We will focus on the ingestion and storage pipeline that connects them, which accounts for the bulk of the infrastructure cost."
         }
       ]
     },
@@ -153,7 +153,19 @@
         },
         {
           "type": "text",
+          "text": "Tags answer only the questions someone thought to tag. An engineer looking for a mattress lying in the road finds nothing if no detector emits a `mattress` tag. A second index answers those queries. A batch job runs an image model over a few frames of every segment and stores an **embedding** for each, a vector of a few hundred numbers placed so that similar scenes have nearby vectors. A model trained on images paired with captions maps text into the same space, so the engineer's phrase becomes a vector too, and the search returns the segments whose vectors lie nearest to it. Comparing the query with every vector would be slow, so the index is approximate: it groups the vectors into clusters and compares the query only with the vectors in the nearest few clusters, accepting a small share of missed results for answers in milliseconds. At four vectors a minute of retained driving and 2 KB a vector, a year of the fleet's segments needs tens of gigabytes, which is small beside the sensor data. The two indexes work together. The tags and the catalogue's columns filter by time, place and software version, and the embedding ranks the segments that remain."
+        },
+        {
+          "type": "text",
+          "text": "The target of finding every instance within an hour has two parts. Both indexes answer in seconds, so most of the hour goes on restoring the matching segments from cold storage, which is why the catalogue keeps thumbnails and short low-resolution previews in hot storage: an engineer can discard false matches before paying to restore anything. The word *every* is a recall target, and neither index meets it exactly. The team measures recall by having people label a random sample of segments, counting how many true instances each kind of query found, and adding a tag for any scenario that embedding search keeps missing."
+        },
+        {
+          "type": "text",
           "text": "Maintaining a catalogue enables two additional workflows. First, a machine-learning **dataset** becomes a saved query result frozen as an immutable list of segment IDs and data versions, guaranteeing that an evaluation job run months later reads the exact same sensor bytes (lesson D6). Second, **change detection** becomes a database query: segments where the vehicle's live perception disagrees with the current high-definition map (such as a newly built roundabout or a closed lane) generate proposed map edits. Engineers or automated checks verify and merge these proposals into a new map version, which then rolls out to the fleet in stages like any other software release (lessons M1 and D7)."
+        },
+        {
+          "type": "text",
+          "text": "Search results also start the next stages of the data's life. The segments a query finds go to labelling (lesson P2), where people draw the boxes and classes that training and evaluation need, and the labelled set is frozen as a version and used to test the next model (lesson P1). This makes the vehicle's triggers part of model development. A trigger that fires where the onboard model is unsure, or where two sensors disagree, chooses which data will be labelled next, which is the idea of **active learning** in lesson P2. A team that adds such a trigger changes the mix of its future training and evaluation data, so it keeps the uniform random sample from the section on two pipes: that sample is the only data whose mix matches ordinary driving, and evaluation sets drawn from it measure what the fleet will actually meet."
         }
       ]
     },
@@ -281,7 +293,9 @@
     "**Upload files in content-addressed chunks.** Naming 4 MB chunks by their SHA-256 hash ensures a dropped link wastes at most one chunk, and chunks the store already holds are never uploaded again.",
     "**Separate metadata from raw sensor bytes.** Keep the object store's chunk index and the segment catalogue in fast databases, reading the bulk storage disks only when an engineer fetches specific recordings.",
     "**Tier storage by age and access frequency.** Keep recent recordings hot in three-way replicated storage, migrate data older than 30 days to erasure-coded cold storage, and enforce automated deletion policies for privacy compliance.",
-    "**Populate a searchable catalogue at ingest.** Indexing segments by timestamp, map cell, and scene tag turns petabyte-scale log scans into millisecond index lookups, enabling reproducible training datasets and map change detection."
+    "**Populate a searchable catalogue at ingest.** Indexing segments by timestamp, map cell, and scene tag turns petabyte-scale log scans into millisecond index lookups, enabling reproducible training datasets and map change detection.",
+    "**State the search target, and build two indexes for it.** A tag index answers the questions someone planned for; an embedding index finds scenes described in words; recall against a hand-labelled sample shows what both miss.",
+    "**Triggers choose tomorrow's training data.** Search results go to labelling and evaluation, and a uniform random sample keeps a record of ordinary driving beside the triggered cases."
   ],
   "footnotes": {
     "wagon": {
