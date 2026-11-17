@@ -140,8 +140,8 @@ export const FIGS = {
       if (moved && o.audit && r.trueErr <= 0.03 && r.perDay >= 33_000) t.done();
     };
     const overlap = named(pick(['1', '2', '3'], 0, (i) => { o.overlap = (i + 1) as 1 | 2 | 3; moved = true; paint(); }), 'Labelers per item:');
-    const skip = slider('Model label skips people above', { min: 0.8, max: 1, step: 0.01, value: o.skipAbove, show: (v) => (v >= 1 ? 'never' : `${Math.round(v * 100)}% confidence`), onInput: (v) => { o.skipAbove = v; moved = true; paint(); }, color: COL.model });
-    const amb = slider('Hard items the guideline leaves unclear', { min: 0, max: 0.6, step: 0.05, value: o.ambiguity, show: (v) => `${Math.round(v * 100)}%`, onInput: (v) => { o.ambiguity = v; moved = true; paint(); }, color: COL.error });
+    const skip = slider('Model label skips people above', { min: 0.8, max: 1, step: 0.01, value: o.skipAbove, show: (v) => (v >= 1 ? 'never' : `${Math.round(v * 100)}% confidence`), onInput: (v) => { o.skipAbove = v; moved = true; paint(); }, color: 'model' });
+    const amb = slider('Hard items the guideline leaves unclear', { min: 0, max: 0.6, step: 0.05, value: o.ambiguity, show: (v) => `${Math.round(v * 100)}%`, onInput: (v) => { o.ambiguity = v; moved = true; paint(); }, color: 'error' });
     const audit = named(pick(['Gold questions only', 'Gold and a random audit'], 0, (i) => { o.audit = i === 1; moved = true; paint(); }), 'Measure by:');
     f.controls.append(overlap.node, skip.node, amb.node, audit.node);
     paint();
