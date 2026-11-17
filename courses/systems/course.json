@@ -3,7 +3,7 @@
   "subtitle": "How the big ones were built",
   "department": "Engineering",
   "order": 14,
-  "summary": "In 2003 LiveJournal's database could not keep up, so Brad Fitzpatrick wrote a cache that lived in the spare memory of its web servers. Most large systems grew like that, one bottleneck at a time. The course follows them from Google's file system, built on disks expected to fail daily, through Amazon's shopping cart that had to accept items during an outage, to Spanner, which put GPS receivers and atomic clocks in its datacentres. The numbers come first: how long a disk seek takes, how many machines one search touches, what retries do to a struggling service. Branches serve a map of the world and find the nearest car, and a design studio works through chat, a ticket sale and a fleet update.",
+  "summary": "In 2003 LiveJournal's database could not keep up, so Brad Fitzpatrick wrote a cache that lived in the spare memory of its web servers. Most large systems grew like that, one bottleneck at a time. The course follows them from Google's file system, built on disks expected to fail daily, through Amazon's shopping cart that had to accept items during an outage, to Spanner, which put GPS receivers and atomic clocks in its datacentres. The numbers come first: how long a disk seek takes, how many machines one search touches, what retries do to a struggling service. Branches serve a map of the world and keep it current, work through whole designs from chat to a fleet update, and follow the data behind machine learning: deciding whether a new model is better, trusting labels, publishing datasets many teams build on and stopping bad data before anyone reads it. Eight open design drills close the course.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "systems.save",
@@ -17,10 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.1",
+    "version": "0.2",
     "stage": "beta",
-    "date": "2026-11-09",
-    "note": "First version: every lesson drafted, with live system diagrams.",
-    "history": []
+    "date": "2026-11-17",
+    "note": "A third branch on the data behind machine learning: evaluating models, labelling, versioned datasets, data validation and feature stores. Change detection on maps reworked, scenario questions in the design studio quizzes, additions to six lessons, and a Drills page with eight open design problems.",
+    "history": [
+      {
+        "version": "0.1",
+        "stage": "beta",
+        "date": "2026-11-09",
+        "note": "First version: every lesson drafted, with live system diagrams."
+      }
+    ]
   }
 }

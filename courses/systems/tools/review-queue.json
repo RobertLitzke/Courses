@@ -3,5 +3,100 @@
     "lesson": "tinyurl",
     "added": "2026-11-11",
     "what": "birthday-problem wording (figure task, guess, axis, readout, text, summary, quiz) now says the 50% is the chance of any collision among all codes, not of one new code colliding"
+  },
+  {
+    "lesson": "evals",
+    "added": "2026-11-17",
+    "what": "new lesson P1: evaluation pipeline that gates model releases (hook: Gender Shades and the 2019 audit; Tempe). Expert reviews and a Haiku student read-through applied"
+  },
+  {
+    "lesson": "labels",
+    "added": "2026-11-17",
+    "what": "new lesson P2: labelling platform (hook: Northcutt, Athalye and Mueller on test-set label errors). Expert reviews and a Haiku student read-through applied"
+  },
+  {
+    "lesson": "datasets",
+    "added": "2026-11-17",
+    "what": "new lesson P3: versioned multi-source dataset (hook: LAION-5B withdrawal; Overture GERS). Expert reviews and a Haiku student read-through applied"
+  },
+  {
+    "lesson": "validation",
+    "added": "2026-11-17",
+    "what": "new lesson P4: data validation before publishing (hook: the PHE spreadsheet in October 2020). Expert reviews and a Haiku student read-through applied"
+  },
+  {
+    "lesson": "features",
+    "added": "2026-11-17",
+    "what": "new lesson P5: feature stores and training/serving skew (Michelangelo, Feast, Chronon). Expert reviews and a Haiku student read-through applied"
+  },
+  {
+    "lesson": "changes",
+    "added": "2026-11-17",
+    "what": "reworked M5: change detection with review tiers; Mapbox 2018 hook corrected, prioritised review queue, grouping by source. Expert reviews and student read-through applied"
+  },
+  {
+    "lesson": "streams",
+    "added": "2026-11-17",
+    "what": "availability time in \"Two clocks\", a dead-letter queue, and \"Batch, incremental, or both\"; a summary point and an 8th question",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "slo",
+    "added": "2026-11-17",
+    "what": "data SLIs (freshness, completeness, correctness) and per-slice cardinality; a summary point and an 8th question",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "sensors",
+    "added": "2026-11-17",
+    "what": "search target, embedding index and recall paragraphs, handoff to labelling and evaluation; two summary points; two quiz questions rewritten as scenarios",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "replay",
+    "added": "2026-11-17",
+    "what": "fidelity limit, release gate and flaky-scenario quarantine, seed noise floor; two summary points; three quiz questions rewritten as scenarios and an 8th added",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "rollout",
+    "added": "2026-11-17",
+    "what": "new part \"A release that is wrong, not broken\" (accuracy measures, shadow mode, stop rule); two summary points; one question rewritten as a scenario and two added",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "tiles",
+    "added": "2026-11-17",
+    "what": "validation before the pointer moves and offline deltas; two summary points and two questions",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "limiter",
+    "added": "2026-11-17",
+    "what": "three quiz questions rewritten as scenarios",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "chat",
+    "added": "2026-11-17",
+    "what": "three quiz questions rewritten as scenarios",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "search",
+    "added": "2026-11-17",
+    "what": "three quiz questions rewritten as scenarios",
+    "notes": "no student review"
+  },
+  {
+    "lesson": "tickets",
+    "added": "2026-11-17",
+    "what": "two quiz questions rewritten as scenarios",
+    "notes": "no student review"
+  },
+  {
+    "description": true,
+    "added": "2026-11-17",
+    "what": "summary rewritten for the new data and evaluation pipelines branch and the design drills"
   }
 ]
