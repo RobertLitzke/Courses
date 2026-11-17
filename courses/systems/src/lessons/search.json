@@ -185,14 +185,14 @@
                 "why": "A fifth of the URL stream belongs to a host that accepts only one request a second, so the entire stream can advance by at most five URLs a second."
               },
               {
-                "ask": "What does a frontier with a queue per host and a heap of ready times achieve?",
+                "ask": "A crawler must fetch about 1,000 pages a second across millions of sites, and must never ask any one site more than once a second. How should its frontier be organised?",
                 "choices": [
-                  "Fetchers always take the site that may be asked soonest, so none waits while some site is ready, and no site is asked too often",
-                  "Each site's pages are fetched in the order they were found, so the crawl stays complete without any need for priorities",
-                  "Duplicate URLs are removed automatically, because each host's queue can only hold any one URL once"
+                  "A queue per host, with a heap of each host's next allowed time, so a fetcher takes whichever host is ready soonest",
+                  "One queue of URLs, with each fetcher waiting whenever the next URL's site was asked too recently",
+                  "A queue per fetcher, with each new URL given to a fetcher at random"
                 ],
                 "answer": 0,
-                "why": "A big site's URLs wait in their own queue, and the heap hands each free fetcher the site allowed soonest, so throughput and politeness stop conflicting."
+                "why": "Per-host queues let a fetcher skip every host that is not yet allowed, so no fetcher idles while some site is ready. A single queue stalls behind whichever big site its next URL belongs to. Random queues keep fetchers busy, but two fetchers can ask the same site at once and break the one-a-second rule."
               },
               {
                 "ask": "A crawler must check 10 billion URLs for \"already seen\" with little memory. Which structure fits, and what does it cost?",
@@ -205,24 +205,24 @@
                 "why": "A Bloom filter never misses a URL it has seen, and at 10 bits per URL it needs about 12.5 GB of RAM; its rare false positives skip a few new pages, which a crawl can afford."
               },
               {
-                "ask": "Why do web search engines split their index by document rather than by word?",
+                "ask": "An index of billions of pages must answer within 200 ms, and most queries have two or three words. How should the index be split across machines?",
                 "choices": [
-                  "Each shard is a complete small index that answers alone, so no long posting lists are shipped between machines to be intersected",
-                  "Splitting by document lets each query touch only the few shards that hold its words, which keeps the latency of every query low",
-                  "Splitting by word can't be built with MapReduce, because one reducer would have to see every document's words at once"
+                  "By word, so each machine holds the whole posting list for some words",
+                  "By crawl date, so the newest pages sit on the fastest machines",
+                  "By document, so each shard is a complete small index and every shard answers each query"
                 ],
-                "answer": 0,
-                "why": "When partitioning by word, a common word's posting list is enormous and must be sent across the network to be intersected. When partitioning by document, every shard must be queried, which engineers manage using hedged requests and replicas."
+                "answer": 2,
+                "why": "With document shards, each shard intersects its own short lists and returns its best results, and only those small results travel to be merged. With word shards, a two-word query must ship one word's long posting list across the network to be intersected with the other's. Splitting by date still leaves each shard to be searched like a document shard, and makes the newest shard the busiest."
               },
               {
-                "ask": "A completer stores each trie node's most asked completions in the node. What does that buy, and what does it cost?",
+                "ask": "Suggestions must appear within 50 ms of each keystroke, and which completions are popular changes slowly, over days. Which structure fits?",
                 "choices": [
-                  "Exact completions for every query ever typed, at the cost of a lookup that grows with the number of queries",
-                  "A lookup of one node per letter typed, at the cost of rebuilding the trie daily",
-                  "Personal completions for each user, at the cost of a trie per account"
+                  "A trie that walks every completion below the typed prefix and ranks them on each keystroke",
+                  "A trie whose nodes each store their most asked completions, rebuilt daily from the query logs",
+                  "A table of past queries with their counts, searched with a prefix match and sorted on each keystroke"
                 ],
                 "answer": 1,
-                "why": "Precomputing the lists moves the work offline. Serving becomes a direct lookup by prefix; yesterday's lists miss today's news, which requires a separate fast path."
+                "why": "Storing the top completions in each node makes a lookup one step per letter, and a daily rebuild costs little when popularity changes over days. Walking the subtree is slow for a one-letter prefix with millions of completions below it, and a prefix match on a table does the same work on every keystroke."
               },
               {
                 "ask": "Suggestion requests are sharded by the first letter of the prefix. Why is that a poor choice?",

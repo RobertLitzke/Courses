@@ -171,14 +171,14 @@
           "options": {
             "items": [
               {
-                "ask": "Two million seats sell over about 4 hours, and 14 million people try to buy them. What is the main systems design problem?",
+                "ask": "Two million seats will sell over about 4 hours, 14 million people will arrive in the first minute, and the seat database can complete a few thousand purchases a second. Where should most of those people wait?",
                 "choices": [
-                  "Recording sales fast enough, since one database cannot keep up with a stadium's worth of seats",
-                  "Keeping millions of people from querying the backend at once, and rejecting most of them cheaply",
-                  "Storing the seat map, which is too large for any single server to keep in memory"
+                  "In the seat database's request queue, which serves them in the order they arrive",
+                  "In a waiting room in front of the site, which admits people to the purchase pages at the rate the backend can serve",
+                  "Nowhere: the site rejects requests above capacity and asks people to try again"
                 ],
                 "answer": 1,
-                "why": "Writing the sales requires about 140 transactions per second, which a single database easily handles. The bottleneck comes from read traffic: millions of users refreshing the seat map generate roughly 20,000 requests per seat sold."
+                "why": "A waiting room keeps the load off the backend, costs almost nothing per person, and gives everyone a place. Queueing in the database lets requests wait past their timeouts while the database works on them anyway. Rejecting and asking for retries turns 14 million people into a retry storm."
               },
               {
                 "ask": "A seat service is overloaded and every request sits in its queue longer than the client timeout. Why can its completed sales fall almost to zero while its CPU utilisation remains at 100%?",
@@ -201,14 +201,14 @@
                 "why": "The race condition occurs in the gap between the read and the subsequent write. An atomic conditional write combines the state check and the update into a single database operation, modifying 1 row for the winning request and 0 rows for the losing request."
               },
               {
-                "ask": "Why does a seat hold use an expiration timestamp rather than a lock that the client explicitly releases when checkout finishes?",
+                "ask": "A buyer may close the browser at any moment during checkout, and a seat must never stay unsold because of it. How should a seat be held while someone pays?",
                 "choices": [
-                  "Expiration timestamps use less storage than locks do in most relational databases, which matters for millions of seats",
-                  "A self-expiring hold automatically frees the seat if the buyer closes their browser or abandons checkout",
-                  "An expiration timestamp lets two buyers share the hold, so that whichever of them pays first gets the seat"
+                  "A hold that records the buyer and an expiry time, taken with a conditional write and treated as free once it expires",
+                  "A lock on the seat that the buyer's session releases when checkout finishes",
+                  "No hold: the seat is assigned to whichever buyer's payment succeeds first"
                 ],
-                "answer": 1,
-                "why": "An explicit lock held by a client that disconnects or closes its browser tab would leave the seat locked indefinitely. Checking hold_until in the conditional write's WHERE clause allows subsequent queries to treat an expired hold as available."
+                "answer": 0,
+                "why": "An expiring hold frees an abandoned seat without anyone acting. A lock released at the end of checkout is never released by a browser that has closed. Without a hold, two people can pay for one seat, and one of them must be refunded and disappointed."
               },
               {
                 "ask": "Everyone who arrives in the waiting room before a sale opens is shuffled into a random order at the opening timestamp. What does this achieve?",

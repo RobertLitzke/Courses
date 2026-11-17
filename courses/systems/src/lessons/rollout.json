@@ -225,7 +225,7 @@
         {
           "type": "quiz",
           "id": "check",
-          "caption": "Seven questions on getting an update safely onto a fleet",
+          "caption": "Nine questions on getting an update safely onto a fleet",
           "task": "Choose the best answer to each",
           "options": {
             "items": [
@@ -250,14 +250,14 @@
                 "why": "Each stage detects only faults frequent enough to stand out above the fleet's baseline failure rate. Detecting rarer faults requires larger sample sizes, which is why each subsequent stage is larger than the last."
               },
               {
-                "ask": "Why does a health gate compare the cohort with a control group instead of with a fixed threshold?",
+                "ask": "A regional mobile network outage can stop thousands of cars' heartbeats at once, and the health gate must not mistake that for a bad release. How should the gate judge a cohort?",
                 "choices": [
-                  "So that a bad day for every device, such as a network outage, isn't blamed on the release",
-                  "Because a control group of devices is needed to roll the release back if the health gate halts it",
-                  "Because a fixed threshold would need the whole fleet's data before it could be set to a sensible value"
+                  "Against a control group on the previous release, matched by hardware model and region, over the same hours",
+                  "Against a fixed threshold of missing heartbeats, set from last month's average",
+                  "Against the same cohort's own heartbeat rate on the day before the update"
                 ],
                 "answer": 0,
-                "why": "Updated and un-updated devices experience the same weather, network outages and time-of-day traffic patterns; only the software release differs between them."
+                "why": "An outage stops heartbeats from updated and control cars in the same region alike, so the comparison stays fair. A fixed threshold trips on any bad network day, and yesterday's rate cannot tell today's outage from today's release."
               },
               {
                 "ask": "A car with A/B slots installs an update that crashes as it starts. What happens?",
@@ -298,6 +298,26 @@
                 ],
                 "answer": 1,
                 "why": "Because cars download updates at different times, the server must send each car a map format compatible with its currently installed software until almost the entire fleet has upgraded to the new reader."
+              },
+              {
+                "ask": "A new map edition moves a few motorway exits to the wrong place. No car crashes, and every car loads the map. Which health measure would show the fault?",
+                "choices": [
+                  "The share of cars whose heartbeat reports a failed map load",
+                  "The crash rate of the navigation software after the update",
+                  "How often drivers leave the suggested route at changed junctions, or report map errors, compared with a control group under a stop rule set in advance"
+                ],
+                "answer": 2,
+                "why": "A data release can be wrong without breaking anything, so crash and load counts stay normal. A measure of whether the output is right, compared with cars on the old edition, sees it, though it is noisier and needs more trips, so the stage must run long enough to collect them."
+              },
+              {
+                "ask": "A team wants to know whether a new perception model is better on today's roads before it controls any car. What should it do?",
+                "choices": [
+                  "Release it to a 1% stage and watch the crash counts",
+                  "Run it in shadow mode on a sample of cars, logging where it disagrees with the current model and sending those cases for labelling",
+                  "Replay last month's logs through it once more"
+                ],
+                "answer": 1,
+                "why": "In shadow mode the car acts only on the current model, so the new one meets live input without risk, and labelled disagreements show which model was right. A 1% stage lets the new model drive, and last month's logs are not today's roads."
               }
             ]
           }

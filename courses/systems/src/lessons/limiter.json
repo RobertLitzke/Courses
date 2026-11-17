@@ -250,34 +250,34 @@
           "options": {
             "items": [
               {
-                "ask": "A limit of 100 requests a minute is counted in fixed windows that reset on the minute. How can a client get nearly 200 requests through in one 60-second span?",
+                "ask": "A public API must let a page load fire up to 50 requests at once, yet hold each client to 10 requests a second over any minute. Which limiter fits?",
                 "choices": [
-                  "By sending about 100 requests just before a minute ends and 100 requests just after, so each window sees under its limit",
-                  "By opening two connections, because each connection is counted against its own separate window",
-                  "By sending its requests faster than the counter can be written, so some are never counted at all"
+                  "A fixed window per client allowing 600 requests in each clock minute",
+                  "A sliding log per client allowing 10 requests in any one second",
+                  "A token bucket per client holding 50 tokens and refilling at 10 a second"
+                ],
+                "answer": 2,
+                "why": "A token bucket sets the burst (its size) and the sustained rate (its refill) separately, so a page load can spend 50 at once and the client still averages 10 a second. A fixed window of 600 lets a client send all 600 in a second, or nearly 1,200 across a window edge. A one-second sliding log rejects the page load's burst and stores every timestamp."
+              },
+              {
+                "ask": "A gateway must enforce a per-minute limit for 50 million API keys, checked on every request, and an approximate count is acceptable. What should it store per key?",
+                "choices": [
+                  "A sliding window counter: this minute's count and last minute's, weighted by how far into the minute it is",
+                  "A sliding log of every request's timestamp over the last minute",
+                  "A fixed-window count that resets at the start of each minute"
                 ],
                 "answer": 0,
-                "why": "Each window only counts its own requests. Two bursts on either side of a boundary land in different windows, so both pass within a few seconds of each other."
+                "why": "Two integers per key approximate the sliding log closely and fit 50 million keys in a few hundred megabytes. A log stores a timestamp for every request, which multiplies memory by the request rate. A fixed window is just as small but lets a client send twice the limit across a window edge."
               },
               {
-                "ask": "A token bucket refills at 10 tokens a second and holds at most 50 tokens. What is the most a client can send in any 10-second span?",
+                "ask": "Several gateways share token buckets in Redis. Under a flood the limit must hold exactly, and each check may add only one round trip. How should a gateway check a bucket?",
                 "choices": [
-                  "100 requests: the refill rate times the span, whatever the bucket holds when the span begins",
-                  "150 requests: a full bucket of 50 tokens spent at once, plus 100 tokens of refill over 10 seconds",
-                  "50 requests: the bucket's maximum size"
+                  "GET the bucket, decide, then SET it, retrying if the SET fails",
+                  "Send one Lua script that refills, decides and spends inside Redis",
+                  "Take a lock on the key with SETNX, then GET, decide, SET and release"
                 ],
                 "answer": 1,
-                "why": "A burst can spend the 50 tokens already in the bucket, and the refill adds 10 tokens a second over the 10-second span: b + rT = 50 + (10 × 10) = 150 requests."
-              },
-              {
-                "ask": "Two gateways share a token bucket in Redis, and each runs GET, decides, then SET as separate commands. What goes wrong under a flood?",
-                "choices": [
-                  "Redis runs out of memory, because every GET and SET pair leaves an extra copy of the bucket behind it",
-                  "Both gateways read the same last token, both spend it, and more requests pass than the limit allows",
-                  "The SET from one gateway is refused, so the other gateway's requests all fail until the key expires"
-                ],
-                "answer": 1,
-                "why": "Separate read and write steps leave a gap in which another gateway can read the same value. A script that Redis runs atomically closes the gap."
+                "why": "Redis runs a script from start to finish with nothing in between, so the check is atomic and costs one round trip. GET then SET lets two gateways spend the same token. A lock makes it atomic but adds round trips, and a gateway that dies holding the lock stalls that key until it expires."
               },
               {
                 "ask": "A per-key limiter guards an API against occasional floods; its Redis store fails. Which response is usually best, and why?",

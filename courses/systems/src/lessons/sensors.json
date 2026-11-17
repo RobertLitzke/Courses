@@ -220,14 +220,14 @@
                 "why": "Ten 100 Gb/s links could barely transfer 8 PB a day, and the central object store would then grow by nearly 3 EB a year; cellular links can carry only about 2% of the data. Filtering on the vehicle reduces the load on every network link and storage tier downstream."
               },
               {
-                "ask": "Why do instrument pipelines such as the LHC's decide what to keep at the source?",
+                "ask": "Each vehicle's disks hold two days of recording, the depots can upload about 4% of what is recorded, and engineers mostly need rare events. What should decide which data is kept?",
                 "choices": [
-                  "Because data filtered later can't be compressed as well as the raw data that comes from the sensors",
-                  "Because the source has the most accurate clock, so only the source can put the events in order",
-                  "Because every byte dropped there is a byte that no link, disk or later stage has to pay for"
+                  "Triggers on the vehicle that keep windows around rare events, plus a small random sample of all driving",
+                  "Keep everything on the vehicle, and let engineers request segments over cellular",
+                  "A random 4% of every hour of driving, so the kept data is unbiased"
                 ],
-                "answer": 2,
-                "why": "Any volume reduction achieved at the source reduces the capacity needed at every downstream network link and storage system. CERN's triggers save roughly one bunch crossing in 40,000."
+                "answer": 0,
+                "why": "Triggers spend the 4% on the rare events engineers need, and the random sample shows what the triggers miss and what ordinary driving looks like. The disks fill in two days and cellular cannot carry the volume. A random 4% alone is unbiased but keeps mostly uneventful driving and loses most rare events."
               },
               {
                 "ask": "A 256 GB upload is split into 4 MB chunks named by SHA-256 hashes. The link drops at 60%. What happens on reconnecting?",
@@ -270,14 +270,14 @@
                 "why": "Without a metadata catalogue, a query must scan every byte in the object store. With an indexed catalogue, the database intersects the tag lists in milliseconds and reads only the matching segments from storage."
               },
               {
-                "ask": "In a file sync service, how is a file's new version stored after a small edit?",
+                "ask": "Engineers need every recorded instance of a mattress lying in the road, and no detector produces a mattress tag. Which index finds them quickly?",
                 "choices": [
-                  "As a full new copy, so that each version can be read without reference to any other version",
-                  "As a list of block hashes, most of them shared with the old version",
-                  "As a diff against the previous version"
+                  "The tag index, searched for the closest existing tag, such as debris",
+                  "A new mattress detector, run over every raw log in the object store",
+                  "An embedding index over a few frames of each segment, searched with the phrase's embedding and filtered by the catalogue's columns"
                 ],
-                "answer": 1,
-                "why": "Unmodified 4 MB blocks keep the same SHA-256 hashes, so an edit uploads and stores only the specific blocks that changed."
+                "answer": 2,
+                "why": "An embedding index answers questions nobody planned a tag for, in seconds. The nearest tag finds some mattresses and many other things, and misses mattresses tagged as something else. A new detector over every log would work, but it reads over a hundred petabytes; it is worth running only if the scenario becomes a permanent tag."
               }
             ]
           }

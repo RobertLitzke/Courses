@@ -239,24 +239,24 @@
           "options": {
             "items": [
               {
-                "ask": "150 million phones are online at once. Why do chat services hold a connection open instead of having phones poll every 5 seconds?",
+                "ask": "A chat service has 150 million phones online at once, and a message must reach an online recipient within a second. How should delivery work?",
                 "choices": [
-                  "Polling every 5 seconds would mean about 30 million requests a second, nearly all of them answered no, and messages waiting 2.5 s",
-                  "Phones can't open a new connection every 5 seconds, because their radios need about a minute to wake up and settle again",
-                  "A held connection is encrypted end to end, while a polling request can only ever be encrypted in transit"
+                  "Each phone polls the server every 5 seconds for new messages",
+                  "Each phone keeps one connection open to a gateway, and the server pushes each message down it",
+                  "Each phone polls every half second, so that messages arrive within a second"
                 ],
-                "answer": 0,
-                "why": "150 million ÷ 5 s is 30 million requests a second, and a message still waits half a poll interval on average. A held connection lets the server push messages immediately."
+                "answer": 1,
+                "why": "An open connection costs a little memory on a gateway and delivers a message in tens of milliseconds. Polling every 5 seconds makes about 30 million requests a second, nearly all answered with nothing, and messages wait 2.5 seconds on average. Polling every half second meets the target at ten times that load."
               },
               {
-                "ask": "Why number messages with a counter per conversation instead of each phone's clock?",
+                "ask": "Members of a group send messages from phones whose clocks can be minutes wrong. Everyone must see the same order and notice when a message is missing. How should messages be ordered?",
                 "choices": [
-                  "Phone clocks can't be read by the server once the message has been encrypted end to end on the phone",
-                  "A counter is shorter than a timestamp",
-                  "One owner's counter gives a single order, and a missing number shows as a gap"
+                  "The server that owns the conversation gives each message the next number from a counter",
+                  "Each phone stamps the message with its own clock, and the server sorts by the stamps",
+                  "Each gateway stamps the message with its own clock when it arrives, and the server sorts by the stamps"
                 ],
-                "answer": 2,
-                "why": "Phone clocks are often minutes wrong. Numbering messages 1, 2, 3 at the conversation's owner gives an order everyone agrees on, and a phone holding messages 41 and 43 knows to request message 42."
+                "answer": 0,
+                "why": "One owner's counter gives a single order, and a gap in the numbers shows a missing message. Phone clocks disagree, so their stamps can put a reply before its question. Gateway clocks are closer, but still differ between machines, and a timestamp cannot show that something is missing."
               },
               {
                 "ask": "Alice's phone sends a message, the service stores it, and the \"sent\" acknowledgement is lost. Alice's phone sends again. What keeps Bob from seeing it twice?",
@@ -279,14 +279,14 @@
                 "why": "Using sequence-number synchronisation, the phone reports the last sequence number it received, and the server sends only newer messages. Reconnecting requires work proportional only to the messages missed."
               },
               {
-                "ask": "Messages are stored with the partition key (conversation, ten-day bucket), sorted by message id. Why the bucket?",
+                "ask": "Two friends have chatted for eight years, two million messages, and the store keeps each partition under about 100 MB. How should their messages be keyed?",
                 "choices": [
-                  "It bounds each partition's size, however long the conversation runs",
-                  "It lets the store delete a whole bucket once every member of the conversation has read the messages inside it",
-                  "It spreads one conversation's newest messages across many nodes, so that writes never have to queue"
+                  "Partition by conversation alone, sorted by message id",
+                  "Partition by message id, so that messages spread evenly across the store",
+                  "Partition by (conversation, ten-day bucket), sorted by message id within each partition"
                 ],
-                "answer": 0,
-                "why": "Reads query a conversation's latest messages, so the conversation ID comes first in the partition key; the time bucket prevents a long-running conversation from growing into a partition that is too large to manage."
+                "answer": 2,
+                "why": "The bucket bounds each partition's size however long the conversation runs, and keeps a period's messages together, so reading recent history touches one or two partitions. A conversation alone grows without limit. Keying by message id spreads load evenly, but reading the last fifty messages then touches fifty partitions."
               },
               {
                 "ask": "A gateway holding 2 million connections dies. What should the design do so the rest of the fleet survives?",

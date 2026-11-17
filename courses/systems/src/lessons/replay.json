@@ -284,19 +284,19 @@
         {
           "type": "quiz",
           "id": "check",
-          "caption": "Seven questions on running and reading a million replays",
+          "caption": "Eight questions on running and reading a million replays",
           "task": "Choose the best answer to each",
           "options": {
             "items": [
               {
-                "ask": "A *Doom* demo recorded on one version of the game desyncs on another. Why?",
+                "ask": "A nightly gate blocks about one good build a week, because a few scenarios pass or fail at random between runs, and engineers have started merging past it. What should change?",
                 "choices": [
-                  "The demo holds only inputs, and the new version's game logic differs slightly",
-                  "The demo file was compressed differently by the second version, and some of the recorded inputs were lost on loading",
-                  "The second version ran at a different number of tics a second"
+                  "Widen the gate's margins until the random failures no longer cross them",
+                  "Remove the gate and rely on the staged rollout to catch regressions",
+                  "Re-run each failure once, move scenarios that flip between runs to a counted quarantine list with a bug filed, and block only on failures that reproduce"
                 ],
-                "answer": 0,
-                "why": "Replaying recorded inputs reproduces a run only if the simulation logic is identical; a tiny change in rules compounds tic by tic."
+                "answer": 2,
+                "why": "A gate is useful only if people obey it, and they obey it only if it is right. Quarantining flaky scenarios openly, and re-running before blocking, keeps the gate strict on everything else. Wider margins hide real regressions too, and the staged rollout finds faults later and on real cars."
               },
               {
                 "ask": "A replay of the same build and scenario gives a slightly different result each time. What is the most likely cause?",
@@ -319,14 +319,14 @@
                 "why": "Because a distributed system cannot distinguish a paused worker from a crashed one, tasks execute at least once, and idempotent storage keys plus fencing tokens make duplicate runs harmless."
               },
               {
-                "ask": "The elected scheduler fails at 03:00 and a standby takes over. What does the standby need from the old leader?",
+                "ask": "The scheduler must survive the loss of its machine at any moment without losing a run or starting one twice. Where should the schedule's state live?",
                 "choices": [
-                  "Nothing: every job, run, task and lease is in the replicated job store, which outlives any one leader",
-                  "A copy of the old leader's memory, so that it knows which tasks were handed to which of the workers",
-                  "A list of the workers, so that it can ask each one in turn what it is doing at the moment"
+                  "In the active scheduler's memory, copied to a standby every minute",
+                  "In a small replicated job store, with runs keyed by job and scheduled time, and nothing in the elected scheduler that is not written there",
+                  "In each worker, which records the runs it has carried out"
                 ],
-                "answer": 0,
-                "why": "Storing all state in the replicated database allows a standby scheduler to take over in seconds. Because workers pull tasks directly from the store, they continue executing during leader failover."
+                "answer": 1,
+                "why": "A standby that takes over reads everything from the store, and the unique key stops it from creating a run the old leader already created. A copy taken every minute loses up to a minute of decisions, and workers know only their own tasks, not what was due."
               },
               {
                 "ask": "On preemptible cores, two-hour tasks with no checkpoints waste about a quarter of the core-hours. What fixes it?",
@@ -349,14 +349,24 @@
                 "why": "While determinism guarantees every numerical difference is real, most are harmless trajectory shifts in both directions. Comparing failure rates across tagged groups with multiple-testing corrections isolates systematic regressions, while strict invariants catch individual crashes."
               },
               {
-                "ask": "Why is a scenario set stored as a frozen version such as `night-cyclists@v7`?",
+                "ask": "In June an engineer must reproduce a regression first reported in March, though months of new logs have been recorded since. What must the March result have recorded?",
                 "choices": [
-                  "So builds and months are compared on exactly the same scenes",
-                  "So that the catalogue's query runs faster the second time someone asks it, from a cache",
-                  "So that the scenarios take less storage space than the raw logs that they were taken from"
+                  "The scenario set as a frozen version listing segment IDs and content hashes, with the build and simulator versions",
+                  "The catalogue query that selected the scenarios, to be run again in June",
+                  "The build hash alone, since the simulator is deterministic"
                 ],
                 "answer": 0,
-                "why": "Re-running a live catalogue query weeks later will return newly uploaded logs, so freezing an immutable version manifest is necessary to make build comparisons and bug reports reproducible."
+                "why": "Running the query again in June returns March's segments plus everything recorded since, so the inputs differ. Determinism gives the same output only for the same inputs and the same simulator, so all of them must be pinned."
+              },
+              {
+                "ask": "A new planning build brakes earlier than the logged drive in many scenarios, and open-loop replay reports rear-end collisions in them. What should the team conclude?",
+                "choices": [
+                  "The new build is unsafe, and the gate should block it",
+                  "The logged cars behind cannot react, so scoring should stop where the paths diverge and those scenarios should run in closed-loop simulation",
+                  "Replay cannot test planning software at all, so the team should stop using it"
+                ],
+                "answer": 1,
+                "why": "Once the new build behaves differently, the recorded world is wrong: the car behind keeps the speed it had in the log. Closed-loop simulation, with behaviour models checked against real logs, gives a trustworthy answer for those scenarios, and open-loop replay remains useful wherever the paths stay together."
               }
             ]
           }
