@@ -2,11 +2,11 @@
   "id": "tinyurl",
   "n": 3,
   "title": "A shorter link, a billion times",
-  "teaches": "How to work out a system design on paper: defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys",
+  "teaches": "How to work out a system design on paper by defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys",
   "summary": [
     "**Follow a structured sequence.** Define functional and non-functional requirements, estimate throughput and storage, specify the API and data model, and only then draw the architecture.",
     "**State what is out of scope.** Explicitly excluding secondary subsystems such as click analytics and spam filtering keeps them from complicating the core architecture.",
-    "**Capacity estimates dictate the architecture.** Generating 100 million links a month produces 40 writes a second and 3 TB of data over five years: a single database handles the writes and storage, while the 4,000 to 10,000 reads a second require an in-memory cache.",
+    "**Capacity estimates dictate the architecture.** Generating 100 million links a month produces 40 writes a second and 3 TB of data over five years. A single database handles the writes and storage, while the 4,000 to 10,000 reads a second require an in-memory cache.",
     "**Optimise the schema for the dominant query.** A single table indexed by the short code as its primary key serves redirects with one lookup, matching a workload where reads outnumber writes a hundred to one.",
     "**Random keys collide early due to the birthday problem.** Across N possible keys, the chance that any two keys match reaches 50% after roughly 1.2 √N draws, so a keyspace of 3.5 trillion seven-character codes has an even chance of at least one collision after just 2.2 million links.",
     "**Allocate sequential IDs in blocks to avoid bottlenecks.** Assigning each application server a range of 1,000 counter values preserves collision-free generation while keeping the central counter off the critical write path.",
@@ -27,7 +27,7 @@
         },
         {
           "type": "text",
-          "text": "In this lesson, we will design that service step by step, following the same order we will use for every system in the course. Before reading on, take a minute and sketch your own: what it must do, how big it gets, what you would store, and how you would generate the short codes. We will follow those exact steps, and each decision will shape the ones that follow."
+          "text": "In this lesson, we will design that service step by step, following the order used across every system in the course. Before reading on, sketch an initial architecture by identifying the requirements, estimating scale, defining what to store, and deciding how to generate the short codes. Each decision directly constrains the ones that follow."
         }
       ]
     },
@@ -36,7 +36,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Start with the functional requirements, in a few lines a user would recognise. Given a long URL, the service returns a short code. Given a short code, it redirects to the long URL, quickly and reliably. We should also let a user choose their own code (an alias) and set an expiry date on a link. Next, state explicitly what is out of scope for the initial design. Counting clicks by country and hour belongs in a separate analytics system that reads a log of redirects. Blocking users who shorten links to phishing pages is a large problem in its own right. Both matter, but neither should shape the core architecture."
+          "text": "We start with the functional requirements, written from the user's perspective. Given a long URL, the service returns a short code. Given a short code, it redirects to the long URL. The service should also let a user choose a custom alias and set an expiry date on a link. Next, we state explicitly what is out of scope for the initial design. Counting clicks by country and hour belongs in a separate analytics system that reads a log of redirects. Blocking users who shorten links to phishing pages is an abuse-prevention challenge. Both matter, but neither should shape the core architecture."
         },
         {
           "type": "text",
@@ -53,7 +53,7 @@
         },
         {
           "type": "text",
-          "text": "For storage, 100 million links a month over five years is 6 billion links. Each row holds the short code, the long URL (a couple of hundred bytes on average), an owner ID and two timestamps; including database index overhead, estimate 500 bytes per row. Six billion rows at 500 bytes is 3 TB. That fits on a single server's flash drives with room to spare, and 40 writes a second is a light load for any relational database. These estimates immediately rule out unnecessary complexity: we do not need to partition data across multiple machines on day one. Instead, we must design for the read throughput of 10,000 queries a second, which exceeds the 3,000 queries a second this course assumes a single database server can handle (a benchmark we will also use in lesson 4), and for high availability on the redirect path."
+          "text": "For storage, 100 million links a month over five years is 6 billion links. Each row holds the short code, the long URL (a couple of hundred bytes on average), an owner ID and two timestamps; including database index overhead, we estimate 500 bytes per row. Six billion rows at 500 bytes is 3 TB. That fits on a single server's flash drives with room to spare, and 40 writes a second is a light load for any relational database. These estimates rule out unnecessary complexity; we do not need to partition data across multiple machines on day one. Instead, we must design for the read throughput of 10,000 queries a second, which exceeds the 3,000 queries a second this course assumes a single database server can handle (a benchmark we will also use in lesson 4), and for high availability on the redirect path."
         }
       ]
     },
@@ -62,7 +62,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Next, we define the **API**: the requests external clients can make and the exact data sent over the network for each. Two endpoints are enough. Creating a link is an HTTP POST containing the long URL (and an optional custom alias) that returns the short code. Following a link is an HTTP GET requesting the code path itself, which returns an HTTP redirect response carrying the long URL in its `Location` header. Specifying the API early forces concrete decisions that high-level diagrams gloss over, such as the format of a code, the error returned when an alias is already taken, and which HTTP status code the redirect uses."
+          "text": "Next, we define the **API**, specifying the requests external clients can make and the exact data sent over the network for each. Two endpoints are sufficient. Creating a link is an HTTP POST containing the long URL (and an optional custom alias) that returns the short code. Following a link is an HTTP GET requesting the code path itself, which returns an HTTP redirect response carrying the long URL in its `Location` header. Specifying the API early forces concrete decisions that high-level diagrams gloss over, such as the format of a code, the error returned when an alias is already taken, and which HTTP status code the redirect uses."
         },
         {
           "type": "diagram",
@@ -72,7 +72,7 @@
         },
         {
           "type": "text",
-          "text": "Next, we design the data model. List the queries the system must run and their frequencies, and optimise the schema for the most common operation. Here, redirects outnumber link creations a hundred to one, and each redirect fetches a single row by its short code. A single table with the short code as its **primary key** (the column the database enforces as unique and indexes each row by) answers every redirect with one index lookup. Nothing in the initial design requires a join, a secondary index search or a table scan."
+          "text": "Next, we design the data model. We list the queries the system must run and their frequencies, and optimise the schema for the most common operation. Here, redirects outnumber link creations a hundred to one, and each redirect fetches a single row by its short code. A single table with the short code as its **primary key** (the column the database enforces as unique and indexes each row by) answers every redirect with one index lookup. Nothing in the initial design requires a join, a secondary index search or a table scan."
         },
         {
           "type": "text",
@@ -97,15 +97,15 @@
         },
         {
           "type": "text",
-          "text": "It takes about 2.2 million codes. This is the **birthday problem**: in a room of 23 people there is a 50% chance that two share a birthday, even though there are 365 days in a year, because collision probability depends on the number of pairs, and 23 people form 253 pairs. Across N possible codes, the chance that any two of them match reaches 50% after about 1.2 √N codes; √(3.5 trillion) is 1.87 million, giving roughly 2.2 million codes. In general, n random selections produce about n² / 2N collisions, so across 6 billion links a purely random scheme would generate (6 × 10⁹)² / (7 × 10¹²), or about 5.1 million collisions. Therefore, we must check every random code before returning it: insert the new row only if that primary key does not already exist, and generate a fresh random code if it does. Because the database enforces uniqueness on the primary key during insertion, and because the keyspace is 99.8% empty, a collision retry is rarely needed. Random generation with database retries is simple and works well."
+          "text": "It takes about 2.2 million codes. This is the **birthday problem**. In a room of 23 people there is a 50% chance that two share a birthday, even though there are 365 days in a year, because collision probability depends on the number of pairs, and 23 people form 253 pairs. Across N possible codes, the chance that any two of them match reaches 50% after about 1.2 √N codes; √(3.5 trillion) is 1.87 million, giving roughly 2.2 million codes. In general, n random selections produce about n² / (2N) collisions, so across 6 billion links a purely random scheme would generate (6 × 10⁹)² / (7 × 10¹²), or about 5.1 million collisions. Therefore, the application server must check every random code before returning it, inserting the new row only if that primary key does not already exist and generating a fresh code if it does. Because the database enforces uniqueness on the primary key during insertion, and because the keyspace is 99.8% empty, a collision retry is rarely needed. Random generation with database retries is simple and works well."
         },
         {
           "type": "text",
-          "text": "Alternatively, a sequential **counter** never collides: assign link 1 the code for 1, link 2 the code for 2, and so on, encoding each integer in base 62.[^base62] However, if every create request must query a single counter, that machine becomes both a throughput bottleneck and a single point of failure for all writes. Flickr faced this exact problem when generating photo IDs and published its solution in 2010: two small MySQL instances called **ticket servers**, one configured to issue odd numbers and the other even numbers, so either machine could fail without halting uploads.[^tickets] We can remove the counter from the critical write path entirely by having each application server request a block of 1,000 numbers at a time and assign them from memory. If the counter service goes offline for a minute, the application servers continue issuing codes from their local blocks. If an application server crashes, it loses the unused numbers in its current block, which wastes negligible capacity in a keyspace of 3.5 trillion. To ensure the counter service never issues the same block twice after a reboot, it writes the upper bound of each allocated block to disk before returning the range to the application server."
+          "text": "Alternatively, a sequential **counter** never collides. We can assign link 1 the code for 1, link 2 the code for 2, and so on, encoding each integer in base 62.[^base62] However, if every create request must query a single counter, that machine becomes both a throughput bottleneck and a single point of failure for all writes. Flickr faced this exact problem when generating photo IDs and published its solution in 2010, deploying two small MySQL instances called **ticket servers**, with one configured to issue odd numbers and the other even numbers, so either machine could fail without halting uploads.[^tickets] We can remove the counter from the critical write path entirely by having each application server request a block of 1,000 numbers at a time and assign them from memory. If the counter service goes offline for a minute, the application servers continue issuing codes from their local blocks. If an application server crashes, it loses the unused numbers in its current block, which wastes negligible capacity in a keyspace of 3.5 trillion. To ensure the counter service never issues the same block twice after a reboot, it writes the upper bound of each allocated block to disk before returning the range to the application server."
         },
         {
           "type": "text",
-          "text": "Sequential counters have one drawback: the resulting codes are predictable. An attacker can step through `aZ3kQ9w`, `aZ3kQ9x`, `aZ3kQ9y` and scrape every link in the database, including URLs that users assumed were unlisted. Permuting the integers before encoding them hides the sequence while preserving uniqueness: if we multiply each counter value by a properly chosen constant modulo 62⁷, every integer still maps to a unique code, but consecutive numbers scatter widely across the keyspace. Because this mathematical permutation is reversible, two different counter values can never produce the same code.[^shuffle]"
+          "text": "Sequential counters have one drawback, as the resulting codes are predictable. An attacker can step through `aZ3kQ9w`, `aZ3kQ9x`, `aZ3kQ9y` and scrape every link in the database, including URLs that users assumed were unlisted. Permuting the integers before encoding them hides the sequence while preserving uniqueness. Multiplying each counter value by a coprime constant modulo 62⁷ ensures that every integer still maps to a unique code, while scattering consecutive numbers widely across the keyspace. Because this mathematical permutation is reversible, two different counter values can never produce the same code.[^shuffle]"
         },
         {
           "type": "text",
@@ -118,7 +118,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "With the scale, API, schema and key generation settled, we can draw the system architecture. A **load balancer** distributes incoming traffic across several **stateless** application servers (servers that store no client state locally between requests, allowing any instance to handle any call and to be replaced if it fails). Behind the application servers sits the relational database holding the links table. In front of the database sits an in-memory **cache** that stores recently requested mappings so that most redirects are served from RAM without querying the disk. Link traffic follows a skewed distribution: a small fraction of newly shared links receives the vast majority of clicks, while older links are rarely accessed. To size the cache, estimate how many unique links account for most of a day's traffic. If 20 million active links generate 95% of daily redirects, caching 20 million rows at 500 bytes each requires 10 GB of RAM, which fits easily on a single cache server. We will cover caching strategies in detail in lesson 5; here, a single cache layer reduces database read load by an order of magnitude."
+          "text": "With the scale, API, schema and key generation settled, we can draw the system architecture. A **load balancer** distributes incoming traffic across several **stateless** application servers (servers that store no client state locally between requests, allowing any instance to handle any call and to be replaced if it fails). Behind the application servers sits the relational database holding the links table. In front of the database sits an in-memory **cache** that stores recently requested mappings so that most redirects are served from RAM without querying the disk. Link traffic follows a skewed distribution, where a small fraction of newly shared links receives the vast majority of clicks, while older links are rarely accessed. To size the cache, we estimate how many unique links account for most of a day's traffic. If 20 million active links generate 95% of daily redirects, caching 20 million rows at 500 bytes each requires 10 GB of RAM, which fits easily on a single cache server. We will cover caching strategies in detail in lesson 5; here, a single cache layer reduces database read load by an order of magnitude."
         },
         {
           "type": "interactive_diagram",
@@ -130,7 +130,7 @@
         },
         {
           "type": "text",
-          "text": "The read and write paths are largely decoupled. A redirect hits the load balancer, an application server and usually only the cache; the 5% to 10% of requests that miss the cache also query the database, and in lesson 4 we will add read replicas so redirects can survive a primary database failure. Creating a new link hits an application server, writes to the database, and every thousandth time requests a block from the key service. The latency-sensitive, high-availability redirect path never communicates with the key service, leaving all state coordination on the write path where higher latency is acceptable. This separation follows directly from the non-functional requirements we established at the start."
+          "text": "The read and write paths are largely decoupled. A redirect routes through the load balancer to an application server and usually reads only from the cache. The 5% to 10% of requests that miss the cache query the database, and in lesson 4 we will add read replicas so redirects can survive a primary database failure. Creating a new link routes to an application server, writes to the database, and requests a fresh block from the key service once every 1,000 writes. The latency-sensitive, high-availability redirect path never communicates with the key service, leaving all state coordination on the write path where higher latency is acceptable. This separation follows directly from the non-functional requirements established at the start."
         },
         {
           "type": "text",
@@ -141,9 +141,9 @@
           "title": "The method",
           "points": [
             "Define functional requirements, out-of-scope features, and non-functional requirements (latency, availability, immutability).",
-            "Estimate scale: average and peak request throughput, and total storage over several years.",
-            "Specify the API: each endpoint and its exact request and response payloads.",
-            "Design the data model: index the schema around the highest-throughput query.",
+            "Estimate scale, calculating average and peak request throughput, alongside total storage over several years.",
+            "Specify the API, defining each endpoint and its exact request and response payloads.",
+            "Design the data model by indexing the schema around the highest-throughput query.",
             "The boxes, then the part that is hard."
           ]
         }
@@ -217,7 +217,7 @@
                   "They determined that the short codes must be exactly seven characters long"
                 ],
                 "answer": 0,
-                "why": "Because 3 TB of data and 40 writes a second fit comfortably on one machine, we avoided premature database sharding and focused on serving 10,000 redirects a second with an in-memory cache. Designing the architecture without estimating scale first often leads to unnecessary partitioning. The seven-character code length came from collision math over 6 billion links, not from the throughput order."
+                "why": "Because 3 TB of data and 40 writes a second fit comfortably on one machine, we avoided premature database sharding and focused on serving 10,000 redirects a second with an in-memory cache. Designing the architecture without estimating scale first often leads to unnecessary partitioning. The seven-character code length came from collision calculations over 6 billion links, not from the throughput order."
               }
             ]
           }

@@ -63,7 +63,7 @@
         },
         {
           "type": "text",
-          "text": "Therefore, engineers build the simulator to be strictly deterministic, and record or pin every input. The simulator uses a simulated **clock** rather than the host machine's system clock. It draws random numbers from a seeded pseudoranom generator, storing the seed alongside the scenario. Because threads may execute in any order, the simulator combines thread outputs in a fixed sequence and performs floating-point additions (which are not associative) in a single deterministic order. We pin the software build using the cryptographic hash of its binaries and libraries. Each run logs the hash of every input, and an automated nightly test verifies that a small sample of the previous night's runs produces identical output bytes. If a run diverges, engineers inspect the first tic where the outputs differ."
+          "text": "Engineers therefore design the simulator to be strictly deterministic, and record or pin every input. The simulator uses a simulated **clock** rather than the host machine's system clock. It draws random numbers from a seeded pseudorandom generator, storing the seed alongside the scenario. Because threads may execute in any order, the simulator combines thread outputs in a fixed sequence and performs floating-point additions (which are not associative) in a single deterministic order. We pin the software build using the cryptographic hash of its binaries and libraries. Each run logs the hash of every input, and an automated nightly test verifies that a small sample of the previous night's runs produces identical output bytes. If a run diverges, engineers inspect the first tic where the outputs differ."
         },
         {
           "type": "text",
@@ -202,7 +202,7 @@
         },
         {
           "type": "text",
-          "text": "We can achieve an even larger reduction in compute time by eliminating redundant runs. Because the baseline build already ran the previous night against the exact same scenarios, its outputs are already stored under the hashes of their inputs. If workers query the storage cache for an existing input hash before running the simulator, we skip the baseline simulations entirely, and the nightly job finishes shortly after 02:00. Build systems apply this same technique to source code: Bazel, which Google open-sourced in 2015, maintains a **remote cache** of build artifacts keyed by the cryptographic hash of all compilation inputs, ensuring that an unchanged source file compiled on one workstation is never recompiled on another.[^hash]"
+          "text": "We can achieve an even larger reduction in compute time by eliminating redundant runs. Because the baseline build already ran the previous night against the exact same scenarios, its outputs are already stored under the hashes of their inputs. If workers query the storage cache for an existing input hash before running the simulator, we skip the baseline simulations entirely, and the nightly job finishes shortly after 02:00. Build systems apply this same technique to source code: Bazel, which Google open-sourced in 2015, maintains a **remote cache** of build artefacts keyed by the cryptographic hash of all compilation inputs, ensuring that an unchanged source file compiled on one workstation is never recompiled on another.[^hash]"
         },
         {
           "type": "text",
@@ -257,7 +257,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Borg's design is close to the one above, at a larger scale. Its paper describes cells of about 10,000 machines, each run by a Borgmaster replicated five times with Paxos, and a separate scheduler that reads the master's state and assigns tasks. Priority bands separated monitoring, production, batch and best effort work, with quotas per band, and preemption flowing only downwards. Most of a cell's batch work ran in reclaimed resources. Google's earlier MapReduce had shown the task-level ideas in 2004 (lesson 8): a master that re-runs the tasks of a dead worker, outputs written so a duplicate is harmless, and backup copies of the slowest tasks near the end of a job."
+          "text": "Borg's design is close to the one above, at a larger scale. Its paper describes cells of about 10,000 machines, each run by a Borgmaster replicated five times with Paxos, and a separate scheduler that reads the master's state and assigns tasks. Priority bands separated monitoring, production, batch and best-effort work, with quotas per band, and preemption operating only downwards. Most of a cell's batch work ran in reclaimed resources. Google's earlier MapReduce had shown the task-level ideas in 2004 (lesson 8): a master that re-runs the tasks of a dead worker, outputs written so a duplicate is harmless, and backup copies of the slowest tasks near the end of a job."
         },
         {
           "type": "text",
@@ -346,7 +346,7 @@
                   "Group the changes and compare each group's rate, with thresholds corrected for many tests"
                 ],
                 "answer": 2,
-                "why": "While determinism guarantees every numerical difference is real, most are harmless trajectory shifts in both directions. Comparing failure rates across tagged groups with multiple-testing corrections isolates systematic regressions, while strict invariants catch individual crashes."
+                "why": "Deterministic execution ensures that every numerical difference is repeatable, but most differences represent benign trajectory shifts. Comparing failure rates across tagged groups with multiple-testing corrections isolates systematic regressions, while strict invariants catch individual crashes."
               },
               {
                 "ask": "In June an engineer must reproduce a regression first reported in March, though months of new logs have been recorded since. What must the March result have recorded?",
@@ -400,7 +400,7 @@
     "hash": {
       "kind": "technical",
       "title": "Keys made of inputs",
-      "text": "A cache keyed by the hash of every input, code, data, parameters and tool versions, can never return a stale answer: change anything and the key changes. The risk runs the other way. An input left out of the key, such as an environment variable the simulator reads, lets two different runs share one key, and the cache returns the wrong result with complete confidence."
+      "text": "A cache keyed by the hash of all inputs (code, data, parameters, and tool versions) cannot return a stale entry, because modifying any input alters the key. The risk runs in the opposite direction: omitting an input from the key, such as an environment variable read by the simulator, allows two different runs to share a key, causing the cache to return an invalid result."
     },
     "fdr": {
       "kind": "technical",

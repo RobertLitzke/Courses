@@ -42,11 +42,11 @@
         },
         {
           "type": "text",
-          "text": "**Non-functional.** A check must run in minutes, so that a nightly publish is not delayed by hours. False alarms must be rare, about one a month at most, or people will learn to override them. The time from a problem in a source to the right person hearing about it should be under an hour."
+          "text": "**Non-functional.** A check must run in minutes, so that a nightly publish is not delayed by hours. False alarms must be rare, about one a month at most, to prevent alert fatigue and routine overrides. The time from a source failure to alerting the designated owner must be under one hour."
         },
         {
           "type": "text",
-          "text": "**Out of scope.** We will not design the fixing of bad source data, which is the source team's job, or the evaluation of models trained on the data, which is lesson P1's."
+          "text": "**Out of scope.** We will not design the remediation of invalid source data, which remains the responsibility of the upstream team, or the evaluation of models trained on the data, which is addressed in lesson P1."
         }
       ]
     },
@@ -55,11 +55,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most data problems start where one team hands data to another, so the design starts there. A **data contract** is a written agreement, kept in version control beside the code, between a team that produces a dataset and the teams that consume it. It states the schema, what each field means and in which units, how fresh the data will be, roughly how much will arrive, and who is told when the contract is broken. A producer runs the contract's checks in its own build pipeline before sending anything, which catches most mistakes before they leave the team that made them."
+          "text": "Most data faults occur where one team hands data to another, so our design begins there. A **data contract** is a written agreement, kept in version control beside the pipeline code, between a team that produces a dataset and the teams that consume it. It specifies the schema, the semantic meaning and units of each field, the expected freshness, the expected record volume, and who receives an alert when a check fails. The producer executes the contract checks in its own build pipeline before sending any data, catching most mistakes before they leave the team that created them."
         },
         {
           "type": "text",
-          "text": "The contract should also require a **control total** with every delivery: the number of records, and a checksum computed over them, sent separately from the data itself. The receiver counts what it actually loaded and compares. It is the single check that would have caught the Covid case on its first day, with about 1,400 cases loaded from a file that held several thousand. The receiver also checks that every expected delivery arrived, and treats a file without its total, or a total without its file, as a failed delivery."
+          "text": "The contract should also require a **control total**[^batch-totals] with every delivery: the number of records, and a checksum computed over them, sent separately from the data itself. The receiver counts the records it loaded and compares the result with the transmitted total. That single check would have caught the Covid-19 reporting failure on its first day, when only about 1,400 cases were loaded from a file that held several thousand. The receiver also verifies that every expected delivery arrived, and treats a file without its total, or a total without its file, as a failed delivery."
         }
       ]
     },
@@ -72,11 +72,11 @@
         },
         {
           "type": "text",
-          "text": "Invariant checks cannot see data that is valid record by record and wrong as a whole: a region with half its roads, a day's file from a source that sent yesterday's file again, speeds that are all in range but in the wrong unit for one country. **Statistical checks** compare the output with what is expected: the number of records per region, the distribution of each important field, the share of records that changed since the last version, and the share of IDs retired or newly created, each compared region by region. Two choices make these work. They should judge the size of a change, such as \"the number of roads in this region fell by 12%\", against a threshold the owner chose, rather than asking whether a change is statistically significant, because with millions of records almost any change is significant. Measuring a change in units of the region's ordinary night-to-night noise is still a judgement of size, because the threshold then means unusual for this region. If a region's road count moves by about 1% on an ordinary night, one standard deviation is about 1% of its count. And they should compare with two baselines: recent history, which adapts to normal change, and a fixed reference version, which does not adapt and therefore catches a slow drift that recent history would absorb. The fixed reference must itself be replaced from time to time, say each quarter after a review, or legitimate growth will eventually trip it."
+          "text": "Invariant checks cannot see data that is valid record by record and wrong as a whole: a region with half its roads, a day's file from a source that sent yesterday's file again, speeds that are all in range but in the wrong unit for one country. **Statistical checks** compare the output with what is expected: the number of records per region, the distribution of each important field, the share of records that changed since the last version, and the share of IDs retired or newly created, each compared region by region. Two design choices make these work. First, they should judge the size of a change, such as 'the number of roads in this region fell by 12%', against an owner-defined threshold, rather than asking whether a change is statistically significant, because with millions of records almost any change is significant. Measuring a change in units of the region's ordinary night-to-night noise is still a judgement of size, because the threshold then means unusual for this region. If a region's road count moves by about 1% on an ordinary night, one standard deviation is about 1% of its count. Second, the pipeline should compare metrics against two baselines: recent history, which adapts to normal change, and a fixed reference version, which does not adapt and therefore catches a slow drift that recent history would absorb. The fixed reference must itself be refreshed periodically, for example each quarter after a review, to prevent legitimate growth from tripping the threshold."
         },
         {
           "type": "text",
-          "text": "Some changes are real. A source adds a country, a new road network opens, a team renames a category. The design lets the owner of a change **declare** it in advance, with the expected effect on counts, so that the checks expect it rather than alarm on it. Data for machine-learning models needs one more check: that no **feature**, an input column a model learns from, has silently become empty or constant, which happens when an upstream field is renamed and the pipeline fills in a default. A model trained on that data learns to ignore the feature, and nothing fails."
+          "text": "Some changes reflect legitimate updates. A source adds a country, a new road network opens, or a team renames a category. The design lets the owner of a change **declare** it in advance, specifying the expected effect on counts so that the checks account for the shift rather than raising an alert. Data for machine-learning models needs one more check: that no **feature**, an input column a model learns from, has silently become empty or constant. This silent failure occurs when an upstream field is renamed and the pipeline fills in a default value. A model trained on that data learns to ignore the feature, while the pipeline reports no error."
         }
       ]
     },
@@ -85,20 +85,20 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Checks are useful only if a failure stops the publish. The pattern called **write-audit-publish** builds each version as a staged snapshot that no consumer can see, runs every check against it, and moves the catalogue's pointer from lesson P3 only if all of them pass. When a check fails, the pointer does not move and the consumers carry on with the last good version."
+          "text": "Checks protect production only if a validation failure stops the publish. The **write-audit-publish** pattern builds each version as an isolated snapshot that no consumer can see, runs every check against it, and advances the catalogue pointer from lesson P3 only if all checks pass. When a check fails, the pointer does not move and consumers carry on with the last good version."
         },
         {
           "type": "diagram",
           "id": "validation-wap",
-          "caption": "Write, audit, publish: a version is built where nobody can read it, checked, and published only by moving the pointer."
+          "caption": "Write, audit, publish: a version is built in an isolated staging area, audited, and published only by advancing the pointer."
         },
         {
           "type": "text",
-          "text": "Records that fail an invariant check at ingestion are not dropped. They go to a **quarantine** table, the data equivalent of the dead-letter queue in lesson 17, with the check that rejected them, and they are counted. Once the cause is fixed, quarantined records can be replayed into the next build rather than requested again from the source. A count of quarantined records is itself checked: a source whose quarantine jumps from 50 records a night to 50,000 has broken something, even though every published record is valid."
+          "text": "Records that fail an invariant check at ingestion are not dropped. They go to a **quarantine** table (the data equivalent of the dead-letter queue in lesson 17), annotated with the check that rejected them, and they are counted. Once the cause is fixed, quarantined records can be replayed into the next build rather than requested again from the source. The quarantine volume is itself checked: a source whose quarantined records jump from 50 records a night to 50,000 records a night indicates an upstream defect, even if every published record in the primary table is valid."
         },
         {
           "type": "text",
-          "text": "Blocking a publish has a cost, because every consumer's data becomes a day older. We state the trade-off explicitly. Each dataset has a freshness objective, such as \"never more than 48 hours old\", and a named owner who may force a publish past a failed check after looking at it, with the override and its reason recorded. A partial failure raises a second question, and an exception to the rule that the pointer moves only if every check passes: if one region fails and three pass, the pipeline can publish the three and keep the last good version of the fourth. That keeps most of the map fresh, but a version that mixes two days' data can break roads that cross the region boundary, so the release manifest records which regions are at which version and consumers that need consistency across regions can wait."
+          "text": "Blocking a publish has an operational cost, because downstream data becomes 24 hours older. We state the trade-off explicitly. Each dataset has a freshness objective, such as remaining under 48 hours old, and a designated owner authorised to force a publish past a failed check after manual inspection, with the override and its reason recorded. A partial failure raises a second question, and introduces an exception to the rule that the pointer moves only if every check passes. If one region fails and three pass, the pipeline can publish the three and keep the last good version of the fourth. That keeps most of the map fresh, but a version that mixes two days' data can break roads that cross the region boundary. The release manifest records which regions are at which version, allowing consumers that need consistency across regions to wait for a unified release."
         }
       ]
     },
@@ -107,7 +107,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The workbench runs thirty nightly builds with four things going wrong (a truncated file, a unit misread, a region missing, and a region slowly losing roads to a bug) and one legitimate change, a source adding a country. Each statistical check alarms when a region's numbers move further from its baseline than the threshold you set, measured in standard deviations of ordinary night-to-night variation. Find a set of checks and a threshold that stop every fault without a flood of false alarms."
+          "text": "The workbench runs thirty nightly builds with four faults (a truncated file, a unit misread, a region missing, and a bug causing gradual road loss) and one legitimate change, where a source adds a country. Each statistical check raises an alert when a region's numbers move further from its baseline than the threshold you set, measured in standard deviations of ordinary night-to-night variation. Find a set of checks and a threshold that stop every fault without a flood of false alarms."
         },
         {
           "type": "interactive_diagram",
@@ -118,7 +118,7 @@
         },
         {
           "type": "text",
-          "text": "No single check catches everything, and the threshold cannot be both low enough to see a slow drift early and high enough to be quiet on ordinary nights. A blocking check must be quiet on ordinary nights, which makes it slow to see a drift. So a team that wants to see a drift sooner adds a separate, more sensitive check that reports to a dashboard rather than blocking the publish."
+          "text": "No single check catches everything, and the threshold cannot be both low enough to see a slow drift early and high enough to remain quiet on ordinary nights. A blocking check must remain quiet on ordinary nights, which makes it slow to detect subtle drift. A team that wants to see drift sooner adds a separate, more sensitive check that reports to a dashboard rather than blocking the publish."
         }
       ]
     },
@@ -127,11 +127,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In lesson 24 we measured services with **service level indicators**, and added three for data products: freshness, completeness and correctness. The checks in this lesson produce those numbers. **Freshness** is how old the newest published version is, read from the catalogue. **Completeness** is the share of expected records that are present, by region and by source, from control totals and per-region counts. **Correctness** is the share of records that are right, which can only be estimated, from the audits of lesson P2, from checks against independent sources, and from the error reports consumers file. Each gets an objective, an error budget and an alert, as service indicators do, and the owner of the dataset is paged when one is burning its error budget fast."
+          "text": "In lesson 24 we measured services with **service level indicators**, and added three for data products: freshness, completeness and correctness. The checks in this lesson produce those numbers. **Freshness** is the elapsed time since the latest published version was generated, read from the catalogue metadata. **Completeness** is the share of expected records that are present, by region and by source, derived from control totals and per-region counts. **Correctness** is the share of records that match ground truth, which can only be estimated, using the sample audits of lesson P2, comparisons against independent sources, and error reports filed by consumers. Each metric receives an objective, an error budget and an alert, following service indicator practice; the owner of the dataset is paged when an indicator depletes its error budget rapidly."
         },
         {
           "type": "text",
-          "text": "The Covid spreadsheet failed for lack of an owner as much as for a bug: nobody was responsible for checking that the number of results coming out matched the number going in. A data contract names that owner, the checks enforce the contract, and the indicators tell the owner how well the contract is being met."
+          "text": "The Covid spreadsheet failure occurred because of missing operational ownership as much as software limitations; nobody was responsible for checking that the number of results coming out matched the number going in. A data contract names that owner, automated checks enforce the contract, and service level indicators show how well the pipeline meets its agreed targets."
         }
       ]
     },
@@ -140,7 +140,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Amazon's Deequ, described by Sebastian Schelter and colleagues in 2018, runs declared checks and computed statistics over very large tables on Apache Spark, keeps the history of each statistic, and flags a value that moves away from its history. Google's TensorFlow Data Validation, described by Eric Breck and colleagues in 2019, infers a schema from data, checks each new batch against it, and compares the distributions of training and serving data, with thresholds on the size of the difference rather than on significance.[^tfdv] Netflix described write-audit-publish for its data warehouse, built on the snapshots of Apache Iceberg: a job writes a snapshot that is not yet published, the audit runs against it, and publishing makes it the current snapshot. Iceberg's later branches do the same with a write to a branch and a fast-forward of the main branch."
+          "text": "Amazon's Deequ, described by Sebastian Schelter and colleagues in 2018, runs declared checks and computed statistics over very large tables on Apache Spark, keeps the history of each statistic, and flags a value that moves away from its history. Google's TensorFlow Data Validation, described by Eric Breck and colleagues in 2019, infers a schema from data, checks each new batch against it, and compares the distributions of training and serving data, with thresholds on the size of the difference rather than on significance.[^tfdv] Netflix implemented write-audit-publish for its data warehouse using the snapshots of Apache Iceberg: a job writes an unpublished snapshot, the audit runs against it, and publishing advances the table pointer to make it the current snapshot. Iceberg's later branch support performs this pattern by writing to an isolated branch and fast-forwarding the main branch."
         },
         {
           "type": "text",
@@ -153,7 +153,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**At ten times** (hundreds of tables, every region of the world), nobody can write each check by hand. The pipeline profiles each table's history and proposes checks and thresholds, which owners review and accept. Alerts are grouped by cause, because one broken source can fail dozens of downstream checks in one night, and the owner should get one alert, not forty."
+          "text": "**At ten times** (hundreds of tables across global regions), engineers cannot write each check by hand. The pipeline profiles each table's history and proposes checks and thresholds, which owners review and accept. Alerts are grouped by root cause, because one broken source can fail dozens of downstream checks in one night, and the owner should receive one grouped alert rather than forty separate pages."
         },
         {
           "type": "text",
@@ -209,7 +209,7 @@
                   "Nothing at all until the failure has been fixed and the build has passed"
                 ],
                 "answer": 0,
-                "why": "The build is written where no one can read it, and only a passing audit moves the pointer. Consumers keep the last good version: a day older, but right."
+                "why": "The build is staged in an isolated location, and only a passing audit advances the pointer. Consumers continue reading the last valid version, which is 24 hours older but verified as correct."
               },
               {
                 "ask": "One region of four fails its checks. The team publishes the other three and keeps the last good version of the fourth. What risk does that create?",
@@ -267,6 +267,11 @@
       "kind": "technical",
       "title": "Distances, not tests",
       "text": "TensorFlow Data Validation compares two distributions of a categorical feature by the largest change in the share of any one value (the L-infinity distance), and of a numeric feature by a standard measure of how far apart two histograms are (the Jensen-Shannon divergence). Both measure how different the distributions are. A significance test answers a different question, whether any difference exists, and on a large table it says yes to tiny differences; these distances stay small for small differences however large the table, though on a small table they are noisy."
+    },
+    "batch-totals": {
+      "kind": "digression",
+      "title": "Run-to-run totals",
+      "text": "Control totals originated in punched-card accounting and early mainframe batch processing in the 1950s. Operators verified run-to-run totals (record counts and arbitrary numeric sums called hash totals) after each card-sorting or magnetic-tape pass before allowing the subsequent batch job in the sequence to run."
     }
   }
 }

@@ -8,7 +8,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
 | [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 1.1 released | 47 | 0 | 0 | 1 | 0 | 1 | 45 |
+| [Geology](#geology) | 1.1 released | 47 | 0 | 0 | 0 | 0 | 1 | 46 |
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 0.2 beta | 25 | 43 | 0 | 0 | 25 | 15 | 0 |
@@ -19,7 +19,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Fungi](#fungi) | 0.3 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
-| [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 0 | 17 | 35 | 0 | 0 |
+| [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -27,7 +27,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- |
 | Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
 | Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
-| Geology | 1.1 released | 2026-11-08 | released; still to do: 1 to copy-edit, 1 awaiting photos |
+| Geology | 1.1 released | 2026-11-08 | released; still to do: 1 awaiting photos |
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
 | Astronomy | 0.2 beta | 2026-11-08 | no: 43 lessons to write, 25 to fact-check, 15 awaiting photos |
@@ -38,7 +38,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Fungi | 0.3 beta | 2026-11-08 | no: 25 to fact-check, 24 awaiting photos |
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
-| Systems at Scale | 0.2 beta | 2026-11-17 | no: 17 to copy-edit, 35 to fact-check |
+| Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -101,7 +101,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 12 | Islands that get older in a line (`hotspot`) |  | done |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
 | 13 | The ocean before the Atlantic (`supercontinents`) |  | done |  | How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today. |
 | 14 | A river that cuts through a mountain (`rivers`) |  | done |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
-| 15 | Boulders where they don't belong (`erratics`) |  | awaiting Gemini review (queued 2026-11-08) |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
+| 15 | Boulders where they don't belong (`erratics`) |  | done |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
 | 16 | The pacemaker of the ice ages (`pacemaker`) |  | done |  | How slow changes in the Earth's orbit time the ice ages, and how the record was read from deep-sea mud. |
 | 17 | A lake with no river (`kettles`) |  | done |  | The landforms an ice sheet leaves behind, how shaded relief reveals them, and how the land rises once the ice is gone. |
 | 18 | Why faults snap (`faults`) |  | done |  | How a stuck fault stores the plates' motion as bent rock and releases it in an earthquake, what sets an earthquake's size, and why soft ground shakes harder. |
@@ -495,13 +495,13 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Systems at Scale <a id="systems"></a>
 
-`courses/systems`, version 0.2 (beta, 2026-11-17). Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Gemini 4 Argon copy edit of every lesson 10 Nov 2026, with extra guidance for conventional technical prose (explicit verbs, units, precise terms). No photos expected. Branch P (data and evaluation pipelines, 5 lessons), M5 rework, Phase 2 additions to six lessons, scenario questions in the studio quizzes and a drills page added 17 Nov 2026 (plan and reviews: systems/data-branch/, systems/review-2026-11-17/). Its catalog description waits for Gemini (queued 2026-11-17).
+`courses/systems`, version 0.2 (beta, 2026-11-17). Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Gemini 4 Argon copy edit of every lesson 10 Nov 2026, with extra guidance for conventional technical prose (explicit verbs, units, precise terms). No photos expected. Branch P (data and evaluation pipelines, 5 lessons), M5 rework, Phase 2 additions to six lessons, scenario questions in the studio quizzes and a drills page added 17 Nov 2026 (plan and reviews: systems/data-branch/, systems/review-2026-11-17/). Gemini 3.8 Flash (high effort) on the queued lessons 17 Nov 2026, with a tropes list in each report; about a third of its edits were reverted after review (wrong fact edits, invented specifics, jargon), and its new footnotes kept only where checked.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
 | 1 | How long is a nanosecond? (`nanosecond`) |  | awaiting fact check |  | The latencies every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers. |
 | 2 | The link that took a website down (`slashdot`) |  | awaiting fact check |  | Request latency, why queueing delay grows sharply as a server nears full utilisation, and Little's law. |
-| 3 | A shorter link, a billion times (`tinyurl`) |  | awaiting Gemini review (queued 2026-11-11) | Fact check | How to work out a system design on paper: defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys. |
+| 3 | A shorter link, a billion times (`tinyurl`) |  | awaiting fact check |  | How to work out a system design on paper by defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys. |
 | 4 | When the database can't keep up (`replicas`) |  | awaiting fact check |  | Read replicas and replication lag, reading your own writes, and splitting users across databases. |
 | 5 | A cache in spare memory (`memcached`) |  | awaiting fact check |  | Caching in front of a database, hit-rate arithmetic, invalidation, and consistent hashing. |
 | 6 | One master, a thousand disks (`gfs`) |  | awaiting fact check |  | Splitting metadata from data, big blocks, and why one coordinator can be the right first design. |
@@ -515,31 +515,31 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 14 | Who pays for a tweet? (`fanout`) |  | awaiting fact check |  | Fan-out on write and on read, the hybrid for accounts with millions of followers, and IDs that sort by time. |
 | 15 | When every cache misses at once (`leases`) |  | awaiting fact check |  | Thundering herds and stale sets, leases, invalidation from the database's log, and caches across regions. |
 | 16 | The log at the centre (`kafka`) |  | awaiting fact check |  | Append-only partitioned logs, offsets and consumer groups, ordering by key, retention and replay, and why sequential disk I/O is fast. |
-| 17 | Counting clicks that arrive late (`streams`) |  | awaiting Gemini review (queued 2026-11-17) | Fact check | Event time and processing time, windows and watermarks, exactly-once effects by deduplication, and sketches for heavy hitters. |
+| 17 | Counting clicks that arrive late (`streams`) |  | needs student read-through | Fact check | Event time and processing time, windows and watermarks, exactly-once effects by deduplication, and sketches for heavy hitters. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
 | 18 | Breaking things on purpose (`chaos`) |  | awaiting fact check |  | Timeouts, retries with backoff and jitter, retry storms, circuit breakers, bulkheads, load shedding, and Chaos Monkey. |
 | 19 | A third of the evening's internet (`edge`) |  | awaiting fact check |  | Content delivery networks, caching at the edge, adaptive bitrate video, filling caches off-peak, and the cost of moving bytes. |
 | 20 | A clock you can trust (`spanner`) |  | awaiting fact check |  | Why wall clocks lie, two-phase commit and why it blocks, TrueTime's bounded uncertainty, and commit wait. |
 | 21 | Who may see this file? (`zanzibar`) |  | awaiting fact check |  | Permissions as relation tuples, the "new enemy" problem and consistency tokens, and answering ten million checks a second. |
 | 22 | Charging a card exactly once (`payments`) |  | awaiting fact check |  | The two generals problem, idempotency keys, a double-entry ledger, the outbox, and reconciliation. |
 | 23 | One command, four hours (`outage`) |  | awaiting fact check |  | Blast radius, cells and shuffle sharding, static stability, safe changes, and dependency loops. |
-| 24 | The website nobody could see inside (`slo`) |  | awaiting Gemini review (queued 2026-11-17) | Fact check | What "working" means (SLIs, SLOs, error budgets), the four golden signals, alerting on symptoms, and storing metrics. |
-| M1 | A map of the world in squares (`tiles`) | Maps and places | awaiting Gemini review (queued 2026-11-17) | Fact check | Tile pyramids, how many tiles each zoom needs, pre-rendering against rendering on demand, vector tiles, and versioned map updates. |
+| 24 | The website nobody could see inside (`slo`) |  | needs student read-through | Fact check | What "working" means (SLIs, SLOs, error budgets), the four golden signals, alerting on symptoms, and storing metrics. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| M1 | A map of the world in squares (`tiles`) | Maps and places | needs student read-through | Fact check | Tile pyramids, tile counts across zoom levels, pre-rendering compared with rendering on demand, vector tiles, and versioned map updates. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
 | M2 | Finding the nearest car (`nearby`) | Maps and places | awaiting fact check |  | Cells and space-filling curves (geohash, quadtrees, S2, H3), a stream of location updates held in memory, and sharding by cell. |
 | M3 | Across a continent in a millisecond (`routing`) | Maps and places | awaiting fact check |  | Dijkstra and A*, contraction hierarchies, and customisable route planning: precomputing the network structure to re-weight roads quickly. |
 | M4 | Ninety-nine phones in a handcart (`traffic`) | Maps and places | awaiting fact check |  | Turning phone positions into road speeds, map matching, windowing, privacy and spoofing, and predicting arrival times. |
-| M5 | When the world changes (`changes`) | Maps and places | awaiting Gemini review (queued 2026-11-17) |  | Change detection: observations against a reference map, independent evidence, triage by risk, human review tiers, and safe publishing and rollback. |
-| D1 | Saying no politely (`limiter`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits. |
-| D2 | Half a billion people, a few dozen engineers (`chat`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | A chat service: long-lived connections, delivery and read receipts, ordering in a conversation, message storage, presence and push. |
-| D3 | From crawl to suggestion (`search`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type. |
-| D4 | Fourteen million people, two million tickets (`tickets`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | Selling scarce inventory: virtual waiting rooms, expiring holds, preventing double-selling, and mitigating bots. |
-| D5 | More data than the network can carry (`sensors`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue. |
-| D6 | Every night, all of history again (`replay`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | Deterministic replay, a job scheduler with leases and retries, a million tasks on a shared cluster (Borg), preemptible capacity, versioned datasets, and comparing results. |
-| D7 | One update, 8.5 million screens (`rollout`) | Design studio | awaiting Gemini review (queued 2026-11-17) | Fact check | Shipping software and data to a fleet: staged rollouts behind health gates, A/B partitions that fall back, signed updates (TUF and Uptane), deltas and offline devices, compatible versions, and watching fleet health. |
-| P1 | Is the new model better? (`evals`) | Data and evaluation pipelines | awaiting Gemini review (queued 2026-11-17) |  | An evaluation pipeline that gates model releases: held-out and golden sets, slices, paired comparisons and noise, leaks between training and evaluation, and the gates from offline to shadow. |
-| P2 | A million labels, and which are wrong (`labels`) | Data and evaluation pipelines | awaiting Gemini review (queued 2026-11-17) |  | A labelling platform: the label record, guidelines and their versions, overlap and agreement, gold questions and audits, model pre-labels, and active learning. |
-| P3 | A dataset everyone builds on (`datasets`) | Data and evaluation pipelines | awaiting Gemini review (queued 2026-11-17) |  | A versioned dataset from many sources: conflation and stable IDs, immutable versions and deltas, pinned consumers, lineage, deletion, and incremental updates checked by full rebuilds. |
-| P4 | The numbers that quietly went wrong (`validation`) | Data and evaluation pipelines | awaiting Gemini review (queued 2026-11-17) |  | Checking data before it is published: contracts and control totals, invariant and statistical checks, quarantine, write-audit-publish, and data SLIs. |
-| P5 | Training and serving from the same facts (`features`) | Data and evaluation pipelines | awaiting Gemini review (queued 2026-11-17) |  | Feature stores: training and serving skew, point-in-time joins on availability time, offline and online stores, and logging against backfilling. |
+| M5 | When the world changes (`changes`) | Maps and places | done |  | Change detection: observations against a reference map, independent evidence, triage by risk, human review tiers, and safe publishing and rollback. |
+| D1 | Saying no politely (`limiter`) | Design studio | needs student read-through | Fact check | Rate limits and load shedding: token buckets, sliding windows, shared counters, and where the limiter sits. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| D2 | Half a billion people, a few dozen engineers (`chat`) | Design studio | needs student read-through | Fact check | A chat service: long-lived connections, delivery and read receipts, ordering in a conversation, message storage, presence and push. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| D3 | From crawl to suggestion (`search`) | Design studio | needs student read-through | Fact check | A web crawler (frontier, politeness, duplicates), an inverted index, and suggestions as you type. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| D4 | Fourteen million people, two million tickets (`tickets`) | Design studio | needs student read-through | Fact check | Selling scarce inventory: virtual waiting rooms, expiring holds, preventing double-selling, and mitigating bots. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| D5 | More data than the network can carry (`sensors`) | Design studio | needs student read-through | Fact check | Pipelines for instruments and fleets: filter at the source, upload or ship the disks, resumable chunked uploads, tiered storage, and a catalogue. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| D6 | Every night, all of history again (`replay`) | Design studio | needs student read-through | Fact check | Deterministic replay, a job scheduler with leases and retries, a million tasks on a shared cluster (Borg), preemptible capacity, versioned datasets, and comparing results. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| D7 | One update, 8.5 million screens (`rollout`) | Design studio | needs student read-through | Fact check | Shipping software and data to a fleet: staged rollouts behind health gates, A/B partitions that fall back, signed updates (TUF and Uptane), deltas and offline devices, compatible versions, and watching fleet health. *Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through.* |
+| P1 | Is the new model better? (`evals`) | Data and evaluation pipelines | done |  | An evaluation pipeline that gates model releases, covering held-out and golden sets, slices, paired comparisons and statistical noise, data leakage between training and evaluation, and release gates from offline evaluation to shadow mode. |
+| P2 | A million labels, and which are wrong (`labels`) | Data and evaluation pipelines | done |  | A labelling platform: the label record, guidelines and their versions, overlap and agreement, gold questions and audits, model pre-labels, and active learning. |
+| P3 | A dataset everyone builds on (`datasets`) | Data and evaluation pipelines | done |  | A versioned dataset from many sources: conflation and stable IDs, immutable versions and deltas, pinned consumers, lineage, deletion, and incremental updates checked by full rebuilds. |
+| P4 | The numbers that quietly went wrong (`validation`) | Data and evaluation pipelines | done |  | Checking data before it is published: contracts and control totals, invariant and statistical checks, quarantine, write-audit-publish, and data SLIs. |
+| P5 | Training and serving from the same facts (`features`) | Data and evaluation pipelines | done |  | Feature stores: training and serving skew, point-in-time joins on availability time, offline and online stores, and logging against backfilling. |
 
 ## Not started
 

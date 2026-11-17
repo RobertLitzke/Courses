@@ -10,18 +10,18 @@
     "replay"
   ],
   "title": "Is the new model better?",
-  "teaches": "An evaluation pipeline that gates model releases: held-out and golden sets, slices, paired comparisons and noise, leaks between training and evaluation, and the gates from offline to shadow",
+  "teaches": "An evaluation pipeline that gates model releases, covering held-out and golden sets, slices, paired comparisons and statistical noise, data leakage between training and evaluation, and release gates from offline evaluation to shadow mode.",
   "parts": [
     {
       "title": "Three classifiers, one average",
       "blocks": [
         {
           "type": "text",
-          "text": "In February 2018 Joy Buolamwini and Timnit Gebru, then at the MIT Media Lab and Microsoft Research, published a short paper called *Gender Shades*. They had tested the gender classifiers that IBM, Microsoft and the Chinese company Face++ sold to developers: services that take a photograph of a face and return \"male\" or \"female\". On Buolamwini and Gebru's new test set their overall accuracy was between 87.9% and 93.7%. The test set was different from the ones the field usually used. It held 1,270 photographs of members of parliament from three African and three European countries, chosen so that darker-skinned and lighter-skinned men and women each made up a large share.[^shades]"
+          "text": "In February 2018 Joy Buolamwini and Timnit Gebru, then at the MIT Media Lab and Microsoft Research, published a short paper called *Gender Shades*. They had tested the gender classifiers that IBM, Microsoft and the Chinese company Face++ sold to developers, services that take a photograph of a face and return \"male\" or \"female\". On Buolamwini and Gebru's new test set their overall accuracy was between 87.9% and 93.7%. The test set differed from the standard benchmarks of the time. It held 1,270 photographs of members of parliament from three African and three European countries, chosen so that darker-skinned and lighter-skinned men and women each made up a large share.[^shades]"
         },
         {
           "type": "text",
-          "text": "Scored by group, the results looked very different. Every classifier did worst on darker-skinned women. The worst of them misclassified 34.7% of the darker-skinned women, while no classifier misclassified more than 0.8% of the lighter-skinned men. The standard benchmarks of the time were mostly photographs of lighter-skinned people, so a classifier could score well on them while failing a group that made up a small share of their images. One overall number had averaged the failure away. Within a year all three vendors had released new versions with much smaller gaps.[^audit]"
+          "text": "Scored by group, the results looked very different. Every classifier performed worst on darker-skinned women. The worst of them misclassified 34.7% of the darker-skinned women, while no classifier misclassified more than 0.8% of the lighter-skinned men. The standard benchmarks of the time were mostly photographs of lighter-skinned people, so a classifier could score well on them while failing a group that made up a small share of their images. A single aggregate accuracy metric had concealed the failure. Within a year all three vendors had released new versions with much smaller gaps.[^audit]"
         },
         {
           "type": "text",
@@ -38,19 +38,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **model**, in this lesson's sense, is a function that a training program has fitted to examples rather than one that a programmer wrote line by line. A perception model takes an image and returns boxes with labels and a **confidence score** for each box, a number between 0 and 1 that ranks the detections from least to most likely to be right. The score tracks how often the model is actually right only if someone has calibrated it and checked it, which lesson P2 returns to. The model has millions of numeric parameters, and no engineer can read them to see what the function does at night in rain. The only way to know is to run the model on examples whose right answers are known and count how often it gets them right. Evaluating a model is therefore much closer to testing than to reviewing code: an evaluation set plays the part of a test suite."
+          "text": "A **model**, in this lesson's sense, is a function that a training program has fitted to examples rather than one that a programmer wrote line by line. A perception model takes an image and returns boxes with labels and a **confidence score** for each box, a number between 0 and 1 that ranks the detections from least to most likely to be right. The score tracks how often the model is actually right only if someone has calibrated it and checked it, which we return to in lesson P2. The model has millions of numeric parameters, and no engineer can inspect them to determine how the function behaves at night in rain. The only way to know is to run the model on examples whose correct answers are known and count how often it predicts them correctly. Evaluating a model is therefore closer to testing software than to reviewing code, with an evaluation set serving as the test suite."
         },
         {
           "type": "text",
-          "text": "The **training data** are the examples the model was fitted to. A model scored on its own training data is like code tested only against the inputs its author tuned it on, and it will look better than it is. So every team keeps **held-out data**, examples the training program never reads, and measures the model on those. Two kinds of held-out set do different jobs. A **golden set** is small, perhaps 5,000 examples, labelled with great care by experts, versioned, and used rarely so that nobody tunes the model against it. A broad held-out set is large, drawn from ordinary driving, and labelled by the normal labelling process of lesson P2, which makes it noisier. Teams track trends on the broad set and make release decisions on both."
+          "text": "The **training data** are the examples the model was fitted to. A model scored on its own training data is like code tested only against the inputs its author tuned it on, and its measured performance will appear artificially high. Every team therefore keeps **held-out data**, examples the training program never reads, and measures the model on those. Two kinds of held-out sets serve distinct purposes. A **golden set** is small, perhaps 5,000 examples, labelled with great care by experts, versioned, and used rarely so that nobody tunes the model against it. A broad held-out set is large, drawn from ordinary driving, and labelled by the standard labelling process of lesson P2, which makes it noisier. Teams track trends on the broad set and make release decisions on both."
         },
         {
           "type": "text",
-          "text": "A **slice** is the subset of an evaluation set that meets some condition: frames recorded at night, in rain, with a cyclist within 20 m, in one city. A slice is the evaluation version of a group of edge-case tests, and the Gender Shades result is a slice result. A **protected slice** is one the team has named in advance as one that must not get worse, such as cyclists at night. For the detector, two measurements matter in each slice. **Precision** is the share of the model's detections that are real objects; low precision means phantom pedestrians and needless braking. **Recall** is the share of real objects the model detects; low recall means missed pedestrians. "
+          "text": "A **slice** is the subset of an evaluation set that meets some condition, such as frames recorded at night, in rain, with a cyclist within 20 m, or in a specific city. A slice is the evaluation version of a group of edge-case tests, and the Gender Shades result is a slice result. A **protected slice** is one the team has named in advance as one that must not get worse, such as cyclists at night. For the detector, two measurements matter in each slice. **Precision** is the share of the model's detections that are real objects; low precision means phantom pedestrians and needless braking. **Recall** is the share of real objects the model detects; low recall means missed pedestrians."
         },
         {
           "type": "text",
-          "text": "Each detection has a confidence score, and the model reports a detection only when the score is above a **threshold**. Raising the threshold trades recall for precision. A new version's scores are usually distributed differently from the old one's, so comparing the two at the same threshold is unfair to one of them; the pipeline tunes each version's threshold to the same precision on a **validation split**, a further set of examples kept for choosing settings and kept apart from the held-out data the release is judged on, and then compares recall on the evaluation set. Tuning the threshold on the same examples it is scored on would flatter both models, the small slices most, because with few examples a threshold can fit the chance quirks of the sample. In the rest of this lesson, \"accuracy\" means recall at the agreed precision, not the plain share of answers that are right that Gender Shades reported. "
+          "text": "Each detection has a confidence score, and the model reports a detection only when the score is above a **threshold**. Raising the threshold trades recall for precision. A new version's scores are usually distributed differently from the old one's, so comparing the two at the same threshold is unfair to one of them; the pipeline tunes each version's threshold to the same precision on a **validation split**, a further set of examples kept for choosing settings and kept apart from the held-out data used to judge the release, and then compares recall on the evaluation set. Tuning the threshold on the same examples it is scored on would overstate the performance of both models, especially on small slices where a threshold easily overfits the random quirks of the sample. In the rest of this lesson, \"accuracy\" means recall at the agreed precision, rather than the simple proportion of correct classifications reported in Gender Shades."
         }
       ]
     },
@@ -59,11 +59,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** The pipeline must score every candidate model, and the current model beside it, on the same versioned evaluation sets and on logs replayed through both, as in lesson D6. It must report each measure overall and for every slice the team cares about, and say whether each difference is larger than the noise. It must block a release that makes any protected slice worse by more than an agreed margin, hand survivors on to the later stages of a release, and present each decision and its evidence to the person who signs it off."
+          "text": "**Functional.** The pipeline must score every candidate model, and the current model beside it, on the same versioned evaluation sets and on logs replayed through both, as in lesson D6. It must report each measure overall and for every slice the team cares about, and say whether each difference is larger than the noise. It must block a release that makes any protected slice worse by more than an agreed margin, forward qualifying candidates to the later stages of a release, and present each decision and its evidence to the engineer who signs it off."
         },
         {
           "type": "text",
-          "text": "**Non-functional.** Results for a candidate must arrive within a few hours of training finishing, so that a weekly release is not held up. Every number must be reproducible from stored inputs, so that a result questioned in a month can be recomputed. Evaluation data must be kept where the training jobs cannot read it."
+          "text": "**Non-functional.** Results for a candidate must arrive within a few hours of training finishing, so that a weekly release is not held up. Every number must be reproducible from stored inputs, so that a result questioned in a month can be recomputed. Evaluation data must be kept where training jobs cannot read them."
         },
         {
           "type": "text",
@@ -80,7 +80,7 @@
         },
         {
           "type": "text",
-          "text": "These counts matter more than any other figure in the design. A difference between two models can be told apart from chance only if the slice has enough examples, and enough different drives, behind it; a slice of 50 frames cannot show a change of a few points either way."
+          "text": "These counts matter more than any other figure in the design. A difference between two models can be distinguished from random noise only if the slice contains enough examples across enough distinct drives; a slice of 50 frames cannot reliably reveal a change of several percentage points in either direction."
         }
       ]
     },
@@ -89,7 +89,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Suppose the candidate model is 1 point better than the current one on most driving and 3 points worse on cyclists at night. The overall score weights each slice by its share of the data. If cyclists at night are 1% of driving, their 3-point loss moves the overall score by only 0.03 points, and the total still rises by almost a point. A team watching only that number ships a model that is worse at the thing it should least be worse at. So the pipeline reports every protected slice separately, and the release gate looks at each one. Measuring each group separately is also what would have caught the Gender Shades failure before release."
+          "text": "Suppose the candidate model is 1 point better than the current one on most driving and 3 points worse on cyclists at night. The overall score weights each slice by its share of the data. If cyclists at night are 1% of driving, their 3-point loss moves the overall score by only 0.03 points, and the total still rises by almost a point. A team watching only that aggregate metric would deploy a model that regressed on safety-critical edge cases. The pipeline therefore reports every protected slice separately, and the release gate evaluates each one individually. Measuring each group separately is also what would have caught the Gender Shades disparities prior to release."
         },
         {
           "type": "text",
@@ -104,15 +104,15 @@
         },
         {
           "type": "text",
-          "text": "With 200 examples, the interval on the slice runs from about 6 points worse to slightly better, so the gate cannot tell a 3-point regression from no change at all. The cause is the slice's rarity in the evaluation set, not its rarity in driving. The fix is to **oversample**: collect and label many more examples of each protected slice than ordinary sampling would give, a few thousand each, so that every protected slice can be measured on its own. The pipeline then reweights the slices by their real share of driving whenever it reports an overall figure, so oversampling never distorts the overall number."
+          "text": "With 200 examples, the interval on the slice runs from about 6 points worse to slightly better, so the gate cannot tell a 3-point regression from no change at all. The cause is the slice's rarity in the evaluation set, not its rarity in driving. The fix is to **oversample** by collecting and labelling several thousand examples of each protected slice, far more than proportional sampling would yield, so that each slice can be measured with adequate statistical confidence. The pipeline then reweights the slices by their actual share of driving whenever it reports an overall figure, ensuring that oversampling never distorts the aggregate score."
         },
         {
           "type": "text",
-          "text": "The comparison method changes the width too. Two models scored on the same examples agree on most of them. Only the examples on which they disagree, typically a few per cent, carry information about which model is better, and a **paired comparison** looks at exactly those: how many examples the new model fixed and how many it broke. Treating the two scores as independent samples throws that pairing away and inflates the variance several times, by a factor that depends on how often the two models disagree; near 90% accuracy with 4% disagreement, pairing needs about a fifth as many examples for the same precision.[^mcnemar] Switch the workbench between separate and paired scores to see the interval change. "
+          "text": "The comparison method changes the width too. Two models scored on the same examples agree on most of them. Only the examples on which they disagree, typically a few per cent, carry information about which model is better, and a **paired comparison** isolates those cases directly, counting how many examples the new model fixed and how many it broke. Treating the two scores as independent samples discards that pairing and inflates the variance by a factor determined by how often the two models disagree; near 90% accuracy with 4% disagreement, pairing needs about a fifth as many examples for the same precision.[^mcnemar] Switch the workbench between separate and paired scores to see the interval change."
         },
         {
           "type": "text",
-          "text": "The intervals also depend on what counts as one sample. Frames from the same drive are not independent. They share the weather, the light, the road and often the same cyclist, so a model that fails on one tends to fail on the rest, and 500 night-cyclist frames from 40 drives carry little more information than 40 examples would. The unit of independence is the drive, or the scene within it. The pipeline therefore computes each interval by a **bootstrap**: it picks 40 drives at random from the slice's 40, with replacement, so some drives appear twice and some not at all, and recomputes the paired difference on the frames of the drives picked. It repeats this a thousand times, and the middle 95% of the thousand differences is the interval. Oversampling a slice means collecting it from many different drives, not more frames from the same few. "
+          "text": "The intervals also depend on what counts as one sample. Frames from the same drive are not independent. They share the weather, the light, the road and often the same cyclist, so a model that fails on one tends to fail on the rest, and 500 night-cyclist frames from 40 drives carry little more information than 40 examples would. The unit of independence is the drive, or the scene within it. The pipeline therefore computes each interval using a **bootstrap** procedure: it resamples 40 drives at random from the slice's 40 available drives with replacement, so some drives appear multiple times and others not at all, and recomputes the paired difference across the frames of the selected drives. It repeats this resampling 1,000 times, taking the central 95% of the resulting differences as the interval. Oversampling a slice means collecting data across many distinct drives rather than gathering more frames from the same few."
         },
         {
           "type": "text",
@@ -140,7 +140,7 @@
         },
         {
           "type": "text",
-          "text": "The last defence is access control. The evaluation sets live in a separate store with its own permissions; training jobs run under accounts that cannot read it, and every read of the golden set is logged. The golden set is used for release decisions and a few trend reports, never for choosing settings during development, because a set that people tune against slowly stops being held out."
+          "text": "The last defence is access control. The evaluation sets live in a separate store with its own permissions; training jobs run under accounts that cannot read them, and every read of the golden set is logged. The golden set is used for release decisions and a few trend reports, never for choosing settings during development, because a dataset that engineers tune against gradually ceases to be truly held out."
         }
       ]
     },
@@ -153,7 +153,7 @@
         },
         {
           "type": "text",
-          "text": "When training finishes, an orchestrator, the job scheduler of lesson D6, runs the candidate and the current model on each evaluation set and writes their predictions. Cheap checks run first: the golden set, the broad set and the protected slices. Candidates that pass go on to replay through the simulator of lesson D6, the most expensive check. Replay of logged driving is **open loop**: the recorded world carries on as it happened, whatever the new model would have made the vehicle do, so it measures perception well and driving behaviour poorly. Closed-loop simulation, in which simulated road users react to the vehicle, covers that gap at a higher cost."
+          "text": "When training finishes, an orchestrator, the job scheduler of lesson D6, runs the candidate and the current model on each evaluation set and writes their predictions. Cheap checks run first: the golden set, the broad set and the protected slices. Candidates that pass go on to replay through the simulator of lesson D6, the most expensive check. Replay of logged driving is **open loop**, meaning the recorded environment proceeds as it originally happened regardless of what actions the new model would have commanded; this measures perception accuracy well but vehicle control behaviour poorly. Closed-loop simulation, in which simulated road users react to the vehicle, covers that gap at a higher cost."
         },
         {
           "type": "text",
@@ -161,7 +161,7 @@
         },
         {
           "type": "text",
-          "text": "Some rules test the model as the vehicle will run it: compiled for the vehicle's processor and run on a bench unit, it must stay within a latency and memory limit, which no score on a GPU cluster measures. Some rules score whole **tracks**, a track being the sequence of detections of one object across frames, rather than single frames: how often an object's class flickers between frames, how often a track breaks and restarts, and how long after an object appears the model first detects it steadily. "
+          "text": "Other rules evaluate the model under target deployment constraints. Compiled for the vehicle's embedded processor and run on a bench test unit, the model must stay within strict latency and memory limits that cluster evaluations do not test. Additional rules score temporal **tracks**, defined as sequences of detections of an object across consecutive frames, rather than evaluating frames in isolation. Track metrics evaluate how often an object's class flickers between frames, how frequently a track breaks and restarts, and how long after an object appears the model first detects it steadily."
         },
         {
           "type": "text",
@@ -227,7 +227,7 @@
                   "Oversampling night cyclists to a few thousand frames from many drives, reweighted for the overall figure"
                 ],
                 "answer": 2,
-                "why": "The interval's width depends on how many examples the slice has. Doubling everything adds only 250 more; oversampling the slice adds thousands. Reweighting keeps the overall figure true to real driving. A tighter margin doesn't help when the interval is wider than any margin."
+                "why": "The interval's width depends on how many examples the slice has. Doubling everything adds only 250 more; oversampling the slice adds thousands. Reweighting keeps the overall figure true to real driving. A tighter margin does not help when the interval is wider than the margin itself."
               },
               {
                 "ask": "Two versions of a model are scored on the same 2,000 examples and disagree on 80 of them. Why does comparing them example by example give a narrower interval than comparing their two scores?",
@@ -237,7 +237,7 @@
                   "Because a paired test uses a stricter 99% interval in place of the usual 95%"
                 ],
                 "answer": 0,
-                "why": "Both models face the same examples, so their shared successes and failures cancel. A paired comparison counts fixed and broken examples among the disagreements; treating the scores as independent samples counts each model's sampling noise separately and inflates the variance several times over."
+                "why": "Both models face the same examples, so their shared successes and failures cancel. A paired comparison counts fixed and broken examples among the disagreements; treating the scores as independent samples counts sampling noise from both models independently, inflating the variance."
               },
               {
                 "ask": "A model scores 96% on its held-out frames and 86% on streets in the same city that it never drove. The frames were assigned to training or evaluation one at a time. What is the most likely cause?",
@@ -247,7 +247,7 @@
                   "The model was trained with too few random seeds, so its score varies from week to week"
                 ],
                 "answer": 1,
-                "why": "Frames a second apart are almost the same picture. Splitting frame by frame puts twins on both sides, so the model is scored on data it has effectively seen. Splitting by place and time, by a stable hash, makes the score match new streets."
+                "why": "Frames a second apart are almost the same picture. Splitting frame by frame puts twins on both sides, so the model is scored on data it has effectively seen. Splitting by place and time using a stable geographic hash ensures evaluation scores reflect performance on unseen streets."
               },
               {
                 "ask": "A team plans to add a new slice, \"wet roads at dusk\", and wants to see how the last ten model versions did on it. What in the pipeline's design makes that cheap?",
@@ -319,7 +319,7 @@
     "tfx": {
       "kind": "technical",
       "title": "A blessing",
-      "text": "In TFX, the Evaluator writes a small artifact called a blessing when a candidate passes its thresholds against the baseline model, and the Pusher, which copies a model to where it is served, checks for that artifact first. The gate is therefore a property of the pipeline rather than something a person must remember to run."
+      "text": "In TFX, the Evaluator writes a small artefact called a blessing when a candidate passes its thresholds against the baseline model, and the Pusher, which copies a model to where it is served, checks for that artefact first. The gate is therefore a property of the pipeline rather than something a person must remember to run."
     },
     "tempe": {
       "kind": "technical",

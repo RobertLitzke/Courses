@@ -14,11 +14,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In February 2017 Paul Tarjan, an engineer at Stripe, published a post on how the company keeps its payments API standing. Stripe's API is one set of servers shared by every business that takes card payments through it, from a bakery's web shop to an airline. Each business is a **tenant**, one customer of a shared service. Most tenants send a steady trickle of requests. Now and then one of them sends a flood, such as a script stuck in a loop that retries a failed call with no pause, a nightly report that pages through every charge since the account was opened, or a load test pointed at production by mistake. Every request in that flood consumes a thread, a database connection and several milliseconds of CPU time that the other tenants need. Without a rate limiter, one customer's bug causes an outage for everyone, which is the cascading failure we saw spread through Netflix's services in lesson 18, *Breaking things on purpose*."
+          "text": "In March 2017 Paul Tarjan, an engineer at Stripe, published a post on how the company keeps its payments API standing. Stripe's API is one set of servers shared by every business that takes card payments through it, from a bakery's web shop to an airline. Each business is a **tenant**, one customer of a shared service. Most tenants send a steady trickle of requests. Now and then one of them sends a flood, such as a script stuck in a loop that retries a failed call with no pause, a nightly report that pages through every charge since the account was opened, or a load test pointed at production by mistake. Every request in that flood consumes a thread, a database connection and several milliseconds of CPU time that the other tenants need. Without a rate limiter, one customer's bug causes an outage for everyone, which is the cascading failure we saw spread through Netflix's services in lesson 18, *Breaking things on purpose*."
         },
         {
           "type": "text",
-          "text": "Stripe's solution was a set of four limiters, and Tarjan explained what each one does and why it is there. In this lesson, you will design a rate limiter yourself first, then compare it with what Stripe built. Using our own round numbers, we will target an API with **a million API keys**, **50,000 requests a second** at the daily peak, a default limit of **100 requests a second per key**, and a latency budget of well under 1 ms per request for the limiter itself. Before drawing any architecture diagrams, we must define the requirements."
+          "text": "Stripe's solution was a set of four limiters, and Tarjan explained what each one does and why it is there. In this lesson, we will design a rate limiter first, then compare it with what Stripe built. Using our own round numbers, we will target an API with **a million API keys**, **50,000 requests a second** at the daily peak, a default limit of **100 requests a second per key**, and a latency budget of well under 1 ms per request for the limiter itself."
         }
       ]
     },
@@ -101,7 +101,7 @@
         },
         {
           "type": "text",
-          "text": "We can write the requirements down briefly. **Functional:** count each key's requests against its limit and refuse the excess; tell refused clients when to retry; under fleet-wide overload, drop the least important work first; and read limits from a configuration table. **Non-functional:** add under 1 ms of latency at the 99th percentile; degrade gracefully when a limiter machine dies; and stay accurate to within about 10%, because a rate limit is a guard rail rather than an invoice. That tolerance for error matters later. Because a count may be slightly inaccurate, gateways can fetch tokens in batches and regions can each hold part of a limit, as we will see below, instead of querying one central counter on every request."
+          "text": "We can write the requirements down directly. **Functional:** count each key's requests against its limit and refuse the excess; tell refused clients when to retry; under fleet-wide overload, drop the least important work first; and read limits from a configuration table. **Non-functional:** add under 1 ms of latency at the 99th percentile; degrade gracefully when a limiter machine dies; and stay accurate to within about 10%, because a rate limit is a guard rail rather than an invoice. Because a count may be slightly inaccurate, gateways can fetch tokens in batches and regions can each hold part of a limit instead of querying one central counter on every request."
         }
       ]
     },
@@ -125,7 +125,7 @@
         },
         {
           "type": "text",
-          "text": "A **sliding log** records the timestamp of every allowed request in the last minute and refuses new requests when the log already holds 100 timestamps. It is exact, and expensive: at 100 requests a second over a 60-second window, a key's log holds 6,000 timestamps of 8 bytes each (48 KB), so a million busy keys would require 48 GB of RAM. A **sliding window counter** keeps only the current minute's count and the previous minute's count. It estimates the last 60 seconds of traffic by weighting the previous minute's count by the overlapping time: 15 seconds into the current minute, it sums 75% of the previous minute's count and 100% of the current minute's count. This takes only two integers per key and closely approximates the sliding log. You can compare the number of requests each algorithm allows in the figure's readout."
+          "text": "A **sliding log** records the timestamp of every allowed request in the last minute and refuses new requests when the log already holds 100 timestamps. It is exact, but expensive. At 100 requests a second over a 60-second window, a key's log holds 6,000 timestamps of 8 bytes each (48 KB), so a million busy keys would require 48 GB of RAM. A **sliding window counter** keeps only the current minute's count and the previous minute's count. It estimates the last 60 seconds of traffic by weighting the previous minute's count by the overlapping time: 15 seconds into the current minute, it sums 75% of the previous minute's count and 100% of the current minute's count. This takes only two integers per key and closely approximates the sliding log. You can compare the number of requests each algorithm allows in the figure's readout."
         },
         {
           "type": "text",
@@ -193,7 +193,7 @@
         },
         {
           "type": "text",
-          "text": "**Handling a Redis failure.** When Redis crashes, every gateway queries a store that does not respond. If the gateway treats a failed query as a refusal, it **fails closed**, and the API rejects every request from every tenant. The limiter, built to protect the API, has caused a total outage. If the gateway treats a failed query as permission to proceed, it **fails open**, and no requests are rate-limited until Redis recovers, which matches normal operation on most days anyway. For a limiter guarding against occasional traffic floods, you should fail open, set a 1 ms to 2 ms timeout on the Redis call so a degraded Redis instance does not add latency to every request, and page an engineer to fix the store. A limiter that prevents brute-force password guessing has the opposite security requirement and should fail closed. Test both behaviours using the *If Redis is down* setting in the workbench."
+          "text": "**Handling a Redis failure.** When Redis crashes, every gateway queries a store that does not respond. If the gateway treats a failed query as a refusal, it **fails closed**, and the API rejects every request from every tenant. The limiter, built to protect the API, causes a total outage. If the gateway treats a failed query as permission to proceed, it **fails open**, and no requests are rate-limited until Redis recovers, which matches normal operation on most days anyway. For a limiter guarding against occasional traffic floods, you should fail open, set a 1 ms to 2 ms timeout on the Redis call so a degraded Redis instance does not add latency to every request, and page an engineer to fix the store. A limiter that prevents brute-force password guessing has the opposite security requirement and should fail closed. Test both behaviours using the *If Redis is down* setting in the workbench."
         },
         {
           "type": "text",
@@ -282,7 +282,7 @@
               {
                 "ask": "A per-key limiter guards an API against occasional floods; its Redis store fails. Which response is usually best, and why?",
                 "choices": [
-                  "Fail closed and refuse all requests, since an unlimited API can't be trusted to stay up through a flood",
+                  "Fail closed and refuse all requests, since an unlimited API cannot be trusted to stay up through a flood",
                   "Retry Redis until it answers",
                   "Fail open with a short timeout, since a rare flood costs less than a total API outage"
                 ],
@@ -300,7 +300,7 @@
                 "why": "By Little's law, the number of requests in flight rises from about 1 to about 100 while the arrival rate stays the same; only a cap on concurrent requests in progress catches this."
               },
               {
-                "ask": "Each of 4 gateways keeps its own token bucket at a quarter of a key's 100-requests-a-second limit. A client holds one long-lived connection, pinned to one gateway. What rate does it get?",
+                "ask": "Each of four gateways keeps its own token bucket at a quarter of a key's 100-requests-a-second limit. A client holds one long-lived connection, pinned to one gateway. What rate does it get?",
                 "choices": [
                   "About 25 requests a second, one gateway's quarter share",
                   "About 100 requests a second, the sum of the four buckets",
@@ -334,7 +334,7 @@
     "**Decide how the limiter fails.** Fail open for general flood protection, fail closed for login rate limiting, and always enforce a short timeout on the store.",
     "**Refusing must be far cheaper than serving.** Returning HTTP 429 with a Retry-After header at the gateway takes microseconds, while client backoff and jitter prevent retry storms.",
     "**Rate limits miss slow requests; concurrency limits catch them.** By Little's law, a slower endpoint holds more requests in flight at the same arrival rate.",
-    "**Per-key limits can't save an overloaded fleet.** Stripe reserved capacity for critical requests and shed test traffic and read requests first.",
+    "**Per-key limits cannot save an overloaded fleet.** Stripe reserved capacity for critical requests and shed test traffic and read requests first.",
     "**At scale, batch and split.** Lease tokens in batches to handle hot keys, and allocate each geographic region a local share of a global limit."
   ],
   "footnotes": {

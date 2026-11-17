@@ -13,7 +13,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every result in lesson P1 depends on labels: someone has to have marked which boxes are pedestrians before a pipeline can count how many the model found. In March 2021 Curtis Northcutt, Anish Athalye and Jonas Mueller, of MIT and Amazon Web Services, published a study of the labels in the test sets of ten of the most widely used machine-learning benchmarks, including ImageNet, CIFAR-10, MNIST and QuickDraw. They used a statistical method called confident learning, which flags examples whose given label disagrees with what a trained model confidently predicts, and then asked people on Amazon's Mechanical Turk, five to an example, to check each flagged one.[^cl]"
+          "text": "Every result in lesson P1 depends on labels. Someone has to mark which boxes contain pedestrians before an evaluation pipeline can count how many the model detected. In March 2021 Curtis Northcutt, Anish Athalye and Jonas Mueller, of MIT and Amazon Web Services, published a study of the labels in the test sets of ten widely used machine-learning benchmarks, including ImageNet, CIFAR-10, MNIST and QuickDraw. They used a statistical method called confident learning, which flags examples where the given label disagrees with a trained model's high-confidence prediction. They then recruited five Amazon Mechanical Turk reviewers per example to verify each flagged item.[^cl]"
         },
         {
           "type": "text",
@@ -47,11 +47,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A million labels a month is about 33,000 a day. Our items are a frame with a few boxes or one clip tag, which take a trained labeller about a minute each, and three hundred labellers working seven-hour days give about 126,000 minutes a day, so each of the 33,000 items can get about four minutes of attention in total, but not much more. That budget decides the platform's design: every check of quality costs labeller-minutes that are then not spent producing labels."
+          "text": "A million labels a month is about 33,000 a day. Our items are a frame with a few boxes or one clip tag, which take a trained labeller about a minute each, and three hundred labellers working seven-hour days give about 126,000 minutes a day, so each of the 33,000 items can get about four minutes of attention in total, but not much more. That budget governs the platform's design, because every quality check consumes labeller-minutes that cannot be spent producing new labels."
         },
         {
           "type": "text",
-          "text": "One labeller per item costs 1 minute per label and leaves every individual mistake in place. Two labellers per item, with an expert settling the cases where they disagree, costs a little over 2 minutes and catches most individual slips. Letting the model's own label through without a person whenever the model is very confident costs no labeller time for those items, though it needs the calibration checks described below, and its errors go straight into the training data unseen."
+          "text": "One labeller per item costs 1 minute per label and leaves every individual mistake in place. Two labellers per item, with an expert settling cases where they disagree, costs a little over 2 minutes per label and catches most individual slips. Letting the model's own label through without human review whenever the model is very confident costs no labeller time for those items, though it requires the calibration checks described below, and its errors enter the training data unseen."
         }
       ]
     },
@@ -60,11 +60,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **label** is an answer attached to an item by a person or a model: a box with a class, a tag on a clip. Every label is made under a **labelling guideline**, the document that says what counts: whether a person pushing a bicycle is a pedestrian or a cyclist, whether a parked car's open door is part of the car, how small an object must be to be left unlabelled. Guidelines change often, as teams meet cases the guideline did not foresee, and a change to the guideline is a common cause of a bad batch: half the labels made under the old reading and half under the new one."
+          "text": "A **label** is an answer attached to an item by a person or a model, such as a box with a class or a tag on a clip. Every label is made under a **labelling guideline**, the document that specifies what counts: whether a person pushing a bicycle is a pedestrian or a cyclist, whether a parked car's open door is part of the car, and how small an object must be to be left unlabelled. Guidelines change often as teams encounter cases the guideline did not foresee. A guideline change is a common cause of a bad batch, where half the labels follow the old reading and half follow the new one."
         },
         {
           "type": "text",
-          "text": "The platform's central data structure follows from that. Each label is an immutable **label event**: the item and its version, who or what produced it, the guideline version, the model suggestion shown at the time if any, the time spent, and a timestamp. Events are only ever appended. The **current label** of an item is a view computed from its events by a rule: the latest reclassification under the current guideline if there is one, otherwise the expert's ruling, otherwise the agreed answer. A guideline change is recorded as new events, and the view is then recomputed."
+          "text": "The platform's central data structure follows from that requirement. Each label is an immutable **label event**: the item identifier and its version, who or what produced it, the guideline version, the model suggestion shown at the time if any, the time spent in seconds, and a timestamp. Events are strictly append-only. The **current label** of an item is a view computed from its events by a deterministic rule: the latest reclassification under the current guideline takes priority, followed by the expert's ruling, and finally the agreed answer. A guideline change is recorded as new events, and the view is then recomputed."
         },
         {
           "type": "diagram",
@@ -73,7 +73,7 @@
         },
         {
           "type": "text",
-          "text": "Keeping events instead of overwriting a label in place costs some storage and pays for itself in three ways. A label can be traced to its source when someone questions it. A guideline change can be applied to old labels by adding events, without losing what labellers originally said. And the measurements in the next part need the individual answers, not just the final one."
+          "text": "Keeping an append-only log of events instead of overwriting a label in place requires extra storage, but it provides three operational benefits. Engineers can trace a label to its source when someone questions it. A guideline change can be applied to old labels by appending events, without discarding what labellers originally submitted. Finally, the quality measurements in the next section require the individual answers rather than just the final consensus."
         }
       ]
     },
@@ -82,7 +82,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Nobody can check every label, so the platform measures quality by sampling. Three mechanisms are common, and they measure different things."
+          "text": "Nobody can check every label, so the platform measures quality by sampling. Three mechanisms are standard, and they measure different failure modes."
         },
         {
           "type": "text",
@@ -90,7 +90,7 @@
         },
         {
           "type": "text",
-          "text": "**Gold questions** are items whose right answer is already known, mixed into each labeller's queue without being marked, so every labeller's accuracy is measured continuously. Gold items must look like ordinary work, be drawn from hard cases as well as easy ones and be rotated, or labellers learn to recognise them. "
+          "text": "**Gold questions** are items whose right answer is already known, mixed into each labeller's queue without markers, so that the platform measures each labeller's accuracy continuously. Gold items must look like ordinary work, be drawn from hard cases as well as easy ones, and be rotated regularly so labellers do not memorise them."
         },
         {
           "type": "text",
@@ -98,7 +98,7 @@
         },
         {
           "type": "text",
-          "text": "Agreement is not the same as correctness. Overlap catches individual slips, the errors one labeller makes and another does not. It cannot catch errors that labellers share. When a guideline is unclear on some kind of item, labellers who read it the same way agree on the same wrong answer, and majority voting makes the wrong answer look more certain. A model's suggestions are a second source of shared errors: two labellers who both accept the same nearly right suggestion agree on its mistake. Gold questions miss these errors as well, because they are usually written from cases whose answer is clear. Only an audit of a random sample, by someone who knows what the guideline means, measures them. In the workbench below, find a setting the platform can afford in which the labels are at most 3% wrong, measured by a random audit."
+          "text": "Agreement is not the same as correctness. Overlap catches individual slips, the errors one labeller makes and another does not. It cannot catch errors that labellers share. When a guideline is unclear on some kind of item, labellers who read it the same way agree on the same wrong answer, and majority voting makes the wrong answer look more certain. A model's suggestions introduce another source of shared errors, as two labellers who both accept the same nearly right suggestion agree on its mistake. Gold questions miss these errors as well, because they are usually written from cases whose answer is clear. Only an audit of a random sample, by someone who knows what the guideline means, measures them. In the workbench below, find a setting the platform can afford in which the labels are at most 3% wrong, measured by a random audit."
         },
         {
           "type": "interactive_diagram",
@@ -109,7 +109,7 @@
         },
         {
           "type": "text",
-          "text": "No amount of overlap fixes an unclear guideline; the fix is to rewrite the guideline, which is why the platform tracks audit errors by guideline section, along with the disputes labellers raise, and sends the sections with the most errors back to the team that owns the guideline. Overlap is worth paying for on hard task types and for new labellers, and a platform often adjusts it per labeller: a labeller whose gold accuracy is high gets single-labelled work, and one whose accuracy drops gets more overlap and fewer tasks."
+          "text": "No amount of overlap fixes an unclear guideline; the fix is to rewrite the guideline, which is why the platform tracks audit errors by guideline section, along with the disputes labellers raise, and sends the sections with the most errors back to the team that owns the guideline. Overlap is worth paying for on hard task types and for new labellers. The platform can also adjust overlap per labeller: a labeller whose gold accuracy is high gets single-labelled work, whereas one whose accuracy drops receives more overlap and fewer tasks."
         }
       ]
     },
@@ -118,11 +118,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A model trained on earlier labels can do part of the work. In **model-assisted labelling**, it draws its own boxes first and the labeller corrects them, which can be much faster than drawing from nothing. It has a cost that is easy to miss: people tend to accept a suggestion that is nearly right, a bias called **anchoring**, so a model's systematic mistakes survive review more often than they would if the labeller started from a blank frame. The platform measures anchoring by seeding a few gold items with deliberately wrong suggestions and counting how often they are accepted."
+          "text": "A model trained on earlier labels can do part of the work. In **model-assisted labelling**, it draws its own boxes first and the labeller corrects them, which can be much faster than drawing from nothing. This introduces an operational risk: people tend to accept a suggestion that is nearly right. This cognitive bias, known as **anchoring**, allows a model's systematic mistakes to survive review more often than if the labeller started from a blank frame. The platform measures anchoring by seeding a few gold items with deliberately wrong suggestions and counting how often labellers accept them without change."
         },
         {
           "type": "text",
-          "text": "The model can also label some items with no person at all, when its confidence is above a threshold. That is safe only if the confidence is **calibrated**: among items labelled with 95% confidence, about 95% should be right, and that must hold for each class and slice separately, since a model can be well calibrated overall and confidently wrong on a rare class. Calibration has to be checked for each new model version, on a random sample with audited labels, because a model's confidence scores shift when it is retrained. Labels accepted this way also feed back into training. If they are wrong, the next model learns the same mistakes with more confidence, and the next round accepts more of them. The workbench shows the share of errors that come from labels nobody looked at."
+          "text": "The model can also label some items with no human review when its confidence is above a threshold. That automation is safe only if the confidence is **calibrated**[^calibration]: among items labelled with 95% confidence, about 95% should be right, and that must hold for each class and slice separately, since a model can be well calibrated overall and confidently wrong on a rare class. Calibration has to be checked for each new model version, on a random sample with audited labels, because a model's confidence scores shift when it is retrained. Labels accepted this way also feed back into training. If they are wrong, the next model learns the same mistakes with more confidence, and the next round accepts more of them. The workbench shows the share of errors that come from labels nobody looked at."
         },
         {
           "type": "text",
@@ -139,7 +139,7 @@
         },
         {
           "type": "text",
-          "text": "Before any image reaches the queue, a separate service detects faces and number plates and blurs them, because labellers often work for an outside vendor and see thousands of images of public streets a day. The platform records which version of the blurring model processed each image, as it records everything else. The blurred copy is for labellers only. Training reads the original images under access control. A team that trains on blurred images instead must also blur what the vehicle's model sees, because a model trained on blurred faces and run on unblurred cameras would meet a difference between training and serving (lesson P5)."
+          "text": "Before any image reaches the queue, a separate service detects faces and number plates and blurs them, because labellers often work for an outside vendor and see thousands of images of public streets a day. The platform records which version of the blurring model processed each image, as it records everything else. The blurred copy is for labellers only. Training reads the original images under access control. A team that trains on blurred images instead must also blur what the vehicle's model sees in deployment; otherwise, a model trained on blurred faces and run on unblurred cameras would suffer from training-serving skew (lesson P5)."
         }
       ]
     },
@@ -148,7 +148,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Amazon SageMaker Ground Truth, launched in 2018, offers most of this design as a service. It sends each item to several labellers and combines their answers with a statistical model of each labeller's reliability rather than a simple vote, and its automated labelling trains a model as labels arrive, labels items itself where the model is confident, and sends the rest to people. Commercial labelling companies sell the same pieces: overlap, gold questions, review queues and model pre-labels."
+          "text": "Amazon SageMaker Ground Truth, launched in 2018, offers most of this design as a service. It sends each item to several labellers and combines their answers with a statistical model of each labeller's reliability rather than an unweighted vote. Its automated labelling retrains a model iteratively as labels arrive, labels items itself where the model is confident, and sends the rest to people. Commercial labelling companies sell the same pieces: overlap, gold questions, review queues and model pre-labels."
         },
         {
           "type": "text",
@@ -161,7 +161,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**At ten times** (ten million labels a month), the workforce grows to thousands across several vendors, and quality must be measured per vendor and per site as well as per labeller. Guidelines multiply with task types, and each one has an owner, a version history and a changelog that labellers see. Labeller drift, a slow change in how a whole group reads a guideline, shows up as a trend in gold accuracy and in audit results, and the platform alerts on it the way we alerted on a service's error rate in lesson 24, on SLOs."
+          "text": "**At ten times** (ten million labels a month), the workforce grows to thousands across several vendors, and quality must be measured per vendor and per site as well as per labeller. Guidelines multiply with task types, and each one has an owner, a version history and a changelog that labellers see. Labeller drift, a slow change in how a whole group reads a guideline, shows up as a trend in gold accuracy and in audit results, and the platform alerts on it as with service error-rate alerts against service-level objectives (SLOs) in lesson 24."
         },
         {
           "type": "text",
@@ -280,6 +280,11 @@
       "kind": "digression",
       "title": "Doctors who disagree",
       "text": "The usual statistical model for combining labellers comes from medicine. In 1979 A. P. Dawid and A. M. Skene estimated how often each of several doctors misjudged patients' fitness for anaesthesia, with no true answers to compare against, by fitting each doctor's tendency to confuse one category with another from the patterns of disagreement alone. The same model weights a reliable labeller's answer more heavily than an unreliable one's."
+    },
+    "calibration": {
+      "kind": "technical",
+      "title": "Measuring calibration",
+      "text": "A model is well calibrated when its predicted probability matches empirical frequency: among predictions assigned a confidence score of 0.90, exactly 90% should be correct. Machine-learning pipelines quantify this using Expected Calibration Error (ECE), which partitions predictions into confidence bins, computes the absolute difference between accuracy and confidence in each bin, and takes a weighted average across all bins. When neural networks become overconfident, engineers restore calibration using techniques such as temperature scaling on a held-out validation dataset."
     }
   }
 }

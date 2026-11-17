@@ -2,7 +2,7 @@
   "id": "tiles",
   "n": 101,
   "title": "A map of the world in squares",
-  "teaches": "Tile pyramids, how many tiles each zoom needs, pre-rendering against rendering on demand, vector tiles, and versioned map updates",
+  "teaches": "Tile pyramids, tile counts across zoom levels, pre-rendering compared with rendering on demand, vector tiles, and versioned map updates",
   "branch": "maps",
   "needs": [
     "edge"
@@ -13,7 +13,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On 8 February 2005 Google opened Google Maps. Online maps already existed; on MapQuest, the most used, you clicked an arrow at the edge of the map and the whole page reloaded with a new picture shifted half a screen over. On Google's map you took hold of the image and dragged it, and it slid under the pointer, with new territory appearing at the edges as fast as you could pull. It came from Where 2 Technologies, a small company founded in Sydney by the brothers Lars and Jens Rasmussen with Noel Gordon and Stephen Ma, which Google had bought the October before.[^ajax]"
+          "text": "On 8 February 2005 Google launched Google Maps. Online maps already existed; on MapQuest, the most used, you clicked an arrow at the edge of the map and the whole page reloaded with a new picture shifted half a screen over. On Google's map you took hold of the image and dragged it, and it slid under the pointer, with new territory appearing at the edges as fast as you could pull. It came from Where 2 Technologies, a small company founded in Sydney by the brothers Lars and Jens Rasmussen with Noel Gordon and Stephen Ma, which Google had bought the October before.[^ajax]"
         },
         {
           "type": "text",
@@ -71,7 +71,7 @@
         },
         {
           "type": "text",
-          "text": "With the cutoff at zoom 12 there are 22 million tiles, of which about 6.7 million contain land. At 20 KB for each land tile and one shared copy of the blue square for the ocean, storing them takes about 130 GB. We can render that set in minutes on a thousand CPU cores, and those tiles serve about a quarter of all requests. Each additional zoom level multiplies the storage and compute cost by four while covering a smaller share of requests. Rendering tiles on demand adds latency for the first viewer, but only the first, because the caching hierarchy from lesson 19 serves every subsequent request: the browser's local cache, the content delivery network (CDN) edge servers near the user, and finally the origin tile store. A screen of 1,920 by 1,080 pixels displays about 40 tiles, and dragging loads a few dozen more, so a high-traffic map service delivers hundreds of thousands of tiles a second, nearly all served from caches."
+          "text": "With the cutoff at zoom 12 there are 22 million tiles, of which about 6.7 million contain land. At 20 KB for each land tile and one shared copy of the blue square for the ocean, storing them takes about 130 GB. We can render that set in minutes on a thousand CPU cores, and those tiles serve about a quarter of all requests. Each additional zoom level multiplies the storage and compute cost by four while covering a smaller share of requests. Rendering tiles on demand adds latency for the first viewer, but only the first; every subsequent request is served by the caching hierarchy from lesson 19, consisting of the browser's local cache, content delivery network (CDN) edge servers near the user, and the origin tile store. A screen of 1,920 by 1,080 pixels displays about 40 tiles, and dragging loads a few dozen more, so a high-traffic map service delivers hundreds of thousands of tiles a second, nearly all served from caches."
         }
       ]
     },
@@ -84,7 +84,7 @@
         },
         {
           "type": "text",
-          "text": "Invalidating the caches is harder. A tile served at a fixed URL may sit in a million browser caches and thousands of CDN edge caches, each retaining the file until its time-to-live (TTL) header expires. Sending a purge request to every edge server is slow and unreliable, and we cannot purge a user's browser cache at all. Furthermore, a partially updated map causes visual bugs: a new road rendered on one tile and missing from the cached tile beside it stops dead at the boundary."
+          "text": "Invalidating the caches is harder. A tile served at a fixed URL may sit in a million browser caches and thousands of CDN edge caches, each retaining the file until its time-to-live (TTL) header expires. Sending a purge request to every edge server is slow and unreliable, and we cannot purge a user's browser cache at all. Furthermore, a partially updated map causes visual bugs, such as when a new road rendered on one tile stops dead at the boundary because the neighbouring cached tile lacks it."
         },
         {
           "type": "text",
@@ -106,7 +106,7 @@
         },
         {
           "type": "text",
-          "text": "Devices that keep the map offline, such as phones with downloaded regions or cars with a built-in navigation map, cannot fetch tiles on demand. For them the service publishes, beside each version, a **delta** from each of the last few versions: the list of tiles that changed, the new tiles' bytes, and a hash of the complete result. A device applies the delta to its stored copy, checks the hash, and switches to the new version only if the hash matches, so a download interrupted halfway leaves the old map working. A device several versions behind applies deltas in sequence, or downloads the region again if it is too far behind. Lesson D7 delivers deltas like these to a fleet of cars."
+          "text": "Devices that keep the map offline, such as phones with downloaded regions or cars with a built-in navigation map, cannot fetch tiles on demand. For these devices, the service publishes, alongside each version, a **delta** from each of the last few versions, containing the list of modified tiles, the replacement tile data, and a hash of the complete result. A device applies the delta to its stored copy, verifies the hash, and switches to the new version only if the hash matches, so an interrupted download leaves the old map intact. A device several versions behind applies deltas in sequence, or downloads the entire region again if it is too far behind. Lesson D7 delivers deltas like these to a fleet of cars."
         }
       ]
     },
@@ -115,15 +115,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A raster tile is a bitmap image: the server determines every colour, line width and label during rendering, and the client device simply displays the file. If the user rotates the map, the text labels turn upside down. If a user wants a dark theme at night, or labels in another language, the server must render and store an entire duplicate pyramid."
+          "text": "A raster tile is a pre-rendered bitmap image where the server determines every colour, line width and label position. If the user rotates the map, the text labels turn upside down. If a user wants a dark theme at night or labels in another language, the server must render and store an entire duplicate pyramid."
         },
         {
           "type": "text",
-          "text": "In December 2010 Google Maps 5.0 for Android began rendering maps on the phone from **vector** data. The tiles carried the geometry of roads, coastlines and buildings, and the client device rendered them locally, allowing the user to tilt the map into 3D and rotate it while keeping the labels upright. Mapbox published an open specification for vector tiles in 2014 that is now an industry standard. Each vector tile holds the geometric shapes that fall inside its boundary, clipped at the edges, with coordinates quantised as integers on a 4,096 by 4,096 grid, delta-encoded from the previous point and serialised in Protocol Buffers. The phone renders the geometry using a style sheet downloaded once from the server. Each tile also includes a buffer margin of geometry extending slightly past its boundary, ensuring that a road crossing a tile edge renders cleanly on both sides and allowing the label placement algorithm to avoid clipping text across boundaries."
+          "text": "In December 2010 Google Maps 5.0 for Android began rendering maps on the phone from **vector** data. The tiles carried the geometry of roads, coastlines and buildings, and the client device rendered them locally, allowing the user to tilt the map into 3D and rotate it while keeping the labels upright. Mapbox published an open specification for vector tiles in 2014 that is now an industry standard.[^mvt] Each vector tile holds the geometric shapes that fall inside its boundary, clipped at the edges, with coordinates quantised as integers on a 4,096 by 4,096 grid, delta-encoded from the previous point and serialised in Protocol Buffers. The phone renders the geometry using a style sheet downloaded once from the server. Each tile also includes a buffer margin of geometry extending slightly past its boundary, ensuring that a road crossing a tile edge renders cleanly on both sides and allowing the label placement algorithm to avoid clipping text across boundaries."
         },
         {
           "type": "text",
-          "text": "Vector tiles shift the rendering workload from the server's storage and CPUs to the client's processor and GPU. Vector tiles are typically a fraction of the byte size of equivalent raster images, a single tile supports every visual style and language, and the client can scale a tile smoothly beyond its native zoom level. Because of this scaling, many vector map services stop generating new tiles at zoom 14 or 15 rather than zoom 18, reducing the total tile count by a factor of four for each omitted level. This compression makes whole regions small enough to download for offline navigation. The trade-off is that every client application must bundle a rendering engine with font shaping and label collision detection, older devices may drop frames while rendering, and the server gives up pixel-exact control over the display."
+          "text": "Vector tiles shift the rendering workload from the server's storage and CPUs to the client's processor and GPU. Vector tiles are typically a fraction of the byte size of equivalent raster images, and a single tile supports arbitrary styling or languages. The client can also scale vector geometry smoothly beyond its native zoom level. Because of this scaling, many vector map services stop generating new tiles at zoom 14 or 15 rather than zoom 18, reducing the total tile count by a factor of four for each omitted level. This compression makes whole regions small enough to download for offline navigation. The trade-off is client complexity: every client application must bundle a rendering engine with font shaping and label collision detection. In addition, older devices may drop frames while rendering, and the server gives up pixel-exact control over the display."
         },
         {
           "type": "diagram",
@@ -294,6 +294,11 @@
       "kind": "technical",
       "title": "Caching indefinitely",
       "text": "An HTTP response can include the header Cache-Control: max-age=31536000, immutable, which instructs caches to retain the file for 31,536,000 seconds (one year) without revalidating it with the origin server. This is safe only when the content at a URL never changes, which versioned URLs guarantee."
+    },
+    "mvt": {
+      "kind": "technical",
+      "title": "Encoding vector geometry",
+      "text": "The Mapbox Vector Tile format serialises geometric commands and coordinate deltas using Google's Protocol Buffers. Because coordinates are expressed as relative integer offsets on a 4,096 by 4,096 grid, variable-length integer encoding (varint) and zigzag encoding compress consecutive vertices into one or two bytes each."
     }
   }
 }

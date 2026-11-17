@@ -15,7 +15,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On the morning of 15 November 2022, Ticketmaster opened a presale for Taylor Swift's Eras Tour, her first tour in five years, with 52 stadium dates across the United States. The presale was meant for fans who had registered in advance and received an access code. By the company's own account two days later, about 14 million users and bots showed up. Its systems took 3.5 billion requests that day, four times their previous peak. Pages hung, queues stalled, and seats vanished from shopping baskets during payment. Ticketmaster still sold more than 2 million tickets that day, a record, and then cancelled the general public sale planned for 18 November, citing insufficient remaining inventory to meet demand.[^senate]"
+          "text": "On the morning of 15 November 2022, Ticketmaster opened a presale for Taylor Swift's Eras Tour, her first tour in five years, with 52 stadium dates across the United States. The presale was meant for fans who had registered in advance and received an access code. According to the company's account two days later, approximately 14 million users and automated bots arrived at the site. Its systems recorded 3.5 billion requests that day, four times their previous peak. Ticketmaster's servers hung, queues stalled, and held seats vanished from shopping baskets during checkout. Ticketmaster still sold more than 2 million tickets that day, a record, and then cancelled the general public sale planned for 18 November, citing insufficient remaining inventory to meet demand.[^senate]"
         },
         {
           "type": "text",
@@ -56,7 +56,7 @@
         },
         {
           "type": "text",
-          "text": "Selling 2 million seats over 4 hours averages about 140 seats per second. A single relational database can easily commit 140 transactions per second. The load that overwhelms the system comes from read and status requests around the sale: 14 million users refreshing a seat map every 5 seconds generates 2.8 million requests per second, or 20,000 requests for every seat sold. The engineering challenge is not increasing write throughput for sales, but preventing 14 million clients from querying the backend simultaneously, while serving the 12 million users who will not get tickets using something much cheaper than a database query."
+          "text": "Selling 2 million seats over 4 hours averages about 140 seats per second. A single relational database can easily commit 140 transactions per second. The load that overwhelms the system comes from read and status requests around the sale. If 14 million users refresh a seat map every 5 seconds, they generate 2.8 million requests per second, or 20,000 requests for every seat sold. The engineering challenge is not increasing write throughput for sales, but preventing 14 million clients from querying the backend simultaneously, while serving the 12 million users who will not get tickets using something much cheaper than a database query."
         }
       ]
     },
@@ -65,7 +65,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The seat service in the simulation below has a capacity of 160 checkout requests per second, while users arrive at a higher rate. If you route traffic directly to the seat service, the queue overflows. Instead, you can place a **waiting room** in front of the service to buffer incoming traffic and admit users at a fixed rate of 140 users per second. In this simulation, each admitted user makes a single checkout request, so an admission rate of 140 users per second leaves a headroom of 20 requests per second for retries and latency spikes. In a production system, a user makes multiple requests (loading the seat map, placing a hold, and submitting payment), so you would set the admission rate to the service's capacity divided by the average number of requests per user, minus a 10% to 20% safety margin. The simulation runs at reduced speed with high network latency so you can observe individual requests."
+          "text": "The seat service in the simulation below has a capacity of 160 checkout requests per second, while users arrive at a higher rate. If you route traffic directly to the seat service, the queue overflows. Instead, you can place a **waiting room** in front of the service to buffer incoming traffic and admit users at a fixed rate of 140 users per second. In this simulation, each admitted user makes a single checkout request, so an admission rate of 140 users per second leaves headroom of 20 requests per second for retries and latency spikes. In a production system, a user makes multiple requests (loading the seat map, placing a hold, and submitting payment), so you would set the admission rate to the service's capacity divided by the average number of requests per user, minus a 10% to 20% safety margin. The simulation runs at reduced speed with high network latency so you can observe individual requests."
         },
         {
           "type": "interactive_diagram",
@@ -80,11 +80,11 @@
         },
         {
           "type": "text",
-          "text": "A waiting room scales cheaply because it performs minimal computation per user. Upon arrival, a client receives a **signed token** containing their queue identifier and timestamp. The client views a static HTML page served from a content delivery network (lesson 19), which polls a lightweight endpoint every 30 seconds to check if their token's number has been reached. The waiting room admits tokens at the seat service's capacity rate using a token bucket algorithm (as covered in lesson D1, *Saying no politely*). Once admitted, the token grants temporary access to the seat map. To prevent users from gaining an advantage by arriving hours early or opening thousands of browser tabs, the system collects all tokens issued before the sale starts and shuffles them into a **random order** at the opening timestamp. In a multi-region deployment, a central coordinator shuffles the pre-sale tokens across all regions once, and each regional waiting room admits users from its assigned partition of the global list."
+          "text": "A waiting room scales cheaply because it performs minimal computation per user. Upon arrival, a client receives a **signed token** containing their queue identifier and timestamp. The client views a static HTML page served from a content delivery network (lesson 19), which polls a lightweight endpoint every 30 seconds to check whether their token's number has been reached. The waiting room admits tokens at the seat service's capacity rate using a token bucket algorithm (as covered in lesson D1, *Saying no politely*). Once admitted, the token grants temporary access to the seat map. To prevent users from gaining an advantage by arriving hours early or opening thousands of browser tabs, the system collects all tokens issued before the sale starts and shuffles them into a **random order** at the opening timestamp. In a multi-region deployment, a central coordinator shuffles the pre-sale tokens across all regions once, and each regional waiting room admits users from its assigned partition of the global list."
         },
         {
           "type": "text",
-          "text": "A system should reject invalid requests as early and cheaply as possible. For an invite-only presale, the edge servers validate the invitation code before issuing a waiting room token, before the request ever reaches the seat service. The edge layer also enforces per-account and per-card rate limits (lesson D1). Stateless edge servers should filter out any request that can be rejected without querying the core database."
+          "text": "A system should reject invalid requests as early and cheaply as possible. For an invite-only presale, edge servers validate the invitation code before issuing a waiting room token, preventing unverified requests from reaching the seat service. The edge layer also enforces per-account and per-card rate limits (lesson D1). Stateless edge servers should filter out any request that can be rejected without querying the core database."
         }
       ]
     },
@@ -108,7 +108,7 @@
         },
         {
           "type": "text",
-          "text": "The read-then-write pattern fails due to a race condition: both application servers read the row before either write commits, so both observe the seat as *free*. To fix this, we combine the check and the update into an atomic **conditional write**. The query instructs the database to set the holder to the current buyer and the expiration time to 10 minutes in the future *only if* the seat currently has no holder or its existing hold has expired. In SQL, this is an UPDATE statement with the state and expiration checks in the WHERE clause. The database executes the update atomically and returns the number of modified rows: 1 row for the winning request, and 0 rows for any concurrent requests. This approach avoids holding long-lived database locks while a user types their credit card details, and abandoned holds free themselves automatically because subsequent conditional writes treat expired holds as available. To prevent clock drift between application servers from corrupting hold durations (lesson 20), the query evaluates expiration timestamps against the database server's internal clock.[^clock]"
+          "text": "The read-then-write pattern fails because of a race condition. Both application servers read the row before either write commits, so both observe the seat as *free*. To fix this, we combine the check and the update into an atomic **conditional write**. The query instructs the database to set the holder to the current buyer and the expiration time to 10 minutes in the future *only if* the seat currently has no holder or its existing hold has expired. In SQL, this is an UPDATE statement with the state and expiration checks in the WHERE clause. The database executes the update atomically and returns the number of modified rows (1 row for the winning request, and 0 rows for concurrent requests). This approach avoids holding long-lived database locks while a user types credit card details, and abandoned holds free themselves automatically because subsequent conditional writes treat expired holds as available. To prevent clock drift between application servers from corrupting hold durations (lesson 20), the query evaluates expiration timestamps against the database server's internal clock.[^clock]"
         },
         {
           "type": "text",
@@ -116,7 +116,7 @@
         },
         {
           "type": "text",
-          "text": "Payment follows the hold. The order call charges the card with an idempotency key (lesson 22), then turns the hold into a sale with one more conditional write, *only where* this buyer still holds the seat. If the hold expired while the bank took its time, the sale write changes zero rows and the charge is refunded; better designs mark the hold *paying* when the card is submitted, so it can't expire mid-payment."
+          "text": "Payment follows the hold. The order call charges the payment card using an idempotency key (lesson 22), then converts the hold into a sale with another conditional write, *only where* this buyer still holds the seat. If the hold expired while the payment gateway processed the charge, the sale write modifies zero rows and the charge is refunded. More resilient designs transition the hold to a *paying* state when payment begins, preventing the hold from expiring during payment processing."
         },
         {
           "type": "key_ideas",
@@ -152,7 +152,7 @@
         },
         {
           "type": "text",
-          "text": "**At ten times**, the answer is to keep the work proportional to seats, not to people. Every check that can be done at the edge, without state, is done there: the invite code, the token's signature, the rate limit. The seat map is a cached picture refreshed every second or two from a stream of seat changes (lesson 16), never a query per viewer. Each event's seats live in their own cell (lesson 23), so one sale's trouble can't reach another's."
+          "text": "**At ten times**, the architecture must keep processing load proportional to available seats rather than visitor count. Edge servers execute every stateless check before requests enter the internal network, including validating invitation codes, checking token signatures, and enforcing rate limits. The seat map is a cached snapshot refreshed every second or two from a stream of seat changes (lesson 16), rather than a database query executed per viewer. Each event's seats reside in an isolated cell (lesson 23), so failures during one sale cannot affect another."
         },
         {
           "type": "text",
@@ -228,7 +228,7 @@
                   "One counter read by each buyer and decremented by the application server once payment succeeds"
                 ],
                 "answer": 1,
-                "why": "One counter is a hot key, and so is \"the lowest free row\", which every buyer aims at. Splitting the count over shards spreads attempts, and the condition stops each going below zero. Reading then decrementing in the app would oversell."
+                "why": "One counter is a hot key, and so is \"the lowest free row\", which every buyer aims at. Splitting the count over shards spreads attempts, and the condition stops each going below zero. Reading then decrementing in the application would oversell."
               },
               {
                 "ask": "A ride-hailing service must never offer the same driver to two riders at once. Which dispatch design uses the same concurrency pattern as a seat hold?",
@@ -247,21 +247,21 @@
     }
   ],
   "summary": [
-    "**Most of the system's work is rejecting traffic.** Selling 2 million seats over 4 hours requires only 140 write transactions per second, whereas 14 million users refreshing a page generates millions of read requests per second.",
+    "**Most of the system's work is rejecting traffic.** Selling 2 million seats over 4 hours requires only 140 write transactions per second, whereas 14 million users refreshing a page generate millions of read requests per second.",
     "**Match consistency guarantees to each operation.** The seat map can be served stale from a cache, placing a hold requires strict atomic consistency, payment processing requires idempotency keys, and finalising the sale requires a conditional check on the hold.",
     "**Unbuffered overload causes goodput to collapse.** When queueing delay exceeds client timeouts, servers spend 100% of their CPU cycles on abandoned requests while client retries amplify the load.",
     "**A waiting room throttles admission to match backend capacity.** Issue cryptographically signed tokens, serve a static waiting page from a CDN, and regulate admission into the checkout service with a token bucket.",
     "**Reject invalid traffic at the stateless edge.** Validate invitation codes, token signatures, and per-account rate limits at the edge before requests consume backend database capacity.",
     "**Prevent double-selling with atomic conditional writes.** Update the seat holder in a single SQL statement only where the seat has no holder or the existing hold has expired.",
     "**Use self-expiring holds evaluated against the database clock.** Including an expiration timestamp in the conditional write automatically reclaims abandoned seats without requiring background cleanup jobs or distributed locks.",
-    "**Partition seats by event and section.** A group's seats share a shard, and a single owner per hot section can allocate in memory.",
+    "**Partition seats by event and section.** A group's seats share a shard, and a single owner process per hot section can allocate seats sequentially in memory.",
     "**The same concurrency patterns apply to any scarce inventory.** Use sharded conditional counters for retail flash sales, per-night counters for hotel rooms, and short-lived expiring holds for ride-hailing driver dispatch."
   ],
   "footnotes": {
     "senate": {
       "kind": "digression",
       "title": "A Senate hearing",
-      "text": "The presale outage prompted an investigation by the United States Senate: its Judiciary Committee held a hearing on ticketing competition on 24 January 2023, where Live Nation Entertainment's president and CFO, Joe Berchtold, attributed much of the disruption to an unprecedented bot attack."
+      "text": "The presale outage prompted an investigation by the United States Senate. Its Judiciary Committee held a hearing on ticketing competition on 24 January 2023, where Live Nation Entertainment's president and CFO, Joe Berchtold, attributed much of the disruption to an unprecedented bot attack."
     },
     "metastable": {
       "kind": "technical",

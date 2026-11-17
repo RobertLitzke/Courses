@@ -13,11 +13,11 @@
         },
         {
           "type": "text",
-          "text": "In the middle of October a small group was brought in to help, under the administration's chief technology officer, Todd Park, and later Jeff Zients, who was put in charge of the repair. Among them was Mikey Dickerson, an engineer who took leave from Google's site reliability team. What they found surprised them more than the bugs. Dozens of contractors had built the parts of the site, and there was no single place where anyone could see whether it was working: how many people were trying to sign up, how many succeeded, how long pages took, or which part was failing. Teams argued from their own logs and their own impressions. One of the first things the rescue team did was install monitoring across the whole system, put its numbers on a screen everyone could see, and hold a daily meeting around them.[^usds]"
+          "text": "In the middle of October a small group was brought in to help, under the administration's chief technology officer, Todd Park, and later Jeff Zients, who was put in charge of the repair. Among them was Mikey Dickerson, an engineer who took leave from Google's site reliability team. What they found surprised them more than the bugs. Dozens of contractors had built different parts of the site, and there was no single dashboard where anyone could see whether the service was working, such as how many people were trying to sign up, how many succeeded, page load latencies, or which component was failing. Teams argued from their own logs and their own impressions. One of the first things the rescue team did was install monitoring across the whole system, put its numbers on a screen everyone could see, and hold a daily meeting around them.[^usds]"
         },
         {
           "type": "text",
-          "text": "With the numbers visible, the team could rank problems by how many people each one affected and fix them in that order. By the start of December the site worked for most people who used it. The rescuers realized that the core problem was not any single bug: you cannot systematically fix a system that nobody can measure. In this lesson, we will define what \"working\" means in numbers, watch those numbers, configure alerts to wake engineers only when user-facing problems occur, and store those metrics cheaply enough to keep."
+          "text": "With the numbers visible, the team could rank problems by how many people each one affected and fix them in that order. By the start of December the site worked for most people who used it. The rescuers realised that the core problem was not any single bug, because an engineering team cannot systematically fix a system that nobody can measure. In this lesson, we will define what \"working\" means in numbers, watch those numbers, configure alerts to page on-call engineers only when user-facing problems occur, and store those metrics cheaply enough to keep."
         }
       ]
     },
@@ -26,7 +26,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Google had been running production this way for a decade by then; its 2016 book *Site Reliability Engineering* set out the vocabulary most teams now use. A **service level indicator**, an SLI, is a measured ratio of good events divided by all valid events. Valid leaves out what the service should not be blamed for, such as requests refused for bad input, health checks and test traffic. At scale nobody computes it from raw logs at query time. Instead, each load balancer keeps two counters a minute, valid and good, and the monitoring system takes the ratio from the sums. \"Share of requests answered without a server error\" is one SLI. \"Share of requests answered in under 300 ms\" is another, and stating a latency goal as a share of requests is better than using an average, because, as we saw in lesson 9, an average hides the high-latency tail that users experience."
+          "text": "Google had been running production this way for a decade by then; its 2016 book *Site Reliability Engineering* set out the vocabulary most teams now use. A **service level indicator**, an SLI, is a measured ratio of good events to all valid events. Valid events exclude traffic for which the service is not responsible, such as requests refused for bad input, health checks and test traffic. At scale nobody computes it from raw logs at query time. Instead, each load balancer maintains two counters per minute, valid and good, and the monitoring system calculates the ratio from the sums. \"Share of requests answered without a server error\" is one SLI. \"Share of requests answered in under 300 ms\" is another, and stating a latency goal as a share of requests is better than using an average, because, as we saw in lesson 9, an average hides the high-latency tail that users experience."
         },
         {
           "type": "text",
@@ -34,7 +34,7 @@
         },
         {
           "type": "text",
-          "text": "An engineer's first instinct is often to set a target of 100%, which is a mistake. No service reaches 100%, so the first minor failure breaks the target, and the team learns to ignore it. Users cannot tell 99.99% from 100% anyway, because their own mobile networks and Wi-Fi fail more often than that. Engineers name targets by their **nines**: 99.9% is three nines, and 99.99% is four nines. By a common rule of thumb, each extra nine costs about ten times as much as the one before in spare machines, slower releases and on-call staffing. You should set the target to the lowest level that users, measured from their perspective, would call working."
+          "text": "An engineer's first instinct is often to set a target of 100%, which is a mistake. No service reaches 100%, so the first minor failure breaks the target, and the team learns to ignore it. Users cannot tell 99.99% from 100% anyway, because their own mobile networks and Wi-Fi fail more often than that. Engineers name targets by their **nines**; 99.9% is three nines, and 99.99% is four nines. By a common rule of thumb, each extra nine costs about ten times as much as the one before in spare machines, slower releases and on-call staffing. Engineers set the target to the lowest level that users, measured from their perspective, consider acceptable."
         },
         {
           "type": "diagram",
@@ -81,11 +81,11 @@
         },
         {
           "type": "text",
-          "text": "Before choosing indicators, ask what users of the service are trying to do. For a website, users want pages that load and actions that complete. For a storage system, they want reads that return the right bytes and writes that are not lost. For a data pipeline, they want fresh output, such as the share of hours in which yesterday's numbers were ready by 9 a.m. You should measure as close to the user as possible. A server's own logs miss the requests that never reached it, whereas the load balancer's logs, or an external probe, will capture them."
+          "text": "Before choosing indicators, engineers identify what users of the service are trying to accomplish. For a website, users want pages that load and actions that complete. For a storage system, they want reads that return the right bytes and writes that are not lost. For a data pipeline, they want fresh output, such as the share of hours in which yesterday's numbers were ready by 9 a.m. Measurements should be taken as close to the user as possible. A server's local logs miss requests that never reached it, whereas load balancer logs or external probes capture them."
         },
         {
           "type": "text",
-          "text": "A data product needs indicators of its own, because a pipeline can run on time and still publish the wrong numbers. **Freshness** is the share of the time the newest published data is younger than a threshold, such as 99% of hours in which the map in service was built from data less than 24 hours old. **Completeness** is the share of expected records that arrived, measured against a count the source declares, such as the rows in each supplier's file or the number of regions in a build. **Correctness** is the share of checked records that are right, measured by validation rules on every version and by a small random sample that people verify by hand. Freshness and completeness can be measured exactly on every run. Correctness can only be estimated from a sample, so its SLO is stated with the sample size behind it: 99.5% correct, measured on 2,000 records a week, is known only to within about 0.3 percentage points. Lesson P4 builds the checks that produce these numbers."
+          "text": "A data product needs indicators of its own, because a pipeline can run on time and still publish the wrong numbers. **Freshness** is the share of the time the newest published data is younger than a threshold, such as 99% of hours in which the map in service was built from data less than 24 hours old. **Completeness** is the share of expected records that arrived, measured against a count the source declares, such as the rows in each supplier's file or the number of regions in a build. **Correctness** is the share of checked records that are right, measured by validation rules on every version and by a small random sample that people verify by hand. Freshness and completeness can be measured exactly on every run. Correctness can only be estimated from a sample, so its SLO is stated alongside the sample size; for example, 99.5% correct, measured on 2,000 records a week, is known only to within about 0.3 percentage points. In lesson P4, we build the checks that produce these numbers."
         }
       ]
     },
@@ -94,11 +94,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The complement of the SLO is the **error budget**. A 99.9% target over 30 days allows 0.1% of requests to fail: about 43 minutes of complete outage, or three days of one request in a hundred failing, or a whole month of one in a thousand failing, or any mix of these. The budget turns a recurring dispute between teams into arithmetic. Developers want to ship changes, while operators want nothing to change. With an error budget, both sides agree in advance that while budget remains, the team can ship features; when the budget is spent, the team stops shipping features and works on reliability until the budget recovers."
+          "text": "The complement of the SLO is the **error budget**.[^treynor] A 99.9% target over 30 days allows 0.1% of requests to fail, which equals about 43 minutes of complete outage, three days of one request in a hundred failing, an entire month of one in a thousand failing, or any combination of these. The budget turns a recurring dispute between teams into arithmetic. Developers want to ship changes, while operators want nothing to change. With an error budget, both sides agree in advance that while budget remains, the team can ship features; when the budget is spent, the team stops shipping features and works on reliability until the budget recovers."
         },
         {
           "type": "text",
-          "text": "The budget also tells you when to wake someone up. The **burn rate** is how fast the service consumes the budget, compared with spending it evenly over the window. At a burn rate of 1, the budget lasts the full 30 days; at a burn rate of 14.4, the whole month's budget is gone in 50 hours. Google's follow-up book, *The Site Reliability Workbook* (2018), suggests paging an engineer when 2% of the month's budget is spent in an hour (a burn rate of 14.4) or 5% in six hours (a burn rate of 6), and opening a ticket when 10% is spent in three days (a burn rate of 1). Each rule also checks a shorter window, one-twelfth as long (such as five minutes alongside the one-hour window), and fires only when both windows exceed the threshold. The long window prevents a brief spike from paging anyone, while the short window resets the alert soon after the outage ends. High burn rates page an engineer immediately, while low burn rates open a ticket for the next workday."
+          "text": "The budget also determines when an automated alert should page an engineer. The **burn rate** is how fast the service consumes the budget, compared with spending it evenly over the window. At a burn rate of 1, the budget lasts the full 30 days; at a burn rate of 14.4, the whole month's budget is gone in 50 hours. Google's follow-up book, *The Site Reliability Workbook* (2018), suggests paging an engineer when 2% of the month's budget is spent in an hour (a burn rate of 14.4) or 5% in six hours (a burn rate of 6), and opening a ticket when 10% is spent in three days (a burn rate of 1). Each rule also checks a shorter window, one-twelfth as long (such as five minutes alongside the one-hour window), and fires only when both windows exceed the threshold. The long window prevents a brief spike from paging anyone, while the short window resets the alert soon after the outage ends. High burn rates page an engineer immediately, while low burn rates open a ticket for the next workday."
         },
         {
           "type": "interactive_diagram",
@@ -110,11 +110,11 @@
         },
         {
           "type": "text",
-          "text": "The two alert rows illustrate the difference between paging on causes and paging on symptoms. The CPU alert fires every night once a batch job starts filling the machines in the early hours. The batch job never affects a user, and the two CPU alerts that happen to fall during the slow leak are unrelated to it. A team paged twenty times a month for false alarms learns to ignore the pager, and then misses a real outage. The burn-rate alerts fire only when user requests are failing. That includes the slow leak, where a dependency fails 0.4% of calls for two and a half days starting on day 14; a static threshold on the per-minute error rate would miss this because a 0.4% error rate rarely looks alarming in a single minute. Against a 99.9% target, a 0.4% error rate is a burn rate of 4, which does not page anyone but opens a ticket within the first day. If you raise the target to 99.99%, the baseline background rate of one failure in five thousand (0.02%) is already twice what the budget allows, so the alert never stops firing. Setting a target tighter than the system can meet only produces alert noise."
+          "text": "The two alert rows illustrate the difference between paging on causes and paging on symptoms. The CPU alert fires every night once a batch job saturates CPU capacity in the early hours. The batch job never affects a user, and the two CPU alerts that happen to fall during the slow leak are unrelated to it. A team paged twenty times a month for false alarms learns to ignore the pager, and then misses a real outage. The burn-rate alerts fire only when user requests are failing. That includes the slow leak, where a dependency fails 0.4% of calls for two and a half days starting on day 14; a static threshold on the per-minute error rate would miss this because a 0.4% error rate rarely looks alarming in a single minute. Against a 99.9% target, a 0.4% error rate is a burn rate of 4, which does not page anyone but opens a ticket within the first day. If the target is raised to 99.99%, the baseline background rate of one failure in five thousand (0.02%) is already twice what the budget allows, so the alert never stops firing. Setting a target tighter than the system can meet only produces alert noise."
         },
         {
           "type": "text",
-          "text": "The general rule is to **alert on symptoms, not causes**. A symptom is something users experience, such as errors, high latency or stale data. A cause is a potential reason for a symptom, such as high CPU utilisation, a full disk or a restarted process. Causes belong on dashboards, where an engineer diagnosing a symptom can inspect them. A page should mean that a person must act immediately, and you should fix or delete any paging alert that does not require action."
+          "text": "The general rule is to **alert on symptoms, not causes**. A symptom is something users experience, such as errors, high latency or stale data. A cause is a potential reason for a symptom, such as high CPU utilisation, a full disk or a restarted process. Causes belong on dashboards, where an engineer diagnosing a symptom can inspect them. A page should mean that a person must act immediately, and any paging alert that does not require action should be adjusted or deleted."
         }
       ]
     },
@@ -127,7 +127,7 @@
         },
         {
           "type": "text",
-          "text": "Aggregating latency across machines requires care. Each server can compute its own 99th percentile latency, but you cannot average percentiles: the mean of fifty servers' p99 values is not the fleet's p99, and can differ from it significantly. Instead, servers record request latencies into a **histogram** of fixed buckets, such as under 10 ms, 10 to 25 ms, 25 to 50 ms, and so on. Your monitoring system can sum the bucket counts across servers and across minutes, and then estimate any percentile from the combined histogram to the precision of the bucket boundaries. You should place one bucket boundary exactly at the SLO's latency threshold, so that the share of requests under 300 ms is exact, and space the remaining bucket boundaries exponentially (each roughly twice as wide as the last).[^hist]"
+          "text": "Aggregating latency across machines requires care. Each server can compute its own 99th percentile latency, but percentiles cannot be averaged; the mean of fifty servers' p99 values is not the fleet's p99, and can differ from it significantly. Instead, servers record request latencies into a **histogram** of fixed buckets, such as under 10 ms, 10 to 25 ms, 25 to 50 ms, and so on. The monitoring system can sum the bucket counts across servers and time intervals, and then estimate any percentile from the combined histogram to the precision of the bucket boundaries. Engineers place one bucket boundary exactly at the SLO's latency threshold, so that the share of requests under 300 ms is exact, and space the remaining bucket boundaries exponentially (each roughly twice as wide as the last).[^hist]"
         }
       ]
     },
@@ -136,11 +136,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every metric is stored as a **time series**: a metric name, a set of key-value labels, and a sequence of timestamped values. A request counter labelled with service `checkout`, status `500` and region `us-east` is one time series; each distinct combination of label values creates another series. The total number of series, known as the **cardinality**, is the primary scaling bottleneck for monitoring systems. Consider the numbers before we design the store: 50 services, 10 endpoints per service, 5 HTTP status classes and 4 regions produce 50 × 10 × 5 × 4 = 10,000 time series for a single metric. If you add a label for customer ID across a million customers, that one metric expands to ten billion series. Labels with unbounded values belong in logs and traces, not in time-series metrics. The same arithmetic limits quality metrics broken down by slice, such as a model's accuracy per country, per weather condition and per vehicle model (lesson P1): 200 countries, 5 conditions and 10 models give 10,000 series for each metric. That is affordable when the slices are a fixed list chosen in advance, and unaffordable when a label is taken from whatever value each record carries. "
+          "text": "Every metric is stored as a **time series**: a metric name, a set of key-value labels, and a sequence of timestamped values. A request counter labelled with service `checkout`, status `500` and region `us-east` is one time series; each distinct combination of label values creates another series. The total number of series, known as the **cardinality**, is the primary scaling bottleneck for monitoring systems. For example, 50 services, 10 endpoints per service, 5 HTTP status classes and 4 regions produce 50 × 10 × 5 × 4 = 10,000 time series for a single metric. Adding a label for customer ID across one million customers expands that single metric to ten billion series. Labels with unbounded values belong in logs and traces, not in time-series metrics. The same arithmetic limits quality metrics partitioned by slice, such as a model's accuracy per country, per weather condition and per vehicle model (discussed in lesson P1); 200 countries, 5 conditions and 10 models yield 10,000 series for each metric. That is affordable when the slices are a fixed list chosen in advance, and unaffordable when a label is taken from whatever value each record carries."
         },
         {
           "type": "text",
-          "text": "A large company collects millions of time series, sampling each one roughly every 10 seconds. Stored uncompressed, each data point takes 16 bytes: a 64-bit integer timestamp and a 64-bit floating-point value. In 2015, Facebook engineers Tuomas Pelkonen and colleagues published Gorilla, an in-memory time-series database that held the most recent 26 hours of Facebook's monitoring data in front of a slower disk-backed store (HBase). Gorilla's compression algorithm is now standard across monitoring systems, including Prometheus. It relies on two properties of real monitoring data. First, samples arrive at nearly constant intervals, so the difference between consecutive intervals is usually zero. Second, consecutive values are often identical or nearly identical, so the bitwise XOR of a value with its predecessor (which outputs 1 only where bits differ) is either all zeros or contains a short run of non-zero bits."
+          "text": "A large company collects millions of time series, sampling each one roughly every 10 seconds. Stored uncompressed, each data point takes 16 bytes, consisting of a 64-bit integer timestamp and a 64-bit floating-point value. In 2015, Facebook engineers Tuomas Pelkonen and colleagues published Gorilla, an in-memory time-series database that held the most recent 26 hours of Facebook's monitoring data in front of a slower disk-backed store (HBase). Gorilla's compression algorithm is now standard across monitoring systems, including Prometheus. It relies on two properties of real monitoring data. First, samples arrive at nearly constant intervals, so the difference between consecutive intervals is usually zero. Second, consecutive values are often identical or nearly identical, so the bitwise XOR of a value with its predecessor (which outputs 1 only where bits differ) is either all zeros or contains a short run of non-zero bits."
         },
         {
           "type": "diagram",
@@ -154,7 +154,7 @@
         },
         {
           "type": "text",
-          "text": "Designing a metric store at this scale involves three further architectural choices. First, **pull versus push**: Prometheus (started at SoundCloud in 2012) pulls metrics by scraping each server over HTTP, which lets the collector detect immediately when a target server stops responding, whereas pushing metrics suits short-lived batch jobs that might exit before a scraper polls them. Second, **retention and downsampling**: systems keep recent data at full 10-second resolution and downsample older data to 1-minute or 1-hour rollups, just as Gorilla kept 26 hours in RAM and wrote older data to disk. Third, **regional hierarchy**: Google's Monarch (2020) stores each region's metrics inside that region, keeping ingestion local and isolated from outages in other regions, and answers global queries by fanning out sub-queries to every region and merging the results (the scatter-gather pattern from lesson 9). Finally, because a monitoring system must remain up when production is down, it should share as few dependencies with production services as possible, following the same isolation principle as the status page in lesson 23."
+          "text": "Designing a metric store at this scale involves three further architectural choices. First, **pull versus push**: Prometheus (started at SoundCloud in 2012)[^borgmon] pulls metrics by scraping each server over HTTP, which lets the collector detect immediately when a target server stops responding, whereas pushing metrics suits short-lived batch jobs that might exit before a scraper polls them. Second, **retention and downsampling**: systems keep recent data at full 10-second resolution and downsample older data to 1-minute or 1-hour rollups, just as Gorilla kept 26 hours in RAM and wrote older data to disk. Third, **regional hierarchy**: Google's Monarch (2020) stores each region's metrics inside that region, keeping ingestion local and isolated from outages in other regions, and answers global queries by fanning out sub-queries to every region and merging the results (the scatter-gather pattern from lesson 9). Finally, because a monitoring system must remain up when production is down, it should share as few dependencies with production services as possible, following the same isolation principle as the status page in lesson 23."
         },
         {
           "type": "key_ideas",
@@ -164,7 +164,7 @@
             "Spend the error budget on change, and alert when it burns fast.",
             "Page on symptoms; keep causes on dashboards.",
             "Count latency into histograms; never average percentiles.",
-            "Watch cardinality: every label value multiplies the series."
+            "Watch cardinality; every label value multiplies the series."
           ]
         }
       ]
@@ -203,7 +203,7 @@
                 "ask": "A team pages its on-call engineer whenever CPU stays above 90% for ten minutes. Why is that a poor alert?",
                 "choices": [
                   "CPU is measured too coarsely on modern servers to be a reliable number to alert on",
-                  "High CPU is a possible cause, not a symptom: it fires while users are fine and misses real failures",
+                  "High CPU is a possible cause, not a symptom; it fires while users are fine and misses real failures",
                   "Ten minutes is too short a window, so the alert fires on every brief spike in load and wakes people needlessly"
                 ],
                 "answer": 1,
@@ -224,7 +224,7 @@
                 "choices": [
                   "Monitoring systems cannot measure availability precisely enough to confirm a service has reached 100%",
                   "Contracts with customers forbid promising 100%, so the SLO would conflict with the SLA",
-                  "It cannot be met, so it is broken at once and ignored, and users can't tell it from 99.99%"
+                  "It cannot be met, so it is broken at once and ignored, and users cannot tell it from 99.99%"
                 ],
                 "answer": 2,
                 "why": "A target that leaves no error budget gives no room for shipping changes and produces noisy alerts, and every extra nine costs much more for a difference that users' own network connections hide."
@@ -247,7 +247,7 @@
                   "Regular readings change little, so the change in gap and the XOR with the last value are mostly zeros"
                 ],
                 "answer": 2,
-                "why": "Delta-of-delta timestamps and XOR-ed floating-point values compress an unchanged interval and an unchanged value to a single bit each, without rounding: every point is reconstructed exactly."
+                "why": "Delta-of-delta timestamps and XOR-ed floating-point values compress an unchanged interval and an unchanged value to a single bit each, without rounding; every point is reconstructed exactly."
               },
               {
                 "ask": "A nightly job publishes a dataset that ten teams read. It has finished on time every night for a month, yet one team found that a region was missing for three days. Which indicator would have caught it?",
@@ -292,6 +292,16 @@
       "kind": "technical",
       "title": "Where the ratio comes from",
       "text": "Most series in Gorilla's data changed rarely or slowly; a value that never changes costs two bits a point when sampled on a regular clock. Values that fluctuate rapidly compress far less, and the 1.37-byte figure is an average across Facebook's production metrics."
+    },
+    "treynor": {
+      "kind": "digression",
+      "title": "Origins of the error budget",
+      "text": "Ben Treynor Sloss founded Google's site reliability engineering discipline in 2003. He introduced error budgets to resolve the cultural friction between product developers, whose performance was judged on shipping features quickly, and operations engineers, whose performance was judged on service uptime."
+    },
+    "borgmon": {
+      "kind": "digression",
+      "title": "Borgmon and Prometheus",
+      "text": "Former Google engineers Matt Proud and Julius Volz created Prometheus at SoundCloud in 2012. They modelled its label-based data format, pull architecture and query language on Borgmon, Google's internal time-series monitoring system for its Borg cluster orchestrator."
     }
   }
 }

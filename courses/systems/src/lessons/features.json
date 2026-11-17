@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "\"As of the example's time\" needs care, because every feature value has two times attached to it. Its **event time** is the moment it describes: the average speed for the 15 minutes ending at 12:30. Its **availability time** is when the pipeline had finished computing it and the service could read it, perhaps 12:38 if the streaming job runs eight minutes behind. These are two of the clocks of lesson 17, where availability time was the third. Serving at 12:30 can only read values available by 12:30, which describe 12:22 at best. A join on event time gives training the value about 12:30, which serving never has at 12:30. The correct join is on availability time."
+          "text": "\"As of the example's time\" needs care, because every feature value has two times attached to it. Its **event time** is the moment it describes: the average speed for the 15 minutes ending at 12:30. Its **availability time** is when the pipeline had finished computing it and the service could read it, perhaps 12:38 if the streaming job runs eight minutes behind. These are two of the clocks of lesson 17, where availability time was the third. Serving at 12:30 can only read values available by 12:30, which describe 12:22 at best. A join on event time gives training the value about 12:30, which serving never has at 12:30. The correct join is on availability time.[^as-of-join]"
         },
         {
           "type": "interactive_diagram",
@@ -76,7 +76,7 @@
         },
         {
           "type": "text",
-          "text": "The latest-value join gives the best offline score of the three, because the leaked congestion makes the offline test easy to pass, and the worst in service, which makes it dangerous: every offline test says the model is excellent. The event-time join is wrong by a smaller amount that grows with the pipeline's lag, and it is easy to build by accident, because the event time is the obvious timestamp to join on. Joining on availability time gives an offline score that predicts the real one, which the team can confirm by comparing the offline score with the error measured in service afterwards."
+          "text": "The latest-value join gives the best offline score of the three, because the leaked congestion makes the offline test easy to pass, and the worst in service. That discrepancy is dangerous because every offline test indicates that the model is performing well. The event-time join is wrong by a smaller amount that grows with the pipeline's lag, and it is easy to build by accident, because the event time is the obvious timestamp to join on. Joining on availability time gives an offline score that accurately predicts production accuracy, which the team can confirm by comparing the offline score with the error measured in service afterwards."
         }
       ]
     },
@@ -85,7 +85,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Training and serving need the same values in very different shapes. Training reads millions of examples with the full history of each feature, in large sequential scans. Serving reads the latest value of a few hundred features for one request, in a few milliseconds. So a feature store has two stores, fed from one definition."
+          "text": "Training and serving need the same values in very different shapes. Training reads millions of examples with the full history of each feature, in large sequential scans. Serving reads the latest value of a few hundred features for one request, in a few milliseconds. A feature store therefore maintains two stores, both fed from one definition."
         },
         {
           "type": "diagram",
@@ -94,7 +94,7 @@
         },
         {
           "type": "text",
-          "text": "The **offline store** holds every value of every feature with its event time and availability time, in columnar files (stored by column rather than by row, so a scan reads only the columns it needs) in folders split by date, the format the versioned datasets of lesson P3 use. Point-in-time joins run over it as batch jobs. The **online store** holds only the latest value of each feature for each key, such as a road segment's ID, in a key-value store like Bigtable (lesson 10) or Dynamo (lesson 12), so a lookup is one read by key. A batch job computes features that change slowly, such as the usual speed at each hour of the week, and writes to both stores. A streaming job computes features that change quickly, such as the speed over the last 15 minutes, writes the latest value to the online store, and appends every value it computes to the offline store, with both times, so training can later see exactly what serving saw."
+          "text": "The **offline store** holds every value of every feature with its event time and availability time, in columnar files (stored by column rather than by row, so a scan reads only the columns it needs)[^parquet] in folders split by date, the format the versioned datasets of lesson P3 use. Point-in-time joins run over it as batch jobs. The **online store** holds only the latest value of each feature for each key, such as a road segment's ID, in a key-value store like Bigtable (lesson 10) or Dynamo (lesson 12), so a lookup is one read by key. A batch job computes features that change slowly, such as the usual speed at each hour of the week, and writes to both stores. A streaming job computes features that change quickly, such as the speed over the last 15 minutes, writes the latest value to the online store, and appends every value it computes to the offline store, with both times, so training can later see exactly what serving saw."
         },
         {
           "type": "text",
@@ -102,7 +102,7 @@
         },
         {
           "type": "text",
-          "text": "Two more things need care beyond the two stores. **Request-time features**, such as a route's length or the hour of the request, are computed from the request itself rather than looked up, and they need one shared definition too: a training query that computes the hour in UTC and a service that computes it in local time produce skew like any other. Keys can also change. When the map is rebuilt (lesson P3), a road segment may be split in two or merged with its neighbour. Its feature history, stored under the old ID, would then be lost. The map's ID registry records every split and merge, so the feature store follows that record to carry history from the old IDs to the new ones. "
+          "text": "Two more things need care beyond the two stores. **Request-time features**, such as a route's length or the hour of the request, are computed from the request itself rather than looked up, and they need one shared definition too: a training query that computes the hour in UTC and a service that computes it in local time produce skew like any other. Keys can also change. When the map is rebuilt (lesson P3), a road segment may be split in two or merged with its neighbour. Its feature history, stored under the old ID, would then be lost. The map's ID registry records every split and merge, so the feature store follows that record to carry history from the old IDs to the new ones."
         }
       ]
     },
@@ -111,7 +111,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "At peak the routing service makes about 20,000 arrival-time predictions a second. A route crosses about 50 road segments, and the model reads four features for each, so each prediction needs about 200 feature values, and the service reads about 4 million values a second. If each value were a separate lookup, a request would fan out to many servers and wait for the slowest, the problem of lesson 9. The online store therefore keeps all of a segment's features in one row, and the service reads the 50 rows of a route in one batched request. Batching saves round trips but not fan-out: 50 keys hashed across many shards still touch many servers, and the request still waits for the slowest. The usual remedies are the ones from lesson 9, replicas and hedged requests, and for road segments a simpler one. All the segments' features fit in tens of gigabytes, as the next paragraph shows, so each routing server can keep its own copy of all of them in memory, refreshed from the stream, and read features with no network call at all."
+          "text": "At peak the routing service makes about 20,000 arrival-time predictions a second. A route crosses about 50 road segments, and the model reads four features for each, so each prediction needs about 200 feature values, and the service reads about 4 million values a second. If each value were a separate lookup, a request would fan out to many servers and wait for the slowest, the problem of lesson 9. The online store therefore keeps all of a segment's features in one row, and the service reads the 50 rows of a route in one batched request. Batching saves round trips but not fan-out: 50 keys hashed across many shards still touch many servers, and the request still waits for the slowest. The usual remedies are replicas and hedged requests from lesson 9, but road segments allow an even simpler design. Because all segment features fit in tens of gigabytes, each routing server can keep its own copy of all of them in memory, refreshed from the stream, and read features with no network call at all."
         },
         {
           "type": "text",
@@ -137,7 +137,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Michelangelo's feature store held batch features and streaming features computed from Kafka (lesson 16), served them from Cassandra, a key-value store, and let teams share features across models. Since then, feature stores have become a standard part of machine-learning platforms. Feast, released as open source by the Indonesian company Gojek and Google Cloud in 2019, provides the registry, the offline and online stores and the point-in-time join over storage a team already has. Airbnb built Zipline for the same purpose and in 2024 released its successor, Chronon, as open source with Stripe; Chronon computes each value exactly as of the example's timestamp, and measures the remaining difference between training and serving by backfilling logged requests and comparing the results with the values that were served, the comparison described above."
+          "text": "Michelangelo's feature store held batch features and streaming features computed from Kafka (lesson 16), served them from Cassandra, a key-value store, and let teams share features across models. Since then, feature stores have become a standard part of machine-learning platforms. Feast, released as open source by the Indonesian company Gojek and Google Cloud in 2019, provides the registry, the offline and online stores and the point-in-time join over storage a team already has. Airbnb built Zipline for the same purpose and in 2024 released its successor, Chronon, as open source with Stripe; Chronon computes each value exactly as of the example's timestamp, and measures any remaining difference between training and serving by backfilling logged requests and comparing the results with the values that were served."
         },
         {
           "type": "text",
@@ -259,6 +259,16 @@
       "kind": "digression",
       "title": "Train like you serve",
       "text": "Martin Zinkevich's \"Rules of Machine Learning\", a widely read list of advice from Google engineers, gives the simplest defence against skew as its rule 29: record the features the model used in service, and train on those logs. Several neighbouring rules warn about skew from code that differs between the two paths."
+    },
+    "as-of-join": {
+      "kind": "technical",
+      "title": "As-of joins",
+      "text": "In database systems, joining a record to the state of another table at an exact historical timestamp is known as an as-of join or point-in-time join. Specialised query engines, including DuckDB, kdb+ and Apache Flink, provide dedicated temporal join operators that search backward to find the latest valid record without executing a full cross-product."
+    },
+    "parquet": {
+      "kind": "technical",
+      "title": "Columnar data layouts",
+      "text": "Storage formats such as Apache Parquet and Apache ORC store record attributes in contiguous blocks grouped by column rather than row. When an offline training query selects 10 features out of hundreds stored, the query engine can skip unreferenced columns entirely and apply lightweight compression, such as run-length or dictionary encoding, across homogeneous data types."
     }
   }
 }

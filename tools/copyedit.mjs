@@ -102,8 +102,10 @@ Avoid the habits of machine-written text. Specific examples:
 - No "delve", "tapestry", "crucial", "vital", "key" as an adjective, "fascinating", "remarkable", "incredible", "journey", "unlock", "harness", "robust", "seamless", "landscape" (as a metaphor), "realm", "testament".
 - No exclamation marks (except inside a quotation), no rhetorical questions that the next sentence answers, no sign-off summaries or one-line aphorisms closing a paragraph, no sentence that only announces what the next will say.
 
+Before editing, read the whole lesson once as a reader alert to machine-written prose, and note each tell you find: the habits above, and any others (hedging stacked on hedging, the same sentence shape repeated, vague grandeur, signposting, a figure of speech that adds nothing). Fix each one in its piece, and list it under "tropes".
+
 Reply with JSON only:
-{"pieces": [{"n": 1, "text": "..."}, ...], "footnotes": [{"id": "new-id", "kind": "technical" or "digression", "title": "...", "text": "..."}], "facts": ["one line per factual change you made or doubt you have, naming the piece number"]}
+{"pieces": [{"n": 1, "text": "..."}, ...], "footnotes": [{"id": "new-id", "kind": "technical" or "digression", "title": "...", "text": "..."}], "facts": ["one line per factual change you made or doubt you have, naming the piece number"], "tropes": ["one line per machine-writing habit you found, naming the piece number, the habit and how you fixed it"]}
 Include every piece, same numbers. "footnotes" lists only the notes you add (an empty list if none).`;
 
 /** Every prose string in the lesson, with a path to put it back. */
@@ -163,6 +165,8 @@ function problem(before, after, added = new Set(), canMark = false) {
   const len = (t) => t.replace(MARK, '').length;
   if (len(after) > len(before) * 1.25 + 25) return `grew from ${before.length} to ${after.length} characters`;
   if (/—/.test(after) && !/—/.test(before)) return 'uses an em dash';
+  // The (correct) and (wrong) labels on quiz choices are notes to the editor, not text.
+  if (/\((correct|wrong)\)/i.test(after) && !/\((correct|wrong)\)/i.test(before)) return 'copied a (correct) or (wrong) label into the text';
   return null;
 }
 
@@ -182,6 +186,7 @@ const LESSON_SCHEMA = obj({
   pieces: { type: 'array', items: obj({ n: { type: 'integer' }, text: str }) },
   footnotes: { type: 'array', items: obj({ id: str, kind: { type: 'string', enum: ['technical', 'digression'] }, title: str, text: str }) },
   facts: { type: 'array', items: str },
+  tropes: { type: 'array', items: str },
 });
 const DESCRIPTION_SCHEMA = obj({ subtitle: str, summary: str, facts: { type: 'array', items: str }, why: str });
 
@@ -283,7 +288,7 @@ for (const id of ids) {
   const prompt = `${reviewerNotes}Lesson: "${lesson.title}" (${noteCount} footnote${noteCount === 1 ? '' : 's'} now)\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
   const { reply, tokens, error } = await ask(id, BRIEF, prompt, LESSON_SCHEMA);
   if (error) { console.error(`${id}: no JSON back`, error); process.exitCode = 1; continue; }
-  const report = [`# ${lesson.title}`, '', '## Facts', ...(reply.facts ?? []).map((f) => `- ${f}`), '', '## Changes', ''];
+  const report = [`# ${lesson.title}`, '', '## Facts', ...(reply.facts ?? []).map((f) => `- ${f}`), '', '## Tropes', ...(reply.tropes ?? []).map((f) => `- ${f}`), '', '## Changes', ''];
   // New footnotes: each must be whole, new and clean before a piece may mark it.
   const notes0 = lesson.footnotes ?? {};
   const offered = new Map();
@@ -325,5 +330,5 @@ for (const id of ids) {
     const left = JSON.parse(readFileSync(QUEUE, 'utf8')).filter((q) => q.lesson !== id);
     writeFileSync(QUEUE, `${JSON.stringify(left, null, 1)}\n`);
   }
-  console.log(`${id}: ${changed} of ${ps.length} pieces changed, ${addedNotes} footnotes added, ${(reply.facts ?? []).length} fact notes${write ? ', written' : ''} (${tokens ?? '?'} tokens)`);
+  console.log(`${id}: ${changed} of ${ps.length} pieces changed, ${addedNotes} footnotes added, ${(reply.facts ?? []).length} fact notes, ${(reply.tropes ?? []).length} tropes${write ? ', written' : ''} (${tokens ?? '?'} tokens)`);
 }

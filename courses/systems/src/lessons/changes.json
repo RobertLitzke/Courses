@@ -35,7 +35,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** The system must collect observations that disagree with the current map; group observations of the same change; estimate how confident it is that each change is real; decide by the change's risk whether it is published automatically, reviewed by one person or reviewed by two; publish accepted changes through the checks of lesson P4; and roll back any change, or every change from one source, quickly."
+          "text": "**Functional.** The system must collect observations that disagree with the current map; group observations of the same change; compute a confidence score indicating whether each change is real; decide by risk tier whether an edit is published automatically, reviewed by one person, or reviewed by two independent reviewers; publish accepted changes through the validation checks of lesson P4; and roll back any single change or all changes from a specified source quickly."
         },
         {
           "type": "text",
@@ -65,17 +65,17 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Confidence is one axis; the other is the cost of being wrong. A wrong change costs roughly in proportion to how many people it reaches and how much harm it does to each. A shop's moved entrance is seen by a few hundred people and costs each of them a short walk. A banned turn changes the routes of thousands of drivers. A closed motorway, or a city's name, is seen by millions. The system assigns each change a **risk tier** from its kind and the **prominence** of the place, measured by how often that part of the map is viewed or routed through. Each kind of change has a base tier, a shop low, a road rule medium, a closure or a place name high, and a change on a very prominent place moves up one tier, so a renamed shop in Times Square is reviewed like a banned turn."
+          "text": "Confidence is one axis; the other is the cost of an error. The impact of an erroneous change scales with the size of the audience exposed to it and the severity of the disruption. A relocated shop entrance affects a few hundred visitors and costs each of them a short walk. An incorrect turn restriction alters routing for thousands of drivers. A falsely closed motorway or an altered city name affects millions of users. The system assigns each proposed change a **risk tier** determined by the feature type and the **prominence** of the location, quantified by historical query volume and routing throughput. Feature types have baseline tiers: a shop is low, a road rule is medium, and a closure or place name is high. A change affecting an exceptionally prominent location is promoted by one risk tier, so altering a business name in Times Square receives the same scrutiny as a new turn restriction."
         },
         {
           "type": "text",
-          "text": "Each tier gets its own path. Low-risk changes with high confidence publish automatically. Everything else goes to people. The middle tier gets one reviewer, and the highest tier, the names of cities and countries, closures of major roads, anything on the most viewed parts of the map, needs **two reviewers** who decide independently, so one person's slip cannot reach millions of screens. The reviewers work in a queue with the same leases and qualifications as the labellers in lesson P2. A reviewer clears about 400 changes a day, so 10,000 proposed changes a day with none published automatically would take 25 reviewers. The team's capacity is fixed on any given day, and the confidence threshold for automatic publishing decides how much work reaches them."
+          "text": "Each tier follows a distinct review path. Low-risk changes with confidence scores above the operational threshold are published automatically. All other proposals require human review. The medium tier requires one reviewer. The highest tier (national and municipal names, major motorway closures, and edits to the most heavily viewed map tiles) requires **two reviewers** who evaluate the change independently, ensuring that an oversight by a single operator cannot reach millions of screens. Reviewers draw tasks from a queue using the task leases and qualification checks introduced in lesson P2. An individual reviewer processes roughly 400 changes a day; reviewing 10,000 proposed changes a day without automated publishing would require 25 full-time reviewers. Because human review capacity is constrained on any given day, adjusting the confidence threshold for automated publishing directly controls the volume of work diverted to the queue."
         },
         {
           "type": "interactive_diagram",
           "id": "changes-triage",
           "caption": "A day of proposed map changes. The threshold decides how many low-risk changes skip people; the reviewers' capacity decides whether a queue builds. Rates are round figures of our own.",
-          "task": "Put two reviewers on the high-risk tier, keep the wait under a day, and keep wrong data under 100,000 views a day",
+          "task": "Assign two reviewers to the high-risk tier, keep the wait under 24 hours, and keep erroneous data under 100,000 views a day",
           "goal": "balanced"
         },
         {
@@ -119,7 +119,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**At ten times** (a hundred thousand proposed changes a day), the reviewers are organised by region and language, the queue is sharded by region with each region's capacity sized to its share of the work, and automatic publishing covers most of the low tier, with a random sample of automatic decisions reviewed every day to measure how often they are wrong."
+          "text": "**At ten times** (100,000 proposed changes a day), review teams are partitioned by geographic region and language fluency. The work queue is sharded regionally, with review staffing provisioned to match local arrival rates. Automated publishing processes the majority of low-risk proposals, and a fixed random sample of automated approvals is audited daily to measure the empirical error rate."
         },
         {
           "type": "text",
@@ -219,7 +219,7 @@
     "**Calibrate confidence.** Among changes scored at 95%, about 95% should be real, checked on a sample people verify.",
     "**Tier by risk, not by confidence alone.** Risk is how many people a wrong change would reach and how much it would cost them.",
     "**Put people where judgement matters most.** Automatic publishing for low risk and high confidence, one reviewer for the middle, two independent reviewers for the most prominent names and roads.",
-    "**Reviewers are a queue.** When reviews arrive faster than people can do them, the wait grows every day, so the automatic threshold and the reviewer count are set together.",
+    "**Reviewers form a queue.** When candidate change volume exceeds human review capacity, queue depth and latency grow continuously. Automated publishing thresholds and review staffing must be balanced together.",
     "**Publish through the checks, roll back by source.** Approved changes still pass whole-map checks, and provenance lets every change from one source be reverted at once."
   ],
   "footnotes": {

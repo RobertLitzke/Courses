@@ -19,7 +19,7 @@
         },
         {
           "type": "text",
-          "text": "A few engineers can carry that much traffic only if the design wastes nothing. Every request must do useful work, the system must avoid unnecessary copies, and each machine must operate near its capacity. In this lesson, we will design a chat service and compare it with what WhatsApp described and with what Discord, a chat service built for large communities, published about storing its messages in 2017 and again in 2023. Our target system serves **500 million people** who each send about **50 messages a day**, to one person or to groups. A message reaches an online phone in **under a second**, an offline phone receives the message when it reconnects, and the sender sees ticks for *sent*, *delivered* and *read*."
+          "text": "A few engineers can carry that much traffic only if the design wastes nothing. Every request must perform useful work without redundant copies, while each machine operates near its capacity. In this lesson, we will design a chat service and compare it with what WhatsApp described and with what Discord, a chat service built for large communities, published about storing its messages in 2017 and again in 2023. Our target system serves **500 million people** who each send about **50 messages a day**, to one person or to groups. A message reaches an online phone in **under a second**, while an offline phone receives it upon reconnecting. Senders see ticks confirming that a message was *sent*, *delivered* and *read*."
         }
       ]
     },
@@ -28,7 +28,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Functional.** Users can send a text message to one person or to a group of up to a few hundred members. The system shows the sender when the service has the message, when the recipient's phone has it, and when the recipient has opened it. It delivers messages to a phone that was offline when the message was sent, and keeps the messages in a conversation in a single order that every member sees. It also shows whether a contact is online and wakes a sleeping phone with a notification."
+          "text": "**Functional.** Users can send a text message to one person or to a group of up to a few hundred members. The system confirms when the service receives a message, followed by delivery and read receipts from the recipient. It delivers messages to a phone that was offline when the message was sent, and keeps the messages in a conversation in a single order that every member sees. It also shows whether a contact is online and wakes a sleeping phone with a notification."
         },
         {
           "type": "text",
@@ -36,7 +36,7 @@
         },
         {
           "type": "text",
-          "text": "**Out of scope.** We will exclude voice and video calls, which are a separate problem involving jitter buffers and media relays. We also exclude photos and videos, which go to a blob store and a content delivery network (lesson 19) while the message carries only a link and a decryption key, as well as message history search and spam detection. We must also make one architectural choice early: whether the server keeps messages forever so a new phone can load years of history, or keeps them only until every recipient has received them. WhatsApp chose the second option, whereas Discord, whose channels are read by people who join later, had to choose the first."
+          "text": "**Out of scope.** We exclude voice and video calls, which require separate media relays and jitter buffers. Photos and videos are also excluded, as they travel through a blob store and a content delivery network (lesson 19) while the message carries only a link and a decryption key. Message history search and spam detection are likewise omitted. We must make one early architectural decision between retaining messages indefinitely so a new device can load years of history, or deleting them once every recipient has acknowledged delivery. WhatsApp chose the second option, whereas Discord, whose community channels are read by members who join later, chose the first."
         }
       ]
     },
@@ -69,7 +69,7 @@
         },
         {
           "type": "text",
-          "text": "The machines that hold connections are **gateways**. They terminate the transport encryption, authenticate the phone, and route messages to the internal network. Because a recipient's connection can be on any gateway, the service keeps a **session registry** in memory that maps each user to a gateway. A gateway writes to this table when a phone connects and refreshes the entry on each heartbeat, with a time-to-live (TTL) expiry so the entry for an abruptly disconnected phone expires automatically."
+          "text": "The machines that hold connections are **gateways**. They terminate transport encryption and authenticate the phone before routing messages to the internal network. Because a recipient's connection can be on any gateway, the service keeps a **session registry** in memory that maps each user to a gateway. A gateway writes to this table when a phone connects and refreshes the entry on each heartbeat, with a time-to-live (TTL) expiry so the entry for an abruptly disconnected phone expires automatically."
         },
         {
           "type": "text",
@@ -86,7 +86,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Suppose Alice and Bob both send a message to a group at the same moment. Every phone in the group must display the two messages in the same order, and a phone reconnecting after losing signal in a tunnel must be able to request the exact messages it missed. We have four options for numbering messages: the sending phone's clock, the receiving gateway's clock, a single global counter for the whole service, or a per-conversation counter maintained by the server assigned to that conversation. Consider which option works best before revealing the clues that rule out the other three."
+          "text": "When Alice and Bob both send a message to a group at the same moment, every phone in the group must display the two messages in the same order, and a phone reconnecting after losing signal in a tunnel must be able to request the exact messages it missed. We have four options for numbering messages: the sending phone's clock, the receiving gateway's clock, a single global counter for the whole service, or a per-conversation counter maintained by the server assigned to that conversation. Consider which option works best before revealing the clues that rule out the other three."
         },
         {
           "type": "interactive_diagram",
@@ -147,11 +147,11 @@
         },
         {
           "type": "text",
-          "text": "In this architecture, we assign each conversation an owner, which is a single process on one chat server at a time, chosen by hashing the conversation ID (lesson 5). The owner assigns sequence numbers to the conversation's messages. All traffic for a conversation passes through this single process, which easily handles the load because even a busy group sends only a few messages a second, and 600,000 messages a second spread across hundreds of millions of conversations is a light per-conversation rate. When we add a chat server, consistent hashing moves only a fraction of the conversations to it, and each moved conversation's new owner initializes its state the same way it would after a crash. If the owner's machine fails, another server takes over the conversation, reads the latest sequence number from the database, and resumes numbering. To make that handover safe against split-brain writes, the database write must be conditional on the sequence number not already existing, using the fencing mechanism from lesson 11."
+          "text": "In this architecture, we assign each conversation an owner, which is a single process on one chat server at a time, chosen by hashing the conversation ID (lesson 5). The owner assigns sequence numbers to the conversation's messages. All traffic for a conversation passes through this single process, which easily handles the load because even a busy group sends only a few messages a second, and 600,000 messages a second spread across hundreds of millions of conversations is a light per-conversation rate. When we add a chat server, consistent hashing moves only a fraction of the conversations to it, and each moved conversation's new owner initialises its state the same way it would after a crash. If the owner's machine fails, another server takes over the conversation. It reads the latest sequence number from the database and resumes numbering. To make that handover safe against split-brain writes, the database write must be conditional on the sequence number not already existing, using the fencing mechanism from lesson 11."
         },
         {
           "type": "text",
-          "text": "We can now trace a single message from Alice's phone to the conversation owner, which assigns a sequence number and writes the message to the database before returning a \"sent\" receipt, and then pushes the message through Bob's gateway to his phone and returns the delivery and read receipts. We also need to handle two failure cases: when Bob's phone is offline, and when Alice's acknowledgement is lost in transit."
+          "text": "We can now trace a single message from Alice's phone to the conversation owner. The owner assigns a sequence number and writes the record to the database before returning a \"sent\" receipt. It then pushes the message through Bob's gateway to his phone, which returns delivery and read receipts. We must also handle two failure cases: Bob's phone being offline, and Alice's acknowledgement being lost in transit."
         },
         {
           "type": "interactive_diagram",
@@ -162,7 +162,7 @@
         },
         {
           "type": "text",
-          "text": "The first tick indicates that the message is durably stored, not merely received by a gateway, because a gateway crashing between sending the receipt and writing to the database would lose a message the sender believed was safe. When Bob's phone is offline, no data is lost and the sender does not need to retry: the message waits in the database, the chat service asks Apple's or Google's push service to wake the phone,[^apns] and the phone reconnects and requests all messages after sequence number 41. When Alice's acknowledgement is lost, her phone resends the message with the same client message ID, and the owner recognises the duplicate ID and returns the existing sequence number instead of writing a second copy."
+          "text": "The first tick indicates that the message is durably stored, not merely received by a gateway, because a gateway crashing between sending the receipt and writing to the database would lose a message the sender believed was safe. When Bob's phone is offline, no data is lost and the sender does not need to retry. The message waits in the database while the chat service asks Apple's or Google's push service to wake the device.[^apns] Once reconnected, the phone requests all messages after sequence number 41. When Alice's acknowledgement is lost, her phone resends the message with the same client message ID, and the owner recognises the duplicate ID and returns the existing sequence number instead of writing a second copy."
         }
       ]
     },
@@ -182,7 +182,7 @@
         },
         {
           "type": "text",
-          "text": "The model highlights three trade-offs. Polling every 30 seconds requires fewer servers than polling every 5 seconds, but increases average delivery latency to 15 seconds; only a held connection achieves both low server load and sub-second delivery. The number of connections per server determines the gateway fleet size, requiring 1,500 gateways at 100,000 connections per server, or 75 gateways at WhatsApp's density of 2 million connections per server. Finally, writing a separate copy of a message for each group member multiplies database write throughput by the group size, whereas storing one copy per conversation plus one read pointer per member writes each message once. Live delivery to online group members still requires network fan-out, pushing one copy down each recipient's open connection, but storing a single copy per conversation eliminates the storage write fan-out (lesson 14)."
+          "text": "Testing these parameters reveals three architectural trade-offs. Polling every 30 seconds requires fewer servers than polling every 5 seconds, but increases average delivery latency to 15 seconds; only a held connection achieves both low server load and sub-second delivery. The number of connections per server determines the gateway fleet size, requiring 1,500 gateways at 100,000 connections per server, or 75 gateways at WhatsApp's density of 2 million connections per server. Finally, writing a separate copy of a message for each group member multiplies database write throughput by the group size, whereas storing one copy per conversation plus one read pointer per member writes each message once. Live delivery to online group members still requires network fan-out, pushing one copy down each recipient's open connection, but storing a single copy per conversation eliminates the storage write fan-out (lesson 14)."
         },
         {
           "type": "text",
@@ -190,11 +190,11 @@
         },
         {
           "type": "text",
-          "text": "**Presence** uses the session registry in reverse. A phone's periodic heartbeat keeps its session registry entry alive, and when the entry expires, the system marks the user offline. Pushing a status update to every contact the moment a user connects creates a large notification fan-out on every connection event, so most services push presence updates only to contacts who currently have a chat with that user open on screen, while other contacts query the user's status only when they open the conversation. Live location sharing uses the same pattern: the service overwrites the user's latest coordinates in memory every few seconds with a short TTL, pushes updates over the open connections of users currently viewing the map, and appends the coordinates to a persistent log (lesson 16) only if the feature requires location history."
+          "text": "**Presence** uses the session registry in reverse. A phone's periodic heartbeat keeps its session registry entry alive, and when the entry expires, the system marks the user offline. Pushing a status update to every contact the moment a user connects creates a large notification fan-out on every connection event, so most services push presence updates only to contacts who currently have a chat with that user open on screen, while other contacts query the user's status only when they open the conversation. Live location sharing uses the same pattern: the service overwrites the user's latest coordinates in memory every few seconds with a short TTL and pushes updates over the open connections of users viewing the map. It appends the coordinates to a persistent log (lesson 16) only if the feature requires location history."
         },
         {
           "type": "text",
-          "text": "**Notifications** become a separate subsystem once an application supports multiple delivery channels. Upstream services write notification events (\"tell user X about Y\") to a message log, and channel-specific worker processes consume from the log to call external providers such as Apple's and Google's push services, SMS gateways, or email servers. Before calling a provider, the workers check the user's notification preferences and quiet hours, deduplicate events using an idempotency key, and enforce a per-user rate limit so a software bug cannot flood a user with thousands of alerts. Isolating each channel in its own worker pool ensures that an outage at one external provider backs up only that channel's queue, allowing urgent notifications to fail over to an alternative channel."
+          "text": "**Notifications** become a separate subsystem once an application supports multiple delivery channels. Upstream services write notification events (\"tell user X about Y\") to a message log, and channel-specific worker processes consume from the log to call external providers such as Apple's and Google's push services, SMS gateways, or email servers. Before calling a provider, the workers inspect the user's notification preferences and quiet hours. They deduplicate events using an idempotency key and enforce a per-user rate limit so a software defect cannot flood a user with thousands of alerts. Isolating each channel in its own worker pool ensures that an outage at one external provider backs up only that channel's queue, allowing urgent notifications to fail over to an alternative channel."
         }
       ]
     },
@@ -315,7 +315,7 @@
     }
   ],
   "summary": [
-    "**Hold connections instead of polling.** 150 million phones polling every 5 seconds generates 30 million mostly empty requests a second, whereas an idle held connection costs only kernel memory and a periodic heartbeat.",
+    "**Hold connections instead of polling.** 150 million phones polling every 5 seconds generate 30 million mostly empty requests a second, whereas an idle held connection costs only kernel memory and a periodic heartbeat.",
     "**Gateways hold connections and a registry locates them.** The session registry maps each connected user to their current gateway, refreshed by heartbeats and expiring automatically when heartbeats stop.",
     "**A per-conversation counter establishes a single order.** The conversation's assigned owner process numbers its messages sequentially, ensuring that every member sees the same order and any gap reveals a missing message.",
     "**Write to durable storage before acknowledging \"sent\".** The first tick guarantees that the message is stored on disk, and a client message ID makes retries idempotent.",

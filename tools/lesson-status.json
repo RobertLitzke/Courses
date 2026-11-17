@@ -231,7 +231,7 @@
     "systems": {
       "student": "done",
       "facts": "pending",
-      "note": "Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Gemini 4 Argon copy edit of every lesson 10 Nov 2026, with extra guidance for conventional technical prose (explicit verbs, units, precise terms). No photos expected. Branch P (data and evaluation pipelines, 5 lessons), M5 rework, Phase 2 additions to six lessons, scenario questions in the studio quizzes and a drills page added 17 Nov 2026 (plan and reviews: systems/data-branch/, systems/review-2026-11-17/).",
+      "note": "Systems at Scale. Outline (9 Nov 2026) planned by one reviewer wearing four hats (instructor, Torvalds, Carmack, Dean): project files systems/outline.md, writer-notes.md, fact-check-notes.md. All 35 lessons (trunk 1-24, branches M and D) written 9 Nov 2026 with live system diagrams (models/sysdiagram); a Haiku student read-through of every lesson and revisions, then a final Opus review (systems/review-2026-11-09/). Gemini 4 Argon copy edit of every lesson 10 Nov 2026, with extra guidance for conventional technical prose (explicit verbs, units, precise terms). No photos expected. Branch P (data and evaluation pipelines, 5 lessons), M5 rework, Phase 2 additions to six lessons, scenario questions in the studio quizzes and a drills page added 17 Nov 2026 (plan and reviews: systems/data-branch/, systems/review-2026-11-17/). Gemini 3.8 Flash (high effort) on the queued lessons 17 Nov 2026, with a tropes list in each report; about a third of its edits were reverted after review (wrong fact edits, invented specifics, jargon), and its new footnotes kept only where checked.",
       "lessons": {
         "evals": {
           "facts": "done 2026-11-17 (expert reviews, project files systems/review-2026-11-17/)",
@@ -256,6 +256,46 @@
         "changes": {
           "facts": "done 2026-11-17 (expert reviews, project files systems/review-2026-11-17/)",
           "student": "done"
+        },
+        "streams": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "slo": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "sensors": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "replay": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "rollout": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "tiles": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "limiter": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "chat": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "search": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
+        },
+        "tickets": {
+          "student": "pending",
+          "note": "Additions or scenario questions of 17 Nov 2026 have had the Gemini pass but no student read-through."
         }
       }
     },
