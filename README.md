@@ -81,7 +81,8 @@ npm install                 # once, at the root: one lockfile for every course
 npm run dev -w clouds       # one course on its own dev server (its own port)
 npm run dev -w catalog      # the catalog, on http://localhost:5410
 npm test                    # every course's tests and the catalog's
-npm run build               # the whole site into dist/
+npm run build               # the whole site into dist/, courses side by side (BUILD_JOBS=1: one at a time)
+node tools/test-shard.mjs 1/2   # half the workspaces' tests, as one CI runner does
 npm run preview             # serve dist/ on http://localhost:5411
 npm run photos -- geology   # fetch a course's pictures (tools/photo-picks.json; Didactics' picture pipeline)
 npm run pictures:check      # every course's picture records, and none on Commons' inaccurate-paleoart list

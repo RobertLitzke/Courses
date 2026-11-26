@@ -16,6 +16,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # The tests run in two shares on two runners while a third builds the site;
+  # the deploy waits for all three. tools/test-shard.mjs says which
+  # workspaces each share runs.
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        share: [1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tools/test-shard.mjs ${{ matrix.share }}/2
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -25,8 +42,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test
-      # Every course into its folder, then the catalog and the one service worker.
+      # Every course into its folder, side by side, then the catalog and the one service worker.
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -34,7 +50,7 @@ jobs:
           path: dist
 
   deploy:
-    needs: build
+    needs: [test, build]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
