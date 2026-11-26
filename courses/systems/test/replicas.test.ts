@@ -58,8 +58,47 @@ describe('replicas: the figures', () => {
     pump(20);
     await Promise.resolve();
     expect(done).toBe(false);
+    // Adding a replica before they fall behind does not count.
+    setSlider(h.node, 1, 4);
+    setSlider(h.node, 1, 5);
+    pump(2);
+    // 19% writes on five replicas is 117% busy: they fall behind within a few seconds.
+    setSlider(h.node, 0, 19);
+    pump(8);
+    await Promise.resolve();
+    expect(done).toBe(false);
+    expect(h.node.textContent).toContain('cannot keep up');
+    // Adding a replica while they are behind finishes the task, though six are still over capacity.
+    setSlider(h.node, 1, 6);
+    pump(1);
+    await Promise.resolve();
+    expect(done).toBe(true);
+    expect(h.node.textContent).toContain('108%');
+  }, 20_000);
+
+  it('two replicas that fall behind, then six that catch up, finish the task', async () => {
+    let done = false;
+    const h = FIGURES['replicas-flow'](context(), 'lag');
+    h.done!.then(() => (done = true));
+    setSlider(h.node, 1, 2);
+    setSlider(h.node, 0, 10);
+    pump(8);
+    await Promise.resolve();
+    expect(done).toBe(false);
+    setSlider(h.node, 1, 6);
+    pump(1);
+    await Promise.resolve();
+    expect(done).toBe(true);
+    expect(h.node.textContent).toContain('83%');
+  }, 20_000);
+
+  it('at six replicas, falling behind is enough, since there are none left to add', async () => {
+    let done = false;
+    const h = FIGURES['replicas-flow'](context(), 'lag');
+    h.done!.then(() => (done = true));
+    setSlider(h.node, 1, 6);
     setSlider(h.node, 0, 30);
-    pump(120);
+    pump(8);
     await Promise.resolve();
     expect(done).toBe(true);
   }, 20_000);

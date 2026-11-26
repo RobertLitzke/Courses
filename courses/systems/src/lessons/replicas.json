@@ -57,7 +57,7 @@
           "id": "replicas-flow",
           "caption": "A primary and its read replicas at 10,000 queries a second (the dots run at a hundredth of that rate, in slow motion). Each replica's bar shows its utilisation, and the number under it shows its replication lag behind the primary. Tap the primary to fail it.",
           "goal": "lag",
-          "task": "Raise the share of writes until the replicas fall behind, and try adding replicas to catch them up.",
+          "task": "Raise the share of writes until the replicas fall behind, then add replicas and see whether they catch up.",
           "aspect_ratio": 1.42
         },
         {

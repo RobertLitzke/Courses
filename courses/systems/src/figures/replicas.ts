@@ -35,6 +35,12 @@ export const FIGS = {
     let w = 0.05;
     let n = 5;
     const lag = new Map<string, number>();
+    // The task has two steps: watch the replicas fall behind, then add a replica while they are behind.
+    // A replica over capacity falls behind slowly (at 117% busy, about 0.03 s of lag a second on screen),
+    // so being over capacity for a few seconds counts as behind, as does a long measured lag.
+    let over = -1;
+    let behind = false;
+    let added = false;
     const spec = () => {
       const ids = Array.from({ length: n }, (_, i) => `r${i}`);
       const top = 160 - ((n - 1) * 50) / 2;
@@ -71,7 +77,10 @@ export const FIGS = {
           ? `Primary down: every write fails. Promote a replica, and any write it had not applied (up to ${(worst / 1000).toFixed(1)} s of them) is lost. `
           : `Each replica applies all ${Math.round(l.writes).toLocaleString('en-US')} writes a second and serves ${Math.round(l.reads).toLocaleString('en-US')} reads: ${Math.round(l.util * 100)}% of the 3,000 it can do. `)
           + (l.util >= 1 ? `It cannot keep up: lag ${(worst / 1000).toFixed(1)} s and growing.` : `Lag ${worst < 100 ? 'under 0.1' : (worst / 1000).toFixed(1)} s.`);
-        if (worst > 1500 && t.goal === 'lag') t.done();
+        if (l.util < 1) over = -1;
+        else if (over < 0) over = sys.now;
+        if (!down && (worst > 1500 || (over >= 0 && sys.now - over > 600))) behind = true;
+        if (behind && (added || n === 6) && t.goal === 'lag') t.done();
       },
     });
     attach(d.sys);
@@ -81,7 +90,9 @@ export const FIGS = {
       d.sys.setRate('reads', (Q * (1 - w)) / SCALE);
     }, 'write');
     const rs = slider('Read replicas', 1, 6, 1, n, (v) => `${v}`, (v) => {
+      if (behind && v > n) added = true;
       n = v;
+      over = -1;
       d.rebuild(spec());
       attach(d.sys);
     }, 'ink');
