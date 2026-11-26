@@ -85,6 +85,8 @@ a { color: var(--link); }
 .entries > .course:last-child { border-bottom: none; }
 
 .colophon { margin-top: 32px; font-size: 0.85rem; color: var(--soft); }
+.colophon .update-check { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+.colophon .update-check:disabled { opacity: 0.6; cursor: default; }
 
 @media (max-width: 480px) {
   body { font-size: 16px; }

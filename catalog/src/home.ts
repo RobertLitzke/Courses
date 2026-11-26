@@ -281,5 +281,35 @@ function buildLine(): HTMLElement {
       })
       .catch(() => undefined);
   }
-  return el('p.build', {}, `Site build ${build} · app id `, id);
+  return el('p.build', {}, `Site build ${build} · app id `, id, ' ', updateCheck());
+}
+
+/**
+ * "Check for updates": asks the site's service worker to look for a new deploy
+ * now. main.ts takes a new version as soon as it is found, so one that is
+ * there reloads the page onto it.
+ */
+function updateCheck(): HTMLElement | null {
+  if (typeof navigator === 'undefined' || !('serviceWorker' in navigator) || !location.protocol.startsWith('http')) return null;
+  const said = el('span.update-said', { role: 'status' });
+  const button = el('button.update-check', {
+    type: 'button',
+    onclick: async () => {
+      button.disabled = true;
+      said.textContent = ' Checking…';
+      try {
+        const reg = await navigator.serviceWorker.getRegistration();
+        if (!reg) {
+          said.textContent = ' Not installed here';
+        } else {
+          await reg.update();
+          said.textContent = reg.installing || reg.waiting ? ' New version found, reloading…' : ' Up to date';
+        }
+      } catch {
+        said.textContent = ' Offline, try again later';
+      }
+      button.disabled = false;
+    },
+  }, 'Check for updates') as HTMLButtonElement;
+  return el('span', {}, '· ', button, said);
 }
