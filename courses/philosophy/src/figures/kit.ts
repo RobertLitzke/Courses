@@ -54,6 +54,11 @@ export const COL = {
   /** What a text really says, and what it is wrongly quoted as saying. */
   said: '#3f6f8f',
   unsaid: '#a89a8a',
+  /** Branch K1: four common fallacies. */
+  strawman: '#d4582a',
+  personal: '#b0546a',
+  falsechoice: '#7d5a9a',
+  circular: '#3f6f8f',
 } as const;
 export type ColorKey = keyof typeof COL;
 
