@@ -12,7 +12,7 @@ import { emptyProgress } from 'didactics/progress';
 import { FIGURES } from '../src/figures';
 import { WRITTEN } from '../src/lessons';
 
-const save = emptyProgress('metric', { radio: false });
+const save = emptyProgress('metric');
 // Every live synth too, not only the first: each block is a different panel and goal.
 const synth = Object.assign((...a: Parameters<typeof FIGURES.synth>) => FIGURES.synth(...a), FIGURES.synth, { each: true as const });
 document.getElementById('app')!.append(galleryPage({ figures: { ...FIGURES, synth }, lessons: WRITTEN, save }).node);
