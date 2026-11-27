@@ -34,7 +34,7 @@
     },
     {
      "type": "text",
-     "text": "What we have was mostly written down after the conquest, in Nahuatl spelled with the Latin alphabet, by Nahua scholars trained by Franciscan friars at a college in Tlatelolco. The largest source is the *Florentine Codex*, an encyclopedia of Nahua life in twelve books, compiled from about 1545 to 1577 under the friar Bernardino de Sahagún, from interviews with elders who remembered the world before the conquest. Another is a collection of songs, the *Cantares Mexicanos*. Both were made for Spanish purposes, partly so that missionaries could understand the religion they meant to replace, and both passed through Christian hands."
+     "text": "What we have was mostly written down after the conquest, in Nahuatl spelled with the Latin alphabet, by Nahua scholars trained by Franciscan friars at a college in Tlatelolco. The largest source is the *Florentine Codex*, an encyclopedia of Nahua life in twelve books, compiled from about 1545 to 1577 under the friar Bernardino de Sahagún,[^sahagun] from interviews with elders who remembered the world before the conquest. Another is a collection of songs, the *Cantares Mexicanos*. Both were made for Spanish purposes, partly so that missionaries could understand the religion they meant to replace, and both passed through Christian hands."
     },
     {
      "type": "diagram",
@@ -221,6 +221,11 @@
    "kind": "technical",
    "title": "Did Nezahualcoyotl write it?",
    "text": "The Cantares were written down in the late 16th century, about a century after Nezahualcoyotl died in 1472. Several poems are attributed to him, but scholars disagree about how many he composed. This one is quoted here in León-Portilla's version, put into English."
+  },
+  "sahagun": {
+   "kind": "technical",
+   "title": "Sahagún's method",
+   "text": "Sahagún put the same questions to groups of elders in three places, Tepepulco, Tlatelolco and Mexico City, and had his Nahua assistants compare and correct the answers. Historians have called it an early form of ethnography. The finished codex has the Nahuatl text in one column and Sahagún's Spanish, which is often shorter and sometimes different, in the other."
   }
  }
 }
