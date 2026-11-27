@@ -19,6 +19,7 @@ import { PRICE, priceWith } from '../src/figures/tshirt';
 import { comfort } from '../src/figures/prickle';
 import { heatLoss, MET } from '../src/figures/loft';
 import { threadCount } from '../src/figures/threads';
+import { maxShare } from '../src/figures/reshred';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -262,6 +263,20 @@ describe('the rain figure', () => {
   it('is done when the membrane keeps up and then falls behind', async () => {
     const h = FIGURES.rain(context(), 'limits');
     click(h.node, 'Climbing a hill');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the reshred figure', () => {
+  it('lets about a quarter of once-shredded cotton spin', () => {
+    expect(maxShare(1)).toBeGreaterThan(0.2);
+    expect(maxShare(1)).toBeLessThan(0.3);
+    expect(maxShare(2)).toBeLessThan(maxShare(1));
+  });
+  it('is done after a guess and a blend that spins and one that does not', async () => {
+    const h = FIGURES.reshred(context(), 'blend');
+    guess(h.node, 'About a quarter');
+    setSlider(h.node, 0, 0.2);
     await expect(h.done).resolves.toBeUndefined();
   });
 });
