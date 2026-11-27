@@ -248,3 +248,12 @@ describe('the thread count figure', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+describe('the stretch figure', () => {
+  it('is done once jersey and the elastane knit are pulled hard', async () => {
+    const h = FIGURES.stretch(context(), 'compare');
+    setSlider(h.node, 0, 40);
+    click(h.node, 'Jersey with 5% elastane');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});

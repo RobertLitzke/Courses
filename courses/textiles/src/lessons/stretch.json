@@ -1,0 +1,119 @@
+{
+  "id": "stretch",
+  "n": 105,
+  "branch": "wardrobe",
+  "needs": ["fibres", "structure"],
+  "title": "How does stretch fabric spring back?",
+  "teaches": "Stretch from knitted loops against stretch from elastic fibre; how elastane is built and who made it; how much goes into jeans and swimwear; why stretch wears out; why blends are hard to recycle",
+  "parts": [
+    {
+      "title": "Baggy knees",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Leggings stretch over a bent knee and lie flat again when the wearer stands up. An old cotton jersey tracksuit stretches just as easily but keeps a bulge at the knee. Modern jeans have some give that older jeans lacked, and after a few years that give can go slack. In this lesson we look at the two ways a cloth can stretch, at the fibre that makes it spring back, and at what wears that fibre out."
+        }
+      ]
+    },
+    {
+      "title": "Two ways to stretch",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 4 showed why woven cloth hardly stretches along its threads: the warp and weft run straight, so a pull along either one is carried by the yarn itself, which gives only a few percent. Woven cloth stretches more on the diagonal, the **bias**, where the pull can change the angle between warp and weft. Knitted cloth is different. Its yarn runs in rows of interlocking loops, and a pull changes the shape of the loops, making them longer and narrower, long before the yarn itself is stretched. A cotton jersey can stretch by a third or more with very little force."
+        },
+        {
+          "type": "text",
+          "text": "Stretching is only half of the story. When a knitted cotton is let go, the loops have to be pulled back into shape, and cotton fibres have little elastic recovery. After a gentle stretch the jersey recovers, but after a hard one, such as a knee bent for an hour, part of the stretch stays. Wool recovers better, which is one reason knitted wool keeps its shape longer than knitted cotton."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "stretch",
+          "caption": "A strip of cloth pulled and let go. Round, illustrative numbers.",
+          "task": "Pull the cotton jersey and the elastane knit by 30% or more",
+          "goal": "compare"
+        }
+      ]
+    },
+    {
+      "title": "Elastane",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Before the 1960s, the only fibre that stretched and sprang back was rubber. Thread of rubber wrapped in cotton or silk was used in corsets, girdles and the tops of socks, but it was heavy, perished with age and sweat, and could not be dyed. In 1958 the chemist **Joseph Shivers** at the American chemical company DuPont produced a synthetic fibre that stretched like rubber but was lighter and stronger. DuPont sold it from 1962 under the trade name **Lycra**. The fibre is called **spandex** in North America and **elastane** elsewhere."
+        },
+        {
+          "type": "text",
+          "text": "Elastane is a polyurethane made of long chains with two kinds of segments in turn. The **soft segments** are flexible and lie coiled, like loose springs. The **hard segments** cling to the hard segments of neighbouring chains, forming fixed points that hold the chains together. When the fibre is pulled, the soft segments uncoil and the fibre can stretch to five or six times its length. When it is let go, the coils pull back and the hard segments return everything to its starting place."
+        },
+        {
+          "type": "text",
+          "text": "A little elastane goes a long way. Stretch jeans usually contain 1 to 3 percent, enough to let a woven denim give a little at the knee and hip. A T-shirt or a pair of trousers with 5 percent knitted in recovers its shape after every stretch. Swimwear, leggings and cycling shorts use 15 to 30 percent, enough to hold the cloth tight against the body. The elastane is usually hidden inside the yarn, with the main fibre wrapped around it, so the cloth feels like cotton or nylon rather than like elastane."
+        }
+      ]
+    },
+    {
+      "title": "Why stretch wears out",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Elastane is much less durable than the fibres it is mixed with. Heat breaks down its chains, so a hot tumble dryer or a hot iron weakens it quickly. Chlorine in swimming pools attacks it, which is why swimsuits lose their grip within a season of regular use, and some are now made from elastane designed to resist chlorine. Sunlight and body oils damage it more slowly. As the fibres break, the cloth loses its recovery: jeans grow loose at the knees and waistband, and the cloth may show small puckers where broken elastane has snapped back inside the yarn."
+        },
+        {
+          "type": "text",
+          "text": "Elastane also makes clothes harder to recycle. A recycling plant that turns old cotton into new fibre, or old polyester back into new polyester, needs a single, clean fibre to work with. A few percent of elastane mixed through every yarn is very hard to separate, and it can spoil the process. Branch lesson M7 returns to this problem."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on stretch.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does a cotton jersey stretch more easily than a woven cotton shirt?",
+                "choices": ["Its loops change shape before the yarn is pulled", "Its cotton fibres are more elastic than woven ones", "It is made from much thinner yarn", "It contains hidden rubber threads"],
+                "answer": 0,
+                "why": "A pull on a knit changes the shape of its loops. In a weave, the straight threads take the pull directly."
+              },
+              {
+                "ask": "Why can an old cotton jersey keep a bulge at the knee?",
+                "choices": ["Cotton has little elastic recovery to pull the loops back", "Washing has shrunk the rest of the trousers", "The loops have been cut by the knee", "Cotton fibres grow longer when warm"],
+                "answer": 0,
+                "why": "The loops are pulled out of shape, and nothing in plain cotton pulls them back."
+              },
+              {
+                "ask": "What makes elastane spring back after a stretch?",
+                "choices": ["Soft segments recoil while hard segments hold the chains", "It is coated with a thin layer of natural rubber", "Its fibres are woven into a tight satin", "Its chains are tied together by sulphur bonds"],
+                "answer": 0,
+                "why": "The coiled soft segments uncoil under pull and recoil when let go; the hard segments act as fixed points."
+              },
+              {
+                "ask": "Which habit wears out stretch fastest?",
+                "choices": ["Drying it in a hot tumble dryer", "Washing it inside out in cold water", "Storing it folded in a drawer", "Hanging it to dry in the shade"],
+                "answer": 0,
+                "why": "Heat breaks down elastane's chains. Chlorine, sunlight and body oils damage it too."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Woven cloth barely stretches along its threads.** The straight warp and weft take the pull directly; the bias gives more.",
+    "**Knits stretch by reshaping loops.** A cotton jersey stretches by a third with little force.",
+    "**Cotton recovers poorly.** A hard stretch leaves a baggy knee.",
+    "**Elastane springs back.** Coiled soft segments recoil while hard segments hold the chains in place.",
+    "**DuPont made it in 1958.** Joseph Shivers' fibre was sold from 1962 as Lycra.",
+    "**A little goes a long way.** Jeans use 1 to 3 percent; swimwear 15 to 30.",
+    "**Heat and chlorine wear it out.** Damaged elastane lets clothes grow slack.",
+    "**Blends are hard to recycle.** Elastane mixed through the yarn cannot easily be separated."
+  ],
+  "footnotes": {}
+}
