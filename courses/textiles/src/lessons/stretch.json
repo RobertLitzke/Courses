@@ -11,12 +11,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Leggings stretch over a bent knee and lie flat again when the wearer stands up. An old cotton jersey tracksuit stretches just as easily but keeps a bulge at the knee. Modern jeans have some give that older jeans lacked, and after a few years that give can go slack. In this lesson we look at the two ways a cloth can stretch, at the fibre that makes it spring back, and at what wears that fibre out."
+          "text": "Leggings stretch over a bent knee and lie flat again when the wearer stands up. An old tracksuit of cotton jersey, a common knitted cloth, stretches just as easily but keeps a bulge at the knee. Modern jeans have some give that older jeans lacked, and after a few years that give can go slack. In this lesson we look at how woven and knitted cloth stretch, at the fibre that makes it spring back, and at what wears that fibre out."
         }
       ]
     },
     {
-      "title": "Two ways to stretch",
+      "title": "Woven and knitted",
       "blocks": [
         {
           "type": "text",
@@ -40,11 +40,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Before the 1960s, the only fibre that stretched and sprang back was rubber. Thread of rubber wrapped in cotton or silk was used in corsets, girdles and the tops of socks, but it was heavy, perished with age and sweat, and could not be dyed. In 1958 the chemist **Joseph Shivers** at the American chemical company DuPont produced a synthetic fibre that stretched like rubber but was lighter and stronger. DuPont sold it from 1962 under the trade name **Lycra**. The fibre is called **spandex** in North America and **elastane** elsewhere."
+          "text": "Before the 1960s, the only fibre that could stretch to several times its length and spring back was rubber. Thread of rubber wrapped in cotton or silk was used in corsets, girdles and the tops of socks, but it was heavy, perished with age and sweat, and could not be dyed. In 1958 the chemist **Joseph Shivers** at the American chemical company DuPont produced a synthetic fibre that stretched like rubber but was lighter and stronger. DuPont sold it from 1962 under the trade name **Lycra**. The fibre is called **spandex** in North America and **elastane** elsewhere."
         },
         {
           "type": "text",
-          "text": "Elastane is a polyurethane made of long chains with two kinds of segments in turn. The **soft segments** are flexible and lie coiled, like loose springs. The **hard segments** cling to the hard segments of neighbouring chains, forming fixed points that hold the chains together. When the fibre is pulled, the soft segments uncoil and the fibre can stretch to five or six times its length. When it is let go, the coils pull back and the hard segments return everything to its starting place."
+          "text": "Elastane is a polyurethane made of long chains with two kinds of segments in turn. The **soft segments** are flexible and lie coiled, like loose springs. The **hard segments** cling to the hard segments of neighbouring chains, forming fixed points that hold the chains together. When the fibre is pulled, the soft segments uncoil and the fibre can stretch to five or six times its length. When it is let go, the soft segments coil up again, and because the hard segments have held the chains in place, the fibre returns to its starting length."
         },
         {
           "type": "text",
@@ -61,7 +61,7 @@
         },
         {
           "type": "text",
-          "text": "Elastane also makes clothes harder to recycle. A recycling plant that turns old cotton into new fibre, or old polyester back into new polyester, needs a single, clean fibre to work with. A few percent of elastane mixed through every yarn is very hard to separate, and it can spoil the process. Branch lesson M7 returns to this problem."
+          "text": "Elastane also makes clothes harder to recycle. A recycling plant that turns old cotton into new fibre, or old polyester back into new polyester, needs a single, clean fibre to work with. A few percent of elastane mixed through every yarn is very hard to separate, and it can spoil the process. Branch lesson M7, on recycled polyester, returns to this problem."
         }
       ]
     },
@@ -83,7 +83,7 @@
               },
               {
                 "ask": "Why can an old cotton jersey keep a bulge at the knee?",
-                "choices": ["Cotton has little elastic recovery to pull the loops back", "Washing has shrunk the rest of the trousers", "The loops have been cut by the knee", "Cotton fibres grow longer when warm"],
+                "choices": ["Cotton cannot pull its loops back into shape", "Washing has shrunk the rest of the trousers", "The loops have been cut through at the knee", "Cotton fibres grow longer when they are warm"],
                 "answer": 0,
                 "why": "The loops are pulled out of shape, and nothing in plain cotton pulls them back."
               },
@@ -94,7 +94,7 @@
                 "why": "The coiled soft segments uncoil under pull and recoil when let go; the hard segments act as fixed points."
               },
               {
-                "ask": "Which habit wears out stretch fastest?",
+                "ask": "Which habit wears out stretch in everyday clothes?",
                 "choices": ["Drying it in a hot tumble dryer", "Washing it inside out in cold water", "Storing it folded in a drawer", "Hanging it to dry in the shade"],
                 "answer": 0,
                 "why": "Heat breaks down elastane's chains. Chlorine, sunlight and body oils damage it too."
@@ -105,15 +105,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Woven cloth barely stretches along its threads.** The straight warp and weft take the pull directly; the bias gives more.",
-    "**Knits stretch by reshaping loops.** A cotton jersey stretches by a third with little force.",
-    "**Cotton recovers poorly.** A hard stretch leaves a baggy knee.",
-    "**Elastane springs back.** Coiled soft segments recoil while hard segments hold the chains in place.",
-    "**DuPont made it in 1958.** Joseph Shivers' fibre was sold from 1962 as Lycra.",
-    "**A little goes a long way.** Jeans use 1 to 3 percent; swimwear 15 to 30.",
-    "**Heat and chlorine wear it out.** Damaged elastane lets clothes grow slack.",
-    "**Blends are hard to recycle.** Elastane mixed through the yarn cannot easily be separated."
-  ],
+  "summary": ["**Woven cloth barely stretches along its threads.** The straight warp and weft take the pull directly; the bias gives more.", "**Knits stretch by reshaping loops.** A cotton jersey stretches by a third with little force.", "**Cotton recovers poorly.** A hard stretch leaves a baggy knee.", "**Elastane springs back.** Coiled soft segments recoil while hard segments hold the chains in place.", "**DuPont made it in 1958.** Joseph Shivers' fibre was sold from 1962 as Lycra.", "**A little goes a long way.** Jeans use 1 to 3 percent; swimwear 15 to 30.", "**Heat and chlorine wear it out.** Damaged elastane lets clothes grow slack.", "**Blends are hard to recycle.** Elastane mixed through the yarn cannot easily be separated."],
   "footnotes": {}
 }

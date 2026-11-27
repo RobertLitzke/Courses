@@ -1,0 +1,136 @@
+{
+  "id": "paisley",
+  "n": 305,
+  "branch": "traditions",
+  "needs": ["africa"],
+  "title": "How did a Kashmir shawl give Paisley its name?",
+  "teaches": "Pashm from Himalayan goats; Kashmir twill tapestry (kani) shawls and the hours in them; the buta motif; the shawl craze in Europe around 1800; imitations at Norwich, Edinburgh, Lyon and Paisley on drawlooms and Jacquard looms; the collapse of the Kashmir trade; pashmina and shahtoosh today",
+  "parts": [
+    {
+      "title": "A teardrop with a curl",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The pattern of curved teardrops called paisley appears on ties, bandanas and wallpaper around the world, and it is named after a town near Glasgow. The design did not come from Scotland. It came from shawls woven in Kashmir, in the north-west of the Indian subcontinent, which became the most coveted fashion accessory in Europe around 1800. In this lesson we look at what made a Kashmir shawl so valuable, how European weavers copied it, and what the copies did to Kashmir."
+        }
+      ]
+    },
+    {
+      "title": "Pashm",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Kashmir shawls were woven from **pashm**, the fine undercoat that goats grow against the bitter winters of the high Tibetan plateau, in Ladakh and western Tibet. It is the fibre now sold as cashmere, from an old spelling of Kashmir, and as branch lesson M1 described, its fibres are about 15 microns across, finer than the best merino. Each spring the goats shed the undercoat, and it was combed out and carried over the mountains to Kashmir. There women cleaned it, separating the soft down from the coarse hair by hand, and spun it at home into an extremely fine yarn."
+        }
+      ]
+    },
+    {
+      "title": "Twill tapestry",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The finest shawls, called **kani** shawls, were woven in a **twill tapestry** technique, using the diagonal twill weave of lesson 4. As in the tapestries of branch lesson K3, each colour of weft goes back and forth only across its own small area of the pattern, but here in a twill weave and on a much finer scale. The weft for each colour was wound on a small wooden spool, and a single row across the shawl might use dozens or even hundreds of spools, each passed by hand. A master, reading from a pattern written in a shorthand code of colours and thread counts, called out the colours and the number of warp threads for each. Two or three weavers working side by side might take a year or more to finish one large shawl, and the most complex shawls were woven in several pieces and joined with invisible seams."
+        },
+        {
+          "type": "diagram",
+          "id": "hours",
+          "caption": "Rough hours in a large kani shawl, about 1.5 by 3 metres, early 19th century. Estimates vary widely.",
+          "options": {
+            "item": "A large Kashmir kani shawl, about 1810",
+            "stages": [
+              {"stage": "Cleaning and spinning pashm", "hours": 1500, "who": "household"},
+              {"stage": "Dyeing and warping", "hours": 300, "who": "waged"},
+              {"stage": "Weaving with spools", "hours": 9000, "who": "waged"},
+              {"stage": "Joining and finishing", "hours": 300, "who": "waged"}
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The central motif of the shawls was the **buta**, Persian for a flowering plant. In the 17th century, under the Mughal emperors, it was a naturalistic spray of flowers. Over the 18th century it became more stylised, a dense, leafy shape that bent at the top, and by the early 19th century it had become the familiar curled teardrop, packed so closely with smaller patterns that the plain ground almost disappeared."
+        }
+      ]
+    },
+    {
+      "title": "The shawl craze",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Officers of the East India Company brought Kashmir shawls home as gifts in the later 18th century. They arrived just as fashionable women in Britain and France began wearing light, high-waisted dresses of white muslin, the Indian cotton of lesson 12, which left the shoulders cold. A large warm shawl was the obvious answer, and a Kashmir one was the most prestigious. The Empress Joséphine of France owned dozens. The finest Kashmir shawls sold in Paris and London for hundreds of pounds, more than a skilled worker earned in several years."
+        },
+        {
+          "type": "text",
+          "text": "European weavers set out to copy them. Weavers in **Norwich** made shawls from the 1780s, using silk and wool. **Edinburgh** followed, and then **Paisley**, a weaving town near Glasgow, which from the early 19th century made shawls on drawlooms, the pattern looms of lesson 8, and, from the 1840s, on the Jacquard looms of lesson 18. European goat hair was not available in quantity, so they used fine wool, silk and cotton. Each patterned weft ran the full width of the cloth. Where its colour was needed it came to the front; elsewhere it lay loose along the back, in long floats. A loom could therefore weave a whole row with a few shuttles instead of hundreds of spools, and the loose floats on the back were cut away afterwards. A Paisley shawl could be woven in a few weeks and sold for a small fraction of the price of a Kashmir one. Paisley made so many that the motif itself came to be called paisley in English."
+        },
+        {
+          "type": "diagram",
+          "id": "hours",
+          "caption": "Rough hours in a Paisley shawl of the same size, about 1.5 by 3 metres, about 1850, woven on a Jacquard handloom.",
+          "options": {
+            "item": "A Paisley Jacquard shawl, about 1850",
+            "stages": [
+              {"stage": "Spinning, by mill", "hours": 5, "who": "waged"},
+              {"stage": "Punching cards and setting up", "hours": 40, "who": "waged"},
+              {"stage": "Weaving on a Jacquard loom", "hours": 80, "who": "waged"},
+              {"stage": "Cutting floats and finishing", "hours": 15, "who": "waged"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "After the craze",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The cheap copies changed the original. French merchants sent designers to Kashmir and ordered shawls with denser, more European patterns, and Kashmiri workshops sped up production with **amli** shawls, in which the pattern was embroidered by needle onto a plain woven shawl rather than woven in. Then fashion moved on. In the 1870s the bustle came in, which a long shawl covered awkwardly, and the Franco-Prussian War of 1870 to 1871 cut off France, the largest buyer of Kashmir shawls. Demand for both Paisley and Kashmir shawls collapsed. In Kashmir, many shawl weavers were left without work, and the famine of 1877 to 1879 killed many of them."
+        },
+        {
+          "type": "text",
+          "text": "Fine goat fibre came back into fashion in the 1990s as **pashmina**. Much of what is sold under that name is blended with silk or other fibres. A still finer and warmer shawl wool, **shahtoosh**, came from the Tibetan antelope, or chiru, which had to be killed for it. After hunting cut the chiru's numbers sharply, trade in shahtoosh was banned internationally, and its numbers have since risen again under protection."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on Kashmir shawls.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "Where did pashm, the fibre of Kashmir shawls, come from?",
+                "choices": ["The winter undercoat of plateau goats", "Sheep bred in the valley of Kashmir", "The cocoons of wild silk moths", "The fine hair of Tibetan antelope"],
+                "answer": 0,
+                "why": "Goats on the high plateau grew it against the cold; it was combed out and carried to Kashmir."
+              },
+              {
+                "ask": "Why did a kani shawl take so long to weave?",
+                "choices": ["Each colour was woven by hand from its own spool", "The pashm had to be spun three separate times", "The loom could weave only a few centimetres wide", "Every thread had to be dyed again after weaving"],
+                "answer": 0,
+                "why": "A row might need dozens or hundreds of small spools, each passed by hand."
+              },
+              {
+                "ask": "How could Paisley weave a shawl so much faster?",
+                "choices": ["Wefts ran full width; back floats were cut off", "Weavers used pashm imported from Kashmir", "The pattern was printed on after weaving", "Weavers used hundreds of small spools at once"],
+                "answer": 0,
+                "why": "Carrying each weft right across let a drawloom or Jacquard loom weave a full row at once."
+              },
+              {
+                "ask": "Why did the shawl trade collapse in the 1870s?",
+                "choices": ["Fashion changed and war cut off the French market", "Kashmir goats died out in a harsh winter", "Britain banned the import of shawls", "Paisley's looms were destroyed by Luddites"],
+                "answer": 0,
+                "why": "The bustle made long shawls awkward, and the Franco-Prussian War hit the largest market."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Pashm is a goat's winter undercoat.** It came from Ladakh and Tibet and is now sold as cashmere.", "**Kani shawls were twill tapestry.** Each colour was woven by hand from its own small spool.", "**A fine shawl took a team a year or more.** Thousands of hours went into one piece.", "**The buta became the teardrop.** A Mughal flower spray grew more stylised over two centuries.", "**Europe craved shawls around 1800.** Light muslin dresses needed warmth; Kashmir shawls cost a fortune.", "**Paisley copied them on drawlooms and Jacquards.** Cut floats replaced spools, and the motif took the town's name.", "**Fashion and war ended the craze.** Kashmir's weavers were left without work by the 1870s.", "**Pashmina returned; shahtoosh was banned.** The Tibetan antelope had to be killed for its wool."],
+  "footnotes": {}
+}

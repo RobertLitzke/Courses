@@ -1,0 +1,119 @@
+{
+  "id": "styles",
+  "n": 407,
+  "branch": "fashion",
+  "needs": ["structure", "fast"],
+  "title": "Why do styles change at all?",
+  "teaches": "Sumptuary laws; Veblen's conspicuous consumption, leisure and waste; Simmel's trickle-down theory of imitation and distinction; trickle-across and trickle-up (bubble-up) from youth and street styles; Laver's timeline; why fast turnover depends on cheap cloth",
+  "parts": [
+    {
+      "title": "Changing for no reason",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Clothes wear out, so people need new ones, but that does not explain why the new ones should look different. A coat from ten years ago keeps a body just as warm, yet many people would feel out of date wearing it. Most societies in history changed their dress slowly; in Europe from about the 14th century, and across much of the world since the 19th, styles have changed every few years, and in recent decades faster still. In this lesson we look at the main explanations for why, and at what the speed of change has to do with the price of cloth."
+        }
+      ]
+    },
+    {
+      "title": "Dress as rank",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "For centuries, rulers tried to fix dress to rank by law. **Sumptuary laws** in medieval and early modern Europe set out which classes could wear silk, fur, gold thread or certain colours, and similar laws in Edo Japan, described in branch lesson W2, kept merchants out of silk. Lesson 6 showed Roman emperors reserving purple. The laws were hard to enforce and frequently reissued, which suggests that people with money kept trying to dress above their rank. That pressure is the starting point of the most influential theory of fashion."
+        }
+      ]
+    },
+    {
+      "title": "Trickle-down",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1899 the American economist **Thorstein Veblen** argued in *The Theory of the Leisure Class* that the rich use clothing to display wealth in ways that cannot easily be faked. **Conspicuous consumption** shows that a person can afford costly things. **Conspicuous leisure** shows that they do not need to work: spotless white linen, long fingernails, tight corsets, trailing skirts and tall hats are all impractical for manual labour. **Conspicuous waste** shows that they can afford to throw things away, and Veblen argued that the most effective form is to discard clothes that are still good because they are no longer in fashion."
+        },
+        {
+          "type": "text",
+          "text": "In 1904 the German sociologist **Georg Simmel** described the mechanism that keeps fashion moving. People want both to belong and to stand out. The elite adopt a new style to set themselves apart, the classes below copy it to share in its prestige, and once it becomes common the elite abandon it for something new. This is the **trickle-down** theory. It implies that the speed of fashion depends on how quickly copying can happen. Copying is quicker when more people can afford the new style, so it should also depend on how cheap cloth and clothes are."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "trickle",
+          "caption": "A toy model of trickle-down, with its assumptions built in: copying is faster when clothes are cheaper, and the elite move on once half of everyone else has copied them. Each shade is a style.",
+          "task": "Try clothes that are dear and clothes that are cheap",
+          "goal": "pace"
+        }
+      ]
+    },
+    {
+      "title": "Across and up",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Trickle-down describes court and high society well, but it fits the 20th century less well. From the 1960s, the sociologist Charles King and others pointed out that magazines, films and television showed new styles to every class at once, and that mass-market makers copied Paris collections within weeks, so styles spread **across** classes at the same time rather than downwards."
+        },
+        {
+          "type": "text",
+          "text": "Many of the strongest styles of the past century moved the other way, **trickling up** or bubbling up from below. Denim, as branch lesson F2 described, began as workwear. The leather jackets of motorcyclists, the safety pins and torn shirts of 1970s punk, the tracksuits and trainers of hip-hop and the hoodies of skateboarders all started among working-class or young people and were later sold by luxury houses at high prices. In these cases the elite copied the street."
+        },
+        {
+          "type": "text",
+          "text": "Fashion also cycles through its own past. In 1937 the British costume historian James Laver proposed a tongue-in-cheek timetable for how a style is seen: daring a year before its time, smart when it arrives, dowdy a year later, hideous after ten years, ridiculous after twenty, and then charming after about 70 years, romantic after 100 and beautiful after 150. The revival of styles from twenty or thirty years earlier, often bought second-hand, follows something like this pattern."
+        }
+      ]
+    },
+    {
+      "title": "Cheap cloth, fast change",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Whichever way styles move, rapid change needs cheap clothes. When a coat took a family months of spinning and weaving, as lesson 3 showed, it was worn for years, remade and handed down, and its style changed slowly. Mechanised spinning and weaving, the sewing machine and ready-made sizes, lessons 14 to 24, made clothes cheaper decade by decade. Lesson 25 showed that from the 1990s clothing prices in rich countries fell while other prices rose, and retailers learned to put new designs in shops every few weeks, and some online sellers now list thousands of new items a day."
+        },
+        {
+          "type": "text",
+          "text": "This fits Veblen's and Simmel's ideas, carried to an extreme. When clothes are cheap, owning them no longer shows wealth, and a style spreads so fast that it stops setting anyone apart almost as soon as it appears. The answer has been ever faster change, paid for in the cloth, the labour and the waste traced through the rest of this course."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on why styles change.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What did Veblen mean by conspicuous leisure in dress?",
+                "choices": ["Clothes that show the wearer does not need to work", "Clothes worn only on holidays and weekends", "Clothes that are comfortable for relaxing", "Clothes bought on credit and paid later"],
+                "answer": 0,
+                "why": "White linen, corsets and trailing skirts were impractical for manual work, so they displayed freedom from it."
+              },
+              {
+                "ask": "In Simmel's trickle-down theory, why does the elite abandon a style?",
+                "choices": ["Once others copy it, it no longer stands out", "It wears out faster than other styles do", "Sumptuary laws forbid them to keep wearing it", "Designers stop making it in their sizes"],
+                "answer": 0,
+                "why": "The elite adopt styles to stand out; when the style becomes common, they move on."
+              },
+              {
+                "ask": "Which is an example of a style trickling up?",
+                "choices": ["Punk safety pins later sold by luxury houses", "A court gown copied by city merchants", "A Paris collection copied for department stores", "A royal wedding dress copied by brides"],
+                "answer": 0,
+                "why": "Punk began among young working-class people and was later taken up by expensive designers."
+              },
+              {
+                "ask": "Why does fast turnover of styles depend on cheap cloth?",
+                "choices": ["Copying is quickest when clothes are cheap", "Cheap cloth is easier for designers to draw", "Cheap cloth comes in a wider range of colours", "Expensive cloth cannot be cut into new shapes"],
+                "answer": 0,
+                "why": "When clothes cost little, people copy new styles fast, and the elite must keep moving."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Sumptuary laws tried to fix dress to rank.** Constant reissuing suggests people kept dressing up.", "**Veblen saw display in dress.** Conspicuous consumption, leisure and waste signal wealth.", "**Simmel described trickle-down.** The elite adopt, others copy, and the elite move on.", "**Mass media spread styles across classes.** Copies arrived within weeks for everyone.", "**Many styles trickle up.** Denim, punk and streetwear began below and were copied above.", "**Fashion recycles its past.** Laver's timetable runs from daring to dowdy to beautiful.", "**Fast change needs cheap cloth.** Falling prices sped the cycle to weeks."],
+  "footnotes": {}
+}

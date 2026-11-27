@@ -29,6 +29,20 @@ import { loftFigure } from './loft';
 import { pileStill, threadsFigure } from './threads';
 import { stretchFigure } from './stretch';
 import { rainFigure } from './rain';
+import { reshredFigure } from './reshred';
+import { fullingFigure } from './fulling';
+import { bobbinsFigure } from './bobbins';
+import { stitchedStill } from './stitched';
+import { beardFigure } from './beard';
+import { stripsFigure } from './strips';
+import { kimonoStill } from './kimono';
+import { knotsFigure } from './knots';
+import { layoutFigure } from './layout';
+import { fadeFigure } from './fade';
+import { waxprintStill } from './waxprint';
+import { corsetStill } from './corset';
+import { couponsFigure } from './coupons';
+import { trickleFigure } from './trickle';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -67,6 +81,20 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   pile: pileStill,
   stretch: stretchFigure,
   rain: rainFigure,
+  reshred: reshredFigure,
+  fulling: fullingFigure,
+  bobbins: bobbinsFigure,
+  stitched: stitchedStill,
+  beard: beardFigure,
+  strips: stripsFigure,
+  kimono: kimonoStill,
+  knots: knotsFigure,
+  layout: layoutFigure,
+  fade: fadeFigure,
+  waxprint: waxprintStill,
+  corset: corsetStill,
+  coupons: couponsFigure,
+  trickle: trickleFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,

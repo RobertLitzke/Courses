@@ -41,6 +41,8 @@ export const COL = {
   waged: '#d98a3c',
   enslaved: '#6b3a26',
   overseas: '#4d8fa3',
+  /** Fibre recovered by shredding old cloth. */
+  recycled: '#7a8c3a',
   /** Liquid water: rain, sweat that has condensed. */
   water: '#3f7fb5',
   /** Maps: sea, land and coastline. */

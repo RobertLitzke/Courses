@@ -1,0 +1,117 @@
+{
+  "id": "aizome",
+  "n": 302,
+  "branch": "traditions",
+  "needs": ["africa"],
+  "title": "Why is Japanese indigo so deep?",
+  "teaches": "Aizome: Japanese indigo from the knotweed plant, sukumo composting in Tokushima and the fermentation vat; deep shades from many dips; cotton and indigo in Edo Japan under sumptuary rules; the kimono cut from one bolt; boro patching and sashiko stitching",
+  "parts": [
+    {
+      "title": "Japan blue",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Visitors to Japan in the 1870s remarked on how much of what people wore was blue: work jackets, shop curtains, towels and bedding, in shades from pale sky to almost black. Robert Atkinson, a British chemist teaching in Tokyo, called it \"Japan blue\". It came from **aizome**, Japanese indigo dyeing. In this lesson we look at how Japanese dyers made indigo from a different plant to the indigo of India, why they could reach such deep shades, why indigo-dyed cotton became the everyday cloth of ordinary Japanese people, and how they used every scrap of it."
+        }
+      ]
+    },
+    {
+      "title": "From leaf to vat",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 5 showed how indigo dyes: the blue pigment does not dissolve in water, so it is first changed in an alkaline vat into a soluble yellow-green form that soaks into the fibre and turns blue again in the air. Japanese dyers used the same chemistry, but their indigo came from **tade-ai**, a knotweed (*Persicaria tinctoria*), rather than the *Indigofera* shrub of India. Both plants contain the same dye molecule."
+        },
+        {
+          "type": "text",
+          "text": "The centre of Japanese indigo was Awa province, now Tokushima on the island of Shikoku, where the floods of the Yoshino River left fertile soil. Farmers harvested the leaves in summer, dried them, and then piled them in a barn, watering and turning the heap every few days for about three months while it composted. The result, **sukumo**, was a dark, crumbly mass that kept for months and could be shipped across Japan. It was the form in which indigo was traded, and Awa merchants grew rich on it."
+        },
+        {
+          "type": "text",
+          "text": "A dyer made a vat by mixing sukumo with lye made from wood ash, slaked lime (which keeps the vat alkaline) and wheat bran, and keeping it warm. Bacteria in the vat fed on the bran and, in the alkaline liquid, removed oxygen from the indigo, the chemical change of lesson 5 that makes it soluble, so the vat had to be tended like a living thing, fed and stirred each day, and could last for months."
+        }
+      ]
+    },
+    {
+      "title": "Many dips",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Each dip in an indigo vat adds only a thin layer of colour, because the cloth takes up only so much soluble indigo before it is lifted out to turn blue in the air. A pale blue takes one or two dips. The darkest shades, which Japanese dyers called *kachi-iro*, \"the colour of victory\", a blue so deep it looks black, took twenty or more dips, with the cloth aired and rinsed between each. Deeper shades took more dyeing and cost more. Labourers and firefighters wore thick jackets of deep indigo cotton."
+        }
+      ]
+    },
+    {
+      "title": "Cotton for commoners",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Cotton was not grown widely in Japan until the 16th century; before that, ordinary people wore cloth of hemp and other bast fibres, those taken from plant stems like flax. In the Edo period, from 1603 to 1868, cotton spread rapidly, and the Tokugawa government issued repeated **sumptuary laws**, rules on who could wear what, which barred merchants and farmers from silk and from certain bright colours. Cotton dyed in indigo was permitted, cheap, warm and hard-wearing, and indigo was one of the few dyes that took well on cotton without a mordant, the fixing metal salt of lesson 5. It became the everyday cloth of most townspeople and many farmers."
+        },
+        {
+          "type": "text",
+          "text": "Japanese looms wove cloth in a standard bolt, the **tan**, about 36 to 40 centimetres wide and about 12 to 13 metres long, enough for one adult kimono. A kimono is cut from the bolt in straight pieces with almost no waste. Where a piece is wider than needed, the extra is folded inside the seam rather than cut off, so a kimono can be unpicked, washed flat, resized and sewn up again many times."
+        },
+        {
+          "type": "diagram",
+          "id": "kimono",
+          "caption": "How a kimono uses a whole bolt. The pieces are shaded differently only to show where each one goes in the kimono below. Lengths are typical and rounded."
+        }
+      ]
+    },
+    {
+      "title": "Boro",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the cold north of Japan, around Aomori, cotton would not grow, and cotton cloth had to be bought or traded from the south. Families there kept every worn piece. Holes were covered with patches, and patches with more patches, until a jacket or bedcover was many layers thick and had been mended over several generations. The patches were held down with **sashiko**, rows of small running stitches in white or pale thread, which also quilted the layers together and made the cloth warmer and stronger."
+        },
+        {
+          "type": "text",
+          "text": "These patched cloths, called **boro**, \"rags\", were once a mark of poverty that families were embarrassed to show. Since the late 20th century, collectors, museums and fashion designers have treated them as art, and the faded, uneven blues of many generations of indigo are now prized in their own right."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on Japanese indigo.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What is sukumo?",
+                "choices": ["Composted indigo leaves, shipped for dyeing", "A deep blue shade worn by samurai", "A starch paste used to resist dye", "The bolt of cloth used for one kimono"],
+                "answer": 0,
+                "why": "Dried knotweed leaves were composted for about three months into sukumo, which kept and could be shipped."
+              },
+              {
+                "ask": "Why does the darkest aizome take so many dips?",
+                "choices": ["Each dip adds only a thin layer of indigo", "The dye fades a little after every dip", "Each dip needs a different plant", "The vat must be made fresh for each dip"],
+                "answer": 0,
+                "why": "The cloth takes up only so much soluble indigo per dip, so depth builds up layer by layer."
+              },
+              {
+                "ask": "Why did indigo cotton become the cloth of ordinary people in Edo Japan?",
+                "choices": ["Laws barred them from silk; indigo cotton was allowed", "Silk had become too expensive to import", "Cotton was cheaper than any other fibre everywhere", "The government handed out free cloth to farmers"],
+                "answer": 0,
+                "why": "Sumptuary laws kept commoners out of silk and some colours; indigo cotton was cheap, tough and permitted."
+              },
+              {
+                "ask": "Why was boro patched in so many layers?",
+                "choices": ["Cotton did not grow in the cold north", "Thick layered cloth was the fashion at court", "Laws required families to mend their old clothes", "The patches made patterns for local festivals"],
+                "answer": 0,
+                "why": "Cotton did not grow there, so worn cloth was patched and stitched together over generations."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Japanese indigo came from a knotweed.** Tade-ai holds the same dye molecule as Indian indigo.", "**Sukumo was composted indigo.** Awa province (Tokushima) made and shipped it across Japan.", "**The vat was fermented.** Bacteria fed on bran and turned the indigo soluble.", "**Depth came from many dips.** The darkest blue took twenty or more.", "**Indigo cotton dressed commoners.** Sumptuary laws barred silk; indigo cotton was tough, cheap and allowed.", "**A kimono uses a whole bolt.** Straight pieces, almost no waste, and it can be resized.", "**Boro is generations of patching.** In the north, scarce cotton was layered and held with sashiko stitching."],
+  "footnotes": {}
+}

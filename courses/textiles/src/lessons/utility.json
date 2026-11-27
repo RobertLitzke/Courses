@@ -1,0 +1,115 @@
+{
+  "id": "utility",
+  "n": 406,
+  "branch": "fashion",
+  "needs": ["structure", "sizes"],
+  "title": "Why did the state set the length of a hem?",
+  "teaches": "British clothes rationing from June 1941 and the coupon system; the Utility scheme and the CC41 mark; the austerity orders that limited pleats, pockets, buttons and trouser turn-ups; London designers' utility collections; Make Do and Mend; what rationing showed about cloth as a strategic resource",
+  "parts": [
+    {
+      "title": "Cloth for a war",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the Second World War, Britain needed cloth for millions of uniforms, parachutes, blankets and sandbags, and the factories and workers that made civilian clothes were wanted for war work. Imports of cotton and wool came by sea, through waters patrolled by German submarines. From 1941 the British government controlled how much clothing people could buy, how it was made and even how many pleats a skirt could have. In this lesson we look at how rationing and the Utility scheme worked, and why a government decided that the details of a hem were its business."
+        }
+      ]
+    },
+    {
+      "title": "Coupons",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Clothes rationing began on 1 June 1941. Every adult received a ration of **coupons**, at first 66 a year, and every item of clothing had a coupon value as well as a price. To buy a dress, a customer paid the shop and handed over 11 coupons; a man's suit cost 26. The values roughly followed the amount of cloth and labour in each garment. Children received extra coupons because they outgrew their clothes. As the war went on, the yearly allowance was cut, at times to less than 40."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "coupons",
+          "caption": "A year's clothing coupons, from the 1941 list. Values are rounded, and they changed later in the war.",
+          "task": "Spend a year's coupons until the shop refuses you",
+          "goal": "year"
+        },
+        {
+          "type": "text",
+          "text": "Coupons limited how much each person could buy, but not what the clothes were like. Makers could still use scarce cloth on wide skirts and on turn-ups, the folded cuffs at the bottom of trouser legs, and prices rose as cloth grew scarce. The government therefore went further."
+        }
+      ]
+    },
+    {
+      "title": "Utility and CC41",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Under the **Utility scheme**, introduced by the Board of Trade in 1941, a large share of the cloth woven in Britain was made to government specifications for weight, fibre and quality, and garments made from it were sold at controlled prices and were free of purchase tax, the sales tax of the time. Utility clothes carried a label with the mark **CC41**, for Civilian Clothing 1941, drawn as two circles each with a bite taken out. By the end of the war most clothing sold in Britain was Utility."
+        },
+        {
+          "type": "text",
+          "text": "In 1942 the government added **austerity orders**, rules on how clothes could be made, to save cloth and labour further. They limited the number of pleats in a skirt, the width of its hem and so how full it could be, which in practice also kept skirts to just below the knee, the number of pockets and buttons on a coat, and the length of men's shirts. Men's trousers lost their turn-ups, double-breasted jackets were banned, and embroidery and fur trimming on women's clothes were forbidden. The state was, in effect, setting the shape of the nation's clothes."
+        }
+      ]
+    },
+    {
+      "title": "Fashion within the rules",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Board of Trade wanted Utility clothes to look good, so that people would accept them. In 1942 it commissioned members of the Incorporated Society of London Fashion Designers, among them Norman Hartnell and Hardy Amies, to design a range of coats, suits and dresses within the rules. Their designs were made in factories and sold at Utility prices, and the slim, short-skirted, square-shouldered look of the war years owed much to the regulations."
+        },
+        {
+          "type": "text",
+          "text": "Making existing clothes last was as important as making new ones. The government's **Make Do and Mend** campaign of 1943 published leaflets and ran classes on darning, patching, turning worn collars, unpicking old jumpers to reknit the wool, and remaking adult clothes into children's. It was the same thrift as the boro of branch lesson W2, organised by a state."
+        }
+      ]
+    },
+    {
+      "title": "After the war",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Clothes rationing in Britain ended in March 1949, and the Utility scheme in 1952. In 1947 Christian Dior's \"New Look\" in Paris, with long, full skirts using many metres of cloth, was greeted in Britain as a deliberate rejection of austerity, and some politicians criticised it as wasteful while cloth was still rationed. The war had shown that a government could control the cloth supply in detail when it judged cloth a strategic resource, as other states had done before with wool exports, Indian calico and Gandhi's khadi, the subjects of lessons 10, 12 and 21."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on Utility clothing.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What did a clothing coupon limit?",
+                "choices": ["How much clothing each person could buy in a year", "The price a shop could charge for clothes", "Which factories could make civilian clothes", "The colours that dyers could use"],
+                "answer": 0,
+                "why": "Each adult had a yearly allowance, and every garment cost coupons as well as money."
+              },
+              {
+                "ask": "What did the CC41 mark show?",
+                "choices": ["A Utility garment made to set standards", "A garment made for the armed forces", "A garment imported from the United States", "A garment that needed no coupons at all"],
+                "answer": 0,
+                "why": "CC41, Civilian Clothing 1941, marked Utility cloth and clothing sold at controlled prices."
+              },
+              {
+                "ask": "Why did the austerity orders ban trouser turn-ups and limit pleats?",
+                "choices": ["To save cloth and labour for the war", "To make clothes easier to wash", "To match the style of military uniforms", "To protect British designers from Paris"],
+                "answer": 0,
+                "why": "Turn-ups, pleats and extra pockets used cloth and work that were needed elsewhere."
+              },
+              {
+                "ask": "Why did the Board of Trade hire London fashion designers?",
+                "choices": ["So Utility clothes would look good", "To design new uniforms for the army", "To sell British fashion abroad for dollars", "To train factory workers in tailoring"],
+                "answer": 0,
+                "why": "Designers like Hartnell and Amies made stylish ranges within the rules, sold at Utility prices."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**War made cloth strategic.** Uniforms, shipping losses and war work squeezed civilian supply.", "**Coupons rationed clothes from June 1941.** Each adult had 66 a year at first; a suit cost 26.", "**Utility set the standard.** Specified cloth, controlled prices and the CC41 mark.", "**Austerity orders set the shape.** Limits on pleats, hems, pockets and buttons; no turn-ups.", "**Designers worked within the rules.** Hartnell, Amies and others made Utility fashionable.", "**Make Do and Mend extended clothes' lives.** Darning, patching and remaking were taught nationally.", "**Rationing ended in 1949.** Dior's New Look showed the appetite for cloth after austerity."],
+  "footnotes": {}
+}

@@ -227,7 +227,7 @@
  {
   "lesson": "shrink",
   "added": "2026-11-27",
-  "what": "New branch lesson M1; no student review yet",
+  "what": "New branch lesson M1; student read-through done and applied",
   "notes": [
    "Facts not yet checked: relaxation against felting shrinkage; scales pointing to the tip and the directional friction; superwash from the 1970s, CSIRO's role, chlorine then resin (the Chlorine-Hercosett process); plasma and enzyme alternatives; fibre diameters for merino (18 to 20), jumper wool (25 to 30), carpet wool (35 and up) and cashmere (15 to 19); the 30 micron and 5 percent prickle thresholds; merino's origin in Spain.",
    "The prickle figure assumes a 24 percent coefficient of variation for every fleece."
@@ -236,7 +236,7 @@
  {
   "lesson": "wrinkle",
   "added": "2026-11-27",
-  "what": "New branch lesson M2; no student review yet",
+  "what": "New branch lesson M2; student read-through done and applied",
   "notes": [
    "Facts not yet checked: crease recovery angle test and the round angles in the crease figure (linen 60, cotton 90, durable press 135, wool 160, polyester 165, all dry); linen creasing worse because of longer, more tightly packed chains; urea-formaldehyde resins and the 1950s timing; Ruth Benerito at the USDA Southern Regional Research Center and her own disclaimer of sole credit; formaldehyde limits; PET glass transition of about 80 °C for fibre; wool's disulphide bonds and steam; Si-Ro-Set at CSIRO in 1957."
   ]
@@ -244,7 +244,7 @@
  {
   "lesson": "warm",
   "added": "2026-11-27",
-  "what": "New branch lesson M3; no student review yet",
+  "what": "New branch lesson M3; student read-through done and applied",
   "notes": [
    "Facts not yet checked: still air conducting several times less well than fibres and about 25 times less than water; loft mattering more than fibre type; the clo defined in 1941 (Gagge, Burton and Bazett) and about 1.6 clo per centimetre; fill power 550 and 800; polar fleece from Malden Mills with Patagonia in 1979 and recycled bottles from the 1990s; polyester absorbing under 1 percent; wool absorbing about a third of its weight in vapour and releasing heat.",
    "The loft figure uses skin at 34 °C, an effective conductivity of 0.04 W/mK, an outer air film of 0.12 m²K/W and 58 W/m² sitting still; the guess answer (about 2 cm at 0 °C) follows from these."
@@ -253,7 +253,7 @@
  {
   "lesson": "thread-count",
   "added": "2026-11-27",
-  "what": "New branch lesson M4; no student review yet",
+  "what": "New branch lesson M4; student read-through done and applied",
   "notes": [
    "Facts not yet checked: thread count as warp plus weft per square inch and mostly a US measure; single yarns fitting about 250 to 300 per inch each way and true counts much above 600 being rare; the FTC's 2005 advice on plied yarn (opinion letter to the National Textile Association) and ASTM D3775; sateen as four over, one under; the terry loop mechanism; velvet woven face to face and cut, and earlier over rods; silk velvet in Venice and Genoa; corduroy as a weft pile.",
    "The threads figure packs threads at 1.15 times their diameter; its honest counts run from about 150 to 550."
@@ -262,7 +262,7 @@
  {
   "lesson": "stretch",
   "added": "2026-11-27",
-  "what": "New branch lesson M5; no student review yet",
+  "what": "New branch lesson M5; student read-through done and applied",
   "notes": [
    "Facts not yet checked: rubber thread before elastane; Joseph Shivers at DuPont in 1958 and Lycra from 1962; the soft and hard segment structure and stretch to five or six times length; elastane shares of 1 to 3 percent in jeans, about 5 in stretch knits, 15 to 30 in swimwear; heat, chlorine, sunlight and oils as causes of breakdown; elastane as a recycling contaminant.",
    "The stretch figure's numbers are round and illustrative, not measured."
@@ -271,10 +271,171 @@
  {
   "lesson": "rain",
   "added": "2026-11-27",
-  "what": "New branch lesson M6; no student review yet",
+  "what": "New branch lesson M6; student read-through done and applied",
   "notes": [
    "Facts not yet checked: Macintosh's 1823 patent and naphtha from coal gas works; Goodyear and Hancock and vulcanisation in the 1840s; Burberry's gabardine in 1879 and the yarn treated before weaving; how a repellent finish works; PFAS restrictions (EU, US states, brands); Bob Gore's 1969 discovery and Gore-Tex in 1976; Gore's ePE membrane from 2022; Kwolek in 1965, the cloudy solution and the technician, Kevlar from 1971, five times steel by weight, Inventors Hall of Fame 1995.",
    "The rain figure's vapour rates (rubber 0, coated nylon 80, membrane 350, windproof 900 g per hour per jacket) and sweat rates (60, 250, 650) are round and illustrative; field values for membranes vary widely."
+  ]
+ },
+ {
+  "lesson": "recycled",
+  "added": "2026-11-27",
+  "what": "New branch lesson M7; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: under 1 percent of clothing material from old clothing (Ellen MacArthur Foundation, 2017); Patagonia and Wellman's recycled fleece in 1993; recycled polyester about an eighth of polyester in the early 2020s, nearly all from bottles (Textile Exchange); Benjamin Law, Batley, 1813 and shoddy; Prato's rag trade; the Swedish pulp plant's 2024 bankruptcy (Renewcell); infrared sorting; EU separate textile collection from 2025 and extended producer responsibility.",
+   "The reshred figure assumes each shredding leaves fibres 0.6 times as long, from a 28 mm staple, and a 25 mm mean needed to spin; the quarter in the guess follows from these."
+  ]
+ },
+ {
+  "lesson": "felt",
+  "added": "2026-11-27",
+  "what": "New branch lesson K1; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: Pazyryk dates (4th and 3rd centuries BC) and finds (wall hangings, saddle covers, felt swan); felt-covered gers and yurts; shyrdak on UNESCO's urgent safeguarding list (2012, with ala-kiyiz); rolling felt in reed mats and dragging it behind a horse; fulling with urine and fuller's earth; fulling mills spreading in the 12th and 13th centuries; Hebridean waulking into the 20th century; melton and billiard cloth; beaver then rabbit and hare fur felts; mercury nitrate carroting from the 18th century; Danbury shakes; 'mad as a hatter' attested by the 1830s; the US ban in 1941.",
+   "The fulling figure's felting rates are round and illustrative."
+  ]
+ },
+ {
+  "lesson": "lace",
+  "added": "2026-11-27",
+  "what": "New branch lesson K2; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: lace collars valued like jewellery around 1600; lace growing from cutwork and drawn-thread work in the 16th century; punto in aria and Venice; Brussels, Mechelen and Bruges; cross and twist conventions (left middle over right middle; right over left in each pair); hundreds of bobbins; a few square centimetres a day for fine lace; damp-cellar spinning of fine Flemish linen thread; Colbert's 1665 workshops at Alençon and point de France; English bans on Flemish lace; lace schools for children of five in Devon and the East Midlands; Heathcoat's 1809 bobbinet patent, Loughborough in 1816 and Tiverton; John Levers and Nottingham.",
+   "The opening says a lace collar could be valued like jewellery or a craftsman's year of income: needs a sourced example or softening."
+  ]
+ },
+ {
+  "lesson": "bayeux",
+  "added": "2026-11-27",
+  "what": "New branch lesson K3; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: about 70 m by 50 cm (68.38 m is often given); nine linen panels; about ten colours from woad, madder and weld; Canterbury and the 1070s; Odo as patron and the cathedral consecrated in 1077; English women as embroiderers; the lost end; opus anglicanum and the 1295 papal inventory; the Angers Apocalypse woven in Paris in the 1370s and 1380s, originally about 140 m; Arras, Tournai, Brussels; Henry VIII owning more than 2,000 tapestries.",
+   "The lesson leaves out the planned 2026 to 2027 loan to the British Museum; add it if Rob wants a current note."
+  ]
+ },
+ {
+  "lesson": "stocking-frame",
+  "added": "2026-11-27",
+  "what": "New branch lesson K4; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: Lee of Calverton and the 1589 tradition, the knitting-woman story; Elizabeth I's refusal and her reasons (traditional account); Rouen and Henri IV, Lee's death about 1614; the 1657 charter of the Framework Knitters' Company; the move to the East Midlands; Strutt's Derby rib patent of 1759; tens of thousands of frames by 1800; the latch needle patent in 1849 (Matthew Townsend); frame rents, cut-ups and colts; Luddism from March 1811 in Nottinghamshire; the Frame Breaking Act 1812 and Byron's maiden speech (27 February 1812); numbers hanged and transported.",
+   "The beard figure shows the cycle as six steps on three needles; real frames had more motions (the sinkers and the jack, the slur cock)."
+  ]
+ },
+ {
+  "lesson": "kente",
+  "added": "2026-11-27",
+  "what": "New branch lesson W1; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: Nkrumah and ministers in kente at independence (6 March 1957); strip widths 5 to 25 cm; the dragged sledge for the warp; Tellem cave textiles about 11th century; Bonwire; the Asante two-heddle-set loom; unpicked imported silk by the 18th century; royal patterns and the Asantehene; adire oniko and eleko, raffia and cassava starch; Abeokuta and Ibadan; the 1920s boom; men cutting zinc stencils; the pattern names olokun and ibadan dun.",
+   "The strips figure is a schematic of kente layout, not a specific named pattern."
+  ]
+ },
+ {
+  "lesson": "aizome",
+  "added": "2026-11-27",
+  "what": "New branch lesson W2; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: 'Japan blue' and the British chemist in Tokyo (Robert Atkinson, 1870s); tade-ai as Persicaria tinctoria; Awa/Tokushima and the Yoshino River; about three months of composting; the vat recipe (lye, lime, bran, sometimes sake); kachi-iro as 'victory colour' and twenty or more dips; cotton spreading from the 16th century; Edo sumptuary laws and indigo cotton; tan width and length; boro around Aomori and sashiko.",
+   "The kimono still's piece lengths are typical and rounded."
+  ]
+ },
+ {
+  "lesson": "navajo",
+  "added": "2026-11-27",
+  "what": "New branch lesson W3; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: blankets traded for several horses; churro arriving with Oñate's colonists (1598); women owning and managing flocks; churro fleece traits (two coats, low grease, no carding); learning weaving from Pueblo neighbours in the 17th and early 18th centuries; chief's blankets and bayeta; the Long Walk numbers (8,000 to 9,000, about 500 km) and the 1868 treaty with sheep issued; railroad in 1881; Hubbell at Ganado and J. B. Moore at Crystal; Germantown yarn; rugs paid by weight; livestock reduction from 1933 and the Boulder Dam silt argument; the Navajo Sheep Project from 1977 and thousands of registered animals.",
+   "Both hours bars are rough estimates; published figures for a rug of this size vary widely, from about 300 to over 1,000 hours."
+  ]
+ },
+ {
+  "lesson": "carpets",
+  "added": "2026-11-27",
+  "what": "New branch lesson W4; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: Ardabil carpet size (about 10.5 by 5.3 m), about 30 million knots, dated 946 AH (1539 to 1540), Maqsud of Kashan, the V&A; symmetric and asymmetric knot structures and the packing claim; Pazyryk carpet found 1949 by Rudenko, about 2 m square, 4th century BC, about 36 knots per cm²; Safavid workshops at Tabriz, Kashan, Isfahan; nomadic horizontal looms; 1990s child labour campaigns and labels (Rugmark, now GoodWeave).",
+   "The knots figure assumes 10,000 knots a day for one weaver, a commonly quoted rate; real rates vary with knot and skill."
+  ]
+ },
+ {
+  "lesson": "paisley",
+  "added": "2026-11-27",
+  "what": "New branch lesson W5; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: pashm from Changthangi goats in Ladakh and western Tibet, about 15 microns; women cleaning and spinning in Kashmir; kani twill tapestry with tojis (spools) and the talim coded pattern read by a master; a year or more per large shawl; pieced shawls; buta evolving from Mughal sprays; East India Company officers and the muslin dress fashion; Josephine's hundreds of shawls; 'cost as much as a house'; Norwich from the 1780s, Edinburgh, Paisley from about 1805, Jacquard from the 1840s; cut floats on European shawls; amli embroidered shawls; the bustle and the Franco-Prussian War; the 1877 to 1879 Kashmir famine; shahtoosh, the chiru and the CITES ban (1979).",
+   "Both hours bars are rough estimates; sourced figures would help."
+  ]
+ },
+ {
+  "lesson": "cut",
+  "added": "2026-11-27",
+  "what": "New branch lesson F1; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: peplos and chiton construction; the toga's curved edge; sari length five to nine metres; Andean four-selvedge tunics; tunic gores and gussets; the 1330s to 1340s change and chroniclers' complaints; buttons rare before the 13th century; the pourpoint of Charles de Blois (Musée des Tissus, Lyon), mid-14th century; the armour theory; Juan de Alcega's Libro de geometría, práctica y traça (Madrid, 1580); Vionnet and the bias cut in the 1920s and 1930s.",
+   "The layout figure's pieces are simplified shapes; its percentages (100, 100, 78, 42) follow from them, not from historical patterns."
+  ]
+ },
+ {
+  "lesson": "denim",
+  "added": "2026-11-27",
+  "what": "New branch lesson F2; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: jean from Genoa (Gênes) and denim from serge de Nîmes, and the historians' doubts; New England denim mills; ring dyeing by repeated quick dips; Jacob Davis in Reno, 1870, horse-blanket rivets, unable to afford the patent; US patent 139,121 of 20 May 1873; expiry in 1890; dude ranches in the 1930s; Brando (The Wild One, 1953) and Dean (Rebel Without a Cause, 1955); school bans; Soviet black market; more than a billion pairs a year; stonewashing in the 1980s; Turkey's sandblasting ban in 2009; laser finishing.",
+   "The fade figure's ring and wear depths are illustrative."
+  ]
+ },
+ {
+  "lesson": "wax-print",
+  "added": "2026-11-27",
+  "what": "New branch lesson F3; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: canting and cap from the 1840s; Prévinaire in Haarlem in the 1850s and double-sided resin printing; Van Vlissingen in Helmond from 1846 (Vlisco); reasons for failure in Java; Gold Coast soldiers in the Dutch East Indies army (about 1831 to 1872, several thousand) and the debated origin story; Ebenezer Brown Fleming; sika wo ntaban for the swallows print; the Nana Benz of Lomé; post-independence factories and Vlisco stakes; Chinese copies since the 2000s; Yinka Shonibare.",
+   "The waxprint still is schematic."
+  ]
+ },
+ {
+  "lesson": "suit",
+  "added": "2026-11-27",
+  "what": "New branch lesson F4; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: 1770s Versailles men's dress; Brummell's dates, background and dress (blue coat, buff or pale trousers, cravat); English riding coat origin; broadcloth fulling; moulding wool with heat (the tailor's goose); Savile Row's 19th century rise; Flügel, The Psychology of Clothes (1930); the lounge suit from the 1860s; Yorkshire and Scottish mills.",
+   "No figure: nothing here turns on a cause and effect a reader can manipulate. A still of the 1770s and 1810s silhouettes could be added with photos of museum pieces (V&A, the Met) on Rob's PC."
+  ]
+ },
+ {
+  "lesson": "corsets",
+  "added": "2026-11-27",
+  "what": "New branch lesson F5; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: stays from the 16th century and baleen; coutil; metal eyelets patented in the 1820s (1828?); the split front busk (1840s to 1850s); steam or heated-form moulding (Izod, 1868); museum corset waists mostly 20 to 30 inches (Valerie Steele, The Corset); the cage crinoline patent of 1856; Fanny Longfellow's death in 1861; Rebecca Gibson's skeletal studies (St Bride's, London, and French collections) and their findings; no record of cosmetic rib removal; Amelia Bloomer and the Rational Dress Society (1881); First World War steel and the brassiere (US War Industries Board appeal, 1917).",
+   "Photos of real corsets from museum collections on Commons would help; parked for Rob's PC if wanted."
+  ]
+ },
+ {
+  "lesson": "utility",
+  "added": "2026-11-27",
+  "what": "New branch lesson F6; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: rationing from 1 June 1941 and 66 coupons; coupon values (suit 26, woman's coat 14, dress 11, skirt 7, shoes 5, shirt 5, pyjamas 8, stockings 2; check against the Board of Trade list, as several of these vary by source and changed later); extra coupons for children; allowance cuts below 40; the Utility scheme (1941) and CC41 design; purchase tax exemption; the 1942 Making of Civilian Clothing (Restrictions) Orders and their specific limits; the 1942 ISLFD commission (Hartnell, Amies, Molyneux, Morton and others); Make Do and Mend in 1943; rationing ending 15 March 1949 and Utility in 1952; Dior's New Look in 1947 and British criticism.",
+   "Rob's outline mentions hem lengths: the orders limited hem width and skirt fullness more than length; the text says so."
+  ]
+ },
+ {
+  "lesson": "styles",
+  "added": "2026-11-27",
+  "what": "New branch lesson F7; student read-through done and applied",
+  "notes": [
+   "Facts not yet checked: Veblen (1899) and his three terms; Simmel's Fashion (1904); Charles King's trickle-across (1963); bubble-up (Ted Polhemus); Laver's timeline (Taste and Fashion, 1937) and its exact wording; clothing prices falling against CPI from the 1990s (lesson 25's chart); thousands of new items a day for the largest online sellers.",
+   "The trickle figure is a toy model, stated as such in its caption."
+  ]
+ },
+ {
+  "description": true,
+  "added": "2026-11-27",
+  "what": "Catalog description extended to cover the four branches (M, K, W, F) now written",
+  "notes": [
+   "The description is long; trimming the trunk half may suit better than adding."
   ]
  }
 ]

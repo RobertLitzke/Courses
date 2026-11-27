@@ -19,6 +19,14 @@ import { PRICE, priceWith } from '../src/figures/tshirt';
 import { comfort } from '../src/figures/prickle';
 import { heatLoss, MET } from '../src/figures/loft';
 import { threadCount } from '../src/figures/threads';
+import { maxShare } from '../src/figures/reshred';
+import { area } from '../src/figures/fulling';
+import { apply, travelled } from '../src/figures/bobbins';
+import { checkered } from '../src/figures/strips';
+import { days, knots } from '../src/figures/knots';
+import { GARMENTS, used } from '../src/figures/layout';
+import { whiteShare } from '../src/figures/fade';
+import { simulate } from '../src/figures/trickle';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -262,6 +270,130 @@ describe('the rain figure', () => {
   it('is done when the membrane keeps up and then falls behind', async () => {
     const h = FIGURES.rain(context(), 'limits');
     click(h.node, 'Climbing a hill');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the reshred figure', () => {
+  it('lets about a quarter of once-shredded cotton spin', () => {
+    expect(maxShare(1)).toBeGreaterThan(0.2);
+    expect(maxShare(1)).toBeLessThan(0.3);
+    expect(maxShare(2)).toBeLessThan(maxShare(1));
+  });
+  it('is done after a guess and a blend that spins and one that does not', async () => {
+    const h = FIGURES.reshred(context(), 'blend');
+    guess(h.node, 'About a quarter');
+    setSlider(h.node, 0, 0.2);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the fulling figure', () => {
+  it('felts in hot soapy water and not dry', () => {
+    expect(area(0, 100)).toBe(1);
+    expect(area(2, 30)).toBeLessThan(0.7);
+    expect(area(1, 30)).toBeGreaterThan(0.85);
+  });
+  it('is done after dry rubbing and a felted mat', async () => {
+    const h = FIGURES.fulling(context(), 'felt');
+    click(h.node, 'Dry');
+    click(h.node, 'Rub ten times');
+    click(h.node, 'Hot soapy water');
+    for (let i = 0; i < 3; i++) click(h.node, 'Rub ten times');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the bobbins figure', () => {
+  it('passes the left pair through the right in a cloth stitch', () => {
+    let p = [0, 1, 2, 3];
+    for (const m of ['cross', 'twist', 'cross'] as const) p = apply(p, m);
+    expect(travelled(p)).toBe(true);
+    expect(travelled(apply(apply([0, 1, 2, 3], 'cross'), 'twist'))).toBe(false);
+  });
+  it('is done after cross, twist, cross', async () => {
+    const h = FIGURES.bobbins(context(), 'cloth');
+    for (const m of ['Cross', 'Twist', 'Cross']) click(h.node, m);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the beard figure', () => {
+  it('is done once every step is seen', async () => {
+    const h = FIGURES.beard(context(), 'cycle');
+    for (let i = 0; i < 5; i++) click(h.node, 'Next step');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the strips figure', () => {
+  it('is done when alternate strips are shifted one block', async () => {
+    expect(checkered(0)).toBe(false);
+    expect(checkered(0.5)).toBe(false);
+    const h = FIGURES.strips(context(), 'checker');
+    setSlider(h.node, 0, 1);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the knots figure', () => {
+  it('counts knots and days', () => {
+    expect(knots(10)).toBe(600000);
+    expect(days(10)).toBe(60);
+  });
+  it('is done after a coarse and a fine density', async () => {
+    const h = FIGURES.knots(context(), 'fine');
+    setSlider(h.node, 0, 64);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the layout figure', () => {
+  it('wastes nothing draped and more when fitted', () => {
+    expect(used(GARMENTS[0])).toBeCloseTo(1);
+    expect(used(GARMENTS[1])).toBeCloseTo(1);
+    expect(used(GARMENTS[2])).toBeLessThan(0.95);
+    expect(used(GARMENTS[3])).toBeLessThan(used(GARMENTS[2]));
+  });
+  it('is done once every garment is laid out', async () => {
+    const h = FIGURES.layout(context(), 'all');
+    for (const n of ['Tunic with gores', 'Fitted gown', 'Bias-cut dress']) click(h.node, n);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the fade figure', () => {
+  it('shows the core only once the ring is worn through', () => {
+    expect(whiteShare(40, true)).toBe(0);
+    expect(whiteShare(100, true)).toBeGreaterThan(0.5);
+    expect(whiteShare(100, false)).toBe(0);
+  });
+  it('is done when ring-dyed yarn is worn to the core', async () => {
+    const h = FIGURES.fade(context(), 'fade');
+    setSlider(h.node, 0, 90);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the coupons figure', () => {
+  it('is done once the coupons run out and a purchase is refused', async () => {
+    const h = FIGURES.coupons(context(), 'year');
+    for (let i = 0; i < 2; i++) click(h.node, "Man's suit · 26");
+    click(h.node, 'Dress · 11');
+    click(h.node, 'Pair of shoes · 5');
+    click(h.node, 'Pair of stockings · 2');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the trickle figure', () => {
+  it('cycles faster when clothes are cheap', () => {
+    expect(simulate(0.25).styles).toBeGreaterThan(simulate(2).styles * 4);
+  });
+  it('is done after a dear and a cheap price', async () => {
+    const h = FIGURES.trickle(context(), 'pace');
+    setSlider(h.node, 0, 2);
+    setSlider(h.node, 0, 0.25);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

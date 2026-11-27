@@ -1,0 +1,112 @@
+{
+  "id": "suit",
+  "n": 404,
+  "branch": "fashion",
+  "needs": ["structure", "mill"],
+  "title": "Why did men give up silk for wool?",
+  "teaches": "The silk and embroidery of 18th century men's court dress; Beau Brummell and the dark wool coat; why fulled wool suits tailoring; the French Revolution and plain dress; the Great Male Renunciation; the lounge suit and ready-made suits; quiet fit as a new kind of status",
+  "parts": [
+    {
+      "title": "Peacocks",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A gentleman at the court of Versailles in the 1770s wore a coat of silk in pink, pale green or gold, embroidered down the front and around the cuffs with silk and metal thread, over a waistcoat that was embroidered too, with lace at the throat and wrists, silk stockings and a powdered wig. By about 1815 a gentleman in London wore a dark blue or black wool coat, plain trousers and a white linen shirt and neckcloth, a long band of linen tied at the throat. Men's formal dress has stayed close to that sober outfit ever since. In this lesson we look at how and why the change happened."
+        }
+      ]
+    },
+    {
+      "title": "Brummell",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The name most attached to the change is **George Bryan \"Beau\" Brummell** (1778 to 1840), an Englishman of modest birth who became a close friend of the Prince of Wales, the future George IV, and the leader of fashion in London society around 1800. Brummell wore a dark blue wool coat cut close to the body, a plain waistcoat, pale close-fitting trousers or breeches, polished boots and a crisp white linen cravat, tied with great care. He wore no embroidery or jewels. What mattered was fit, cleanliness and the quality of the cloth."
+        },
+        {
+          "type": "text",
+          "text": "Brummell's style came partly from English country dress. English gentlemen spent much of their time riding and hunting, and wore practical wool coats cut away at the front for the saddle. Brummell took that riding coat into the drawing room and made it the mark of elegance."
+        }
+      ]
+    },
+    {
+      "title": "Why wool tailors well",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The new style depended on a cloth that could be shaped. English **broadcloth** was a fine woollen cloth that had been heavily fulled, as described in branch lesson K1, so that its fibres were matted into a dense surface that could be cut without fraying. Wool can also be moulded. As branch lesson M2 explained, heat and steam loosen the bonds that hold a wool fibre's shape, and it sets in a new shape as it cools and dries. A tailor could stretch wool with a hot iron over the curve of the chest and shrink it at the waist, so a flat cloth took the form of the body without many seams."
+        },
+        {
+          "type": "text",
+          "text": "Silk, a smooth, dense filament, does not shrink and stretch under the iron in the same way, so a silk coat had to get its shape from cutting and padding alone. With wool, London tailors developed a skill of cutting and pressing that made a plain coat look perfect, and the tailors of the streets around Savile Row became famous for it during the 19th century. A plain coat that fitted perfectly took a skilled tailor, and its quality showed mainly to those who knew what to look for."
+        }
+      ]
+    },
+    {
+      "title": "Revolution and industry",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Politics pushed in the same direction. The French Revolution of 1789 made the silks and lace of the old court a sign of aristocratic privilege, and dangerous to wear in Paris in the 1790s. Plain dress suggested virtue, hard work and citizenship. In Britain, merchants, bankers and factory owners were gaining wealth and political power, and sober dark wool suited men who wanted to be seen as serious and respectable rather than idle."
+        },
+        {
+          "type": "text",
+          "text": "In 1930 the psychologist **John Carl Flügel** called this change the **Great Male Renunciation**: men gave up the claim to be beautiful and left colour and ornament to women. Historians since have pointed out that men did not give up display, but moved it into other forms, such as the quality of cloth and cut, the right club tie, a gold watch chain, or a very white shirt that showed the wearer did not do dirty work."
+        }
+      ]
+    },
+    {
+      "title": "The suit",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Through the 19th century the dark coat became the **frock coat** for formal day wear, and from the 1860s a shorter, looser **lounge suit**, with coat, waistcoat and trousers of matching cloth, spread from informal wear in the country to the office. This is the ancestor of the modern business suit. Woollen mills in Yorkshire and Scotland made the cloth in huge quantities, and by the end of the century ready-made suits in standard sizes, the subject of lesson 24, put a version of the gentleman's outfit within reach of clerks and workers."
+        },
+        {
+          "type": "text",
+          "text": "The suit has changed in detail since, in the width of lapels and trousers, but its basic form of dark wool, a fitted jacket and quiet colours has lasted two centuries and spread around the world as the uniform of business and government."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on the suit.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What made Brummell's dress elegant, in place of silk and embroidery?",
+                "choices": ["Close fit, clean linen and fine plain cloth", "Brighter colours and more expensive jewels", "A taller wig and wider coat skirts", "Lace cuffs and a gold-embroidered waistcoat"],
+                "answer": 0,
+                "why": "Brummell wore no ornament; fit, cleanliness and quality of cloth were the point."
+              },
+              {
+                "ask": "Why could tailors shape wool to the body better than silk?",
+                "choices": ["Heat and steam let wool be moulded and set", "Wool is much thinner and lighter than silk", "Wool cannot be cut, so it must be draped", "Wool stretches like elastane without heat"],
+                "answer": 0,
+                "why": "Steam loosens the bonds in wool fibres, and a hot iron can mould the cloth before it sets."
+              },
+              {
+                "ask": "Why did plain dress suit the new wealthy men of the early 19th century?",
+                "choices": ["It suggested work rather than idle privilege", "Silk had become cheaper than wool by then", "Laws banned silk for men across Britain", "Wool was the only cloth left after the wars"],
+                "answer": 0,
+                "why": "After the French Revolution, plain dark wool signalled respectability, not aristocratic luxury."
+              },
+              {
+                "ask": "What did Flügel mean by the Great Male Renunciation?",
+                "choices": ["Men gave up showy colour and ornament in dress", "Men stopped wearing wool and returned to silk", "Men left tailoring to women dressmakers", "Men refused to buy ready-made suits"],
+                "answer": 0,
+                "why": "He described men giving up the claim to be beautiful; historians note display moved to cut and cloth."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Court men once wore silk and embroidery.** Versailles in the 1770s was colourful and ornate.", "**Brummell made plain dark wool elegant.** Fit, clean linen and fine cloth replaced ornament.", "**Fulled wool can be moulded.** Heat and steam let tailors shape broadcloth to the body.", "**Skill replaced display.** A plain coat showed its quality only to those who knew.", "**Revolution and new wealth favoured sobriety.** Plain dress signalled work and respectability.", "**Flügel named the Great Male Renunciation.** Display moved into cut, cloth and accessories.", "**The lounge suit became the business suit.** Ready-made sizes spread it to clerks and workers."],
+  "footnotes": {}
+}

@@ -1,0 +1,117 @@
+{
+  "id": "corsets",
+  "n": 405,
+  "branch": "fashion",
+  "needs": ["structure", "sizes"],
+  "title": "What do skeletons say about corsets?",
+  "teaches": "Stays and corsets as engineered garments: panels, boning, busk, eyelets and lacing; how much corsets reduced the waist; the crinoline cage and its fire risk; what skeletons show about rib shape and health; the rib-removal myth; dress reform",
+  "parts": [
+    {
+      "title": "A garment with a bad name",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Victorian corset has a terrible reputation. Popular stories say women laced their waists to 16 inches, fainted constantly, crushed their organs and even had ribs removed to look slimmer. Some of this is true, much is exaggerated, and some is invented. In this lesson we look at how corsets and crinolines were built, what they did to the body, and what the skeletons of women who wore them actually show."
+        }
+      ]
+    },
+    {
+      "title": "Building a corset",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "European women wore stiffened bodices, called **stays**, from the 16th century. They flattened and supported the chest into a smooth cone and gave a straight, upright posture. Stays were stiffened with strips of **baleen**, the springy plates that some whales use to filter food from seawater, known in the trade as whalebone. The 19th century **corset** curved in at the waist and out over the hips and bust, and it was an engineered garment."
+        },
+        {
+          "type": "diagram",
+          "id": "corset",
+          "caption": "The parts of a 19th century corset, front and back."
+        },
+        {
+          "type": "text",
+          "text": "A corset was cut from shaped panels of coutil, a dense, strong cotton twill, sewn edge to edge so that their curves made the shape, in the way branch lesson F1 described for fitted gowns. Narrow channels sewn between layers held the bones, which spread the pull of the laces over the whole garment. Three inventions of the 19th century changed it. **Metal eyelets**, patented in the 1820s, let the laces be pulled much tighter without tearing the cloth. A **front-opening steel busk**, a flat steel strip down the front, with studs on one side and loops on the other, let a woman put on and take off her corset alone, without unlacing the back. And **steel bones** replaced scarcer and costlier baleen. Factories also began shaping corsets by starching them and drying them on heated metal forms. With these, corsets became cheap, factory-made goods worn by women of almost every class."
+        }
+      ]
+    },
+    {
+      "title": "How tight",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most women wore corsets as everyday support, laced to reduce the waist by a few inches, much as a modern shapewear garment does. Surviving corsets in museums mostly measure 20 to 30 inches (51 to 76 cm) at the waist. Since a gap was usually left between the laced edges at the back, the waist of the woman wearing one was a little larger than the corset's own measurement. Extreme **tight-lacing** to very small waists did happen, and it was argued over at length in magazines, but it was a minority practice. Advertisements and fashion plates exaggerated small waists, much as photographs are retouched today, and many famous tiny measurements cannot be checked."
+        },
+        {
+          "type": "text",
+          "text": "In the 1850s the fashionable skirt grew very wide. Instead of many heavy petticoats, women wore a **cage crinoline**, a frame of spring-steel hoops linked by tapes, patented in 1856. It was light and let the legs move freely, but the wide skirts were a fire risk. Many women died when their dresses swept across open fires or candles, among them the poet Henry Wadsworth Longfellow's wife, Fanny, in 1861."
+        }
+      ]
+    },
+    {
+      "title": "What the bones show",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Skeletons give evidence that written sources cannot. Studies of 18th and 19th century women's skeletons from burial grounds in England and France, by researchers including the anthropologist Rebecca Gibson, have found that the lower ribs of some women curved further inward than usual, and that their spines show changes consistent with long years in a corset. The pattern matches what happens when ribs are squeezed steadily while still growing, which fits the practice of putting girls into corsets young, and it is rare in skeletons from groups who did not wear them."
+        },
+        {
+          "type": "text",
+          "text": "The same skeletons also show that these women often lived to middle or old age and bore children. The deformity was real, but it does not by itself show that corsets caused early death. Doctors in the 19th century blamed corsets for a long list of diseases, partly from real observation and partly from moral disapproval, and few of those claims were tested."
+        },
+        {
+          "type": "text",
+          "text": "The story that fashionable women had their lower ribs removed has no support in the evidence. Before the 1870s, any surgery that opened the chest was very likely to kill the patient through infection, and no medical record of a cosmetic rib removal in the period has been found. Similar rumours have since been told about modern celebrities."
+        }
+      ]
+    },
+    {
+      "title": "Reform",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From the 1850s dress reformers in Britain and the United States campaigned for looser clothing. Amelia Bloomer promoted loose trousers under a short skirt, mocked as \"bloomers\", and later the Rational Dress Society argued that clothes should not deform the body or weigh more than needed. Women who took up cycling in the 1890s adopted shorter skirts and looser underwear. In the 1910s fashion turned to straighter, looser dresses, and the shortages of the First World War, when steel was needed for armaments, helped the soft brassiere, a light bra without bones, replace the corset for most women."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on corsets.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What let 19th century corsets be laced much tighter than earlier stays?",
+                "choices": ["Metal eyelets that did not tear", "Panels knitted from stretchy yarn", "A thinner and softer cotton cloth", "Taking the bones out of the front"],
+                "answer": 0,
+                "why": "Metal eyelets, patented in the 1820s, took the strain of tight lacing."
+              },
+              {
+                "ask": "How tightly did most women lace their corsets?",
+                "choices": ["Enough to reduce the waist by a few inches", "Down to 16 inches or less", "Not at all, as corsets were decorative", "Only on formal occasions, very tightly"],
+                "answer": 0,
+                "why": "Most wore corsets as everyday support; extreme tight-lacing was a minority practice."
+              },
+              {
+                "ask": "What do skeletons of corset-wearing women show?",
+                "choices": ["Inward-curved ribs, often in long lives", "Missing lower ribs removed by surgery", "No changes to the bones at all", "Early death in almost every case"],
+                "answer": 0,
+                "why": "The ribs were deformed, but many of the women lived to middle or old age and bore children."
+              },
+              {
+                "ask": "Why is the story of cosmetic rib removal doubtful?",
+                "choices": ["Chest surgery then usually killed, and no record is known", "Ribs were removed routinely in country hospitals", "Corsets were banned before surgery was invented", "Doctors were not allowed to operate on women"],
+                "answer": 0,
+                "why": "Before antiseptic surgery, opening the chest usually caused fatal infection, and no case is recorded."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Corsets were engineered.** Shaped panels, bones, a busk and lacing spread the pull over the body.", "**Three inventions made them cheap.** Metal eyelets, the front busk and steel bones.", "**Most lacing was moderate.** A few inches off the waist; extreme tight-lacing was rarer than legend says.", "**The cage crinoline replaced petticoats.** Light steel hoops, but a deadly fire risk.", "**Skeletons show real deformity.** Ribs curved inward in women corseted from childhood.", "**But not clearly early death.** Many of those women lived long and bore children.", "**Rib removal is unsupported.** No record has been found, and chest surgery was then deadly.", "**Reform and war displaced the corset.** Looser fashion and steel shortages brought in the brassiere."],
+  "footnotes": {}
+}

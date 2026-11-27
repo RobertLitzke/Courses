@@ -1,0 +1,119 @@
+{
+  "id": "carpets",
+  "n": 304,
+  "branch": "traditions",
+  "needs": ["africa"],
+  "title": "How is a Persian carpet knotted?",
+  "teaches": "Knotted pile: how a knot is tied around warp threads and cut; symmetric and asymmetric knots; knot density as resolution and the hours it costs; the Pazyryk carpet; Safavid court workshops and the Ardabil carpet; nomadic, village and city rugs; child labour and labelling",
+  "parts": [
+    {
+      "title": "Millions of knots",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Ardabil carpet in the Victoria and Albert Museum in London is more than 10 metres long and 5 metres wide, and it holds about 30 million knots, each tied by hand. It was finished in Iran under the Safavid dynasty in 1539 or 1540. In this lesson we look at how a knotted carpet is made, why the number of knots decides what a carpet can show, and who did the knotting."
+        }
+      ]
+    },
+    {
+      "title": "Tying a knot",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A knotted carpet is a pile cloth, like the velvet of branch lesson M4, but its pile is made by hand. The weaver sits in front of an upright loom with a tightly stretched warp. For each knot, she takes a short length of coloured wool, wraps it around two neighbouring warp threads, and cuts it with a knife so that the two ends stand up from the surface. When a whole row of knots is tied, one or two weft threads are passed across and beaten down hard with a heavy comb to lock the row in place, and the next row begins. Finally the pile is clipped level."
+        },
+        {
+          "type": "text",
+          "text": "There are two main knots. In the **symmetric knot**, often called the Turkish knot, the wool wraps around both warp threads and both ends come up between them. In the **asymmetric knot**, often called the Persian knot, the wool wraps around one warp thread and passes under the other, so one end comes up on each side. Because only one end of the asymmetric knot comes up on each side, it can be packed a little more closely and is common in finer city carpets. Both are found across Iran, Turkey, the Caucasus and Central Asia, so the names describe the knot, not where a carpet was made."
+        }
+      ]
+    },
+    {
+      "title": "Knots as pixels",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every knot is one spot of a single colour, so a carpet design is drawn on squared paper, with one square for each knot, much as a picture on a screen is made of pixels. The **knot density**, the number of knots in a square centimetre, decides how fine the design can be."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "knots",
+          "caption": "The same rosette knotted at different densities, with the work in a carpet 2 by 3 metres at about 10,000 knots a day.",
+          "task": "Try a coarse density and a fine one",
+          "goal": "fine"
+        },
+        {
+          "type": "text",
+          "text": "Coarse rugs, with perhaps 5 to 15 knots per square centimetre, suit bold geometric designs of straight lines and steps. Fine city carpets, with 50 or more, can show curving vines, flowers, animals and lettering. Every extra knot costs time, so a fine carpet costs much more than a coarse one of the same size."
+        }
+      ]
+    },
+    {
+      "title": "The oldest carpet",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The oldest surviving knotted carpet was found in 1949 in one of the frozen burial mounds at Pazyryk in the Altai mountains, the same tombs that preserved the felts of branch lesson K1. The **Pazyryk carpet**, about 2 metres square and made in about the 4th century BC, has a border of horsemen and a band of deer around a central field of squares. It is knotted with symmetric knots at about 36 to the square centimetre, already a well-made, even piece of work, so knotting must be older still."
+        }
+      ]
+    },
+    {
+      "title": "Court, village and tent",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Under the **Safavid** shahs of Iran in the 16th and 17th centuries, carpets became a court art. Royal workshops in cities such as Tabriz, Kashan and Isfahan employed designers who drew full-size cartoons, design drawings on squared paper, and teams of weavers who knotted them in fine wool and silk. The Ardabil carpet, made for the shrine of the dynasty's founder at Ardabil, carries a woven inscription with its date and the name of its maker, Maqsud of Kashan. Carpets were sent as diplomatic gifts and exported to Europe, where they were often laid on tables and hung on walls as well as used on floors."
+        },
+        {
+          "type": "text",
+          "text": "Most carpets, though, were made far from courts. Nomadic peoples such as the Qashqai in Iran and the Turkmen of Central Asia wove rugs, saddle bags and tent bands on narrow horizontal looms that could be packed and moved, in designs passed down within a tribe. Village weavers made rugs for their own homes and for sale. In the 19th century European and American demand turned carpet weaving into an export industry, organised by merchants who supplied wool and designs to weavers working at home or in workshops."
+        },
+        {
+          "type": "text",
+          "text": "Much of that work was done by women and children, who could be paid less than men. In the 1990s campaigns against child labour in carpet weaving in South Asia led to labelling schemes that certify carpets made without it. Hand-knotted carpets now compete with machine-made rugs that copy their designs at a small fraction of the price."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on knotted carpets.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "How is each knot in a pile carpet made?",
+                "choices": ["Wool wrapped around two warp threads and cut", "A loop of weft pulled up between two rows", "A tuft glued into a woven backing", "Yarn stitched through a finished cloth"],
+                "answer": 0,
+                "why": "The weaver wraps a short length around neighbouring warps and cuts it, leaving two ends as pile."
+              },
+              {
+                "ask": "Why can a fine carpet show curves that a coarse rug cannot?",
+                "choices": ["More knots make smaller squares of colour", "Fine carpets use only the asymmetric knot", "Fine carpets are woven on much wider looms", "Fine carpets are dyed again after weaving"],
+                "answer": 0,
+                "why": "Each knot is one square of colour; more knots give a finer grid, like more pixels."
+              },
+              {
+                "ask": "What does the Pazyryk carpet show about knotting?",
+                "choices": ["It was already skilled by the 4th century BC", "It was invented later at the Safavid court", "It began in Europe and later spread east", "It was first done in cotton, not in wool"],
+                "answer": 0,
+                "why": "A fine, practised carpet from the 4th century BC means the craft was older still."
+              },
+              {
+                "ask": "How did Safavid court carpets differ from nomadic rugs?",
+                "choices": ["Designers drew full cartoons for weaving teams", "They were knotted on portable horizontal looms", "They were tied using only the symmetric knot", "They were woven in strips and then sewn together"],
+                "answer": 0,
+                "why": "Royal workshops had designers and many weavers; nomads wove traditional designs on movable looms."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Each knot wraps two warp threads.** Cut ends make the pile; wefts lock each row.", "**Two knots, named loosely.** Symmetric (Turkish) and asymmetric (Persian) are both widespread.", "**Knot density is resolution.** More knots per square centimetre allow smoother curves.", "**Knots cost time.** At 50 knots per cm² and 10,000 a day, a carpet 2 by 3 metres takes one weaver about 300 working days.", "**Pazyryk holds the oldest carpet.** It is fine work from about the 4th century BC.", "**Safavid carpets were court art.** The Ardabil carpet holds about 30 million knots.", "**Most rugs were nomadic or village work.** Export demand made an industry from the 19th century.", "**Women and children did much of the knotting.** Labels now certify carpets made without child labour."],
+  "footnotes": {}
+}

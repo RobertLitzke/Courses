@@ -1,0 +1,117 @@
+{
+  "id": "bayeux",
+  "n": 203,
+  "branch": "structures",
+  "needs": ["structure"],
+  "title": "Why is the Bayeux Tapestry not a tapestry?",
+  "teaches": "Tapestry weaving against embroidery; how the Bayeux hanging was stitched, in what, by whom and for whom; stem stitch and laid and couched work; English embroidery as a luxury export; great woven tapestries of the later Middle Ages",
+  "parts": [
+    {
+      "title": "Seventy metres of story",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Bayeux Tapestry is a strip of linen about 70 metres long and 50 centimetres high that tells the story of the Norman conquest of England, from 1064 to the Battle of Hastings in 1066. It has been kept in the Norman town of Bayeux for most of the last 900 years. It is also, strictly, not a tapestry. In this lesson we look at the difference between a tapestry and an embroidery, how the Bayeux hanging was made, and what it shows about medieval needlework."
+        }
+      ]
+    },
+    {
+      "title": "Woven pictures and stitched ones",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A true **tapestry** is woven. Its picture is made by the weft, not added afterwards. Instead of passing each weft right across the loom, as in lesson 4, the weaver takes a thread of one colour back and forth only across the small patch of the design where that colour belongs, then turns it back. The wefts are packed down so densely that they hide the warp completely. The picture and the cloth are the same thing, and the back looks much like the front."
+        },
+        {
+          "type": "text",
+          "text": "An **embroidery** is stitched. The cloth is woven first, often plain, and the picture is added on top with a needle and coloured thread. The Bayeux hanging is an embroidery: wool yarn stitched onto plain linen. The name tapestry was used loosely in the past for any wall hanging, and it stuck."
+        },
+        {
+          "type": "diagram",
+          "id": "stitched",
+          "caption": "Tapestry weaving, in which the coloured wefts are the cloth, beside the two embroidery stitches of the Bayeux hanging."
+        }
+      ]
+    },
+    {
+      "title": "How it was stitched",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The embroiderers used only two main stitches. **Stem stitch**, a line of short stitches each overlapping the one before, outlines the figures and forms the Latin captions. **Laid and couched work** fills the shapes. The embroiderer first lays long threads of wool side by side across a shape, then lays a few threads across them at right angles, and finally ties those down with tiny stitches through the linen. Almost all the wool lies on the front, with very little on the back, which saved yarn and covered large areas quickly."
+        },
+        {
+          "type": "text",
+          "text": "The wool was dyed in about ten colours, from a small set of plant dyes: woad for blues and blue-greens, madder for reds, and weld for yellows, with greens made by dyeing in both blue and yellow, the dyes of lesson 5. The colours were chosen for pattern rather than realism, so horses can be blue or red-brown."
+        },
+        {
+          "type": "text",
+          "text": "The hanging is made of nine linen panels sewn together, and the joins are so neatly matched that several teams were probably stitching the panels at once from a single design. Most historians think it was designed and made in England, probably in Canterbury, in the 1070s, soon after the conquest. The most likely patron was **Odo**, Bishop of Bayeux and half-brother of William the Conqueror, who appears prominently in the story and may have had it made for his new cathedral, consecrated in 1077. The embroiderers were most likely English women; English needlework was already famous across Europe, as the next section shows. The end of the hanging is lost, and the story now breaks off as the English flee from Hastings."
+        }
+      ]
+    },
+    {
+      "title": "English work",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "English embroidery was a luxury export for centuries after the conquest. From the 12th to the 14th century, London workshops produced **opus anglicanum**, English work, in silk and gold thread for church vestments. Popes and kings across Europe bought it, and an inventory of the papal treasure in 1295 lists more pieces of English work than of any other kind. Silver-gilt thread, silver coated with a thin layer of gold, was laid on the surface and couched, tied down with small stitches, the same method as the Bayeux wool, so that almost none of the costly metal was hidden on the back."
+        }
+      ]
+    },
+    {
+      "title": "Real tapestries",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From the 14th century, great woven tapestries became the costliest furnishings in the courts of Europe. The **Apocalypse Tapestry** of Angers, woven in Paris in the 1370s and 1380s for the Duke of Anjou, was originally about 140 metres long. Workshops in Arras, Tournai and later Brussels wove sets of hangings for kings, which were rolled up and carried from palace to palace, both to keep stone rooms warmer and to show wealth. A large tapestry could take several weavers years to finish, and Henry VIII of England owned more than 2,000."
+        },
+        {
+          "type": "text",
+          "text": "Tapestry was so much slower than embroidery because every colour change in the picture meant turning back the weft. Embroidery only needs to cover the parts that carry the picture, and the Bayeux embroiderers left the background as bare linen."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on tapestry and embroidery.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What makes the picture in a true tapestry?",
+                "choices": ["Coloured wefts woven only across their own patch", "Wool stitched on top of a plain linen cloth", "Dye painted onto the cloth after weaving", "Coloured warp threads lifted in patterns"],
+                "answer": 0,
+                "why": "Each weft turns back where its colour ends, and the packed wefts hide the warp."
+              },
+              {
+                "ask": "Why is the Bayeux hanging not a tapestry?",
+                "choices": ["Its picture is stitched onto linen with a needle", "It was made in England rather than in France", "It is made of wool rather than silk", "It is too long to have been woven on a loom"],
+                "answer": 0,
+                "why": "It is an embroidery: wool stitched onto plain linen that was woven first."
+              },
+              {
+                "ask": "Why did embroiderers fill shapes with laid and couched work?",
+                "choices": ["Almost all the yarn stays on the front", "It is the only stitch that makes letters", "It hides the colour of the linen behind", "It can be done without a needle"],
+                "answer": 0,
+                "why": "Long threads are laid on the surface and tied down, so little yarn is wasted on the back."
+              },
+              {
+                "ask": "Who most likely had the Bayeux hanging made?",
+                "choices": ["Bishop Odo, William's half-brother", "King Harold, before the Battle of Hastings", "The Pope, as a gift to the new king William", "Louis XIV, to decorate a French palace"],
+                "answer": 0,
+                "why": "Odo appears prominently and may have wanted it for his new cathedral at Bayeux."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**A tapestry is woven; the Bayeux hanging is stitched.** Its wool picture is embroidered on plain linen.", "**Tapestry wefts turn back at each colour.** Packed down, they hide the warp and make the picture.", "**Two stitches made the Bayeux hanging.** Stem stitch for outlines and laid and couched work for filling.", "**Laid work saves yarn.** Almost all the wool lies on the front.", "**About ten colours came from three dyes.** Woad, madder and weld, mixed for greens.", "**It was probably English work of the 1070s.** Made in Canterbury, most likely for Bishop Odo.", "**English embroidery was a luxury export.** Opus anglicanum in silk and gold reached popes and kings.", "**Woven tapestries were the costlier art.** The Angers Apocalypse and Henry VIII's 2,000 hangings."],
+  "footnotes": {}
+}
