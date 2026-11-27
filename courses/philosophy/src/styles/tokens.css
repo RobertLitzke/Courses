@@ -62,7 +62,7 @@
 
 /* Argument maps (figures/argument.ts): claims in the claim colour, objections in the objection colour. */
 .argument { display: grid; gap: 8px; padding: 12px 14px; }
-.arg-step { display: grid; grid-template-columns: 2.2em 1fr; gap: 8px; align-items: start; padding: 8px 10px; border-radius: 8px; background: var(--paper); border-left: 4px solid #3f6f8f; color: var(--ink); line-height: 1.4; font-size: 0.95rem; }
+.arg-step { display: grid; grid-template-columns: 2.2em 1fr; gap: 8px; align-items: start; padding: 8px 10px; border-radius: 8px; background: var(--paper); border-left: 4px solid #d4a43a; color: var(--ink); line-height: 1.4; font-size: 0.95rem; }
 .arg-conclusion { border-left-color: #3f6f8f; background: #e7eef3; font-weight: 600; }
 .arg-objection { border-left-color: #b0546a; background: #f6e9ec; margin-left: 1.5em; grid-template-columns: 1fr; gap: 2px; }
 .arg-tag { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); padding-top: 2px; }
