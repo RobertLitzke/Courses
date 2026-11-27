@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 17 | 25 | 13 | 17 | 17 | 17 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 18 | 24 | 14 | 18 | 18 | 18 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 25 lessons to write, 13 to read through, 17 to copy-edit, 17 to fact-check, 17 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 24 lessons to write, 14 to read through, 18 to copy-edit, 18 to fact-check, 18 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -566,7 +566,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 15 | Can you lie to a murderer at the door? (`kant`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume. |
 | 16 | Would you obey God if he told you to kill your son? (`leap`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety. |
 | 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine. |
-| 18 | Who killed God? (`nietzsche`) |  | planned, listed as coming |  | The death of God, master and slave morality, eternal recurrence, and what his sister did to him. |
+| 18 | Who killed God? (`nietzsche`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how Nietzsche's sister made him a Nazi mascot. |
 | 19 | Are you condemned to be free? (`sartre`) |  | planned, listed as coming |  | Existence before essence, bad faith, the student's dilemma and responsibility. |
 | 20 | Is a woman born or made? (`beauvoir`) |  | planned, listed as coming |  | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
 | 21 | Should we imagine Sisyphus happy? (`camus`) |  | planned, listed as coming |  | The absurd, revolt, and the 1952 quarrel with Sartre. |

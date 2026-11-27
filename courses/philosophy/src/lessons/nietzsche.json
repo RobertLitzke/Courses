@@ -1,0 +1,301 @@
+{
+ "id": "nietzsche",
+ "n": 18,
+ "title": "Who killed God?",
+ "teaches": "The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how Nietzsche's sister made him a Nazi mascot",
+ "parts": [
+  {
+   "title": "A lantern in the morning",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "\"Have you not heard of that madman who lit a lantern in the bright morning hours, ran to the market place, and cried incessantly: 'I seek God! I seek God!'\" The people in the market do not believe in God either, and they laugh at him. Has God got lost, they ask; has he gone on a voyage, or emigrated? The madman jumps into their midst and pierces them with his eyes. \"Whither is God? I will tell you. We have killed him, you and I. All of us are his murderers.\""
+    },
+    {
+     "type": "text",
+     "text": "The passage is section 125 of *The Gay Science*, published in 1882 by Friedrich Nietzsche, a former professor of Greek from Germany then living on a small pension in boarding houses in Switzerland and Italy. Readers of lesson 6 will recognise the lantern: Diogenes the Cynic walked through the marketplace in daylight with a lamp, looking for a human being. Nietzsche's madman is looking for God, and the joke is on the crowd, who think they have already got rid of him without noticing what that means."
+    },
+    {
+     "type": "text",
+     "text": "\"God is dead\" is the most quoted line in modern philosophy and one of the most misread. In this lesson we look at what Nietzsche meant by it, what he thought should follow, the test he proposed for how to live, and how his work was taken over after his death by people he despised."
+    }
+   ]
+  },
+  {
+   "title": "What the madman meant",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Nietzsche was not announcing that he had proved God does not exist. He took that for granted, and so, he thought, did most educated Europeans of his time, whatever they said on Sundays. Science, history and the criticism of the Bible had made belief in the Christian God impossible to hold honestly. The madman's point is that people have not understood the consequences. \"How shall we comfort ourselves, the murderers of all murderers?\" he asks. \"Is not the greatness of this deed too great for us?\""
+    },
+    {
+     "type": "text",
+     "text": "For nearly two thousand years, Nietzsche argued, European morality had rested on Christianity: its idea of good and evil, of the equal worth of every soul, of pity and humility as virtues, of a meaning to suffering. Remove God and the foundation is gone, but people go on living by the morality as if nothing had happened, like the light of a star that reaches us after the star itself has died. \"I have come too early,\" the madman says at the end; \"this tremendous event is still on its way.\""
+    },
+    {
+     "type": "text",
+     "text": "What Nietzsche feared was **nihilism**, from the Latin *nihil*, nothing: the belief that nothing has value and life has no meaning. When people realise that their highest values have no foundation, he thought, many would conclude that nothing matters at all. Nietzsche did not want that conclusion. He wanted to find out where our values came from, and whether better ones could be made.[^dostoevsky]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "A question the death of God raises. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "permitted",
+      "ask": "If there is no God, does morality lose its foundation?",
+      "choices": [
+       "Yes: without God there is nothing to make right and wrong binding",
+       "No: morality never depended on God",
+       "It loses its old foundation and needs a new one",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the view of Dostoevsky's character Ivan Karamazov, often summed up as \"if there is no God, everything is permitted\". Lesson 1's Euthyphro dilemma is the classic reply.",
+       "You chose the view of most philosophers since Plato, religious ones included, as lesson 1 showed.",
+       "You chose something close to Nietzsche's own view: the death of God is a crisis that must be faced, not ignored.",
+       "Nietzsche thought most of his contemporaries had not even noticed the question."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Master and slave",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Nietzsche had been made professor of classical philology, the study of ancient Greek and Latin texts, at the university of Basel in 1869, at the age of 24, before he had finished his doctorate.[^basel] He resigned ten years later, crippled by migraines, eye pain and stomach illness. His training stayed with him: he looked at moral words the way a philologist looks at any words, asking where they came from and how their meanings changed. In *On the Genealogy of Morality* (1887) he set out a story of how \"good\" changed its meaning."
+    },
+    {
+     "type": "text",
+     "text": "In the earliest moralities, Nietzsche said, \"good\" was what the powerful and healthy called themselves: noble, strong, proud, generous, open. \"Bad\" meant low, common, weak, an afterthought. He called this **master morality**. Then the weak and oppressed, who could not beat their masters, took revenge in imagination. Out of resentment, which he called by the French word *ressentiment*, they turned the values upside down. The strong and proud became \"evil\", and the weak, humble and meek became \"good\". This **slave morality**, he argued, triumphed with Christianity, which taught that the meek shall inherit the earth."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Nietzsche's two moralities. Sort which one would call each trait good.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Which morality calls this good?",
+      "groups": [
+       {
+        "name": "Master morality",
+        "color": "light"
+       },
+       {
+        "name": "Slave morality",
+        "color": "claim"
+       }
+      ],
+      "items": [
+       {
+        "name": "Pride in your own strength",
+        "group": "Master morality",
+        "why": "The noble person's good is first of all self-affirmation."
+       },
+       {
+        "name": "Humility",
+        "group": "Slave morality",
+        "why": "Making a virtue of lowering yourself is, for Nietzsche, the weak making a virtue of necessity."
+       },
+       {
+        "name": "Pity for the suffering",
+        "group": "Slave morality",
+        "why": "Nietzsche thought pity multiplied suffering and was the central slave value."
+       },
+       {
+        "name": "Generosity from abundance",
+        "group": "Master morality",
+        "why": "The noble give because they have plenty, not from duty."
+       },
+       {
+        "name": "Patience under injustice",
+        "group": "Slave morality",
+        "why": "Waiting for justice in the next world is ressentiment postponed."
+       },
+       {
+        "name": "Openness and honesty about what you want",
+        "group": "Master morality",
+        "why": "Nietzsche thought the noble had no need for the cleverness of the oppressed."
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "It is easy to read this as praise of cruelty and contempt for the weak, and Nietzsche sometimes wrote as if it were. But his main target was not compassion as such. It was values held for hidden reasons: a morality that calls itself love but grew from resentment, that praises meekness out of envy of the strong, and that turns people against their own vitality. His method, asking what needs and drives a value serves, is called **genealogy**, and it was more important to him than his story's historical details, many of which are guesses."
+    }
+   ]
+  },
+  {
+   "title": "The demon and the Übermensch",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "If nothing outside life gives it value, what could? Nietzsche offered a test, in section 341 of *The Gay Science*, titled \"The greatest weight\". Suppose a demon crept into your loneliest loneliness one day or night and said: \"This life as you now live it and have lived it, you will have to live once more and innumerable times more; and there will be nothing new in it, but every pain and every joy and every thought and sigh, and everything unutterably small or great in your life will have to return to you, all in the same succession and sequence.\""
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Nietzsche's demon. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "recurrence",
+      "ask": "If a demon told you that you would live your life exactly as it has been, over and over for ever, how would you take it?",
+      "choices": [
+       "As a curse",
+       "As something I would welcome",
+       "It would make me change how I live now",
+       "Not sure"
+      ],
+      "who": [
+       "Nietzsche would say your life so far is not yet one you affirm. He did not think that unusual.",
+       "Nietzsche asked whether anyone could say this and mean it. He called such a person's attitude amor fati, love of fate.",
+       "You chose the use Nietzsche intended: the demon is a test of how to live, not a claim about the universe.",
+       "Nietzsche asked the question to unsettle, so you are in good company."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "\"Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine.'\" The thought of **eternal recurrence** is a test: live so that you would want to live this life again, every moment of it. It puts the weight of eternity on each choice without any god to give it."
+    },
+    {
+     "type": "text",
+     "text": "In *Thus Spoke Zarathustra* (1883 to 1885), a strange book in the style of a scripture, Nietzsche's prophet announces the **Übermensch**, usually translated \"overman\" or \"superman\": a human being who could create values for himself rather than inherit them, and affirm life fully, eternal recurrence and all. Nietzsche gave few details, and the idea has nothing to do with race or biology. He meant a type of person to aim at, a goal for those who had understood that God is dead and did not want to sink into nihilism."
+    }
+   ]
+  },
+  {
+   "title": "How his sister made him a Nazi",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On 3 January 1889, in Turin, Nietzsche collapsed in the street. The story that he had thrown his arms around a horse being beaten by its driver is told by early biographers and may be a legend. Over the following days he sent friends letters signed \"Dionysus\" and \"The Crucified\". He never recovered his mind, and lived another eleven years, cared for first by his mother and then by his sister, Elisabeth.[^illness]"
+    },
+    {
+     "type": "text",
+     "text": "Elisabeth Förster-Nietzsche had married Bernhard Förster, a leading German antisemite, and gone with him in 1886 to found a colony for \"pure\" Germans in the forests of Paraguay, called Nueva Germania. Nietzsche had been disgusted by the marriage, and wrote to her that her association with an antisemitic chief filled him with \"ever again ire or melancholy\". The colony failed; Förster killed himself in 1889. Elisabeth came home, took control of her helpless brother and all his papers, and in 1894 founded the Nietzsche Archive, later in Weimar."
+    },
+    {
+     "type": "text",
+     "text": "She edited his work to fit her politics, forged some letters, and assembled a book called *The Will to Power* from his unpublished notebooks, arranged as if it were his master work. When the Nazis came to power she welcomed them. Adolf Hitler visited the Archive several times, and attended her funeral in 1935. Nazi propaganda quoted Nietzsche on the will to power and the Übermensch, and left out his contempt for German nationalism and his repeated attacks on antisemites.[^kaufmann]"
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Genealogy as a method is still argued over and widely used: asking where a value came from and what it serves is now standard in moral philosophy, history and social science, from Michel Foucault's histories of prisons and madness to Bernard Williams's work on truthfulness. Nietzsche's psychology, his suspicion that moral feelings often hide other motives such as envy and resentment, has influenced moral psychology and modern psychology's interest in self-deception. Eternal recurrence as a test of how to live is still discussed."
+    },
+    {
+     "type": "text",
+     "text": "Some readings and doctrines are abandoned. The Nazi reading of Nietzsche is rejected by every serious scholar, after the work of Walter Kaufmann and others from 1950 onwards. Eternal recurrence taken as a literal claim about the physics of the universe, which Nietzsche sometimes tried to argue in his notebooks, has no defenders. The question he asked, what happens to morality when God is no longer believed in, remains open, and much of the rest of this course, from Sartre to Rawls, is an attempt to answer it."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Nietzsche",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What does the madman mean by \"God is dead\"?",
+        "choices": [
+         "Belief in God has become impossible, and people have not grasped the consequences",
+         "God existed once and has since died",
+         "He has a new proof that God does not exist",
+         "Christianity is about to be replaced by a new religion"
+        ],
+        "answer": 0,
+        "why": "The crowd already disbelieve. The madman's point is that they have not understood what losing God means for their values."
+       },
+       {
+        "ask": "What is nihilism, as Nietzsche used the word?",
+        "choices": [
+         "The belief that nothing has value and life has no meaning",
+         "The belief that God does not exist",
+         "The belief that all values are created by the strong",
+         "The belief that morality should be based on science"
+        ],
+        "answer": 0,
+        "why": "Nietzsche feared nihilism would follow the death of God, and wanted to find a way past it."
+       },
+       {
+        "ask": "According to the Genealogy, how did slave morality arise?",
+        "choices": [
+         "The oppressed, out of resentment, called the strong evil and their own weakness good",
+         "The strong invented rules to keep the weak obedient",
+         "Slaves in Greece and Rome wrote down the first moral laws",
+         "It grew from the masters' pity for those they ruled"
+        ],
+        "answer": 0,
+        "why": "Ressentiment turned the masters' good and bad into good and evil, with the values reversed."
+       },
+       {
+        "ask": "What is the demon's offer of eternal recurrence meant to test?",
+        "choices": [
+         "Whether you could affirm your life so fully that you would live it again exactly",
+         "Whether you believe in life after death",
+         "Whether the universe will in fact repeat itself",
+         "Whether you regret your past mistakes"
+        ],
+        "answer": 0,
+        "why": "Nietzsche used it as a test of how to live. Wanting the same life again is the highest affirmation."
+       },
+       {
+        "ask": "Why is the Nazi reading of Nietzsche rejected?",
+        "choices": [
+         "Nietzsche despised antisemites and German nationalism, and his sister edited and forged his work",
+         "Nietzsche wrote nothing about power or the Übermensch",
+         "Nietzsche was a committed Christian",
+         "Nietzsche's books were banned by the Nazis"
+        ],
+        "answer": 0,
+        "why": "Elisabeth Förster-Nietzsche shaped his papers to her politics. His own letters and books attack antisemitism."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Nietzsche's madman says we have killed God.** The crowd already disbelieve; what they have not grasped is the consequence.",
+  "**European morality rested on Christianity.** Without God it has lost its foundation, though people go on living by it.",
+  "**Nietzsche feared nihilism.** The belief that nothing has value might follow once the highest values lost their ground.",
+  "**Master morality calls the strong good; slave morality calls them evil.** Nietzsche traced the reversal to the resentment of the oppressed.",
+  "**Genealogy asks what a value serves.** It was Nietzsche's method, and it matters more than his historical guesses.",
+  "**Eternal recurrence is a test of how to live.** Could you want this life again, every moment, for ever?",
+  "**The Übermensch creates values instead of inheriting them.** It has nothing to do with race.",
+  "**His sister made him a Nazi mascot.** Elisabeth edited and forged his work; he had despised antisemites."
+ ],
+ "footnotes": {
+  "dostoevsky": {
+   "kind": "digression",
+   "title": "Dostoevsky",
+   "text": "In Dostoevsky's The Brothers Karamazov (1880) Ivan argues that without God and immortality \"everything is permitted\". The exact phrase does not appear in the novel, though the idea is put several ways. Nietzsche discovered Dostoevsky in 1887 and called him the only psychologist from whom he had anything to learn."
+  },
+  "illness": {
+   "kind": "technical",
+   "title": "What was his illness?",
+   "text": "For most of the 20th century his collapse was put down to syphilis, an explanation first spread by doctors and later by hostile writers. Many specialists now doubt it, and have suggested a brain tumour or a hereditary vascular disease instead. His father had died of a brain disease at 35."
+  },
+  "kaufmann": {
+   "kind": "technical",
+   "title": "Rescuing Nietzsche",
+   "text": "Walter Kaufmann, a German-born philosopher who had left Germany as a teenager in 1939, published Nietzsche: Philosopher, Psychologist, Antichrist in 1950, and translated most of Nietzsche's books into English. His work did most to separate Nietzsche from the Nazi reading."
+  },
+  "basel": {
+   "kind": "digression",
+   "title": "Nietzsche and Wagner",
+   "text": "At Basel Nietzsche became a close friend of the composer Richard Wagner, who lived nearby, and his first book praised Wagner's operas as a rebirth of Greek tragedy. They drifted apart from 1876, for reasons both personal and philosophical, among them Wagner's turn to Christian themes in Parsifal, and Nietzsche later wrote a book attacking him."
+  }
+ }
+}
