@@ -4,7 +4,8 @@ import { describe, expect, it } from 'vitest';
 import { FIGURES } from '../src/figures';
 import { PERIODS } from '../src/figures/silk-routes';
 import { cropHeight, worldMap } from '../src/figures/world';
-import { context, setSlider } from './helpers';
+import { click, context, setSlider } from './helpers';
+import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -25,6 +26,19 @@ describe('the silk routes', () => {
   it('is done at the last period', async () => {
     const h = FIGURES['silk-routes'](context(), 'mongol');
     setSlider(h.node, 0, PERIODS.length - 1);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the pattern loom', () => {
+  it('needs fewer shafts for a symmetric motif', () => {
+    expect(shaftsNeeded(MOTIFS.Diamond)).toBeLessThan(shaftsNeeded(MOTIFS.Bird));
+    expect(shaftsNeeded(MOTIFS.Bird)).toBeGreaterThanOrEqual(10);
+  });
+  it('is done once a busy motif is seen on both looms', async () => {
+    const h = FIGURES['pattern-loom'](context(), 'many');
+    click(h.node, 'Bird');
+    click(h.node, 'Drawloom');
     await expect(h.done).resolves.toBeUndefined();
   });
 });
