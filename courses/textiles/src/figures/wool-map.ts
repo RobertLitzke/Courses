@@ -36,11 +36,11 @@ export function woolMapStill(): { node: HTMLElement } {
   const names: [keyof typeof AT, string, { left?: boolean; up?: boolean }][] = [
     ['london', 'London', { left: true }], ['boston', 'Boston', { up: true }], ['southampton', 'Southampton', { left: true, up: true }],
     ['calais', 'Calais (staple)', { left: true }], ['bruges', 'Bruges', { up: true }], ['ghent', 'Ghent', {}], ['ypres', 'Ypres', {}],
-    ['dordrecht', 'Dordrecht', { up: true }], ['troyes', 'Champagne fairs', {}], ['florence', 'Florence', {}], ['genoa', 'Genoa', { left: true }],
+    ['dordrecht', 'Dordrecht', { up: true }], ['troyes', 'Troyes', {}], ['florence', 'Florence', {}], ['genoa', 'Genoa', { left: true }],
   ];
   for (const [k, name, o] of names) s.append(place(MAP, AT[k], name, o));
   const [gx, gy] = MAP.xy([-7.8, 45.3]);
-  s.append(label(gx, gy + 16, 'Italian galleys to', { size: 'small', halo: COL.sea }), label(gx, gy + 28, 'Florence and Venice', { size: 'small', halo: COL.sea }));
+  s.append(label(gx, gy + 16, 'Italian galleys', { size: 'small', halo: COL.sea }), label(gx, gy + 28, 'to Italy', { size: 'small', halo: COL.sea }));
   const [wx, wy] = MAP.xy([-5.6, 54.6]);
   s.append(
     svg('ellipse', { cx: wx + 8, cy: wy, rx: 9, ry: 6, fill: COL.fibre, opacity: 0.5 }), label(wx + 22, wy + 4, 'best wool country', { size: 'small' }),

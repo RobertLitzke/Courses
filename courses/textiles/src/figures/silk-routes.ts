@@ -78,7 +78,7 @@ export const PERIODS: readonly Period[] = [
     land: [{ pts: LAND_HAN }, { pts: LAND_WEST }],
     sea: [{ pts: [...INDIA_TO_CHINA.slice(0, -2), [116, 21], P.quanzhou] }, { pts: GULF }, { pts: TO_INDIA }],
     towns: ['luoyang', 'quanzhou', 'calicut', 'hormuz', 'tabriz', 'constantinople', 'lucca', 'samarkand'],
-    say: 'Under Mongol rule one empire spans most of the land route, and Italian merchants travel it. Quanzhou is one of the largest ports in the world. Italian cities such as Lucca now raise silkworms and weave silk themselves.',
+    say: 'Under Mongol rule one empire spans most of the land route, and Italian merchants travel it. Quanzhou is one of the largest ports in the world. Italian cities such as Lucca now weave silk themselves, much of it from raw silk brought from the east and from southern Italy.',
   },
 ];
 

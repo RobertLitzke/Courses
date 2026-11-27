@@ -22,7 +22,7 @@ const AT = {
 /** Storehouse counts at a few excavated sites (rounded). */
 export const STOREHOUSES: readonly { at: keyof typeof AT; name: string; n: number }[] = [
   { at: 'cotapachi', name: 'Cotapachi', n: 2400 },
-  { at: 'xauxa', name: 'Hatun Xauxa', n: 1000 },
+  { at: 'xauxa', name: 'Hatun Xauxa', n: 2000 },
   { at: 'huanuco', name: 'Huánuco Pampa', n: 500 },
 ];
 

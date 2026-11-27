@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Huaca Prieta is a mound of shells, ash and rubbish on the coast of northern Peru, built up by fishing people over thousands of years. Among the scraps excavated there in the 1940s were small pieces of cotton cloth. When the textile researcher Jeffrey Splitstoser and his colleagues tested them with modern chemical methods, they found indigo in several,[^huaca] and in 2016 they reported the cloth as about 6,000 years old. That made it the oldest indigo-dyed cloth then known anywhere, about 1,500 years older, the team reported, than the earliest indigo from Egypt."
+          "text": "Huaca Prieta is a mound of shells, ash and rubbish on the coast of northern Peru, built up by fishing people over thousands of years. It was first dug in the 1940s, and excavations there in 2009 turned up small pieces of cotton cloth with faded blue stripes. When the textile researcher Jeffrey Splitstoser and his colleagues tested them with modern chemical methods, they found indigo in five of the eight pieces,[^huaca] and in 2016 they reported the cloth as about 6,000 years old. That made it the oldest indigo-dyed cloth then known anywhere, about 1,500 years older, the team reported, than the earliest indigo from Egypt."
         },
         {
           "type": "text",
@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "The mordant also decides the colour, which made it a design tool. Paint alum on one part of a cloth and iron on another, put the whole cloth in one madder bath, and it comes out red where the alum was, dark where the iron was, and the colour washes out of the rest. That is **mordant printing**, and it is the method behind India's painted and printed cottons, the painted and printed cottons, such as chintz, of lesson 12."
+          "text": "The mordant also decides the colour, which made it a design tool. Paint alum on one part of a cloth and iron on another, put the whole cloth in one madder bath, and it comes out red where the alum was, dark where the iron was, and the colour washes out of the rest. That is **mordant printing**, and it is the method behind India's painted and printed cottons, such as the chintz of lesson 12."
         }
       ]
     },
@@ -74,7 +74,7 @@
         },
         {
           "type": "text",
-          "text": "Each dip and airing adds a little more indigo, so deep blues take many dips. Indigo needs no mordant, works on cotton, linen, wool and silk alike, and holds well through washing, which is why it was the most widely used dye in the world for thousands of years. It does wear off: the indigo sits mostly in the outer layer of each yarn, so where cloth rubs, the undyed core shows through. That is why jeans fade white at the knees and the seams, which lesson 23 and branch lesson F2 return to."
+          "text": "Each dip and airing adds a little more indigo, so deep blues take many dips. Indigo needs no mordant, works on cotton, linen, wool and silk alike, and holds well through washing, which is why it was the most widely used dye in the world for thousands of years. It does wear off: the indigo sits mostly in the outer layer of each yarn, so where cloth rubs, the undyed core shows through. That is why jeans fade white at the knees and the seams, which lesson 27 and branch lesson F2 return to."
         },
         {
           "type": "text",
@@ -156,7 +156,7 @@
     "huaca": {
       "kind": "technical",
       "title": "How old indigo is found",
-      "text": "The dye in the Huaca Prieta cloth was invisible to the eye, faded to brown. It was found by dissolving tiny samples and identifying indigotin with liquid chromatography, which can detect a dye in quantities far too small to see."
+      "text": "After 6,000 years the blue of the Huaca Prieta cloth was faint, and a colour seen by eye does not show which dye made it. The dye was confirmed by dissolving tiny samples and identifying indigotin with liquid chromatography, which can detect a dye in quantities far too small to see."
     }
   }
 }

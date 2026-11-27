@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Viking Ship Museum in Roskilde, Denmark, builds full-size copies of the ships found sunk in the fjord nearby, and sails them. Its reconstructions raised a question nobody had needed to ask: how much work went into a sail. A large Viking ship carried a square sail of woven wool of around 100 square metres or more. The textile archaeologist Eva Andersson Strand worked through every step, from sorting the fleece to weaving, using what experimental spinners and weavers could actually do with Viking Age tools. Her estimate for a sail of about 120 square metres was something like 12,000 to 15,000 hours of work, which is four women working ten-hour days, every day, for most of a year."
+          "text": "The Viking Ship Museum in Roskilde, Denmark, builds full-size copies of the ships found sunk in the fjord nearby, and sails them. Its reconstructions raised a question nobody had needed to ask: how much work went into a sail. A large Viking ship carried a square sail of woven wool of around 100 square metres or more. The textile archaeologist Eva Andersson Strand worked it out from timed experiments in which spinners and weavers used copies of Viking Age tools. Her estimate was that spinning and weaving the cloth for a sail of about 120 square metres would take four women working ten-hour days a full year."
         },
         {
           "type": "text",
@@ -44,7 +44,7 @@
         {
           "type": "interactive_diagram",
           "id": "spin-hours",
-          "caption": "An estimate from the arithmetic above, with round numbers: the bars use a log scale, where each step along the axis is ten times the last, so very different totals fit on one chart. A hand weaver makes about 150 passes of the weft an hour, and preparing the fibre, which can take as long again, is left out.",
+          "caption": "An estimate from the arithmetic above, with round numbers: the bars use a log scale, where each step along the axis is ten times the last, so very different totals fit on one chart. A hand weaver makes about 150 passes of the weft an hour, and preparing the fibre, which can take as long again, is left out. These round rates give a sail far fewer hours than Andersson Strand's timed experiments, which come to roughly 14,000 hours of spinning and weaving.",
           "task": "Estimate the spinning in a Viking sail",
           "goal": "sail"
         },
@@ -72,7 +72,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In almost every society that has left records, spinning was women's work, and so was much of the weaving. Elizabeth Wayland Barber has pointed out why: spinning can be picked up and put down at any moment, is not dangerous, and can be done while looking after small children, which other essential work such as hunting or ploughing could not. English keeps the traces. English kept traces of this. An unmarried woman came to be called a **spinster**, since spinning was the usual work of unmarried women in a household, and the mother's side of a family was the **distaff side**, after the stick that held the unspun fibre."
+          "text": "In almost every society that has left records, spinning was women's work, and so was much of the weaving. Elizabeth Wayland Barber has pointed out why: spinning can be picked up and put down at any moment, is not dangerous, and can be done while looking after small children, which other essential work such as hunting or ploughing could not. English keeps traces of this. An unmarried woman came to be called a **spinster**, since spinning was the usual work of unmarried women in a household, and the mother's side of a family was the **distaff side**, after the stick that held the unspun fibre."
         },
         {
           "type": "text",

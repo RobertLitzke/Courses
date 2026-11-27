@@ -74,7 +74,7 @@
         {
           "type": "diagram",
           "id": "series",
-          "caption": "India's exports of natural indigo and Germany's production of synthetic indigo, 1895 to 1914. Rough, rounded figures; synthetic indigo was sold as a paste, so the two are not in the same units.",
+          "caption": "India's exports of natural indigo and Germany's production of synthetic indigo, 1895 to 1914. Rough, rounded figures, India's from trade returns given by Prakash Kumar (2007); synthetic indigo was sold as a paste, so the two are not in the same units.",
           "options": {
             "from": 1895,
             "to": 1914,
@@ -85,7 +85,7 @@
                 "unit": "thousand tonnes",
                 "max": 10,
                 "lines": [
-                  {"name": "natural", "color": "india", "points": [[1895, 9.4], [1897, 7.5], [1899, 5], [1901, 4], [1903, 2.5], [1905, 1.6], [1907, 1.3], [1909, 0.9], [1911, 0.8], [1913, 0.55], [1914, 0.5]]}
+                  {"name": "natural", "color": "india", "points": [[1895, 9.4], [1897, 7.5], [1899, 5], [1901, 4], [1903, 2.5], [1905, 1.6], [1907, 1.7], [1909, 0.9], [1911, 0.9], [1913, 0.55], [1914, 0.5]]}
                 ]
               },
               {
@@ -101,7 +101,7 @@
         },
         {
           "type": "text",
-          "text": "Within fifteen years India's indigo trade had shrunk to a small fraction of its size, and the planters in Bihar tried to pass their losses on to their tenants. In 1917 tenants in Champaran, in Bihar, asked a lawyer recently returned from South Africa, Mohandas Gandhi, to investigate their treatment by indigo planters. His campaign there was his first in India, and lesson 21 follows where it led."
+          "text": "Within fifteen years India's indigo trade had shrunk to a small fraction of its size, and the planters in Bihar tried to pass their losses on to their tenants. In 1917, at the request of tenants in Champaran, in Bihar, a lawyer recently returned from South Africa, Mohandas Gandhi, went there to investigate their treatment by indigo planters. His campaign there was his first in India, and lesson 21 follows where it led."
         }
       ]
     },
@@ -114,7 +114,7 @@
         },
         {
           "type": "text",
-          "text": "In 1932 Gerhard Domagk, working for the German dye and chemical group IG Farben, which included Bayer, found that a red dye called **Prontosil** cured mice infected with streptococcus bacteria. It was the first of the sulfa drugs, the first widely used medicines that killed bacteria inside the body, and Domagk was awarded the Nobel Prize in 1939, though the Nazi government forced him to decline it; he received the medal in 1947. Quinine, the drug Perkin had set out to make, was finally synthesised in 1944, by the American chemists Robert Woodward and William Doering, though their route was never used to make it commercially."
+          "text": "In 1932 Gerhard Domagk, working for the German dye and chemical group IG Farben, which included Bayer, found that a red dye called **Prontosil** cured mice infected with streptococcus bacteria. It was the first of the sulfa drugs, the first widely used medicines that stopped bacterial infections inside the body, and Domagk was awarded the Nobel Prize in 1939, though the Nazi government forced him to decline it; he received the medal in 1947. Quinine, the drug Perkin had set out to make, was finally synthesised in 1944, by the American chemists Robert Woodward and William Doering, though their route relied on a last step published by other chemists in 1918 and was never used to make it commercially."
         }
       ]
     },

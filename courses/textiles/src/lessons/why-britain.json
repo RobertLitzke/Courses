@@ -42,7 +42,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Jane Humphries and Benjamin Schneider** (2019) went back to the earnings of the hand spinners themselves. Using account books and records of payments, they found that women spinners in 18th-century England earned far less than Allen had assumed, often only a few pence a day, and that spinning was often part-time work fitted around other tasks. If spinners' time was cheap, saving it was worth less, and high wages cannot be the whole explanation. They suggest other causes: the rapidly growing demand for cotton, and the way the machines raised the quality and evenness of yarn as well as its quantity. Allen replied that the relevant comparison is with earnings in other trades and other countries, and that his conclusion stands. The debate continues."
+          "text": "**Jane Humphries and Benjamin Schneider** (2019) went back to the earnings of the hand spinners themselves. From more than 2,500 records of spinners' pay and output, they found that women spinners in 18th-century England earned far less than Allen had assumed, often only a few pence a day, and that their earnings did not rise before the jenny and the water frame arrived. If spinners' time was cheap, saving it was worth less, and high wages cannot be the whole explanation. They suggest other motives: making slow spinners more productive and their yarn more even, and easing shortages of yarn that was hard to spin by hand, such as cotton. Allen replied that their records show what spinners earned, not how many hours they worked. Most spinners worked part-time, around other tasks, so low earnings for a day do not mean a low wage for an hour, and he holds that his conclusion stands. The debate continues."
         },
         {
           "type": "text",
@@ -95,9 +95,9 @@
               },
               {
                 "ask": "What does Pomeranz mean by ghost acres?",
-                "choices": ["Land abroad, and coal, that supplied what Britain's land could not", "Farms in England abandoned as people moved to the towns", "Land in the American South worn out by growing cotton", "Common land in England enclosed by landlords for sheep"],
+                "choices": ["Land abroad that grew what Britain's own fields could not", "Farms in England abandoned as people moved to the towns", "Land in the American South worn out by growing cotton", "Common land in England enclosed by landlords for sheep"],
                 "answer": 0,
-                "why": "Coal replaced forests for fuel, and American plantations replaced fields for cotton and sugar. Both freed Britain from the land limit the Yangzi delta faced."
+                "why": "American plantations grew the cotton, sugar and timber that would have needed millions of acres in Britain. With coal in place of forests for fuel, they freed Britain from the land limit the Yangzi delta faced."
               },
               {
                 "ask": "Parthasarathi argues that Britain mechanised because of India. In what sense?",
@@ -117,6 +117,6 @@
       ]
     }
   ],
-  "summary": ["**Lancashire mechanised first, Bengal did not.** Bengal had the finer industry, but the machines appeared in Britain.", "**Allen: machines went where they paid.** High wages, cheap capital and cheap coal made labour-saving machines profitable in Britain.", "**Humphries and Schneider: spinners were cheap.** English hand spinners earned less than Allen assumed, so high wages explain less.", "**Pomeranz: coal and colonies.** Coal and American land, the ghost acres, freed Britain from the land limit the Yangzi delta faced.", "**Parthasarathi: India pushed and the state protected.** Competition from Indian cloth gave the incentive; bans, tariffs and empire gave British producers room.", "**Mokyr: useful knowledge.** A culture of experiment and skilled mechanics turned incentives into machines.", "**The arguments overlap.** Historians argue over the weight of each cause, not whether only one is true.", "**The trade reversed.** Within fifty years British cloth undercut Indian cloth in India itself."],
+  "summary": ["**Lancashire mechanised first, Bengal did not.** Bengal had the finer industry, but the machines appeared in Britain.", "**Allen: machines went where they paid.** High wages, cheap capital and cheap coal made labour-saving machines profitable in Britain.", "**Humphries and Schneider: spinners were cheap.** English hand spinners earned less than Allen assumed, so high wages explain less.", "**Pomeranz: coal and colonies.** Coal, and the ghost acres of American land, freed Britain from the land limit the Yangzi delta faced.", "**Parthasarathi: India pushed and the state protected.** Competition from Indian cloth gave the incentive; bans, tariffs and empire gave British producers room.", "**Mokyr: useful knowledge.** A culture of experiment and skilled mechanics turned incentives into machines.", "**The arguments overlap.** Historians argue over the weight of each cause, not whether only one is true.", "**The trade reversed.** Within fifty years British cloth undercut Indian cloth in India itself."],
   "footnotes": {}
 }

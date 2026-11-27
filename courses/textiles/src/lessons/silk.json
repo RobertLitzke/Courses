@@ -5,11 +5,11 @@
   "teaches": "Sericulture; silk as Han and Tang currency and tribute; why the secret and the single road are myths; Sogdian merchants; land and sea routes",
   "parts": [
     {
-      "title": "A senator's complaint",
+      "title": "An admiral's complaint",
       "blocks": [
         {
           "type": "text",
-          "text": "In the 70s AD the Roman writer Pliny the Elder, an admiral and a member of the governing class, finished his *Natural History*, an encyclopedia in 37 books. In the book on trees and spices he added up what Rome sent east: \"By the lowest reckoning, India, the Seres and the Arabian peninsula take from our empire 100 million sesterces every year. That is what our luxuries and our women cost us.\"[^pliny] The Seres were the silk people, the Romans' name for the Chinese, whom almost no Roman had met."
+          "text": "In the 70s AD the Roman writer Pliny the Elder, an admiral and a member of the governing class, finished his *Natural History*, an encyclopedia in 37 books. In the book on trees and spices he added up what Rome sent east: \"By the lowest reckoning, India, the Seres and the Arabian peninsula take from our empire 100 million sesterces every year. That is the sum which our luxuries and our women cost us.\"[^pliny] The Seres were the silk people, the Romans' name for the Chinese, whom almost no Roman had met."
         },
         {
           "type": "text",
@@ -35,7 +35,7 @@
         },
         {
           "type": "text",
-          "text": "The eggs hatch in spring, when the mulberry leaves open. For about four weeks the caterpillars eat chopped leaves day and night, shedding their skin four times and growing to several thousand times their weight at hatching. The trays have to be kept warm, clean and dry, since the worms die easily of cold and disease. Then each caterpillar spins a cocoon in two or three days, laying down a single filament around itself, often around a kilometre long. If the moth were left to hatch, it would break the filament on its way out. So most cocoons are heated, by steaming, baking or putting them in the sun, to kill the pupa, and then soaked in hot water so the gum softens and the filament can be found and reeled. Only a few cocoons are kept to hatch and lay the next year's eggs."
+          "text": "The eggs hatch in spring, when the mulberry leaves open. For about four weeks the caterpillars eat chopped leaves day and night, shedding their skin four times and growing to about 10,000 times their weight at hatching. The trays have to be kept warm, clean and dry, since the worms die easily of cold and disease. Then each caterpillar spins a cocoon in two or three days, laying down a single filament around itself, several hundred metres long. If the moth were left to hatch, it would break the filament on its way out. So most cocoons are heated, by steaming, baking or putting them in the sun, to kill the pupa, and then soaked in hot water so the gum softens and the filament can be found and reeled. Only a few cocoons are kept to hatch and lay the next year's eggs."
         },
         {
           "type": "text",
@@ -69,7 +69,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Inside China, silk did a job that gold and silver coins did elsewhere. The Han dynasty (206 BC to AD 220) bought peace from the Xiongnu, the horse-riding confederation on its northern border, with marriage alliances and regular gifts of silk, and in some years the gifts ran to tens of thousands of bolts. A bolt was a standard length of plain silk, and it worked as a unit of value. Taxes were paid in it, soldiers and officials were paid in it, and prices were quoted in it."
+          "text": "Inside China, silk did a job that gold and silver coins did elsewhere. The Han dynasty (206 BC to AD 220) bought peace from the Xiongnu, the horse-riding confederation on its northern border, with marriage alliances and regular gifts of silk, and in some years the gifts ran to tens of thousands of bolts. A bolt was a standard length of plain silk, and for centuries it worked as a unit of value. Taxes were paid in it, soldiers and officials were paid in it, and prices were quoted in it."
         },
         {
           "type": "text",
@@ -86,7 +86,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The name Silk Road is modern. The German geographer Ferdinand von Richthofen coined *Seidenstraße* in 1877, while planning a railway across China. Historians now speak of silk routes, plural: a network of tracks between oases and cities, with many branches, crossing deserts and mountain passes. Few people travelled the whole way. Most goods were passed from merchant to merchant over short stages, and most trade along the routes was local, between neighbouring towns. Silk was one cargo among many: horses, jade, glass, silver, spices, paper, slaves, and religions, since Buddhism reached China along the same routes."
+          "text": "The name Silk Road is modern. The German geographer Ferdinand von Richthofen made the name *Seidenstraße* popular in 1877, in a study of China, though other German writers had used it before him. Historians now speak of silk routes, plural: a network of tracks between oases and cities, with many branches, crossing deserts and mountain passes. Few people travelled the whole way. Most goods were passed from merchant to merchant over short stages, and most trade along the routes was local, between neighbouring towns. Silk was one cargo among many: horses, jade, glass, silver, spices, paper, slaves, and religions, since Buddhism reached China along the same routes."
         },
         {
           "type": "text",
@@ -159,7 +159,7 @@
       ]
     }
   ],
-  "summary": ["**Sericulture is farming.** Silkworms eat mulberry leaves for about four weeks, spin a cocoon of one long filament, and are killed before hatching so the filament can be reeled.", "**It is slow, skilled work.** Several thousand cocoons give a kilogram of raw silk, and in China the work belonged to women in farming households.", "**China has the oldest silk, not the only silk.** Woven silk from about 3600 BC comes from Henan, but wild silk was used in the Indus cities by about 2450 BC.", "**The secret leaked early.** Silkworms were raised in Korea and Japan by the early centuries AD, in Khotan by about the 5th century, and in Byzantium from about 552.", "**Silk was money in China.** Han and Tang governments paid tribute, taxes, soldiers and officials in bolts of silk.", "**State spending moved silk west.** Pay for Tang garrisons put silk into circulation in Central Asia, and the trade there shrank when it stopped after 755.", "**There were silk routes, not one road.** The name is from 1877; goods moved in short stages, and Sogdian merchants ran much of the long-distance trade.", "**The sea carried more over time.** Ships linked the Red Sea, the Persian Gulf, India and China, and carried far more than caravans.", "**Roman complaints are not statistics.** Pliny's 100 million sesterces tells us what moralists believed about luxury."],
+  "summary": ["**Sericulture is farming.** Silkworms eat mulberry leaves for about four weeks, spin a cocoon of one long filament, and are killed before hatching so the filament can be reeled.", "**It is slow, skilled work.** Several thousand cocoons give a kilogram of raw silk, and in China the work belonged to women in farming households.", "**China has the oldest silk, not the only silk.** Woven silk from about 3600 BC comes from Henan, but wild silk was used in the Indus cities by about 2450 BC.", "**The secret leaked early.** Silkworms were raised in Korea and Japan by the early centuries AD, in Khotan by about the 5th century, and in Byzantium from about 552.", "**Silk was money in China.** Han and Tang governments paid tribute, soldiers and officials in bolts of silk, and collected taxes in it.", "**State spending moved silk west.** Pay for Tang garrisons put silk into circulation in Central Asia, and the trade there shrank when it stopped after 755.", "**There were silk routes, not one road.** The name is from the 19th century; goods moved in short stages, and Sogdian merchants ran much of the long-distance trade.", "**The sea carried more over time.** Ships linked the Red Sea, the Persian Gulf, India and China, and carried far more than caravans.", "**Roman complaints are not statistics.** Pliny's 100 million sesterces tells us what moralists believed about luxury."],
   "footnotes": {
     "pliny": {
       "kind": "digression",
@@ -174,7 +174,7 @@
     "harappa": {
       "kind": "technical",
       "title": "The Harappan silk",
-      "text": "Irene Good, Jonathan Mark Kenoyer and Richard Meadow reported the fibres in 2009, from moths of the genera *Antheraea* and *Philosamia*. They argued that some of the silk had been reeled from unbroken cocoons, not spun from broken ones."
+      "text": "Irene Good, Jonathan Mark Kenoyer and Richard Meadow reported the fibres in 2009, mostly from moths of the genus *Antheraea*, with one sample possibly from *Philosamia*. They argued that some of the silk had been reeled from unbroken cocoons, not spun from broken ones."
     },
     "procopius": {
       "kind": "digression",

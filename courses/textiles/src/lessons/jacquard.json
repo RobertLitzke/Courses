@@ -26,7 +26,7 @@
         },
         {
           "type": "text",
-          "text": "The drawloom had therefore moved the bottleneck from the number of shafts to two other places: the second worker on every pick, and the long setup for each new design. Several Lyon inventors tried to remove the drawboy in the 18th century. In 1725 Basile Bouchon used a roll of punched paper to choose which cords to pull, and in 1728 Jean-Baptiste Falcon replaced the roll with a chain of punched cards, but both devices still needed an assistant to press the cards against the cords. In 1745 Jacques de Vaucanson, better known for his mechanical automata, built a loom that read a punched cylinder without an assistant, but it was not taken up by the weavers.[^before]"
+          "text": "The drawloom had therefore moved the bottleneck from the number of shafts to two other places: the second worker on every pick, and the long setup for each new design. Several Lyon inventors tried to remove the drawboy in the 18th century. In 1725 Basile Bouchon used a roll of punched paper to choose which cords to pull, and in 1728 Jean-Baptiste Falcon replaced the roll with a chain of punched cards, but both devices still needed an assistant to press the cards against the cords. In 1745 Jacques de Vaucanson, better known for his mechanical automata, built a loom that read its punched pattern without an assistant, but it was not taken up by the weavers.[^before]"
         }
       ]
     },
@@ -76,11 +76,11 @@
         },
         {
           "type": "text",
-          "text": "In the late 1820s silk prices and piece rates fell. In October 1831 the prefect of the Rhône, the government's chief official in the department, arranged a meeting at which weavers' delegates and merchants agreed a minimum rate for each kind of cloth, called the *tarif*. Many merchants refused to pay it, and the government in Paris disowned the agreement. On 21 November 1831 thousands of weavers marched down from the Croix-Rousse under a black banner reading *Vivre en travaillant ou mourir en combattant*, \"Live working or die fighting\". After three days of fighting with the National Guard and the army, they held the city. The government sent an army of about 20,000 men under Marshal Soult, which retook Lyon in early December without a battle, and the tarif was annulled."
+          "text": "In the late 1820s silk prices and piece rates fell. In October 1831 the prefect of the Rhône, the government's chief official in the department, arranged a meeting at which weavers' delegates and merchants agreed a minimum rate for each kind of cloth, called the *tarif*. Many merchants refused to pay it, and the government in Paris disowned the agreement. On 21 November 1831 crowds of weavers marched down from the Croix-Rousse under a black banner reading *Vivre en travaillant ou mourir en combattant*, \"Live working or die fighting\". After three days of fighting with the National Guard and the army, they held the city. The government sent an army of about 20,000 men under Marshal Soult, which retook Lyon in early December without a battle, and the tarif was annulled."
         },
         {
           "type": "text",
-          "text": "In April 1834, after a new law restricted workers' associations and the leaders of a strike were put on trial, the weavers rose again. The army put the second revolt down in about a week of street fighting, later called the *sanglante semaine*, the bloody week, and several hundred people were killed. The canuts' revolts were about piece rates and the right to organise, not about the Jacquard head itself, which most of them worked by then. Their position was close to that of the handloom weavers in lesson 15: they owned their looms, but the merchants set what each piece paid."
+          "text": "In April 1834, after a new law restricted workers' associations and the leaders of a strike were put on trial, the weavers rose again. The army put the second revolt down in about a week of street fighting, later called the *sanglante semaine*, the bloody week, and estimates of the dead run from about a hundred to several hundred. The canuts' revolts were about piece rates and the right to organise, not about the Jacquard head itself, which most of them worked by then. Their position was close to that of the handloom weavers in lesson 15: they owned their looms, but the merchants set what each piece paid."
         }
       ]
     },
@@ -89,11 +89,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From 1834 Babbage designed the **Analytical Engine**, a mechanical calculator that he planned to drive with two sets of punched cards taken from Jacquard's: operation cards, which told it whether to add, subtract, multiply or divide, and variable cards, which told it which numbers in its store to use. It was never built. In 1843 the mathematician Ada Lovelace published a translation of an article on the engine by the Italian engineer Luigi Menabrea, with her own notes, three times as long as the article, and in one of them she wrote that \"the Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves flowers and leaves.\""
+          "text": "From 1834 Babbage designed the **Analytical Engine**, a mechanical calculator that he planned to drive with two sets of punched cards taken from Jacquard's: operation cards, which told it whether to add, subtract, multiply or divide, and variable cards, which told it which numbers in its store to use. It was never built. In 1843 the mathematician Ada Lovelace published a translation of an article on the engine by the Italian engineer Luigi Menabrea, with her own notes, nearly three times as long as the article, and in one of them she wrote that \"the Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves flowers and leaves.\""
         },
         {
           "type": "text",
-          "text": "In 1890 the United States counted its population with punched cards. Herman Hollerith, a former census clerk, built machines that read a card for each person, with holes punched in positions for age, sex, birthplace and other answers. Pins pressed against the card dipped through each hole into a cup of mercury, closed an electric circuit and advanced a counter. The 1880 census had taken years to tabulate by hand; Hollerith's machines produced the first population totals of 1890 within weeks.[^hollerith] His company later became part of IBM."
+          "text": "In 1890 the United States counted its population with punched cards. Herman Hollerith, who had worked on the 1880 census, built machines that read a card for each person, with holes punched in positions for age, sex, birthplace and other answers. Pins pressed against the card dipped through each hole into a cup of mercury, closed an electric circuit and advanced a counter. The 1880 census had taken years to tabulate by hand; Hollerith's machines produced the first population totals of 1890 within weeks.[^hollerith] His company later became part of IBM."
         },
         {
           "type": "text",
@@ -152,7 +152,7 @@
     "portrait": {
       "kind": "technical",
       "title": "The woven portrait",
-      "text": "The portrait was designed by Michel-Marie Carquillat after a painting by Claude Bonnefond, and copies were woven for sale and for exhibitions. The figure of about 24,000 cards is the one usually quoted; each card controlled the hooks for one pick across the width of the picture."
+      "text": "The portrait was woven by Michel-Marie Carquillat after a painting by Claude Bonnefond, and copies were woven for sale and for exhibitions. The figure of about 24,000 cards is the one usually quoted; each card controlled the hooks for one pick across the width of the picture."
     },
     "before": {
       "kind": "digression",

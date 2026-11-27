@@ -9,11 +9,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Abri du Maras is a rock shelter above the Ardèche valley in southern France. Neanderthals camped there on and off for tens of thousands of years, and left behind thousands of flaked stone tools. In 2020 a team led by the archaeologist Bruce Hardy published a close look at one of them, a pointed flake (a sharp chip struck from a larger stone) from a layer dated between 41,000 and 52,000 years ago. Stuck to its surface, under the microscope, was a scrap of cord about 6 mm long and half a millimetre thick."
+          "text": "Abri du Maras is a rock shelter above the Ardèche valley in southern France. Neanderthals camped there on and off for tens of thousands of years, and left behind thousands of flaked stone tools. In 2020 a team led by the archaeologist Bruce Hardy published a close look at one of them, a flake about 6 cm long (a sharp chip struck from a larger stone) from a layer dated between 41,000 and 52,000 years ago. Stuck to its surface, under the microscope, was a scrap of cord about 6 mm long and half a millimetre thick."
         },
         {
           "type": "text",
-          "text": "The cord was made of fibres from the inner bark of a tree, probably a conifer (a cone-bearing tree such as a pine). The fibres had been gathered into three bundles, each bundle twisted in one direction, and then the three bundles twisted together in the opposite direction. That is the same construction as a modern three-strand rope. The layer it came from dates to a time when only Neanderthals lived in the region, so they are the likely makers. Whoever made it had worked out the two operations that every thread and rope since has depended on: twisting fibres into a yarn, and twisting yarns together into a stronger cord.[^maras]"
+          "text": "The cord was made of fibres from the inner bark of a tree, probably a conifer (a cone-bearing tree such as a pine). The fibres had been gathered into three bundles, each bundle twisted in one direction, and then the three bundles twisted together in the opposite direction. That is the same construction as a modern three-strand rope. Neanderthals used the shelter, and the stone tools in the layer are of the kind they made, so they are the likely makers. Whoever made it had worked out the two operations that every thread and rope since has depended on: twisting fibres into a yarn, and twisting yarns together into a stronger cord.[^maras]"
         },
         {
           "type": "text",
@@ -98,7 +98,7 @@
         },
         {
           "type": "text",
-          "text": "Many fabric names belong to one layer only. Satin is a structure, a weave in which long threads float across the surface; it can be woven from silk, polyester or cotton. Jersey is a knit. Denim is cotton woven in a diagonal pattern called twill, with only the lengthwise threads dyed blue (lesson 4 explains both terms). Fleece is usually a polyester knit brushed on one side to raise a soft surface of loose fibre ends, which is a fibre, a structure and a finish together. When a label says \"100% cotton\" it is describing only the first layer."
+          "text": "Many fabric names belong to one layer only. Satin is a structure, a weave in which long threads float across the surface; it can be woven from silk, polyester or cotton. Jersey is a knit. Denim is cotton woven in a diagonal pattern called twill, with only the lengthwise threads dyed blue (lesson 4 explains both terms). Fleece is usually a polyester knit brushed on one or both sides to raise a soft surface of loose fibre ends, which is a fibre, a structure and a finish together. When a label says \"100% cotton\" it is describing only the first layer."
         }
       ]
     },
@@ -148,7 +148,7 @@
         },
         {
           "type": "text",
-          "text": "So archaeologists piece the story together from indirect evidence. Small carved figures from Ice Age Europe, about 25,000 years old, show women wearing skirts made of hanging strings, carved in enough detail to show the twist; the best known is the Venus of Lespugue, from southwest France.[^lespugue] Pressed clay at Dolní Věstonice in the Czech Republic, of about the same age, carries the impressions of cords and of what may be woven or netted fabric. In Dzudzuana Cave in Georgia, a team reported in 2009 flax fibres more than 30,000 years old, some twisted and some apparently coloured, although other researchers have questioned whether the twist and the colours were made by people.[^lice]"
+          "text": "So archaeologists piece the story together from indirect evidence. Small carved figures from Ice Age Europe, about 25,000 years old, show women wearing skirts made of hanging strings, carved in enough detail to show the twist; the best known is the Venus of Lespugue, from southwest France.[^lespugue] Pressed clay at Dolní Věstonice in the Czech Republic, of about the same age, carries the impressions of cords and of what may be woven or netted fabric. In Dzudzuana Cave in Georgia, a team reported in 2009 flax fibres more than 30,000 years old, some twisted and some apparently coloured, although other researchers have argued that the evidence is not enough to show the fibres are flax.[^lice]"
         },
         {
           "type": "text",
@@ -207,7 +207,7 @@
     "maras": {
       "kind": "digression",
       "title": "How the cord was dated and identified",
-      "text": "The cord itself was not dated; the layer it lay in was, by several methods, to between 41,000 and 52,000 years ago, when only Neanderthals lived in the region. The fibres were identified from their cell structure under the microscope as inner bark, most likely of a conifer. The study was published by Bruce Hardy and colleagues in Scientific Reports in 2020."
+      "text": "The cord itself was not dated; the layer it lay in was, by two methods, to between 41,000 and 52,000 years ago, and the stone tools in that layer are of the kind Neanderthals made. The fibres were identified from their cell structure under the microscope as inner bark, most likely of a conifer. The study was published by Bruce Hardy and colleagues in Scientific Reports in 2020."
     },
     "sz": {
       "kind": "technical",
@@ -222,7 +222,7 @@
     "lespugue": {
       "kind": "digression",
       "title": "The string skirt",
-      "text": "String skirts worn low on the hips appear on carved figures from France to Russia, and Barber notes that very similar skirts were still worn as a sign of a married or marriageable woman in parts of eastern Europe in the 19th century. Whether the two are connected over 20,000 years is unknown."
+      "text": "String skirts worn low on the hips appear on carved figures from France to Russia, and Barber notes that very similar skirts survived in women's folk dress in parts of eastern Europe into recent times, where they marked a woman as marriageable or married. Whether the two are connected over 20,000 years is unknown."
     }
   }
 }

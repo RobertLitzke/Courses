@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 1913 the Egyptologist Flinders Petrie excavated a cemetery at Tarkhan, about 50 km south of Cairo, and shipped home a heap of dirty linen from one of its tombs. It sat in storage in London for more than sixty years. In 1977, when conservators at the Victoria and Albert Museum were sorting the bundle for the Petrie Museum, one crumpled piece turned out to be a shirt: a V-necked bodice with fine knife pleats and long sleeves, worn creases still at the elbows and armpits. In 2016 a radiocarbon date put the linen between 3482 and 3102 BC. Museums call it the **Tarkhan dress**, since it may once have reached further down the body; it is the oldest woven garment known."
+          "text": "In 1913 the Egyptologist Flinders Petrie excavated a cemetery at Tarkhan, about 50 km south of Cairo, and shipped home a heap of dirty linen from one of its tombs. It sat in storage in London for more than sixty years. In 1977, when conservators at the Victoria and Albert Museum were sorting the bundle for the Petrie Museum, one crumpled piece turned out to be a shirt: a V-necked bodice with fine knife pleats and long sleeves, worn creases still at the elbows and armpits. A radiocarbon date published in 2016 put the linen between 3482 and 3102 BC. Museums call it the **Tarkhan dress**, since it may once have reached further down the body; it is the oldest woven garment known."
         },
         {
           "type": "text",
@@ -111,7 +111,7 @@
         },
         {
           "type": "text",
-          "text": "**Cotton** is a seed hair. Each fibre is a single cell that grows out of the coat of a cotton seed inside the boll, a capsule the size of a walnut. While it grows the cell is a hollow tube; when the boll opens it dries, the tube collapses into a flat ribbon, and the ribbon twists over on itself every millimetre or so. Those twists help neighbouring fibres catch on each other when they are spun. A cotton fibre is short, about 2 to 4 cm, and that length, the **staple**, is the main measure of its quality: long-staple cottons spin finer, smoother and stronger yarn."
+          "text": "**Cotton** is a seed hair. Each fibre is a single cell that grows out of the coat of a cotton seed inside the boll, a capsule the size of a walnut. While it grows the cell is a hollow tube; when the boll opens it dries, the tube collapses into a flat ribbon, and the ribbon twists over on itself many times along its length. Those twists help neighbouring fibres catch on each other when they are spun. A cotton fibre is short, about 2 to 4 cm, and that length, the **staple**, is the main measure of its quality: long-staple cottons spin finer, smoother and stronger yarn."
         },
         {
           "type": "text",
@@ -168,7 +168,7 @@
               },
               {
                 "at": -6000,
-                "when": "about 6000 BC",
+                "when": "6th millennium BC",
                 "label": "Cotton threads in a copper bead at Mehrgarh, Pakistan",
                 "color": "fibre"
               },

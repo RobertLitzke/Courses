@@ -9,11 +9,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 2012 and 2013, archaeologists excavating ahead of a railway line at Laoguanshan, in the city of Chengdu in Sichuan province, opened a set of tombs from the Western Han dynasty, dated to the 2nd century BC. One held four wooden models of looms, each about half a metre long, together with fifteen painted wooden figures of weavers and other workers. The models were detailed enough to show how the looms worked, and the researchers who studied them, led by Zhao Feng of the China National Silk Museum, concluded that they were **pattern looms**: looms built to weave a picture into the cloth, not only a plain or twilled surface.[^laoguanshan]"
+          "text": "In 2012 and 2013, archaeologists excavating ahead of a new metro line at Laoguanshan, in the city of Chengdu in Sichuan province, opened a set of tombs from the Western Han dynasty, dated to the 2nd century BC. One held four wooden models of looms, the largest about 85 centimetres long, together with fifteen painted wooden figures of weavers and other workers. The models were detailed enough to show how the looms worked, and the researchers who studied them, led by Zhao Feng of the China National Silk Museum, concluded that they were **pattern looms**: looms built to weave a picture into the cloth, not only a plain or twilled surface.[^laoguanshan]"
         },
         {
           "type": "text",
-          "text": "Chengdu was the centre of a famous silk industry, and its brocade, *Shu jin*, was sold all over the Han empire. Using the models as a guide, the silk museum's team built a full-size working loom and in 2017 wove a copy of a Han silk found in 1995 at Niya, in the Taklamakan desert: a brightly coloured armguard with birds, animals and the characters *Five stars rising in the east benefit China*. In this lesson we look at what makes a pattern loom different, how it stores a design, and why the answer still matters to anyone who uses a computer."
+          "text": "Chengdu was the centre of a famous silk industry, and its brocade, *Shu jin*, was sold all over the Han empire. Using the models as a guide, the silk museum's team built a full-size working loom and in 2018 wove a copy of a Han silk found in 1995 at Niya, in the Taklamakan desert: a brightly coloured armguard with birds, animals and the characters *Five stars rising in the east benefit China*. In this lesson we look at what makes a pattern loom different, how it stores a design, and why the answer still matters to anyone who uses a computer."
         }
       ]
     },
@@ -54,7 +54,7 @@
         },
         {
           "type": "text",
-          "text": "Han weavers were also very skilled at plain weaves. A robe found at Mawangdui, the tomb of a noblewoman buried in about 168 BC in Changsha, is made of silk gauze so fine that the whole garment, 1.28 metres long with sleeves 1.9 metres across, weighs 49 grams."
+          "text": "Han weavers were also very skilled at plain weaves. A robe found at Mawangdui, the tomb of a noblewoman buried in the 160s BC in Changsha, is made of silk gauze so fine that the whole garment, 1.28 metres long with sleeves 1.9 metres across, weighs 49 grams."
         }
       ]
     },
@@ -130,7 +130,7 @@
     "laoguanshan": {
       "kind": "digression",
       "title": "The Laoguanshan looms",
-      "text": "The tombs are numbered M1 to M4, and the loom models came from M2. Not every detail of how the models worked is agreed: the reconstructions differ in how pattern shafts were selected, and some scholars use the term multi-shaft pattern loom to avoid calling them drawlooms, which they were not."
+      "text": "The tombs are numbered M1 to M4, and the loom models came from M2. Not every detail of how the models worked is agreed: the reconstructions differ in how pattern shafts were selected. Zhao Feng's team call them hook-shaft pattern looms, and others say multi-shaft pattern looms, to keep them apart from drawlooms, which they were not."
     }
   }
 }
