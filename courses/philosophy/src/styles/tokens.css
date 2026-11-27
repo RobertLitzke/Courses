@@ -37,8 +37,8 @@
 .verdict-earlier { margin: 0 14px 6px; font-size: 0.86rem; color: var(--ink-soft); }
 .verdict-bars { margin: 6px 14px 4px; display: grid; gap: 6px; }
 .verdict-bar { display: grid; grid-template-columns: minmax(7em, 40%) 1fr 3.2em; gap: 8px; align-items: center; font-size: 0.85rem; color: var(--ink); }
-.verdict-bar .track { height: 10px; border-radius: 5px; background: var(--panel-2); overflow: hidden; }
-.verdict-bar .fill { height: 100%; background: var(--teal); }
+.verdict-bar .track { display: block; height: 10px; border-radius: 5px; background: var(--panel-2); overflow: hidden; }
+.verdict-bar .fill { display: block; height: 100%; background: var(--teal); }
 .verdict-bar.mine { font-weight: 600; }
 .verdict-bar.mine .fill { background: var(--sun); }
 .verdict-source { margin: 2px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
@@ -56,6 +56,8 @@
 .ledger-row { display: grid; gap: 2px; padding: 8px 10px; margin: 6px 0; border-radius: 8px; background: var(--panel-2); font-size: 0.92rem; }
 .ledger-lesson { font-size: 0.76rem; color: var(--ink-soft); }
 .ledger-tension { border-left: 4px solid var(--sun); }
+/* The chips line up with the question, and the margin leaves room for the ring round the chosen answer. */
+.fig-choices.verdict-row { margin: 6px 14px 10px; }
 .fig-choices.verdict-row.frozen .chip.on::before { content: 'Your answer: '; }
 
 /* Argument maps (figures/argument.ts): claims in the claim colour, objections in the objection colour. */

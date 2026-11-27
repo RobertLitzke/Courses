@@ -61,7 +61,7 @@
           "goal": "answer",
           "options": {
             "key": "forms",
-            "ask": "Do numbers and perfect circles exist in their own right, apart from minds and the physical world?",
+            "ask": "Leave aside everyday things like beds and tables. Do numbers and perfect circles exist in their own right, apart from minds and the physical world?",
             "choices": [
               "Yes: they are there to be discovered",
               "No: they are useful fictions or ways we talk",
@@ -79,7 +79,8 @@
                 null
               ],
               "source": "PhilPapers Survey 2020, \"Abstract objects: Platonism or nominalism?\", share accepting or leaning towards each."
-            }
+            },
+            "then": "Plato went further and gave a Form to everyday kinds of thing too, such as beds, as this lesson shows later. Platonists today mostly mean numbers, sets and other abstract objects, not a Form of the bed."
           }
         },
         {
