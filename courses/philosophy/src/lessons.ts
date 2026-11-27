@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('arendt', 205, 'Can ordinary people do great evil?', 'Arendt at the Eichmann trial and the banality of evil', { branch: 'power', needs: ['rawls'] }),
   coming('fallacies', 301, 'How to lose an argument', 'Common fallacies, charity and steelmanning', { branch: 'tools', needs: ['socrates'] }),
   coming('zeno', 302, 'Can Achilles catch the tortoise?', 'Zeno\'s paradoxes and what infinite sums settle', { branch: 'tools', needs: ['socrates'] }),
   coming('heap', 303, 'When does a heap stop being a heap?', 'The sorites paradox and vague words', { branch: 'tools', needs: ['socrates'] }),

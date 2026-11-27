@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 33 | 9 | 29 | 33 | 33 | 33 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 34 | 8 | 30 | 34 | 34 | 34 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 9 lessons to write, 29 to read through, 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 8 lessons to write, 30 to read through, 34 to copy-edit, 34 to fact-check, 34 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -582,7 +582,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | P2 | Does the general will ever get it wrong? (`rousseau`) | Power | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Rousseau's social contract and the general will. |
 | P3 | Is philosophy supposed to change things? (`marx`) | Power | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Alienation, and Marx's diagnosis set apart from his failed predictions. |
 | P4 | Should you hear out the other side? (`speech`) | Power | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
-| P5 | Can ordinary people do great evil? (`arendt`) | Power | planned, listed as coming |  | Arendt at the Eichmann trial and the banality of evil. |
+| P5 | Can ordinary people do great evil? (`arendt`) | Power | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Arendt at the Eichmann trial and the banality of evil. |
 | K1 | How to lose an argument (`fallacies`) | Tools and puzzles | planned, listed as coming |  | Common fallacies, charity and steelmanning. |
 | K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | planned, listed as coming |  | Zeno's paradoxes and what infinite sums settle. |
 | K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | planned, listed as coming |  | The sorites paradox and vague words. |
