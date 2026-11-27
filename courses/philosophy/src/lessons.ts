@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('locke', 13, 'Are you the person you were at ten?', 'Personal identity: the ship of Theseus, memory, the Buddhist chariot and the teletransporter'),
   coming('hume', 14, 'Why do you expect the sun to rise tomorrow?', 'The problem of induction, cause as habit, and is against ought'),
   coming('kant', 15, 'Can you lie to a murderer at the door?', 'Duty, the categorical imperative, and the 1797 argument with Constant'),
   coming('leap', 16, 'Would you obey God if he told you to kill your son?', 'Faith without proof: Pascal\'s wager and Kierkegaard\'s Abraham'),
