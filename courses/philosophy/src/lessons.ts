@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('sartre', 19, 'Are you condemned to be free?', 'Existence before essence, bad faith, the student\'s dilemma and responsibility'),
   coming('beauvoir', 20, 'Is a woman born or made?', 'The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her'),
   coming('camus', 21, 'Should we imagine Sisyphus happy?', 'The absurd, revolt, and the 1952 quarrel with Sartre'),
   coming('rawls', 22, 'What rules would you pick before you knew who you\'d be?', 'The veil of ignorance, the difference principle, Harsanyi and Nozick'),
