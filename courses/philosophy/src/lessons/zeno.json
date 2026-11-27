@@ -1,0 +1,227 @@
+{
+ "id": "zeno",
+ "n": 302,
+ "branch": "tools",
+ "needs": [
+  "socrates"
+ ],
+ "title": "Can Achilles catch the tortoise?",
+ "teaches": "Zeno's paradoxes and what infinite sums settle",
+ "parts": [
+  {
+   "title": "A race that never ends",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Achilles, the fastest runner in Greek legend, races a tortoise. Being a sporting hero, he gives it a head start of 100 metres. Say Achilles runs ten times as fast. By the time he reaches the tortoise's starting point, it has moved on 10 metres. By the time he covers those 10 metres, it has moved 1 metre further. When he covers that metre, it is 10 centimetres ahead, and so on. Each time Achilles reaches where the tortoise was, it has moved a little further. There are infinitely many such stages, and he must complete every one of them to catch up. So, the argument concludes, he never does."
+    },
+    {
+     "type": "text",
+     "text": "The argument is one of about forty paradoxes credited to **Zeno of Elea**, a Greek philosopher of the 5th century BC, of which about nine survive, mostly in Aristotle's summaries. Plato describes Zeno visiting Athens with his teacher Parmenides when Socrates was a young man.[^visit] Parmenides had argued that change and motion are illusions and that reality is one, unchanging whole. Zeno's paradoxes were meant to defend him by showing that the common-sense belief in motion leads to absurdities."
+    }
+   ]
+  },
+  {
+   "title": "Four paradoxes",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The **dichotomy**, \"cutting in two\", is a simpler version of the race. To walk to a door, you must first walk half way. Before that, you must walk a quarter of the way, and before that an eighth, and so on without end. Since there is no first step in this series, you can never start."
+    },
+    {
+     "type": "text",
+     "text": "The **arrow** is different. At any single instant, a flying arrow occupies a space exactly its own size, and in that instant it does not move, since an instant has no duration in which to move. But the arrow's flight is made of instants. If it is still at every instant, when does it move?"
+    },
+    {
+     "type": "text",
+     "text": "The **stadium** sets rows of bodies moving past each other, to argue that time cannot be made of smallest indivisible units: if it were, one body would pass another in half the smallest possible time. Few modern readers find it as strong as the others."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Achilles and the tortoise, set out as Zeno's argument. The objection is the mathematical one.",
+     "options": {
+      "steps": [
+       {
+        "text": "To catch the tortoise, Achilles must first reach every point where it has been."
+       },
+       {
+        "text": "There are infinitely many such points, each reached after the last."
+       },
+       {
+        "text": "Infinitely many tasks, each taking some time, cannot all be completed."
+       },
+       {
+        "text": "So Achilles never catches the tortoise.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "An infinite series of times can add up to a finite total: 10 + 1 + 0.1 + 0.01 + … seconds adds up to 11.1 seconds.",
+        "kind": "objection",
+        "against": 3,
+        "who": "Mathematicians, made rigorous in the 19th century"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "What the maths settles",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The usual answer is that the third premise is false. An infinite number of stages can add up to a finite distance and a finite time, because the stages get smaller fast enough. Half plus a quarter plus an eighth, and so on for ever, adds up to exactly one. In the race, if Achilles runs at 10 metres a second, the stages take 10 seconds, 1 second, a tenth of a second, a hundredth, and so on, which together come to 11.1 recurring seconds. At that moment, about 111 metres from his start, Achilles draws level, and after it he is ahead."
+    },
+    {
+     "type": "text",
+     "text": "The Greeks had the beginnings of this idea; Archimedes added up an infinite series in the 3rd century BC to find the area of a segment of a parabola. But it was made rigorous only in the 19th century, when mathematicians such as Augustin-Louis Cauchy defined what it means for an infinite sum to have a value, using the idea of a **limit**: the sum is the number the partial totals get as close to as you like. The same idea answers the arrow in a way. In calculus, an object's speed at an instant is defined as a limit of average speeds over shorter and shorter intervals, so a moving arrow can have a speed at an instant without moving during it."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The mathematical answer. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "achilles",
+      "ask": "Does the mathematics of infinite sums fully answer Zeno's Achilles paradox?",
+      "choices": [
+       "Yes: the stages add up to a finite time, and that is the end of it",
+       "No: it says when he draws level, but not how he completes infinitely many tasks",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the answer most mathematicians and many philosophers give.",
+       "You chose the answer of philosophers who think the paradoxes raise questions about completing infinitely many tasks that the sum does not touch.",
+       "Philosophers who specialise in it are divided too."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "What it leaves",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Some philosophers think the sums answer only half the question. They tell us at what time Achilles draws level, if he does. They do not obviously tell us how anything can *do* infinitely many things, one after another, in a finite time. In 1954 the British philosopher James Thomson made this vivid with a lamp."
+    },
+    {
+     "type": "text",
+     "text": "A lamp is switched on. After one minute it is switched off. After a further half minute it is switched on again, after a further quarter minute off, and so on, each interval half the last. At the end of two minutes, the switch has been pressed infinitely many times. Is the lamp on or off?"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Thomson's lamp. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "lamp",
+      "ask": "At the end of the two minutes, after infinitely many switchings, is Thomson's lamp on or off?",
+      "choices": [
+       "On",
+       "Off",
+       "Neither answer follows from the description",
+       "Not sure"
+      ],
+      "who": [
+       "Every \"off\" is followed by an \"on\", so it cannot be that the last move was \"off\". But every \"on\" is followed by an \"off\" too.",
+       "Every \"on\" is followed by an \"off\". But every \"off\" is followed by an \"on\" too.",
+       "You chose the answer most philosophers give: the description fixes the lamp's state at every moment before two minutes, and says nothing about the moment itself.",
+       "Thomson concluded that such a task, called a supertask, cannot be done."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Thomson concluded that such **supertasks**, infinitely many actions in a finite time, are impossible. Others replied that the lamp shows only that the description is incomplete, not that the task cannot be done; and that Achilles, unlike the lamp, does not perform separate acts at each stage, but simply runs. Whether space and time are really infinitely divisible, as the mathematics assumes, is now partly a question for physics, which has not settled it."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Zeno's paradoxes in their original use, as proofs that motion is impossible, are abandoned: nobody now thinks Achilles loses. As puzzles they are still argued over, about supertasks, about whether space and time are continuous, and about what a mathematical model tells us about the physical world. They were also, for 2,000 years, one of the main reasons mathematicians kept working on the infinite, until Cauchy, Georg Cantor and others gave it a precise theory.[^cantor]"
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Zeno",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What was the purpose of Zeno's paradoxes?",
+        "choices": [
+         "To defend Parmenides' view that motion and change are illusions",
+         "To show that Achilles was slower than legend said",
+         "To invent the mathematics of infinite sums",
+         "To prove that time runs backwards"
+        ],
+        "answer": 0,
+        "why": "They aimed to show that the common-sense belief in motion leads to absurdities."
+       },
+       {
+        "ask": "How does the mathematics of limits answer the Achilles paradox?",
+        "choices": [
+         "Infinitely many stages that shrink fast enough add up to a finite time, after which Achilles is ahead",
+         "It shows that Achilles really cannot catch the tortoise",
+         "It shows that space is made of smallest indivisible points",
+         "It shows that the tortoise must stop moving at some point"
+        ],
+        "answer": 0,
+        "why": "In the example, 10 + 1 + 0.1 + … seconds comes to 11.1 seconds."
+       },
+       {
+        "ask": "What is the arrow paradox?",
+        "choices": [
+         "At each instant the arrow is still, so if its flight is made of instants, when does it move?",
+         "The arrow must cover half the distance before the whole, so it never starts",
+         "Two arrows passing each other must take half the shortest time",
+         "An arrow can never hit a moving target"
+        ],
+        "answer": 0,
+        "why": "Calculus answers by defining speed at an instant as a limit."
+       },
+       {
+        "ask": "What is Thomson's lamp meant to show?",
+        "choices": [
+         "That completing infinitely many actions in a finite time raises questions the sums do not answer",
+         "That lamps wear out if switched too often",
+         "That electricity travels faster than light",
+         "That every infinite series adds up to zero"
+        ],
+        "answer": 0,
+        "why": "Thomson concluded supertasks are impossible; others say the description is incomplete."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Achilles must reach infinitely many points where the tortoise was.** So, Zeno argued, he never catches it.",
+  "**Zeno defended Parmenides' view that motion is an illusion.** Nine of his paradoxes survive.",
+  "**The dichotomy and the arrow attack motion from two sides.** Infinite division, and stillness at each instant.",
+  "**Infinite sums can be finite.** Achilles draws level after 11.1 seconds in the example.",
+  "**Limits made this rigorous in the 19th century.** Speed at an instant is a limit too.",
+  "**Supertasks are still argued over.** Thomson's lamp asks whether infinitely many acts can be completed."
+ ],
+ "footnotes": {
+  "visit": {
+   "kind": "technical",
+   "title": "Did they meet?",
+   "text": "Plato's dialogue Parmenides describes the visit, with Zeno about 40 and Socrates very young, around 450 BC. Many scholars think the meeting may be Plato's invention, though the dates make it possible."
+  },
+  "cantor": {
+   "kind": "digression",
+   "title": "Bigger infinities",
+   "text": "In the 1870s Georg Cantor showed that some infinite collections are larger than others: there are more points on a line than there are whole numbers, though both are infinite. The question of whether a line is made of points, which Zeno had raised, became part of his work."
+  }
+ }
+}
