@@ -26,6 +26,7 @@ import { tshirtFigure } from './tshirt';
 import { prickleFigure } from './prickle';
 import { creaseFigure } from './crease';
 import { loftFigure } from './loft';
+import { pileStill, threadsFigure } from './threads';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -60,6 +61,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   prickle: prickleFigure,
   crease: creaseFigure,
   loft: loftFigure,
+  threads: threadsFigure,
+  pile: pileStill,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,

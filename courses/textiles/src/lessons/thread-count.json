@@ -1,0 +1,127 @@
+{
+  "id": "thread-count",
+  "n": 104,
+  "branch": "wardrobe",
+  "needs": ["fibres", "structure"],
+  "title": "What does thread count measure?",
+  "teaches": "Thread count as warp plus weft per square inch; why yarn fineness limits it; how counting plies inflates it; percale and sateen; fibre length; pile cloths such as towelling, velvet and corduroy",
+  "parts": [
+    {
+      "title": "A number on the packet",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Bed sheets in shops are sold by thread count: 200 for a cheap set, 400 for a good one, and sometimes 1000 or more for a luxury one. In this lesson we look at what the number counts, how fine yarn has to be to reach it, how some makers raise the number without changing the cloth, and at the cloths, such as towels and velvet, that get their character from extra threads standing up from the surface."
+        }
+      ]
+    },
+    {
+      "title": "Counting the threads",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Thread count** is the number of warp threads plus the number of weft threads in one square inch of woven cloth. A sheet with 150 warp threads and 150 weft threads to the inch has a thread count of 300. The measure is used mostly in the United States, for bed linen; elsewhere makers often quote threads per square centimetre or per 10 centimetres, or the weight of the cloth."
+        },
+        {
+          "type": "text",
+          "text": "How many threads fit into an inch depends on how thick they are. In a plain weave, as lesson 4 showed, every weft thread passes over one warp thread and under the next, so the threads cannot be packed much closer than their own width. To fit more threads, the yarn has to be spun finer, and fine yarn needs fibres long enough to hold together when only a few lie side by side. That is why high thread counts go with long-staple cottons such as Egyptian and Pima, and why the fibre matters as much as the count for how a sheet feels and lasts."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "threads",
+          "caption": "A magnified square of close plain weave. Warp threads run up the square, weft threads across it.",
+          "task": "Find out how a count of 800 or more can be reached",
+          "goal": "ply"
+        }
+      ]
+    },
+    {
+      "title": "Counting plies",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Even very fine single cotton yarns fit only about 250 to 300 threads to the inch each way, so a woven sheet with a true count much above 600 is rare. Counts of 800 or 1000 are reached in another way. Many yarns are **plied**: two or three finer strands twisted together into one thread, which is stronger and smoother than a single yarn of the same thickness. Some makers count each ply as a separate thread, so a sheet woven with 150 three-ply yarns each way is sold as 900 thread count, although it is no denser than a sheet labelled 300."
+        },
+        {
+          "type": "text",
+          "text": "In 2005 the US Federal Trade Commission advised that counting plies in this way could mislead buyers, and that a plied yarn should be counted as one thread, with the ply given separately if the seller wishes. Textile testing standards count it the same way. Labels with very high counts are still common, and the number says little on its own. A sheet of 300 good single yarns usually feels better and lasts longer than one of 1000 counted plies of short, cheap fibre."
+        },
+        {
+          "type": "text",
+          "text": "The weave matters too. **Percale** is a close plain weave, crisp and matt. **Sateen** uses a satin weave, in which each weft thread floats over four warp threads and under one, so the surface is mostly long floats of weft. It feels smoother and has a sheen, but the long floats snag and wear more easily."
+        }
+      ]
+    },
+    {
+      "title": "Cloth with a pile",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Some cloths are woven with a third set of threads that stands up from the surface. This **pile** gives the cloth its feel and its depth, and a thread count says nothing useful about it."
+        },
+        {
+          "type": "diagram",
+          "id": "pile",
+          "caption": "Cross-sections of three cloths. Weft threads are seen end on; warp threads and pile run across the page."
+        },
+        {
+          "type": "text",
+          "text": "**Towelling**, or terry cloth, has an extra warp held loosely on the loom. Every few picks the loom beats the weft forward with extra force, and the loose warp is pushed up into loops on both faces. The loops give a towel a great deal of surface to soak up water, and long loops of absorbent cotton make a towel thick and soft."
+        },
+        {
+          "type": "text",
+          "text": "**Velvet** has a short, dense pile cut so that only the ends of the fibres show. In one common method two cloths are woven face to face at the same time, with the pile warp passing back and forth between them, and a blade then slices through the pile to separate them into two pieces of velvet. Before power looms, velvet was woven over thin rods and the loops cut by hand along each rod. Silk velvet was one of the costliest cloths of medieval and Renaissance Europe, woven in Italian cities such as Venice and Genoa. **Corduroy** is a cousin of velvet with its pile made from extra weft rather than warp, cut so that it stands in ridges called wales."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on thread count and pile.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "A sheet has 180 warp and 170 weft threads per inch. What is its thread count?",
+                "choices": ["350", "180", "30,600", "10"],
+                "answer": 0,
+                "why": "Thread count adds the warp and weft threads in one square inch: 180 plus 170."
+              },
+              {
+                "ask": "What has to change to fit more threads into an inch of honest plain weave?",
+                "choices": ["The yarn has to be spun finer", "The yarn has to be dyed darker", "The cloth has to be washed hotter", "The loom has to run faster"],
+                "answer": 0,
+                "why": "Threads in a plain weave cannot pack much closer than their own width, so a higher count needs thinner yarn."
+              },
+              {
+                "ask": "A sheet labelled 900 is woven with 150 three-ply yarns each way. What does that mean?",
+                "choices": ["Each ply was counted, so the honest count is 300", "It is three times as dense as a 300 sheet", "It is woven from three different fibres", "It has 900 warp threads to the inch"],
+                "answer": 0,
+                "why": "Counting each of three plies triples the number. The cloth holds 150 plus 150 threads to the inch."
+              },
+              {
+                "ask": "How are the loops of a towel made?",
+                "choices": ["An extra, loose warp is pushed up into loops", "The weft is knotted around each warp thread", "Loops are sewn on after weaving", "The cloth is brushed hard to raise loops"],
+                "answer": 0,
+                "why": "A strong beat pushes the slack pile warp up into loops on both faces."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Thread count adds warp and weft.** It is the number of both in one square inch of woven cloth.",
+    "**Finer yarn fits more threads.** High counts need fine yarn, and fine yarn needs long-staple fibre.",
+    "**About 600 is a practical ceiling.** Single yarns rarely fit more than about 300 each way.",
+    "**Counting plies inflates the number.** A 900 sheet of three-ply yarn is as dense as an honest 300.",
+    "**Fibre and weave matter as much as the count.** Percale is crisp plain weave; sateen floats weft for sheen.",
+    "**Pile cloths add a third set of threads.** It stands up from the surface as loops or cut tufts.",
+    "**Towelling has loops; velvet is cut.** Velvet is often woven as two cloths face to face and sliced apart."
+  ],
+  "footnotes": {}
+}

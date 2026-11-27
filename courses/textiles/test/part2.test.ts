@@ -18,6 +18,7 @@ import { BAND, bodies } from '../src/figures/bodies';
 import { PRICE, priceWith } from '../src/figures/tshirt';
 import { comfort } from '../src/figures/prickle';
 import { heatLoss, MET } from '../src/figures/loft';
+import { threadCount } from '../src/figures/threads';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -231,6 +232,19 @@ describe('the loft figure', () => {
     guess(h.node, 'About 2 cm');
     setSlider(h.node, 1, -15);
     setSlider(h.node, 0, 35);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the thread count figure', () => {
+  it('keeps honest counts under 600', () => {
+    expect(threadCount(0.08)).toBeLessThan(600);
+    expect(threadCount(0.3)).toBeGreaterThan(100);
+  });
+  it('is done when plies are counted past 800', async () => {
+    const h = FIGURES.threads(context(), 'ply');
+    click(h.node, 'Count each of 3 plies');
+    setSlider(h.node, 0, 0.12);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

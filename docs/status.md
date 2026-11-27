@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 7 | 34 |
-| [Fabric & Form](#textiles) | 0.1 beta | 30 | 0 | 3 | 30 | 30 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 31 | 0 | 4 | 31 | 31 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 3 to read through, 30 to copy-edit, 30 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 4 to read through, 31 to copy-edit, 31 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -630,6 +630,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | M1 | Why does wool shrink in a hot wash? (`shrink`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Felting shrinkage against relaxation shrinkage; how superwash wool is made; why some wool itches and some does not; fibre diameter, merino and cashmere. |
 | M2 | Why does linen wrinkle and polyester spring back? (`wrinkle`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Crease recovery; hydrogen bonds in cellulose and how an iron resets them; durable-press cross-linking; the glass transition of polyester and heat-set pleats; why steam takes creases out of wool. |
 | M3 | What makes down and fleece warm? (`warm`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Still air as the insulator; loft and the clo; down and fill power; polyester fleece; wind; why wet cotton is cold, and how wicking and wool's absorbed moisture help. |
+| M4 | What does thread count measure? (`thread-count`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Thread count as warp plus weft per square inch; why yarn fineness limits it; how counting plies inflates it; percale and sateen; fibre length; pile cloths such as towelling, velvet and corduroy. |
 
 ## Not started
 
