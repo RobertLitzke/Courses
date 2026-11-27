@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('gettier', 304, 'The three pages that broke knowledge', 'Justified true belief and Gettier\'s 1963 counterexamples', { branch: 'tools', needs: ['hume'] }),
   coming('science', 305, 'How does science know it\'s wrong?', 'Popper\'s falsification, the Vienna Circle, and Kuhn\'s paradigm shifts', { branch: 'tools', needs: ['hume'] }),
   coming('wittgenstein', 306, 'Can you have a private language?', 'Wittgenstein, language games and the beetle in the box', { branch: 'tools', needs: ['hume'] }),
   coming('gibberish', 307, 'Why does some philosophy sound like gibberish?', 'The analytic and continental split, and Heidegger in plain words', { branch: 'tools', needs: ['sartre'] }),

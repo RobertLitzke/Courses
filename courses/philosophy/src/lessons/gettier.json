@@ -1,0 +1,257 @@
+{
+ "id": "gettier",
+ "n": 304,
+ "branch": "tools",
+ "needs": [
+  "hume"
+ ],
+ "title": "The three pages that broke knowledge",
+ "teaches": "Justified true belief and Gettier's 1963 counterexamples",
+ "parts": [
+  {
+   "title": "Publish or perish",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1963 Edmund Gettier was a young philosopher at Wayne State University in Detroit. His colleagues told him he needed to publish something if he wanted to keep his job. He had an idea he had been discussing with them, and wrote it up in a paper less than three pages long, \"Is Justified True Belief Knowledge?\", in the journal *Analysis*. It is one of the most discussed papers in 20th-century philosophy. Gettier hardly published anything else in the rest of his long career; he is said to have explained that he had nothing more to say.[^gettier]"
+    },
+    {
+     "type": "text",
+     "text": "The paper attacked a definition of knowledge that goes back, in a form, to Plato. In the *Theaetetus*, Socrates and a young mathematician try out the idea that knowledge is true belief with an account, a reason. The idea became standard. To know something, you must believe it; it must be true; and you must be justified in believing it, have good reason for it. Knowledge is **justified true belief**."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "The traditional analysis of knowledge. Each condition seems necessary; the question is whether together they are enough.",
+     "options": {
+      "steps": [
+       {
+        "text": "You believe it. (You cannot know what you do not believe.)"
+       },
+       {
+        "text": "It is true. (You cannot know what is false.)"
+       },
+       {
+        "text": "You are justified in believing it. (A lucky guess is not knowledge.)"
+       },
+       {
+        "text": "So you know it.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "A belief can meet all three conditions and still be true only by luck.",
+        "kind": "objection",
+        "against": 3,
+        "who": "Gettier, 1963"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Ten coins",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Gettier's first case is about a job. Smith and Jones have both applied. Smith has strong evidence that Jones will get it: the company president told him so. He has also counted the coins in Jones's pocket: ten. So Smith believes that Jones will get the job and Jones has ten coins in his pocket, and from that he infers: \"The man who will get the job has ten coins in his pocket.\" That belief is justified, since he inferred it correctly from good evidence."
+    },
+    {
+     "type": "text",
+     "text": "In fact, Smith gets the job. And, without knowing it, Smith also has ten coins in his own pocket. So his belief that the man who will get the job has ten coins in his pocket is true, and justified. But it is true by luck, not because of his evidence, which was all about Jones. Almost everyone agrees that Smith did not know it. So justified true belief is not enough for knowledge."
+    },
+    {
+     "type": "text",
+     "text": "Simpler cases make the same point. Bertrand Russell had described one in 1948: a man looks at a clock that says three o'clock, and believes it is three. The clock has stopped, but by chance it stopped exactly twelve hours ago, so his belief is true, and it is justified, since the clock has always been reliable."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Russell's stopped clock. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "clock",
+      "ask": "A woman glances at a clock she has always relied on and believes it is three o'clock. It is three o'clock, but the clock stopped exactly twelve hours ago. Does she know it is three?",
+      "choices": [
+       "No: she is right only by luck",
+       "Yes: she has a justified true belief",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the answer almost everyone gives, which is Gettier's point.",
+       "You chose the traditional analysis. Gettier would ask what she knows that makes her right, rather than lucky.",
+       "Some philosophers think the intuition is weaker than it looks."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Knowledge or luck",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Once people saw the pattern, cases were easy to make. The recipe is to take a justified belief that would normally be false, then add a stroke of luck that makes it true anyway. The oldest known example is Indian. Around 770 AD the Buddhist philosopher Dharmottara[^dharmottara] described a traveller in the desert who sees a shimmer of water ahead. It is a mirage, but when he reaches the spot there is water there, under a rock."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Six beliefs. Sort each by whether it is knowledge, a true belief that is right by luck, or simply false.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Knowledge, luck, or false?",
+      "groups": [
+       {
+        "name": "Knowledge",
+        "color": "good"
+       },
+       {
+        "name": "Right by luck",
+        "color": "lucky"
+       },
+       {
+        "name": "False",
+        "color": "bad"
+       }
+      ],
+      "items": [
+       {
+        "name": "You check a working clock and believe it is noon. It is noon.",
+        "group": "Knowledge",
+        "why": "Justified, true, and true because of your evidence."
+       },
+       {
+        "name": "You read in a reliable newspaper that the match was won 2 to 1, and it was.",
+        "group": "Knowledge",
+        "why": "Good testimony that tracks the truth."
+       },
+       {
+        "name": "You see what looks like a sheep in a field; it is a dog in a fleece, but a real sheep is hidden behind a wall.",
+        "group": "Right by luck",
+        "why": "Roderick Chisholm's case: there is a sheep in the field, but not the one you saw."
+       },
+       {
+        "name": "Driving through a county full of fake barn fronts, you see the one real barn and believe it is a barn.",
+        "group": "Right by luck",
+        "why": "The fake barns case: in that county you could easily have been fooled."
+       },
+       {
+        "name": "A traveller sees a mirage of water, and finds real water under a rock at the spot.",
+        "group": "Right by luck",
+        "why": "Dharmottara's case, about 1,200 years before Gettier."
+       },
+       {
+        "name": "You see a working clock that is an hour slow and believe it is noon. It is one o'clock.",
+        "group": "False",
+        "why": "Justified, but not true, so not knowledge on any view."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Fixing the definition",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Philosophers spent decades trying to add a fourth condition. One proposal was that the belief must not be inferred from anything false; but Smith's belief was, and the stopped clock seems a counterexample without any false inference. Another was that the fact must cause the belief in the right way: the real time should cause your belief about the time. Alvin Goldman's **reliabilism** said a belief is knowledge if it was produced by a process that reliably produces true beliefs, which the fake barns case seems to defeat, since your eyes are not reliable among fake barns. Later views say a known belief must be **safe**: it could not easily have been false."
+    },
+    {
+     "type": "text",
+     "text": "Every proposal met new counterexamples. In 1994 Linda Zagzebski argued that this will always happen as long as the justification condition allows any chance of error, since luck can always fill the gap between good reasons and truth. Timothy Williamson proposed in 2000 that the project was the wrong way round: knowledge is basic and cannot be defined in simpler terms, and belief and justification should be explained by it, not the reverse."
+    },
+    {
+     "type": "text",
+     "text": "Experimental philosophers have asked whether ordinary people share the intuition. A small study in 2001 suggested that people from East Asian and South Asian backgrounds were more likely than Westerners to say Gettier's characters knew. A much larger study in 2017, with people in 23 countries, found the opposite: in every culture tested, most people judged that the lucky believer did not know."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Gettier's point is accepted almost everywhere: justified true belief is not sufficient for knowledge. What knowledge is instead is still argued over, and the main contenders are versions of reliabilism, safety, virtue theories, on which knowledge is true belief that comes from the believer's skill and not luck, and Williamson's knowledge-first view. The traditional analysis is respected history. The paper itself is a model for philosophers of how much one clear counterexample can do."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Gettier",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What was the traditional definition Gettier attacked?",
+        "choices": [
+         "Knowledge is justified true belief",
+         "Knowledge is whatever experts agree on",
+         "Knowledge is belief that cannot possibly be false",
+         "Knowledge is true belief, with or without reasons"
+        ],
+        "answer": 0,
+        "why": "Its roots go back to Plato's Theaetetus."
+       },
+       {
+        "ask": "What is the point of Gettier's ten coins case?",
+        "choices": [
+         "Smith's belief is justified and true, but true by luck, so it is not knowledge",
+         "Smith's belief is false, so it is not knowledge",
+         "Smith has no evidence at all for his belief",
+         "Smith knows he will get the job"
+        ],
+        "answer": 0,
+        "why": "His evidence was all about Jones, but the belief was made true by facts about Smith."
+       },
+       {
+        "ask": "Which of these is a Gettier case?",
+        "choices": [
+         "Seeing a dog in a fleece and believing there is a sheep in the field, when a real sheep is hidden from view",
+         "Checking a working clock and believing correctly that it is noon",
+         "Believing it is noon from a clock that is an hour slow",
+         "Believing a reliable newspaper's correct match report"
+        ],
+        "answer": 0,
+        "why": "Chisholm's case: the belief is true, but not because of what you saw."
+       },
+       {
+        "ask": "What did Williamson propose in response to Gettier?",
+        "choices": [
+         "Knowledge is basic and cannot be defined in simpler terms",
+         "Knowledge is justified true belief after all",
+         "Nobody knows anything",
+         "Knowledge requires certainty beyond any doubt"
+        ],
+        "answer": 0,
+        "why": "His knowledge-first view reverses the order of explanation."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Gettier's 1963 paper was less than three pages long.** It is among the most discussed in modern philosophy.",
+  "**The traditional view: knowledge is justified true belief.** Its roots are in Plato's Theaetetus.",
+  "**A belief can be justified and true by luck.** Smith and the ten coins; the stopped clock.",
+  "**Dharmottara described such a case around 770 AD.** A mirage, with real water under a rock.",
+  "**Every fourth condition proposed met new counterexamples.** Causal, reliabilist, safety.",
+  "**Williamson: knowledge cannot be defined in simpler terms.** Knowledge comes first.",
+  "**People in 23 countries share the intuition.** A large study in 2017 found it across cultures."
+ ],
+ "footnotes": {
+  "gettier": {
+   "kind": "digression",
+   "title": "The man of one paper",
+   "text": "Gettier taught for decades at the University of Massachusetts Amherst and died in 2021. He worked on logic and other questions, but rarely published, and seemed content to be known for three pages."
+  },
+  "dharmottara": {
+   "kind": "technical",
+   "title": "Gettier cases before Gettier",
+   "text": "Dharmottara's examples were brought to wide attention by historians of Indian philosophy, among them Bimal Krishna Matilal. Similar cases have been found in the 14th-century Italian writer Peter of Mantua. None of them led to a debate like the one Gettier started."
+  }
+ }
+}

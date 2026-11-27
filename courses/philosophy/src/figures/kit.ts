@@ -63,6 +63,8 @@ export const COL = {
   fuzzy: '#d4582a',
   superval: '#3f6f8f',
   epistemic: '#7d5a9a',
+  /** Branch K4: a true belief that is right by luck. */
+  lucky: '#e0a33a',
 } as const;
 export type ColorKey = keyof typeof COL;
 
