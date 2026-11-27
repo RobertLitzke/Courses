@@ -5,10 +5,10 @@
 
 import { BRANCHES, TREE_LESSONS, lessonName } from '../../core/lessons';
 import { el } from 'didactics/dom';
-import { passed, skipLesson } from 'didactics/progress';
+import { passed } from 'didactics/progress';
 import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
-import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
+import { doneLine, lessonGo, lessonStatus, markToggle, progressLine } from 'didactics/status';
 import { nextLesson, treeView, type TreeNode } from 'didactics/tree';
 import { makeBanner } from '../scene/banner';
 import { getSave, updateSave } from '../store';
@@ -32,19 +32,18 @@ export const homeView: View = (root, nav) => {
   const card = ({ lesson: s, state, missing, wanting }: TreeNode<Item>) => {
     const rec = save.lessons[s.id];
     const standing = 'coming' in s ? 'new' : lessonStatus(save, s);
-    const status = state === 'done' && rec ? `${save.talk ? 'Radio check' : 'Check'}: ${rec.best} of ${rec.of}`
+    const before = [...missing, ...wanting];
+    const status = state === 'done' && rec ? doneLine(rec, save.talk ? 'Radio check' : 'Check')
       : state === 'skipped' ? 'Skipped'
         : state === 'coming' ? 'Coming'
-          : state === 'locked' && missing.length ? `After ${names(missing)}`
-            : started(s) ? progressLine(save, s)
-              : state === 'soft' ? `Better after ${names(wanting)}`
-                : null;
-    const open = state !== 'locked' && state !== 'coming';
+          : started(s) ? progressLine(save, s)
+            : before.length ? `Better after ${names(before)}`
+              : null;
     return el('div.lesson-card', { className: `lesson-card stand-${standing}${state === 'next' ? ' next' : ''}` },
       el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), status ? el('p.score', {}, status) : null),
-      open ? el('div.lesson-actions', {},
+      state !== 'coming' ? el('div.lesson-actions', {},
         lessonGo(`#/lesson/${s.id}`, standing),
-        state === 'next' ? el('button.btn.btn-ghost.btn-small', { type: 'button', onclick: () => { updateSave((v) => skipLesson(v, s.id)); nav.replace('/home'); } }, 'Skip') : null,
+        markToggle(save, s.id, updateSave, () => nav.replace('/home')),
       ) : null,
     );
   };

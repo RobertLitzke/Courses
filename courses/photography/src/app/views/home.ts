@@ -1,18 +1,18 @@
 // The ridges through the aperture at the top, a word on what this is, the lesson board (the
-// written lessons open, the rest shown as coming), and the way to the
+// written lessons open, the rest shown as coming; each can be marked done or not done), and the way to the
 // reference page.
 
 import { el } from 'didactics/dom';
 import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
-import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
+import { doneLine, lessonGo, lessonStatus, markToggle, progressLine } from 'didactics/status';
 import { isWritten, LESSONS } from '../../core/lessons';
 import { makeBanner } from '../scene/banner';
 import { store } from '../../store';
 import { releaseSlip, type CourseRelease } from 'didactics/release';
 import course from '../../../course.json';
 
-export const homeView: View = (root) => {
+export const homeView: View = (root, nav) => {
   const save = store.get();
   const written = LESSONS.filter(isWritten);
   const nextUp = written.find((l) => !save.lessons[l.id]?.done);
@@ -30,8 +30,8 @@ export const homeView: View = (root) => {
         'li.lesson-card',
         { className: `lesson-card ${rec?.done ? 'done' : open ? 'open' : 'soon'} stand-${standing}`, dataset: { lesson: l.id } },
         el('span.lesson-n', {}, String(l.n)),
-        el('div', {}, el('h3', {}, l.title), el('p', {}, l.teaches), rec?.done ? el('p.score', {}, `Check: ${rec.best} of ${rec.of}`) : standing === 'started' ? el('p.score', {}, progressLine(save, l)) : null),
-        open ? lessonGo(`#/lesson/${l.id}`, standing) : el('span.tag', {}, 'Coming'),
+        el('div', {}, el('h3', {}, l.title), el('p', {}, l.teaches), rec?.done ? el('p.score', {}, doneLine(rec)) : standing === 'started' ? el('p.score', {}, progressLine(save, l)) : null),
+        open ? el('div.lesson-actions', {}, lessonGo(`#/lesson/${l.id}`, standing), markToggle(save, l.id, store.update, () => nav.replace('/home'))) : el('span.tag', {}, 'Coming'),
       );
     }),
   );
