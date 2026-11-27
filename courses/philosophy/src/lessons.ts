@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('marx', 203, 'Is philosophy supposed to change things?', 'Alienation, and Marx\'s diagnosis set apart from his failed predictions', { branch: 'power', needs: ['nietzsche'] }),
   coming('speech', 204, 'Should you hear out the other side?', 'Mill on free speech, tested on echo chambers, experts and epistemic injustice', { branch: 'power', needs: ['mill'] }),
   coming('arendt', 205, 'Can ordinary people do great evil?', 'Arendt at the Eichmann trial and the banality of evil', { branch: 'power', needs: ['rawls'] }),
   coming('fallacies', 301, 'How to lose an argument', 'Common fallacies, charity and steelmanning', { branch: 'tools', needs: ['socrates'] }),
