@@ -80,6 +80,15 @@
           "text": "About 1168, in Marrakesh, a scholar from Córdoba, then in his early forties, was presented to the caliph of the Almohad empire, which ruled North Africa and Muslim Spain. Abu Ya'qub Yusuf asked him directly whether the philosophers held that the heavens had existed forever or had been created. The scholar, knowing the question was dangerous, said nothing and pretended not to know. The caliph then discussed it himself with such learning that the scholar relaxed and talked freely. The scholar was Ibn Rushd, known in Latin as Averroes,[^names] and the caliph soon asked him to write commentaries explaining all of Aristotle.[^meeting]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A 20th-century statue of Ibn Rushd beside the old city wall of Córdoba, where he was born in 1126.",
+          "options": {
+            "photo": "averroes-statue",
+            "aspect": 0.62
+          }
+        },
+        {
           "type": "text",
           "text": "Ibn Rushd (1126 to 1198) was a judge, a doctor and the most thorough reader of Aristotle in the Middle Ages. About 1180 he answered al-Ghazali point by point in a book with a deliberate title, *The Incoherence of the Incoherence*. On causes he was blunt: \"Whoever denies causes denies reason.\" If fire has no nature of its own, there is nothing to know about fire, and all science collapses into a list of God's habits."
         },

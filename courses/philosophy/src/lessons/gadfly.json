@@ -25,6 +25,15 @@
           "text": "Most philosophers today teach in universities, as Plato did when he founded the Academy around 387 BC. But the subject has spread into some unexpected places."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Roman mosaic from a villa near Pompeii, usually taken to show Plato's Academy: seven men talking under a tree, with a city on a hill behind them. It is in the National Archaeological Museum in Naples.",
+          "options": {
+            "photo": "academy-mosaic",
+            "aspect": 0.98
+          }
+        },
+        {
           "type": "text",
           "text": "**Hospitals.** Most large hospitals in the United States and many in Britain and Europe have a clinical ethics committee, or an ethicist on call, to help with cases where doctors, patients and families disagree. A typical case: an elderly patient is unconscious after a stroke, the doctors think further treatment will only prolong dying, and the family insists that everything be done. The ethicist does not decide. Their job is to set out what each side's view rests on, such as the patient's own past wishes, what counts as a benefit, and who has the right to decide, so that the people involved can reach a decision they can defend. Lesson 15's respect for persons and lesson 17's weighing of outcomes meet here every week."
         },

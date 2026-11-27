@@ -1,107 +1,17 @@
 [
  {
-  "lesson": "socrates",
-  "part": "The man who asked questions",
-  "after": "Socrates was born in Athens around 470 BC, is said to have been the son of a sto",
+  "lesson": "ubuntu",
+  "part": "The truth for amnesty",
+  "after": "Its chair, Archbishop Desmond Tutu, defended this with an African idea: **ubuntu",
   "block": {
    "type": "diagram",
    "id": "photo",
-   "caption": "Socrates as later sculptors imagined him: snub-nosed and bearded. This head is a Roman copy of a Greek portrait made after his death.",
+   "caption": "Desmond Tutu in Washington in 1999, the year after the commission delivered its first report.",
    "options": {
-    "photo": "socrates-bust",
-    "aspect": 0.8
+    "photo": "tutu-1999",
+    "aspect": 0.72
    }
   },
-  "search": "Wikimedia Commons 'File:Socrates Louvre.jpg' (title from memory, unverified); else Category:Socrates (busts), a public-domain photo of a Roman marble head."
- },
- {
-  "lesson": "socrates",
-  "part": "The trial",
-  "after": "Before the sentence was carried out his friend Crito arranged an escape. Socrate",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "Jacques-Louis David's The Death of Socrates (1787). David shows Socrates still talking as he reaches for the cup, with Plato, who was in fact not there, sitting at the foot of the bed.",
-   "options": {
-    "photo": "death-of-socrates",
-    "aspect": 1.5
-   }
-  },
-  "search": "Wikimedia Commons 'File:David - The Death of Socrates.jpg' (Metropolitan Museum, public domain; title from memory, unverified)."
- },
- {
-  "lesson": "cave",
-  "part": "Plato's school",
-  "after": "Plato was born in Athens about 428 BC into one of its richest and best-connected",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "Plato, in a Roman copy of a portrait made in his lifetime or soon after, by the sculptor Silanion.",
-   "options": {
-    "photo": "plato-bust",
-    "aspect": 0.8
-   }
-  },
-  "search": "Wikimedia Commons 'File:Plato Silanion Musei Capitolini MC1377.jpg' (title from memory, unverified); Category:Plato (Silanion type)."
- },
- {
-  "lesson": "cave",
-  "part": "Plato's school",
-  "after": "The Academy was not a university with fees and degrees. It was closer to a resea",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "Raphael's The School of Athens (1509 to 1511). In the centre Plato points up, to the Forms, and his student Aristotle holds his hand out flat, towards the world we see. Most of the other figures cannot be named with any certainty.",
-   "options": {
-    "photo": "school-of-athens",
-    "aspect": 1.9
-   }
-  },
-  "search": "Wikimedia Commons 'File:Sanzio 01.jpg' or Category:The School of Athens (public domain; title unverified)."
- },
- {
-  "lesson": "gyges",
-  "part": "A philosopher for a tyrant",
-  "after": "It went badly. Courtiers who feared Dion turned the young tyrant against him, an",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "The Greek theatre at Syracuse, cut into the hillside in the 5th century BC and enlarged later. Plato would have known the city at the height of its power.",
-   "options": {
-    "photo": "syracuse-theatre",
-    "aspect": 1.6
-   }
-  },
-  "search": "Wikimedia Commons Category:Greek Theatre (Syracuse), a CC BY or BY-SA photo of the cavea; 'File:Siracusa-teatro greco01.jpg' is a guess, unverified."
- },
- {
-  "lesson": "aristotle",
-  "part": "The student who stayed twenty years",
-  "after": "Aristotle was born in 384 BC in Stagira, a small town in the north of Greece, th",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "Aristotle, in a Roman copy of a bronze portrait probably made by the sculptor Lysippos.",
-   "options": {
-    "photo": "aristotle-bust",
-    "aspect": 0.8
-   }
-  },
-  "search": "Wikimedia Commons 'File:Aristotle Altemps Inv8575.jpg' (title from memory, unverified); Category:Aristotle (busts)."
- },
- {
-  "lesson": "aristotle",
-  "part": "Confucius and the same bet",
-  "after": "A century and a half before Aristotle, and some 7,000 km to the east, another te",
-  "block": {
-   "type": "diagram",
-   "id": "photo",
-   "caption": "Confucius as a European engraver pictured him in 1770, when Jesuit translations had made him famous in Europe. No portrait from his lifetime survives.",
-   "options": {
-    "photo": "confucius-portrait",
-    "aspect": 0.8
-   }
-  },
-  "search": "Wikimedia Commons 'File:Konfuzius-1770.jpg' (public domain; title from memory, unverified); else a Song or Tang dynasty painting of Confucius in Category:Confucius in art."
+  "search": "Picked and in photo-picks.json (File:Desmond Tutu (47327456801) (cropped and adjusted).jpg); Commons rate-limited the cloud download. Run npm run photos -- philosophy, then npm run restore-photos -- philosophy."
  }
 ]

@@ -12,6 +12,15 @@
           "text": "At University College London, in a glass case at the entrance of the student centre, sits a man in an 18th-century coat and a broad-brimmed hat, holding his walking stick, which he called Dapple. Inside the clothes is the skeleton of Jeremy Bentham, philosopher and law reformer, who died in 1832. He left instructions in his will that his body should be dissected for a public anatomy lecture, then preserved and put on display, so that he could be useful after death. The attempt to preserve his head went badly, leaving it shrunken and dark, so the figure in the cabinet has a wax head instead. The real one was shown at his feet for many years and is now kept in storage.[^head]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Bentham's auto-icon in its glass case at the entrance of University College London's Student Centre. The head is wax.",
+          "options": {
+            "photo": "bentham-autoicon",
+            "aspect": 0.75
+          }
+        },
+        {
           "type": "text",
           "text": "Bentham thought most of what passed for morality was prejudice and superstition, and wanted to replace it with a single, measurable test."
         }

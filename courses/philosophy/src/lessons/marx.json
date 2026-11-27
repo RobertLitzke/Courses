@@ -20,6 +20,15 @@
           "text": "Within 70 years, about a third of the world's population lived under governments that called themselves Marxist. Karl Marx's grave now has a large bronze head on a granite base, put up in 1956, and on the base is a sentence he wrote in a notebook in 1845, at the age of 26: \"The philosophers have only interpreted the world, in various ways; the point, however, is to change it.\"[^theses]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Karl Marx photographed by John Mayall in London in 1875.",
+          "options": {
+            "photo": "marx-1875",
+            "aspect": 0.68
+          }
+        },
+        {
           "type": "text",
           "text": "People often run together two distinct parts of Marx's work: his diagnosis of what is wrong with work under capitalism, much of which is still taken seriously, and his predictions about what would happen next, most of which did not come true."
         }

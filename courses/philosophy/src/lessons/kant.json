@@ -12,6 +12,15 @@
           "text": "On 6 July 1942 Otto Frank, a businessman in Amsterdam, moved his wife and two daughters into a set of rooms at the back of his company's building on the Prinsengracht canal, behind a door soon hidden by a bookcase. Four more people joined them. For more than two years a few of his employees kept them alive. One of them, Miep Gies, bought their food with illegally obtained ration cards, brought them news and books, and lied to German officials, Dutch police and neighbours whenever she had to. On 4 August 1944 the hiding place was raided. Seven of the eight people in it died in the camps. Miep Gies gathered up the diary of the younger daughter, Anne, from the floor and kept it unread until the war was over.[^gies]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The bookcase in front of the door to the rooms at the back of 263 Prinsengracht, as the Anne Frank House museum shows it today.",
+          "options": {
+            "photo": "frank-bookcase",
+            "aspect": 0.75
+          }
+        },
+        {
           "type": "text",
           "text": "Almost everyone who hears this story thinks Miep Gies did right, and that her lies were part of what she did right. Yet Immanuel Kant, one of the greatest moral philosophers in history, argued that lying is always wrong, even to a murderer asking where his victim is hiding. Most of his followers today disagree with him on that point, though they keep the rest of his ethics."
         }
@@ -23,6 +32,15 @@
         {
           "type": "text",
           "text": "Kant was born in 1724 in Königsberg, a port on the Baltic in East Prussia, now Kaliningrad in Russia, and spent almost his whole life there. He was the son of a harness maker, taught at the university for decades, and was famous for the regularity of his habits; his neighbours are said to have set their clocks by his afternoon walk, though the story is probably exaggerated.[^walk] In his late fifties and early sixties he published, in quick succession, the books that made him the most influential philosopher of modern times: the *Critique of Pure Reason* in 1781, and in 1785 a short book on ethics, the *Groundwork of the Metaphysics of Morals*."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Kant in a copy by Johann Christoph Frisch of a portrait painted by Johann Gottlieb Becker in 1768.",
+          "options": {
+            "photo": "kant-portrait",
+            "aspect": 0.82
+          }
         },
         {
           "type": "text",

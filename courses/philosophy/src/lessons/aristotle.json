@@ -25,6 +25,15 @@
           "text": "Aristotle was born in 384 BC in Stagira, a small town in the north of Greece, the son of a doctor to the king of Macedon. At seventeen he went to Athens and joined Plato's Academy, and he stayed for twenty years, until Plato died in about 347 BC. He then spent some years at Assos, across the water in Asia Minor, and on the island of Lesbos, where he studied the animals of its lagoon with a care no one matched for nearly two thousand years.[^darwin] In 343 BC Philip II of Macedon hired him to tutor his thirteen-year-old son, Alexander, later called the Great. Nobody knows what Aristotle taught him, and it did not obviously take."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Aristotle, in a Roman copy of a bronze portrait probably made by the sculptor Lysippos.",
+          "options": {
+            "photo": "aristotle-bust",
+            "aspect": 0.8
+          }
+        },
+        {
           "type": "text",
           "text": "In 335 BC Aristotle came back to Athens and opened a school of his own, the Lyceum, where he taught for twelve years. His followers were called Peripatetics, probably after a covered walk, the *peripatos*, where they met. When Alexander died in 323 BC, anti-Macedonian feeling ran high and Aristotle left Athens, reportedly saying he would not let the city sin twice against philosophy. He died the next year. What survives of his writing is mostly lecture notes, compressed and dry, on almost every subject: logic, physics, biology, the soul, politics, poetry and ethics."
         },
@@ -154,6 +163,15 @@
         {
           "type": "text",
           "text": "A century and a half before Aristotle, and nearly 8,000 km to the east, another teacher had made the same bet on habit. Kongzi, called Confucius in the West, was born in 551 BC in the small state of Lu, in what is now Shandong province in eastern China. He held minor posts in its government, and for some fourteen years travelled from state to state with a band of students, looking for a ruler who would employ him. None did for long. He came home and taught until he died in 479 BC. His students wrote down his sayings, and the collection, the *Analects*, became one of the most influential books in Chinese history.[^confucius]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Confucius as a European engraver pictured him in 1770, when Jesuit translations had made him famous in Europe. No portrait from his lifetime survives.",
+          "options": {
+            "photo": "confucius-portrait",
+            "aspect": 0.8
+          }
         },
         {
           "type": "text",

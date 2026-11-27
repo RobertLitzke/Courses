@@ -16,6 +16,15 @@
           "text": "In the 16th century, in Mexico, a Spanish friar and a team of Nahua scholars wrote down the speeches that Aztec parents gave their children when they came of age.[^word] In one, a nobleman tells his son what life on earth is like:"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A page from Book 6 of the Florentine Codex, on rhetoric and moral philosophy, the book that holds the speeches parents gave their children.",
+          "options": {
+            "photo": "florentine-codex",
+            "aspect": 0.64
+          }
+        },
+        {
           "type": "text",
           "text": "\"On earth we live, we travel along a mountain peak. Over here is an abyss, over there is an abyss. Wherever you go, wherever you stray, there is an abyss.\" The earth, the elders said, is slippery, slick. Everyone slips on it sooner or later. The aim of a good life is not to escape the danger, which cannot be done, but to keep your footing as well as you can, and to get up when you fall."
         },

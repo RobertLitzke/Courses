@@ -29,6 +29,15 @@
           "text": "Nagel chose bats because they are mammals like us, so few doubt they are conscious, but they find their way mainly by **echolocation**: they send out high-pitched calls and build a picture of the world from the echoes. The Bats course on this site explains how that works, from the calls to the echoes from a moth. Nagel's point was that even if we knew every physical fact about the calls, the ears and the brain, we still would not know what it is like for the bat to perceive a moth that way. Imagining having webbed arms, hanging upside down and hearing echoes only tells you what it would be like for *you* to behave like a bat. The bat's own point of view seems to be left out of any objective description, however complete."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Townsend's big-eared bat in Joshua Tree National Park, California, roosting with its long ears curled back. Like most bats it finds its way and its prey by echolocation.",
+          "options": {
+            "photo": "townsend-bat",
+            "aspect": 0.84
+          }
+        },
+        {
           "type": "text",
           "text": "This is a problem for **physicalism**, the view from lesson 10 that the mind is something physical. Physical science describes the world from no particular point of view. Experience exists only from a point of view. Nagel did not say physicalism was false. He said we do not yet have any idea how it could be true."
         }

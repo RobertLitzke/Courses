@@ -16,6 +16,15 @@
           "text": "René Descartes had been educated by the Jesuits at La Flèche, one of the best schools in France, and had left it convinced that most of what he had been taught was uncertain. Mathematics was the exception: its proofs were certain, and everything else, he thought, should be made as solid. Eighteen years later he published his plan in the *Discourse on the Method* (1637), and in 1641 carried it out in six short *Meditations on First Philosophy*."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Descartes in the portrait in the Louvre, a copy after a small painting by Frans Hals of about 1649.",
+          "options": {
+            "photo": "descartes-hals",
+            "aspect": 0.82
+          }
+        },
+        {
           "type": "text",
           "text": "In this lesson we follow the Meditations. Descartes tries to doubt everything that can be doubted, to see whether anything survives. Something does, and what he builds on it gave modern philosophy two of its main problems: how we know there is a world outside our minds at all, and how a mind is connected to a body."
         }

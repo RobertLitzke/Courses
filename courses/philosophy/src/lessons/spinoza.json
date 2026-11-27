@@ -16,6 +16,15 @@
           "text": "He changed his first name to its Latin form, Benedictus, and is known as Spinoza. He lived quietly in small Dutch towns, earned part of his living grinding lenses for microscopes and telescopes,[^lenses] turned down a professorship at Heidelberg in 1673 to keep his freedom to think, and died in The Hague in 1677, aged 44, probably of a lung disease made worse by glass dust. His main book, the *Ethics*, was published after his death by friends, without his name on it. Within a few years it was banned across much of Europe."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The portrait thought to be the only one painted in Spinoza's lifetime, about 1665, now in the Herzog August Library in Wolfenbüttel.",
+          "options": {
+            "photo": "spinoza-portrait",
+            "aspect": 0.79
+          }
+        },
+        {
           "type": "text",
           "text": "Spinoza's heresy was a picture of the world in which God is not a person who makes choices, and neither, in the way we usually think, are we."
         }

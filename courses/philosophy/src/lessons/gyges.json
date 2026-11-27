@@ -16,6 +16,15 @@
           "text": "It went badly. Courtiers who feared Dion turned the young tyrant against him, and within months Dion was exiled. Plato was kept at court, half guest and half prisoner, until he was allowed to leave. He went back once more, in 361 BC, and was again held against his will until the philosopher-statesman Archytas of Tarentum sent a ship to fetch him. A later story, told by Diodorus and by Diogenes Laertius centuries afterwards, says that on the first visit, about 388 BC, Dionysius I had Plato sold in a slave market, and a friend bought his freedom; it is probably a legend.[^sicily]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Greek theatre at Syracuse, cut into the hillside in the 5th century BC and enlarged later. Plato would have known the city at the height of its power.",
+          "options": {
+            "photo": "syracuse-theatre",
+            "aspect": 1.6
+          }
+        },
+        {
           "type": "text",
           "text": "Plato's interest in tyrants was not only practical. The *Republic*, which he probably wrote in the years before this trip, asks a question about them that is still argued over: whether someone with the power to do anything he liked and get away with it would have any reason to be just."
         }

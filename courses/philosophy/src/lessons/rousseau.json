@@ -16,6 +16,15 @@
           "text": "One hot afternoon in 1749, a 37-year-old secretary and would-be composer called Jean-Jacques Rousseau was walking the six miles from Paris to the castle of Vincennes, where his friend Denis Diderot was being held in prison for his writings. To rest, he sat down under a tree and looked through a magazine he had brought. In it was the question for a prize essay set by the Academy of Dijon: had the revival of the sciences and arts helped to purify morals?"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Rousseau in the Armenian coat he wore in exile, painted by Allan Ramsay in London in 1766, when Hume had brought him to England.",
+          "options": {
+            "photo": "rousseau-ramsay",
+            "aspect": 0.77
+          }
+        },
+        {
           "type": "text",
           "text": "Rousseau later described what happened next as a sudden illumination. Ideas flooded in so fast that he felt dizzy, and when he came to himself, half an hour later, the front of his coat was wet with tears he had not noticed shedding. He saw at once, he wrote, that human beings are naturally good, and that it is society and its institutions that make them bad.[^vincennes] He answered the Academy's question with a firm no, won the prize in 1750, and became famous overnight."
         }

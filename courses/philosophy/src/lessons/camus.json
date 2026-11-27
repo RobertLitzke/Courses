@@ -12,6 +12,15 @@
           "text": "In Greek myth Sisyphus was king of Ephyra, later called Corinth, and the cleverest of mortals. The stories of what he did vary. In one, he told a river god that Zeus had carried off the god's daughter, and Zeus sent Death to fetch him. Sisyphus tricked Death into a pair of handcuffs and locked him up, so that for a time nobody on earth could die, until the war god Ares, annoyed that battles had stopped killing anyone, set Death free. In another, Sisyphus told his wife not to give him a funeral. Once in the underworld, he complained that she had neglected him and was given leave to go back and punish her. Back in the sunlight, he refused to return, and lived to old age."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Titian's Sisyphus (1548 to 1549), painted for Mary of Hungary and now in the Prado in Madrid.",
+          "options": {
+            "photo": "sisyphus-titian",
+            "aspect": 0.86
+          }
+        },
+        {
           "type": "text",
           "text": "The gods' punishment was meant to fit a man who had tried to outwit them. In the underworld Sisyphus must push a huge stone up a hill. Each time it nears the top, it rolls back to the bottom, and he walks down and starts again, for ever. Homer describes him in the *Odyssey*, straining with hands and feet, sweat pouring from him, dust rising round his head."
         },

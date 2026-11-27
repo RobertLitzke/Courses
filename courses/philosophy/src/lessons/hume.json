@@ -12,6 +12,15 @@
           "text": "In January 1739 a 27-year-old Scot who had spent three years living cheaply in France, most of them in a small town[^france], published the first two volumes of a book he expected to change philosophy. David Hume's *A Treatise of Human Nature* aimed to do for the study of the mind what Newton had done for the heavens. It sold slowly, and the few reviews it got were puzzled or hostile. \"Never literary attempt was more unfortunate than my Treatise of Human Nature,\" Hume wrote at the end of his life. \"It fell dead-born from the press.\""
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "David Hume, painted by Allan Ramsay in 1766, when he was famous for his History of England rather than for the Treatise.",
+          "options": {
+            "photo": "hume-ramsay",
+            "aspect": 0.84
+          }
+        },
+        {
           "type": "text",
           "text": "He rewrote its main ideas in shorter books, which did better, and became famous in his lifetime for a six-volume *History of England* and for his essays. He never got a university post: Edinburgh turned him down in 1745 and Glasgow in 1752, because of his reputation as an enemy of religion. In Paris, where he worked at the British embassy in the 1760s, he was celebrated in the salons as *le bon David*."
         },
