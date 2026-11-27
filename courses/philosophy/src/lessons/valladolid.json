@@ -1,0 +1,312 @@
+{
+ "id": "valladolid",
+ "n": 9,
+ "title": "Who counts as fully human?",
+ "teaches": "The Valladolid debate of 1550: Sepúlveda's use of Aristotle's \"natural slaves\", Las Casas's reply, and natural law",
+ "parts": [
+  {
+   "title": "An emperor stops a conquest",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In April 1550 the Holy Roman Emperor Charles V, who was also king of Spain and ruler of most of the Americas then known to Europeans, did something no empire had done before. He ordered that no new conquests be made in the Americas until a panel of theologians and lawyers had decided whether they were just. The panel of fourteen judges met in the Castilian city of Valladolid that August, and again the following spring, to hear two men argue the case."
+    },
+    {
+     "type": "text",
+     "text": "For the conquest spoke Juan Ginés de Sepúlveda, the emperor's official historian and one of the finest scholars of Greek in Spain, who had translated Aristotle's *Politics* into Latin. Against it spoke Bartolomé de las Casas, a 66-year-old Dominican friar and bishop who had spent most of his life in the Americas. Sepúlveda spoke for three hours. Las Casas answered by reading aloud from a Latin treatise of his own, and took five days.[^sessions]"
+    },
+    {
+     "type": "text",
+     "text": "Lesson 4 left one part of Aristotle unexamined. In this lesson we see it used, nineteen centuries after Aristotle wrote it, to argue about the fate of millions of people, and we look at how it was answered."
+    }
+   ]
+  },
+  {
+   "title": "Are these not men?",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The argument had started forty years earlier. In the Spanish colonies conquered settlers were granted *encomiendas*: rights to the labour of a number of indigenous people, in return for a duty to protect them and teach them Christianity. In practice the system was close to slavery. On Hispaniola, the first island settled, the indigenous Taíno population fell from hundreds of thousands to a few tens of thousands within a generation, through overwork, violence and above all new diseases."
+    },
+    {
+     "type": "text",
+     "text": "On the Sunday before Christmas 1511, a Dominican friar named Antonio de Montesinos preached to the colonists of Santo Domingo, including the governor, with a question that became famous: \"Are these not men? Do they not have rational souls? Are you not obliged to love them as yourselves?\" The colonists complained to the king. In the congregation, or soon hearing of it, was a young settler and priest named Bartolomé de las Casas, who held an encomienda himself."
+    },
+    {
+     "type": "text",
+     "text": "Las Casas gave up his encomienda in 1514, after reading a passage in the Bible that says an offering made from goods taken from the poor is like killing a son in front of his father. He spent the next fifty years arguing for the indigenous peoples at the Spanish court, became a Dominican, and in 1542 wrote *A Short Account of the Destruction of the Indies*, a catalogue of massacres and torture that was printed ten years later and translated across Europe.[^africa]"
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "The road to Valladolid. The argument began in the Caribbean and reached the emperor's court within forty years.",
+     "options": {
+      "title": "From Hispaniola to Valladolid",
+      "spacing": "even",
+      "events": [
+       {
+        "at": 1492,
+        "label": "Columbus reaches the Caribbean",
+        "when": "1492"
+       },
+       {
+        "at": 1502,
+        "label": "Las Casas arrives on Hispaniola",
+        "when": "1502"
+       },
+       {
+        "at": 1511,
+        "label": "Montesinos: \"Are these not men?\"",
+        "when": "1511"
+       },
+       {
+        "at": 1514,
+        "label": "Las Casas gives up his encomienda",
+        "when": "1514"
+       },
+       {
+        "at": 1537,
+        "label": "The Pope declares Indians free and rational",
+        "when": "1537"
+       },
+       {
+        "at": 1542,
+        "label": "New Laws limit encomiendas",
+        "when": "1542"
+       },
+       {
+        "at": 1550,
+        "label": "The debate at Valladolid",
+        "when": "1550 to 1551",
+        "color": "bad",
+        "bold": true
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Sepúlveda's argument",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Sepúlveda had set out his case in a dialogue called *Democrates Alter*, which the royal councils had refused to license for printing. He gave four reasons why the conquest was a just war. The one that drew on philosophy came from the first book of Aristotle's *Politics*. Aristotle had argued that some human beings are slaves by nature: they can understand reason when they hear it but cannot reason and plan for themselves, and they are better off ruled by those who can, as the body is better off ruled by the soul. Aristotle had Greeks and the peoples they called barbarians in mind."
+    },
+    {
+     "type": "text",
+     "text": "Sepúlveda claimed the indigenous peoples of the Americas were natural slaves in this sense, citing what he took as evidence: human sacrifice, cannibalism in some places, and the absence, as he claimed, of written laws and private property. His other three reasons were that their crimes against natural law, such as human sacrifice, justified war against them; that innocent victims of sacrifice had to be rescued; and that war cleared the way for preaching Christianity."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Sepúlveda's main argument, set out as lesson 4 set out a syllogism.",
+     "options": {
+      "steps": [
+       {
+        "text": "People who cannot govern themselves by reason are slaves by nature, and may rightly be ruled by others for their own good."
+       },
+       {
+        "text": "The peoples of the Americas cannot govern themselves by reason."
+       },
+       {
+        "text": "The peoples of the Americas may rightly be ruled by the Spanish.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "They had cities, laws, kingdoms, crafts and religions of their own, which only reasoning people make.",
+        "kind": "objection",
+        "against": 2,
+        "who": "Las Casas"
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Lesson 4's distinction, applied. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "sepulveda-valid",
+      "ask": "Grant Sepúlveda both premises for a moment, however false you think they are. Does his conclusion follow from them?",
+      "choices": [
+       "Yes: it is valid, so the fault must be in a premise",
+       "No: even with the premises the conclusion does not follow",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the reading most logicians would give. The argument is valid in form, so the debate was about whether its premises were true.",
+       "You chose a reading some scholars would defend: \"may rightly be ruled\" does not license conquest, killing and forced labour, which is what the war meant in practice.",
+       "Separating the form from the premises is hard when the conclusion is this repugnant, which is the reason lesson 4 drew the distinction."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Las Casas's reply",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Las Casas attacked the second premise with evidence. He described the cities of the Aztecs and the Incas, larger and better ordered, he said, than many in Spain, their laws, their markets, their temples, roads and crafts. People who build and govern such things plainly reason for themselves. Where they practised human sacrifice, he argued, they were mistaken in good faith about what their gods required, as many ancient peoples, including the Greeks and Romans, had once been; and a mistake of that kind is answered by persuasion, not by war."
+    },
+    {
+     "type": "text",
+     "text": "He also attacked the first premise's reach. Aristotle's natural slaves, Las Casas said, if they exist at all, are rare individuals, born with some defect, as some are born blind. A whole people of them is impossible, since God does not make nature fail on such a scale. In another book he put the point in a line that became famous: \"All the peoples of the world are human beings.\"[^vitoria]"
+    },
+    {
+     "type": "text",
+     "text": "Both men argued within the tradition of **natural law**, the view, going back to Aristotle and the Stoics and developed by Thomas Aquinas, that there is a moral law built into human nature which every reasoning person can know without revelation. Sepúlveda used natural law to say that sacrifice and idolatry were crimes that justified punishment. Las Casas used it to say that the peoples of the Americas were free by nature, owned their lands and had rightful rulers, and that no one could be made Christian by force."
+    }
+   ]
+  },
+  {
+   "title": "What was settled",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The judges never gave a verdict. Each wrote his opinion separately, the papers were lost or left unread, and expeditions resumed within a few years; royal ordinances of 1573 kept them going under a new name, \"pacifications\". Sepúlveda's book was still refused a licence to print. Both men claimed to have won. The encomienda system declined slowly over the following century, mostly because the indigenous population had fallen so far."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "What was wrong with Sepúlveda's case. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "sepulveda-wrong",
+      "ask": "Where does Sepúlveda's argument fail most deeply?",
+      "choices": [
+       "The second premise: the peoples of the Americas plainly could reason",
+       "The first premise: no lack of reason gives anyone the right to rule another",
+       "Both premises are false",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Las Casas's main line of attack, which is about the facts.",
+       "You chose the modern answer. Even a person who reasons poorly keeps the same rights as anyone else, which is the basis of human rights law.",
+       "You chose the answer most readers now give. Las Casas himself attacked both, but he did not deny that natural slaves might exist.",
+       "The question of what was wrong matters, since an argument refuted only on the facts can come back when people think the facts have changed, as it did in defences of slavery in the 19th century."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The debate is often called the first time a European empire stopped to ask whether its own conquest was just. It did not end the conquest, but it put the question in terms that outlasted it: whether there are rights that belong to people as human beings, whatever their religion, customs or state of civilisation. Scholars of Las Casas, and some historians of human rights, trace that idea through him, the Pope's bull of 1537[^pope] and the lawyers of the university of Salamanca to the Universal Declaration of Human Rights of 1948, whose first article says that all human beings are born free and equal in dignity and rights."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Natural slavery, as a justification for anything, is abandoned. No philosopher defends it, and it is now the standard example of a respected philosopher's argument being used to defend an atrocity. Aristotle's own view of slaves and of women, mentioned in lesson 4, is read today as a lesson in how a great thinker can take the prejudices of his time for nature."
+    },
+    {
+     "type": "text",
+     "text": "Universal human rights, which Las Casas argued for, are still argued over in the sense that philosophers still debate what grounds them: human nature, human reason, an agreement between states, or something else. That there are such rights is accepted by almost everyone. Natural law is respected history in most philosophy departments but alive in Catholic moral philosophy, where a modern version defended by John Finnis and others is still taught."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the Valladolid debate",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What did Aristotle mean by a \"natural slave\"?",
+        "choices": [
+         "Someone who cannot reason and plan for themselves, and is better off ruled",
+         "Anyone captured in a war, under the rules of ancient warfare",
+         "A person born to enslaved parents, whatever their abilities",
+         "Anyone who works with their hands rather than their mind"
+        ],
+        "answer": 0,
+        "why": "Aristotle's natural slaves can follow reason but not exercise it for themselves. He argued that being ruled is good for them."
+       },
+       {
+        "ask": "How did Las Casas attack the claim that the peoples of the Americas were natural slaves?",
+        "choices": [
+         "He pointed to their cities, laws and crafts as evidence of reason",
+         "He argued that Aristotle's books were unknown to the Indians",
+         "He argued that all slavery is forbidden in the Bible",
+         "He showed that Spaniards also practised human sacrifice"
+        ],
+        "answer": 0,
+        "why": "People who build cities and govern them reason for themselves, so the second premise is false."
+       },
+       {
+        "ask": "Sepúlveda's argument is valid. What follows from that?",
+        "choices": [
+         "If its conclusion is false, at least one premise must be false",
+         "Its conclusion must be true",
+         "Its premises must both be true",
+         "Its author must have believed it sincerely"
+        ],
+        "answer": 0,
+        "why": "Validity means true premises would guarantee the conclusion. So a false conclusion means a false premise somewhere."
+       },
+       {
+        "ask": "What is natural law?",
+        "choices": [
+         "A moral law built into human nature that reason can know without revelation",
+         "The laws of physics that govern the natural world",
+         "Laws passed by a state to protect its natural resources",
+         "Customs that every society has, whether or not they are good"
+        ],
+        "answer": 0,
+        "why": "Natural law runs from Aristotle and the Stoics through Aquinas. Both sides at Valladolid used it."
+       },
+       {
+        "ask": "Why might it matter whether Sepúlveda's argument fails in its first premise or its second?",
+        "choices": [
+         "If only the second is false, the argument could be revived against any people thought less capable",
+         "If only the first is false, the conclusion is still true",
+         "Arguments that fail in the first premise are not valid",
+         "The judges at Valladolid were allowed to consider only the second premise"
+        ],
+        "answer": 0,
+        "why": "Refuting the facts leaves the principle standing. If ruling others is never justified by a lack of reason, the argument cannot come back."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**In 1550 Charles V halted new conquests to hear a debate.** At Valladolid, Sepúlveda and Las Casas argued whether the conquest of the Americas was just.",
+  "**Montesinos asked \"Are these not men?\" in 1511.** The question began forty years of argument in the Spanish colonies and at court.",
+  "**Sepúlveda used Aristotle's natural slaves.** He argued that the indigenous peoples could not govern themselves and might rightly be ruled.",
+  "**Las Casas answered with evidence of reason.** Cities, laws and crafts showed people who reasoned for themselves, and a whole people of natural slaves was impossible.",
+  "**Both argued from natural law.** A moral law built into human nature, which reason can know, was common ground between them.",
+  "**A valid argument with a false conclusion has a false premise.** The debate turned on which of Sepúlveda's premises failed.",
+  "**No verdict was ever given.** The conquests went on, but the idea of rights belonging to all human beings outlasted them.",
+  "**Natural slavery is abandoned; universal human rights are not.** Philosophers still argue about what grounds those rights."
+ ],
+ "footnotes": {
+  "africa": {
+   "kind": "technical",
+   "title": "Las Casas and African slavery",
+   "text": "In 1516 Las Casas proposed that colonists be allowed to import African slaves so that indigenous people could be spared. He later wrote, in his History of the Indies, that he bitterly regretted it, having learned that the enslavement of Africans was just as unjust. By then the Atlantic slave trade was well established, and he was one of the few to say so."
+  },
+  "vitoria": {
+   "kind": "technical",
+   "title": "The Salamanca lawyers",
+   "text": "In 1539 Francisco de Vitoria, a theologian at the university of Salamanca, argued in lectures that the peoples of the Americas had true ownership of their lands and true rulers before the Spanish came, and that neither their unbelief nor their sins removed those rights. His work is often counted among the beginnings of international law."
+  },
+  "pope": {
+   "kind": "digression",
+   "title": "Sublimis Deus",
+   "text": "In 1537 Pope Paul III issued a bull, Sublimis Deus, declaring that the Indians were true human beings capable of the faith, and must not be deprived of their liberty or property. It was widely ignored in the colonies, and partly withdrawn a year later under pressure from the Spanish crown."
+  },
+  "sessions": {
+   "kind": "digression",
+   "title": "A debate in turns",
+   "text": "The two men never argued face to face. Each addressed the judges in turn, and the theologian Domingo de Soto wrote a summary of both cases for the panel, which survives."
+  }
+ }
+}

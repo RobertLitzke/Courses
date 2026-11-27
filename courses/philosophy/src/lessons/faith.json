@@ -1,0 +1,328 @@
+{
+ "id": "faith",
+ "n": 8,
+ "title": "Can reason overrule scripture?",
+ "teaches": "Al-Ghazali's fire and cotton, Ibn Rushd's reply that truth cannot contradict truth, and Aristotle's road into Latin Europe",
+ "parts": [
+  {
+   "title": "The professor who lost his voice",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1091 the most powerful minister of the Seljuk sultans, Nizam al-Mulk, appointed a 33-year-old scholar from Tus in north-eastern Iran to the chief professorship at the Nizamiyya, the great college he had founded in Baghdad. Abu Hamid al-Ghazali lectured to some three hundred students at a time, advised rulers, and was the most famous scholar of religious law in the Islamic world."
+    },
+    {
+     "type": "text",
+     "text": "In 1095, by his own account, he could no longer speak. He describes it in his autobiography, *Deliverance from Error*: for six months he had been torn between his career and a growing conviction that it was a vain one, until \"God locked my tongue\" and he could not teach a single lesson. He could not eat or digest, and the doctors could find nothing wrong with his body. He gave away his wealth, left Baghdad, and spent about ten years as a wandering Sufi, a follower of Islam's mystical path, in Damascus, Jerusalem and Mecca.[^crisis]"
+    },
+    {
+     "type": "text",
+     "text": "Just before his crisis al-Ghazali had finished a book that made him the most feared critic of philosophy in the Islamic world. In this lesson we follow his attack, the answer it received in Spain eighty years later, and how the argument between them helped carry Aristotle into the universities of Christian Europe."
+    }
+   ]
+  },
+  {
+   "title": "The philosophers on trial",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "By al-Ghazali's time Greek philosophy had been part of Islamic learning for three centuries. Under the Abbasid caliphs in Baghdad, from the 8th century on, scholars translated almost all of Aristotle into Arabic, along with Greek medicine, astronomy and mathematics. Muslim philosophers built on them. The greatest, Ibn Sina, known in Latin as Avicenna, died in 1037 and was revered as a second Aristotle; lesson 10 meets his floating man."
+    },
+    {
+     "type": "text",
+     "text": "Al-Ghazali's book, *The Incoherence of the Philosophers*, set out to show that these philosophers could not prove what they claimed to prove by reason alone. He went through twenty of their doctrines. Most he called errors. Three he called unbelief, because they contradicted the Qur'an outright: that the world has existed forever and was not created in time, that God knows things only in general and not individual events, and that the body is not raised at the resurrection. Al-Ghazali did not reject logic or mathematics, which he thought were neutral tools. His target was the claim that Aristotle's metaphysics had been proved."
+    }
+   ]
+  },
+  {
+   "title": "Fire and cotton",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The most famous chapter of the *Incoherence* is about cause and effect. When a flame touches a piece of cotton, the cotton burns. The philosophers said the fire causes the burning: it is the nature of fire to burn, and given fire and dry cotton, the burning must follow. Al-Ghazali denied this. All we ever observe, he wrote, is that the burning happens together with the contact. We do not observe the fire making it happen. \"Observation shows only that one occurs with the other, not that it occurs by it.\""
+    },
+    {
+     "type": "text",
+     "text": "On al-Ghazali's view it is God who creates the burning, each time, when the fire touches the cotton. God has a habit of doing so, which is why we can rely on it, but there is no necessary link in the things themselves, and God could make the cotton not burn. The Qur'an tells that Abraham was thrown into a fire and was not burned; on the philosophers' view this would be impossible, on al-Ghazali's it is simply God not doing what he usually does. The view that God is the only real cause, and created things only the occasions on which he acts, is called **occasionalism**."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Al-Ghazali's question about causes. Lesson 14 asks it again, with David Hume. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "fire",
+      "ask": "When a flame touches cotton and the cotton burns, do you actually see the fire making it burn?",
+      "choices": [
+       "Yes: I see the fire do it",
+       "No: I see one thing follow another",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the philosophers' view, and the common-sense one. The question is what in the experience shows the making, as opposed to the following.",
+       "You chose al-Ghazali's answer. Seven centuries later David Hume gave the same answer without the theology.",
+       "The question looks easy and is not, which is why it keeps coming back."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Al-Ghazali was not a sceptic about science. He agreed that doctors should prescribe medicine and that people should expect cotton to burn, since God's habits are reliable. His point was about what reason can prove. If the link between cause and effect is never seen, then no argument can show that the world must run as it does, and the philosophers had no right to say that miracles or creation in time were impossible."
+    }
+   ]
+  },
+  {
+   "title": "The judge of Córdoba",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "About 1168, in Marrakesh, a judge from Córdoba, then in his early forties, was presented to the caliph of the Almohad empire, which ruled North Africa and Muslim Spain. Abu Ya'qub Yusuf asked him directly whether the philosophers held that the heavens had existed forever or had been created. The judge, knowing the question was dangerous, said nothing and pretended not to know. The caliph then discussed it himself with such learning that the judge relaxed and talked freely. The judge was Ibn Rushd, known in Latin as Averroes,[^names] and the caliph soon asked him to write commentaries explaining all of Aristotle.[^meeting]"
+    },
+    {
+     "type": "text",
+     "text": "Ibn Rushd (1126 to 1198) was a judge, a doctor and the most thorough reader of Aristotle in the Middle Ages. About 1180 he answered al-Ghazali point by point in a book with a deliberate title, *The Incoherence of the Incoherence*. On causes he was blunt: \"Whoever denies causes denies reason.\" If fire has no nature of its own, there is nothing to know about fire, and all science collapses into a list of God's habits."
+    },
+    {
+     "type": "text",
+     "text": "His wider answer was in a short legal ruling, the *Decisive Treatise*. Does Islamic law permit the study of philosophy, he asked, or forbid it, or require it? It requires it, he argued, for those able to do it, since the Qur'an commands people to reflect on creation, and philosophy is reflection done properly. And it cannot lead to unbelief, because \"truth does not contradict truth; rather it agrees with it and bears witness to it\". If a proof seems to clash with the plain sense of a verse, the verse must be read in a non-literal way, as the Qur'an itself says some of its verses should be."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Ibn Rushd's rule for a clash between reason and scripture, as the Decisive Treatise sets it out.",
+     "options": {
+      "steps": [
+       {
+        "text": "Scripture is true."
+       },
+       {
+        "text": "What is shown by a strict proof is true."
+       },
+       {
+        "text": "One truth cannot contradict another."
+       },
+       {
+        "text": "So where a strict proof and the plain sense of a verse disagree, the verse has another meaning, which scholars should find.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "Reason's proofs are less certain than they seem, so it is reason that should give way.",
+        "kind": "objection",
+        "against": 2,
+        "who": "al-Ghazali"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Ibn Rushd added that people reach the truth in different ways: some by strict proof, some by argument from accepted opinions, and most by persuasive stories and images, and scripture speaks to all three. Non-literal readings, he said, should be kept among scholars and not taught to the general public, who might lose their faith without gaining any understanding."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Ibn Rushd's rule, applied to a modern case. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "scripture",
+      "ask": "A well-tested scientific result contradicts the plain meaning of a passage in a sacred text. What should a believer do?",
+      "choices": [
+       "Read the passage in another way, as Ibn Rushd said",
+       "Trust the text and doubt the science, as the safer course",
+       "Hold both, since they answer different questions",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Ibn Rushd's rule. Galileo used the same rule in 1615, quoting Augustine, and it is the official view of the Catholic Church today.",
+       "You chose a view closer to al-Ghazali's, and to many believers today, who think human reasoning is less reliable than revelation.",
+       "You chose a view the biologist Stephen Jay Gould called non-overlapping magisteria in 1997: science asks how, religion asks why. Critics on both sides say the two often answer the same question.",
+       "Many believers and philosophers find the rule easy to state and hard to apply, since scientists are seldom as certain as a strict proof."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Aristotle's road west",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Ibn Rushd's later life went badly. In 1195 the caliph al-Mansur, needing the support of religious scholars for a war in Spain, banished him to the small town of Lucena, and some of his books were burned. He was recalled shortly before his death in Marrakesh in 1198. In the Islamic world his philosophy had few followers. In Christian Europe it had a long career."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "How Aristotle reached the universities of Latin Europe. Most of his works came to the West through Arabic, with Ibn Rushd's commentaries alongside.",
+     "options": {
+      "title": "Aristotle's road",
+      "spacing": "even",
+      "events": [
+       {
+        "at": -335,
+        "label": "Aristotle teaches at the Lyceum, Athens",
+        "when": "335 BC"
+       },
+       {
+        "at": 830,
+        "label": "Translations into Arabic in Baghdad",
+        "when": "9th century"
+       },
+       {
+        "at": 1020,
+        "label": "Ibn Sina's Healing",
+        "when": "about 1020"
+       },
+       {
+        "at": 1095,
+        "label": "Al-Ghazali's Incoherence",
+        "when": "1095"
+       },
+       {
+        "at": 1150,
+        "label": "Translations into Latin in Toledo",
+        "when": "12th century"
+       },
+       {
+        "at": 1180,
+        "label": "Ibn Rushd's reply",
+        "when": "about 1180",
+        "color": "good",
+        "bold": true
+       },
+       {
+        "at": 1270,
+        "label": "Aquinas writes against the Averroists, Paris",
+        "when": "1270"
+       },
+       {
+        "at": 1277,
+        "label": "The bishop of Paris condemns 219 propositions",
+        "when": "1277"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "In the 12th century, scholars in Toledo, recently taken from Muslim rule by Castile, began translating Arabic books into Latin, including Aristotle and his Arabic commentators. Ibn Rushd's commentaries were translated in the 1220s and 1230s and became the standard guide to Aristotle in the new universities.[^toledo] Thomas Aquinas called him simply \"the Commentator\", as he called Aristotle \"the Philosopher\", and Dante, in the *Divine Comedy*, placed \"Averroes, who made the great commentary\" among the virtuous pagans in Limbo."
+    },
+    {
+     "type": "text",
+     "text": "Some teachers in Paris, the Latin Averroists, went further than Ibn Rushd himself and were accused of teaching that a thing could be true in philosophy and false in faith. Aquinas wrote against them in 1270, and in 1277 the bishop of Paris condemned 219 propositions taught in the university. The Christian answer that became standard was close to Ibn Rushd's own: faith and reason cannot truly conflict, since both come from God."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Both sides of this argument are respected history. Occasionalism has very few defenders now, though the French philosopher Nicolas Malebranche revived it in the 17th century. Al-Ghazali's observation that we never see a cause, only one event following another, is still argued over, because Hume made it the centre of modern debates about cause and induction (lesson 14). Ibn Rushd's rule, that where proof and scripture seem to clash the scripture must be read differently, is the working view of most religious believers who accept modern science."
+    },
+    {
+     "type": "text",
+     "text": "One popular story should be retired. It is often said that al-Ghazali's attack ended science in the Islamic world. Historians of science reject this: astronomy, mathematics and medicine flourished in Islamic lands for centuries after him, as the observatories at Maragha in the 13th century and Samarkand in the 15th show, and al-Ghazali himself defended mathematics and medicine. Philosophy in the style of Aristotle did decline in the Arabic-speaking West, but in Iran it continued, in new forms, to the present day."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on al-Ghazali and Ibn Rushd",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What does al-Ghazali claim about fire and cotton?",
+        "choices": [
+         "We see the burning happen with the contact, not because of it; God creates it",
+         "Fire burns cotton only because cotton is weaker than fire by nature",
+         "The burning of cotton is a miracle that happens only occasionally",
+         "Fire and cotton do not exist apart from the mind that perceives them"
+        ],
+        "answer": 0,
+        "why": "Observation shows only that one thing occurs with the other. On his view God creates the burning each time, by habit."
+       },
+       {
+        "ask": "Why did al-Ghazali's view of causes matter to his attack on the philosophers?",
+        "choices": [
+         "If no causal link is ever seen, reason cannot prove the world must run as it does",
+         "It showed that science was useless and doctors should stop prescribing",
+         "It proved that the world has existed forever, as the philosophers said",
+         "It allowed him to show that Aristotle's logic contained errors"
+        ],
+        "answer": 0,
+        "why": "Without necessary links, the philosophers could not prove miracles or creation in time impossible. Al-Ghazali kept medicine and mathematics."
+       },
+       {
+        "ask": "What is Ibn Rushd's rule for a clash between a strict proof and a verse of scripture?",
+        "choices": [
+         "The verse has a non-literal meaning that agrees with the proof",
+         "The proof must be rejected, since scripture is more certain",
+         "Both are true, one in philosophy and one in religion",
+         "Ordinary believers should be taught both and left to decide"
+        ],
+        "answer": 0,
+        "why": "Truth does not contradict truth, so an apparent clash means the verse needs interpreting. The double-truth view was the Latin Averroists' and not his."
+       },
+       {
+        "ask": "Ibn Rushd says \"whoever denies causes denies reason\". What is his point?",
+        "choices": [
+         "If things have no natures of their own, there is nothing for knowledge to be about",
+         "Anyone who denies causes is guilty of unbelief under Islamic law",
+         "Causes can be seen directly, so denying them is denying the evidence",
+         "Reason was given by God, so it must be used to find causes"
+        ],
+        "answer": 0,
+        "why": "Science studies what things do because of what they are. Remove natures and you have only a list of God's habits."
+       },
+       {
+        "ask": "Which claim about the history in this lesson is a myth?",
+        "choices": [
+         "Al-Ghazali's book ended science in the Islamic world",
+         "Ibn Rushd's commentaries were used in Paris universities",
+         "Aristotle reached Latin Europe largely through Arabic",
+         "Ibn Rushd was banished late in life and some books were burned"
+        ],
+        "answer": 0,
+        "why": "Islamic astronomy, mathematics and medicine flourished for centuries after al-Ghazali, who defended mathematics and medicine himself."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Al-Ghazali left the top professorship in Baghdad in 1095.** His crisis, told in his autobiography, ended his career and began his life as a Sufi.",
+  "**His Incoherence of the Philosophers attacked Aristotle's metaphysics.** He argued that the philosophers could not prove what they claimed, and called three of their doctrines unbelief.",
+  "**We never see a cause, only one thing with another.** Fire and cotton burn together, and on al-Ghazali's view God creates the burning each time.",
+  "**Occasionalism makes God the only real cause.** Created things are the occasions on which God acts, so miracles are God departing from a habit.",
+  "**Ibn Rushd answered that denying causes denies reason.** Without natures of things there is nothing for science to know.",
+  "**Truth does not contradict truth.** Where a strict proof and scripture's plain sense clash, the Decisive Treatise says the verse must be read another way.",
+  "**Aristotle reached Latin Europe largely through Arabic.** Ibn Rushd's commentaries were translated in the 1220s and 1230s, and Aquinas called him the Commentator.",
+  "**Al-Ghazali did not end Islamic science.** Astronomy, mathematics and medicine continued to flourish for centuries."
+ ],
+ "footnotes": {
+  "crisis": {
+   "kind": "technical",
+   "title": "What happened in 1095",
+   "text": "Al-Ghazali's own account is spiritual: he says he saw that his teaching served fame, not God. Some historians add politics, since Nizam al-Mulk was murdered in 1092 and the sultan died soon after, leaving Baghdad dangerous for a man in his post. The two explanations can both be true."
+  },
+  "meeting": {
+   "kind": "technical",
+   "title": "How we know about the meeting",
+   "text": "The story comes from Ibn Rushd's student, quoting his teacher, in a history of the Almohads by al-Marrakushi written about 1224. The introduction was made by the philosopher Ibn Tufayl, the caliph's doctor."
+  },
+  "names": {
+   "kind": "digression",
+   "title": "Latin names",
+   "text": "Medieval European scholars turned Arabic names into Latin: Ibn Sina became Avicenna, Ibn Rushd became Averroes, and al-Ghazali became Algazel. In Raphael's painting the School of Athens (1511) a figure in a turban is traditionally identified as Averroes."
+  },
+  "toledo": {
+   "kind": "digression",
+   "title": "Translating twice",
+   "text": "Some of Aristotle reached Latin by way of Greek into Syriac, Syriac into Arabic, Arabic into Castilian spoken aloud and Castilian into Latin, with a Jewish or Christian scholar who knew Arabic working beside a Latin writer. Direct translations from Greek, made later in the 13th century, gradually replaced them."
+  }
+ }
+}
