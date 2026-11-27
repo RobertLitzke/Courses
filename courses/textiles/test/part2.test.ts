@@ -26,6 +26,7 @@ import { checkered } from '../src/figures/strips';
 import { days, knots } from '../src/figures/knots';
 import { GARMENTS, used } from '../src/figures/layout';
 import { whiteShare } from '../src/figures/fade';
+import { simulate } from '../src/figures/trickle';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -381,6 +382,18 @@ describe('the coupons figure', () => {
     click(h.node, 'Dress · 11');
     click(h.node, 'Pair of shoes · 5');
     click(h.node, 'Pair of stockings · 2');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the trickle figure', () => {
+  it('cycles faster when clothes are cheap', () => {
+    expect(simulate(0.25).styles).toBeGreaterThan(simulate(2).styles * 4);
+  });
+  it('is done after a dear and a cheap price', async () => {
+    const h = FIGURES.trickle(context(), 'pace');
+    setSlider(h.node, 0, 2);
+    setSlider(h.node, 0, 0.25);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

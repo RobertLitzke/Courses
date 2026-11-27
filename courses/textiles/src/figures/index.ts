@@ -42,6 +42,7 @@ import { fadeFigure } from './fade';
 import { waxprintStill } from './waxprint';
 import { corsetStill } from './corset';
 import { couponsFigure } from './coupons';
+import { trickleFigure } from './trickle';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -93,6 +94,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   waxprint: waxprintStill,
   corset: corsetStill,
   coupons: couponsFigure,
+  trickle: trickleFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,
