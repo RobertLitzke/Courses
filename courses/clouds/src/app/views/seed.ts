@@ -264,9 +264,8 @@ export const seedView: View = (root) => {
     paint();
   };
 
-  const talk = getSave().talk;
   page.append(
-    el('p.eyebrow', {}, talk ? 'Harrow, Adams County' : 'The forecast desk'),
+    el('p.eyebrow', {}, 'The forecast desk'),
     el('h1', {}, 'Make the sky'),
     el('p.muted', {}, 'Make the skies on the list. Most orders leave the air to you: find a day that would make the sky. The ones marked Seed, for after the cloud-seeding lesson, give you the day as it is, and only the seeding to plan.'),
     board,

@@ -43,12 +43,11 @@ describe('migrate', () => {
     expect(migrate({ orders: ['a', 'a', 2] }).orders).toEqual(['a']);
   });
 
-  it('keeps the radio settings and what was heard', () => {
-    expect(emptySave().talk).toBe(true);
-    const s = migrate({ talk: false, introSeen: true, heard: { intro: [1, '2', -3], junk: 'x' } });
-    expect(s.talk).toBe(false);
-    expect(s.introSeen).toBe(true);
-    expect(s.heard).toEqual({ intro: [1, 2, 0] });
+  it('loads a save from when the course had radio talks, dropping their fields', () => {
+    const rec = { done: true, best: 3, of: 6 };
+    const s = migrate({ talk: false, introSeen: true, heard: { intro: [1, 2] }, lessons: { fog: rec } });
+    expect(s.lessons.fog).toEqual(rec);
+    expect('talk' in s || 'introSeen' in s || 'heard' in s).toBe(false);
   });
 });
 

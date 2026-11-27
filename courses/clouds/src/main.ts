@@ -41,11 +41,11 @@ defineCourse({
   lesson: lessonOptions,
   save: { store, empty: emptySave },
   text: COURSE,
-  // A lesson's downloadable piece: its file, its radio talk, and the words in
+  // A lesson's downloadable piece: its file, and the words in
   // the code of its figures and the src/core model of the same name.
   textPieces: {
     modules: import.meta.glob('/src/app/figures/*.ts', { eager: true }),
-    files: (l) => [`src/data/lessons/${l.id}.json`, `src/data/radio/${l.id}.json`],
+    files: (l) => [`src/data/lessons/${l.id}.json`],
     alongside: (file) => [file.replace('src/app/figures/', 'src/core/')],
   },
 
@@ -87,7 +87,6 @@ defineCourse({
   offline: { noun: 'photos', retire: ['photos'] },
   settings: {
     units: { label: 'Heights in', imperial: 'Feet', metric: 'Metres' },
-    radio: { blurb: 'With the radio on, an old hand at Walla Walla opens each lesson on a typed slip, and puts the questions at the end to you over the air. Off, the lessons are a plain workbook ending in a check.' },
     oneFile: { href: asset('clouds.html'), name: 'clouds.html', offline: { href: asset('clouds-offline.html'), name: 'clouds-offline.html' } },
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photos, and under what licence.'),
   },

@@ -1,8 +1,7 @@
 // Clouds' words as this browser has them. All of the text can be downloaded
 // from Settings as one course file, edited, and loaded back to read here
 // before it is committed (Didactics' course.ts): every JSON file in src/data
-// except the photo library (the lessons, the radio talks, the quiz cards and
-// the glossary), and under "code" the words written in the source (figure
+// except the photo library (the lessons, the quiz cards and the glossary), and under "code" the words written in the source (figure
 // labels and commentary, headings, buttons; Didactics' code-text.ts).
 // The course's file of the site's encyclopedia goes in too.
 // main.ts imports this first, so edited words are in place before any module

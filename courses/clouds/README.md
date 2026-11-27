@@ -1,16 +1,13 @@
 # Clouds: What are they up to?
 
-A cloud-watching game. It is the summer of 1931, and you are the new weather
-forecaster in Harrow, a wheat town with an airfield in eastern Washington.
-Farmers, pilots and the Ladies' Aid bring you their weather questions, and an
-old hand at Walla Walla, a few counties over, talks you through the answers
-on the ham radio, one lesson a week: how to name every kind of cloud, what
-made it, and what it means for the weather to come. Once training is done
-the story skips ahead to 1946, when cloud seeding arrives, and you start
-making clouds as well as reading them.
+A cloud workbook: how to name every kind of cloud, what made it, and what it
+means for the weather to come. The drawings are set over Harrow, an invented
+wheat town in eastern Washington. After the main line of lessons, branches
+follow the weather further afield, and the last lesson is on cloud seeding,
+where you start making clouds as well as reading them.
 
-The lessons themselves are a plain workbook; the story lives only in the
-radio talks, which can be switched off in Settings.
+Until 2026-11-27 the course also had radio talks with an old hand at Walla
+Walla, typed on a slip around each lesson; they were removed.
 
 The look comes from the poster in `art/poster.jpg`, which is also the
 loading screen: a violet and magenta evening,
@@ -28,14 +25,6 @@ and uses real photos for testing.
   with. Each part opens once the small tasks in the figures above it are
   done; a finished lesson opens in full. Every lesson ends with a check
   (photos to name, and skies to forecast) and a signed logbook page.
-- **Radio talks** with Walla Walla, typed out on a torn slip of paper at the
-  foot of the screen: an opening talk on first load, then in each lesson one
-  as it opens (with the townsfolk's questions), one or two along the way
-  (a question on what was just read), and one as the check opens, where the
-  townsfolk's questions come back as the last forecasts. Each turn offers up
-  to three replies that rejoin. Shutting a talk is rude, and you are told so;
-  a radio button in the corner brings it back. Heard talks go into the
-  field guide's radio log.
   1. **The two textures**: what a cloud is, stable and unstable air, cumulus
      from thermals and stratus from a cooling night.
   2. **The low sky**: the three floors, stratocumulus under a lid, why most
@@ -74,7 +63,7 @@ the same picture on every load, `?imperial` for imperial units, or
 
 | Command | What it does |
 |---|---|
-| `npm test -w clouds` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, radio talks, photo credits |
+| `npm test -w clouds` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, photo credits |
 | `npm run build -w clouds` | Typecheck, then build `dist/` |
 | `npm run preview -w clouds` | Serve `dist/` on http://localhost:5421 |
 | `npm run poster -w clouds` | Regenerate `public/poster.webp` from `art/poster.jpg` (icons come from `npm run icons` at the repository's root) |
@@ -119,11 +108,10 @@ src/core/     pure TypeScript, no DOM; unit-tested
   optics.ts     light through an ice prism, the halo
   drops.ts      how fast drops fall and how far they get before evaporating
   lessons.ts    the lessons (parts of text and figures) and the tree
-  talk.ts       the radio talks and the townsfolk's questions
-  photo-call.ts radio-check.ts  dealing the photo checks
+  photo-call.ts name-calls.ts  dealing the photo checks
   photos.ts     the photo entry shape and accepted licences
   save.ts       Clouds' save fields on top of Didactics' progress.ts
-src/app/      store.ts, asset.ts, photos.ts, radio.ts (Walla Walla on Didactics' slip)
+src/app/      store.ts, asset.ts, photos.ts
   scene/        landscape.ts (wheat country and the town), drawn.ts (drawn clouds)
   figures/      one file per lesson (fog.ts … seeding-limits.ts) with its live and
                 still figures in lesson order; quizzes.ts the photo and forecast
@@ -136,14 +124,14 @@ test/
 ```
 
 Everything that is not about clouds (the lesson engine and JSON lesson
-format, figures, quiz scheduling, the radio slip, the log, the shell and the
+format, figures, quiz scheduling, the log, the shell and the
 build) is the Didactics library,
 [RobertLitzke/Didactics](https://github.com/RobertLitzke/Didactics), imported
 as `didactics/<module>`. It is a git dependency pinned to a commit in
 package.json; to take a newer one, run
 `npm install github:RobertLitzke/Didactics#<sha or tag>`.
 
-The course's longer words are JSON in `src/data` (lessons, radio talks, quiz
+The course's longer words are JSON in `src/data` (lessons, quiz
 cards, glossary). To revise them in one file:
 
 ```sh

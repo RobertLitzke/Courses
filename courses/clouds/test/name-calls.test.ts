@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { nameOptions, dealNameCalls } from '../src/core/radio-check';
+import { nameOptions, dealNameCalls } from '../src/core/name-calls';
 import { makeRng } from 'didactics/rng';
 
 describe('name options', () => {

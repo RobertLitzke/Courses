@@ -1,13 +1,10 @@
 // What Clouds adds to a lesson (Didactics' lesson view, which main.ts sets up
 // through defineCourse): its sky over the fields at the top, the clouds it
-// introduces under the lede, and Walla Walla on the radio: a short opening as
-// the lesson starts, and a few lines typed around the check.
+// introduces under the lede.
 
 import { el } from 'didactics/dom';
 import { genus } from '../../core/clouds';
 import type { CloudLesson } from '../../core/lessons';
-import { radioFor, STATIONS } from '../../core/talk';
-import { clearRadio, playTalk } from '../radio';
 import { addToSky, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { makeScene, W } from '../scene/landscape';
 
@@ -25,5 +22,4 @@ function hero(lesson: CloudLesson): Node {
 export const lessonOptions = {
   hero,
   intro: (lesson: CloudLesson) => (lesson.clouds.length ? el('ul.meet', {}, lesson.clouds.map((id) => el('li', {}, genus(id).name))) : null),
-  radio: { talks: (id: string) => radioFor(id).talks, play: playTalk, clear: clearRadio, them: STATIONS.them },
 };
