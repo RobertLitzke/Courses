@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 7 | 34 |
-| [Fabric & Form](#textiles) | 0.1 beta | 26 | 1 | 4 | 26 | 26 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 27 | 0 | 5 | 27 | 27 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 1 lesson to write, 4 to read through, 26 to copy-edit, 26 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 to read through, 27 to copy-edit, 27 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -626,7 +626,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 24 | When did clothes start coming in sizes? (`sizes`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Sewing by hand; the sewing machine (Howe 1846, Singer 1851) and hire purchase; ready-made clothing; men's sizes from tailors' systems and uniforms; women's sizes and the 1939 to 1940 USDA survey; garment districts, sweatshops and the Triangle Shirtwaist fire of 1911. |
 | 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | One T-shirt's journey from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price. |
 | 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (2 photos parked in pending-photos.json) | Soviet irrigation and the Aral Sea; forced labour in Uzbek and Xinjiang cotton and import bans; Bt cotton in India; US subsidies, Brazil's WTO case and the Cotton-4; colonial cotton schemes in Sudan and Mozambique; second-hand clothing exports; microfibres; telling solid environmental figures from myths. |
-| 27 | What does the label in your shirt not say? (`label`) |  | planned, listed as coming |  | The whole course applied to a garment you own, a 1930s rayon dress and a wax-print shirt. |
+| 27 | What does the label in your shirt not say? (`label`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | The whole course applied to three garments: a shirt from your own wardrobe, a 1930s rayon dress and a West African wax-print shirt, read layer by layer (fibre, yarn, structure, finish) and step by step along the supply chain; the burn test for fibres. |
 
 ## Not started
 
