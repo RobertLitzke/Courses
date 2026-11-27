@@ -311,6 +311,13 @@
       "expectsPhotos": true,
       "note": "Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) in project files philosophy/outline.md. All 25 trunk lessons and 17 branch lessons written 27 Nov 2026, with student read-throughs and a full fact check (PhilPapers 2020 shares verified). Photos for lessons 1 to 4 are parked in tools/pending-photos.json; lessons 5 on have none picked yet.",
       "lessons": {}
+    },
+    "textiles": {
+      "student": "done",
+      "facts": "done 2026-11-27 (reviewers for lessons 1 to 20 and branch W, thread check for the rest; /mnt/project-files/textiles/fact-review.md)",
+      "expectsPhotos": true,
+      "note": "Fabric & Form. Rob's outline v2 (27 Nov 2026) in project files textiles/outline-v2-rob.md. All 27 trunk lessons and branches M, K, W and F written 27 Nov 2026 with student read-throughs and a full fact check. Two Aral Sea photos are parked in tools/pending-photos.json; other lessons have none picked yet.",
+      "lessons": {}
     }
   },
   "notStarted": []
