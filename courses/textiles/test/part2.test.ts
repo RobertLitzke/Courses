@@ -10,6 +10,7 @@ import { knotsFor } from '../src/figures/inca';
 import { ROUTES, voyage } from '../src/figures/monsoon';
 import { hoursProblems } from '../src/figures/hours';
 import { hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
+import { PRESETS, jennyReturn } from '../src/figures/jenny-pays';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -104,6 +105,18 @@ describe('the workshop in lesson 15', () => {
   it('is done once the power loom leaves the weavers idle', async () => {
     const h = FIGURES.workshop(context(), 'loom');
     guess(h.node, 'They have far more weaving capacity than yarn, so work and piece rates fall');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('does a jenny pay', () => {
+  it('pays in Lancashire on Allen\'s wages and not in Bengal', () => {
+    expect(jennyReturn(6, 70)).toBeGreaterThan(0.3);
+    expect(jennyReturn(1, 70)).toBeLessThan(0);
+  });
+  it('is done once all presets are seen', async () => {
+    const h = FIGURES['jenny-pays'](context(), 'compare');
+    for (const p of PRESETS) click(h.node, p.name);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

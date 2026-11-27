@@ -1,0 +1,131 @@
+{
+  "id": "why-britain",
+  "n": 16,
+  "title": "Why did the machines come to Lancashire and not Bengal?",
+  "teaches": "Why Britain mechanised cotton first: Allen's high wages and cheap coal, Humphries and Schneider on spinners' earnings, Pomeranz on coal and colonies, Parthasarathi on Indian competition and the British state, Mokyr on useful knowledge",
+  "parts": [
+    {
+      "title": "Two spinners in 1770",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Picture two women spinning cotton in 1770. One lives in a village near Blackburn in Lancashire and spins weft for a local merchant. The other lives in a village in Bengal and spins fine yarn for weavers who supply the East India Company. The Bengali spinner is much the more skilled of the two: her yarn is finer and more even, and Bengal's cloth sells all over the world. A few years earlier, a weaver near Blackburn had built the spinning jenny. Within fifty years, Lancashire's machines would be spinning yarn as fine as Bengal's, and Bengal would be importing British cloth."
+        },
+        {
+          "type": "text",
+          "text": "Why did the machines appear in Lancashire, a region with a younger and smaller cotton industry, and not in Bengal, Gujarat, the Yangzi delta or France? This is one of the biggest questions in economic history, and historians disagree about the answer. In this lesson we set out five arguments side by side, with their evidence. They are not all exclusive, and most historians combine several."
+        }
+      ]
+    },
+    {
+      "title": "High wages and cheap coal",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The economic historian **Robert Allen** argues that the machines were invented where they paid. A machine replaces labour with capital and, later, with energy. It is worth building only where labour is expensive compared with machines and fuel. Allen compiled wages and prices across Europe and Asia and found that in 18th-century Britain wages were high, measured in silver or in what they could buy, while capital was cheap and coal, from the many mines near the surface, was among the cheapest in the world. In such an economy, a machine that saved labour, even at the cost of more capital and coal, returned a profit. In France, and even more in India and China, wages were lower and the same machine returned little or nothing."
+        },
+        {
+          "type": "text",
+          "text": "Allen's argument also explains why the inventions came in a series. The first jennies only just paid in Britain; it took years of further work to make them pay elsewhere, and by then British engineers had improved them further. Most inventions of the period came from practical people who made small improvements over years, and that kind of work happens where the payoff is."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "jenny-pays",
+          "caption": "Whether a spinning jenny paid, with round, illustrative numbers. The presets move the wage in the direction each argument suggests; they are not the historians' own figures.",
+          "task": "Compare all four presets",
+          "goal": "compare"
+        }
+      ]
+    },
+    {
+      "title": "Historians disagree",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Jane Humphries and Benjamin Schneider** (2019) went back to the earnings of the hand spinners themselves. Using account books and records of payments, they found that women spinners in 18th-century England earned far less than Allen had assumed, often only a few pence a day, and that spinning was often part-time work fitted around other tasks. If spinners' time was cheap, saving it was worth less, and high wages cannot be the whole explanation. They suggest other causes: the rapidly growing demand for cotton, and the way the machines raised the quality and evenness of yarn as well as its quantity. Allen replied that the relevant comparison is with earnings in other trades and other countries, and that his conclusion stands. The debate continues."
+        },
+        {
+          "type": "text",
+          "text": "**Kenneth Pomeranz**, in *The Great Divergence* (2000), compared England with the Yangzi delta in China, which in the 18th century was as rich and as commercial as England. He argued that both faced the same limit: land. Food, fuel, fibre and building materials all came from land, which was running short. England escaped the limit through two accidents of geography: coal near the surface, which replaced wood as fuel, and the Americas, whose plantations supplied cotton, sugar and timber. He called the American land Britain drew on **ghost acres**, the land Britain would have needed to produce those goods itself. Raw cotton, lesson 17 shows, came increasingly from plantations worked by enslaved people."
+        },
+        {
+          "type": "text",
+          "text": "**Prasannan Parthasarathi**, in *Why Europe Grew Rich and Asia Did Not* (2011), looked from India. He argued that Britain mechanised because it faced competition from Indian cloth, which it could not match by hand. Indian producers, with their skills and lower costs, had no such pressure. And the British state did not leave this to the market: the Calico Acts of lesson 12 protected British producers at home, the navy and the East India Company opened markets abroad, and later tariffs kept Indian cloth out while British cloth went into India. Mechanisation was a response to Indian strength, protected by state power."
+        },
+        {
+          "type": "text",
+          "text": "**Joel Mokyr** emphasises ideas. In the 18th century, Britain had a culture of what he calls useful knowledge: scientific societies, popular lectures, cheap books and journals, and many skilled mechanics and instrument makers who could turn an idea into a working machine. Prices may have told inventors what was worth doing, but they needed the skills and the habits of experiment to do it. In this view the Industrial Revolution was, at bottom, a change in how knowledge was made and shared."
+        },
+        {
+          "type": "text",
+          "text": "These arguments are not entirely in conflict. Allen and Pomeranz both stress coal; Parthasarathi and Pomeranz both stress Britain's position in a world economy; Humphries and Schneider question one of Allen's numbers rather than every part of his argument; and Mokyr asks why Britain had the people to respond. What historians argue about is the weight of each cause, and whether Britain's lead was a product of its own society or of its place in the world."
+        }
+      ]
+    },
+    {
+      "title": "What happened to Bengal",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Within half a century the trade reversed. British machine-spun yarn became cheaper than Indian hand-spun, then British cloth undercut Indian cloth, first in Europe and Africa and then in India itself, where British goods paid low duties under Company rule. Indian cotton exports fell sharply in the early 19th century, and many spinners and weavers lost their livelihood. How far this deindustrialised India is itself a debate, which lesson 21 takes up."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on why Britain mechanised first.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "In Allen's argument, why would the same jenny pay in Lancashire but not in Bengal?",
+                "choices": ["It saved labour, and labour was worth much more compared with machines in Lancashire than in Bengal", "Bengal's spinners could not learn to use it", "Jennies only worked with British cotton", "Bengal had no wood to build it"],
+                "answer": 0,
+                "why": "A machine pays where the labour it saves is expensive compared with what the machine costs. Wages relative to capital were higher in Britain."
+              },
+              {
+                "ask": "Humphries and Schneider find that English spinners earned only a few pence a day. Why does that matter for Allen's argument?",
+                "choices": ["If spinners' time was cheap, saving it was worth less, so high wages explain less", "It proves the jenny was never used", "It shows spinners were men", "It means coal was expensive"],
+                "answer": 0,
+                "why": "Allen's case rests on labour being dear. Lower spinners' earnings shrink the jenny's return and leave more to be explained by other causes."
+              },
+              {
+                "ask": "What does Pomeranz mean by ghost acres?",
+                "choices": ["The land in the Americas and underground in coal that supplied Britain with what its own land could not", "Abandoned farms in England", "Land that cotton exhausted", "Common land enclosed by landlords"],
+                "answer": 0,
+                "why": "Coal replaced forests for fuel, and American plantations replaced fields for cotton and sugar. Both freed Britain from the land limit the Yangzi delta faced."
+              },
+              {
+                "ask": "Parthasarathi argues that Britain mechanised because of India. In what sense?",
+                "choices": ["British producers could not beat Indian cloth by hand, and the state protected them while they mechanised", "Indian engineers designed the machines", "India banned cotton exports", "Britain copied Indian spinning machines"],
+                "answer": 0,
+                "why": "Competition from superior Indian cloth gave Britain the incentive, and tariffs, bans and empire gave its producers time and markets."
+              },
+              {
+                "ask": "Which question does Mokyr's argument answer that the price-based arguments do not?",
+                "choices": ["Why Britain had the skilled people and habits of experiment to turn incentives into working machines", "Why wages were high", "Why coal was cheap", "Why cotton grew in America"],
+                "answer": 0,
+                "why": "Prices may show what is worth inventing; Mokyr asks why there were people able to invent it, and points to a culture of useful knowledge."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Lancashire mechanised first, Bengal did not.** Bengal had the finer industry, but the machines appeared in Britain.",
+    "**Allen: machines went where they paid.** High wages, cheap capital and cheap coal made labour-saving machines profitable in Britain.",
+    "**Humphries and Schneider: spinners were cheap.** English hand spinners earned less than Allen assumed, so high wages explain less.",
+    "**Pomeranz: coal and colonies.** Coal and American land, the ghost acres, freed Britain from the land limit the Yangzi delta faced.",
+    "**Parthasarathi: India pushed and the state protected.** Competition from Indian cloth gave the incentive; bans, tariffs and empire gave British producers room.",
+    "**Mokyr: useful knowledge.** A culture of experiment and skilled mechanics turned incentives into machines.",
+    "**The arguments overlap.** Historians argue over the weight of each cause, not whether only one is true.",
+    "**The trade reversed.** Within fifty years British cloth undercut Indian cloth in India itself."
+  ],
+  "footnotes": {}
+}
