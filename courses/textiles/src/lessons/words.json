@@ -1,0 +1,156 @@
+{
+  "id": "words",
+  "n": 9,
+  "title": "Why are so many cloth words Arabic and Persian?",
+  "teaches": "Cotton's spread across the Islamic world and the Mediterranean; tiraz workshops; Damascus, Mosul, Fustat and Bursa; Turkey red",
+  "parts": [
+    {
+      "title": "Words on a map",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Many of the ordinary English words for cloth are borrowed. **Damask** is named after Damascus. **Muslin** comes, through Italian and French, from Mosul, in what is now northern Iraq. **Cotton** is the Arabic *quṭn*, which reached English through Spanish and French. **Taffeta** is from the Persian *tāftah*, meaning twisted or woven. **Calico** is named after Calicut, now Kozhikode, on the southwest coast of India, and **chintz** is from the Hindi *chīṇṭ*, spotted. **Gingham** comes from the Malay *genggang*, striped, through Dutch, and **khaki** is the Urdu *khākī*, dust-coloured. Even **satin** probably comes from Arabic *zaytūnī*, \"from Zaitun\", the name Arab traders gave to the Chinese port of Quanzhou. **Tabby**, a weaver's word for plain weave, is from al-'Attabiyya, a quarter of Baghdad known for striped silks, and **seersucker** is the Persian *shir o shakar*, milk and sugar, for its smooth and puckered stripes."
+        },
+        {
+          "type": "diagram",
+          "id": "cloth-words",
+          "caption": "English cloth words and where they came from. Dots are words named after a city; boxes are words borrowed from a language."
+        },
+        {
+          "type": "text",
+          "text": "Nearly all of these words come from the lands between Spain and India that were ruled by Muslim states from the 8th century onwards, or from the Indian Ocean trade that those states took part in. Words travel with goods, and Europeans named cloth after the places and languages they bought it from. In this lesson we look at why, for about 800 years, the cloth Europeans wanted most was made or traded in the Islamic world: how cotton spread there, how rulers used cloth as a tool of government, and how one dyeing method kept its name long after Europeans had learned it."
+        }
+      ]
+    },
+    {
+      "title": "Cotton moves west",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 2 described cotton's domestication in South Asia. For thousands of years after that, cotton was grown mainly in India and a few drier lands near it. It needs heat and a long growing season, and in the Middle East and the Mediterranean that means a summer crop, grown in the hot months when rain is scarce, so it depends on irrigation."
+        },
+        {
+          "type": "text",
+          "text": "After the Arab conquests of the 7th and 8th centuries joined Iran, Iraq, Syria, Egypt, North Africa and most of Spain under one set of rulers, cotton growing spread across that area. By the 10th century it was grown in Iraq, in the oases of Iran and Central Asia, in Egypt, in Sicily and around Seville in Spain. Towns such as Merv and Nishapur in Iran became known for cotton cloth, and cotton went from being an import to something worn by ordinary townspeople across the region."
+        },
+        {
+          "type": "text",
+          "text": "The historian Andrew Watson argued in 1974 that this was part of an Arab agricultural revolution, in which cotton, sugar cane, rice, citrus and other crops from India spread west together with new irrigation methods. Later historians have shown that some of these crops, cotton among them, were already grown in parts of the region under the Romans and the Sasanian Persians, so the change was a large expansion rather than a sudden introduction. The result is not in doubt: by the year 1000, the Islamic world grew, spun, wove and wore cotton on a scale no part of Europe matched."
+        }
+      ]
+    },
+    {
+      "title": "Cloth as government",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Rulers in the Islamic world used cloth to govern, much as the Byzantine emperors in lesson 6 did. The caliphs and many later rulers ran state workshops called **tiraz** workshops, from a Persian word for embroidery. Tiraz were bands of writing woven or embroidered into a garment, usually on the sleeve. A typical inscription named the ruler, the workshop and the year, and asked God's blessing on the caliph. Having one's name in tiraz was a sign of sovereignty, like having it on the coinage or spoken in the Friday sermon."
+        },
+        {
+          "type": "text",
+          "text": "Garments with tiraz were given as **robes of honour** (*khil'a*) to officials, generals, poets and visiting rulers. Accepting one meant accepting the giver's authority, and a ruler who appointed a governor sent a robe with the appointment. Some states paid part of their officials' salaries in clothing. The Fatimid caliphs of Egypt, from 969 to 1171, ran large tiraz workshops in the Nile delta towns of Tinnis and Damietta, which wove fine linen, and some of their pieces survive with the workshop and date woven in."
+        },
+        {
+          "type": "text",
+          "text": "Cloth was also the largest private business in the region. Letters and accounts kept by Jewish merchants of Fustat, the old city of Cairo, survived in a synagogue storeroom called the **Cairo Geniza**. The historian S. D. Goitein, who spent decades reading them, concluded that textiles were the leading industry of the Mediterranean economy between the 10th and 13th centuries. The merchants bought Egyptian flax, shipped it to Tunisia and Sicily, sold linen and silk, and wrote about cloth more than about any other good."
+        }
+      ]
+    },
+    {
+      "title": "Four cities",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Damascus** gave its name to **damask**, a figured cloth, usually of silk or linen, whose pattern is made by the contrast between two faces of the same weave: shiny warp floats in one area and weft floats in the next. A damask is reversible, with the pattern showing light on dark on one side and dark on light on the other, and it needs a pattern loom of the kind lesson 8 described."
+        },
+        {
+          "type": "text",
+          "text": "**Mosul** was a trading city on the Tigris. The Venetian Marco Polo wrote in the 1290s that the cloths of gold and silk called *mosulin* were made there, which is where the word muslin came from. By the 17th century English traders used muslin for the very fine cotton cloth of Bengal, which had nothing to do with Mosul, and that is how the word is used today.[^muslin]"
+        },
+        {
+          "type": "text",
+          "text": "**Fustat** may have given English **fustian**, a heavy cloth with a linen warp and a cotton weft, though the connection is not certain. Fustian was one of the first ways Europeans used cotton. Their linen warp was strong enough to take the tension of the loom, and the cotton weft made a soft, warm cloth. Italian and south German towns made fustian from the 12th century onward with cotton imported from Syria and Egypt, and it was still the main cotton cloth of Lancashire in the 18th century."
+        },
+        {
+          "type": "text",
+          "text": "**Bursa**, in northwest Anatolia, was the first capital of the Ottomans and became their silk city. Raw silk came to it by caravan from northern Iran, and Bursa's weavers turned it into velvets and brocades for the Ottoman court and for export to Italy. That made the silk supply a political lever. After the Ottoman sultan Selim I defeated the Safavid shah of Iran in 1514, he banned trade with Iran, silk included. The ban hurt Bursa's weavers and merchants and was soon relaxed, but Ottoman and Safavid rulers fought over the silk trade for the next century, and the Safavids tried to send their silk around the Ottomans, by sea and through Russia."
+        }
+      ]
+    },
+    {
+      "title": "Turkey red",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 5 showed that cotton is hard to dye a fast red. Dyers in India, and later in the Ottoman Empire, especially around Edirne and Izmir, worked out a way. The process used madder with an alum mordant, but before the dye the cotton was treated again and again with an emulsion of oil, often rancid olive oil, together with alkali and sometimes sheep's or cow dung. The cotton was soaked, dried and washed many times over several weeks. The result was a brilliant red that did not fade in the sun or wash out, and Europeans called it **Turkey red**."
+        },
+        {
+          "type": "text",
+          "text": "European dyers could not copy it from descriptions alone. In the 1740s the French brought Greek dyers from Ottoman lands to set up dye works near Rouen, and in 1785 a French dyer, Pierre Jacques Papillon, began dyeing Turkey red in Glasgow. The Vale of Leven, north of Glasgow, became a centre of Turkey red cotton for export across the British Empire in the 19th century. It kept the name Turkey red even when it was made in Scotland, in the same way that calico kept the name of an Indian port. The industry lasted until the synthetic dye of lesson 20 made the long process unnecessary."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on cloth in the Islamic world.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does English have so many cloth words from Arabic, Persian and Indian languages, and so few from, say, Chinese?",
+                "choices": ["For centuries Europeans bought cloth through Middle Eastern and Indian Ocean traders, and named it in their words", "Chinese has no words for cloth", "English borrowed these words in the 20th century", "Arabic was the language of Europe's weavers"],
+                "answer": 0,
+                "why": "Words travel with goods and with the people who sell them. Chinese silk reached Europe through Persian and Arab middlemen, so even satin probably came through an Arabic name."
+              },
+              {
+                "ask": "Cotton spread into Iraq, Egypt and Spain after the 7th century. What did growing it there depend on most?",
+                "choices": ["Irrigation, because it grows through the hot, dry summer", "Cold winters", "Silkworms", "A wet growing season like Bengal's monsoon"],
+                "answer": 0,
+                "why": "In the Middle East and the Mediterranean, cotton is a summer crop. It needs water when it rarely rains, so it spread with irrigation."
+              },
+              {
+                "ask": "A governor in Fatimid Egypt receives a robe with the caliph's name woven on the sleeve. What does wearing it say?",
+                "choices": ["That he holds his office from the caliph and accepts his authority", "That he has bought an expensive garment", "That he is a weaver", "Nothing; tiraz were decorative"],
+                "answer": 0,
+                "why": "Robes of honour with tiraz were given with appointments. Like a name on coins, a name in tiraz claimed sovereignty, and wearing it acknowledged that claim."
+              },
+              {
+                "ask": "European weavers in the 12th century made fustian with a linen warp and a cotton weft. Why not all cotton?",
+                "choices": ["Their cotton yarn was not strong enough to stand the tension of the warp", "Cotton was forbidden in Europe", "Linen was cheaper than cotton", "Cotton cannot be woven"],
+                "answer": 0,
+                "why": "The warp is held under tension and rubbed by the loom. European spinners could not yet spin cotton strong enough for it, so they used linen, as Lancashire still did in the early 18th century."
+              },
+              {
+                "ask": "Turkey red was made in Glasgow from 1785 and still called Turkey red. What does the name tell a historian?",
+                "choices": ["Where Europeans learned the method, not where the cloth was made", "That the cloth was imported from Turkey", "That the dye came from a Turkish plant", "That only Turks could wear it"],
+                "answer": 0,
+                "why": "Like calico and muslin, the name records where Europeans first bought the product. The method came from India and the Ottoman Empire, carried by Greek dyers."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Words follow goods.** Damask, muslin, cotton, taffeta, calico, chintz and many more came into English from Arabic, Persian and Indian languages, and from cities between Spain and India.",
+    "**Cotton spread west after the Arab conquests.** By the 10th century it was grown, with irrigation, from Iran to Spain.",
+    "**The spread was an expansion, not a sudden arrival.** Andrew Watson called it an agricultural revolution; later historians showed some crops were already grown under the Romans and Sasanians.",
+    "**Cloth was a tool of government.** Tiraz bands named the ruler, and robes of honour marked appointments and loyalty.",
+    "**Cloth was the leading business.** The Cairo Geniza letters show textiles at the centre of Mediterranean trade from the 10th to the 13th century.",
+    "**Silk supply was a lever.** Bursa depended on Iranian raw silk, and the Ottomans and Safavids fought over that trade after 1514.",
+    "**Fustian was Europe's first use of cotton.** A linen warp carried the tension; a cotton weft made the cloth soft.",
+    "**Turkey red kept its name.** A slow oil and madder process gave a fast red on cotton; Greek dyers brought it to France and a French dyer to Glasgow."
+  ],
+  "footnotes": {
+    "muslin": {
+      "kind": "digression",
+      "title": "Two muslins",
+      "text": "Polo's *mosulin* were rich cloths of silk and gold. The fine Bengal cotton that English traders bought in the 17th and 18th centuries was a different thing, and the word came to mean it because traders already used the name for fine imported cloth."
+    }
+  }
+}
