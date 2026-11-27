@@ -9,7 +9,7 @@ import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
 import { knotsFor } from '../src/figures/inca';
 import { ROUTES, voyage } from '../src/figures/monsoon';
 import { hoursProblems } from '../src/figures/hours';
-import { STAGES, hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
+import { hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
