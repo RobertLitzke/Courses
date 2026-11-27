@@ -21,7 +21,7 @@ export interface PhilosophySave extends Progress {
   verdicts: Record<string, Verdict>;
 }
 
-export const emptySave = (): PhilosophySave => ({ ...emptyProgress('metric', { radio: false, fixedUnits: true }), verdicts: {} });
+export const emptySave = (): PhilosophySave => ({ ...emptyProgress('metric', { fixedUnits: true }), verdicts: {} });
 
 const pick = (v: unknown): number | undefined => (typeof v === 'number' && Number.isInteger(v) && v >= 0 && v < 20 ? v : undefined);
 

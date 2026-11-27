@@ -3,12 +3,11 @@
 // Didactics' progress.ts; this adds what only Clouds keeps, and the moves
 // from Clouds' own older lesson ids. All of it can be tested without a browser.
 
-import { emptyProgress, migrateProgress, moveLesson, stringSet, type RadioProgress } from 'didactics/progress';
+import { emptyProgress, migrateProgress, moveLesson, stringSet, type Progress } from 'didactics/progress';
 
 export { finishLesson, type LessonRecord } from 'didactics/progress';
 
-/** Clouds has the radio, so its save keeps the radio's fields. */
-export interface SaveData extends RadioProgress {
+export interface SaveData extends Progress {
   /** Seeding orders filled, by id (core/orders.ts). */
   orders: string[];
 }
@@ -22,6 +21,8 @@ export function emptySave(): SaveData {
 export function migrate(raw: unknown): SaveData {
   const out: SaveData = { ...migrateProgress(raw, emptySave()), orders: [] };
   if (typeof raw === 'object' && raw !== null) out.orders = stringSet((raw as Record<string, unknown>).orders);
+  // Until 2026-11-27 the save also kept the radio talks' fields (talk,
+  // introSeen, heard); migrateProgress drops them, as emptySave has none.
   // The first lesson, "textures", was split in two (fog, then heaps); having
   // done it counts for both.
   const old = out.lessons.textures;

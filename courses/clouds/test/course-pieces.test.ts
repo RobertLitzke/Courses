@@ -11,10 +11,10 @@ import { LESSONS } from '../src/core/lessons';
 const modules = import.meta.glob<Record<string, unknown>>('/src/app/figures/*.ts', { eager: true });
 
 describe('lesson pieces', () => {
-  it('has one per lesson, each with its lesson file, its talk and its figure code', () => {
+  it('has one per lesson, each with its lesson file and its figure code', () => {
     const pieces = lessonPieces({
       lessons: LESSONS, figures: FIGURES, modules,
-      files: (l) => [`src/data/lessons/${l.id}.json`, `src/data/radio/${l.id}.json`],
+      files: (l) => [`src/data/lessons/${l.id}.json`],
       alongside: (file) => [file.replace('src/app/figures/', 'src/core/')],
       fileName: (l) => `clouds-${l.id}.json`,
     });

@@ -7,8 +7,6 @@
 // once the figures in this one have had their small task done. The last part
 // is a check, and the lesson ends with its summary.
 //
-// The lessons tell no story; the story is in the radio talks, core/talk.ts.
-//
 // Each lesson's words are in a JSON file in data/lessons, one per lesson.
 //
 // The lesson format and the view that reads it are Didactics' lesson.ts.
