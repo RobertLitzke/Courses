@@ -33,6 +33,10 @@ export const COL = {
   coop: '#3f8f5a',
   defect: '#b4372f',
   tft: '#3f6f8f',
+  /** Lesson 21: nihilism, existentialism and absurdism told apart. */
+  nihilism: '#5a5560',
+  existentialism: '#3f6f8f',
+  absurdism: '#8a5aa8',
 } as const;
 export type ColorKey = keyof typeof COL;
 

@@ -1,0 +1,274 @@
+{
+ "id": "camus",
+ "n": 21,
+ "title": "Should we imagine Sisyphus happy?",
+ "teaches": "The absurd, revolt, and the 1952 quarrel with Sartre",
+ "parts": [
+  {
+   "title": "The rock",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In Greek myth Sisyphus was king of Ephyra, later called Corinth, and the cleverest of mortals. The stories of what he did vary. In one, he told a river god that Zeus had carried off the god's daughter, and Zeus sent Death to fetch him. Sisyphus tricked Death into a pair of handcuffs and locked him up, so that for a time nobody on earth could die, until the war god Ares, annoyed that battles had stopped killing anyone, set Death free. In another, Sisyphus told his wife not to give him a funeral. Once in the underworld, he complained that she had neglected him and was given leave to go back and punish her. Back in the sunlight, he refused to return, and lived to old age."
+    },
+    {
+     "type": "text",
+     "text": "The gods' punishment was meant to fit a man who had tried to outwit them. In the underworld Sisyphus must push a huge stone up a hill. Each time it nears the top, it rolls back to the bottom, and he walks down and starts again, for ever. Homer describes him in the *Odyssey*, straining with hands and feet, sweat pouring from him, dust rising round his head."
+    },
+    {
+     "type": "text",
+     "text": "In 1942 a 28-year-old French Algerian writer, Albert Camus, used Sisyphus to stand for every human life, and argued that we should imagine him happy."
+    }
+   ]
+  },
+  {
+   "title": "The absurd",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Camus was born in 1913 in a village in French Algeria. His father was killed at the Battle of the Marne the next year, and he was brought up in a poor district of Algiers by his mother, who was partly deaf, could not read, and worked as a cleaner. He played in goal for a university junior team until tuberculosis ended his football at 17.[^goal] By 1942 he was a journalist and novelist; his novel *The Stranger* and his essay *The Myth of Sisyphus* came out in occupied France that year, while he was in Algeria and then in the French mountains, treating his lungs.[^written]"
+    },
+    {
+     "type": "text",
+     "text": "The essay opens with its question. \"There is but one truly serious philosophical problem, and that is suicide.\" Judging whether life is worth living, Camus said, is the fundamental question; everything else, such as how many categories the mind has or whether the world has three dimensions, comes after."
+    },
+    {
+     "type": "text",
+     "text": "The question arises from what he called **the absurd**. Most of the time we live by routine: \"Rising, streetcar, four hours in the office or the factory, meal, streetcar, four hours of work, meal, sleep, and Monday Tuesday Wednesday Thursday Friday and Saturday according to the same rhythm.\" Then one day the \"why\" arises. We want the world to make sense, to have a purpose we can understand, and the world gives no answer. The absurd is not in us or in the world alone, Camus said. It is the clash between the two: between the human need for meaning and \"the unreasonable silence of the world\"."
+    },
+    {
+     "type": "text",
+     "text": "He saw three ways to respond. The first is physical suicide, which ends the clash by ending one side of it. The second he called philosophical suicide: deciding that the world does have a meaning after all, beyond what we can see, by a leap of faith of the kind Kierkegaard made in lesson 16. Both, Camus said, are escapes. The third is to keep the absurd in view and live with it, without hope and without appeal. He called this **revolt**: a refusal both to give in and to pretend. A life lived this way is not made smaller by having no ultimate meaning; it can be lived more fully, since nothing is held back for another world."
+    }
+   ]
+  },
+  {
+   "title": "One must imagine Sisyphus happy",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The last chapter of the essay returns to the myth. What interests Camus is the moment when Sisyphus walks back down the hill after the stone has fallen. That is when he is conscious of his fate, and that is what makes him tragic. A worker today, Camus said, does the same tasks every day of his life, and his fate is no less absurd; it becomes tragic only in the rare moments when he sees it."
+    },
+    {
+     "type": "text",
+     "text": "But in seeing it, Sisyphus is also above it. He knows the whole extent of his condition, and he scorns the gods who imposed it. \"There is no fate that cannot be surmounted by scorn.\" The rock is his, and the struggle is his. \"The struggle itself toward the heights is enough to fill a man's heart. One must imagine Sisyphus happy.\""
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Camus's last line, taken as a question. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "sisyphus",
+      "ask": "Can Sisyphus, pushing the stone for ever with no purpose, be happy?",
+      "choices": [
+       "Yes: the struggle itself, faced with open eyes, is enough",
+       "No: endless pointless work is misery, whatever his attitude",
+       "Only if he wanted to roll stones, as some people want to garden",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Camus's answer.",
+       "You chose the most common reaction of first-time readers. Camus would say you are picturing the stone, not the man.",
+       "You chose Richard Taylor's answer of 1970: give Sisyphus a desire to roll stones, and his life has meaning for him, though nothing comes of it.",
+       "Camus admitted he was asking us to imagine it, not proving it."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Three views told apart",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Camus is often called an existentialist, and his name is often linked with nihilism. He rejected both labels. \"No, I am not an existentialist\", he told an interviewer in 1945. The three views start from the same place, that the universe gives no meaning or values of its own, and then go three ways. **Nihilism**, as in lesson 18, concludes that nothing has value at all. **Existentialism**, in Sartre's version from lesson 19, says we create values by choosing them, and these bind us. **Absurdism**, Camus's view, says the demand for meaning is part of being human and cannot be met or got rid of, so the honest response is to live with that clash and not invent a way out."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Six statements, two for each view. Camus's line is that the clash between what we ask and what the world gives must be kept, not resolved.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Which view is this?",
+      "groups": [
+       {
+        "name": "Nihilism",
+        "color": "nihilism"
+       },
+       {
+        "name": "Existentialism",
+        "color": "existentialism"
+       },
+       {
+        "name": "Absurdism",
+        "color": "absurdism"
+       }
+      ],
+      "items": [
+       {
+        "name": "Since nothing matters, it makes no difference whether I help a stranger or rob one",
+        "group": "Nihilism",
+        "why": "Nothing has value, so no act is better than another."
+       },
+       {
+        "name": "Values and morals are just stories people tell to control each other",
+        "group": "Nihilism",
+        "why": "A denial that values exist at all, in the sense of lesson 18."
+       },
+       {
+        "name": "There is no meaning given in advance, so I make my life mean something by what I choose",
+        "group": "Existentialism",
+        "why": "Sartre's view: we create values by choosing."
+       },
+       {
+        "name": "When I choose how to live, I am choosing for everyone in my position",
+        "group": "Existentialism",
+        "why": "Sartre's answer to the charge of nihilism, in lesson 19."
+       },
+       {
+        "name": "I will keep asking what it all means, though I know the world will not answer",
+        "group": "Absurdism",
+        "why": "Keeping the clash in view, without hope and without giving up."
+       },
+       {
+        "name": "Believing in a hidden purpose behind it all would be a way of escaping the question",
+        "group": "Absurdism",
+        "why": "Camus's philosophical suicide: the leap of faith as an escape."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "The quarrel of 1952",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Camus and Sartre met in 1943 and became friends; after the liberation of Paris, both were famous, and the press treated them as the two leaders of the same movement. They differed over politics. In *The Rebel* (1951), Camus argued that revolt, the refusal of injustice, turns into its opposite when a revolution justifies killing in the name of a perfect future. He meant the Soviet Union, whose labour camps, he said, the left should not excuse."
+    },
+    {
+     "type": "text",
+     "text": "Sartre, at that time moving towards the Communist Party, thought this let the comfortable off the hook. In May 1952 his magazine, *Les Temps Modernes*, published a hostile review of *The Rebel* by a younger writer, Francis Jeanson. Camus replied in August with a long letter addressed to Sartre as \"Monsieur le directeur\", without naming Jeanson. Sartre answered in the same issue, publicly and at length: \"Our friendship was not easy, but I shall miss it.\" They did not speak again as friends."
+    },
+    {
+     "type": "text",
+     "text": "Camus won the Nobel Prize for Literature in 1957, at 44. He died in a car crash in January 1960, with an unused train ticket in his coat pocket.[^ticket] Sartre wrote an obituary that called him the heir of a long line of French moralists, whose stubborn humanism stood against the events of the age."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Absurdism is more read than studied. *The Myth of Sisyphus* and *The Stranger* are among the most read French books of the 20th century, but few academic philosophers work on the absurd as Camus framed it. The best-known treatment in English philosophy is Thomas Nagel's essay \"The Absurd\" (1971), which agrees that life is absurd but locates it in our ability to step back and see our own concerns as arbitrary, and recommends irony rather than scorn.[^nagel] The meaning of life, as a topic in its own right, has had a revival in philosophy since about 2000."
+    },
+    {
+     "type": "text",
+     "text": "On the 1952 quarrel's politics, history mostly sided with Camus once the scale of the Soviet camps was documented; Sartre himself broke with the Soviet Union after its invasion of Hungary in 1956. Camus's own position on the Algerian war, in which he refused to support independence and called for a federation, is still argued over in France and Algeria."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Camus",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What did Camus mean by the absurd?",
+        "choices": [
+         "The clash between the human need for meaning and a world that gives none",
+         "The idea that the world itself is chaotic and irrational",
+         "The feeling that other people's lives are ridiculous",
+         "The belief that nothing has any value at all"
+        ],
+        "answer": 0,
+        "why": "It lies in neither us nor the world alone, but in the meeting of the two."
+       },
+       {
+        "ask": "Why did Camus reject the leap of faith as a response to the absurd?",
+        "choices": [
+         "It escapes the clash by deciding the world has a hidden meaning after all",
+         "It requires belief in the Greek gods",
+         "It is the same as physical suicide",
+         "It makes people too happy to work"
+        ],
+        "answer": 0,
+        "why": "He called it philosophical suicide: a way of ending the absurd by giving up one side of it."
+       },
+       {
+        "ask": "When, according to Camus, is Sisyphus conscious of his fate?",
+        "choices": [
+         "As he walks back down the hill after the stone has fallen",
+         "Only when he reaches the top of the hill",
+         "When he first tricks Death",
+         "Never, since he is too tired to think"
+        ],
+        "answer": 0,
+        "why": "That pause is what makes him tragic, and also what lets him rise above his fate."
+       },
+       {
+        "ask": "How does absurdism differ from Sartre's existentialism?",
+        "choices": [
+         "Sartre says we create values by choosing; Camus says the demand for meaning cannot be met and must be lived with",
+         "Sartre believed in God and Camus did not",
+         "Camus says nothing has value; Sartre says everything does",
+         "Sartre was interested only in politics and Camus only in myth"
+        ],
+        "answer": 0,
+        "why": "Both start without a given meaning. Sartre invents values to fill the gap; Camus keeps the gap open."
+       },
+       {
+        "ask": "What was the 1952 quarrel between Sartre and Camus mainly about?",
+        "choices": [
+         "Whether the left should excuse the Soviet Union's violence for the sake of revolution",
+         "Whether Sisyphus was really happy",
+         "Who had invented existentialism",
+         "Whether Camus deserved the Nobel Prize"
+        ],
+        "answer": 0,
+        "why": "Camus's The Rebel condemned revolutions that justify killing; Sartre's magazine attacked it."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Sisyphus pushes a stone up a hill for ever.** It was the gods' punishment for outwitting Death.",
+  "**The one serious philosophical question is suicide.** Camus's essay of 1942 asks whether life is worth living.",
+  "**The absurd is the clash between our need for meaning and the world's silence.** It lies in neither alone.",
+  "**Suicide and the leap of faith are escapes.** Camus called the leap philosophical suicide.",
+  "**Revolt means living with the absurd, without hope and without appeal.** It is a refusal both to give in and to pretend.",
+  "**One must imagine Sisyphus happy.** The struggle itself, seen clearly, is enough to fill a heart.",
+  "**Nihilism, existentialism and absurdism start in the same place and part.** No value, created value, or the clash kept open.",
+  "**Camus and Sartre broke over the Soviet Union in 1952.** History mostly sided with Camus."
+ ],
+ "footnotes": {
+  "goal": {
+   "kind": "digression",
+   "title": "In goal",
+   "text": "Camus kept goal for the junior side of the Racing Universitaire d'Alger. In 1957 he wrote for the club's bulletin that what he knew most surely about morality and the duty of man he owed to football."
+  },
+  "written": {
+   "kind": "technical",
+   "title": "Where it was written",
+   "text": "Camus finished the essay in Oran in February 1941. A chapter on Kafka was cut before publication because Kafka, as a Jewish writer, was banned in occupied France; it was printed separately and restored after the war. In August 1942 Camus went to Le Panelier, in the mountains of central France, for his lungs, and was cut off from Algeria by the Allied landings that November."
+  },
+  "ticket": {
+   "kind": "digression",
+   "title": "The ticket",
+   "text": "Camus had planned to take the train back to Paris with his family, then accepted a lift from his publisher Michel Gallimard, who also died. The car hit a tree near Villeblevin, south of Paris."
+  },
+  "nagel": {
+   "kind": "technical",
+   "title": "Nagel's version",
+   "text": "For Nagel the absurd is the gap between how seriously we take our lives and our ability to see them from outside, as one life among billions in a vast universe. He thought Camus's defiant scorn was overdone. If nothing matters from the outside view, then it does not matter that nothing matters, and irony is the fitting response."
+  }
+ }
+}

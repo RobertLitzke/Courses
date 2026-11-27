@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('camus', 21, 'Should we imagine Sisyphus happy?', 'The absurd, revolt, and the 1952 quarrel with Sartre'),
   coming('rawls', 22, 'What rules would you pick before you knew who you\'d be?', 'The veil of ignorance, the difference principle, Harsanyi and Nozick'),
   coming('singer', 23, 'Would you ruin your clothes to save a drowning child?', 'Singer\'s drowning child, the trolley problem as Foot meant it, and effective altruism'),
   coming('bat', 24, 'What is it like to be a bat?', 'Consciousness: Nagel\'s bat, the Chinese room, and whether a chatbot could feel pain'),

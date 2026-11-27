@@ -207,7 +207,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "*The Second Sex* is a founding text of feminist philosophy and is still argued over. Its distinction between the body and what a society makes of it became, in the 1970s, the distinction between sex and gender that most philosophers and social scientists now use, though some, such as Judith Butler in 1990, argued that sex is shaped by society too. The first English translation, of 1953, was made by a retired zoology professor who cut about a tenth of the book and mistranslated many of its philosophical terms; a full translation appeared only in 2009.[^parshley]"
+     "text": "*The Second Sex* is a founding text of feminist philosophy and is still argued over. Its distinction between the body and what a society makes of it became, in the 1970s, the distinction between sex and gender that most philosophers and social scientists now use, though some, such as Judith Butler in 1990, argued that sex is shaped by society too. The first English translation, of 1953, was made by a retired zoology professor who cut about 15 per cent of the book and mistranslated many of its philosophical terms; a full translation appeared only in 2009.[^parshley]"
     },
     {
      "type": "text",
@@ -310,7 +310,7 @@
   "parshley": {
    "kind": "technical",
    "title": "Lost in translation",
-   "text": "H. M. Parshley, an American zoologist, rendered Beauvoir's pour-soi, Sartre's term for consciousness, as \"her true nature in itself\", which means nearly the opposite. Readers in English met a less philosophical book than the French one for over 50 years."
+   "text": "H. M. Parshley, an American zoologist, rendered Beauvoir's pour-soi, Sartre's term for consciousness, as \"her true nature in itself\", which means nearly the opposite. Readers in English met a less philosophical book than the French one for over 50 years. The famous sentence quoted in this lesson is in Parshley's wording; the 2009 translation gives \"becomes woman\", without the article, closer to the French \"on le devient\"."
   }
  }
 }
