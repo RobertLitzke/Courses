@@ -44,7 +44,7 @@
         {
           "type": "diagram",
           "id": "series",
-          "caption": "Cotton cloth exported by Britain and Japan, 1913 to 1938. Rounded figures; Japan's passed Britain's around 1933.",
+          "caption": "Cotton cloth exported by Britain and Japan, 1913 to 1938, rounded. Britain counted its cloth in linear yards and Japan in square yards, which for cloth about a yard wide come to much the same. Japan's exports passed Britain's around 1933.",
           "options": {
             "from": 1913,
             "to": 1938,
@@ -52,7 +52,7 @@
             "panels": [
               {
                 "title": "Cotton cloth exports",
-                "unit": "million square yards",
+                "unit": "million yards",
                 "max": 8000,
                 "lines": [
                   {"name": "Britain", "color": "britain", "points": [[1913, 7080], [1920, 4440], [1925, 4640], [1929, 3670], [1930, 2410], [1932, 2200], [1933, 2020], [1935, 1950], [1937, 1920], [1938, 1390]], "at": [1919, 4800]},
