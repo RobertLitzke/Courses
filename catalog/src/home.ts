@@ -359,7 +359,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       {},
       el('h1', {}, 'Courses'),
       el('p.home-tag', {}, 'Self-paced workbooks'),
-      el('nav.home-tools', { 'aria-label': 'Other pages' }, el('a.btn.ghost', { href: '#map' }, 'Map'), el('a.btn.ghost', { href: '#review' }, due ? `Review · ${due}` : 'Review')),
+      el('nav.home-tools', { 'aria-label': 'Other pages' }, el('a.btn.ghost', { href: '#map' }, 'Map'), el('a.btn.ghost', { href: '#review' }, due ? `Review · ${due}` : 'Review'), el('a.btn.ghost', { href: '#settings' }, 'Settings')),
     ),
     desk,
     filterBar,
@@ -370,7 +370,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       'footer.colophon',
       {},
       courses.some((c) => c.release.stage === 'beta') ? el('p.beta-note', {}, el('span.beta', {}, 'Beta'), ' ', BETA_NOTE) : null,
-      el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.'),
+      el('p', {}, 'Each course keeps its own colours, progress and settings; the text size and look are shared, in Settings. The menu in any course leads back here under All courses.'),
       buildLine(),
     ),
   );
@@ -382,7 +382,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
  * back through the service worker, so a phone still on an old worker shows the
  * old id), for checking a phone against the latest deploy.
  */
-function buildLine(): HTMLElement {
+export function buildLine(): HTMLElement {
   const build = typeof __SITE_BUILD__ === 'string' ? __SITE_BUILD__ : 'dev';
   const id = el('span.app-id', {}, typeof __APP_ID__ === 'string' ? __APP_ID__ : '?');
   if (typeof fetch === 'function' && typeof location !== 'undefined' && location.protocol.startsWith('http')) {

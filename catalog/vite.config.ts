@@ -1,7 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
-import { courseFilesRoute } from 'didactics/vite';
+import { courseFilesRoute, readingBoot } from 'didactics/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import { readCatalog, readMap } from './registry';
@@ -62,6 +62,7 @@ export default defineConfig({
   build: { target: 'es2022', outDir: resolve(__dirname, '../dist'), emptyOutDir: false },
   plugins: [
     coursesModule(),
+    readingBoot(),
     viteSingleFile(),
     VitePWA({
       registerType: 'prompt',

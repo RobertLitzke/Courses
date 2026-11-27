@@ -1,10 +1,16 @@
 import 'didactics/styles/review-all.css';
+import 'didactics/styles/reading.css';
 import './catalog.css';
 import courses, { map } from 'virtual:courses';
 import { allCoursesReview } from 'didactics/review-all';
 import { el } from 'didactics/dom';
+import { useReading } from 'didactics/reading';
 import { homePage } from './home';
 import { mapPage } from './page';
+import { settingsPage } from './settings';
+
+// The text size and look every course shares (the build's boot script set them before the first paint).
+useReading();
 
 const read = (key: string) => {
   try {
@@ -21,11 +27,11 @@ const write = (key: string, value: string) => {
   }
 };
 // The shelves at the front; #review, the review of every course's cards
-// together; #map, the map and full listing, which any other anchor (a
+// together; #settings, what holds for every course; #map, the map and full listing, which any other anchor (a
 // department, a bridge) is a place on.
 const root = document.getElementById('catalog')!;
-type View = 'home' | 'review' | 'map';
-const viewOf = (hash: string): View => (hash === '#review' ? 'review' : hash === '' || hash === '#' ? 'home' : 'map');
+type View = 'home' | 'review' | 'settings' | 'map';
+const viewOf = (hash: string): View => (hash === '#review' ? 'review' : hash === '#settings' ? 'settings' : hash === '' || hash === '#' ? 'home' : 'map');
 let shown: View | null = null;
 const show = () => {
   const view = viewOf(location.hash);
@@ -36,12 +42,14 @@ const show = () => {
       courses: courses.map((c) => ({ key: c.folder, title: c.title, save: c.save, href: `./${c.folder}/`, icon: c.icon, theme: c.theme })),
       back: { href: '#', label: '← The shelves' },
     })));
+  } else if (view === 'settings') {
+    root.replaceChildren(settingsPage(courses));
   } else if (view === 'map') {
     root.replaceChildren(mapPage(courses, read, map));
   } else {
     root.replaceChildren(homePage(courses, read, map, { write }));
   }
-  const anchor = location.hash.length > 1 && location.hash !== '#map' ? document.getElementById(location.hash.slice(1)) : null;
+  const anchor = location.hash.length > 1 && location.hash !== '#map' && location.hash !== '#settings' ? document.getElementById(location.hash.slice(1)) : null;
   if (anchor) anchor.scrollIntoView();
   else window.scrollTo(0, 0);
 };
