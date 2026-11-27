@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 41 | 1 | 37 | 41 | 41 | 41 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 42 | 0 | 38 | 42 | 42 | 42 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 1 lesson to write, 37 to read through, 41 to copy-edit, 41 to fact-check, 41 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 38 to read through, 42 to copy-edit, 42 to fact-check, 42 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -590,7 +590,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | K5 | How does science know it's wrong? (`science`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
 | K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Wittgenstein, language games and the beetle in the box. |
 | K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The analytic and continental split, and Heidegger in plain words. |
-| K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | planned, listed as coming |  | Parfit's non-identity problem and duties to future generations. |
+| K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Parfit's non-identity problem and duties to future generations. |
 
 ## Not started
 

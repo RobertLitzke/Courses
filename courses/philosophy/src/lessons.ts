@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('future', 308, 'What do we owe people who don\'t exist yet?', 'Parfit\'s non-identity problem and duties to future generations', { branch: 'tools', needs: ['singer'] }),
 ];
 
 /** The branches: philosophy outside Europe, power and politics, and tools and puzzles. */
