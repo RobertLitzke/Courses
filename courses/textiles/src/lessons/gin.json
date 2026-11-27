@@ -1,0 +1,154 @@
+{
+  "id": "gin",
+  "n": 17,
+  "title": "How did a machine to clean cotton expand slavery?",
+  "teaches": "Upland cotton's sticky seeds and Whitney's saw gin; Indian Removal and the domestic slave trade; climate as the limit and slavery as the labour system; the debate on slavery and industrial capitalism",
+  "parts": [
+    {
+      "title": "Fifty men with the old machines",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On 11 September 1793 Eli Whitney, a 27-year-old Yale graduate working as a tutor on a Georgia plantation, wrote to his father in Massachusetts about a machine he had built for cleaning cotton of its seeds. It was so effective, he wrote, that \"one man and a horse will do more than fifty men with the old machines\". He patented the **cotton gin** the following year and expected to grow rich from it."
+        },
+        {
+          "type": "text",
+          "text": "Most Bottleneck and Fix stories end with the work getting easier for the people who did it. This one does the opposite. In 1790 the United States had about 700,000 enslaved people and grew very little cotton. In 1860 it had almost four million enslaved people, most of them in the cotton states, and grew about two thirds of the world's cotton. In this lesson we look at the problem the gin solved, and at why a machine that saved labour at one step led to a vast increase in forced labour at another."
+        }
+      ]
+    },
+    {
+      "title": "The sticky seed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 2 described ginning: separating cotton fibre from the seeds it grows on. Indian cotton growers had long used a **roller gin**, the *charkha*, in which the cotton was fed between two rollers turning against each other; the fibre passed through and the smooth seeds were pushed back. The roller gin worked for the long-staple Sea Island cotton grown on the coast of Georgia and South Carolina, whose black seeds come away cleanly. But Sea Island cotton needs a mild, damp coastal climate and grows only in a narrow strip."
+        },
+        {
+          "type": "text",
+          "text": "Inland, planters could grow **upland** cotton, a different variety with short fibres and green, fuzzy seeds that the fibre clings to. Roller gins crushed the seeds or let them through, and a person cleaning upland cotton by hand could do about a pound a day. With British mills from lesson 14 buying all the cotton they could get, the cleaning step stopped upland cotton from becoming a cash crop."
+        },
+        {
+          "type": "text",
+          "text": "Whitney's **saw gin** pulled the fibre off instead of squeezing it through. A cylinder set with rows of wire teeth, later replaced by toothed saw blades, turned against a grid of bars spaced too narrowly for seeds to pass. The teeth caught the fibre and pulled it through the gaps; the seeds stayed behind, and a brush cleared the teeth. It was simple enough to be copied by any blacksmith, and it was. Whitney and his partner spent years in court and made little money from it."
+        }
+      ]
+    },
+    {
+      "title": "Where cotton could grow",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Climate set where upland cotton could be grown. It needs about 200 days a year without frost, a hot summer, enough rain while growing and dry weather at harvest. Much of the American South met those conditions. Who would grow it, and on whose land, was decided by law and force."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "cotton-belt",
+          "caption": "Where the climate allows upland cotton without irrigation, from a simplified climate model, with rough outlines of where it was grown in 1860 and today.",
+          "task": "Guess, then compare the climate with 1860 and today",
+          "goal": "overlay"
+        },
+        {
+          "type": "text",
+          "text": "Much of the best cotton land in 1800 belonged to Native nations: the Cherokee, Muscogee (Creek), Choctaw, Chickasaw and Seminole. Through wars, forced treaties and, after the **Indian Removal Act** of 1830, deportation, the federal government took that land and moved its peoples west of the Mississippi. Thousands died on the forced marches of the 1830s, which the Cherokee remember as the Trail of Tears. The land, tens of millions of acres in Alabama, Mississippi, Georgia and beyond, was surveyed and sold, much of it to planters for cotton."
+        },
+        {
+          "type": "text",
+          "text": "The labour came from slavery. Congress banned the import of enslaved Africans from 1808, so planters in the new cotton states bought people from the older slave states of Virginia and Maryland, where tobacco farming needed fewer workers. Between 1790 and 1860 about a million enslaved people were moved from the upper South to the lower South, many of them sold away from their families and marched overland in chained lines called coffles. Slave prices rose and fell with the price of cotton."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "Cotton grown in the United States and the enslaved population, 1790 to 1860. Figures rounded, from the US census and historical crop estimates.",
+          "options": {
+            "from": 1790,
+            "to": 1860,
+            "ticks": [1790, 1800, 1810, 1820, 1830, 1840, 1850, 1860],
+            "panels": [
+              { "title": "Cotton grown", "unit": "million pounds", "lines": [{ "name": "cotton", "color": "gold", "points": [[1790, 1.5], [1800, 36], [1810, 85], [1820, 160], [1830, 330], [1840, 830], [1850, 1000], [1860, 2150]] }] },
+              { "title": "Enslaved people in the US", "unit": "millions", "lines": [{ "name": "enslaved", "color": "enslaved", "points": [[1790, 0.7], [1800, 0.89], [1810, 1.19], [1820, 1.54], [1830, 2.01], [1840, 2.49], [1850, 3.2], [1860, 3.95]] }] }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The gin removed the bottleneck in cleaning, which was the only step a machine could easily do. Planting, hoeing, thinning and above all picking stayed by hand, and the more cotton the gin could clean, the more hands were wanted in the fields. A machine that saved labour at one step multiplied the demand for forced labour at the others. Picking rates per enslaved worker rose several times between 1800 and 1860; historians disagree about how much of that came from violence and how much from better seed varieties, which is part of the larger debate below."
+        }
+      ]
+    },
+    {
+      "title": "Historians disagree: slavery and industrial capitalism",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "How much did slavery contribute to industrialisation in Britain and the United States? **Eric Williams**, in *Capitalism and Slavery* (1944), argued that the profits of the slave trade and the Caribbean plantations helped finance British industry. **Stanley Engerman** and **Patrick O'Brien** later estimated those profits and found them small compared with total British investment, too small to be decisive. **Joseph Inikori**, whom lesson 13 introduced, argued that the measure should be the markets slavery created, not only its profits."
+        },
+        {
+          "type": "text",
+          "text": "A second round of debate followed in the 2010s. **Sven Beckert**, in *Empire of Cotton* (2014), described the cotton economy as built on what he called war capitalism: land taken by force and labour coerced by slavery, organised by merchants and states. **Edward Baptist**, in *The Half Has Never Been Told* (2014), argued that rising picking rates came from systematic torture and that slavery made up a large share of the American economy. Economic historians including **Alan Olmstead** and **Paul Rhode** responded that Baptist's figures double-counted economic activity, and that most of the rise in picking rates came from new cotton varieties with larger bolls that were easier to pick. They do not dispute the violence of slavery, which is documented in detail; they dispute how much it explains of the growth in output."
+        },
+        {
+          "type": "text",
+          "text": "These debates turn on numbers that are hard to measure, and on what counts as a contribution. Two points are not in dispute. By the 1850s, about three quarters of the raw cotton used in British mills came from the American South. And that cotton was grown on land taken from Native nations and picked by enslaved people, whose numbers grew with every expansion of the crop."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the gin and the cotton South.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Indian roller gins had worked for centuries. Why were they no use for upland cotton?",
+                "choices": ["Upland cotton's fuzzy seeds cling to the fibre, so rollers crushed them or let them through", "Rollers were too expensive in America", "Upland cotton had no seeds", "Roller gins needed water power"],
+                "answer": 0,
+                "why": "Rollers work for smooth-seeded cottons. Upland cotton's seeds hold the fibre tightly, which Whitney's teeth solved by pulling the fibre off."
+              },
+              {
+                "ask": "The gin made cleaning cotton far faster. Why did the demand for enslaved labour rise rather than fall?",
+                "choices": ["Cleaning was no longer the limit, so planters grew far more cotton, and planting and picking were still done by hand", "The gin itself needed many people to run", "Enslaved people were used to build gins", "Cotton prices fell to nothing"],
+                "answer": 0,
+                "why": "A machine at one step removed a bottleneck. Output grew until the hand steps, picking above all, needed many more workers."
+              },
+              {
+                "ask": "In the figure, cotton could be grown in 1860 in places it was not grown in 1800. What decided who got that land?",
+                "choices": ["Federal wars, treaties and the removal of Native nations, then sales to planters", "The climate alone", "Cotton companies in Britain", "A lottery among enslaved people"],
+                "answer": 0,
+                "why": "Climate made the land suitable; law and force decided who owned it and who worked it."
+              },
+              {
+                "ask": "Congress banned the import of enslaved people from 1808. How did the cotton states get workers after that?",
+                "choices": ["By buying enslaved people from the older slave states, about a million moved south by 1860", "By hiring free workers from Europe", "By ending slavery", "By using machines for picking"],
+                "answer": 0,
+                "why": "The domestic slave trade moved people from Virginia and Maryland to the cotton states, often separating families."
+              },
+              {
+                "ask": "Olmstead and Rhode disagree with Baptist about rising picking rates. What do they argue?",
+                "choices": ["New cotton varieties with larger bolls explain most of the rise, without denying the violence of slavery", "Slavery was not violent", "Picking rates did not rise", "Machines did the picking"],
+                "answer": 0,
+                "why": "Their dispute is about the cause of the productivity gain, not about the brutality of slavery, which both sides document."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Upland cotton had a cleaning bottleneck.** Its fuzzy seeds cling to the fibre, and roller gins could not separate them.",
+    "**Whitney's saw gin solved it.** From 1793, teeth pulled the fibre through bars too narrow for seeds; copies spread fast.",
+    "**Climate set the limit.** Upland cotton needs about 200 frost-free days, which much of the South had.",
+    "**Force decided who had the land.** Removal of Native nations, especially after 1830, opened tens of millions of acres to planters.",
+    "**Slavery supplied the labour.** The enslaved population grew from about 700,000 in 1790 to almost four million in 1860.",
+    "**A domestic slave trade moved people south.** About a million were taken from the upper South to the cotton states.",
+    "**The fix multiplied forced labour.** The gin sped one step, and the hand steps, picking above all, needed far more people.",
+    "**Historians disagree on how much slavery built industry.** Williams, Engerman and O'Brien, Inikori, Beckert, Baptist, and Olmstead and Rhode weigh profits, markets and productivity differently.",
+    "**The American South supplied Lancashire.** By the 1850s about three quarters of British mills' cotton came from it."
+  ],
+  "footnotes": {}
+}

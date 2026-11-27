@@ -11,6 +11,8 @@ import { ROUTES, voyage } from '../src/figures/monsoon';
 import { hoursProblems } from '../src/figures/hours';
 import { hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
 import { PRESETS, jennyReturn } from '../src/figures/jenny-pays';
+import { grows } from '../src/figures/cotton-belt';
+import { seriesProblems } from '../src/figures/series';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -118,5 +120,24 @@ describe('does a jenny pay', () => {
     const h = FIGURES['jenny-pays'](context(), 'compare');
     for (const p of PRESETS) click(h.node, p.name);
     await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the cotton belt', () => {
+  it('grows cotton in Mississippi but not Kentucky or west Texas', () => {
+    expect(grows(-90, 33)).toBe(true);
+    expect(grows(-85, 37.5)).toBe(false);
+    expect(grows(-102, 33)).toBe(false);
+  });
+  it('is done once both overlays are seen', async () => {
+    const h = FIGURES['cotton-belt'](context(), 'overlay');
+    guess(h.node, 'To about the Tennessee and Kentucky border');
+    click(h.node, 'Add 1860');
+    click(h.node, 'Add today');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+  it('checks a series chart\'s options', () => {
+    expect(seriesProblems({ from: 1, to: 2, panels: [{ title: 'a', unit: 'b', lines: [{ name: 'c', color: 'gold', points: [[1, 1], [2, 2]] }] }] })).toEqual([]);
+    expect(seriesProblems({ from: 1, to: 2, panels: [{ title: 'a', unit: 'b', lines: [{ name: 'c', color: '#123', points: [[1, 1]] }] }] })).toHaveLength(1);
   });
 });

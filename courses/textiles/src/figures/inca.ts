@@ -65,7 +65,7 @@ export function knotsFor(n: number): { place: number; count: number; kind: 'sing
 
 export function khipuStill(): { node: HTMLElement } {
   const KW = 420;
-  const KH = 240;
+  const KH = 256;
   const { node, svg: s } = still(KW, KH);
   const top = 30;
   s.append(line(20, top, KW - 20, top, COL.fibre, 5), label(KW / 2, 18, 'Main cord', { size: 'small', anchor: 'middle', soft: true }));
@@ -73,7 +73,7 @@ export function khipuStill(): { node: HTMLElement } {
   const tiers = [190, 140, 95, 60]; // y of units, tens, hundreds, thousands
   values.forEach((v, i) => {
     const x = 70 + i * 90;
-    s.append(line(x, top, x, KH - 20, i % 2 ? COL.madder : COL.yarn, 3));
+    s.append(line(x, top, x, KH - 34, i % 2 ? COL.madder : COL.yarn, 3));
     for (const k of knotsFor(v)) {
       const y = tiers[k.place];
       if (k.kind === 'single') {
@@ -85,7 +85,7 @@ export function khipuStill(): { node: HTMLElement } {
         s.append(svg('path', { d: `M${x - 4} ${y - 6} C${x + 8} ${y - 2} ${x - 8} ${y + 2} ${x + 4} ${y + 6}`, fill: 'none', stroke: COL.ink, 'stroke-width': 3 }));
       }
     }
-    s.append(label(x, KH - 6, v.toLocaleString('en-GB'), { size: 'note', bold: true, anchor: 'middle' }));
+    s.append(label(x, KH - 18, v.toLocaleString('en-GB'), { size: 'note', bold: true, anchor: 'middle' }));
   });
   const names = ['units', 'tens', 'hundreds', 'thousands'];
   tiers.forEach((y, i) => s.append(label(KW - 16, y + 3, names[i], { size: 'small', anchor: 'end', soft: true })));

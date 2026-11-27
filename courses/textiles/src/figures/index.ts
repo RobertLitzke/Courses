@@ -27,6 +27,8 @@ import { hoursFigure } from './hours';
 import { flowsStill } from './flows';
 import { workshopFigure } from './workshop';
 import { jennyPaysFigure } from './jenny-pays';
+import { cottonBeltFigure } from './cotton-belt';
+import { seriesFigure } from './series';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -52,4 +54,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'trade-flows': flowsStill,
   workshop: workshopFigure,
   'jenny-pays': jennyPaysFigure,
+  'cotton-belt': cottonBeltFigure,
+  series: seriesFigure,
 };
