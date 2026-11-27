@@ -1,0 +1,166 @@
+{
+  "id": "navajo",
+  "n": 303,
+  "branch": "traditions",
+  "needs": ["africa"],
+  "title": "How did Navajo weavers make the churro blanket?",
+  "teaches": "Diné (Navajo) weaving on the upright loom; churro sheep and their wool; chief's blankets and unravelled bayeta; the Long Walk; trading posts, Germantown yarn and the turn from blankets to rugs; livestock reduction and the revival of the churro",
+  "parts": [
+    {
+      "title": "Blankets worth a horse",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the first half of the 19th century, a fine striped blanket woven by a Navajo woman could be traded on the Great Plains for several horses. The **Diné**, as the Navajo call themselves, lived in the high desert of what is now Arizona and New Mexico, and their blankets were prized by Ute, Cheyenne and Lakota chiefs as well as by Spanish and Mexican settlers. In this lesson we look at the sheep and the loom behind those blankets, and at how war, the railroad and the United States government changed what Navajo weavers made."
+        }
+      ]
+    },
+    {
+      "title": "Churro sheep",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Sheep came to the American Southwest with Spanish colonists at the end of the 16th century. Their breed was the **churro**, a hardy Iberian sheep. By the 18th century the Navajo had built up large flocks by trade and by raiding, and sheep became the centre of their economy, owned and managed largely by women."
+        },
+        {
+          "type": "text",
+          "text": "Churro wool suited hand spinning well. Each fleece has two coats: long, straight outer hair and a soft, fine undercoat. It carries little grease, so it can be spun without heavy washing, and its long fibres can be spun straight from the fleece after light combing, with no need for the carding that shorter wools require. The hair gives yarn that is strong and lustrous; and the colours of the fleece, white, grey, brown and black, could be used without dye."
+        }
+      ]
+    },
+    {
+      "title": "The upright loom",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Navajo weavers use an **upright loom**: two posts with crossbars, the warp stretched vertically between them, and the weaver sitting in front on the ground. The Navajo probably learned weaving from their Pueblo neighbours in the 17th and early 18th centuries, but developed their own style. Navajo weaving is a **tapestry weave**, as described in branch lesson K3: the weft is packed down with a wooden comb so that it covers the warp entirely, and each colour is woven back and forth only within its own area of the design. The result is thick, dense and nearly waterproof."
+        },
+        {
+          "type": "text",
+          "text": "The best-known early style is the **chief's blanket**, woven wider than it is long and worn around the shoulders, with bold bands of white, brown-black and, later, blue and red. Red was the hardest colour to get. Weavers bought **bayeta**, a red woollen cloth from Spain and later England, unravelled it, and wove its red yarn into their blankets."
+        },
+        {
+          "type": "text",
+          "text": "Every step, from shearing to finishing, was done by the weaver and her family, and a large blanket took months of work in between herding, farming and cooking."
+        },
+        {
+          "type": "diagram",
+          "id": "hours",
+          "caption": "Rough hours in a rug about 1 by 1.5 metres, woven from the weaver's own churro wool, about 1880. Estimates vary widely with the weave.",
+          "options": {
+            "item": "A rug from the weaver's own wool, about 1880",
+            "stages": [
+              {"stage": "Shearing and cleaning", "hours": 15, "who": "household"},
+              {"stage": "Combing and spinning", "hours": 150, "who": "household"},
+              {"stage": "Dyeing", "hours": 20, "who": "household"},
+              {"stage": "Setting up the warp", "hours": 20, "who": "household"},
+              {"stage": "Weaving", "hours": 200, "who": "household"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The Long Walk",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1863 and 1864 the United States Army, under Colonel Kit Carson, waged a campaign against the Navajo, burning crops and killing livestock. About 8,000 to 9,000 Navajo were forced to walk some 500 kilometres to a camp at Bosque Redondo in eastern New Mexico, an event the Navajo remember as the **Long Walk**. Hundreds died on the march and many more at the camp, where crops failed and there was little wood or clean water. In 1868 a treaty allowed the survivors to return to part of their homeland, and the government issued them sheep to rebuild their flocks."
+        },
+        {
+          "type": "text",
+          "text": "At Bosque Redondo, weavers were given factory-made blankets and commercial yarn, and some began to weave with it. When they returned, the old trade with the Plains had collapsed, and factory blankets were cheap. The Navajo needed something new to sell."
+        }
+      ]
+    },
+    {
+      "title": "Trading posts and rugs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The railroad reached Navajo country in 1881, and licensed **trading posts** opened across the reservation. Traders bought wool and woven goods and paid in credit at the post's store. Traders such as **John Lorenzo Hubbell** at Ganado, Arizona, and J. B. Moore at Crystal, New Mexico, persuaded weavers to make heavier pieces to be sold to Americans in the East as floor rugs, and sent out catalogues of designs. Regional styles grew from these posts, such as the deep red of Ganado and the natural greys and browns of Two Grey Hills, which are still woven."
+        },
+        {
+          "type": "text",
+          "text": "Some traders supplied **Germantown yarn**, machine-spun wool from mills in Pennsylvania dyed with bright synthetic dyes, which saved the weaver weeks of spinning and dyeing. Traders often paid for rugs by weight, so the hours of fine work were poorly rewarded."
+        },
+        {
+          "type": "diagram",
+          "id": "hours",
+          "caption": "The same rug woven from machine-spun, ready-dyed yarn bought at a trading post.",
+          "options": {
+            "item": "The same rug from bought yarn",
+            "stages": [
+              {"stage": "Spinning and dyeing, by mill", "hours": 2, "who": "waged"},
+              {"stage": "Setting up the warp", "hours": 20, "who": "household"},
+              {"stage": "Weaving", "hours": 200, "who": "household"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Livestock reduction and the churro revival",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "By the 1930s the Navajo flocks had grown so large that federal officials blamed them for eroding the range and silting up the reservoir behind the new Boulder Dam. From 1933 the government forced a **livestock reduction**, buying and often slaughtering hundreds of thousands of Navajo sheep and goats, sometimes in front of their owners. Many families lost most of their wealth, and the memory of it still shapes Navajo relations with the federal government. Officials also encouraged breeds that gave more meat and finer wool for the market, and by the 1970s pure churro sheep were close to disappearing."
+        },
+        {
+          "type": "text",
+          "text": "From 1977 breeders working with Navajo families began rebuilding the breed, now called the Navajo-Churro, from scattered surviving animals. Today there are again thousands of registered Navajo-Churro sheep, and many weavers spin their wool for rugs that sell to collectors for many thousands of dollars."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on Navajo weaving.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "Why was churro wool well suited to hand spinning?",
+                "choices": ["Long fibres with little grease could be spun after light combing", "It was the finest wool of any breed of sheep", "It was already dyed red on the sheep", "It felted easily into a ready-made sheet"],
+                "answer": 0,
+                "why": "Low grease meant little washing, and long fibres needed no carding."
+              },
+              {
+                "ask": "How did weavers get red yarn for early blankets?",
+                "choices": ["They unravelled imported red bayeta cloth", "They grew madder on the reservation", "They bought red yarn from Pennsylvania mills", "They chose red-fleeced churro sheep"],
+                "answer": 0,
+                "why": "Red was hard to dye locally, so weavers unpicked bayeta and rewove its yarn."
+              },
+              {
+                "ask": "What did trading posts change about Navajo weaving?",
+                "choices": ["Weavers made heavy rugs for buyers in the East", "Weavers stopped using upright looms", "Weavers began to weave cloth in strips", "Weavers sold blankets only to Plains chiefs"],
+                "answer": 0,
+                "why": "With the Plains trade gone, traders steered weavers to floor rugs for American buyers."
+              },
+              {
+                "ask": "Why were pure churro sheep nearly lost by the 1970s?",
+                "choices": ["Forced livestock reduction and crossbreeding for market wool", "A disease spread by the railroad", "Weavers switched entirely to cotton", "The treaty of 1868 banned keeping sheep"],
+                "answer": 0,
+                "why": "The government cut the flocks from 1933 and pushed other breeds."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Navajo blankets were prized trade goods.** A fine one could be exchanged on the Plains for horses.",
+    "**Churro sheep came with the Spanish.** Long, low-grease wool was easy to spin by hand.",
+    "**Navajo weaving is tapestry on an upright loom.** Packed wefts hide the warp and each colour fills its own area.",
+    "**Red came from unravelled bayeta.** Imported red cloth was unpicked for its yarn.",
+    "**The Long Walk broke the old economy.** Forced removal in 1864 and return in 1868.",
+    "**Trading posts turned blankets into rugs.** Hubbell and others sold heavy rugs to the East.",
+    "**Bought yarn cut the hours.** Germantown yarn removed spinning and dyeing, but rugs were paid by weight.",
+    "**Livestock reduction nearly ended the churro.** Breeders and Navajo families revived it from 1977."
+  ],
+  "footnotes": {}
+}
