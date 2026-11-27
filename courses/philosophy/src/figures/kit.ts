@@ -51,6 +51,9 @@ export const COL = {
   vada: '#3f8f5a',
   jalpa: '#d4582a',
   vitanda: '#7d5a9a',
+  /** What a text really says, and what it is wrongly quoted as saying. */
+  said: '#3f6f8f',
+  unsaid: '#a89a8a',
 } as const;
 export type ColorKey = keyof typeof COL;
 

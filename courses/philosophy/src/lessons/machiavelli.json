@@ -1,0 +1,262 @@
+{
+ "id": "machiavelli",
+ "n": 201,
+ "branch": "power",
+ "needs": [
+  "hobbes"
+ ],
+ "title": "Is it better to be feared than loved?",
+ "teaches": "The Prince, read in its setting",
+ "parts": [
+  {
+   "title": "Evenings with the ancients",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In February 1513, in Florence, a former government official called Niccolò Machiavelli was arrested. His name had been found on a list kept by two young men plotting against the Medici family, who had just retaken the city. He was tortured with the *strappado*: his wrists were tied behind his back and he was hoisted up by them and dropped, six times. He confessed nothing, and probably knew nothing. A month later a Medici was elected pope, and in the celebrations Machiavelli was freed in a general amnesty.[^strappado]"
+    },
+    {
+     "type": "text",
+     "text": "He retired, ruined, to his small farm outside the city. On 10 December 1513 he described his days there in a letter to a friend. In the mornings he snared thrushes and argued with woodcutters. In the afternoons he went to the inn and played cards and backgammon with the butcher, the miller and two bakers, quarrelling loudly over pennies. \"When evening comes, I return home and go into my study. On the threshold I strip off my muddy, sweaty, everyday clothes, and put on the robes of court and palace\", and then he entered, he wrote, the courts of the ancients, asked them the reasons for their actions, and they answered him. From these conversations he had written \"a little work\", *On Principalities*. We know it as *The Prince*."
+    }
+   ]
+  },
+  {
+   "title": "Italy in 1513",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Machiavelli's Italy was a patchwork of city states, duchies, papal lands and kingdoms, at war with each other and, since 1494, invaded again and again by the armies of France and Spain. Cities changed hands in months. Florence itself had thrown out the Medici in 1494 and set up a republic, which Machiavelli had served for fourteen years as a senior official and diplomat, sent to the courts of the French king, the emperor and the pope. He had organised a citizen militia. In 1512 a Spanish army sacked the nearby town of Prato, the militia ran, and the republic fell."
+    },
+    {
+     "type": "text",
+     "text": "*The Prince* is a handbook for a new ruler in such a world: someone who has just taken power, has no long-standing family claim to it, and must hold on. Machiavelli dedicated it to Lorenzo de' Medici, the young ruler of Florence, probably hoping for a job. Lorenzo is said to have paid it little attention. The book was not printed until 1532, five years after Machiavelli's death."
+    }
+   ]
+  },
+  {
+   "title": "How not to be good",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "What shocked readers was chapter 15. Many writers, Machiavelli said, have imagined republics and principalities that never existed. He would write about how people actually live, not how they ought to. \"A man who wishes to make a profession of goodness in everything must necessarily come to grief among so many who are not good. Therefore it is necessary for a prince, who wishes to maintain himself, to learn how not to be good, and to use this knowledge and not use it, according to the necessity of the case.\""
+    },
+    {
+     "type": "text",
+     "text": "Chapter 17 asks the question in this lesson's title. It would be best, Machiavelli says, to be both loved and feared, but since the two rarely go together, if you must choose, it is much safer to be feared. People are ungrateful and fickle; they will offer you their blood and their children while danger is far off, and turn on you when it comes near. Love is held by a chain of obligation, which people break whenever it suits them; fear is held by a dread of punishment, which never fails. But a prince must avoid being hated, and that is easy: he need only keep his hands off his subjects' property and their women, since \"men forget the death of their father more quickly than the loss of their inheritance\"."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Chapter 17's question. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "feared",
+      "ask": "A new leader takes over in a dangerous time and cannot be both. Is it better to be feared than loved?",
+      "choices": [
+       "Feared: fear is more reliable than affection",
+       "Loved: people work harder and stay loyal for a leader they like",
+       "Neither: being respected and trusted matters more than either",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Machiavelli's answer, with his warning never to be hated.",
+       "You chose the answer most modern management books give. Machiavelli would say affection holds only while times are good.",
+       "You chose an answer Machiavelli would partly accept: he thought a reputation for keeping order mattered more than either feeling.",
+       "Machiavelli thought it depended on the times, too."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "His model was Cesare Borgia, the pope's son, who conquered the Romagna in the years around 1500. Finding it full of robbery and feuds, Borgia sent a cruel and efficient governor, Remirro de Orco, who restored order quickly. Then, to show that the cruelty had not been his own, Borgia had Remirro cut in two and left in the square at Cesena one morning, with a block of wood and a bloody knife beside him. \"The ferocity of this spectacle left the people at once satisfied and stunned.\""
+    }
+   ]
+  },
+  {
+   "title": "What it says and what it doesn't",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Few books are quoted so often by people who have not read them. The adjective \"Machiavellian\" came to mean cunning and unscrupulous within a century, and the Church put his works on its Index of Forbidden Books in 1559. Some of what is attributed to him is not in the book at all."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Six claims often made about The Prince. Sort each by whether the book says it.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Does The Prince say this?",
+      "groups": [
+       {
+        "name": "In The Prince",
+        "color": "said"
+       },
+       {
+        "name": "Not in The Prince",
+        "color": "unsaid"
+       }
+      ],
+      "items": [
+       {
+        "name": "If you cannot be both loved and feared, it is safer to be feared",
+        "group": "In The Prince",
+        "why": "Chapter 17, with the condition that the prince must never be hated."
+       },
+       {
+        "name": "A prince must learn how not to be good, and when to use that knowledge",
+        "group": "In The Prince",
+        "why": "Chapter 15, the passage that shocked his readers."
+       },
+       {
+        "name": "A prince should be both a fox, to see traps, and a lion, to frighten wolves",
+        "group": "In The Prince",
+        "why": "Chapter 18."
+       },
+       {
+        "name": "The ends justify the means",
+        "group": "Not in The Prince",
+        "why": "The nearest is chapter 18's remark that, in judging rulers, people look to the outcome."
+       },
+       {
+        "name": "A ruler should make himself hated, so that no one dares oppose him",
+        "group": "Not in The Prince",
+        "why": "He says the opposite: being hated is the one thing a prince must avoid."
+       },
+       {
+        "name": "Monarchy is always the best form of government",
+        "group": "Not in The Prince",
+        "why": "His longer book, the Discourses on Livy, argues that a republic is best when it can be had."
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "That last point is the puzzle of Machiavelli. His other major book, the *Discourses on Livy*, written in the same years, is a long argument for republics, governed by citizens under laws, with the people's liberty protected by institutions. Readers have offered different ways to fit the two together. Some say *The Prince* was a job application, written for the Medici's eyes. Some, starting with Rousseau, said it was a satire, exposing how princes really behave so that free people could see it. Most scholars now read the two books as one view: a republic is best, but in a crisis, a founding or a collapse, one person must act alone, and must be ready to do things that ordinary morality forbids.[^satire]"
+    }
+   ]
+  },
+  {
+   "title": "Dirty hands",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Machiavelli's deepest challenge is whether political leaders may, or must, do things that would be wrong for anyone else. In 1973 the American political philosopher Michael Walzer named this the problem of **dirty hands**. His example was a newly elected leader who has promised to end a colonial war, and whose officials capture a rebel who knows where bombs have been hidden in apartment buildings across the capital. May the leader order him tortured to find them? Walzer's answer was that the leader may be right to do it and still be guilty, and should feel guilty: a politician who did such a thing easily would be the wrong person to trust with power."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Walzer's problem. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "dirty-hands",
+      "ask": "Can a leader be right to do something that is morally wrong, for the sake of the people they govern?",
+      "choices": [
+       "Yes: sometimes they must, and should still feel the guilt",
+       "No: what is wrong for a private person is wrong for a ruler",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Walzer's answer, and Machiavelli's, minus the guilt.",
+       "You chose Kant's view in lesson 15, and that of many of Machiavelli's Christian critics.",
+       "Walzer himself said the problem is real precisely because neither answer is comfortable."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Machiavelli is respected history and still argued over. He is read as the founder of political realism, the view that politics must be studied as it is, which runs through Hobbes in lesson 11 to the realist school in international relations today. The dirty-hands problem is an active debate in ethics, especially about torture, war and secret services. Historians now mostly read him as a republican who wrote one ruthless handbook for an emergency. Psychology took his name for a personality trait: since 1970 a standard questionnaire has measured \"Machiavellianism\", a tendency to manipulate others, which correlates poorly with success as a leader.[^mach]"
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Machiavelli",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What did Machiavelli say about being feared or loved in chapter 17 of The Prince?",
+        "choices": [
+         "It is best to be both, but if you must choose it is safer to be feared, as long as you are not hated",
+         "A prince should always try to be hated, since hatred keeps people obedient",
+         "Love is more reliable than fear, because loyal subjects never betray their ruler",
+         "A prince should make himself feared by seizing his subjects' property"
+        ],
+        "answer": 0,
+        "why": "Fear holds by dread of punishment; love by obligation, which people break when it suits them."
+       },
+       {
+        "ask": "Which of these is NOT in The Prince?",
+        "choices": [
+         "The ends justify the means",
+         "A prince must learn how not to be good",
+         "A prince should be both fox and lion",
+         "It is safer to be feared than loved, if you cannot be both"
+        ],
+        "answer": 0,
+        "why": "The nearest line is that people judge rulers by the outcome."
+       },
+       {
+        "ask": "How do most scholars now fit The Prince together with the Discourses on Livy?",
+        "choices": [
+         "A republic is best, but in a crisis one person must act alone and may have to do what morality forbids",
+         "The Prince is Machiavelli's real view and the Discourses were written to please the Church",
+         "The two books were written by different authors",
+         "The Discourses is a satire of republics"
+        ],
+        "answer": 0,
+        "why": "The Discourses argues for republics; The Prince is a handbook for founding or saving a state."
+       },
+       {
+        "ask": "What is Walzer's problem of dirty hands?",
+        "choices": [
+         "Whether a political leader can be right to do something morally wrong for the public good",
+         "Whether politicians should be paid for public service",
+         "Whether a leader should share power with a council",
+         "Whether war can ever be ended by treaty"
+        ],
+        "answer": 0,
+        "why": "Walzer said such a leader may be right, and still guilty."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Machiavelli wrote The Prince in 1513, in disgrace on his farm.** He had been tortured and then released in an amnesty.",
+  "**Italy was divided and invaded.** The Prince is a handbook for a new ruler holding power in such a world.",
+  "**A prince must learn how not to be good.** And to use that knowledge as necessity demands.",
+  "**Better feared than loved, if you cannot be both, but never hated.** Keep your hands off your subjects' property.",
+  "**The ends justify the means is not in the book.** Nor is the advice to be hated.",
+  "**His Discourses on Livy argue for republics.** Most scholars read The Prince as a handbook for emergencies.",
+  "**The dirty-hands problem asks if a leader can be right to do wrong.** Walzer said yes, and still guilty."
+ ],
+ "footnotes": {
+  "strappado": {
+   "kind": "technical",
+   "title": "The six drops",
+   "text": "Machiavelli mentioned the torture in a letter and in sonnets he wrote in prison to Giuliano de' Medici. The strappado often dislocated the shoulders. That he bore it without confessing became a point of pride for him."
+  },
+  "satire": {
+   "kind": "technical",
+   "title": "The satire reading",
+   "text": "In The Social Contract (1762), Rousseau wrote that Machiavelli, pretending to give lessons to kings, gave great ones to the people, and called The Prince the book of republicans. The American historian Garrett Mattingly argued the same in 1958. Few historians now accept it, since the book reads too seriously."
+  },
+  "mach": {
+   "kind": "technical",
+   "title": "The Mach scale",
+   "text": "The psychologists Richard Christie and Florence Geis built the Mach IV questionnaire in 1970, partly from statements adapted from The Prince, such as agreeing that the best way to handle people is to tell them what they want to hear."
+  }
+ }
+}
