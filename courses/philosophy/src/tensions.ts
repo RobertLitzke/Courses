@@ -41,4 +41,9 @@ export const TENSIONS: readonly Tension[] = [
     b: { key: 'machine', picks: [0] },
     text: 'You said you would rather know the truth about your life even at a cost, and also that you would plug into the experience machine for life. Plato and Nozick would both say the second answer gives up the first: the machine is a cave you choose, with better shadows.',
   },
+  {
+    a: { key: 'veil', picks: [0] },
+    b: { key: 'wilt', picks: [0] },
+    text: 'You chose Rawls\'s rule behind the veil, and also said the state may not tax Wilt Chamberlain\'s earnings to help the worst-off. Rawls would say his rule is exactly a reason to tax them, and that the fans paid under tax rules everyone knew. Nozick would say your second answer shows why no pattern survives free choice.',
+  },
 ];

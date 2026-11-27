@@ -1,0 +1,237 @@
+{
+ "id": "rawls",
+ "n": 22,
+ "title": "What rules would you pick before you knew who you'd be?",
+ "teaches": "The veil of ignorance, the difference principle, Harsanyi and Nozick",
+ "parts": [
+  {
+   "title": "Two brothers",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1928, in Baltimore, a seven-year-old boy called John Rawls fell ill with diphtheria. His younger brother Bobby, who was not allowed into the sick room, went in to keep him company, caught the disease and died. The next winter John had pneumonia, and passed it to another younger brother, Tommy, who also died. John lived, and developed a stammer that stayed with him for the rest of his life.[^brothers]"
+    },
+    {
+     "type": "text",
+     "text": "Rawls served as an infantryman in the Pacific in the Second World War, in New Guinea, the Philippines and occupied Japan, where he saw Hiroshima weeks after the bomb. He came home having lost his Christian faith, and became a philosopher at Harvard. In 1971 he published *A Theory of Justice*, a long, slow book of about 600 pages that became the most discussed work of political philosophy of the 20th century. Its central question was how to share out the benefits and burdens of a society fairly, given that people are born into such different luck."
+    }
+   ]
+  },
+  {
+   "title": "The veil of ignorance",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Hobbes, in lesson 11, imagined people agreeing to a government to escape the state of nature. Rawls kept the idea of an agreement but changed who makes it. He asked us to picture a meeting, which he called the **original position**, where people choose the basic rules of their society from behind a **veil of ignorance**. Behind the veil you know general facts about economics and human nature, but you do not know who you will be: your sex, race or class, whether you will be clever or slow, healthy or ill, what religion you will hold, or even what you will want from life."
+    },
+    {
+     "type": "text",
+     "text": "The point of the veil is to make the choice fair. If you knew you would be rich, you would choose low taxes; if you knew you would be ill, you would choose free healthcare. Behind the veil nobody can rig the rules for their own position, because nobody knows their position. Whatever rules you would choose there, Rawls argued, are the just ones. The figure below gives you the choice, in a simplified form."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "veil",
+     "caption": "Five societies, each split into fifths by income. You choose one before you know which fifth you will be born into, then find out. The rules come from Rawls and from Harsanyi, in the next part.",
+     "task": "Choose a society, lift the veil, then compare the two rules",
+     "goal": "compare"
+    },
+    {
+     "type": "text",
+     "text": "Rawls argued that people behind the veil would choose two principles. The first gives everyone the same basic liberties, such as freedom of speech, of conscience and to vote, and these come before everything else. The second allows inequalities of wealth and power only on two conditions: the positions that pay more must be open to all under fair equality of opportunity, and the inequalities must work to the greatest benefit of the **least advantaged**. This second condition is the **difference principle**."
+    },
+    {
+     "type": "text",
+     "text": "The difference principle does not demand equality. If paying surgeons and engineers more leads to more growth, and the extra raises the incomes of the poorest above what they would get under strict equality, then the inequality is just. That is the society called Lifted floor in the figure. What it rules out is inequality that does nothing for the people at the bottom. Rawls also said nobody deserves their natural talents, any more than their parents' wealth: both are luck, and what we deserve is to be judged by rules that do not reward luck for its own sake."
+    }
+   ]
+  },
+  {
+   "title": "Harsanyi's gamble",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Why should people behind the veil look only at the worst-off? An economist, John Harsanyi, had used the same kind of thought experiment in 1953, two decades before Rawls, and reached the opposite conclusion.[^harsanyi] If you do not know who you will be, he said, you should assume you have an equal chance of being anyone, and pick the society where your expected income, the average, is highest. That is utilitarianism, in lesson 17, derived from behind the veil. In the figure it picks Top-heavy."
+    },
+    {
+     "type": "text",
+     "text": "Rawls answered that the choice behind the veil is not an ordinary bet. You choose once, for your whole life and your children's, and you cannot come back if it goes wrong. You also have no basis for assigning probabilities, since you do not know what sort of society you will be in. In those conditions, he argued, the rational rule is to make the worst outcome as good as possible, which decision theorists call **maximin**.[^rand] Harsanyi replied that nobody lives by maximin: anyone who would not cross a road because a car might hit them would never leave the house."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The choice behind the veil. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "veil",
+      "ask": "Behind the veil of ignorance, which rule would you choose your society by?",
+      "choices": [
+       "Make the worst-off as well off as possible (Rawls)",
+       "Make the average as high as possible (Harsanyi)",
+       "Highest average, with a guaranteed minimum for everyone",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Rawls's rule.",
+       "You chose Harsanyi's rule, which is utilitarianism chosen behind the veil.",
+       "You chose what most groups chose when economists tested the veil in experiments in the 1980s.",
+       "Rawls and Harsanyi argued about it for twenty years without either moving."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "When the economists Norman Frohlich and Joe Oppenheimer ran the choice as an experiment in the 1980s, with students who discussed it in groups and were then paid according to a randomly assigned income, very few groups chose Rawls's rule and very few chose Harsanyi's. Most chose to maximise the average with a floor that no one could fall below."
+    }
+   ]
+  },
+  {
+   "title": "Wilt Chamberlain",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The most famous reply to Rawls came from a younger colleague in his own department. In *Anarchy, State, and Utopia* (1974), Robert Nozick argued that any rule which says what the final shares should look like, whether equality, the difference principle or anything else, is bound to be upset by free choices."
+    },
+    {
+     "type": "text",
+     "text": "His example was the basketball player Wilt Chamberlain, then the best-known player in America. Suppose, Nozick said, that wealth is shared out exactly as your favourite principle requires. Chamberlain then signs a contract under which, at every home game, 25 cents from each ticket goes to him. A million people come to watch him in a season, happily dropping their quarters in a box with his name on it. At the end of the season he has 250,000 dollars, far more than anyone else, and your pattern is gone. But the starting shares were just, and everyone who paid chose freely. So how can the result be unjust? To keep the pattern, Nozick said, the state would have to stop people from doing what they like with their own money, continually. \"Liberty upsets patterns.\""
+    },
+    {
+     "type": "text",
+     "text": "For Nozick a distribution is just if it came about through just steps: things acquired fairly and passed on by free exchange or gift. He concluded that only a minimal state, protecting people against force, theft and fraud, could be justified, and that taxing earnings to fund welfare was \"on a par with forced labour\". Rawlsians replied that the background rules, of property, contract and tax, are themselves what is under discussion, and that Chamberlain's fans chose to pay knowing those rules."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Nozick's case. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "wilt",
+      "ask": "A million fans each freely pay Wilt Chamberlain 25 cents, and he ends up far richer than anyone else. May the state tax his earnings to help the worst-off?",
+      "choices": [
+       "No: the result came from a fair start by free choices, so it is just",
+       "Yes: inequality like his is fair only if it also benefits the worst-off",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Nozick's answer.",
+       "You chose Rawls's answer.",
+       "Nozick himself said, 15 years later, that his view had been seriously inadequate."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Rawls is the reference point of political philosophy. Almost every theory of justice since 1971 has been set out as an agreement with him or a reply to him, and the veil of ignorance is used well beyond philosophy, in economics, law and debates about health care and climate policy. Few philosophers accept his whole theory, but nearly all accept the question as he framed it. Critics on the left, such as G. A. Cohen, argued that the difference principle allows too much inequality; others, such as Amartya Sen, argued that it looks at income and goods when it should look at what people can actually do and be."
+    },
+    {
+     "type": "text",
+     "text": "Nozick is the main reply, and *Anarchy, State, and Utopia* is still the most cited defence of libertarianism by a philosopher. Nozick himself moved away from it, writing in 1989 that the view now seemed to him seriously inadequate.[^nozick] Harsanyi's argument is respected history in philosophy and still argued over in economics, where he shared the Nobel Prize in 1994 for his work in game theory."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Rawls",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What is the veil of ignorance meant to do?",
+        "choices": [
+         "Stop people from choosing rules that favour their own position, by hiding what that position will be",
+         "Make people forget their moral beliefs so that they choose by self-interest alone",
+         "Hide the facts of economics so that no rule is chosen for its results",
+         "Make sure the rules are chosen by experts rather than by ordinary people"
+        ],
+        "answer": 0,
+        "why": "Behind the veil nobody knows their class, talents, sex or religion, so nobody can rig the rules for themselves."
+       },
+       {
+        "ask": "What does the difference principle allow?",
+        "choices": [
+         "Inequalities that work to the greatest benefit of the least advantaged",
+         "Any inequality, provided the average income rises",
+         "Inequality only between people who have different talents",
+         "No inequality at all, beyond what free choice produces"
+        ],
+        "answer": 0,
+        "why": "It is not strict equality. Higher pay for some is just if it raises the position of the worst-off."
+       },
+       {
+        "ask": "Why did Harsanyi think people behind the veil would choose the highest average?",
+        "choices": [
+         "With an equal chance of being anyone, the highest average gives each person the best expected outcome",
+         "Because the rich would outvote everyone else in the original position",
+         "Because people behind the veil know they will be rich",
+         "Because maximin is impossible to calculate"
+        ],
+        "answer": 0,
+        "why": "That makes the veil an argument for utilitarianism. Rawls replied that one irreversible choice for a whole life is not an ordinary bet."
+       },
+       {
+        "ask": "What is Nozick's Wilt Chamberlain example meant to show?",
+        "choices": [
+         "Free choices from a just starting point upset any fixed pattern of shares, and the result seems just",
+         "Famous athletes are paid more than they deserve",
+         "Rawls's principles would make basketball impossible",
+         "Everyone should pay for entertainment in proportion to income"
+        ],
+        "answer": 0,
+        "why": "\"Liberty upsets patterns.\" Keeping a pattern would mean constant interference in what people do with their money."
+       },
+       {
+        "ask": "Why did Rawls argue that maximin is the rational rule behind the veil?",
+        "choices": [
+         "The choice is made once, for a whole life, with no basis for probabilities",
+         "People are naturally cautious and avoid all risk",
+         "The worst-off are the majority in every society",
+         "It produces the highest average income"
+        ],
+        "answer": 0,
+        "why": "With stakes so high and no way to retry, he argued, you should make the worst outcome as good as it can be."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Rawls's A Theory of Justice (1971) asked how to share out a society's benefits fairly.** It is the most discussed work of political philosophy of its century.",
+  "**The veil of ignorance hides who you will be.** Rules chosen without knowing your position are fair to every position.",
+  "**Equal basic liberties come first.** Free speech, conscience and the vote are not traded for wealth.",
+  "**The difference principle allows inequality that helps the worst-off.** Inequality that does nothing for the bottom is ruled out.",
+  "**Talents are luck, like inherited wealth.** Nobody deserves their starting place.",
+  "**Harsanyi said the veil leads to the highest average.** That is utilitarianism; Rawls replied that one irreversible choice calls for maximin.",
+  "**Nozick's Wilt Chamberlain shows liberty upsetting patterns.** Free exchanges from a fair start produce inequality that seems just.",
+  "**Rawls is the reference point and Nozick the main reply.** Most later theories of justice are set out against them."
+ ],
+ "footnotes": {
+  "brothers": {
+   "kind": "digression",
+   "title": "The luck of it",
+   "text": "Rawls rarely spoke of his brothers' deaths. His biographers connect them, and the stammer, with his later view that where people end up depends heavily on luck they did nothing to earn."
+  },
+  "harsanyi": {
+   "kind": "digression",
+   "title": "Off the train",
+   "text": "Harsanyi, a Hungarian Jew, was taken for forced labour in 1944. When his unit was being sent from Budapest towards the camps, he slipped away at the station and hid in a Jesuit monastery. He emigrated, first to Australia, where he worked in a factory while studying at night, then to the United States."
+  },
+  "nozick": {
+   "kind": "technical",
+   "title": "Nozick's second thoughts",
+   "text": "In The Examined Life (1989) Nozick wrote that the libertarian position he had once put forward now seemed to him seriously inadequate, partly because it gave too little weight to the things people do together through government. He never wrote a full replacement."
+  },
+  "rand": {
+   "kind": "technical",
+   "title": "Why maximin and not a coin toss",
+   "text": "Rawls gave a second reason, which he called the strains of commitment. Behind the veil you must choose rules you could keep to whatever happens. Someone who lands at the bottom of Top-heavy may not accept rules that put them there, and a society whose rules the losers cannot accept will not last."
+  }
+ }
+}

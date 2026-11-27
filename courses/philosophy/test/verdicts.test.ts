@@ -101,3 +101,21 @@ describe('the prisoner\'s dilemma figure', () => {
     expect(often.tft).toBeGreaterThan(0.5);
   });
 });
+
+import { HARSANYI, RAWLS, SOCIETIES } from '../src/figures/veil';
+
+describe('the veil of ignorance', () => {
+  it('has the two rules pick different societies, neither of them Equal', () => {
+    expect(SOCIETIES[RAWLS].name).toBe('Lifted floor');
+    expect(SOCIETIES[HARSANYI].name).toBe('Top-heavy');
+  });
+  it('is done once the reader is placed and has seen both rules', async () => {
+    const h = FIGURES.veil(context(), 'compare');
+    click(h.node, 'Wide');
+    click(h.node, 'Lift the veil');
+    expect(h.node.textContent).toContain('You were born into the');
+    click(h.node, 'Rawls: the best worst-off');
+    click(h.node, 'Harsanyi: the best average');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});

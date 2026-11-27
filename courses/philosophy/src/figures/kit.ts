@@ -37,6 +37,9 @@ export const COL = {
   nihilism: '#5a5560',
   existentialism: '#3f6f8f',
   absurdism: '#8a5aa8',
+  /** Lesson 22: Rawls's rule (the best worst-off) and Harsanyi's (the best average). */
+  rawls: '#3f6f8f',
+  harsanyi: '#b0546a',
 } as const;
 export type ColorKey = keyof typeof COL;
 
