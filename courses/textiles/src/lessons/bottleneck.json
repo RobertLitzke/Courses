@@ -91,31 +91,31 @@
             "items": [
               {
                 "ask": "A district's weavers adopt a loom twice as fast, but nothing else changes. How much more cloth does it make?",
-                "choices": ["About the same, because the spinners cannot supply more yarn", "Twice as much", "Half as much", "Four times as much"],
+                "choices": ["About the same, because yarn runs short", "Twice as much, as the looms are twice as fast", "Half as much, as the new looms waste yarn", "Four times as much, as weavers work longer"],
                 "answer": 0,
                 "why": "Output is set by the slowest stage. Faster weaving only leaves weavers waiting for yarn until spinning speeds up too."
               },
               {
                 "ask": "Why was a spinning machine harder to build than a spindle that turned faster?",
-                "choices": ["Drafting the fibres thin and even, which fingers did by feel, had to be done by machine", "Spindles could not be made of iron", "Twisting many threads at once was impossible", "Cotton could not be twisted by machine"],
+                "choices": ["Drafting the fibres thin and even, done by feel", "Spindles could not be made of iron at the time", "Twisting many threads at once was thought impossible", "Cotton fibre could not be twisted by any machine"],
                 "answer": 0,
                 "why": "Twist is easy; drafting is the skill. The jenny drafted with a moving clamp, the water frame with rollers, and the mule with both."
               },
               {
                 "ask": "Hargreaves's jenny spread fast, but English weavers still needed a linen warp. Why?",
-                "choices": ["Jenny yarn was soft and weak, good for weft but not strong enough for warp", "Linen was cheaper than cotton", "The Calico Acts banned cotton warps", "The jenny could only spin linen"],
+                "choices": ["Jenny yarn was too soft and weak for the warp", "Linen warp was cheaper than any cotton warp", "The Calico Acts banned all-cotton warps", "The jenny could spin only linen, not cotton"],
                 "answer": 0,
                 "why": "The warp is held under tension and rubbed by the loom. The water frame's roller-drafted yarn was the first machine yarn strong enough."
               },
               {
                 "ask": "Paul and Wyatt patented roller drafting in 1738, but Arkwright made it pay 30 years later. What had changed?",
-                "choices": ["Arkwright had better engineering, water power and partners with capital", "Cotton had been invented", "Rollers had been banned until 1769", "Paul and Wyatt's idea was different"],
+                "choices": ["Better engineering, water power and backers with capital", "Cotton had only just reached England from India", "Roller drafting had been banned by law until 1769", "Paul and Wyatt's rollers worked in a different way"],
                 "answer": 0,
                 "why": "The same principle failed for want of reliable machinery and money. Arkwright combined it with a flyer, water power and investors."
               },
               {
                 "ask": "In 1779 crowds smashed large jennies and Arkwright's mill but often left small jennies alone. What does that suggest?",
-                "choices": ["They objected to machines that moved spinning out of homes, not to machines in general", "They liked small machines because they were old", "They could not reach the small jennies", "They were weavers protecting their looms"],
+                "choices": ["They objected to machines that took spinning out of homes", "They liked small jennies because they were older machines", "The crowds could not reach the small jennies in houses", "They were weavers protecting their own looms from mills"],
                 "answer": 0,
                 "why": "Small jennies kept spinning in the household. Large jennies and mills took the work, and the income, away from home spinners."
               }
@@ -125,16 +125,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Hand spinning was the bottleneck.** Several spinners were needed for each weaver, and in the 18th century weavers often waited for yarn.",
-    "**The flying shuttle made it worse.** Kay's shuttle of 1733 let weavers work faster and wider, so they needed even more yarn.",
-    "**A machine had to draft.** Twisting is easy; drawing fibres out thin and even was the skill every spinning machine had to copy.",
-    "**Good ideas could fail.** Paul and Wyatt's roller drafting of 1738 failed for want of engineering and capital.",
-    "**The jenny spun weft at home.** Hargreaves's machine of the mid 1760s spun many threads at once but made weak yarn.",
-    "**The water frame spun warp in mills.** Arkwright's rollers made strong yarn, and water power moved spinning into Cromford's mill from 1771.",
-    "**The mule made fine yarn.** Crompton's machine of 1779 combined both methods and matched India's finest yarn.",
-    "**Each fix moved the bottleneck.** Spinning got faster, and weaving became the slow step again.",
-    "**Home spinners paid.** The machines took away their income, and some of them attacked the larger jennies and mills."
-  ],
+  "summary": ["**Hand spinning was the bottleneck.** Several spinners were needed for each weaver, and in the 18th century weavers often waited for yarn.", "**The flying shuttle made it worse.** Kay's shuttle of 1733 let weavers work faster and wider, so they needed even more yarn.", "**A machine had to draft.** Twisting is easy; drawing fibres out thin and even was the skill every spinning machine had to copy.", "**Good ideas could fail.** Paul and Wyatt's roller drafting of 1738 failed for want of engineering and capital.", "**The jenny spun weft at home.** Hargreaves's machine of the mid 1760s spun many threads at once but made weak yarn.", "**The water frame spun warp in mills.** Arkwright's rollers made strong yarn, and water power moved spinning into Cromford's mill from 1771.", "**The mule made fine yarn.** Crompton's machine of 1779 combined both methods and matched India's finest yarn.", "**Each fix moved the bottleneck.** Spinning got faster, and weaving became the slow step again.", "**Home spinners paid.** The machines took away their income, and some of them attacked the larger jennies and mills."],
   "footnotes": {}
 }

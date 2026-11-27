@@ -107,56 +107,31 @@
             "items": [
               {
                 "ask": "A dyer gets a pretty yellow from flower petals, but it is gone after three washes. What would most likely make it last?",
-                "choices": [
-                  "Mordanting the cloth with alum before dyeing",
-                  "Dyeing it for twice as long",
-                  "Using hotter water to wash it",
-                  "Spinning the yarn with more twist"
-                ],
+                "choices": ["Mordanting the cloth with alum first", "Dyeing it for twice as long", "Washing it in hotter water", "Spinning the yarn with more twist"],
                 "answer": 0,
                 "why": "The dye has nothing to hold it. A mordant such as alum binds to fibre and dye both, so the colour stays."
               },
               {
                 "ask": "One cloth is painted with alum in some places and iron in others, then dipped in one madder bath. What comes out?",
-                "choices": [
-                  "Red where the alum was, dark purple-brown where the iron was, and pale elsewhere after washing",
-                  "An even red all over",
-                  "An even purple, as the two mordants mix",
-                  "Nothing, because madder needs no mordant"
-                ],
+                "choices": ["Red where the alum was, dark brown where the iron was", "An even red all over, since one dye bath was used", "An even purple, as the two mordants mix in the bath", "Nothing lasts, because madder will not take a mordant"],
                 "answer": 0,
                 "why": "The mordant fixes the dye and sets its colour, so the pattern of mordants becomes the pattern of colours. This is mordant printing."
               },
               {
                 "ask": "Cloth lifted out of an indigo vat is yellow-green, and turns blue over the next minute or so. What is happening?",
-                "choices": [
-                  "Oxygen in the air turns the soluble form of the dye back into insoluble blue indigo inside the fibre",
-                  "The yellow dye evaporates and leaves the blue behind",
-                  "The cloth is drying, and wet indigo looks green",
-                  "Light bleaches the yellow part of the dye"
-                ],
+                "choices": ["Air oxidises the dye back to insoluble blue in the fibre", "A yellow dye in the vat evaporates and leaves the blue", "The cloth is drying, and wet indigo always looks green", "Daylight bleaches out the yellow part of the dye"],
                 "answer": 0,
                 "why": "In the vat, indigo is reduced to a soluble yellow-green form; in air it is oxidised back to blue, which cannot dissolve and so stays put."
               },
               {
                 "ask": "Why did ancient dyers find it much harder to get a fast red on linen than on wool?",
-                "choices": [
-                  "Cellulose has few places for dye to attach, while protein fibres hold dyes more readily",
-                  "Linen is always too dark to show red",
-                  "Red dyes dissolve linen",
-                  "Linen was never dyed at all"
-                ],
+                "choices": ["Cellulose has few places for dye to attach; protein has many", "Linen is naturally too dark for a red to show on it", "Red dyes weaken linen fibres until they break", "Linen was never dyed at all in the ancient world"],
                 "answer": 0,
                 "why": "Protein fibres such as wool bond with many dyes; cellulose needs careful mordanting, which is why dyeing cotton well was a specialist skill."
               },
               {
                 "ask": "Why do jeans fade white where they rub, though indigo survives washing well?",
-                "choices": [
-                  "Indigo sits mostly in the outer layer of each yarn, so wear exposes the undyed core",
-                  "Indigo dissolves in sweat",
-                  "The white weft is pulled to the surface by friction",
-                  "Rubbing turns the indigo back into its yellow-green form"
-                ],
+                "choices": ["Indigo sits mostly in the outer layer of each yarn", "Indigo slowly dissolves in sweat where cloth touches skin", "Rubbing pulls the white weft through to the surface", "Rubbing turns indigo back into its yellow-green form"],
                 "answer": 0,
                 "why": "The dye locks in as solid particles near the surface of the yarn. Abrasion removes them along with fibre, revealing white beneath."
               }
@@ -166,16 +141,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Dyes leave the way they came.** A dye that dissolves in water can wash out unless something holds it.",
-    "**Fugitive and fast.** Most plant colours fade; a fast dye survives washing and light.",
-    "**Protein dyes more easily.** Wool and silk hold dyes better than cotton and linen.",
-    "**Mordants bridge fibre and dye.** Alum and iron bind to both, fix the colour, and change its shade.",
-    "**Mordant printing.** Painting different mordants on one cloth gives several colours from one dye bath.",
-    "**Indigo needs a vat.** Reduced in an alkaline, oxygen-free vat it is yellow-green and soluble; in air it turns blue and stays trapped.",
-    "**Resists make patterns.** Wax, paste or tied thread keep the dye out of chosen areas.",
-    "**Colour was wealth.** Alum, indigo and cochineal were major trade goods until coal-tar dyes replaced them."
-  ],
+  "summary": ["**Dyes leave the way they came.** A dye that dissolves in water can wash out unless something holds it.", "**Fugitive and fast.** Most plant colours fade; a fast dye survives washing and light.", "**Protein dyes more easily.** Wool and silk hold dyes better than cotton and linen.", "**Mordants bridge fibre and dye.** Alum and iron bind to both, fix the colour, and change its shade.", "**Mordant printing.** Painting different mordants on one cloth gives several colours from one dye bath.", "**Indigo needs a vat.** Reduced in an alkaline, oxygen-free vat it is yellow-green and soluble; in air it turns blue and stays trapped.", "**Resists make patterns.** Wax, paste or tied thread keep the dye out of chosen areas.", "**Colour was wealth.** Alum, indigo and cochineal were major trade goods until coal-tar dyes replaced them."],
   "footnotes": {
     "alum": {
       "kind": "digression",

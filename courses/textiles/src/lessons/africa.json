@@ -81,31 +81,31 @@
             "items": [
               {
                 "ask": "West Africa already made plenty of cotton cloth. Why did imported cloth sell at all?",
-                "choices": ["It offered particular colours, patterns or quantities that local weavers did not supply", "African weavers had stopped weaving", "Imported cloth was always cheaper", "Local cloth was banned by African rulers"],
+                "choices": ["It offered colours, patterns or amounts local weavers did not", "African weavers had stopped weaving after the trade began", "Imported cloth was always cheaper than cloth made locally", "African rulers had banned the wearing of local cloth"],
                 "answer": 0,
                 "why": "Imported cloth competed with a strong local industry, so it sold only when it gave buyers something different, which is why buyers were so particular."
               },
               {
                 "ask": "A slave ship arrives with checks in the wrong colours. What is likely to happen?",
-                "choices": ["The cloth is refused, and the ship stays on the coast longer at great cost", "The buyers accept it at a discount", "The captain dyes it on board", "Nothing; any cloth was accepted"],
+                "choices": ["It is refused, and the ship waits on the coast at great cost", "The buyers take it anyway at a small discount", "The captain has it dyed again on board the ship", "Nothing happens; any cloth would be accepted"],
                 "answer": 0,
                 "why": "African merchants specified what they would accept. Unsold cargo meant longer stays on the coast, with deaths among crew and captives and lost money."
               },
               {
                 "ask": "Why did Manchester weavers give their cloths Indian names such as niccanees?",
-                "choices": ["They were copying Indian cloths that African buyers already knew and wanted", "The cloth was made in India", "The names were Lancashire words", "To avoid the Calico Acts"],
+                "choices": ["They were copying Indian cloths that buyers trusted", "The cloth had in fact been woven in India", "The names were old Lancashire dialect words", "The Indian names let them avoid the Calico Acts"],
                 "answer": 0,
                 "why": "The names signalled to buyers that the copy matched the Indian original they trusted."
               },
               {
                 "ask": "In 19th-century Zanzibar, buyers preferred American sheeting to cheaper British cloth. What does that show?",
-                "choices": ["Buyers chose by quality and taste, not only by price", "British cloth could not reach Zanzibar", "American cloth was made in Africa", "Zanzibar banned British goods"],
+                "choices": ["Buyers chose by quality and taste, not only price", "British cloth could not be shipped to Zanzibar", "American sheeting was made in East Africa", "Zanzibar's ruler had banned British goods"],
                 "answer": 0,
                 "why": "Merikani cost more but was what buyers wanted. As in West Africa, buyers set the terms that producers had to meet."
               },
               {
                 "ask": "What is Joseph Inikori's argument about Atlantic markets and British cotton?",
-                "choices": ["Fast-growing African and colonial demand for cheap, uniform cloth pushed British cotton towards mass production", "Africa supplied Britain's raw cotton in the 18th century", "The slave trade had no connection to cotton", "British cotton grew only because of home demand"],
+                "choices": ["Growing Atlantic demand for cheap, uniform cloth pushed mass production", "Africa supplied most of Britain's raw cotton in the 18th century", "The slave trade had no real connection with British cotton", "British cotton grew only because of demand at home in Britain"],
                 "answer": 0,
                 "why": "Inikori stresses the size and growth of Atlantic markets. Other historians weigh home demand and technology more heavily, which lesson 17 takes up."
               }
@@ -115,16 +115,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Cloth bought captives.** In the 18th-century British slave trade, textiles were usually the largest category of goods exchanged for people.",
-    "**West Africa had its own cloth industries.** Strip looms, Kano's indigo pits, Yoruba and Asante weaving, and cloth used as money.",
-    "**So imported cloth had to compete.** It sold only when it offered colours, patterns or quantities local weavers did not.",
-    "**Buyers set the terms.** African merchants specified stripes, checks, lengths and colours, and refused goods that did not match.",
-    "**Indian cloth came first.** Gujarati and Coromandel cottons were re-exported from Europe to West Africa and sold directly in East Africa.",
-    "**Manchester copied India.** Lancashire made imitations with Indian names, and gained share when wars cut Indian supply.",
-    "**Atlantic markets fed British cotton.** Inikori argues their growth pushed British production towards cheap, uniform cloth; others stress home demand.",
-    "**The trades were linked.** Cloth bought captives, and captives grew the cotton that later fed Lancashire."
-  ],
+  "summary": ["**Cloth bought captives.** In the 18th-century British slave trade, textiles were usually the largest category of goods exchanged for people.", "**West Africa had its own cloth industries.** Strip looms, Kano's indigo pits, Yoruba and Asante weaving, and cloth used as money.", "**So imported cloth had to compete.** It sold only when it offered colours, patterns or quantities local weavers did not.", "**Buyers set the terms.** African merchants specified stripes, checks, lengths and colours, and refused goods that did not match.", "**Indian cloth came first.** Gujarati and Coromandel cottons were re-exported from Europe to West Africa and sold directly in East Africa.", "**Manchester copied India.** Lancashire made imitations with Indian names, and gained share when wars cut Indian supply.", "**Atlantic markets fed British cotton.** Inikori argues their growth pushed British production towards cheap, uniform cloth; others stress home demand.", "**The trades were linked.** Cloth bought captives, and captives grew the cotton that later fed Lancashire."],
   "footnotes": {
     "cargo": {
       "kind": "technical",

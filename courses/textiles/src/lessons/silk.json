@@ -125,56 +125,31 @@
             "items": [
               {
                 "ask": "A silk farmer lets every cocoon hatch into a moth. What goes wrong?",
-                "choices": [
-                  "The moths break the filaments on the way out, so the cocoons cannot be reeled into long thread",
-                  "The moths eat the silk",
-                  "Nothing: the empty cocoons reel more easily",
-                  "The silk turns yellow"
-                ],
+                "choices": ["The moths break the filament, so it cannot be reeled", "The moths eat the silk as they come out of the cocoon", "Nothing; empty cocoons are easier to reel into thread", "The silk turns yellow once the moth has left it"],
                 "answer": 0,
                 "why": "A hatching moth cuts through its cocoon, leaving short pieces of filament. That is why most cocoons are heated to kill the pupa first."
               },
               {
                 "ask": "Silk fibres from about 2450 BC are found at Harappa, in the Indus valley. What does that show?",
-                "choices": [
-                  "People in the Indus valley were using silk from wild moths of their own",
-                  "China exported silkworms to India by 2450 BC",
-                  "The Silk Road was already running",
-                  "Silk was invented in India"
-                ],
+                "choices": ["Indus people used silk from wild moths of their own", "China had sent silkworms to India by 2450 BC", "The Silk Road was already running by then", "Silk was first invented in the Indus valley"],
                 "answer": 0,
                 "why": "The Harappan fibres come from wild moths native to South Asia. Several peoples used wild silk; China's advantage was the domestic silkworm."
               },
               {
                 "ask": "A historian finds a Tang document from Turfan recording a horse bought for bolts of silk. Why were bolts in use so far west?",
-                "choices": [
-                  "The Tang state paid its garrisons there in silk, and the silk circulated as money",
-                  "Silk was grown in the Turfan desert",
-                  "Merchants from Rome had brought it back",
-                  "Horses would only eat mulberry leaves"
-                ],
+                "choices": ["The Tang state paid its garrisons there in silk", "Silk was grown in the oases around Turfan", "Roman merchants had brought it back from the west", "Silk was the only thing horse traders would accept"],
                 "answer": 0,
                 "why": "Silk was a standard unit of value in China, and government payments to soldiers in the northwest put large amounts of it into local use."
               },
               {
                 "ask": "Why do historians say silk routes rather than the Silk Road?",
-                "choices": [
-                  "There were many tracks and sea lanes, few travellers went the whole way, and silk was one cargo among many",
-                  "The road was rebuilt several times",
-                  "The name was invented by Pliny",
-                  "Silk was carried only by sea"
-                ],
+                "choices": ["There were many routes, few went the whole way, and silk was one cargo", "The road was destroyed and rebuilt several times over the centuries", "Pliny invented the name, and later historians rejected his account", "Silk travelled mostly by sea, so there was hardly any road at all"],
                 "answer": 0,
                 "why": "The single road is a 19th-century name. Goods moved in short stages over a network, and the trade included horses, paper, glass, silver and religions."
               },
               {
                 "ask": "Pliny wrote that the East took 100 million sesterces a year from Rome. What is the best way to use that figure?",
-                "choices": [
-                  "As evidence of what Roman moralists believed about luxury, not as a measured trade total",
-                  "As the true size of Rome's trade deficit",
-                  "As proof that Rome bought mostly silk",
-                  "As the price of silk in Rome"
-                ],
+                "choices": ["As evidence of what Roman moralists believed about luxury", "As the true size of Rome's yearly trade deficit with Asia", "As proof that most of Rome's imports from Asia were silk", "As a measure of the price of silk in the Roman market"],
                 "answer": 0,
                 "why": "Pliny gives no source and wrote to attack luxury and spending by women. The number shows Roman attitudes; it is not an account book."
               }
@@ -184,17 +159,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Sericulture is farming.** Silkworms eat mulberry leaves for about four weeks, spin a cocoon of one long filament, and are killed before hatching so the filament can be reeled.",
-    "**It is slow, skilled work.** Several thousand cocoons give a kilogram of raw silk, and in China the work belonged to women in farming households.",
-    "**China has the oldest silk, not the only silk.** Woven silk from about 3600 BC comes from Henan, but wild silk was used in the Indus cities by about 2450 BC.",
-    "**The secret leaked early.** Silkworms were raised in Korea and Japan by the early centuries AD, in Khotan by about the 5th century, and in Byzantium from about 552.",
-    "**Silk was money in China.** Han and Tang governments paid tribute, taxes, soldiers and officials in bolts of silk.",
-    "**State spending moved silk west.** Pay for Tang garrisons put silk into circulation in Central Asia, and the trade there shrank when it stopped after 755.",
-    "**There were silk routes, not one road.** The name is from 1877; goods moved in short stages, and Sogdian merchants ran much of the long-distance trade.",
-    "**The sea carried more over time.** Ships linked the Red Sea, the Persian Gulf, India and China, and carried far more than caravans.",
-    "**Roman complaints are not statistics.** Pliny's 100 million sesterces tells us what moralists believed about luxury."
-  ],
+  "summary": ["**Sericulture is farming.** Silkworms eat mulberry leaves for about four weeks, spin a cocoon of one long filament, and are killed before hatching so the filament can be reeled.", "**It is slow, skilled work.** Several thousand cocoons give a kilogram of raw silk, and in China the work belonged to women in farming households.", "**China has the oldest silk, not the only silk.** Woven silk from about 3600 BC comes from Henan, but wild silk was used in the Indus cities by about 2450 BC.", "**The secret leaked early.** Silkworms were raised in Korea and Japan by the early centuries AD, in Khotan by about the 5th century, and in Byzantium from about 552.", "**Silk was money in China.** Han and Tang governments paid tribute, taxes, soldiers and officials in bolts of silk.", "**State spending moved silk west.** Pay for Tang garrisons put silk into circulation in Central Asia, and the trade there shrank when it stopped after 755.", "**There were silk routes, not one road.** The name is from 1877; goods moved in short stages, and Sogdian merchants ran much of the long-distance trade.", "**The sea carried more over time.** Ships linked the Red Sea, the Persian Gulf, India and China, and carried far more than caravans.", "**Roman complaints are not statistics.** Pliny's 100 million sesterces tells us what moralists believed about luxury."],
   "footnotes": {
     "pliny": {
       "kind": "digression",

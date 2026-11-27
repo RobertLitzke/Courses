@@ -37,20 +37,65 @@
           "options": {
             "ask": "What is it made of?",
             "groups": [
-              { "name": "Plant: cellulose", "color": "fibre" },
-              { "name": "Animal: protein", "color": "yarn" },
-              { "name": "Plastic made from oil", "color": "cloth" }
+              {
+                "name": "Plant: cellulose",
+                "color": "fibre"
+              },
+              {
+                "name": "Animal: protein",
+                "color": "yarn"
+              },
+              {
+                "name": "Plastic made from oil",
+                "color": "cloth"
+              }
             ],
             "items": [
-              { "name": "Linen", "group": 0, "why": "Linen is woven from flax, whose fibres come from the plant's stem." },
-              { "name": "Cashmere", "group": 1, "why": "Cashmere is the fine undercoat of the cashmere goat, a protein hair like wool." },
-              { "name": "Cotton", "group": 0, "why": "A cotton fibre is a single cell growing from the coat of a cotton seed." },
-              { "name": "Polyester", "group": 2, "why": "Polyester is a plastic, the same material as many drinks bottles." },
-              { "name": "Silk", "group": 1, "why": "Silk is a protein the silkworm makes in two glands and spins into its cocoon." },
-              { "name": "Rayon (viscose)", "group": 0, "why": "Rayon is cellulose from wood pulp, dissolved and squeezed out as a filament. It is plant fibre remade, not oil." },
-              { "name": "Hemp", "group": 0, "why": "Hemp, like flax, is a fibre from the stem of a plant." },
-              { "name": "Nylon", "group": 2, "why": "Nylon is a plastic, first made at DuPont in 1935." },
-              { "name": "Mohair", "group": 1, "why": "Mohair is the hair of the Angora goat." }
+              {
+                "name": "Linen",
+                "group": 0,
+                "why": "Linen is woven from flax, whose fibres come from the plant's stem."
+              },
+              {
+                "name": "Cashmere",
+                "group": 1,
+                "why": "Cashmere is the fine undercoat of the cashmere goat, a protein hair like wool."
+              },
+              {
+                "name": "Cotton",
+                "group": 0,
+                "why": "A cotton fibre is a single cell growing from the coat of a cotton seed."
+              },
+              {
+                "name": "Polyester",
+                "group": 2,
+                "why": "Polyester is a plastic, the same material as many drinks bottles."
+              },
+              {
+                "name": "Silk",
+                "group": 1,
+                "why": "Silk is a protein the silkworm makes in two glands and spins into its cocoon."
+              },
+              {
+                "name": "Rayon (viscose)",
+                "group": 0,
+                "why": "Rayon is cellulose from wood pulp, dissolved and squeezed out as a filament. It is plant fibre remade, not oil."
+              },
+              {
+                "name": "Hemp",
+                "group": 0,
+                "why": "Hemp, like flax, is a fibre from the stem of a plant."
+              },
+              {
+                "name": "Nylon",
+                "group": 2,
+                "why": "Nylon is a plastic, first made at DuPont in 1935."
+              },
+              {
+                "name": "Mohair",
+                "group": 1,
+                "why": "Mohair is the hair of the Angora goat."
+              }
             ]
           }
         }
@@ -109,13 +154,48 @@
           "options": {
             "spacing": "even",
             "events": [
-              { "at": -30000, "when": "over 30,000 years ago", "label": "Wild flax fibres at Dzudzuana, Georgia (disputed)", "color": "fibre" },
-              { "at": -7000, "when": "by 9,000 years ago", "label": "Flax grown as a crop in the Near East", "color": "fibre" },
-              { "at": -6000, "when": "about 6000 BC", "label": "Cotton threads in a copper bead at Mehrgarh, Pakistan", "color": "fibre" },
-              { "at": -4000, "when": "about 4000 BC", "label": "Cotton cloth dyed with indigo at Huaca Prieta, Peru", "color": "fibre" },
-              { "at": -3600, "when": "about 3600 BC", "label": "Silk fragments in Henan, China", "color": "yarn" },
-              { "at": -3400, "when": "4th millennium BC", "label": "Woolly sheep spread from the Near East", "color": "yarn" },
-              { "at": -3300, "when": "3482 to 3102 BC", "label": "The Tarkhan dress, linen, Egypt", "color": "fibre" }
+              {
+                "at": -30000,
+                "when": "over 30,000 years ago",
+                "label": "Wild flax fibres at Dzudzuana, Georgia (disputed)",
+                "color": "fibre"
+              },
+              {
+                "at": -7000,
+                "when": "by 9,000 years ago",
+                "label": "Flax grown as a crop in the Near East",
+                "color": "fibre"
+              },
+              {
+                "at": -6000,
+                "when": "about 6000 BC",
+                "label": "Cotton threads in a copper bead at Mehrgarh, Pakistan",
+                "color": "fibre"
+              },
+              {
+                "at": -4000,
+                "when": "about 4000 BC",
+                "label": "Cotton cloth dyed with indigo at Huaca Prieta, Peru",
+                "color": "fibre"
+              },
+              {
+                "at": -3600,
+                "when": "about 3600 BC",
+                "label": "Silk fragments in Henan, China",
+                "color": "yarn"
+              },
+              {
+                "at": -3400,
+                "when": "4th millennium BC",
+                "label": "Woolly sheep spread from the Near East",
+                "color": "yarn"
+              },
+              {
+                "at": -3300,
+                "when": "3482 to 3102 BC",
+                "label": "The Tarkhan dress, linen, Egypt",
+                "color": "fibre"
+              }
             ]
           }
         },
@@ -137,31 +217,31 @@
             "items": [
               {
                 "ask": "A thread burns with a smell of burnt hair and leaves a black bead that crumbles between the fingers. What is it most likely to be?",
-                "choices": ["Wool or silk, a protein fibre", "Cotton or linen, a cellulose fibre", "Polyester, a plastic", "Rayon, a remade plant fibre"],
+                "choices": ["Wool or silk, a protein fibre", "Cotton or linen, a cellulose fibre", "Polyester, a plastic made from oil", "Rayon, a plant fibre remade in a factory"],
                 "answer": 0,
                 "why": "Protein fibres smell of burnt hair and leave a crushable bead. Cellulose burns like paper to a soft ash, and plastic melts into a hard bead."
               },
               {
                 "ask": "Why does a wool jumper shrink in a hot wash, when a cotton T-shirt washed the same way barely changes?",
-                "choices": ["Wool's scales ratchet the fibres together under heat, soap and rubbing, and lock them: felting", "Wool absorbs water and swells permanently", "The lanolin in wool melts and glues the fibres", "Cotton is stronger, so it resists being pulled smaller"],
+                "choices": ["Its scales ratchet the fibres together and lock: felting", "It absorbs water and swells into a smaller shape for good", "The lanolin in it melts in hot water and glues the fibres", "Cotton fibres are stronger, so they resist being pulled in"],
                 "answer": 0,
                 "why": "The scales let wool fibres creep one way past each other but not back, so agitation packs them tighter. Cotton has no scales."
               },
               {
                 "ask": "A cloth merchant prefers one cotton over another because its fibres are longer. What will the longer staple give them?",
-                "choices": ["Finer, smoother and stronger yarn", "A brighter colour when dyed", "Warmer cloth, because longer fibres trap more air", "Cloth that does not crease"],
+                "choices": ["Finer, smoother and stronger yarn", "A brighter colour once it is dyed", "Warmer cloth, as long fibres trap more air", "Cloth that does not crease when worn"],
                 "answer": 0,
                 "why": "Longer fibres overlap more, so a thinner yarn can hold together and fewer fibre ends stick out. Staple length is cotton's main measure of quality."
               },
               {
                 "ask": "Why does silk shine when wool, made of protein too, does not?",
-                "choices": ["Silk is a smooth filament with a triangular section that reflects light, while wool's scales scatter it", "Silk is a heavier fibre than wool", "Silk is dyed brighter colours", "Wool is always spun more tightly"],
+                "choices": ["A smooth filament with flat faces reflects light; scales scatter it", "Silk fibres are much heavier than wool, so they lie flatter", "Silk is dyed in brighter colours that catch the light more", "Wool is always spun more tightly, which dulls its surface"],
                 "answer": 0,
                 "why": "Shine is about shape. Silk's filament is smooth and its flat-faced section reflects like tiny mirrors; wool's surface of overlapping scales breaks up the light."
               },
               {
                 "ask": "What is retting, and which fibre needs it?",
-                "choices": ["Rotting flax stems in water or dew so the fibres come free of the woody core", "Removing the seeds from cotton", "Washing the grease out of a fleece", "Boiling silk cocoons to loosen the filament"],
+                "choices": ["Rotting flax stems so the fibre comes away from the woody core", "Pulling cotton fibre off the seeds by hand or with rollers", "Washing the grease out of a sheep's fleece in hot water", "Boiling silk cocoons to loosen the end of the filament"],
                 "answer": 0,
                 "why": "Flax fibres are glued to the stem; weeks of controlled rotting loosen them before they are broken, scutched and hackled. The others are ginning, scouring and reeling."
               }
@@ -171,16 +251,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Plant or animal.** Cotton, linen and rayon are cellulose; wool and silk are protein; polyester and nylon are plastic.",
-    "**They behave differently.** Protein dyes easily and dislikes hot alkali; cellulose takes heat and alkali but dyes poorly.",
-    "**Cotton is a seed hair.** One cell, 2 to 4 cm long, a twisted ribbon; the longer the staple, the finer the yarn.",
-    "**Linen comes from the stem.** Long, strong and cool; it creases because cellulose stays bent.",
-    "**Wool has scales and crimp.** Crimp traps air and keeps it warm; scales make it felt; thick fibres make it itch.",
-    "**Silk is a filament.** Hundreds of metres from one cocoon, reeled rather than spun, and shiny because it is smooth and triangular.",
-    "**Fibre needs preparing.** Flax is retted and hackled, cotton ginned and carded, wool scoured and carded or combed, silk reeled.",
-    "**Bred by people.** Woolly sheep, four domestic cottons and a flightless silk moth were all made by selective breeding."
-  ],
+  "summary": ["**Plant or animal.** Cotton, linen and rayon are cellulose; wool and silk are protein; polyester and nylon are plastic.", "**They behave differently.** Protein dyes easily and dislikes hot alkali; cellulose takes heat and alkali but dyes poorly.", "**Cotton is a seed hair.** One cell, 2 to 4 cm long, a twisted ribbon; the longer the staple, the finer the yarn.", "**Linen comes from the stem.** Long, strong and cool; it creases because cellulose stays bent.", "**Wool has scales and crimp.** Crimp traps air and keeps it warm; scales make it felt; thick fibres make it itch.", "**Silk is a filament.** Hundreds of metres from one cocoon, reeled rather than spun, and shiny because it is smooth and triangular.", "**Fibre needs preparing.** Flax is retted and hackled, cotton ginned and carded, wool scoured and carded or combed, silk reeled.", "**Bred by people.** Woolly sheep, four domestic cottons and a flightless silk moth were all made by selective breeding."],
   "footnotes": {
     "micron": {
       "kind": "technical",

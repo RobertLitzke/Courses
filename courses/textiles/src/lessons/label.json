@@ -52,21 +52,78 @@
           "goal": "keyed",
           "options": {
             "features": [
-              { "name": "Near the flame", "values": ["does not shrink", "curls away"] },
-              { "name": "In the flame", "values": ["burns fast", "smoulders", "melts"] },
-              { "name": "Smell", "values": ["burning paper", "burning hair", "sweet", "like celery"] },
-              { "name": "What is left", "values": ["soft grey ash", "crushable black ash", "hard black bead", "hard pale bead"] }
+              {
+                "name": "Near the flame",
+                "values": ["does not shrink", "curls away"]
+              },
+              {
+                "name": "In the flame",
+                "values": ["burns fast", "smoulders", "melts"]
+              },
+              {
+                "name": "Smell",
+                "values": ["burning paper", "burning hair", "sweet", "like celery"]
+              },
+              {
+                "name": "What is left",
+                "values": ["soft grey ash", "crushable black ash", "hard black bead", "hard pale bead"]
+              }
             ],
             "taxa": [
-              { "name": "Cellulose: cotton, linen or rayon", "traits": { "Near the flame": "does not shrink", "In the flame": "burns fast", "Smell": "burning paper", "What is left": "soft grey ash" }, "about": "Plant fibre, or wood pulp made into rayon (lessons 2 and 23)." },
-              { "name": "Protein: wool or silk", "traits": { "Near the flame": "curls away", "In the flame": "smoulders", "Smell": "burning hair", "What is left": "crushable black ash" }, "about": "Animal fibre, the same protein family as hair (lesson 2)." },
-              { "name": "Polyester", "traits": { "Near the flame": "curls away", "In the flame": "melts", "Smell": "sweet", "What is left": "hard black bead" }, "about": "A synthetic polymer made from oil (lesson 23). It melts before it burns." },
-              { "name": "Nylon", "traits": { "Near the flame": "curls away", "In the flame": "melts", "Smell": "like celery", "What is left": "hard pale bead" }, "about": "The polyamide of Carothers's stockings (lesson 23)." }
+              {
+                "name": "Cellulose: cotton, linen or rayon",
+                "traits": {
+                  "Near the flame": "does not shrink",
+                  "In the flame": "burns fast",
+                  "Smell": "burning paper",
+                  "What is left": "soft grey ash"
+                },
+                "about": "Plant fibre, or wood pulp made into rayon (lessons 2 and 23)."
+              },
+              {
+                "name": "Protein: wool or silk",
+                "traits": {
+                  "Near the flame": "curls away",
+                  "In the flame": "smoulders",
+                  "Smell": "burning hair",
+                  "What is left": "crushable black ash"
+                },
+                "about": "Animal fibre, the same protein family as hair (lesson 2)."
+              },
+              {
+                "name": "Polyester",
+                "traits": {
+                  "Near the flame": "curls away",
+                  "In the flame": "melts",
+                  "Smell": "sweet",
+                  "What is left": "hard black bead"
+                },
+                "about": "A synthetic polymer made from oil (lesson 23). It melts before it burns."
+              },
+              {
+                "name": "Nylon",
+                "traits": {
+                  "Near the flame": "curls away",
+                  "In the flame": "melts",
+                  "Smell": "like celery",
+                  "What is left": "hard pale bead"
+                },
+                "about": "The polyamide of Carothers's stockings (lesson 23)."
+              }
             ],
             "specimens": [
-              { "name": "Polyester", "hint": "a sports shirt scrap that curled from the flame, melted, smelled sweet and left a hard black bead" },
-              { "name": "Cellulose: cotton, linen or rayon", "hint": "a scrap of a 1930s dress that flared up fast, smelled of paper and left soft grey ash" },
-              { "name": "Protein: wool or silk", "hint": "a jumper thread that smouldered, smelled of hair and left a black ash you could crush" }
+              {
+                "name": "Polyester",
+                "hint": "a sports shirt scrap that curled from the flame, melted, smelled sweet and left a hard black bead"
+              },
+              {
+                "name": "Cellulose: cotton, linen or rayon",
+                "hint": "a scrap of a 1930s dress that flared up fast, smelled of paper and left soft grey ash"
+              },
+              {
+                "name": "Protein: wool or silk",
+                "hint": "a jumper thread that smouldered, smelled of hair and left a black ash you could crush"
+              }
             ]
           }
         },
@@ -147,7 +204,7 @@
             "items": [
               {
                 "ask": "A shirt's label says Made in Bangladesh. What does that usually tell you?",
-                "choices": ["Where it was sewn, not where its fibre was grown or its cloth was made", "Where its cotton was grown", "Where it was designed", "Every country it passed through"],
+                "choices": ["Where it was sewn", "Where its cotton was grown", "Where it was designed", "Every country it passed through"],
                 "answer": 0,
                 "why": "Origin labels usually name the country of the last major step, which for clothing is sewing. The fibre and cloth often come from elsewhere."
               },
@@ -159,19 +216,19 @@
               },
               {
                 "ask": "A scrap from a 1930s dress burns fast, smells of paper and leaves soft grey ash. Why might it still be rayon rather than cotton?",
-                "choices": ["Rayon is cellulose too, so it burns like cotton", "Rayon smells of hair", "Rayon always melts", "Cotton never burns"],
+                "choices": ["Rayon is cellulose too", "Rayon smells of hair", "Rayon always melts", "Cotton never burns"],
                 "answer": 0,
                 "why": "Rayon is cellulose from wood pulp, regenerated into fibre (lesson 23), so a burn test groups it with cotton and linen."
               },
               {
                 "ask": "Why did a 1930s dressmaker cut a rayon dress on the bias?",
-                "choices": ["Woven cloth stretches on the diagonal, so a bias cut drapes and clings", "Bias cutting used less cloth", "Rayon could only be cut diagonally", "The law required it"],
+                "choices": ["Woven cloth gives on the diagonal", "Bias cutting used less cloth", "Rayon frays if cut along the grain", "Bias-cut dresses were cheaper to sew"],
                 "answer": 0,
                 "why": "Woven cloth is stiff along warp and weft but gives on the diagonal, which lets a bias-cut dress hang close to the body."
               },
               {
                 "ask": "Why did Dutch wax print succeed in West Africa after failing in Java?",
-                "choices": ["West African buyers liked its crackled veins and chose and named the designs, while Javanese buyers saw them as flaws", "It was cheaper in West Africa", "Java banned imported cloth", "West Africa had no cloth of its own"],
+                "choices": ["Buyers there liked the crackle and chose the designs", "It was much cheaper in West Africa than in Java", "The Dutch colonial government banned it in Java", "West Africa had no printed cloth of its own"],
                 "answer": 0,
                 "why": "As with the checks and stripes of lesson 13, buyers decided what sold. West African traders and customers made the cloth their own."
               }
@@ -181,15 +238,6 @@
       ]
     }
   ],
-  "summary": [
-    "**A label tells little.** It gives the fibres by weight, the country where it was sewn and how to wash it.",
-    "**Read cloth in four layers.** Fibre, yarn, structure and finish, as lesson 1 set out.",
-    "**Structure shows in a stretch.** Knits stretch both ways and show loops; woven cloth gives only on the diagonal.",
-    "**A burn test sorts fibre groups.** Cellulose burns like paper, protein like hair, and synthetics melt into a bead.",
-    "**The supply chain is invisible.** Cotton, spinning, weaving and sewing are often in different countries.",
-    "**A 1930s rayon dress joins chemistry, fashion and sizes.** Wood-pulp filament, a bias cut, synthetic print and bust-only sizing.",
-    "**Wax print shows buyers deciding.** A Dutch imitation of Javanese batik became West African cloth because West African buyers chose it.",
-    "**The questions travel.** Any garment can be read by asking what, how and who for each step."
-  ],
+  "summary": ["**A label tells little.** It gives the fibres by weight, the country where it was sewn and how to wash it.", "**Read cloth in four layers.** Fibre, yarn, structure and finish, as lesson 1 set out.", "**Structure shows in a stretch.** Knits stretch both ways and show loops; woven cloth gives only on the diagonal.", "**A burn test sorts fibre groups.** Cellulose burns like paper, protein like hair, and synthetics melt into a bead.", "**The supply chain is invisible.** Cotton, spinning, weaving and sewing are often in different countries.", "**A 1930s rayon dress joins chemistry, fashion and sizes.** Wood-pulp filament, a bias cut, synthetic print and bust-only sizing.", "**Wax print shows buyers deciding.** A Dutch imitation of Javanese batik became West African cloth because West African buyers chose it.", "**The questions travel.** Any garment can be read by asking what, how and who for each step."],
   "footnotes": {}
 }

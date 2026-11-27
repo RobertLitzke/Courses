@@ -53,10 +53,10 @@
           "options": {
             "item": "A man's shirt, about 1860, sewn by hand",
             "stages": [
-              { "stage": "Spinning, by mill", "hours": 0.5, "who": "waged" },
-              { "stage": "Weaving, by mill", "hours": 0.5, "who": "waged" },
-              { "stage": "Cutting out", "hours": 0.75, "who": "household" },
-              { "stage": "Sewing by hand", "hours": 14, "who": "household" }
+              {"stage": "Spinning, by mill", "hours": 0.5, "who": "waged"},
+              {"stage": "Weaving, by mill", "hours": 0.5, "who": "waged"},
+              {"stage": "Cutting out", "hours": 0.75, "who": "household"},
+              {"stage": "Sewing by hand", "hours": 14, "who": "household"}
             ]
           }
         },
@@ -67,10 +67,10 @@
           "options": {
             "item": "The same shirt, sewn by machine",
             "stages": [
-              { "stage": "Spinning, by mill", "hours": 0.5, "who": "waged" },
-              { "stage": "Weaving, by mill", "hours": 0.5, "who": "waged" },
-              { "stage": "Cutting out", "hours": 0.75, "who": "household" },
-              { "stage": "Sewing by machine", "hours": 1.25, "who": "household" }
+              {"stage": "Spinning, by mill", "hours": 0.5, "who": "waged"},
+              {"stage": "Weaving, by mill", "hours": 0.5, "who": "waged"},
+              {"stage": "Cutting out", "hours": 0.75, "who": "household"},
+              {"stage": "Sewing by machine", "hours": 1.25, "who": "household"}
             ]
           }
         },
@@ -126,31 +126,31 @@
             "items": [
               {
                 "ask": "By 1850, spinning and weaving were mechanised but clothes were still mostly made to measure. Why?",
-                "choices": ["Sewing was still done by hand and took far more hours than the cloth itself", "There were no tailors", "Cloth was still too expensive to buy", "Ready-made clothes were illegal"],
+                "choices": ["Sewing by hand still took far more hours", "There were too few tailors to go round", "Cloth was still too expensive to buy", "Ready-made clothes were banned by law"],
                 "answer": 0,
                 "why": "A hand-sewn shirt took around fourteen hours. Until sewing was mechanised, making clothes in quantity was not much cheaper than making them one at a time."
               },
               {
                 "ask": "How did Singer get sewing machines into homes that could not afford them?",
-                "choices": ["By selling them on hire purchase, with a small payment down and monthly instalments", "By giving them away", "By renting them by the hour", "By selling only to tailors"],
+                "choices": ["Hire purchase: a small deposit and monthly instalments", "Giving machines away and selling the thread", "Renting machines to households by the hour", "Selling only to tailors, who lent them out"],
                 "answer": 0,
                 "why": "Instalment selling spread the cost over months, so households could buy a machine they could not pay for outright."
               },
               {
                 "ask": "Once sewing was mechanised, why did ready-made clothing need standard sizes?",
-                "choices": ["Cutting many layers of cloth at once only paid if many garments shared the same pattern", "Sewing machines could only sew one size", "Customers stopped caring about fit", "Laws required sizes"],
+                "choices": ["Cutting many layers at once needed shared patterns", "Sewing machines could sew only one size", "Customers stopped caring about the fit", "New laws required sizes on every label"],
                 "answer": 0,
                 "why": "The savings came from making many identical garments. That meant fixing a set of patterns in advance."
               },
               {
                 "ask": "What did the 1939 to 1940 survey of American women find about sizing by bust alone?",
-                "choices": ["Women with the same bust differed widely in hips, waist and height, so one number could not fit a body", "Bust size predicted every other measurement", "Women's bodies were all the same shape", "Most women were taller than expected"],
+                "choices": ["Women with the same bust varied widely elsewhere", "Bust size predicted every other measurement", "Women's bodies all had much the same shape", "Most women were taller than makers assumed"],
                 "answer": 0,
                 "why": "Bodies do not scale in proportion. A system based on one measurement leaves the rest of the fit to chance."
               },
               {
                 "ask": "What made the Triangle fire of 1911 so deadly?",
-                "choices": ["A locked exit door, a fire escape that collapsed and ladders that could not reach the top floors", "The building had no windows", "The fire started at night when workers slept there", "The workers refused to leave"],
+                "choices": ["A locked door, a failed fire escape, short ladders", "The building had no windows on its upper floors", "The fire started at night while workers slept", "The workers refused to leave their machines"],
                 "answer": 0,
                 "why": "Workers on the upper floors had few ways out. The deaths led to new fire safety and factory laws in New York."
               }
@@ -160,16 +160,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Clothes were made to fit one person.** Before the 1850s almost all garments were sewn by hand, by tailors, dressmakers or the household.",
-    "**Sewing was the slowest step.** Once cloth was made by machine, a hand-sewn shirt took about fourteen hours.",
-    "**The sewing machine cut that tenfold.** Howe's 1846 lockstitch and Singer's 1851 machine, sold on hire purchase, spread worldwide.",
-    "**Mass production needed sizes.** Cutting many garments at once only paid if they shared standard patterns.",
-    "**Men's sizes came first.** Tailors' drafting systems and Civil War uniforms gave chest and waist sizes.",
-    "**Women's bodies did not fit one number.** The 1939 to 1940 survey showed bust alone could not predict the rest of a body.",
-    "**Standards faded.** The 1958 women's standard was voluntary, skewed by its sample, and withdrawn in 1983.",
-    "**Garment work was dangerous.** The Triangle fire of 1911 killed 146 workers, mostly young immigrant women, and led to new factory laws."
-  ],
+  "summary": ["**Clothes were made to fit one person.** Before the 1850s almost all garments were sewn by hand, by tailors, dressmakers or the household.", "**Sewing was the slowest step.** Once cloth was made by machine, a hand-sewn shirt took about fourteen hours.", "**The sewing machine cut that tenfold.** Howe's 1846 lockstitch and Singer's 1851 machine, sold on hire purchase, spread worldwide.", "**Mass production needed sizes.** Cutting many garments at once only paid if they shared standard patterns.", "**Men's sizes came first.** Tailors' drafting systems and Civil War uniforms gave chest and waist sizes.", "**Women's bodies did not fit one number.** The 1939 to 1940 survey showed bust alone could not predict the rest of a body.", "**Standards faded.** The 1958 women's standard was voluntary, skewed by its sample, and withdrawn in 1983.", "**Garment work was dangerous.** The Triangle fire of 1911 killed 146 workers, mostly young immigrant women, and led to new factory laws."],
   "footnotes": {
     "survey": {
       "kind": "technical",

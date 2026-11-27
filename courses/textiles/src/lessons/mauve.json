@@ -85,7 +85,7 @@
                 "unit": "thousand tonnes",
                 "max": 10,
                 "lines": [
-                  { "name": "natural", "color": "india", "points": [[1895, 9.4], [1897, 7.5], [1899, 5], [1901, 4], [1903, 2.5], [1905, 1.6], [1907, 1.3], [1909, 0.9], [1911, 0.8], [1913, 0.55], [1914, 0.5]] }
+                  {"name": "natural", "color": "india", "points": [[1895, 9.4], [1897, 7.5], [1899, 5], [1901, 4], [1903, 2.5], [1905, 1.6], [1907, 1.3], [1909, 0.9], [1911, 0.8], [1913, 0.55], [1914, 0.5]]}
                 ]
               },
               {
@@ -93,7 +93,7 @@
                 "unit": "thousand tonnes",
                 "max": 40,
                 "lines": [
-                  { "name": "synthetic", "color": "indigo", "points": [[1897, 0.6], [1899, 3], [1901, 9], [1903, 14], [1905, 18], [1907, 22], [1909, 26], [1911, 29], [1913, 33], [1914, 30]] }
+                  {"name": "synthetic", "color": "indigo", "points": [[1897, 0.6], [1899, 3], [1901, 9], [1903, 14], [1905, 18], [1907, 22], [1909, 26], [1911, 29], [1913, 33], [1914, 30]]}
                 ]
               }
             ]
@@ -130,31 +130,31 @@
             "items": [
               {
                 "ask": "What was Perkin trying to make when he found mauve?",
-                "choices": ["Quinine, the malaria drug, from compounds with roughly the right atoms", "A purple dye to replace Tyrian purple", "Gas for street lighting", "A cheaper mordant"],
+                "choices": ["Quinine, the malaria drug", "A purple to replace Tyrian purple", "Gas for lighting city streets", "A cheaper mordant for madder"],
                 "answer": 0,
                 "why": "Chemists knew quinine's formula but not its structure. Perkin's attempt produced a purple compound instead, which he recognised as a dye."
               },
               {
                 "ask": "Why was coal tar useful to the first dye makers?",
-                "choices": ["It was a cheap waste from gasworks that could be separated into compounds such as benzene and aniline", "It was already a dye", "It came from madder roots", "It made colours fast without chemistry"],
+                "choices": ["It was cheap gasworks waste holding benzene and aniline", "It was already a brown dye used for cheap cloth", "It was a by-product of crushing madder roots", "It fixed colours to cloth without any mordant"],
                 "answer": 0,
                 "why": "Gasworks produced coal tar in bulk. Separated into simpler compounds, it became the raw material for synthetic dyes."
               },
               {
                 "ask": "Synthetic alizarin was patented in 1869. Why had madder growing almost disappeared within a decade?",
-                "choices": ["The synthetic dye was the same compound as madder's colour, purer and soon cheaper", "Madder plants caught a disease", "France banned madder", "Synthetic alizarin was a different colour that came into fashion"],
+                "choices": ["It was the same molecule, purer and soon cheaper", "A disease wiped out the madder fields of France", "The French government banned madder growing", "It gave a new shade of red that came into fashion"],
                 "answer": 0,
                 "why": "Dyers had no reason to pay more for a less pure version of the same molecule, so the crop lost its market within about a decade."
               },
               {
                 "ask": "Which best explains why the German dye industry overtook Britain's?",
-                "choices": ["Firms ran research laboratories staffed by many university-trained chemists, with patent law that rewarded new processes", "Germany had the only coal tar", "Britain banned synthetic dyes", "Perkin moved his factory to Germany"],
+                "choices": ["Research laboratories, trained chemists and helpful patent law", "Germany had the only good supplies of coal tar in Europe", "Britain banned synthetic dyes to protect its madder growers", "Perkin sold his firm and moved his factory to Germany"],
                 "answer": 0,
                 "why": "The industry depended on finding new dyes and routes to them. German universities and firms produced the chemists and research to do that."
               },
               {
                 "ask": "How did dyes lead to new medicines?",
-                "choices": ["Dyes that stained some cells and not others suggested chemicals that could attack germs and spare the patient", "Dyes were used to colour pills", "Quinine turned out to be a dye", "Dye factories were turned into hospitals"],
+                "choices": ["Selective staining suggested chemicals that could pick out germs", "Dyes were used to colour pills so patients could tell them apart", "Quinine turned out to be a dye as well as a drug", "Dye works were turned into drug factories in the war"],
                 "answer": 0,
                 "why": "Ehrlich's idea of a selective chemical came from staining, and it led to Salvarsan; a red dye, Prontosil, became the first sulfa drug."
               }
@@ -164,14 +164,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Mauve was an accident.** In 1856 Perkin, aged 18, tried to make quinine and made the first mass-produced synthetic dye.",
-    "**Coal tar became colour.** A waste of gasworks gave compounds such as aniline, from which chemists made dyes in many colours.",
-    "**Germany took over the industry.** Research laboratories, trained chemists and patent law gave German firms most of the world market by 1913.",
-    "**Synthetic alizarin ended madder.** The same molecule, made from coal tar from 1869, wiped out madder growing within about a decade.",
-    "**Synthetic indigo shrank the plantations.** BASF's indigo of 1897 cut India's indigo trade to a small fraction within fifteen years.",
-    "**Indigo planting had been coercive.** The Bengal Indigo Revolt of 1859 and 1860 and Champaran in 1917 were protests against it.",
-    "**Dyes led to drugs.** Staining inspired Ehrlich's Salvarsan, and a red dye, Prontosil, became the first sulfa drug."
-  ],
+  "summary": ["**Mauve was an accident.** In 1856 Perkin, aged 18, tried to make quinine and made the first mass-produced synthetic dye.", "**Coal tar became colour.** A waste of gasworks gave compounds such as aniline, from which chemists made dyes in many colours.", "**Germany took over the industry.** Research laboratories, trained chemists and patent law gave German firms most of the world market by 1913.", "**Synthetic alizarin ended madder.** The same molecule, made from coal tar from 1869, wiped out madder growing within about a decade.", "**Synthetic indigo shrank the plantations.** BASF's indigo of 1897 cut India's indigo trade to a small fraction within fifteen years.", "**Indigo planting had been coercive.** The Bengal Indigo Revolt of 1859 and 1860 and Champaran in 1917 were protests against it.", "**Dyes led to drugs.** Staining inspired Ehrlich's Salvarsan, and a red dye, Prontosil, became the first sulfa drug."],
   "footnotes": {}
 }

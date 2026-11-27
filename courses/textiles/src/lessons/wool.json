@@ -93,31 +93,31 @@
             "items": [
               {
                 "ask": "Why could Edward III tax wool exports at a quarter or more of their value without losing the trade?",
-                "choices": ["Flemish and Florentine weavers depended on English wool and had few good substitutes", "Wool was cheap to produce", "The tax was paid by English shepherds", "Other countries had no sheep"],
+                "choices": ["Foreign weavers needed English wool and had few substitutes", "Wool cost so little to produce that a tax hardly mattered", "The tax was paid by English shepherds, not by the buyers", "No other country in Europe kept sheep for their wool"],
                 "answer": 0,
                 "why": "A tax on a product buyers cannot easily replace mostly raises the price instead of cutting sales. English wool was the best on offer, so foreign weavers paid."
               },
               {
                 "ask": "In 1336 Edward stopped wool exports to Flanders. Why did that bring the Flemish towns to his side?",
-                "choices": ["Their weavers ran out of wool and work, so the towns had more to lose from the embargo than from defying their count", "Flanders was already part of England", "The Flemish preferred French wool", "The embargo lowered Flemish taxes"],
+                "choices": ["Their weavers ran out of wool and work, which they could not afford", "Flanders was already ruled by England, so it had to obey", "The Flemish preferred French wool and switched to it", "The embargo lowered Flemish taxes, which pleased the towns"],
                 "answer": 0,
                 "why": "Cloth was the towns' livelihood and English wool their main input. Control of that supply gave England leverage over Flemish politics."
               },
               {
                 "ask": "Why did the crown want all wool to pass through a single staple town?",
-                "choices": ["One market made the duties easier to collect and the trade easier to control", "Calais had the best sheep", "Ships could not reach other ports", "Wool had to be woven there"],
+                "choices": ["One market made duties easier to collect", "Calais had the best sheep in the kingdom", "Ships could not reach any other ports", "Wool had to be woven there before export"],
                 "answer": 0,
                 "why": "A single compulsory market meant one place to collect duties and one company of merchants who could lend against them."
               },
               {
                 "ask": "England's raw wool exports fell between 1350 and 1550 while its cloth exports grew. What explains this best?",
-                "choices": ["Duties on raw wool were far higher than on cloth, so weaving in England became cheaper than weaving abroad", "English sheep stopped growing wool", "Flanders banned English wool", "Cloth was easier to carry than wool"],
+                "choices": ["Raw wool paid far more duty than cloth", "English sheep grew less wool after 1350", "Flanders banned English wool imports", "Cloth was easier to ship than raw wool"],
                 "answer": 0,
                 "why": "The export duty raised the cost of English wool to foreign weavers but not to English ones, so the work moved to England."
               },
               {
                 "ask": "Carus-Wilson called fulling mills a 13th-century industrial revolution. What is the main objection?",
-                "choices": ["They mechanised one step only and spread slowly, while spinning and weaving stayed by hand", "Fulling mills never existed", "They were powered by steam", "They were used only for linen"],
+                "choices": ["They changed one step only and spread slowly", "Fulling mills turn out never to have existed", "They were powered by steam, not by water", "They were used only for linen, not wool"],
                 "answer": 0,
                 "why": "Fulling mills moved cloth making towards streams but did not change most of the work. The machines of the 18th century, later in this course, mechanised spinning and weaving themselves."
               }
@@ -127,17 +127,7 @@
       ]
     }
   ],
-  "summary": [
-    "**English wool was the best in northern Europe.** Fleeces from the Cotswolds, Lincolnshire and the Welsh border were in demand from Flanders to Florence.",
-    "**Most of it was exported raw.** Around 1300, England shipped over 40,000 sacks in some years, each holding the fleeces of about 200 to 250 sheep.",
-    "**Dependence made it taxable.** Customs and subsidies took a quarter to a third of the wool's value and were often the crown's largest revenue.",
-    "**Wool was the king's credit.** Edward III's 1337 scheme and the Dordrecht seizure of 1338 tried to turn wool into cash for the war, at the merchants' expense.",
-    "**Wool was a weapon.** The 1336 embargo brought the Flemish towns to England's side.",
-    "**The staple concentrated control.** From 1363 wool exports passed through Calais, where the Merchants of the Staple collected duties and lent to the crown.",
-    "**Duties moved weaving to England.** Cloth paid much less duty than wool, so by the 1540s England exported over 100,000 cloths a year.",
-    "**Fulling mills moved the industry, not the work.** Water-powered fulling took cloth making to the hills, but the other steps stayed by hand.",
-    "**Guilds ran the trade.** Wool workers without a guild, like Florence's Ciompi in 1378, had little say."
-  ],
+  "summary": ["**English wool was the best in northern Europe.** Fleeces from the Cotswolds, Lincolnshire and the Welsh border were in demand from Flanders to Florence.", "**Most of it was exported raw.** Around 1300, England shipped over 40,000 sacks in some years, each holding the fleeces of about 200 to 250 sheep.", "**Dependence made it taxable.** Customs and subsidies took a quarter to a third of the wool's value and were often the crown's largest revenue.", "**Wool was the king's credit.** Edward III's 1337 scheme and the Dordrecht seizure of 1338 tried to turn wool into cash for the war, at the merchants' expense.", "**Wool was a weapon.** The 1336 embargo brought the Flemish towns to England's side.", "**The staple concentrated control.** From 1363 wool exports passed through Calais, where the Merchants of the Staple collected duties and lent to the crown.", "**Duties moved weaving to England.** Cloth paid much less duty than wool, so by the 1540s England exported over 100,000 cloths a year.", "**Fulling mills moved the industry, not the work.** Water-powered fulling took cloth making to the hills, but the other steps stayed by hand.", "**Guilds ran the trade.** Wool workers without a guild, like Florence's Ciompi in 1378, had little say."],
   "footnotes": {
     "scheme": {
       "kind": "digression",

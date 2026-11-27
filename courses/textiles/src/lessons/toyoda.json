@@ -55,8 +55,8 @@
                 "unit": "million square yards",
                 "max": 8000,
                 "lines": [
-                  { "name": "Britain", "color": "britain", "points": [[1913, 7080], [1920, 4440], [1925, 4640], [1929, 3670], [1930, 2410], [1932, 2200], [1933, 2020], [1935, 1950], [1937, 1920], [1938, 1390]], "at": [1919, 4800] },
-                  { "name": "Japan", "color": "japan", "points": [[1913, 410], [1920, 1000], [1925, 1300], [1929, 1790], [1930, 1570], [1932, 2030], [1933, 2090], [1935, 2730], [1937, 2640], [1938, 2180]], "at": [1936, 2750] }
+                  {"name": "Britain", "color": "britain", "points": [[1913, 7080], [1920, 4440], [1925, 4640], [1929, 3670], [1930, 2410], [1932, 2200], [1933, 2020], [1935, 1950], [1937, 1920], [1938, 1390]], "at": [1919, 4800]},
+                  {"name": "Japan", "color": "japan", "points": [[1913, 410], [1920, 1000], [1925, 1300], [1929, 1790], [1930, 1570], [1932, 2030], [1933, 2090], [1935, 2730], [1937, 2640], [1938, 2180]], "at": [1936, 2750]}
                 ]
               }
             ]
@@ -121,31 +121,31 @@
             "items": [
               {
                 "ask": "What role did raw silk play in Meiji Japan's economy?",
-                "choices": ["It was the largest export, earning much of the foreign money that paid for machinery, railways and ships", "It was used only at home for kimono", "It was imported from France", "It was a minor crop with little trade"],
+                "choices": ["It was the largest export and paid for imports", "It was used only at home, for kimono", "It was imported from France for the mills", "It was a minor crop with little trade"],
                 "answer": 0,
                 "why": "Silk was usually Japan's largest export from the 1870s to the 1930s, so it financed imports of the things industrialisation needed."
               },
               {
                 "ask": "Why did officials recruit daughters of former samurai for the Tomioka mill?",
-                "choices": ["To make mill work look respectable, so that other families would send their daughters", "Because samurai daughters already knew how to reel silk by machine", "Because the law required it", "Because only samurai families lived nearby"],
+                "choices": ["To make mill work look respectable to other families", "Samurai daughters already knew how to reel by machine", "A government rule required samurai families to send them", "Samurai families were the only ones living near Tomioka"],
                 "answer": 0,
                 "why": "Families distrusted the new mill and its French staff. Daughters of high-status families set an example for others."
               },
               {
                 "ask": "A weaver tends plain power looms that each need about 12 minutes of attention an hour. What happens when the weaver is given 10 looms instead of 5?",
-                "choices": ["Little more cloth is woven, because the extra looms stand waiting for the weaver", "Twice as much cloth is woven", "The looms run faster", "The looms need less attention"],
+                "choices": ["Little more cloth, as the extra looms wait", "Twice as much cloth, from twice the looms", "The looms run faster to keep up", "Each loom needs less attention"],
                 "answer": 0,
                 "why": "Ten looms would need 120 minutes of attention every hour. No one weaver can give that, so looms wait, and output stays about where it was with five."
               },
               {
                 "ask": "What made Toyoda's Type G loom different from an ordinary power loom?",
-                "choices": ["It replaced the empty shuttle without stopping, so one weaver could mind many more looms", "It was powered by steam", "It could weave only silk", "It used punched cards"],
+                "choices": ["It changed shuttles without stopping", "It was powered by a steam engine", "It could weave only silk thread", "It took its pattern from punched cards"],
                 "answer": 0,
                 "why": "Changing shuttles took most of a weaver's time on plain looms. Removing that task raised the number of looms each weaver could mind."
               },
               {
                 "ask": "Why is the 1929 sale to Platt Brothers of Oldham significant?",
-                "choices": ["A Lancashire firm paid a Japanese inventor for loom technology, and the money helped start Toyota's car business", "It moved Toyoda's company to England", "It ended Japanese weaving", "It was the first export of Japanese silk"],
+                "choices": ["A Lancashire firm paid a Japanese inventor, funding Toyota", "It moved Toyoda's company and its works to England", "It ended weaving in Japan as Platt took the market", "It was the first time Japan exported raw silk"],
                 "answer": 0,
                 "why": "The sale reversed the earlier flow of textile technology from Britain to Japan, and the payment helped fund Kiichiro Toyoda's automobile department."
               }
@@ -155,16 +155,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Silk paid for Meiji industrialisation.** Raw silk was usually Japan's largest export from the 1870s to the 1930s.",
-    "**Tomioka set the standard.** The government's French-equipped mill of 1872 trained young women in machine reeling.",
-    "**Young women did the work.** Farm girls on contracts, living in dormitories, made up most of Japan's textile workforce.",
-    "**Osaka built cotton mills.** Large ring-spinning mills from the 1880s let Japan spin most of its own yarn by the 1890s, and then export it.",
-    "**Japan overtook Britain.** By around 1933 Japan exported more cotton cloth than Lancashire.",
-    "**Automatic looms raised output per weaver.** Changing its own shuttle, Toyoda's 1924 loom let one weaver mind many looms.",
-    "**Looms paid for cars.** The 1929 sale of loom rights to Platt Brothers helped fund Toyota's automobile business.",
-    "**A loom idea lives on.** Toyota's jidoka, machines that stop at a fault, comes from Toyoda's thread-break stop."
-  ],
+  "summary": ["**Silk paid for Meiji industrialisation.** Raw silk was usually Japan's largest export from the 1870s to the 1930s.", "**Tomioka set the standard.** The government's French-equipped mill of 1872 trained young women in machine reeling.", "**Young women did the work.** Farm girls on contracts, living in dormitories, made up most of Japan's textile workforce.", "**Osaka built cotton mills.** Large ring-spinning mills from the 1880s let Japan spin most of its own yarn by the 1890s, and then export it.", "**Japan overtook Britain.** By around 1933 Japan exported more cotton cloth than Lancashire.", "**Automatic looms raised output per weaver.** Changing its own shuttle, Toyoda's 1924 loom let one weaver mind many looms.", "**Looms paid for cars.** The 1929 sale of loom rights to Platt Brothers helped fund Toyota's automobile business.", "**A loom idea lives on.** Toyota's jidoka, machines that stop at a fault, comes from Toyoda's thread-break stop."],
   "footnotes": {
     "tomioka": {
       "kind": "technical",
