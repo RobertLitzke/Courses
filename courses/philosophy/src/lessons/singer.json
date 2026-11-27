@@ -9,11 +9,11 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In 1971 the Pakistani army began a campaign of killing in East Pakistan, which became Bangladesh by the end of the year. About nine million refugees crossed into India, and by the autumn they were dying of hunger, cholera and exposure in camps around Calcutta. The British government gave about 15 million pounds in aid, less than a thirtieth of what it had sunk into developing the supersonic airliner Concorde."
+     "text": "In 1971 the Pakistani army began a campaign of killing in East Pakistan, which became Bangladesh by the end of the year. About nine million refugees crossed into India, and by the autumn they were dying of hunger, cholera and exposure in camps around Calcutta. The British government gave about 15 million pounds in aid, while it had already put more than 275 million into developing the supersonic airliner Concorde."
     },
     {
      "type": "text",
-     "text": "In November a 25-year-old Australian philosopher at Oxford, Peter Singer, wrote a paper about it. \"Famine, Affluence, and Morality\" came out in 1972 in the first volume of a new journal, *Philosophy and Public Affairs*. It is twelve pages long, uses one example, and has been argued over ever since.[^concert]"
+     "text": "In November a 25-year-old Australian philosopher at Oxford, Peter Singer, wrote a paper about it. \"Famine, Affluence, and Morality\" came out in 1972 in the first volume of a new journal, *Philosophy and Public Affairs*. It is fifteen pages long, uses one example, and has been argued over ever since.[^concert]"
     }
    ]
   },
@@ -49,12 +49,12 @@
     },
     {
      "type": "text",
-     "text": "Singer then pointed out that the same reasoning applies to the refugees in Bengal, and to anyone dying of poverty now. Aid agencies can save a child's life for a sum comparable to the price of good clothes. Distance does not seem to change the duty: a child 10,000 kilometres away is as much a person as one ten metres away. Nor does the number of other people who could help: if ten other adults were standing round the pond doing nothing, you would still have to wade in."
+     "text": "Singer then pointed out that the same reasoning applies to the refugees in Bengal, and to anyone dying of poverty now. Aid agencies can save a child's life for a sum many people in rich countries spend in a year on things they could do without. Distance does not seem to change the duty: a child 10,000 kilometres away is as much a person as one ten metres away. Nor does the number of other people who could help: if ten other adults were standing round the pond doing nothing, you would still have to wade in."
     },
     {
      "type": "diagram",
      "id": "argument",
-     "caption": "Singer's argument in his own steps. He thought the first premise uncontroversial and the second the one people would resist.",
+     "caption": "Singer's argument in his own steps. He thought the first two premises nearly uncontroversial, and expected people to resist what follows from them.",
      "options": {
       "steps": [
        {
@@ -120,7 +120,7 @@
     },
     {
      "type": "text",
-     "text": "The American philosopher Judith Jarvis Thomson named it the **trolley problem** in 1976, using the American word for a tram, and added the cases most people now know. In hers, you are not the driver but a bystander next to a switch. In another, you are on a footbridge over the track, next to a large man, and the only way to stop the trolley is to push him off into its path."
+     "text": "The American philosopher Judith Jarvis Thomson named it the **trolley problem** in 1976, using the American word for a tram, and in that paper and one of 1985 added the cases most people now know. In one, you are not the driver but a bystander next to a switch. In another, you are on a footbridge over the track, next to a large man, and the only way to stop the trolley is to push him off into its path."
     },
     {
      "type": "interactive_diagram",
@@ -137,7 +137,7 @@
        "Not sure"
       ],
       "who": [
-       "You chose the most common answer, among philosophers and among everyone else. In large online studies about nine people in ten say yes.",
+       "You chose the most common answer, among philosophers and among everyone else. In large online studies about eight or nine people in ten say yes.",
        "You chose the minority answer. Some philosophers hold that you may not turn a threat onto someone who was safe.",
        "Many people find even this case harder than it first looks."
       ],
@@ -166,7 +166,7 @@
        "Not sure"
       ],
       "who": [
-       "You chose the same answer as for the switch, as a strict utilitarian would. In large online studies only about one person in ten says yes.",
+       "You chose the same answer as for the switch, as a strict utilitarian would. In large online studies between one person in ten and one in two says yes, far fewer than for the switch.",
        "You chose the most common answer. Most people who would pull the switch will not push.",
        "The footbridge is where many people stop being sure."
       ],
@@ -207,7 +207,7 @@
     },
     {
      "type": "text",
-     "text": "Since 2001 psychologists have studied the cases too. Joshua Greene and colleagues scanned people's brains as they answered, and found that personal cases such as the footbridge drew more on areas linked with emotion. Greene argued that the refusal to push is an emotional reaction rather than a reasoned principle, and so less trustworthy. His critics replied that a reaction being emotional does not make it wrong."
+     "text": "Since the 1990s psychologists have studied the cases too. Joshua Greene and colleagues scanned people's brains as they answered, and found that personal cases such as the footbridge drew more on areas linked with emotion. Greene argued that the refusal to push is an emotional reaction rather than a reasoned principle, and so less trustworthy. His critics replied that a reaction being emotional does not make it wrong."
     }
    ]
   },

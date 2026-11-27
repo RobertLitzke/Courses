@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In the main building of University College London, in a glass-fronted wooden cabinet, sits a man in an 18th-century coat and a broad-brimmed hat, holding his walking stick, which he called Dapple. Inside the clothes is the skeleton of Jeremy Bentham, philosopher and law reformer, who died in 1832. He left instructions in his will that his body should be dissected for a public anatomy lecture, then preserved and put on display, so that he could be useful after death. The attempt to preserve his head went badly, leaving it shrunken and dark, so the figure in the cabinet has a wax head instead. The real one was kept in a box nearby for many years.[^head]"
+     "text": "At University College London, in a glass case at the entrance of the student centre, sits a man in an 18th-century coat and a broad-brimmed hat, holding his walking stick, which he called Dapple. Inside the clothes is the skeleton of Jeremy Bentham, philosopher and law reformer, who died in 1832. He left instructions in his will that his body should be dissected for a public anatomy lecture, then preserved and put on display, so that he could be useful after death. The attempt to preserve his head went badly, leaving it shrunken and dark, so the figure in the cabinet has a wax head instead. The real one was shown at his feet for many years and is now kept in storage.[^head]"
     },
     {
      "type": "text",
@@ -43,7 +43,7 @@
     },
     {
      "type": "text",
-     "text": "In the autumn of 1826, when he was twenty, he asked himself a question. Suppose all the reforms he was working for were achieved at once: would that make him happy? \"An irrepressible self-consciousness distinctly answered, 'No!'\" He fell into a depression that lasted months. What brought him out of it, he wrote, was poetry, above all Wordsworth's, which gave him a joy in feeling and in nature that his education had left out. He concluded that his father's and Bentham's picture of human happiness was too narrow."
+     "text": "In the autumn of 1826, when he was twenty, he asked himself a question. Suppose all the reforms he was working for were achieved at once: would that make him happy? \"An irrepressible self-consciousness distinctly answered, 'No!'\" He fell into a depression that lasted months. What brought him out of it, he wrote, was first a passage in a memoir that moved him to tears and then poetry, above all Wordsworth's, which gave him a joy in feeling and in nature that his education had left out. He concluded that his father's and Bentham's picture of human happiness was too narrow."
     }
    ]
   },
@@ -277,7 +277,7 @@
   "**Bentham's skeleton sits in a cabinet at University College London.** He wanted to be useful even after death.",
   "**The principle of utility judges acts by their results.** Right acts produce the greatest balance of pleasure over pain for everyone affected.",
   "**Everybody counts for one.** Bentham included animals: the question is whether they can suffer.",
-  "**Mill's breakdown at twenty taught him happiness is not only pleasure.** Wordsworth's poetry brought him out of it.",
+  "**Mill's breakdown at twenty showed him that Bentham's picture of happiness was too narrow.** Wordsworth's poetry brought him out of it.",
   "**Some pleasures are higher than others.** Better to be Socrates dissatisfied than a fool satisfied, judged by those who know both.",
   "**The harm principle limits state power.** Only harm to others justifies compulsion; your own good does not.",
   "**Most people would not plug into Nozick's experience machine.** That suggests we value more than how life feels.",
@@ -287,7 +287,7 @@
   "head": {
    "kind": "technical",
    "title": "Bentham's head",
-   "text": "The preserved head was displayed at the cabinet's feet for some years. It was removed after students from a rival college reportedly took it in 1975 and demanded a ransom. It is now kept in storage. In 2020 the auto-icon was moved to a new glass case in the university's student centre."
+   "text": "The preserved head was displayed at the cabinet's feet for some years. It was later moved to storage. Students from a rival college, King's, are said to have taken it in 1975 and demanded a ransom. It is now kept in storage. In 2020 the auto-icon was moved to a new glass case in the university's student centre."
   },
   "pushpin": {
    "kind": "digression",
@@ -302,7 +302,7 @@
   "father": {
    "kind": "digression",
    "title": "James Mill's experiment",
-   "text": "James Mill taught his son himself, at the same table where he was writing a history of British India, and made him teach his younger brothers and sisters. John later said that he started life a quarter of a century ahead of his contemporaries, and that it had nearly broken him."
+   "text": "James Mill taught his son himself, at the same table where he was writing a history of British India, and made him teach his younger brothers and sisters. John later said that he started life a quarter of a century ahead of his contemporaries, and blamed his training in part for his breakdown at twenty."
   }
  }
 }

@@ -72,7 +72,7 @@ export const veilFigure = figure(['compare'], (_ctx, t) => {
     else {
       const you = `You were born into the ${FIFTHS[place]} fifth of ${SOCIETIES[pick].name}, on ${SOCIETIES[pick].fifths[place]} thousand a year.`;
       const why = rule === 0 ? ` Rawls's rule picks ${SOCIETIES[RAWLS].name}, whose poorest fifth, on ${worst(SOCIETIES[RAWLS])} thousand, does better than the poorest anywhere else, even in Equal.`
-        : rule === 1 ? ` Harsanyi's rule picks ${SOCIETIES[HARSANYI].name}, with the highest average, ${Math.round(average(SOCIETIES[HARSANYI]))} thousand, though its poorest fifth gets only ${worst(SOCIETIES[HARSANYI])}.`
+        : rule === 1 ? ` Counting income as well-being, Harsanyi's rule picks ${SOCIETIES[HARSANYI].name}, with the highest average, ${Math.round(average(SOCIETIES[HARSANYI]))} thousand, though its poorest fifth gets only ${worst(SOCIETIES[HARSANYI])}.`
         : ' Now compare the two rules for choosing behind the veil.';
       f.readout.textContent = you + why;
     }

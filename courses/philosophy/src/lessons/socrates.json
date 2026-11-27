@@ -36,7 +36,7 @@
     },
     {
      "type": "text",
-     "text": "The case comes from Plato, who presents it as real. In the spring of 399 BC a young priest named Euthyphro was on his way to bring exactly this charge against his father. On the porch of the office that heard religious cases in Athens he met Socrates, who was there for a case of his own: a young man named Meletus had charged him with impiety, failing to respect the city's gods. Within a few weeks Socrates was dead, sentenced by a jury of 500 of his fellow citizens. Plato, who was about 29 and one of the young men who followed Socrates around the city, wrote up their conversation on the porch as the dialogue *Euthyphro*, and the trial that followed as the *Apology* (from the Greek for a speech in one's defence).[^sources]"
+     "text": "The case comes from Plato, who presents it as real. In the spring of 399 BC a seer named Euthyphro was on his way to bring exactly this charge against his father. On the porch of the office that heard religious cases in Athens he met Socrates, who was there for a case of his own: a young man named Meletus had charged him with impiety, failing to respect the city's gods. Within a few weeks Socrates was dead, sentenced by a jury of 500 of his fellow citizens. Plato, who was about 29 and one of the young men who followed Socrates around the city, wrote up their conversation on the porch as the dialogue *Euthyphro*, and the trial that followed as the *Apology* (from the Greek for a speech in one's defence).[^sources]"
     },
     {
      "type": "text",
@@ -49,7 +49,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Socrates was born in Athens around 470 BC, is said to have been the son of a stonemason and a midwife, and fought as a foot soldier in three campaigns of the Peloponnesian War, the 27-year war between Athens and Sparta. He wrote nothing at all. What we know of him comes from three people who did write: Plato, the soldier and historian Xenophon, and the comic playwright Aristophanes, whose play *The Clouds* (423 BC) shows a Socrates who runs a school of nonsense from a basket hung in the air."
+     "text": "Socrates was born in Athens around 470 BC, is said to have been the son of a stonemason and a midwife, and fought as a foot soldier in three campaigns of the Peloponnesian War, the 27-year war between Athens and Sparta. He wrote no philosophy. What we know of him comes from three people who did write: Plato, the soldier and historian Xenophon, and the comic playwright Aristophanes, whose play *The Clouds* (423 BC) shows a Socrates who runs a school of nonsense from a basket hung in the air."
     },
     {
      "type": "text",
@@ -237,7 +237,7 @@
     },
     {
      "type": "text",
-     "text": "Socrates had been questioning people in public since at least the 420s, when The Clouds mocked him. Why prosecute him in 399? Historians point to the politics. Athens had just lost its war, and two men who had spent time with Socrates when young had done the city great harm: the general Alcibiades, who changed sides to Sparta during the war, and Critias, the most violent of the Thirty, whose rule cost about 1,500 Athenians their lives. An amnesty in 403 BC forbade prosecutions for what people had done under the Thirty, Socrates' enemies could not charge him over the Thirty, so a charge of impiety and corrupting the young may have been their way to strike at the man who, many Athenians believed, had taught such men. Plato's account leaves the politics out and makes the trial about philosophy itself."
+     "text": "Socrates had been questioning people in public since at least the 420s, when The Clouds mocked him. Why prosecute him in 399? Historians point to the politics. Athens had just lost its war, and two men who had spent time with Socrates when young had done the city great harm: the general Alcibiades, who changed sides to Sparta during the war, and Critias, the most violent of the Thirty, whose rule cost about 1,500 Athenians their lives. An amnesty in 403 BC forbade prosecutions for what people had done under the Thirty. Socrates' enemies could not charge him over the Thirty, so a charge of impiety and corrupting the young may have been their way to strike at the man who, many Athenians believed, had taught such men. Plato's account mentions the Thirty only to show Socrates defying them, and makes the trial about philosophy itself."
     },
     {
      "type": "text",
@@ -357,7 +357,7 @@
  ],
  "summary": [
   "**Philosophy argues about questions experiments cannot settle.** What piety, justice or courage is cannot be measured, yet some answers are clearly better than others.",
-  "**Socrates questioned, he did not lecture.** He took nothing for teaching, wrote nothing, and claimed to be wiser than others only in being aware of his own ignorance.",
+  "**Socrates questioned, he did not lecture.** He took nothing for teaching, wrote no philosophy, and claimed to be wiser than others only in being aware of his own ignorance.",
   "**The Socratic method tests definitions against cases.** Ask what something is, find a case the answer gets wrong, and ask again.",
   "**Look for the hidden premise, and argue with the strongest version.** Most arguments rest on something unstated, and an argument beaten only in its weakest form is not beaten.",
   "**The Euthyphro dilemma.** If acts are right because God commands them, morality is arbitrary; if God commands them because they are right, rightness is a standard God answers to.",
@@ -379,12 +379,12 @@
   "penalty": {
    "kind": "digression",
    "title": "Free meals",
-   "text": "Meals at the Prytaneum, the city's hall, were given to Olympic victors, generals and benefactors. Socrates' point was that he had done the city more good than a chariot winner, since a victor only makes Athenians feel happy while he made their lives better. The fine he offered at the end was 30 minae, several years' wages for a skilled worker, with Plato among the guarantors."
+   "text": "Meals at the Prytaneum, the city's hall, were given to Olympic victors, generals and benefactors. Socrates' point was that he had done the city more good than a chariot winner, since a victor only makes Athenians feel happy while he made their lives better. The fine he offered at the end was 30 minae, close to ten years' wages for a skilled worker, with Plato among the guarantors."
   },
   "hemlock": {
    "kind": "technical",
    "title": "Hemlock",
-   "text": "Poison hemlock, Conium maculatum, kills by paralysing the muscles, so the victim's breathing stops. Real hemlock poisoning usually brings vomiting and convulsions, which Plato does not describe. Either the Athenians mixed it with something like opium, or Plato made the death more peaceful than it was."
+   "text": "Poison hemlock, Conium maculatum, kills by paralysing the muscles, so the victim's breathing stops. Real hemlock poisoning usually brings vomiting and convulsions, which Plato does not describe. Some think the Athenians mixed it with something like opium, or that Plato made the death more peaceful than it was; the historian Enid Bloch argued in 2001 that his account fits hemlock poisoning well."
   },
   "survey": {
    "kind": "technical",

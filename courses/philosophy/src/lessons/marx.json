@@ -38,7 +38,7 @@
     },
     {
      "type": "text",
-     "text": "Marx imagined a society, after capitalism, where this would end. In a well-known passage he wrote that there it would be possible \"to hunt in the morning, fish in the afternoon, rear cattle in the evening, criticise after dinner\", without ever becoming a hunter, fisherman, herdsman or critic. He never described in any detail how such a society would work."
+     "text": "Marx imagined a society, after capitalism, where this would end. In a well-known passage he and Engels wrote that there it would be possible \"to hunt in the morning, fish in the afternoon, rear cattle in the evening, criticise after dinner\", without ever becoming a hunter, fisherman, herdsman or critic. He never described in any detail how such a society would work."
     },
     {
      "type": "interactive_diagram",
@@ -83,7 +83,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Marx predicted that capitalism would collapse from its own contradictions. Competition would drive wages down to the minimum needed to survive, wealth would gather in fewer and fewer hands, crises would get worse, and the workers of the most industrial countries, Britain and Germany first, would rise up, take the means of production into common ownership, and eventually the state itself would \"wither away\". Some of his analysis has held up well; much of the prediction did not."
+     "text": "Marx predicted that capitalism would collapse from its own contradictions. Competition would drive wages down, the *Manifesto* of 1848 said, to the minimum needed to survive, wealth would gather in fewer and fewer hands, crises would get worse, and the workers of the most industrial countries, Britain and Germany first, would rise up, take the means of production into common ownership, and eventually the state itself would, in Engels's phrase, \"wither away\". Some of his analysis has held up well; much of the prediction did not."
     },
     {
      "type": "interactive_diagram",
@@ -137,7 +137,7 @@
        {
         "name": "After the revolution, the state will wither away",
         "group": "Did not happen",
-        "why": "The states built in Marx's name became some of the most powerful and repressive in history."
+        "why": "Engels's phrase. The states built in Marx's name became some of the most powerful and repressive in history."
        },
        {
         "name": "Society will split into two great classes, owners and workers",
@@ -167,7 +167,7 @@
        "Not sure"
       ],
       "who": [
-       "You chose the view of most academic philosophers today.",
+       "You chose a view common among academic philosophers today.",
        "You chose Marx's answer of 1845.",
        "You chose the answer of many who admire Marx's analysis and fear what was done in his name.",
        "Socrates, in lesson 1, would say examining the question is already a kind of change."

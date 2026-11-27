@@ -26,7 +26,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The Greek writer Plutarch, about AD 100, reports that the Athenians kept the ship in which the hero Theseus had returned from Crete. As its planks rotted they replaced them with new timber, until no original plank was left. Philosophers, Plutarch says, used the ship as an example in arguments about growth: some said it was still the same ship, others that it was not."
+     "text": "The Greek writer Plutarch, about AD 100, reports that the Athenians kept the ship in which the hero Theseus had returned from Crete. As its planks rotted they replaced them with new timber, and in the puzzle it became, no original plank was left. Philosophers, Plutarch says, used the ship as an example in arguments about growth: some said it was still the same ship, others that it was not."
     },
     {
      "type": "text",
@@ -57,7 +57,7 @@
     },
     {
      "type": "text",
-     "text": "The ship shows that \"the same thing\" can mean different things that usually go together and here come apart: the same material, the same shape, an unbroken history. People change too. Almost none of the atoms in your body were there when you were ten, and your beliefs, tastes and plans have changed. The question is what makes you, now, the same person as that child."
+     "text": "The ship shows that \"the same thing\" can mean different things that usually go together and here come apart: the same material, the same shape, an unbroken history. People change too. Most of the atoms in your body have been replaced since you were ten, and your beliefs, tastes and plans have changed. The question is what makes you, now, the same person as that child."
     }
    ]
   },
@@ -128,7 +128,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Buddhist philosophers had reached a more radical answer many centuries earlier. A Pali text called *The Questions of King Milinda*, probably compiled over several centuries from the 1st century BC, presents a dialogue between a Buddhist monk named Nagasena and Menander, a Greek king who ruled in what is now Pakistan and northern India in the 2nd century BC,[^menander] a descendant of the soldiers Alexander the Great had led east."
+     "text": "Buddhist philosophers had reached a more radical answer many centuries earlier. A Pali text called *The Questions of King Milinda*, probably compiled over several centuries from the 1st century BC, presents a dialogue between a Buddhist monk named Nagasena and Menander, a Greek king who ruled in what is now Pakistan and northern India in the 2nd century BC,[^menander] heir to the Greek kingdoms that Alexander the Great's conquests had left in the east."
     },
     {
      "type": "interactive_diagram",
@@ -310,7 +310,7 @@
          "It shows that two people can be the same person at the same time"
         ],
         "answer": 0,
-        "why": "Most people feel sure they are the one on Earth. The process that made the replica is unchanged, so the replica was never them."
+        "why": "Most people feel sure they are the one on Earth. If so, the same process cannot have made them the replica in the first story either."
        }
       ]
      }

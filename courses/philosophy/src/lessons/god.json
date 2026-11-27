@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In August 386 a professor of rhetoric in Milan was sitting in a garden in a state of misery. He was 31, born in the Roman province of Africa, ambitious, successful, and unable to make up his mind about God. He had spent nine years in a religious movement called Manichaeism, left it, and found that he could neither believe nor stop wanting to. From a neighbouring house he heard a child's voice chanting a phrase over and over, \"Take up and read, take up and read.\" He picked up the book of Paul's letters he had with him, opened it at random and read a verse telling him to put aside drunkenness and lust. He was baptised the following Easter."
+     "text": "In August 386 a professor of rhetoric in Milan was sitting in a garden in a state of misery. He was 31, born in Roman North Africa, ambitious, successful, and unable to make up his mind about God. He had spent nine years in a religious movement called Manichaeism, left it, and found that he could neither believe nor stop wanting to. From a neighbouring house he heard a child's voice chanting a phrase over and over, \"Take up and read, take up and read.\" He picked up the book of Paul's letters he had with him, opened it at random and read a verse telling him to put aside drunkenness and lust. He was baptised the following Easter."
     },
     {
      "type": "text",
@@ -73,7 +73,7 @@
     },
     {
      "type": "text",
-     "text": "In 1955 the Australian philosopher J. L. Mackie pressed a second objection. If God could make free people who sometimes choose good, God could have made free people who always choose good, so free will alone does not explain why there is evil. In 1974 the American philosopher Alvin Plantinga replied that it may not be in God's power to create free people and also guarantee what they freely choose. Most philosophers now accept that Plantinga showed there is no strict contradiction between God and evil. The argument has moved to a weaker form: not that evil makes God impossible, but that the amount of pointless suffering, such as a fawn burned to death in a forest fire that no one sees, makes God improbable.[^rowe]"
+     "text": "In 1955 the Australian philosopher J. L. Mackie pressed a second objection. If God could make free people who sometimes choose good, God could have made free people who always choose good, so free will alone does not explain why there is evil. From the 1960s the American philosopher Alvin Plantinga replied, most fully in 1974, that it may not be in God's power to create free people and also guarantee what they freely choose. Most philosophers now accept that Plantinga showed there is no strict contradiction between God and evil. The argument has moved to a weaker form: not that evil makes God impossible, but that the amount of pointless suffering, such as a fawn burned to death in a forest fire that no one sees, makes God improbable.[^rowe]"
     },
     {
      "type": "interactive_diagram",
@@ -92,7 +92,7 @@
       ],
       "who": [
        "You chose the believer's main line, in the tradition of Augustine and Plantinga. Its defenders admit that the reasons are often hidden from us.",
-       "You chose the evidential problem of evil, as William Rowe put it in 1979. Most atheist philosophers think it is the strongest argument they have.",
+       "You chose the evidential problem of evil, as William Rowe put it in 1979. Many atheist philosophers think it is the strongest argument they have.",
        "You chose the Manichaeans' answer, also held by some modern theologians who think God shares the world's suffering rather than controlling it.",
        "Both sides admit the argument is unfinished. It is still the most written-about question in the philosophy of religion."
       ]
@@ -105,7 +105,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Seven centuries after Augustine, about 1077, the abbot of a Benedictine monastery at Bec in Normandy wrote a short book called the *Proslogion*. Anselm, an Italian who would later be Archbishop of Canterbury, wanted a single argument that would prove God exists without any premise from experience at all. He found it, he said, after a long search, in a moment of sudden joy."
+     "text": "Seven centuries after Augustine, about 1077, the prior of a Benedictine monastery at Bec in Normandy wrote a short book called the *Proslogion*. Anselm, an Italian who would later be Archbishop of Canterbury, wanted a single argument that would prove God exists without any premise from experience at all. He found it, he said, after a long search, in a moment of sudden joy."
     },
     {
      "type": "text",
@@ -147,11 +147,11 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Anselm's first critic was a monk called Gaunilo, from the monastery of Marmoutier near Tours, who wrote a reply titled *On Behalf of the Fool*. Somewhere in the ocean, Gaunilo wrote, there is said to be an island richer than any other, a lost island full of every delight. Use Anselm's reasoning: an island that exists in reality is greater than one that exists only in the mind; so if this most excellent island existed only in the mind, we could think of a greater one; so the island must exist. Anyone who believed that, Gaunilo said, would be a bigger fool than the one in the Psalm."
+     "text": "Anselm's first critic was a monk called Gaunilo, from the monastery of Marmoutier near Tours, who wrote a reply titled *On Behalf of the Fool*. Somewhere in the ocean, Gaunilo wrote, there is said to be an island richer than any other, a lost island full of every delight. Use Anselm's reasoning: an island that exists in reality is greater than one that exists only in the mind; so if this most excellent island existed only in the mind, we could think of a greater one; so the island must exist. If anyone offered him that proof, Gaunilo said, he would not know who was the bigger fool, himself for accepting it or the one who offered it."
     },
     {
      "type": "text",
-     "text": "Gaunilo did not say where Anselm's argument went wrong. He showed that something must be wrong with it, because the same form of argument proves something absurd. This is called a **parody**, or refuting an argument by a counterexample of the same form, and it is one of the most useful tools in philosophy: if your argument would also prove that the lost island exists, it proves too much."
+     "text": "The island did not say where Anselm's argument went wrong, though Gaunilo raised other doubts too. It showed that something must be wrong with it, because the same form of argument proves something absurd. This is called a **parody**, or refuting an argument by a counterexample of the same form, and it is one of the most useful tools in philosophy: if your argument would also prove that the lost island exists, it proves too much."
     },
     {
      "type": "interactive_diagram",
@@ -171,7 +171,7 @@
       "who": [
        "You chose Gaunilo's side, and most philosophers agree with you.",
        "You chose Anselm's reply. He said the argument works only for the greatest thing that can be thought, and an island is not that: a bigger or richer island can always be imagined. Modern defenders such as Alvin Plantinga use the same move.",
-       "You chose the view most teachers of philosophy would give: a parody shows that an argument fails without saying where. Kant later offered a diagnosis, in lesson 15.",
+       "You chose the view most teachers of philosophy would give: a parody shows that an argument fails without saying where. Kant later offered a diagnosis, given below.",
        "Anselm's argument has had that effect on readers for 900 years, including on Bertrand Russell, who wrote that it is easier to feel convinced it must be wrong than to find out where."
       ]
      }
@@ -271,7 +271,7 @@
          "An argument that we cannot form an idea of God at all"
         ],
         "answer": 0,
-        "why": "Gaunilo did not say which step fails. He showed that some step must fail, because the same reasoning proves too much."
+        "why": "The island does not say which step fails. He showed that some step must fail, because the same reasoning proves too much."
        },
        {
         "ask": "Kant's objection to the ontological argument rests on which claim?",
@@ -304,7 +304,7 @@
   "epicurus": {
    "kind": "technical",
    "title": "Was it Epicurus?",
-   "text": "The Christian writer Lactantius, about AD 300, attributes the argument to Epicurus, but it appears in none of Epicurus's surviving writings, and some scholars think it came from a later sceptic. Hume's version is in his Dialogues Concerning Natural Religion."
+   "text": "The Christian writer Lactantius, early in the 4th century AD, attributes the argument to Epicurus, but it appears in none of Epicurus's surviving writings, and some scholars think it came from a later sceptic. Hume's version is in his Dialogues Concerning Natural Religion."
   },
   "rowe": {
    "kind": "technical",
@@ -314,7 +314,7 @@
   "russell": {
    "kind": "digression",
    "title": "Russell and the tobacco tin",
-   "text": "Bertrand Russell wrote that one day in 1894, walking to buy tobacco, he suddenly threw the tin into the air and exclaimed \"Great Scott, the ontological argument is sound.\" He changed his mind later, and became one of the 20th century's best-known atheists."
+   "text": "Bertrand Russell wrote that one day in 1894, walking back from buying a tin of tobacco, he suddenly threw it into the air and exclaimed \"Great Scott, the ontological argument is sound.\" He changed his mind later, and became one of the 20th century's best-known atheists."
   },
   "confessions": {
    "kind": "digression",

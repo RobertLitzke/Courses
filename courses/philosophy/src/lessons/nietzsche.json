@@ -13,7 +13,7 @@
     },
     {
      "type": "text",
-     "text": "The passage is section 125 of *The Gay Science*, published in 1882 by Friedrich Nietzsche, a former professor of Greek from Germany then living on a small pension in boarding houses in Switzerland and Italy. Readers of lesson 6 will recognise the lantern: Diogenes the Cynic walked through the marketplace in daylight with a lamp, looking for a human being. Nietzsche's madman is looking for God, and the joke is on the crowd, who think they have already got rid of him without noticing what that means."
+     "text": "The passage is section 125 of *The Gay Science*, published in 1882 by Friedrich Nietzsche, a former professor of Greek from Germany then living on a small pension in boarding houses in Switzerland and Italy. Readers of lesson 6 will recognise the lantern: Diogenes the Cynic is said to have walked through the marketplace in daylight with a lamp, looking for a human being. Nietzsche's madman is looking for God, and the joke is on the crowd, who think they have already got rid of him without noticing what that means."
     },
     {
      "type": "text",
@@ -252,7 +252,7 @@
        {
         "ask": "Why is the Nazi reading of Nietzsche rejected?",
         "choices": [
-         "Nietzsche despised antisemites and German nationalism, and his sister edited and forged his work",
+         "Nietzsche despised antisemites and German nationalism, and his sister edited his notes and forged letters",
          "Nietzsche wrote nothing about power or the Übermensch",
          "Nietzsche was a committed Christian",
          "Nietzsche's books were banned by the Nazis"
@@ -274,13 +274,13 @@
   "**Genealogy asks what a value serves.** It was Nietzsche's method, and it matters more than his historical guesses.",
   "**Eternal recurrence is a test of how to live.** Could you want this life again, every moment, for ever?",
   "**The Übermensch creates values instead of inheriting them.** It has nothing to do with race.",
-  "**His sister's editing helped the Nazis claim him.** Elisabeth edited and forged his work; he had despised antisemites."
+  "**His sister's editing helped the Nazis claim him.** Elisabeth rearranged his notes and forged letters; he had despised antisemites."
  ],
  "footnotes": {
   "dostoevsky": {
    "kind": "digression",
    "title": "Dostoevsky",
-   "text": "In Dostoevsky's The Brothers Karamazov (1880) Ivan argues that without God and immortality \"everything is permitted\". The exact phrase does not appear in the novel, though the idea is put several ways. Nietzsche discovered Dostoevsky in 1887 and called him the only psychologist from whom he had anything to learn."
+   "text": "In Dostoevsky's The Brothers Karamazov (1880) Ivan argues that without God and immortality \"everything is permitted\". Those words are in the novel, but the familiar sentence \"if there is no God, everything is permitted\" is not. Nietzsche discovered Dostoevsky in 1887 and called him the only psychologist from whom he had anything to learn."
   },
   "illness": {
    "kind": "technical",

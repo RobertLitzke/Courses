@@ -133,7 +133,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Falsification ran into trouble with the history of science. In the 1840s, the planet Uranus was not following the orbit Newton's laws predicted. On Popper's account, astronomers should have considered Newton refuted. Instead, the French mathematician Urbain Le Verrier assumed Newton was right and calculated where an unknown planet would have to be to pull Uranus off course. In September 1846, astronomers in Berlin pointed a telescope at the spot and found Neptune."
+     "text": "Falsification ran into trouble with the history of science. In the 1840s, the planet Uranus was not following the orbit Newton's laws predicted. On a strict reading of falsification, astronomers should have considered Newton refuted. Instead, the French mathematician Urbain Le Verrier assumed Newton was right and calculated where an unknown planet would have to be to pull Uranus off course. In September 1846, astronomers in Berlin pointed a telescope at the spot and found Neptune."
     },
     {
      "type": "text",
@@ -258,16 +258,16 @@
   "eclipse": {
    "kind": "technical",
    "title": "How clean was 1919?",
-   "text": "Eddington's measurements were difficult and some of his photographs gave results closer to Newton's prediction, which he set aside for reasons he gave at the time. Later reanalysis has generally supported his choices, and many later tests have confirmed Einstein's figure."
+   "text": "The measurements were difficult, and one set of photographs, taken at Sobral in Brazil, gave results closer to Newton's prediction; the team set them aside for reasons they gave at the time. Later reanalysis has generally supported his choices, and many later tests have confirmed Einstein's figure."
   },
   "schlick": {
    "kind": "digression",
    "title": "The end of the Circle",
-   "text": "In 1936 Moritz Schlick was shot dead on the steps of the University of Vienna by a former student. After Austria was annexed by Germany in 1938, most members of the Circle, many of them Jewish or socialist, emigrated, and the ideas spread to Britain and America."
+   "text": "In 1936 Moritz Schlick was shot dead on the steps of the University of Vienna by a former student. By the time Austria was annexed by Germany in 1938, most members of the Circle, many of them Jewish or socialist, had emigrated or soon did, and the ideas spread to Britain and America."
   },
   "popper": {
    "kind": "digression",
-   "title": "Popper's poker",
+   "title": "Popper and the Circle",
    "text": "Popper was never a member of the Vienna Circle, though he knew several of its members, and his first book, *Logik der Forschung* (1934), appeared in a series the Circle edited. He later claimed responsibility for killing logical positivism."
   }
  }

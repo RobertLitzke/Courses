@@ -17,7 +17,7 @@
     },
     {
      "type": "text",
-     "text": "The puzzle is credited to **Eubulides of Miletus**, a Greek philosopher of the 4th century BC and a rival of Aristotle, who also invented the liar paradox (\"this sentence is false\"). It is called the **sorites**, from the Greek *sōros*, a heap. Eubulides told a version about baldness too: pulling out one hair never makes a man bald, yet pull them one at a time and he ends up bald.[^eubulides]"
+     "text": "The puzzle is credited to **Eubulides of Miletus**, a Greek philosopher of the 4th century BC and a rival of Aristotle, who is also credited with the liar paradox (a man says he is lying: is what he says true or false?). It is called the **sorites**, from the Greek *sōros*, a heap. Eubulides told a version about baldness too: pulling out one hair never makes a man bald, yet pull them one at a time and he ends up bald.[^eubulides]"
     },
     {
      "type": "diagram",
@@ -175,7 +175,7 @@
  ],
  "summary": [
   "**Removing one grain never seems to make a heap stop being a heap.** Yet one grain is not a heap.",
-  "**Eubulides posed the sorites in the 4th century BC.** He also invented the liar paradox.",
+  "**Eubulides posed the sorites in the 4th century BC.** He is also credited with the liar paradox.",
   "**Vague words have borderline cases and no sharp line.** Tall, bald, rich, child, heap.",
   "**Laws draw sharp lines by decision.** Useful for being sharp, and arbitrary for the same reason.",
   "**Degrees of truth: each grain loses a little truth.** The maths is fuzzy logic.",

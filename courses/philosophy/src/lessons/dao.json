@@ -13,7 +13,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In a story from a Chinese book of the 4th century BC, a cook called Ding is cutting up an ox for Lord Wenhui. Every touch of his hand, every shift of his shoulder and every step of his foot keeps time, and the knife moves through the carcass with a sound like music, in rhythm with an old dance. The lord is delighted and asks how skill can reach such a height."
+     "text": "In a story from a Chinese book whose oldest parts date from the 4th century BC, a cook called Ding is cutting up an ox for Lord Wenhui. Every touch of his hand, every shift of his shoulder and every step of his foot keeps time, and the knife moves through the carcass with a sound like music, in rhythm with an old dance. The lord is delighted and asks how skill can reach such a height."
     },
     {
      "type": "text",
@@ -51,7 +51,7 @@
     },
     {
      "type": "text",
-     "text": "Huizi tells him about a huge tree whose trunk is too knotted to cut planks from and whose branches are too twisted to measure, so every carpenter walks past it. Useless, says Huizi, like your teaching. Zhuangzi replies that this is why it has lived so long and grown so big. Trees with good timber are cut down young. Why not, he says, plant it in an empty field and lie down under it?"
+     "text": "Huizi tells him about a huge tree whose trunk is too knotted to cut planks from and whose branches are too twisted to measure, so every carpenter walks past it. Useless, says Huizi, like your teaching. Zhuangzi replies that its uselessness keeps it safe: no axe will ever cut it short. Elsewhere in the book, trees with good timber are cut down young. Why not, he says, plant it in an empty field and lie down under it?"
     },
     {
      "type": "text",
@@ -138,7 +138,7 @@
        "Not sure"
       ],
       "who": [
-       "You chose the Stoic answer, which is also the basis of cognitive behavioural therapy.",
+       "You chose the Stoic answer, which helped inspire cognitive behavioural therapy.",
        "You chose the Daoist answer. Psychologists who study insight find that a break often helps a stuck problem.",
        "Most people who use either would say so. Zhuangzi's own cook needed long practice before carving became effortless.",
        "Zhuangzi would approve."
@@ -156,7 +156,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Daoist philosophy is respected history and is studied in comparative philosophy, where its ideas about skill and spontaneity are set beside Aristotle's virtues and the Stoics. The idea of effortless skill is still argued over in psychology, in work on what Mihaly Csikszentmihalyi called flow, the state of absorption in which skilled people lose track of themselves and of time. Daoism also became a religion in China, with temples, priests and practices for long life; that tradition grew from the texts but is separate from the philosophy in this lesson.[^dao]"
+     "text": "Daoist philosophy is respected history and is studied in comparative philosophy, where its ideas about skill and spontaneity are set beside Aristotle's virtues and the Stoics. The idea of effortless skill is still argued over in psychology, in work on what Mihaly Csikszentmihalyi called flow, the state of absorption in which skilled people lose track of themselves and of time. Daoism also became a religion in China, with temples, priests and practices for long life; that tradition grew from the texts, and scholars now argue over how far it can be separated from the philosophy in this lesson.[^dao]"
     },
     {
      "type": "quiz",
@@ -227,7 +227,7 @@
   "laozi": {
    "kind": "technical",
    "title": "Was there a Laozi?",
-   "text": "The legend says Laozi, an archivist at the Zhou court, wrote the book's 5,000 characters for a gatekeeper as he left China for the west. Most scholars now think he may be legendary and that the Daodejing was compiled from sayings over a long period. The oldest copy, on bamboo strips found in a tomb at Guodian in 1993, dates from about 300 BC."
+   "text": "The legend says Laozi, an archivist at the Zhou court, wrote the book's 5,000 characters for a gatekeeper as he left China for the west. Most scholars now think he may be legendary and that the Daodejing was compiled from sayings over a long period. The oldest copy, of about a third of the text, on bamboo strips found in a tomb at Guodian in 1993, dates from about 300 BC."
   },
   "fish": {
    "kind": "digression",

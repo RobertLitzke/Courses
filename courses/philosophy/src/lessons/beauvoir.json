@@ -13,7 +13,7 @@
     },
     {
      "type": "text",
-     "text": "Beauvoir was 41. She had studied philosophy at the Sorbonne, where in 1929 she came second in the national teaching examination, the agrégation, behind Sartre, and at 21 was the youngest person to have passed it up to then.[^agreg] She and Sartre met that year and stayed partners for the rest of his life, without marrying or living together. She is often treated as Sartre's follower. In this lesson we will look at the point where she disagreed with him, which most philosophers now think she got right, and at two women who asked her question long before her."
+     "text": "Beauvoir was 41. She had studied philosophy at the Sorbonne, where in 1929 she came second in the national teaching examination, the agrégation, behind Sartre, and at 21 was the youngest person to have passed it up to then.[^agreg] She and Sartre met that year and stayed partners for the rest of his life, without marrying or living together. She is often treated as Sartre's follower. In this lesson we will look at the point where she is usually said to have disagreed with him, and at two women who asked her question long before her."
     }
    ]
   },
@@ -79,15 +79,15 @@
        "Not sure"
       ],
       "who": [
-       "You chose Beauvoir's view, and the most common one among philosophers in 2020.",
+       "You chose Beauvoir's view. In 2020, 63 per cent of philosophers said gender is social, though the survey asked what gender is, not what causes the differences.",
        "You chose the view of many evolutionary psychologists. Beauvoir would ask how you could tell, in a world where every child is raised as a boy or a girl.",
-       "You chose the view most scientists who study sex differences would give, though they argue hard about the proportions.",
+       "You chose the view many scientists who study sex differences would give, though they argue hard about the proportions.",
        "Many people who study the question are unsure too."
       ],
       "poll": {
        "shares": [
         63,
-        26,
+        29,
         null,
         null
        ],
@@ -102,7 +102,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "This is where Beauvoir parted from Sartre. In her memoirs she describes long arguments with him in the spring of 1940, in which he held that a person is always free to choose how to take their situation. She asked what freedom a woman shut up in a harem could have. Sartre answered that even such a life could be lived in different ways: she could accept it, resent it, or make something of it inside its walls. Beauvoir wrote that she held to her view only half-heartedly then, but she kept coming back to it."
+     "text": "This is where Beauvoir parted from Sartre. In her memoirs she describes long arguments with him in early 1940, while he was on leave from the army,, in which he held that a person is always free to choose how to take their situation. She asked what freedom a woman shut up in a harem could have. Sartre answered that even such a life could be lived in different ways: she could accept it, resent it, or make something of it inside its walls. Beauvoir wrote that she held out for a long time and gave way only half-heartedly, and she kept coming back to it."
     },
     {
      "type": "text",
@@ -125,7 +125,7 @@
       "who": [
        "You chose Sartre's answer in 1940. He moved towards Beauvoir's view later in life.",
        "You chose Beauvoir's answer.",
-       "Beauvoir said she was not sure at first either."
+       "Beauvoir felt sure at first but could not yet say why."
       ]
      }
     }
@@ -136,7 +136,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Beauvoir was not the first to ask why women were kept from thinking. In Mexico City, then the capital of New Spain, a nun called Juana Inés de la Cruz had asked it 250 years earlier. As a girl of about seven she had begged her mother to let her dress as a boy so that she could attend the university, which admitted only men. She taught herself Latin, cutting off a few inches of her hair as she started a lesson and cutting it again if she had not learned it by the time the hair grew back, since it did not seem right, she wrote, that a head so bare of knowledge should be dressed with hair. She became a nun, she said, because it was the only life that would leave her time to study. Her rooms in the convent were said to hold several thousand books."
+     "text": "Beauvoir was not the first to ask why women were kept from thinking. In Mexico City, then the capital of New Spain, a nun called Juana Inés de la Cruz had asked it more than 250 years earlier. As a girl of about seven she had begged her mother to let her dress as a boy so that she could attend the university, which admitted only men. She taught herself Latin, cutting off a few inches of her hair as she started a lesson and cutting it again if she had not learned it by the time the hair grew back, since it did not seem right, she wrote, that a head so bare of knowledge should be dressed with hair. She became a nun, she said, because it was the only life that would leave her time to study. Her rooms in the convent were said to hold several thousand books."
     },
     {
      "type": "text",
@@ -144,7 +144,7 @@
     },
     {
      "type": "text",
-     "text": "A few years later, under pressure from the Church, she gave up her books and scientific instruments, which were sold for charity, and signed a renewal of her vows. She died in 1695 while nursing other nuns in an epidemic.[^juana]"
+     "text": "A few years later, probably under pressure from the Church, she gave up her books and scientific instruments, which were sold for charity, and signed a renewal of her vows. She died in 1695 while nursing other nuns in an epidemic.[^juana]"
     }
    ]
   },
@@ -310,7 +310,7 @@
   "parshley": {
    "kind": "technical",
    "title": "Lost in translation",
-   "text": "H. M. Parshley, an American zoologist, rendered Beauvoir's pour-soi, Sartre's term for consciousness, as \"her true nature in itself\", which means nearly the opposite. Readers in English met a less philosophical book than the French one for over 50 years. The famous sentence quoted in this lesson is in Parshley's wording; the 2009 translation gives \"becomes woman\", without the article, closer to the French \"on le devient\"."
+   "text": "H. M. Parshley, an American zoologist, rendered Beauvoir's pour-soi, Sartre's term for consciousness, as \"her true nature in itself\", which means nearly the opposite. Readers in English met a less philosophical book than the French one for over 50 years. The famous sentence quoted in this lesson is in Parshley's wording; the 2009 translation gives \"becomes woman\", without the article, closer to the French \"On ne naît pas femme: on le devient\"."
   }
  }
 }

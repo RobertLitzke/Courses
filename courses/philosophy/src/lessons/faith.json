@@ -26,7 +26,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "By al-Ghazali's time Greek philosophy had been part of Islamic learning for three centuries. Under the Abbasid caliphs in Baghdad, from the late 8th century on, and above all in the 9th, scholars translated almost all of Aristotle into Arabic, along with Greek medicine, astronomy and mathematics. Muslim philosophers built on them. The greatest, Ibn Sina, known in Latin as Avicenna, died in 1037 and was revered as a second Aristotle; lesson 10 meets his floating man."
+     "text": "By al-Ghazali's time Greek philosophy had been part of Islamic learning for three centuries. Under the Abbasid caliphs in Baghdad, from the late 8th century on, and above all in the 9th, scholars translated almost all of Aristotle into Arabic, along with Greek medicine, astronomy and mathematics. Muslim philosophers built on them. The greatest, Ibn Sina, known in Latin as Avicenna, died in 1037 and was revered as the Chief Master; lesson 10 meets his floating man."
     },
     {
      "type": "text",
@@ -39,7 +39,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The most famous chapter of the *Incoherence* is about cause and effect. When a flame touches a piece of cotton, the cotton burns. The philosophers said the fire causes the burning: it is the nature of fire to burn, and given fire and dry cotton, the burning must follow. Al-Ghazali denied this. All we ever observe, he wrote, is that the burning happens together with the contact. We do not observe the fire making it happen. \"Observation shows only that one occurs with the other, not that it occurs by it.\""
+     "text": "The most famous chapter of the *Incoherence* is about cause and effect. When a flame touches a piece of cotton, the cotton burns. The philosophers said the fire causes the burning: it is the nature of fire to burn, and given fire and dry cotton, the burning must follow. Al-Ghazali denied this. All we ever observe, he wrote, is that the burning happens together with the contact. We do not observe the fire making it happen. \"Observation only shows that one is with the other, not that it is by it.\""
     },
     {
      "type": "text",
@@ -77,7 +77,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "About 1168, in Marrakesh, a judge from Córdoba, then in his early forties, was presented to the caliph of the Almohad empire, which ruled North Africa and Muslim Spain. Abu Ya'qub Yusuf asked him directly whether the philosophers held that the heavens had existed forever or had been created. The judge, knowing the question was dangerous, said nothing and pretended not to know. The caliph then discussed it himself with such learning that the judge relaxed and talked freely. The judge was Ibn Rushd, known in Latin as Averroes,[^names] and the caliph soon asked him to write commentaries explaining all of Aristotle.[^meeting]"
+     "text": "About 1168, in Marrakesh, a scholar from Córdoba, then in his early forties, was presented to the caliph of the Almohad empire, which ruled North Africa and Muslim Spain. Abu Ya'qub Yusuf asked him directly whether the philosophers held that the heavens had existed forever or had been created. The scholar, knowing the question was dangerous, said nothing and pretended not to know. The caliph then discussed it himself with such learning that the scholar relaxed and talked freely. The scholar was Ibn Rushd, known in Latin as Averroes,[^names] and the caliph soon asked him to write commentaries explaining all of Aristotle.[^meeting]"
     },
     {
      "type": "text",
@@ -137,7 +137,7 @@
       "who": [
        "You chose Ibn Rushd's rule. Galileo used the same rule in 1615, quoting Augustine, and it is the official view of the Catholic Church today.",
        "You chose a view closer to al-Ghazali's, and to many believers today, who think human reasoning is less reliable than revelation.",
-       "You chose a view the biologist Stephen Jay Gould called non-overlapping magisteria in 1997: science asks how, religion asks why. Critics on both sides say the two often answer the same question.",
+       "You chose a view the biologist Stephen Jay Gould called non-overlapping magisteria in 1997: science deals with facts, religion with meaning and values. Critics on both sides say the two often answer the same question.",
        "Many believers and philosophers find the rule easy to state and hard to apply, since scientists are seldom as certain as a strict proof."
       ]
      }
@@ -322,7 +322,7 @@
   "toledo": {
    "kind": "digression",
    "title": "Translating twice",
-   "text": "Some of Aristotle reached Latin by way of Greek into Syriac, Syriac into Arabic, Arabic into Castilian spoken aloud and Castilian into Latin, with a Jewish or Christian scholar who knew Arabic working beside a Latin writer. Direct translations from Greek, made later in the 13th century, gradually replaced them."
+   "text": "Some of Aristotle reached Latin by way of Greek into Syriac, Syriac into Arabic, Arabic into Castilian spoken aloud and Castilian into Latin, with a Jewish or Christian scholar who knew Arabic working beside a Latin writer. Direct translations from Greek, some from the 12th century and many more by William of Moerbeke in the 13th, gradually replaced them."
   }
  }
 }

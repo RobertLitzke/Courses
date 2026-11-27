@@ -30,7 +30,7 @@
     },
     {
      "type": "text",
-     "text": "The Nyāya philosophers did not simply ban the second and third kinds. Their commentators said jalpa and vitaṇḍā can be used to protect the truth from people who argue in bad faith, as thorns and branches protect a young plant. But only vāda is aimed at knowledge."
+     "text": "The Nyāya philosophers did not simply ban the second and third kinds. The Nyāya Sūtra itself says jalpa and vitaṇḍā can be used to protect the truth from people who argue in bad faith, as thorns and branches protect a young plant. But only vāda is aimed at knowledge."
     },
     {
      "type": "interactive_diagram",
@@ -130,7 +130,7 @@
     },
     {
      "type": "text",
-     "text": "The heart of the argument is the third step, the general rule, which Nyāya called **vyāpti**, \"pervasion\": smoke is pervaded by fire, so that smoke never occurs without it. Nyāya also listed the ways a reason can fail, its \"pseudo-reasons\". A reason can be too broad (the hill has fire because it is a hill), can prove the opposite of the thesis, can be false of the subject (the hill has no smoke at all), or can be cancelled by stronger evidence. Western logic, from Aristotle in lesson 4, worked mostly on the form of arguments; Nyāya worked as much on when a reason really supports a claim, and on how to present it to someone who doubts it."
+     "text": "The heart of the argument is the third step, the general rule, which later Nyāya called **vyāpti**, \"pervasion\": smoke is pervaded by fire, so that smoke never occurs without it. Nyāya also listed the ways a reason can fail, its \"pseudo-reasons\". A reason can be too broad (the hill has fire because it is a hill), can prove the opposite of the thesis, can be false of the subject (the hill has no smoke at all), or can be cancelled by stronger evidence. Western logic, from Aristotle in lesson 4, worked mostly on the form of arguments; Nyāya worked as much on when a reason really supports a claim, and on how to present it to someone who doubts it."
     }
    ]
   },
@@ -206,7 +206,7 @@
          "So the hill has fire"
         ],
         "answer": 0,
-        "why": "Nyāya called the general rule vyāpti, pervasion. It is the step the Cārvāka attacked."
+        "why": "Later Nyāya called the general rule vyāpti, pervasion. It is the step the Cārvāka attacked."
        },
        {
         "ask": "Why did the Cārvāka deny that inference gives certain knowledge?",
@@ -253,7 +253,7 @@
   "hume": {
    "kind": "technical",
    "title": "Did Hume know?",
-   "text": "No. Hume had no access to Indian philosophy, and the Cārvāka texts were barely known in Europe until the 19th century. The two arrived at the same problem independently."
+   "text": "No. Hume could not have known the Cārvāka arguments: their texts were barely known in Europe until the 19th century. The two arrived at the same problem independently."
   },
   "sources": {
    "kind": "technical",

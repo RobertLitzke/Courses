@@ -19,8 +19,6 @@ export function degree(n: number): number {
   const mid = Math.log10(Math.sqrt(LOW * HIGH));
   return 1 / (1 + Math.exp(-5 * (Math.log10(n) - mid)));
 }
-/** The hidden sharp line the epistemicist believes in; drawn only as a question mark. */
-const SECRET = 63;
 
 type Theory = 'fuzzy' | 'superval' | 'epistemic';
 const THEORIES: Theory[] = ['fuzzy', 'superval', 'epistemic'];
@@ -77,7 +75,9 @@ export const heapFigure = figure(['borderline'], (_ctx, t) => {
           line(X0, Y0, x(LOW), Y0, col, 3), line(x(HIGH), Y1, X1, Y1, col, 3),
           label((x(LOW) + x(HIGH)) / 2, Y1 + 14, 'borderline', { size: 'small', anchor: 'middle', fill: col, bold: true }));
       } else {
-        parts.push(line(X0, Y0, x(SECRET), Y0, col, 3), line(x(SECRET), Y1, X1, Y1, col, 3),
+        // The sharp line is somewhere in the zone, but nobody can know where, so it is not drawn.
+        parts.push(line(X0, Y0, x(LOW), Y0, col, 3), line(x(HIGH), Y1, X1, Y1, col, 3),
+          label((x(LOW) + x(HIGH)) / 2, (Y0 + Y1) / 2 + 6, '?', { anchor: 'middle', fill: col, bold: true }),
           svg('rect', { x: x(LOW), y: Y1, width: x(HIGH) - x(LOW), height: Y0 - Y1, fill: tint(COL.ink, 0.08) }),
           label((x(LOW) + x(HIGH)) / 2, Y1 + 14, 'a sharp line somewhere here', { size: 'small', anchor: 'middle', fill: col, bold: true }));
       }

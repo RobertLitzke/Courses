@@ -75,7 +75,7 @@
     },
     {
      "type": "text",
-     "text": "The Greeks had the beginnings of this idea; Archimedes added up an infinite series in the 3rd century BC to find the area under a curved line. But it was made rigorous only in the 19th century, when mathematicians such as Augustin-Louis Cauchy defined what it means for an infinite sum to have a value, using the idea of a **limit**: the sum is the number the partial totals get as close to as you like. The same idea gives an answer to the arrow. In **calculus**, the mathematics of continuous change worked out by Newton and Leibniz in the 17th century, an object's speed at an instant is defined as a limit of average speeds over shorter and shorter intervals, so a moving arrow can have a speed at an instant without moving during it."
+     "text": "The Greeks had the beginnings of this idea; Archimedes summed a series of this kind in the 3rd century BC to find the area of a segment of a parabola. But it was made rigorous only in the 19th century, when mathematicians such as Augustin-Louis Cauchy defined what it means for an infinite sum to have a value, using the idea of a **limit**: the sum is the number the partial totals get as close to as you like. The same idea gives an answer to the arrow. In **calculus**, the mathematics of continuous change worked out by Newton and Leibniz in the 17th century, an object's speed at an instant is defined as a limit of average speeds over shorter and shorter intervals, so a moving arrow can have a speed at an instant without moving during it."
     },
     {
      "type": "interactive_diagram",

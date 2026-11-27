@@ -113,7 +113,7 @@
       "who": [
        "You chose the systems reply, the most common answer to Searle. Searle replied that he could memorise the rule book and still not understand a word.",
        "You chose Searle's answer, and the most common one among philosophers in 2020.",
-       "Searle's paper was printed with replies from dozens of other researchers, and they did not agree either."
+       "Searle's paper was printed with replies from 27 other researchers, and they did not agree either."
       ],
       "poll": {
        "shares": [
@@ -136,7 +136,7 @@
     },
     {
      "type": "text",
-     "text": "The two problems in this lesson pull different ways here. Searle's argument says that a program, however fluent, does not understand anything just by running, and so would not feel anything either. On the other side, if consciousness comes from what a system does rather than what it is made of, a view called **functionalism**, then a machine doing the right things could be conscious, and we would have no test to tell. Nagel's bat shows why that is hard: we cannot even be sure what it is like to be a bat, which is a mammal with a brain like ours. In 2023 Chalmers estimated the chance that the language models of the time were conscious at well under one in ten, but higher for their successors."
+     "text": "The two problems in this lesson pull different ways here. Searle's argument says that a program, however fluent, does not understand anything just by running, and so would not feel anything either. On the other side, if consciousness comes from what a system does rather than what it is made of, a view called **functionalism**, then a machine doing the right things could be conscious, and we would have no test to tell. Nagel's bat shows why that is hard: we cannot even be sure what it is like to be a bat, which is a mammal with a brain like ours. In 2023 Chalmers estimated the chance that the language models of the time were conscious at under one in ten, but higher for their successors."
     },
     {
      "type": "interactive_diagram",

@@ -22,7 +22,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Aristotle was born in 384 BC in Stagira, a small town in the north of Greece, the son of a doctor to the king of Macedon. At seventeen he went to Athens and joined Plato's Academy, and he stayed for twenty years, until Plato died in about 347 BC. He then spent some years on the island of Lesbos, where he studied the animals of its lagoon with a care no one matched for nearly two thousand years.[^darwin] In 343 BC Philip II of Macedon hired him to tutor his thirteen-year-old son, Alexander, later called the Great. Nobody knows what Aristotle taught him, and it did not obviously take."
+     "text": "Aristotle was born in 384 BC in Stagira, a small town in the north of Greece, the son of a doctor to the king of Macedon. At seventeen he went to Athens and joined Plato's Academy, and he stayed for twenty years, until Plato died in about 347 BC. He then spent some years at Assos, across the water in Asia Minor, and on the island of Lesbos, where he studied the animals of its lagoon with a care no one matched for nearly two thousand years.[^darwin] In 343 BC Philip II of Macedon hired him to tutor his thirteen-year-old son, Alexander, later called the Great. Nobody knows what Aristotle taught him, and it did not obviously take."
     },
     {
      "type": "text",
@@ -120,9 +120,9 @@
         "why": "Truthfulness and friendliness together: neither flattering nor harsh."
        },
        {
-        "name": "Never saying no to anyone, to avoid an argument",
+        "name": "Saying nothing when someone insults your friend, to avoid an argument",
         "group": "Too little",
-        "why": "Too little spirit: Aristotle calls the person who will not stand up for himself or his friends slavish."
+        "why": "Too little anger: Aristotle calls the person who puts up with insults to himself or his friends slavish."
        },
        {
         "name": "Leaving a 60 percent tip on every bill to look generous",
@@ -153,7 +153,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "A century and a half before Aristotle, and more than 8,000 km to the east, another teacher had made the same bet on habit. Kongzi, called Confucius in the West, was born in 551 BC in the small state of Lu, in what is now Shandong province in eastern China. He held minor posts in its government, and for some fourteen years travelled from state to state with a band of students, looking for a ruler who would employ him. None did for long. He came home and taught until he died in 479 BC. His students wrote down his sayings, and the collection, the *Analects*, became the most influential book in Chinese history.[^confucius]"
+     "text": "A century and a half before Aristotle, and nearly 8,000 km to the east, another teacher had made the same bet on habit. Kongzi, called Confucius in the West, was born in 551 BC in the small state of Lu, in what is now Shandong province in eastern China. He held minor posts in its government, and for some fourteen years travelled from state to state with a band of students, looking for a ruler who would employ him. None did for long. He came home and taught until he died in 479 BC. His students wrote down his sayings, and the collection, the *Analects*, became one of the most influential books in Chinese history.[^confucius]"
     },
     {
      "type": "text",
@@ -161,7 +161,7 @@
     },
     {
      "type": "text",
-     "text": "The difference from Aristotle is where goodness lives. For Aristotle it is the excellence of an individual reasoning well. For Confucius it is a matter of roles and relationships: a good person is a good son, a good friend and a good minister, and filial respect for parents is \"the root of goodness\". When a student asked for one word to live by, Confucius gave him *shu*, which might be translated as understanding others by oneself: \"Do not impose on others what you yourself do not want.\""
+     "text": "The difference from Aristotle is where goodness lives. For Aristotle it is the excellence of an individual reasoning well. For Confucius it is a matter of roles and relationships: a good person is a good son, a good friend and a good minister, and filial respect, one of his students said, is \"the root of goodness\". When a student asked for one word to live by, Confucius gave him *shu*, which might be translated as understanding others by oneself: \"Do not impose on others what you yourself do not want.\""
     },
     {
      "type": "interactive_diagram",
@@ -210,7 +210,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Aristotle's ethics is the lesson's clearest case of an idea that went out of fashion and came back. For most of the 19th and 20th centuries moral philosophy argued about rules and consequences, the subjects of lessons 15 and 17. Then in 1958 the English philosopher Elizabeth Anscombe argued that this was a dead end and that ethics should go back to character, and Alasdair MacIntyre's book *After Virtue* (1981) made the case to a wide audience. In the 2020 PhilPapers Survey virtue ethics was the largest of the three main camps in ethics, with about 37 percent of philosophers leaning towards it, against about 32 percent for Kantian ethics and 31 percent for consequentialism; people could pick more than one.[^camps] Confucian role ethics is a growing field too."
+     "text": "Aristotle's ethics is the lesson's clearest case of an idea that went out of fashion and came back. For most of the 19th and 20th centuries moral philosophy argued about rules and consequences, the subjects of lessons 15 and 17. Then in 1958 the English philosopher Elizabeth Anscombe argued that this was a dead end and that ethics should go back to character, and Alasdair MacIntyre's book *After Virtue* (1981) made the case to a wide audience. In the 2020 PhilPapers Survey virtue ethics was the largest of the three main camps in ethics, with about 37 percent of philosophers leaning towards it, against about 32 percent for deontology, the ethics of duty that Kant made famous, and 31 percent for consequentialism; people could pick more than one.[^camps] Confucian role ethics is a growing field too."
     },
     {
      "type": "text",
@@ -312,7 +312,7 @@
   "camps": {
    "kind": "technical",
    "title": "The three camps",
-   "text": "Consequentialists judge acts by their results, Kantians (deontologists) by whether they keep to duties such as not lying, and virtue ethicists by what a person of good character would do. The survey let philosophers accept or lean towards more than one."
+   "text": "Consequentialists judge acts by their results, deontologists, Kant the best known among them, by whether they keep to duties such as not lying, and virtue ethicists by what a person of good character would do. The survey let philosophers accept or lean towards more than one."
   }
  }
 }

@@ -307,9 +307,9 @@
     },
     "philosophy": {
       "student": "done",
-      "facts": "pending",
+      "facts": "done 2026-11-27 (full read of all 42 lessons, /mnt/project-files/philosophy/fact-review.md)",
       "expectsPhotos": true,
-      "note": "Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) after a philosopher, teacher, explainer and student review and three outside reviews: project files philosophy/outline.md. Lessons 1 to 4 written 27 Nov 2026 with a student read-through; the rest are coming(...) in lessons.ts. Photos are parked in tools/pending-photos.json with unverified search hints. PhilPapers 2020 survey shares were written from memory and wait for the fact check.",
+      "note": "Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) in project files philosophy/outline.md. All 25 trunk lessons and 17 branch lessons written 27 Nov 2026, with student read-throughs and a full fact check (PhilPapers 2020 shares verified). Photos for lessons 1 to 4 are parked in tools/pending-photos.json; lessons 5 on have none picked yet.",
       "lessons": {}
     }
   },

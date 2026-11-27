@@ -13,11 +13,11 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Ludwig Wittgenstein was born in Vienna in 1889, the youngest of eight children of one of the richest families in Europe; his father had made a fortune in steel. Brahms and Clara Schumann played in the family's palace. Three of his four brothers took their own lives. Ludwig studied engineering, designed a propeller in Manchester, became gripped by the foundations of mathematics, and in 1911 turned up unannounced at Cambridge to study with Bertrand Russell, who soon thought him the most remarkable person he had met."
+     "text": "Ludwig Wittgenstein was born in Vienna in 1889, the youngest of eight children of one of the richest families in Europe; his father had made a fortune in steel. Brahms and Mahler gave concerts in the family's palace. Three of his four brothers took their own lives. Ludwig studied engineering, designed a propeller in Manchester, became gripped by the foundations of mathematics, and in 1911 turned up unannounced at Cambridge to study with Bertrand Russell, who soon thought him the most remarkable person he had met."
     },
     {
      "type": "text",
-     "text": "In the First World War he volunteered for the Austrian army, asked for the most dangerous posts, was decorated for bravery, and wrote a short book in his notebooks at the front. He finished it as a prisoner of war in Italy. It was published in 1921 as the *Tractatus Logico-Philosophicus*. He believed it had solved, in essentials, all the problems of philosophy, so he gave up the subject."
+     "text": "In the First World War he volunteered for the Austrian army, asked for the most dangerous posts, was decorated for bravery, and wrote a short book in his notebooks at the front. He finished it on leave in 1918, and carried it with him as a prisoner of war in Italy. It was published in 1921 as the *Tractatus Logico-Philosophicus*. He believed it had solved, in essentials, all the problems of philosophy, so he gave up the subject."
     },
     {
      "type": "text",
@@ -43,11 +43,11 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Wittgenstein's later work, published after his death as *Philosophical Investigations* (1953), rejected the picture theory. Language, he now said, is not one thing with one job. It is a collection of activities, which he called **language games**: giving orders, describing objects, telling jokes, praying, thanking, guessing riddles. Words are like tools in a toolbox, with uses as different as a hammer's and a glue pot's. \"For a large class of cases, though not for all, the meaning of a word is its use in the language.\""
+     "text": "Wittgenstein's later work, published after his death as *Philosophical Investigations* (1953), rejected the picture theory. Language, he now said, is not one thing with one job. It is a collection of activities, which he called **language games**: giving orders, describing objects, telling jokes, praying, thanking, guessing riddles. Words are like tools in a toolbox, with uses as different as a hammer's and a glue pot's. \"For a large class of cases, though not for all, in which we employ the word 'meaning' it can be defined thus: the meaning of a word is its use in the language.\""
     },
     {
      "type": "text",
-     "text": "He made the point with the word \"game\" itself. What do all games have in common? Board games, card games, ball games, the Olympic Games, patience, ring-a-ring-a-roses. Not winning and losing, since a child throwing a ball against a wall has neither. Not skill, not luck, not other players. \"Don't say: there must be something common, or they would not be called games, but look and see whether there is.\" What you find, he said, is a network of overlapping similarities, as members of a family share a nose with some relatives and a way of walking with others. He called this **family resemblance**."
+     "text": "He made the point with the word \"game\" itself. What do all games have in common? Board games, card games, ball games, the Olympic Games, patience, ring-a-ring-a-roses. Not winning and losing, since a child throwing a ball against a wall has neither. Not skill, not luck, not other players. \"Don't say: there must be something common, or they would not be called games, but look and see whether there is anything common to all.\" What you find, he said, is a network of overlapping similarities, as members of a family share a nose with some relatives and a way of walking with others. He called this **family resemblance**."
     },
     {
      "type": "interactive_diagram",
@@ -215,7 +215,7 @@
   "teacher": {
    "kind": "technical",
    "title": "The Haidbauer incident",
-   "text": "In 1926, in the village of Otterthal, Wittgenstein hit an eleven-year-old pupil, Josef Haidbauer, on the head, and the boy collapsed. Wittgenstein was taken to court and cleared, but left teaching. Years later he went back to the village to apologise to several of the pupils he had hit."
+   "text": "In 1926, in the village of Otterthal, Wittgenstein hit an eleven-year-old pupil, Josef Haidbauer, on the head, and the boy collapsed. Wittgenstein was summoned to a court hearing, which seems to have come to nothing, but he left teaching. Years later he went back to the village to apologise to several of the pupils he had hit."
   },
   "ladder": {
    "kind": "technical",

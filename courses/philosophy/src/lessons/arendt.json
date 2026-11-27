@@ -17,7 +17,7 @@
     },
     {
      "type": "text",
-     "text": "Among the reporters was Hannah Arendt, a German Jewish philosopher who had studied under Martin Heidegger[^scholem] and fled the Nazis herself. She had been arrested by the Gestapo in 1933, escaped to France, been held in an internment camp there in 1940, escaped again, and reached New York in 1941. Her book *The Origins of Totalitarianism* (1951) had made her famous. She went to Jerusalem for *The New Yorker*, expecting, she said, to see a monster."
+     "text": "Among the reporters was Hannah Arendt, a German Jewish philosopher who had studied under Martin Heidegger[^scholem] and fled the Nazis herself. She had been arrested by the Gestapo in 1933, escaped to France, been held in an internment camp there in 1940, escaped again, and reached New York in 1941. Her book *The Origins of Totalitarianism* (1951) had made her famous. She went to Jerusalem for *The New Yorker*, where the prosecution set out to show the court a monster."
     }
    ]
   },
@@ -49,7 +49,7 @@
       ],
       "who": [
        "You chose the answer suggested by Arendt and by Milgram's experiments in the next part.",
-       "You chose the answer many historians give, who stress that people under the Nazis made real choices and some refused.",
+       "You chose a hopeful answer. Historians stress that people under the Nazis made real choices and some refused, though in the units they studied most did not.",
        "You chose the view Arendt wrote against.",
        "The evidence in the next part has been argued over for 60 years."
       ]
@@ -62,11 +62,11 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In July 1961, three months after the trial opened, a psychologist at Yale, Stanley Milgram, began a series of experiments that seemed to bear Arendt out. Volunteers were told they were taking part in a study of learning. Each was told to give electric shocks to a \"learner\" in the next room whenever he answered wrongly, raising the voltage each time, up to a switch marked 450 volts. The learner was an actor and received no shocks, but the volunteers did not know that. As the voltage rose he cried out, begged to stop, and then fell silent. When volunteers hesitated, a man in a grey lab coat told them calmly to continue."
+     "text": "In August 1961, four months after the trial opened, a psychologist at Yale, Stanley Milgram, began a series of experiments that seemed to bear Arendt out. Volunteers were told they were taking part in a study of learning. Each was told to give electric shocks to a \"learner\" in the next room whenever he answered wrongly, raising the voltage each time, up to a switch marked 450 volts. The learner was an actor and received no shocks, but the volunteers did not know that. As the voltage rose he cried out, begged to stop, and then fell silent. When volunteers hesitated, a man in a grey lab coat told them calmly to continue."
     },
     {
      "type": "text",
-     "text": "Before the experiments, Milgram asked psychiatrists to predict the result, and they expected only a tiny fraction to go to the end. In the best-known version, 26 of 40, nearly two thirds, went all the way to 450 volts. Milgram wrote that ordinary people, simply doing their jobs and without any particular hostility, can become agents in a terrible destructive process.[^milgram]"
+     "text": "Milgram described the experiment to psychiatrists and asked them to predict the result, and they expected only a tiny fraction to go to the end. In the best-known version, 26 of 40, nearly two thirds, went all the way to 450 volts. Milgram wrote that ordinary people, simply doing their jobs and without any particular hostility, can become agents in a terrible destructive process.[^milgram]"
     }
    ]
   },
@@ -115,7 +115,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The banality of evil is still argued over, by historians, philosophers and psychologists. Most historians now think Eichmann himself was more fanatical than Arendt saw, but the broader claim, that ordinary people in ordinary jobs carried out most of the Holocaust, is supported by later research, such as Christopher Browning's study of a police battalion of middle-aged Hamburg men who shot thousands of Jews in Poland. Milgram's experiments are still discussed, though later re-examination of his records found that many volunteers doubted the shocks were real, and that the lab coat's orders were less scripted than he reported. Arendt's other books, on totalitarianism and on what she called the human condition, are widely read in political philosophy."
+     "text": "The banality of evil is still argued over, by historians, philosophers and psychologists. Most historians now think Eichmann himself was more fanatical than Arendt saw, but the broader claim, that ordinary people in ordinary jobs carried out most of the Holocaust, is supported by later research, such as Christopher Browning's study of a police battalion of middle-aged Hamburg men who shot tens of thousands of Jews in Poland. Milgram's experiments are still discussed, though later re-examination of his records found that many volunteers doubted the shocks were real, and that the lab coat's orders were less scripted than he reported. Arendt's other books, on totalitarianism and on what she called the human condition, are widely read in political philosophy."
     },
     {
      "type": "quiz",
@@ -176,7 +176,7 @@
  ],
  "summary": [
   "**Eichmann was captured in 1960 and tried in Jerusalem in 1961.** He had organised the transports of the Holocaust.",
-  "**Arendt expected a monster and found a normal man.** He spoke in clichés and said he had done his job.",
+  "**The prosecution showed a monster; Arendt saw a normal man.** He spoke in clichés and said he had done his job.",
   "**The banality of evil means ordinary doers, not ordinary deeds.** Its root was thoughtlessness.",
   "**Milgram's volunteers mostly obeyed to the end.** Nearly two thirds went to 450 volts.",
   "**Eichmann himself may have been performing.** His interviews in Argentina show a committed antisemite.",

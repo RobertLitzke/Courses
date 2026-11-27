@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "On 6 July 1942 Otto Frank, a businessman in Amsterdam, moved his wife and two daughters into a set of rooms hidden behind a bookcase at the back of his company's building on the Prinsengracht canal. Four more people joined them. For more than two years a few of his employees kept them alive. One of them, Miep Gies, bought their food with forged ration cards, brought them news and books, and lied to German officials, Dutch police and neighbours whenever she had to. On 4 August 1944 the hiding place was raided. Seven of the eight people in it died in the camps. Miep Gies gathered up the diary of the younger daughter, Anne, from the floor and kept it unread until the war was over.[^gies]"
+     "text": "On 6 July 1942 Otto Frank, a businessman in Amsterdam, moved his wife and two daughters into a set of rooms at the back of his company's building, whose door was soon hidden behind a bookcase, on the Prinsengracht canal. Four more people joined them. For more than two years a few of his employees kept them alive. One of them, Miep Gies, bought their food with illegally obtained ration cards, brought them news and books, and lied to German officials, Dutch police and neighbours whenever she had to. On 4 August 1944 the hiding place was raided. Seven of the eight people in it died in the camps. Miep Gies gathered up the diary of the younger daughter, Anne, from the floor and kept it unread until the war was over.[^gies]"
     },
     {
      "type": "text",
@@ -22,7 +22,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Kant was born in 1724 in Königsberg, a port on the Baltic in East Prussia, now Kaliningrad in Russia, and spent almost his whole life there. He was the son of a harness maker, taught at the university for decades, and was famous for the regularity of his habits; the story that his neighbours set their clocks by his afternoon walk is told of him, probably with some exaggeration.[^walk] In his fifties he published, in quick succession, the books that made him the most influential philosopher of modern times: the *Critique of Pure Reason* in 1781, and in 1785 a short book on ethics, the *Groundwork of the Metaphysics of Morals*."
+     "text": "Kant was born in 1724 in Königsberg, a port on the Baltic in East Prussia, now Kaliningrad in Russia, and spent almost his whole life there. He was the son of a harness maker, taught at the university for decades, and was famous for the regularity of his habits; the story that his neighbours set their clocks by his afternoon walk is told of him, probably with some exaggeration.[^walk] In his late fifties and early sixties he published, in quick succession, the books that made him the most influential philosopher of modern times: the *Critique of Pure Reason* in 1781, and in 1785 a short book on ethics, the *Groundwork of the Metaphysics of Morals*."
     },
     {
      "type": "text",
@@ -99,7 +99,7 @@
     },
     {
      "type": "text",
-     "text": "Kant's second formula is the one most people find easier to use: \"So act that you use humanity, whether in your own person or in that of any other, always at the same time as an end, never merely as a means.\" Using people is unavoidable; you use a bus driver to get to work. What is forbidden is using someone merely as a means, in a way they could not agree to, as when you deceive or coerce them. Every person has a dignity, Kant said, which is beyond price."
+     "text": "Kant's second formula is the one most people find easier to use: \"So act that you use humanity, whether in your own person or in the person of any other, always at the same time as an end, never merely as a means.\" Using people is unavoidable; you use a bus driver to get to work. What is forbidden is using someone merely as a means, in a way they could not agree to, as when you deceive or coerce them. Every person has a dignity, Kant said, which is beyond price."
     }
    ]
   },
@@ -179,7 +179,7 @@
     },
     {
      "type": "text",
-     "text": "Most modern Kantians think Kant misapplied his own theory. In 1986 the American philosopher Christine Korsgaard argued that the murderer is himself acting on a maxim of deception, since he hides his purpose to get the information, and that the humanity formula does not require you to treat as an equal partner in truth-telling someone who is using you as a tool for murder. Others point out that a maxim can be stated more precisely, \"lie when that is the only way to save an innocent person from a murderer\", and that such a maxim could easily be willed as a universal law. On either reading, Miep Gies acted as a Kantian might."
+     "text": "Most modern Kantians think Kant misapplied his own theory. In 1986 the American philosopher Christine Korsgaard argued that the murderer is himself acting on a maxim of deception, since he hides his purpose to get the information, and that a maxim of lying to such a deceiver passes the universal law test without defeating itself. She granted that the humanity formula seems to forbid every lie, and argued that in the face of evil the universal law formula is the guide to follow. Others point out that a maxim can be stated more precisely, \"lie when that is the only way to save an innocent person from a murderer\", and that such a maxim could easily be willed as a universal law. On either reading, Miep Gies acted as a Kantian might."
     }
    ]
   },
@@ -201,7 +201,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Kantian ethics, or deontology, the view that some actions are right or wrong in themselves and not only by their results, is still argued over and is one of the three main camps in ethics, held by about a third of philosophers in the 2020 survey alongside virtue ethics (lesson 4) and consequentialism (lesson 17). The humanity formula is its most influential part, and the idea of human dignity it expresses runs through modern human rights law and medical ethics, where informed consent is required so that patients are not used merely as means."
+     "text": "Deontology, the family of views led by Kant's that some actions are right or wrong in themselves and not only by their results, is still argued over and is one of the three main camps in ethics, held by about a third of philosophers in the 2020 survey alongside virtue ethics (lesson 4) and consequentialism (lesson 17). The humanity formula is its most influential part, and the idea of human dignity it expresses runs through modern human rights law and medical ethics, where informed consent is required so that patients are not used merely as means."
     },
     {
      "type": "text",
@@ -261,13 +261,13 @@
        {
         "ask": "How do many modern Kantians answer the murderer at the door?",
         "choices": [
-         "The murderer is himself deceiving, so the humanity formula allows the lie",
+         "The murderer is himself deceiving, so the universal law formula allows the lie",
          "Kant was right: lying to him is wrong whatever happens",
          "Kant's ethics should be given up, since it fails this case",
          "Consequences decide the case, so Kantianism does not apply"
         ],
         "answer": 0,
-        "why": "Korsgaard and others argue that a person using you as a tool of murder has forfeited the trust the duty protects, or that a more precise maxim passes the test."
+        "why": "Korsgaard argues that a maxim of lying to someone who deceives you in order to do evil passes the universal law test; others say a more precise maxim passes."
        }
       ]
      }

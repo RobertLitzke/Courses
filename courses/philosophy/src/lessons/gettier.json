@@ -157,7 +157,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Philosophers spent decades trying to add a fourth condition. One proposal was that the belief must not be inferred from anything false. That rules out Smith, whose belief was inferred from a false one, but the stopped clock seems to be a counterexample with no false inference in it. Another was that the fact must cause the belief in the right way: the real time should cause your belief about the time. Alvin Goldman's **reliabilism** said a belief is knowledge if it was produced by a process that reliably produces true beliefs, which the fake barns case seems to defeat, since your eyes are not reliable among fake barns. Later views say a known belief must be **safe**: it could not easily have been false."
+     "text": "Philosophers spent decades trying to add a fourth condition. One proposal was that the belief must not be inferred from anything false. That rules out Smith, whose belief was inferred from a false one, but not the fake barns case, where nothing false is believed at all. Another was that the fact must cause the belief in the right way, but the one real barn does cause your belief. Alvin Goldman's **reliabilism** said a belief is knowledge if it was produced by a process that reliably produces true beliefs, which handles the barns, since your eyes are not reliable among fakes, but met counterexamples of its own. Later views say a known belief must be **safe**: it could not easily have been false."
     },
     {
      "type": "text",

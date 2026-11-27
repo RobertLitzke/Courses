@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In January 1739 a 27-year-old Scot who had spent three years living cheaply in a small town in France[^france] published the first two volumes of a book he expected to change philosophy. David Hume's *A Treatise of Human Nature* aimed to do for the study of the mind what Newton had done for the heavens. It sold almost no copies and was barely reviewed. \"Never literary attempt was more unfortunate than my Treatise of Human Nature,\" Hume wrote at the end of his life. \"It fell dead-born from the press.\""
+     "text": "In January 1739 a 27-year-old Scot who had spent three years living cheaply in France, most of them in a small town[^france] published the first two volumes of a book he expected to change philosophy. David Hume's *A Treatise of Human Nature* aimed to do for the study of the mind what Newton had done for the heavens. It sold slowly, and the few reviews it got were puzzled or hostile. \"Never literary attempt was more unfortunate than my Treatise of Human Nature,\" Hume wrote at the end of his life. \"It fell dead-born from the press.\""
     },
     {
      "type": "text",
@@ -17,7 +17,7 @@
     },
     {
      "type": "text",
-     "text": "In the summer of 1776 Hume was dying of a disease of the bowels, and knew it. On 7 July the young lawyer and diarist James Boswell called on him in Edinburgh, hoping, as he admitted, to find the famous unbeliever afraid of death at last. Hume was cheerful. He told Boswell that he had not believed in religion since he began reading the philosopher John Locke, and that the idea of a life after death was \"a most unreasonable fancy\". Boswell left disturbed. Hume died on 25 August, as calm as he had been all summer.[^boswell]"
+     "text": "In the summer of 1776 Hume was dying of a disease of the bowels, and knew it. On 7 July the young lawyer and diarist James Boswell called on him in Edinburgh, curious, as he wrote, to see whether the famous unbeliever still denied a life after death with death before his eyes. Hume was cheerful. He told Boswell that he had not believed in religion since he began reading Locke and Samuel Clarke, and that the idea of a life after death was \"a most unreasonable fancy\". Boswell left disturbed. Hume died on 25 August, as calm as he had been all summer.[^boswell]"
     },
     {
      "type": "text",
@@ -252,14 +252,14 @@
   "**Induction cannot be justified without circularity.** Reason cannot prove the future will resemble the past, and experience can do so only by assuming it.",
   "**Russell's chicken trusted the past to the end.** A long run of cases does not guarantee the next one.",
   "**Custom is the great guide of human life.** Hume thought we cannot help reasoning inductively, whether or not it is justified.",
-  "**We never see a cause, only constant conjunction.** Hume, like al-Ghazali before him, put necessity in the mind, not in objects.",
+  "**We never see a cause, only constant conjunction.** Al-Ghazali had seen the same gap; Hume put necessity in the mind, not in objects.",
   "**You cannot get an ought from an is alone.** An argument from facts to what we should do needs a moral premise."
  ],
  "footnotes": {
   "boswell": {
    "kind": "technical",
    "title": "Boswell's account",
-   "text": "Boswell wrote up the conversation that evening, in a note titled \"An Account of My Last Interview with David Hume, Esq.\" He later asked Samuel Johnson about it; Johnson insisted Hume must have been lying about his calm. Adam Smith, Hume's closest friend, wrote that he had always thought Hume came as close to the idea of a perfectly wise and virtuous man as human frailty allows, and was attacked for it for years."
+   "text": "Boswell noted the conversation in his journal and wrote it up the next March, in an account titled \"An Account of My Last Interview with David Hume, Esq.\" He later asked Samuel Johnson about it; Johnson insisted Hume must have been lying about his calm. Adam Smith, Hume's closest friend, wrote that he had always thought Hume came as close to the idea of a perfectly wise and virtuous man as human frailty allows, and was attacked for it for years."
   },
   "searle": {
    "kind": "technical",

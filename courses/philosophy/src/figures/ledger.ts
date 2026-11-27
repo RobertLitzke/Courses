@@ -50,7 +50,7 @@ export const ledgerFigure: FigureFactory = Object.assign(
     const share = (p: { v: AskedVerdict; pick: number }) => p.v.options.poll!.shares[p.pick];
     return {
       node: el('div.ledger-fig', {},
-        el('p', {}, `You gave ${r.answered} of the ${r.asked} verdicts in the course. On ${r.polled.length} of them the 2020 survey asked philosophers the same question, and you gave the answer most of them gave ${most} ${most === 1 ? 'time' : 'times'}.`),
+        el('p', {}, `You gave ${r.answered} of the ${r.asked} verdicts in the course. On ${r.polled.length} of them the 2020 survey asked philosophers a similar question, and you gave the answer most of them gave ${most} ${most === 1 ? 'time' : 'times'}.`),
         ...(against.length ? [el('h4', {}, 'Where you differed from most philosophers'),
           ...against.map((p) => el('div.ledger-row', {},
             el('span.ledger-lesson', {}, `Lesson ${p.v.n}`),

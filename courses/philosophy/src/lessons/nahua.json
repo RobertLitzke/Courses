@@ -9,11 +9,11 @@
  "teaches": "The Nahua (Aztec) sages on a world always in motion, and how we know what they said",
  "parts": [
   {
-   "title": "A mother's advice",
+   "title": "A father's advice",
    "blocks": [
     {
      "type": "text",
-     "text": "In the 16th century, in Mexico, a Spanish friar and a team of Nahua scholars wrote down the speeches that Aztec parents gave their children when they came of age.[^word] In one, a noblewoman tells her daughter what life on earth is like:"
+     "text": "In the 16th century, in Mexico, a Spanish friar and a team of Nahua scholars wrote down the speeches that Aztec parents gave their children when they came of age.[^word] In one, a nobleman tells his son what life on earth is like:"
     },
     {
      "type": "text",
@@ -173,7 +173,7 @@
          "A good person never makes a mistake"
         ],
         "answer": 0,
-        "why": "The mother's advice: an abyss on each side, wherever you go."
+        "why": "The father's advice: an abyss on each side, wherever you go."
        },
        {
         "ask": "How does Maffie describe teotl?",
