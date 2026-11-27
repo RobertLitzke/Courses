@@ -57,6 +57,12 @@ export const COL = {
   elsewhere: '#8c8279',
   britain: '#4a5f8f',
   japan: '#c2456b',
+  /** Synthetic fibre in charts, and the two building blocks of a synthetic polymer chain. */
+  synthetic: '#5b7fa8',
+  unitA: '#5b7fa8',
+  unitB: '#a86b9c',
+  /** Regenerated cellulose (rayon, viscose) in charts. */
+  wood: '#8a6d4f',
 } as const;
 export type ColorKey = keyof typeof COL;
 

@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 42 | 0 |
-| [Fabric & Form](#textiles) | 0.1 beta | 22 | 5 | 6 | 22 | 22 | 0 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 23 | 4 | 7 | 23 | 23 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 42 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 lessons to write, 6 to read through, 22 to copy-edit, 22 to fact-check |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 4 lessons to write, 7 to read through, 23 to copy-edit, 23 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -622,7 +622,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 20 | How did a failed malaria cure end natural dyes? (`mauve`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Perkin's mauveine (1856) and coal-tar chemistry; the German dye industry; synthetic alizarin and the end of madder growing; the Bengal Indigo Revolt and BASF's synthetic indigo (1897); from dyes to Ehrlich's Salvarsan and Domagk's Prontosil. |
 | 21 | Why did Gandhi spin every day? (`khadi`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Bombay's Indian-owned mills and the survival of handloom weaving; historians disagree on how far India was deindustrialised; tariffs and the cotton excise; swadeshi (1905); the foreign-cloth bonfires of 1921; khadi as politics in a country with its own mill industry. |
 | 22 | How did a loom company become Toyota? (`toyoda`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Raw silk as Meiji Japan's export engine; the Tomioka silk mill (1872) and the young women who worked in Japan's mills; Osaka's cotton spinning; Japan overtaking Britain in cotton cloth exports in the 1930s; Sakichi Toyoda's automatic loom (1924), the 1929 sale of its patent rights to Platt Brothers, and how that money helped start Toyota. |
-| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | planned, listed as coming |  | Rayon from wood pulp, polymers, nylon and polyester, and why synthetic does not simply mean worse. |
+| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Rayon (viscose) as regenerated cellulose; what a polymer is; Carothers and nylon at DuPont (1935, on sale 15 May 1940); nylon at war; polyester, acrylic and spandex; why synthetics are now about two thirds of the world's fibre and why that is not simply a loss. |
 | 24 | When did clothes start coming in sizes? (`sizes`) |  | planned, listed as coming |  | The sewing machine, ready-to-wear, men's and women's sizes, garment districts and the Triangle fire. |
 | 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | planned, listed as coming |  | Trade quotas and their end, Bangladesh's garment industry, short-cycle fashion, Rana Plaza, and who gets the price of a shirt. |
 | 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | planned, listed as coming |  | The Aral Sea, Xinjiang, Bt cotton, subsidies and the Cotton-4, second-hand exports, microfibres, and which numbers to trust. |
