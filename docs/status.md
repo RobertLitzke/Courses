@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 14 | 28 | 10 | 14 | 14 | 14 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 15 | 27 | 11 | 15 | 15 | 15 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 28 lessons to write, 10 to read through, 14 to copy-edit, 14 to fact-check, 14 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 27 lessons to write, 11 to read through, 15 to copy-edit, 15 to fact-check, 15 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -563,7 +563,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 12 | Could you have done otherwise? (`spinoza`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show. |
 | 13 | Are you the person you were at ten? (`locke`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter. |
 | 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought. |
-| 15 | Can you lie to a murderer at the door? (`kant`) |  | planned, listed as coming |  | Duty, the categorical imperative, and the 1797 argument with Constant. |
+| 15 | Can you lie to a murderer at the door? (`kant`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume. |
 | 16 | Would you obey God if he told you to kill your son? (`leap`) |  | planned, listed as coming |  | Faith without proof: Pascal's wager and Kierkegaard's Abraham. |
 | 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | planned, listed as coming |  | Utilitarianism, Mill's higher pleasures, the harm principle and the experience machine. |
 | 18 | Who killed God? (`nietzsche`) |  | planned, listed as coming |  | The death of God, master and slave morality, eternal recurrence, and what his sister did to him. |
