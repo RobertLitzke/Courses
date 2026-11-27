@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 23 | 19 | 19 | 23 | 23 | 23 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 24 | 18 | 20 | 24 | 24 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 19 lessons to write, 19 to read through, 23 to copy-edit, 23 to fact-check, 23 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 18 lessons to write, 20 to read through, 24 to copy-edit, 24 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -572,7 +572,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 21 | Should we imagine Sisyphus happy? (`camus`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The absurd, revolt, and the 1952 quarrel with Sartre. |
 | 22 | What rules would you pick before you knew who you'd be? (`rawls`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The veil of ignorance, the difference principle, Harsanyi and Nozick. |
 | 23 | Would you ruin your clothes to save a drowning child? (`singer`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Singer's drowning child, the trolley problem as Foot meant it, and effective altruism. |
-| 24 | What is it like to be a bat? (`bat`) |  | planned, listed as coming |  | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
+| 24 | What is it like to be a bat? (`bat`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
 | 25 | What do philosophers do now? (`gadfly`) |  | planned, listed as coming |  | Philosophy today, what is still argued over and what was abandoned, and your verdicts read back. |
 | E1 | What happens if you stop forcing it? (`dao`) | Elsewhere | planned, listed as coming |  | Laozi and Zhuangzi on acting without strain, beside the Stoics. |
 | E2 | Who wrote the first rules for a fair debate? (`nyaya`) | Elsewhere | planned, listed as coming |  | The Nyāya rules of argument and the Cārvāka sceptics of ancient India. |

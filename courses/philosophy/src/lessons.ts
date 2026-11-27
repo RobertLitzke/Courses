@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('bat', 24, 'What is it like to be a bat?', 'Consciousness: Nagel\'s bat, the Chinese room, and whether a chatbot could feel pain'),
   coming('gadfly', 25, 'What do philosophers do now?', 'Philosophy today, what is still argued over and what was abandoned, and your verdicts read back'),
   coming('dao', 101, 'What happens if you stop forcing it?', 'Laozi and Zhuangzi on acting without strain, beside the Stoics', { branch: 'elsewhere', needs: ['stoics'] }),
   coming('nyaya', 102, 'Who wrote the first rules for a fair debate?', 'The Nyāya rules of argument and the Cārvāka sceptics of ancient India', { branch: 'elsewhere', needs: ['socrates'] }),
