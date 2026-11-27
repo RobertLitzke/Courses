@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 0 | 0 | 42 | 0 |
+| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 42 | 0 |
 | [Fabric & Form](#textiles) | 0.1 beta | 16 | 11 | 7 | 16 | 16 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
@@ -41,7 +41,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.2 beta | 2026-11-27 | no: 42 awaiting photos |
+| Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 42 awaiting photos |
 | Fabric & Form | 0.1 beta | 2026-11-27 | no: 11 lessons to write, 7 to read through, 16 to copy-edit, 16 to fact-check |
 
 ## Clouds <a id="clouds"></a>
@@ -551,7 +551,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
+| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (2 photos parked in pending-photos.json) | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
 | 2 | What if everything you see is shadows? (`cave`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
 | 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting photos/images (1 photo parked in pending-photos.json) |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
 | 4 | Can you practise being good? (`aristotle`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
