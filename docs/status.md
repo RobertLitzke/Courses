@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 42 | 0 | 42 | 0 |
+| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 0 | 0 | 42 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.2 beta | 2026-11-27 | no: 42 to copy-edit, 42 awaiting photos |
+| Philosophy | 0.2 beta | 2026-11-27 | no: 42 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -545,52 +545,52 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Philosophy <a id="philosophy"></a>
 
-`courses/philosophy`, version 0.2 (beta, 2026-11-27). Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) in project files philosophy/outline.md. All 25 trunk lessons and 17 branch lessons written 27 Nov 2026, with student read-throughs and a full fact check (PhilPapers 2020 shares verified). Photos for lessons 1 to 4 are parked in tools/pending-photos.json; lessons 5 on have none picked yet. Its catalog description waits for Gemini (queued 2026-11-27).
+`courses/philosophy`, version 0.2 (beta, 2026-11-27). Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) in project files philosophy/outline.md. All 25 trunk lessons and 17 branch lessons written 27 Nov 2026, with student read-throughs and a full fact check (PhilPapers 2020 shares verified). Photos for lessons 1 to 4 are parked in tools/pending-photos.json; lessons 5 on have none picked yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (2 photos parked in pending-photos.json) | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
-| 2 | What if everything you see is shadows? (`cave`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (2 photos parked in pending-photos.json) | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
-| 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (1 photo parked in pending-photos.json) | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
-| 4 | Can you practise being good? (`aristotle`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (2 photos parked in pending-photos.json) | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
-| 5 | How little do you need to be happy? (`epicurus`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Epicurus's garden, pleasure as the absence of pain, sorting desires, "death is nothing to us", and Lucretius's symmetry argument. |
-| 6 | What is up to you? (`stoics`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy. |
-| 7 | Can you think God into existence? (`god`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The problem of evil, Augustine's free-will answer, and Anselm's ontological argument with Gaunilo's perfect island. |
-| 8 | Can reason overrule scripture? (`faith`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Al-Ghazali's fire and cotton, Ibn Rushd's reply that truth cannot contradict truth, and Aristotle's road into Latin Europe. |
-| 9 | Who counts as fully human? (`valladolid`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The Valladolid debate of 1550: Sepúlveda's use of Aristotle's "natural slaves", Las Casas's reply, and natural law. |
-| 10 | How do you know you're not dreaming? (`descartes`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The method of doubt, "I think, therefore I am", Ibn Sina's floating man, and the problem of how a mind moves a body. |
-| 11 | Why obey anyone? (`hobbes`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion. |
-| 12 | Could you have done otherwise? (`spinoza`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show. |
-| 13 | Are you the person you were at ten? (`locke`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter. |
-| 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought. |
-| 15 | Can you lie to a murderer at the door? (`kant`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume. |
-| 16 | Would you obey God if he told you to kill your son? (`leap`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety. |
-| 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine. |
-| 18 | Who killed God? (`nietzsche`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how his sister's editing let the Nazis claim him. |
-| 19 | Are you condemned to be free? (`sartre`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism. |
-| 20 | Is a woman born or made? (`beauvoir`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
-| 21 | Should we imagine Sisyphus happy? (`camus`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The absurd, revolt, and the 1952 quarrel with Sartre. |
-| 22 | What rules would you pick before you knew who you'd be? (`rawls`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The veil of ignorance, the difference principle, Harsanyi and Nozick. |
-| 23 | Would you ruin your clothes to save a drowning child? (`singer`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Singer's drowning child, the trolley problem as Foot meant it, and effective altruism. |
-| 24 | What is it like to be a bat? (`bat`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
-| 25 | What do philosophers do now? (`gadfly`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Philosophy today, what is still argued over and what was abandoned, and your verdicts read back. |
-| E1 | What happens if you stop forcing it? (`dao`) | Elsewhere | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Laozi and Zhuangzi on acting without strain, beside the Stoics. |
-| E2 | Who wrote the first rules for a fair debate? (`nyaya`) | Elsewhere | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The Nyāya rules of argument and the Cārvāka sceptics of ancient India. |
-| E3 | How do you keep your footing on slippery earth? (`nahua`) | Elsewhere | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The Nahua (Aztec) sages on a world always in motion, and how we know what they said. |
-| E4 | Are you a person through other people? (`ubuntu`) | Elsewhere | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission. |
-| P1 | Is it better to be feared than loved? (`machiavelli`) | Power | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The Prince, read in its setting. |
-| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Rousseau's social contract and the general will. |
-| P3 | Is philosophy supposed to change things? (`marx`) | Power | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Alienation, and Marx's diagnosis set apart from his failed predictions. |
-| P4 | Should you hear out the other side? (`speech`) | Power | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
-| P5 | Can ordinary people do great evil? (`arendt`) | Power | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Arendt at the Eichmann trial and the banality of evil. |
-| K1 | How to lose an argument (`fallacies`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Common fallacies, charity and steelmanning. |
-| K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Zeno's paradoxes and what infinite sums settle. |
-| K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The sorites paradox and vague words. |
-| K4 | The three pages that broke knowledge (`gettier`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Justified true belief and Gettier's 1963 counterexamples. |
-| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
-| K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Wittgenstein, language games and the beetle in the box. |
-| K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | The analytic and continental split, and Heidegger in plain words. |
-| K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | awaiting Gemini review (queued 2026-11-27) | Photos (no photos chosen yet) | Parfit's non-identity problem and duties to future generations. |
+| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
+| 2 | What if everything you see is shadows? (`cave`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
+| 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting photos/images (1 photo parked in pending-photos.json) |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
+| 4 | Can you practise being good? (`aristotle`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
+| 5 | How little do you need to be happy? (`epicurus`) |  | awaiting photos/images (no photos chosen yet) |  | Epicurus's garden, pleasure as the absence of pain, sorting desires, "death is nothing to us", and Lucretius's symmetry argument. |
+| 6 | What is up to you? (`stoics`) |  | awaiting photos/images (no photos chosen yet) |  | Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy. |
+| 7 | Can you think God into existence? (`god`) |  | awaiting photos/images (no photos chosen yet) |  | The problem of evil, Augustine's free-will answer, and Anselm's ontological argument with Gaunilo's perfect island. |
+| 8 | Can reason overrule scripture? (`faith`) |  | awaiting photos/images (no photos chosen yet) |  | Al-Ghazali's fire and cotton, Ibn Rushd's reply that truth cannot contradict truth, and Aristotle's road into Latin Europe. |
+| 9 | Who counts as fully human? (`valladolid`) |  | awaiting photos/images (no photos chosen yet) |  | The Valladolid debate of 1550: Sepúlveda's use of Aristotle's "natural slaves", Las Casas's reply, and natural law. |
+| 10 | How do you know you're not dreaming? (`descartes`) |  | awaiting photos/images (no photos chosen yet) |  | The method of doubt, "I think, therefore I am", Ibn Sina's floating man, and the problem of how a mind moves a body. |
+| 11 | Why obey anyone? (`hobbes`) |  | awaiting photos/images (no photos chosen yet) |  | Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion. |
+| 12 | Could you have done otherwise? (`spinoza`) |  | awaiting photos/images (no photos chosen yet) |  | Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show. |
+| 13 | Are you the person you were at ten? (`locke`) |  | awaiting photos/images (no photos chosen yet) |  | Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter. |
+| 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | awaiting photos/images (no photos chosen yet) |  | Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought. |
+| 15 | Can you lie to a murderer at the door? (`kant`) |  | awaiting photos/images (no photos chosen yet) |  | Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume. |
+| 16 | Would you obey God if he told you to kill your son? (`leap`) |  | awaiting photos/images (no photos chosen yet) |  | Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety. |
+| 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | awaiting photos/images (no photos chosen yet) |  | Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine. |
+| 18 | Who killed God? (`nietzsche`) |  | awaiting photos/images (no photos chosen yet) |  | The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how his sister's editing let the Nazis claim him. |
+| 19 | Are you condemned to be free? (`sartre`) |  | awaiting photos/images (no photos chosen yet) |  | Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism. |
+| 20 | Is a woman born or made? (`beauvoir`) |  | awaiting photos/images (no photos chosen yet) |  | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
+| 21 | Should we imagine Sisyphus happy? (`camus`) |  | awaiting photos/images (no photos chosen yet) |  | The absurd, revolt, and the 1952 quarrel with Sartre. |
+| 22 | What rules would you pick before you knew who you'd be? (`rawls`) |  | awaiting photos/images (no photos chosen yet) |  | The veil of ignorance, the difference principle, Harsanyi and Nozick. |
+| 23 | Would you ruin your clothes to save a drowning child? (`singer`) |  | awaiting photos/images (no photos chosen yet) |  | Singer's drowning child, the trolley problem as Foot meant it, and effective altruism. |
+| 24 | What is it like to be a bat? (`bat`) |  | awaiting photos/images (no photos chosen yet) |  | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
+| 25 | What do philosophers do now? (`gadfly`) |  | awaiting photos/images (no photos chosen yet) |  | Philosophy today, what is still argued over and what was abandoned, and your verdicts read back. |
+| E1 | What happens if you stop forcing it? (`dao`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | Laozi and Zhuangzi on acting without strain, beside the Stoics. |
+| E2 | Who wrote the first rules for a fair debate? (`nyaya`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | The Nyāya rules of argument and the Cārvāka sceptics of ancient India. |
+| E3 | How do you keep your footing on slippery earth? (`nahua`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | The Nahua (Aztec) sages on a world always in motion, and how we know what they said. |
+| E4 | Are you a person through other people? (`ubuntu`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission. |
+| P1 | Is it better to be feared than loved? (`machiavelli`) | Power | awaiting photos/images (no photos chosen yet) |  | The Prince, read in its setting. |
+| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | awaiting photos/images (no photos chosen yet) |  | Rousseau's social contract and the general will. |
+| P3 | Is philosophy supposed to change things? (`marx`) | Power | awaiting photos/images (no photos chosen yet) |  | Alienation, and Marx's diagnosis set apart from his failed predictions. |
+| P4 | Should you hear out the other side? (`speech`) | Power | awaiting photos/images (no photos chosen yet) |  | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
+| P5 | Can ordinary people do great evil? (`arendt`) | Power | awaiting photos/images (no photos chosen yet) |  | Arendt at the Eichmann trial and the banality of evil. |
+| K1 | How to lose an argument (`fallacies`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Common fallacies, charity and steelmanning. |
+| K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Zeno's paradoxes and what infinite sums settle. |
+| K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | The sorites paradox and vague words. |
+| K4 | The three pages that broke knowledge (`gettier`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Justified true belief and Gettier's 1963 counterexamples. |
+| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
+| K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Wittgenstein, language games and the beetle in the box. |
+| K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | The analytic and continental split, and Heidegger in plain words. |
+| K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Parfit's non-identity problem and duties to future generations. |
 
 ## Not started
 

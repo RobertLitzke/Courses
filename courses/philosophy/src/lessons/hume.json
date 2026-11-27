@@ -1,280 +1,280 @@
 {
- "id": "hume",
- "n": 14,
- "title": "Why do you expect the sun to rise tomorrow?",
- "teaches": "Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought",
- "parts": [
-  {
-   "title": "Dead-born from the press",
-   "blocks": [
+  "id": "hume",
+  "n": 14,
+  "title": "Why do you expect the sun to rise tomorrow?",
+  "teaches": "Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought",
+  "parts": [
     {
-     "type": "text",
-     "text": "In January 1739 a 27-year-old Scot who had spent three years living cheaply in France, most of them in a small town[^france] published the first two volumes of a book he expected to change philosophy. David Hume's *A Treatise of Human Nature* aimed to do for the study of the mind what Newton had done for the heavens. It sold slowly, and the few reviews it got were puzzled or hostile. \"Never literary attempt was more unfortunate than my Treatise of Human Nature,\" Hume wrote at the end of his life. \"It fell dead-born from the press.\""
-    },
-    {
-     "type": "text",
-     "text": "He rewrote its main ideas in shorter books, which did better, and became famous in his lifetime for a six-volume *History of England* and for his essays. He never got a university post: Edinburgh turned him down in 1745 and Glasgow in 1751, because of his reputation as an enemy of religion. In Paris, where he worked at the British embassy in the 1760s, he was celebrated in the salons as *le bon David*."
-    },
-    {
-     "type": "text",
-     "text": "In the summer of 1776 Hume was dying of a disease of the bowels, and knew it. On 7 July the young lawyer and diarist James Boswell called on him in Edinburgh, curious, as he wrote, to see whether the famous unbeliever still denied a life after death with death before his eyes. Hume was cheerful. He told Boswell that he had not believed in religion since he began reading Locke and Samuel Clarke, and that the idea of a life after death was \"a most unreasonable fancy\". Boswell left disturbed. Hume died on 25 August, as calm as he had been all summer.[^boswell]"
-    },
-    {
-     "type": "text",
-     "text": "In this lesson we follow the argument in Hume's dead-born book that philosophers still cannot answer: that we have no good reason, only a habit, to expect the future to resemble the past."
-    }
-   ]
-  },
-  {
-   "title": "All ideas come from experience",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Hume was an **empiricist**, from the Greek for experience. Descartes, in lesson 10, had thought reason could find truths about the world by itself. Locke had disagreed, arguing that the mind at birth has no ideas in it, and Hume followed Locke and went further. Everything in the mind, Hume said, is either an impression, a vivid perception such as seeing red or feeling anger, or an idea, a fainter copy of an impression, as when you remember or imagine red. Every idea comes from some impression. A person born blind has no idea of colour.[^blue]"
-    },
-    {
-     "type": "text",
-     "text": "This gave Hume a test for words. When a philosopher uses a term, ask from what impression its idea is derived. If there is none, the word means nothing. He applied it fiercely. All reasoning, he said, concerns either relations of ideas, such as the truths of arithmetic, which can be known by thought alone, or matters of fact, which can be known only by experience. A book that contains neither, a book of medieval theology, say, should be treated as he advised at the end of his *Enquiry* of 1748: \"Commit it then to the flames: for it can contain nothing but sophistry and illusion.\""
-    }
-   ]
-  },
-  {
-   "title": "The problem of induction",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Most of what we believe about the world goes beyond anything we have experienced. You have seen the sun rise every morning of your life, and you expect it to rise tomorrow. You have eaten bread and been nourished, and you expect the next loaf to nourish you. Reasoning from observed cases to unobserved ones is called **induction**. Science depends on it, and so does every ordinary decision. Hume asked what justifies it."
-    },
-    {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "Hume's argument that induction has no rational justification.",
-     "options": {
-      "steps": [
-       {
-        "text": "Induction assumes that the future will resemble the past, that nature is uniform."
-       },
-       {
-        "text": "That assumption cannot be proved by reason alone, since there is no contradiction in the sun not rising tomorrow."
-       },
-       {
-        "text": "It cannot be proved by experience either, since any argument from experience uses induction, and so assumes what it is trying to prove."
-       },
-       {
-        "text": "So our expectation that the future will resemble the past has no rational justification.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Induction does not need to be proved; it is part of what being reasonable means.",
-        "kind": "objection",
-        "against": 4,
-        "who": "P. F. Strawson"
-       }
+      "title": "Dead-born from the press",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In January 1739 a 27-year-old Scot who had spent three years living cheaply in France, most of them in a small town[^france], published the first two volumes of a book he expected to change philosophy. David Hume's *A Treatise of Human Nature* aimed to do for the study of the mind what Newton had done for the heavens. It sold slowly, and the few reviews it got were puzzled or hostile. \"Never literary attempt was more unfortunate than my Treatise of Human Nature,\" Hume wrote at the end of his life. \"It fell dead-born from the press.\""
+        },
+        {
+          "type": "text",
+          "text": "He rewrote its main ideas in shorter books, which did better, and became famous in his lifetime for a six-volume *History of England* and for his essays. He never got a university post: Edinburgh turned him down in 1745 and Glasgow in 1752, because of his reputation as an enemy of religion. In Paris, where he worked at the British embassy in the 1760s, he was celebrated in the salons as *le bon David*."
+        },
+        {
+          "type": "text",
+          "text": "In the summer of 1776 Hume was dying of a disease of the bowels, and knew it. On 7 July the young lawyer and diarist James Boswell called on him in Edinburgh, curious, as he wrote, to see whether the famous unbeliever still denied a life after death with death before his eyes. Hume was cheerful. He told Boswell that he had not believed in religion since he began reading Locke and Samuel Clarke, and that the idea of a life after death was \"a most unreasonable fancy\". Boswell left disturbed. Hume died on 25 August, as calm as he had been all summer.[^boswell]"
+        },
+        {
+          "type": "text",
+          "text": "Hume's dead-born book contained an argument that philosophers still cannot answer: we have no good reason, only a habit, to expect the future to resemble the past."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The third premise is the subtle one. You might say: the future has always resembled the past before, so it will probably go on doing so. But that is itself an inductive argument, reasoning from past cases of the future resembling the past to future cases, so it takes for granted the very thing in question. An argument that assumes its own conclusion is called **circular**."
-    },
-    {
-     "type": "text",
-     "text": "Bertrand Russell gave the problem its best-known image in 1912. A chicken, he wrote, is fed every morning by the farmer, and every morning its confidence grows that the farmer's arrival means food. \"The man who has fed the chicken every day throughout its life at last wrings its neck instead, showing that more refined views as to the uniformity of nature would have been useful to the chicken.\" The chicken's reasoning was exactly ours, and its evidence grew stronger every day until the day it was wrong."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Hume's question about tomorrow. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "induction",
-      "ask": "Do you have a good reason, and not only a habit, to expect the sun to rise tomorrow?",
-      "choices": [
-       "Yes: our science explains why it will",
-       "No: in the end it is habit, as Hume said",
-       "Yes, though no one has shown exactly what the reason is",
-       "Not sure"
-      ],
-      "who": [
-       "Hume would ask what supports the science, and the answer is observations of the past, which brings the problem back.",
-       "You chose Hume's view. He thought the habit was unavoidable and served us well; he just denied it was reasoned.",
-       "You chose the view of most philosophers: induction is rational, but no justification of it has won general agreement.",
-       "Hume himself said that when he left his study he could not help believing in tomorrow, however hard he had argued."
+      "title": "All ideas come from experience",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hume was an **empiricist**, from the Greek for experience. Descartes, in lesson 10, had thought reason could find truths about the world by itself. Locke had disagreed, arguing that the mind at birth has no ideas in it, and Hume followed Locke and went further. Everything in the mind, Hume said, is either an impression, a vivid perception such as seeing red or feeling anger, or an idea, a fainter copy of an impression, as when you remember or imagine red. Every idea comes from some impression. A person born blind has no idea of colour.[^blue]"
+        },
+        {
+          "type": "text",
+          "text": "This gave Hume a test for words. When a philosopher uses a term, ask from what impression its idea is derived. If there is none, the word means nothing. He applied it fiercely. All reasoning, he said, concerns either relations of ideas, such as the truths of arithmetic, which can be known by thought alone, or matters of fact, which can be known only by experience. A book that contains neither, a book of medieval theology, say, should be treated as he advised at the end of his *Enquiry* of 1748: \"Commit it then to the flames: for it can contain nothing but sophistry and illusion.\""
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Hume did not conclude that we should stop expecting the sun to rise. We cannot stop, he said. \"Custom, then, is the great guide of human life.\" Nature has made us expect the future to resemble the past, as it has made us breathe, and philosophy cannot undo it. His point was about what reason can do, not about what we should believe: our most basic beliefs about the world rest on instinct, not on argument."
-    }
-   ]
-  },
-  {
-   "title": "Cause as habit",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The same reasoning took Hume to causation. When one billiard ball strikes another and the second moves, what do you see? Hume answered as al-Ghazali had answered about fire and cotton in lesson 8, more than six centuries earlier, apparently without knowing it. You see the first ball move, the contact, and the second ball move. You do not see any force or power or necessary connection passing between them. All experience ever gives is **constant conjunction**: things of one kind always followed by things of another."
-    },
-    {
-     "type": "text",
-     "text": "Where then does the idea of necessary connection come from, since every idea must come from an impression? Hume's answer is that it comes from inside us. After seeing one kind of event followed by another many times, the mind is carried by habit from the first to the expectation of the second, and we feel that transition and project it onto the world. Necessity, he wrote, \"exists in the mind, not in objects\". Al-Ghazali had used the gap to make room for God; Hume used it to show the limits of human reason."
-    }
-   ]
-  },
-  {
-   "title": "Is and ought",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "At the end of a section of the *Treatise* on morality, Hume added a paragraph that has had a life of its own. In every book on morality he had read, he said, the author goes on for a while in the ordinary way, establishing that God exists or describing human affairs, when suddenly, instead of sentences joined by *is* and *is not*, he finds nothing but sentences joined by *ought* and *ought not*. This change is imperceptible but important. An *ought* expresses some new relation, and it seems \"altogether inconceivable, how this new relation can be a deduction from others, which are entirely different from it\"."
-    },
-    {
-     "type": "text",
-     "text": "The principle drawn from this passage, that no set of purely factual premises can by itself entail a conclusion about what ought to be done, is called the **is-ought gap**, or Hume's law. That a drug relieves pain is a fact; that you ought to take it follows only if you add a premise about what is good, such as that relieving pain is good. Arguments that skip this step are everywhere. \"It's natural, so it's fine\" and \"it's always been done this way, so it should go on\" both try to cross the gap without a bridge."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Lesson 3's question, asked again now that you have met Hume. Your earlier answer is shown.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "relativism",
-      "ask": "Is morality, in the end, a matter of opinion, your own or your culture's?",
-      "choices": [
-       "Yes: it is opinion or custom",
-       "No: some moral claims are true whatever anyone thinks",
-       "Not sure"
-      ],
-      "who": [
-       "Hume is often read as on your side: moral judgements come from sentiment, not reason. But he thought human sentiments are similar enough to make moral argument possible.",
-       "You hold moral realism after meeting the is-ought gap. Realists reply that the gap shows only that some moral premises must be taken as basic, as some factual ones are.",
-       "The gap makes the question harder for both sides, which is why it is still argued over."
-      ],
-      "poll": {
-       "shares": [
-        26,
-        62,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Meta-ethics: moral realism or moral anti-realism?\", share accepting or leaning towards each."
-      },
-      "again": true
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The problem of induction is still argued over and still has no agreed answer. Some philosophers think it is a pseudo-problem, since being reasonable just means reasoning inductively; others try to justify induction by probability theory or by its success, which Hume would call circular; Karl Popper, in the branch lesson on science, tried to do without it. Nobody has shown that Hume was wrong about deduction: the future does not follow logically from the past."
-    },
-    {
-     "type": "text",
-     "text": "Cause as nothing but constant conjunction and habit, in Hume's strict form, is respected history. Most philosophers now think causal claims say more than that one thing regularly follows another, and modern accounts tie causes to what would have happened otherwise. The is-ought gap is still argued over, and still widely accepted as a warning, though some philosophers argue that certain facts, such as that a promise was made, already carry an ought with them.[^searle]"
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on Hume",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "Why does Hume say induction cannot be justified by experience?",
-        "choices": [
-         "Any argument from experience about the future already relies on induction",
-         "Experience is always mistaken, so it cannot justify anything",
-         "Experience tells us only about other people, not about ourselves",
-         "The future is too far away to be experienced at all"
-        ],
-        "answer": 0,
-        "why": "Arguing that induction has worked in the past, so it will in future, uses induction to defend induction."
-       },
-       {
-        "ask": "Russell's chicken is fed every day, and then its neck is wrung. What does the example show?",
-        "choices": [
-         "A long run of past cases does not guarantee the next case",
-         "Chickens cannot reason, so they cannot learn from experience",
-         "Farmers are less trustworthy than nature",
-         "Induction always fails in the end"
-        ],
-        "answer": 0,
-        "why": "The chicken reasoned as we do, and its evidence was strongest just before it was wrong."
-       },
-       {
-        "ask": "According to Hume, where does our idea of a necessary connection between cause and effect come from?",
-        "choices": [
-         "From a habit of the mind, formed by seeing one thing regularly follow another",
-         "From seeing the force pass from one billiard ball to another",
-         "From reason, which can tell what must follow from what",
-         "From God, who places the idea in us at birth"
-        ],
-        "answer": 0,
-        "why": "We see only constant conjunction. The feeling of being carried from one to the other is projected onto the world."
-       },
-       {
-        "ask": "\"Eating meat is natural for humans, so it is morally acceptable.\" What would Hume's is-ought gap say about this argument?",
-        "choices": [
-         "It needs an extra premise saying that what is natural is acceptable",
-         "It is valid, since natural facts always settle moral questions",
-         "It is circular, since it assumes what it proves",
-         "It is an argument from induction, and so cannot be trusted"
-        ],
-        "answer": 0,
-        "why": "No purely factual premise yields an ought by itself. The hidden premise is a moral one, and it is where a critic would push."
-       },
-       {
-        "ask": "What did Hume think we should do about the problem of induction in daily life?",
-        "choices": [
-         "Carry on as before, since custom guides us whether or not reason can justify it",
-         "Stop making predictions about anything we have not observed",
-         "Rely only on mathematics and logic, which do not need induction",
-         "Treat all expectations about the future as equally likely"
-        ],
-        "answer": 0,
-        "why": "Custom is the great guide of human life. Hume's point was about the limits of reason, not advice to stop believing."
-       }
+      "title": "The problem of induction",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most of what we believe about the world goes beyond anything we have experienced. You have seen the sun rise every morning of your life, and you expect it to rise tomorrow. You have eaten bread and been nourished, and you expect the next loaf to nourish you. Reasoning from observed cases to unobserved ones is called **induction**. Science depends on it, and so does every ordinary decision. Hume asked what justifies it."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "Hume's argument that induction has no rational justification.",
+          "options": {
+            "steps": [
+              {
+                "text": "Induction assumes that the future will resemble the past, that nature is uniform."
+              },
+              {
+                "text": "That assumption cannot be proved by reason alone, since there is no contradiction in the sun not rising tomorrow."
+              },
+              {
+                "text": "It cannot be proved by experience either, since any argument from experience uses induction, and so assumes what it is trying to prove."
+              },
+              {
+                "text": "So our expectation that the future will resemble the past has no rational justification.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Induction does not need to be proved; it is part of what being reasonable means.",
+                "kind": "objection",
+                "against": 4,
+                "who": "P. F. Strawson"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The third premise is the subtle one. You might say: the future has always resembled the past before, so it will probably go on doing so. But that is itself an inductive argument, reasoning from past cases of the future resembling the past to future cases, so it takes for granted the very thing in question. An argument that assumes its own conclusion is called **circular**."
+        },
+        {
+          "type": "text",
+          "text": "Bertrand Russell gave the problem its best-known image in 1912. A chicken, he wrote, is fed every morning by the farmer, and every morning its confidence grows that the farmer's arrival means food. \"The man who has fed the chicken every day throughout its life at last wrings its neck instead, showing that more refined views as to the uniformity of nature would have been useful to the chicken.\" The chicken's reasoning was exactly ours, and its evidence grew stronger every day until the day it was wrong."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Hume's question about tomorrow. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "induction",
+            "ask": "Do you have a good reason, and not only a habit, to expect the sun to rise tomorrow?",
+            "choices": [
+              "Yes: our science explains why it will",
+              "No: in the end it is habit, as Hume said",
+              "Yes, though no one has shown exactly what the reason is",
+              "Not sure"
+            ],
+            "who": [
+              "Hume would ask what supports the science, and the answer is observations of the past, which brings the problem back.",
+              "You chose Hume's view. He thought the habit was unavoidable and served us well; he just denied it was reasoned.",
+              "You chose the view of most philosophers: induction is rational, but no justification of it has won general agreement.",
+              "Hume himself said that when he left his study he could not help believing in tomorrow, however hard he had argued."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Hume did not conclude that we should stop expecting the sun to rise. We cannot stop, he said. \"Custom, then, is the great guide of human life.\" Nature has made us expect the future to resemble the past, as it has made us breathe, and philosophy cannot undo it. His point was about what reason can do, not about what we should believe: our most basic beliefs about the world rest on instinct, not on argument."
+        }
       ]
-     }
+    },
+    {
+      "title": "Cause as habit",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The same reasoning took Hume to causation. When one billiard ball strikes another and the second moves, you see the first ball move, the contact, and the second ball move. Hume's answer here matched al-Ghazali's on fire and cotton in lesson 8, more than six centuries earlier, apparently without his knowing it. You do not see any force or power or necessary connection passing between them. All experience ever gives is **constant conjunction**: things of one kind always followed by things of another."
+        },
+        {
+          "type": "text",
+          "text": "Since every idea must come from an impression, the idea of necessary connection needs a source, and Hume found it inside us. After seeing one kind of event followed by another many times, the mind is carried by habit from the first to the expectation of the second, and we feel that transition and project it onto the world. Necessity, he wrote, \"exists in the mind, not in objects\". Al-Ghazali had used the gap to make room for God; Hume used it to show the limits of human reason."
+        }
+      ]
+    },
+    {
+      "title": "Is and ought",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At the end of a section of the *Treatise* on morality, Hume added a paragraph that has had a life of its own. In every book on morality he had read, he said, the author goes on for a while in the ordinary way, establishing that God exists or describing human affairs, when suddenly, instead of sentences joined by *is* and *is not*, he finds nothing but sentences joined by *ought* and *ought not*. This change is imperceptible but important. An *ought* expresses some new relation, and it seems \"altogether inconceivable, how this new relation can be a deduction from others, which are entirely different from it\"."
+        },
+        {
+          "type": "text",
+          "text": "The principle drawn from this passage, that no set of purely factual premises can by itself entail a conclusion about what ought to be done, is called the **is-ought gap**, or Hume's law. That a drug relieves pain is a fact; that you ought to take it follows only if you add a premise about what is good, such as that relieving pain is good. Arguments that skip this step are everywhere. \"It's natural, so it's fine\" and \"it's always been done this way, so it should go on\" both try to cross the gap without a bridge."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Lesson 3's question, asked again now that you have met Hume. Your earlier answer is shown.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "relativism",
+            "ask": "Is morality, in the end, a matter of opinion, your own or your culture's?",
+            "choices": [
+              "Yes: it is opinion or custom",
+              "No: some moral claims are true whatever anyone thinks",
+              "Not sure"
+            ],
+            "who": [
+              "Hume is often read as on your side: moral judgements come from sentiment, not reason. But he thought human sentiments are similar enough to make moral argument possible.",
+              "You hold moral realism after meeting the is-ought gap. Realists reply that the gap shows only that some moral premises must be taken as basic, as some factual ones are.",
+              "The gap makes the question harder for both sides, which is why it is still argued over."
+            ],
+            "poll": {
+              "shares": [
+                26,
+                62,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Meta-ethics: moral realism or moral anti-realism?\", share accepting or leaning towards each."
+            },
+            "again": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The problem of induction is still argued over and still has no agreed answer. Some philosophers think it is a pseudo-problem, since being reasonable just means reasoning inductively; others try to justify induction by probability theory or by its success, which Hume would call circular; Karl Popper, in the branch lesson on science, tried to do without it. Nobody has shown that Hume was wrong about deduction: the future does not follow logically from the past."
+        },
+        {
+          "type": "text",
+          "text": "Cause as nothing but constant conjunction and habit, in Hume's strict form, is respected history. Most philosophers now think causal claims say more than that one thing regularly follows another, and modern accounts tie causes to what would have happened otherwise. The is-ought gap is still argued over, and still widely accepted as a warning, though some philosophers argue that certain facts, such as that a promise was made, already carry an ought with them.[^searle]"
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Hume",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does Hume say induction cannot be justified by experience?",
+                "choices": [
+                  "Any argument from experience about the future already relies on induction",
+                  "Experience is always mistaken, so it cannot justify anything",
+                  "Experience tells us only about other people, not about ourselves",
+                  "The future is too far away to be experienced at all"
+                ],
+                "answer": 0,
+                "why": "Arguing that induction has worked in the past, so it will in future, uses induction to defend induction."
+              },
+              {
+                "ask": "Russell's chicken is fed every day, and then its neck is wrung. What does the example show?",
+                "choices": [
+                  "A long run of past cases does not guarantee the next case",
+                  "Chickens cannot reason, so they cannot learn from experience",
+                  "Farmers are less trustworthy than nature",
+                  "Induction always fails in the end"
+                ],
+                "answer": 0,
+                "why": "The chicken reasoned as we do, and its evidence was strongest just before it was wrong."
+              },
+              {
+                "ask": "According to Hume, where does our idea of a necessary connection between cause and effect come from?",
+                "choices": [
+                  "From a habit of the mind, formed by seeing one thing regularly follow another",
+                  "From seeing the force pass from one billiard ball to another",
+                  "From reason, which can tell what must follow from what",
+                  "From God, who places the idea in us at birth"
+                ],
+                "answer": 0,
+                "why": "We see only constant conjunction. The feeling of being carried from one to the other is projected onto the world."
+              },
+              {
+                "ask": "\"Eating meat is natural for humans, so it is morally acceptable.\" What would Hume's is-ought gap say about this argument?",
+                "choices": [
+                  "It needs an extra premise saying that what is natural is acceptable",
+                  "It is valid, since natural facts always settle moral questions",
+                  "It is circular, since it assumes what it proves",
+                  "It is an argument from induction, and so cannot be trusted"
+                ],
+                "answer": 0,
+                "why": "No purely factual premise yields an ought by itself. The hidden premise is a moral one, and it is where a critic would push."
+              },
+              {
+                "ask": "What did Hume think we should do about the problem of induction in daily life?",
+                "choices": [
+                  "Carry on as before, since custom guides us whether or not reason can justify it",
+                  "Stop making predictions about anything we have not observed",
+                  "Rely only on mathematics and logic, which do not need induction",
+                  "Treat all expectations about the future as equally likely"
+                ],
+                "answer": 0,
+                "why": "Custom is the great guide of human life. Hume's point was about the limits of reason, not advice to stop believing."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Hume's Treatise fell dead-born from the press in 1739.** It became, long after, one of the most influential books in philosophy.",
+    "**Hume was an empiricist.** Every idea comes from an impression, and a word with no impression behind it means nothing.",
+    "**Induction reasons from observed cases to unobserved ones.** Science and daily life depend on it.",
+    "**Induction cannot be justified without circularity.** Reason cannot prove the future will resemble the past, and experience can do so only by assuming it.",
+    "**Russell's chicken trusted the past to the end.** A long run of cases does not guarantee the next one.",
+    "**Custom is the great guide of human life.** Hume thought we cannot help reasoning inductively, whether or not it is justified.",
+    "**We never see a cause, only constant conjunction.** Al-Ghazali had seen the same gap; Hume put necessity in the mind, not in objects.",
+    "**You cannot get an ought from an is alone.** An argument from facts to what we should do needs a moral premise."
+  ],
+  "footnotes": {
+    "boswell": {
+      "kind": "technical",
+      "title": "Boswell's account",
+      "text": "Boswell noted the conversation in his journal and wrote it up the next March, in an account titled \"An Account of My Last Interview with David Hume, Esq.\" He later asked Samuel Johnson about it; Johnson insisted Hume must have been lying about his calm. Adam Smith, Hume's closest friend, wrote that he had always thought Hume came as close to the idea of a perfectly wise and virtuous man as human frailty allows, and was attacked for it for years."
+    },
+    "searle": {
+      "kind": "technical",
+      "title": "Getting an ought from an is",
+      "text": "In 1964 the American philosopher John Searle argued that from the fact that Jones said \"I promise to pay you five dollars\" it follows that Jones ought to pay, given the rules of the institution of promising. Critics reply that the rules smuggle in an ought."
+    },
+    "blue": {
+      "kind": "digression",
+      "title": "The missing shade of blue",
+      "text": "Hume raised an exception to his own rule. A person who had seen every shade of blue but one could probably imagine the missing shade between its neighbours, without ever having had the impression. He called it a \"singular\" case not worth altering his general maxim for."
+    },
+    "france": {
+      "kind": "digression",
+      "title": "La Flèche again",
+      "text": "Hume wrote most of the Treatise in La Flèche in France, the town of the Jesuit college where Descartes had been educated, and argued about miracles with the Jesuits there."
+    }
   }
- ],
- "summary": [
-  "**Hume's Treatise fell dead-born from the press in 1739.** It became, long after, one of the most influential books in philosophy.",
-  "**Hume was an empiricist.** Every idea comes from an impression, and a word with no impression behind it means nothing.",
-  "**Induction reasons from observed cases to unobserved ones.** Science and daily life depend on it.",
-  "**Induction cannot be justified without circularity.** Reason cannot prove the future will resemble the past, and experience can do so only by assuming it.",
-  "**Russell's chicken trusted the past to the end.** A long run of cases does not guarantee the next one.",
-  "**Custom is the great guide of human life.** Hume thought we cannot help reasoning inductively, whether or not it is justified.",
-  "**We never see a cause, only constant conjunction.** Al-Ghazali had seen the same gap; Hume put necessity in the mind, not in objects.",
-  "**You cannot get an ought from an is alone.** An argument from facts to what we should do needs a moral premise."
- ],
- "footnotes": {
-  "boswell": {
-   "kind": "technical",
-   "title": "Boswell's account",
-   "text": "Boswell noted the conversation in his journal and wrote it up the next March, in an account titled \"An Account of My Last Interview with David Hume, Esq.\" He later asked Samuel Johnson about it; Johnson insisted Hume must have been lying about his calm. Adam Smith, Hume's closest friend, wrote that he had always thought Hume came as close to the idea of a perfectly wise and virtuous man as human frailty allows, and was attacked for it for years."
-  },
-  "searle": {
-   "kind": "technical",
-   "title": "Getting an ought from an is",
-   "text": "In 1964 the American philosopher John Searle argued that from the fact that Jones said \"I promise to pay you five dollars\" it follows that Jones ought to pay, given the rules of the institution of promising. Critics reply that the rules smuggle in an ought."
-  },
-  "blue": {
-   "kind": "digression",
-   "title": "The missing shade of blue",
-   "text": "Hume raised an exception to his own rule. A person who had seen every shade of blue but one could probably imagine the missing shade between its neighbours, without ever having had the impression. He called it a \"singular\" case not worth altering his general maxim for."
-  },
-  "france": {
-   "kind": "digression",
-   "title": "La Flèche again",
-   "text": "Hume wrote most of the Treatise in La Flèche in France, the town of the Jesuit college where Descartes had been educated, and argued about miracles with the Jesuits there."
-  }
- }
 }

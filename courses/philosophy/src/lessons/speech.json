@@ -1,244 +1,244 @@
 {
- "id": "speech",
- "n": 204,
- "branch": "power",
- "needs": [
-  "mill"
- ],
- "title": "Should you hear out the other side?",
- "teaches": "Mill on free speech, tested on echo chambers, experts and epistemic injustice",
- "parts": [
-  {
-   "title": "Mankind minus one",
-   "blocks": [
+  "id": "speech",
+  "n": 204,
+  "branch": "power",
+  "needs": [
+    "mill"
+  ],
+  "title": "Should you hear out the other side?",
+  "teaches": "Mill on free speech, tested on echo chambers, experts and epistemic injustice",
+  "parts": [
     {
-     "type": "text",
-     "text": "In 1859, a few months after the death of his wife, Harriet Taylor, with whom he had planned it,[^harriet] John Stuart Mill published *On Liberty*. Its second chapter is still the most quoted defence of free speech in English.[^voltaire] It contains a sentence that leaves little room: \"If all mankind minus one were of one opinion, and only one person were of the contrary opinion, mankind would be no more justified in silencing that one person, than he, if he had the power, would be justified in silencing mankind.\""
-    },
-    {
-     "type": "text",
-     "text": "In lesson 17 we met Mill's harm principle: the only reason to interfere with someone's liberty against their will is to prevent harm to others. This lesson looks at his argument for free speech, and then tests it on three problems Mill did not face: recommendation feeds, trusting experts, and people whose words are not believed."
-    }
-   ]
-  },
-  {
-   "title": "Mill's four reasons",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Mill gave four reasons never to silence an opinion. First, it may be true. To silence it is to assume that you cannot be wrong, and history is full of confident majorities who were. Second, even if it is mostly false, it may contain part of the truth, which the accepted view lacks; truth on most questions, Mill thought, is found by combining partial views. Third, even if the accepted view is wholly true, people who never hear it challenged will hold it \"in the manner of a prejudice\", without knowing why. Fourth, the meaning of the view itself fades, until it becomes \"a dead dogma, not a living truth\"."
-    },
-    {
-     "type": "text",
-     "text": "The third reason is where this lesson's title comes from. \"He who knows only his own side of the case knows little of that.\" Mill said it is not enough to hear the other side from your own teachers, who will present it at its weakest. You must hear the arguments \"from persons who actually believe them; who defend them in earnest, and do their very utmost for them\"."
-    },
-    {
-     "type": "text",
-     "text": "Mill did set a limit, and it is his harm principle. The opinion that corn dealers starve the poor, he said, may be printed in a newspaper. But it may justly be punished when shouted to an angry crowd gathered outside a corn dealer's house. The difference is not the opinion but the situation: in the second case, the words are a direct cause of harm."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Mill's third reason. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "other-side",
-      "ask": "Should you seek out the strongest version of views you think are wrong, from people who really hold them?",
-      "choices": [
-       "Yes: otherwise you do not really know why you believe what you do",
-       "Only on questions where reasonable people still disagree",
-       "No: some views are not worth anyone's time",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Mill's answer.",
-       "You chose the answer of many of Mill's modern defenders, who add that time is limited and some questions are settled.",
-       "You chose the answer Mill wrote against, though he would agree some views are better answered than others.",
-       "Mill would say this is a good reason to hear the other side."
+      "title": "Mankind minus one",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1859, a few months after the death of his wife, Harriet Taylor, with whom he had planned it,[^harriet] John Stuart Mill published *On Liberty*. Its second chapter is still the most quoted defence of free speech in English.[^voltaire] It contains a famous sentence: \"If all mankind minus one were of one opinion, and only one person were of the contrary opinion, mankind would be no more justified in silencing that one person, than he, if he had the power, would be justified in silencing mankind.\""
+        },
+        {
+          "type": "text",
+          "text": "In lesson 17 we met Mill's harm principle: the only reason to interfere with someone's liberty against their will is to prevent harm to others. This lesson looks at his argument for free speech, and then tests it on three problems Mill did not face: recommendation feeds, trusting experts, and people whose words are not believed."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Test one: the feed",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Mill pictured opinions meeting in public, in newspapers, pamphlets and meeting halls, where a person would come across views they did not hold. Many people now get their news through social media feeds chosen by software to keep them reading, which may show them mostly what they already agree with."
     },
     {
-     "type": "text",
-     "text": "The philosopher C. Thi Nguyen has drawn a useful distinction. In an **epistemic bubble**, you simply do not hear other voices: your friends and your feed all share your views. A bubble is easily burst, by showing people what they have missed. In an **echo chamber**, you do hear other voices, but you have been taught to distrust them: anyone outside is a liar, a dupe or paid. Hearing the other side does not help, and may make it worse, since each outside voice confirms that the outsiders are hostile. Mill's remedy works for bubbles. For echo chambers, Nguyen argued, what has to be repaired is trust."
-    },
-    {
-     "type": "text",
-     "text": "The evidence about feeds is mixed. Large studies, including experiments in which researchers changed what tens of thousands of users saw, have found that changing the feed had smaller effects on people's political views than many expected. People also choose what to read, and much polarisation predates social media."
-    }
-   ]
-  },
-  {
-   "title": "Test two: the experts",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Mill's ideal reader hears all sides and judges for themselves. But on most questions, from vaccine safety to climate science, nobody can check the evidence personally. We have to trust experts. If a news programme gives a scientist and a lone dissenter equal time, it may suggest the experts are evenly split when they are not. In 2011 a review of the BBC's science coverage, led by the geneticist Steve Jones, criticised exactly this \"false balance\"."
-    },
-    {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "A modern objection to Mill's third reason, as it applies to settled science.",
-     "options": {
-      "steps": [
-       {
-        "text": "Most people cannot assess the evidence on technical questions themselves."
-       },
-       {
-        "text": "On such questions, the reliable guide for non-experts is the consensus of experts."
-       },
-       {
-        "text": "Presenting a fringe view with equal weight makes the consensus look weaker than it is."
-       },
-       {
-        "text": "So on settled technical questions, giving equal time to every side can leave people believing less of the truth, not more.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Expert consensus has been wrong before, and is only kept honest if dissenters can be heard.",
-        "kind": "objection",
-        "against": 2,
-        "who": "Mill's defenders"
-       }
+      "title": "Mill's four reasons",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Mill gave four reasons never to silence an opinion. First, it may be true. To silence it is to assume that you cannot be wrong, and history is full of confident majorities who were. Second, even if it is mostly false, it may contain part of the truth, which the accepted view lacks; truth on most questions, Mill thought, is found by combining partial views. Third, even if the accepted view is wholly true, people who never hear it challenged will hold it \"in the manner of a prejudice\", without knowing why. Fourth, the meaning of the view itself fades, until it becomes \"a dead dogma, not a living truth\"."
+        },
+        {
+          "type": "text",
+          "text": "The third reason is where this lesson's title comes from. \"He who knows only his own side of the case knows little of that.\" Mill said it is not enough to hear the other side from your own teachers, who will present it at its weakest. You must hear the arguments \"from persons who actually believe them; who defend them in earnest, and do their very utmost for them\"."
+        },
+        {
+          "type": "text",
+          "text": "Mill did set a limit, and it is his harm principle. The opinion that corn dealers starve the poor, he said, may be printed in a newspaper. But it may justly be punished when shouted to an angry crowd gathered outside a corn dealer's house. The difference is not the opinion but the situation: in the second case, the words are a direct cause of harm."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Mill's third reason. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "other-side",
+            "ask": "Should you seek out the strongest version of views you think are wrong, from people who really hold them?",
+            "choices": [
+              "Yes: otherwise you do not really know why you believe what you do",
+              "Only on questions where reasonable people still disagree",
+              "No: some views are not worth anyone's time",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Mill's answer.",
+              "You chose the answer of many of Mill's modern defenders, who add that time is limited and some questions are settled.",
+              "You chose the answer Mill wrote against, though he would agree some views are better answered than others.",
+              "Mill would say this is a good reason to hear the other side."
+            ]
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Test three: who gets believed",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Mill's argument is about the right to speak. The British philosopher Miranda Fricker pointed out, in *Epistemic Injustice* (2007), that being allowed to speak is not the same as being heard. She described **testimonial injustice**: a speaker is given less credibility than they deserve because of a prejudice about who they are. Her examples are from fiction. In *To Kill a Mockingbird*, an all-white jury disbelieves Tom Robinson, a Black man, because of his race. In the film of *The Talented Mr Ripley*, a woman who rightly suspects Ripley of murder is dismissed with \"there's female intuition, and then there are facts\"."
     },
     {
-     "type": "text",
-     "text": "Fricker also described **hermeneutical injustice**: a group lacks the words to make sense of its own experience, because it has been shut out of the places where such words get made. Her example was sexual harassment. Before the term came into use in the mid-1970s,[^term] women who suffered it had no shared name for it, could not easily explain it to others, and were often told it was flirting or a joke. Free speech, on this view, requires not only that no one is silenced but that people are heard fairly."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "A modern case. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "platform",
-      "ask": "A university society invites a speaker whose views most of the staff think are false and harmful, though not illegal. Should the university let the talk go ahead?",
-      "choices": [
-       "Yes: the answer to bad speech is more speech",
-       "Only if there is a chance for others to answer the speaker",
-       "No: a university need not give a platform to views it thinks harmful",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Mill's answer.",
-       "You chose a common compromise, which follows Mill's point that a view should be met by argument.",
-       "You chose the answer of critics who say that a platform is not a right, and that some speech harms the standing of others.",
-       "Universities themselves disagree, which is why the question keeps returning."
+      "title": "Test one: the feed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Mill pictured opinions meeting in public, in newspapers, pamphlets and meeting halls, where a person would come across views they did not hold. Many people now get their news through social media feeds chosen by software to keep them reading, which may show them mostly what they already agree with."
+        },
+        {
+          "type": "text",
+          "text": "The philosopher C. Thi Nguyen has drawn a useful distinction. In an **epistemic bubble**, you simply do not hear other voices: your friends and your feed all share your views. A bubble is easily burst, by showing people what they have missed. In an **echo chamber**, you do hear other voices, but you have been taught to distrust them: anyone outside is a liar, a dupe or paid. Hearing the other side does not help, and may make it worse, since each outside voice confirms that the outsiders are hostile. Mill's remedy works for bubbles. For echo chambers, Nguyen argued, what has to be repaired is trust."
+        },
+        {
+          "type": "text",
+          "text": "The evidence about feeds is mixed. Large studies, including experiments in which researchers changed what tens of thousands of users saw, have found that changing the feed had smaller effects on people's political views than many expected. People also choose what to read, and much polarisation predates social media."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Mill's defence of free speech is still argued over, more than ever since the rise of social media. His harm principle is still the starting point of most debate, though many philosophers now count harms Mill did not, such as harm to people's standing as equals. Fricker's epistemic injustice has become one of the most cited ideas in recent philosophy, used in medicine, law and education. Nguyen's distinction between bubbles and echo chambers is widely used, and the evidence on how much feeds shape belief is still coming in."
     },
     {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on free speech",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is Mill's third reason not to silence even a false opinion?",
-        "choices": [
-         "People who never hear the accepted view challenged hold it as a prejudice, without knowing why",
-         "The false opinion may contain part of the truth",
-         "Silencing it assumes that you cannot be wrong",
-         "Silencing opinions is always illegal"
-        ],
-        "answer": 0,
-        "why": "\"He who knows only his own side of the case knows little of that.\""
-       },
-       {
-        "ask": "What was Mill's corn dealer example meant to show?",
-        "choices": [
-         "The same opinion may be printed but punished when it directly causes harm, as when shouted to an angry mob",
-         "Corn dealers should not be criticised in newspapers",
-         "All speech that causes offence should be punished",
-         "Free speech applies only to written opinions"
-        ],
-        "answer": 0,
-        "why": "The limit is the harm principle, not the content of the opinion."
-       },
-       {
-        "ask": "How does Nguyen distinguish an echo chamber from an epistemic bubble?",
-        "choices": [
-         "In a bubble you do not hear other voices; in an echo chamber you hear them but have been taught to distrust them",
-         "A bubble is online and an echo chamber is in person",
-         "An echo chamber has more members than a bubble",
-         "There is no difference between them"
-        ],
-        "answer": 0,
-        "why": "Showing people other views bursts a bubble; an echo chamber needs trust repaired."
-       },
-       {
-        "ask": "What is testimonial injustice, in Fricker's sense?",
-        "choices": [
-         "Giving a speaker less credibility than they deserve because of a prejudice about who they are",
-         "Refusing to let someone speak in court",
-         "Telling lies under oath",
-         "Lacking the words to describe your experience"
-        ],
-        "answer": 0,
-        "why": "The last choice is hermeneutical injustice, her second kind."
-       }
+      "title": "Test two: the experts",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Mill's ideal reader hears all sides and judges for themselves. But on most questions, from vaccine safety to climate science, nobody can check the evidence personally. We have to trust experts. If a news programme gives a scientist and a lone dissenter equal time, it may suggest the experts are evenly split when they are not. In 2011 a review of the BBC's science coverage, led by the geneticist Steve Jones, criticised exactly this \"false balance\"."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "A modern objection to Mill's third reason, as it applies to settled science.",
+          "options": {
+            "steps": [
+              {
+                "text": "Most people cannot assess the evidence on technical questions themselves."
+              },
+              {
+                "text": "On such questions, the reliable guide for non-experts is the consensus of experts."
+              },
+              {
+                "text": "Presenting a fringe view with equal weight makes the consensus look weaker than it is."
+              },
+              {
+                "text": "So on settled technical questions, giving equal time to every side can leave people believing less of the truth, not more.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Expert consensus has been wrong before, and is only kept honest if dissenters can be heard.",
+                "kind": "objection",
+                "against": 2,
+                "who": "Mill's defenders"
+              }
+            ]
+          }
+        }
       ]
-     }
+    },
+    {
+      "title": "Test three: who gets believed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Mill's argument is about the right to speak. The British philosopher Miranda Fricker pointed out, in *Epistemic Injustice* (2007), that being allowed to speak is not the same as being heard. She described **testimonial injustice**: a speaker is given less credibility than they deserve because of a prejudice about who they are. Her examples are from fiction. In *To Kill a Mockingbird*, an all-white jury disbelieves Tom Robinson, a Black man, because of his race. In the film of *The Talented Mr Ripley*, a woman who rightly suspects Ripley of murder is dismissed with \"there's female intuition, and then there are facts\"."
+        },
+        {
+          "type": "text",
+          "text": "Fricker also described **hermeneutical injustice**: a group lacks the words to make sense of its own experience, because it has been shut out of the places where such words get made. Her example was sexual harassment. Before the term came into use in the mid-1970s,[^term] women who suffered it had no shared name for it, could not easily explain it to others, and were often told it was flirting or a joke. On this view, free speech requires both that no one is silenced and that people are heard fairly."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "A modern case. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "platform",
+            "ask": "A university society invites a speaker whose views most of the staff think are false and harmful, though not illegal. Should the university let the talk go ahead?",
+            "choices": [
+              "Yes: the answer to bad speech is more speech",
+              "Only if there is a chance for others to answer the speaker",
+              "No: a university need not give a platform to views it thinks harmful",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Mill's answer.",
+              "You chose a common compromise, which follows Mill's point that a view should be met by argument.",
+              "You chose the answer of critics who say that a platform is not a right, and that some speech harms the standing of others.",
+              "Universities themselves disagree, which is why the question keeps returning."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Mill's defence of free speech is still argued over, especially since the rise of social media. His harm principle is still the starting point of most debate, though many philosophers now count harms Mill did not, such as harm to people's standing as equals. Fricker's epistemic injustice has become one of the most cited ideas in recent philosophy, used in medicine, law and education. Nguyen's distinction between bubbles and echo chambers is widely used, and the evidence on how much feeds shape belief is still coming in."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on free speech",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is Mill's third reason not to silence even a false opinion?",
+                "choices": [
+                  "People who never hear the accepted view challenged hold it as a prejudice, without knowing why",
+                  "The false opinion may contain part of the truth",
+                  "Silencing it assumes that you cannot be wrong",
+                  "Silencing opinions is always illegal"
+                ],
+                "answer": 0,
+                "why": "\"He who knows only his own side of the case knows little of that.\""
+              },
+              {
+                "ask": "What was Mill's corn dealer example meant to show?",
+                "choices": [
+                  "The same opinion may be printed but punished when it directly causes harm, as when shouted to an angry mob",
+                  "Corn dealers should not be criticised in newspapers",
+                  "All speech that causes offence should be punished",
+                  "Free speech applies only to written opinions"
+                ],
+                "answer": 0,
+                "why": "The limit is the harm principle, not the content of the opinion."
+              },
+              {
+                "ask": "How does Nguyen distinguish an echo chamber from an epistemic bubble?",
+                "choices": [
+                  "In a bubble you do not hear other voices; in an echo chamber you hear them but have been taught to distrust them",
+                  "A bubble is online and an echo chamber is in person",
+                  "An echo chamber has more members than a bubble",
+                  "There is no difference between them"
+                ],
+                "answer": 0,
+                "why": "Showing people other views bursts a bubble; an echo chamber needs trust repaired."
+              },
+              {
+                "ask": "What is testimonial injustice, in Fricker's sense?",
+                "choices": [
+                  "Giving a speaker less credibility than they deserve because of a prejudice about who they are",
+                  "Refusing to let someone speak in court",
+                  "Telling lies under oath",
+                  "Lacking the words to describe your experience"
+                ],
+                "answer": 0,
+                "why": "The last choice is hermeneutical injustice, her second kind."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Mill: silencing one dissenter is as wrong as one person silencing mankind.** On Liberty appeared in 1859.",
+    "**The silenced view may be true, or partly true.** Silencing it assumes you cannot be wrong.",
+    "**Unchallenged truths become dead dogma.** He who knows only his own side knows little of that.",
+    "**The limit is direct harm.** Print the opinion about corn dealers; do not shout it at a mob.",
+    "**Bubbles can be burst; echo chambers need trust repaired.** Nguyen's distinction.",
+    "**False balance can mislead on settled science.** Non-experts rely on expert consensus.",
+    "**Fricker: being allowed to speak is not the same as being heard.** Testimonial and hermeneutical injustice."
+  ],
+  "footnotes": {
+    "harriet": {
+      "kind": "digression",
+      "title": "Harriet Taylor",
+      "text": "Mill dedicated On Liberty to her memory and called her the inspirer, and in part the author, of all that was best in his writings. Historians still argue over how much of the book was hers."
+    },
+    "term": {
+      "kind": "technical",
+      "title": "Naming harassment",
+      "text": "The term was used by a group of women at Cornell University in 1975, in support of Carmita Wood, a university employee who had resigned after unwanted advances from a professor and was refused unemployment benefit. Fricker uses the case as her main example."
+    },
+    "voltaire": {
+      "kind": "technical",
+      "title": "Not Voltaire",
+      "text": "The line \"I disapprove of what you say, but I will defend to the death your right to say it\" is often credited to Voltaire. It was written by Evelyn Beatrice Hall in 1906, in a book about him, as a summary of his attitude."
+    }
   }
- ],
- "summary": [
-  "**Mill: silencing one dissenter is as wrong as one person silencing mankind.** On Liberty appeared in 1859.",
-  "**The silenced view may be true, or partly true.** Silencing it assumes you cannot be wrong.",
-  "**Unchallenged truths become dead dogma.** He who knows only his own side knows little of that.",
-  "**The limit is direct harm.** Print the opinion about corn dealers; do not shout it at a mob.",
-  "**Bubbles can be burst; echo chambers need trust repaired.** Nguyen's distinction.",
-  "**False balance can mislead on settled science.** Non-experts rely on expert consensus.",
-  "**Fricker: being allowed to speak is not being heard.** Testimonial and hermeneutical injustice."
- ],
- "footnotes": {
-  "harriet": {
-   "kind": "digression",
-   "title": "Harriet Taylor",
-   "text": "Mill dedicated On Liberty to her memory and called her the inspirer, and in part the author, of all that was best in his writings. Historians still argue over how much of the book was hers."
-  },
-  "term": {
-   "kind": "technical",
-   "title": "Naming harassment",
-   "text": "The term was used by a group of women at Cornell University in 1975, in support of Carmita Wood, a university employee who had resigned after unwanted advances from a professor and was refused unemployment benefit. Fricker uses the case as her main example."
-  },
-  "voltaire": {
-   "kind": "technical",
-   "title": "Not Voltaire",
-   "text": "The line \"I disapprove of what you say, but I will defend to the death your right to say it\" is often credited to Voltaire. It was written by Evelyn Beatrice Hall in 1906, in a book about him, as a summary of his attitude."
-  }
- }
 }

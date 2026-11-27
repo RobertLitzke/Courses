@@ -1,276 +1,276 @@
 {
- "id": "leap",
- "n": 16,
- "title": "Would you obey God if he told you to kill your son?",
- "teaches": "Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety",
- "parts": [
-  {
-   "title": "Sewn into a coat",
-   "blocks": [
+  "id": "leap",
+  "n": 16,
+  "title": "Would you obey God if he told you to kill your son?",
+  "teaches": "Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety",
+  "parts": [
     {
-     "type": "text",
-     "text": "In 1662, a few days after the death of Blaise Pascal at the age of 39, a servant going through his clothes felt something stiff in the lining of his coat. Sewn inside was a folded piece of parchment, and inside that a sheet of paper in Pascal's hand. Pascal had evidently unpicked and resewn it each time he changed coats, for eight years. It began with a date: \"The year of grace 1654. Monday 23 November... From about half past ten in the evening until about half past twelve.\" Then one word on a line by itself: \"FIRE.\""
-    },
-    {
-     "type": "text",
-     "text": "What followed was a record of a religious experience: \"God of Abraham, God of Isaac, God of Jacob, not of the philosophers and scholars. Certainty, certainty, feeling, joy, peace.\" Pascal was one of the best mathematicians in Europe. At nineteen he had built one of the first mechanical calculators, to help his father, a tax official, with his sums, and that same summer of 1654 he had worked out with Pierre de Fermat, in an exchange of letters, the foundations of probability theory. From that night on he gave most of his remaining strength to a defence of Christianity, left unfinished at his death and published as the *Pensées*, \"thoughts\"."
-    },
-    {
-     "type": "text",
-     "text": "The Memorial's \"not of the philosophers\" points at the God of lesson 7, proved by Anselm's argument and defended against the problem of evil. In this lesson we meet two thinkers who believed that God cannot be reached by proof at all: Pascal, who offered a bet instead, and the Danish writer Søren Kierkegaard, who thought faith was something stranger and more frightening than any argument."
-    }
-   ]
-  },
-  {
-   "title": "Pascal's wager",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Pascal thought reason could neither prove nor disprove God. \"If there is a God, he is infinitely beyond our comprehension.\" But you cannot simply stay out of the question, he argued, because how you live is already a choice: \"you are embarked\". So treat it as a bet, using the mathematics he had just helped invent.[^fermat] Weigh what you stand to gain and lose on each side."
-    },
-    {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "Pascal's wager, set out as a decision under uncertainty. Pascal himself wrote it as a conversation with a doubter.",
-     "options": {
-      "steps": [
-       {
-        "text": "Either God exists or not, and reason cannot decide which."
-       },
-       {
-        "text": "If you live as a believer and God exists, you gain an infinite, eternal happiness."
-       },
-       {
-        "text": "If you live as a believer and God does not exist, you lose a little: some pleasures, some time."
-       },
-       {
-        "text": "If you do not believe, you gain at most a few finite pleasures, and risk losing the infinite gain."
-       },
-       {
-        "text": "Any chance, however small, of an infinite gain outweighs a certain finite loss, so the rational bet is to believe.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Many possible gods promise infinite rewards and punishments, and believing in one may anger another.",
-        "kind": "objection",
-        "against": 1,
-        "who": "Diderot and others"
-       }
+      "title": "Sewn into a coat",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1662, a few days after the death of Blaise Pascal at the age of 39, a servant going through his clothes felt something stiff in the lining of his coat. Sewn inside was a folded piece of parchment, and inside that a sheet of paper in Pascal's hand. Pascal had evidently unpicked and resewn it each time he changed coats, for eight years. It began with a date: \"The year of grace 1654. Monday 23 November... From about half past ten in the evening until about half past twelve.\" Then one word on a line by itself: \"FIRE.\""
+        },
+        {
+          "type": "text",
+          "text": "What followed was a record of a religious experience: \"God of Abraham, God of Isaac, God of Jacob, not of the philosophers and scholars. Certainty, certainty, feeling, joy, peace.\" Pascal was one of the best mathematicians in Europe. At nineteen he had built one of the first mechanical calculators, to help his father, a tax official, with his sums, and that same summer of 1654 he had worked out with Pierre de Fermat, in an exchange of letters, the foundations of probability theory. From that night on he gave most of his remaining strength to a defence of Christianity, left unfinished at his death and published as the *Pensées*, \"thoughts\"."
+        },
+        {
+          "type": "text",
+          "text": "Pascal's note, known as the Memorial, says \"not of the philosophers\", pointing at the God of lesson 7, proved by Anselm's argument and defended against the problem of evil. Pascal and the Danish writer Søren Kierkegaard both believed that God cannot be reached by proof at all: Pascal offered a bet instead, while Kierkegaard thought faith was something stranger and more frightening than any argument."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "\"If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation that he is.\" The argument was new in kind. It does not try to show that God exists. It tries to show that believing is the rational choice whether or not he does, given what is at stake. Pascal was the first to reason about a decision this way, weighing outcomes by their value and their chance, which is now the basis of decision theory in economics and statistics."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Pascal's bet. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "wager",
-      "ask": "If you could not know whether God exists, would betting on God be the rational choice?",
-      "choices": [
-       "Yes: an infinite reward outweighs any finite cost",
-       "No: there are too many possible gods to bet on",
-       "No: you cannot make yourself believe something for a reward",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Pascal's conclusion. Most decision theorists think the argument is clever but that infinite payoffs break the usual rules of expected value.",
-       "You chose the many-gods objection, the most common reply. Diderot put it in one line: \"an imam could reason just as well.\"",
-       "You chose the objection Pascal himself expected, and answered below.",
-       "The wager is still argued over in decision theory as much as in religion."
+      "title": "Pascal's wager",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Pascal thought reason could neither prove nor disprove God. \"If there is a God, he is infinitely beyond our comprehension.\" But you cannot simply stay out of the question, he argued, because how you live is already a choice: \"you are embarked\". So treat it as a bet, using the mathematics he had just helped invent.[^fermat] Weigh what you stand to gain and lose on each side."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "Pascal's wager, set out as a decision under uncertainty. Pascal himself wrote it as a conversation with a doubter.",
+          "options": {
+            "steps": [
+              {
+                "text": "Either God exists or not, and reason cannot decide which."
+              },
+              {
+                "text": "If you live as a believer and God exists, you gain an infinite, eternal happiness."
+              },
+              {
+                "text": "If you live as a believer and God does not exist, you lose a little: some pleasures, some time."
+              },
+              {
+                "text": "If you do not believe, you gain at most a few finite pleasures, and risk losing the infinite gain."
+              },
+              {
+                "text": "Any chance, however small, of an infinite gain outweighs a certain finite loss, so the rational bet is to believe.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Many possible gods promise infinite rewards and punishments, and believing in one may anger another.",
+                "kind": "objection",
+                "against": 1,
+                "who": "Diderot and others"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "\"If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation that he is.\" The argument was new in kind. It does not try to show that God exists. It tries to show that believing is the rational choice whether or not he does, given what is at stake. Pascal was the first to reason about a decision this way, weighing outcomes by their value and their chance, which is now the basis of decision theory in economics and statistics."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Pascal's bet. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "wager",
+            "ask": "If you could not know whether God exists, would betting on God be the rational choice?",
+            "choices": [
+              "Yes: an infinite reward outweighs any finite cost",
+              "No: there are too many possible gods to bet on",
+              "No: you cannot make yourself believe something for a reward",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Pascal's conclusion. Most decision theorists think the argument is clever but that infinite payoffs break the usual rules of expected value.",
+              "You chose the many-gods objection, the most common reply. Diderot put it in one line: \"an imam could reason just as well.\"",
+              "You chose the objection Pascal himself expected, and answered below.",
+              "The wager is still argued over in decision theory as much as in religion."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Pascal saw the obvious reply: belief is not something you can choose, as you choose a bet. His answer was practical. Act as believers do, he said: take holy water, have Masses said, and belief will follow, since habit shapes the mind as much as argument does. Critics, from the 18th century on, have also found something uncomfortable in a faith adopted to win a prize, and doubted that a God worth believing in would reward it."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Pascal saw the obvious reply: belief is not something you can choose, as you choose a bet. His answer was practical. Act as believers do, he said: take holy water, have Masses said, and belief will follow, since habit shapes the mind as much as argument does. Critics, from the 18th century on, have also found something uncomfortable in a faith adopted to win a prize, and doubted that a God worth believing in would reward it."
-    }
-   ]
-  },
-  {
-   "title": "The broken engagement",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In September 1840 Søren Kierkegaard, the 27-year-old son of a rich Copenhagen wool merchant, proposed to Regine Olsen, who was eighteen, and was accepted. Almost at once he regretted it. He believed he was unfit for marriage, for reasons he never fully explained, perhaps his family's melancholy, perhaps his sense that he had a religious task, and in August 1841 he sent back her ring. When she begged him not to leave her, he tried to make her break it off herself by behaving like a cad, so that she would not be humiliated. Copenhagen gossiped. He left for Berlin, and for the rest of his life he wrote about choice, faith and the impossibility of explaining either.[^regine]"
-    },
-    {
-     "type": "text",
-     "text": "Kierkegaard published many of his books, including the best known, under invented names, such as Victor Eremita, Johannes Climacus and Johannes de silentio, each with a different outlook, so that the reader would have to choose among them rather than be told what to think.[^corsair] He is often called the first existentialist, a label he never used, because he insisted that the most important truths cannot be learned from a system but must be lived by a single person, choosing."
-    }
-   ]
-  },
-  {
-   "title": "Abraham on the mountain",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1843, writing as Johannes de silentio, \"John of silence\", Kierkegaard published *Fear and Trembling*, a book about one story. In the book of Genesis God tells Abraham to take his son Isaac, whom he waited for until he was a hundred years old, to a mountain in the land of Moriah and sacrifice him there. Abraham rises early, saddles his donkey, travels three days, builds the altar, binds his son and raises the knife, before an angel stops him and a ram is found in a thicket instead."
-    },
-    {
-     "type": "text",
-     "text": "Abraham is praised in three religions as the father of faith. Kierkegaard asks his readers to look at what he did. In ethical terms, he says, Abraham was ready to murder his son. If a man in a church congregation went home after a sermon on Abraham and did the same, the preacher would call him a monster. Either Abraham is a murderer, or there is something higher than ethics: a direct relation between a single person and God that can override duties that apply to everyone. Kierkegaard called this the **teleological suspension of the ethical**, the setting aside of ethics for a higher purpose."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Kierkegaard's question. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "abraham",
-      "ask": "Abraham was ready to kill his son because God commanded it. Was he right to be ready?",
-      "choices": [
-       "Yes: if God really commanded it, obeying was right",
-       "No: no command could make killing an innocent child right",
-       "He could never know the command was really from God",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Abraham's side, and the view Kierkegaard found terrifying in its implications, since it cannot be explained or checked.",
-       "You chose Kant's view. He wrote that Abraham should have answered that he was quite sure he ought not to kill his son, but not at all sure the voice was God's.",
-       "You chose the doubt Kant thought decisive, which also bears on anyone today who says God told them to do something terrible.",
-       "Kierkegaard wrote the whole book to keep readers in exactly that place."
+      "title": "The broken engagement",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In September 1840 Søren Kierkegaard, the 27-year-old son of a rich Copenhagen wool merchant, proposed to Regine Olsen, who was eighteen, and was accepted. Almost at once he regretted it. He believed he was unfit for marriage, for reasons he never fully explained, perhaps his family's melancholy, perhaps his sense that he had a religious task, and in August 1841 he sent back her ring. When she begged him not to leave her, he tried to make her break it off herself by behaving like a cad, so that she would not be humiliated. Copenhagen gossiped. He left for Berlin, and for the rest of his life he wrote about choice, faith and the impossibility of explaining either.[^regine]"
+        },
+        {
+          "type": "text",
+          "text": "Kierkegaard published many of his books, including the best known, under invented names (such as Victor Eremita, Johannes Climacus and Johannes de silentio), each with a different outlook, so that the reader would have to choose among them rather than be told what to think.[^corsair] He is often called the first existentialist, a label he never used, because he insisted that the most important truths cannot be learned from a system but must be lived by a single person, choosing."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Kierkegaard does not resolve it. His narrator says he cannot understand Abraham, only admire him. What makes Abraham a figure of faith is that he cannot explain himself: he cannot tell Sarah or Isaac, because anything he said would make him either a murderer or a madman. He acts alone, in fear and trembling, with no proof and no community to back him. Kierkegaard calls such a person a **knight of faith**, and says that one might look exactly like a tax collector, enjoying his Sunday dinner, with nothing outward to show what he believes."
-    },
-    {
-     "type": "text",
-     "text": "This is where the idea of the \"leap\" comes from. Kierkegaard, in his *Concluding Unscientific Postscript* (1846), argued that no amount of historical evidence or philosophical argument could carry a person across to faith; there is always a gap, which can be crossed only by a decision, which he called a leap. The phrase \"leap of faith\", which is now attached to his name, is not his.[^leap]"
-    }
-   ]
-  },
-  {
-   "title": "The dizziness of freedom",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1844 Kierkegaard published *The Concept of Anxiety*, under another invented name, about the feeling that comes from knowing you are free. Looking down into an abyss, he says, you grow dizzy, and the dizziness comes as much from you as from the drop: you are aware that you could do anything at all. That second feeling is anxiety. Unlike fear, it has no object; it is the feeling of possibility itself. \"Anxiety is the dizziness of freedom.\""
-    },
-    {
-     "type": "text",
-     "text": "Kierkegaard thought this anxiety was not an illness to be cured but part of being human, and that facing it honestly was a step towards faith. His idea that freedom brings anxiety was taken up a century later by writers who did not share his faith at all, above all Jean-Paul Sartre in lesson 19, who borrowed Kierkegaard's Abraham for his own argument about responsibility. Kierkegaard died in Copenhagen in 1855, aged 42, after collapsing in the street, and left Regine Olsen, by then married to another man, everything he owned."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Pascal's wager is still argued over, more in decision theory than in religion. The many-gods objection is widely thought to be serious, and so is the problem that infinite rewards make expected-value reasoning behave strangely: any action with any tiny chance of leading to belief would have infinite expected value. Some philosophers have rebuilt the wager in more careful forms, and versions of its reasoning appear in debates about acting on small risks of enormous catastrophes."
-    },
-    {
-     "type": "text",
-     "text": "Kierkegaard is read more than ever, and still argued over in philosophy of religion and in ethics. His idea that some commitments cannot be justified by reasons that would persuade anyone is defended in different forms by many philosophers of religion, and attacked by others as a way of putting faith beyond criticism. His scheme of three stages of life, the aesthetic, the ethical and the religious, is respected history, read as literature more than taught as a theory. Both men remain the standard examples of faith understood as a decision rather than a conclusion."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on Pascal and Kierkegaard",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does Pascal's wager try to show?",
-        "choices": [
-         "That believing in God is the rational choice whether or not God exists",
-         "That God exists, by an argument from probability",
-         "That reason can decide whether God exists",
-         "That believers live happier lives than unbelievers"
-        ],
-        "answer": 0,
-        "why": "The wager does not prove God. It argues that, given the stakes, betting on God is the better choice under uncertainty."
-       },
-       {
-        "ask": "What is the many-gods objection to the wager?",
-        "choices": [
-         "Other possible gods promise infinite rewards too, so the bet does not tell you which to choose",
-         "Belief in many gods is irrational, so the wager is too",
-         "God might punish people who believe for the wrong reasons",
-         "There is no God, so the wager rests on a false premise"
-        ],
-        "answer": 0,
-        "why": "If several gods offer infinite rewards and punishments, the infinite stakes no longer point to one choice."
-       },
-       {
-        "ask": "How did Pascal answer the objection that you cannot choose to believe?",
-        "choices": [
-         "Act as believers do, and belief will follow from habit",
-         "Belief does not matter, only church attendance",
-         "God will give belief to anyone who takes the bet",
-         "It is enough to say you believe, even if you do not"
-        ],
-        "answer": 0,
-        "why": "Habit shapes the mind as much as argument, he said, so living as a believer leads to belief."
-       },
-       {
-        "ask": "What does Kierkegaard mean by the teleological suspension of the ethical?",
-        "choices": [
-         "Setting aside a universal moral duty for a higher, direct relation to God",
-         "Abandoning ethics altogether in favour of pleasure",
-         "Suspending moral judgement until all the facts are known",
-         "Following the ethics of one's own community instead of God's"
-        ],
-        "answer": 0,
-        "why": "Abraham sets aside the duty a father has to his son, for what he takes to be a command from God."
-       },
-       {
-        "ask": "Which statement about Kierkegaard and the \"leap of faith\" is accurate?",
-        "choices": [
-         "He wrote of a leap no argument can make for you, but the phrase \"leap of faith\" is not his",
-         "He coined the phrase \"leap of faith\" in Fear and Trembling",
-         "He argued that faith follows from good evidence, with a small leap at the end",
-         "He used it to describe Pascal's wager"
-        ],
-        "answer": 0,
-        "why": "Kierkegaard spoke of the leap across the gap that evidence and argument cannot close. The familiar phrase was attached to him later."
-       }
+      "title": "Abraham on the mountain",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1843, writing as Johannes de silentio, \"John of silence\", Kierkegaard published *Fear and Trembling*, a book about one story. In the book of Genesis, God tells Abraham to take his son Isaac, whom he waited for until he was a hundred years old, to a mountain in the land of Moriah and sacrifice him there. Abraham rises early, saddles his donkey, travels three days, builds the altar, binds his son and raises the knife, before an angel stops him and a ram is found in a thicket instead."
+        },
+        {
+          "type": "text",
+          "text": "Abraham is praised in three religions as the father of faith. Kierkegaard asks his readers to look at what he did. In ethical terms, he says, Abraham was ready to murder his son. If a man in a church congregation went home after a sermon on Abraham and did the same, the preacher would call him a monster. Either Abraham is a murderer, or there is something higher than ethics: a direct relation between a single person and God that can override duties that apply to everyone. Kierkegaard called this the **teleological suspension of the ethical**, the setting aside of ethics for a higher purpose."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Kierkegaard's question. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "abraham",
+            "ask": "Abraham was ready to kill his son because God commanded it. Was he right to be ready?",
+            "choices": [
+              "Yes: if God really commanded it, obeying was right",
+              "No: no command could make killing an innocent child right",
+              "He could never know the command was really from God",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Abraham's side, and the view Kierkegaard found terrifying in its implications, since it cannot be explained or checked.",
+              "You chose Kant's view. He wrote that Abraham should have answered that he was quite sure he ought not to kill his son, but not at all sure the voice was God's.",
+              "You chose the doubt Kant thought decisive, which also bears on anyone today who says God told them to do something terrible.",
+              "Kierkegaard wrote the whole book to keep readers in exactly that place."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Kierkegaard does not resolve it. His narrator says he cannot understand Abraham, only admire him. What makes Abraham a figure of faith is that he cannot explain himself: he cannot tell Sarah or Isaac, because anything he said would make him either a murderer or a madman. He acts alone, in fear and trembling, with no proof and no community to back him. Kierkegaard calls such a person a **knight of faith**, and says that one might look exactly like a tax collector, enjoying his Sunday dinner, with nothing outward to show what he believes."
+        },
+        {
+          "type": "text",
+          "text": "This is where the idea of the \"leap\" comes from. Kierkegaard, in his *Concluding Unscientific Postscript* (1846), argued that no amount of historical evidence or philosophical argument could carry a person across to faith; there is always a gap that can be crossed only by a decision, which he called a leap. The phrase \"leap of faith\", which is now attached to his name, is not his.[^leap]"
+        }
       ]
-     }
+    },
+    {
+      "title": "The dizziness of freedom",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1844 Kierkegaard published *The Concept of Anxiety*, under another invented name, about the feeling that comes from knowing you are free. Looking down into an abyss, he says, you grow dizzy, and the dizziness comes as much from you as from the drop: you are aware that you could do anything at all. That second feeling is anxiety. Unlike fear, it has no object; it is the feeling of possibility itself. \"Anxiety is the dizziness of freedom.\""
+        },
+        {
+          "type": "text",
+          "text": "Kierkegaard thought this anxiety was not an illness to be cured but part of being human, and that facing it honestly was a step towards faith. His idea that freedom brings anxiety was taken up a century later by writers who did not share his faith at all, above all Jean-Paul Sartre in lesson 19, who borrowed Kierkegaard's Abraham for his own argument about responsibility. Kierkegaard died in Copenhagen in 1855, aged 42, after collapsing in the street, and left Regine Olsen, by then married to another man, everything he owned."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Pascal's wager is still argued over, more in decision theory than in religion. The many-gods objection is widely thought to be serious, and so is the problem that infinite rewards make expected-value reasoning behave strangely: any action with any tiny chance of leading to belief would have infinite expected value. Some philosophers have rebuilt the wager in more careful forms, and versions of its reasoning appear in debates about acting on small risks of enormous catastrophes."
+        },
+        {
+          "type": "text",
+          "text": "Kierkegaard is read more than ever, and still argued over in philosophy of religion and in ethics. His idea that some commitments cannot be justified by reasons that would persuade anyone is defended in different forms by many philosophers of religion, and attacked by others as a way of putting faith beyond criticism. His scheme of three stages of life, the aesthetic, the ethical and the religious, is respected history, read as literature more than taught as a theory. In philosophy, both remain the main examples of treating faith as a decision rather than a conclusion."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Pascal and Kierkegaard",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does Pascal's wager try to show?",
+                "choices": [
+                  "That believing in God is the rational choice whether or not God exists",
+                  "That God exists, by an argument from probability",
+                  "That reason can decide whether God exists",
+                  "That believers live happier lives than unbelievers"
+                ],
+                "answer": 0,
+                "why": "The wager does not prove God. It argues that, given the stakes, betting on God is the better choice under uncertainty."
+              },
+              {
+                "ask": "What is the many-gods objection to the wager?",
+                "choices": [
+                  "Other possible gods promise infinite rewards too, so the bet does not tell you which to choose",
+                  "Belief in many gods is irrational, so the wager is too",
+                  "God might punish people who believe for the wrong reasons",
+                  "There is no God, so the wager rests on a false premise"
+                ],
+                "answer": 0,
+                "why": "If several gods offer infinite rewards and punishments, the infinite stakes no longer point to one choice."
+              },
+              {
+                "ask": "How did Pascal answer the objection that you cannot choose to believe?",
+                "choices": [
+                  "Act as believers do, and belief will follow from habit",
+                  "Belief does not matter, only church attendance",
+                  "God will give belief to anyone who takes the bet",
+                  "It is enough to say you believe, even if you do not"
+                ],
+                "answer": 0,
+                "why": "Habit shapes the mind as much as argument, he said, so living as a believer leads to belief."
+              },
+              {
+                "ask": "What does Kierkegaard mean by the teleological suspension of the ethical?",
+                "choices": [
+                  "Setting aside a universal moral duty for a higher, direct relation to God",
+                  "Abandoning ethics altogether in favour of pleasure",
+                  "Suspending moral judgement until all the facts are known",
+                  "Following the ethics of one's own community instead of God's"
+                ],
+                "answer": 0,
+                "why": "Abraham sets aside the duty a father has to his son, for what he takes to be a command from God."
+              },
+              {
+                "ask": "Which statement about Kierkegaard and the \"leap of faith\" is accurate?",
+                "choices": [
+                  "He wrote of a leap no argument can make for you, but the phrase \"leap of faith\" is not his",
+                  "He coined the phrase \"leap of faith\" in Fear and Trembling",
+                  "He argued that faith follows from good evidence, with a small leap at the end",
+                  "He used it to describe Pascal's wager"
+                ],
+                "answer": 0,
+                "why": "Kierkegaard spoke of the leap across the gap that evidence and argument cannot close. The familiar phrase was attached to him later."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Pascal sewed a record of his conversion into his coat.** \"God of Abraham, God of Isaac, God of Jacob, not of the philosophers and scholars.\"",
+    "**Pascal's wager treats belief as a bet.** Any chance of infinite gain outweighs a finite loss, so believing is the rational choice.",
+    "**The many-gods objection is the main reply.** If many gods offer infinite stakes, the bet does not pick one.",
+    "**Pascal said belief follows practice.** Act as believers do and habit will bring belief.",
+    "**Kierkegaard broke his engagement and wrote about choice ever after.** He wrote under invented names so that readers would have to choose for themselves.",
+    "**Abraham is either a murderer or a knight of faith.** Kierkegaard asked whether a direct relation to God can suspend ethical duty.",
+    "**Faith, for Kierkegaard, is a leap.** No evidence carries you across; the phrase \"leap of faith\" is a later label.",
+    "**Anxiety is the dizziness of freedom.** Sartre later took up the idea without the faith."
+  ],
+  "footnotes": {
+    "regine": {
+      "kind": "technical",
+      "title": "Regine Olsen",
+      "text": "Regine married a former tutor of hers, Johan Frederik Schlegel, in 1847, and lived until 1904. Kierkegaard kept her letters and wrote about her in his journals for the rest of his life. She accepted the bequest only in part, and helped scholars with his papers in her old age."
+    },
+    "leap": {
+      "kind": "technical",
+      "title": "Lessing's ditch",
+      "text": "Kierkegaard's leap answers the German writer Gotthold Lessing, who in 1777 called the gap between historical evidence and religious truth \"the ugly, broad ditch\" that he could not get across, however often he tried to jump."
+    },
+    "fermat": {
+      "kind": "digression",
+      "title": "The problem of points",
+      "text": "The question Pascal and Fermat solved in 1654 came from a gambler: how should the stakes be divided fairly if a game of chance is stopped before the end? Their answer, dividing by the chances each player had of winning, is the root of the idea of expected value that the wager uses."
+    },
+    "corsair": {
+      "kind": "digression",
+      "title": "The Corsair",
+      "text": "At the end of 1845 Kierkegaard picked a public fight with a Copenhagen satirical paper, The Corsair, which responded with cartoons of his thin legs and uneven trousers. For months children followed him in the street jeering \"Either Or\", the title of his first major book."
+    }
   }
- ],
- "summary": [
-  "**Pascal sewed a record of his conversion into his coat.** \"God of Abraham, God of Isaac, God of Jacob, not of the philosophers and scholars.\"",
-  "**Pascal's wager treats belief as a bet.** Any chance of infinite gain outweighs a finite loss, so believing is the rational choice.",
-  "**The many-gods objection is the main reply.** If many gods offer infinite stakes, the bet does not pick one.",
-  "**Pascal said belief follows practice.** Act as believers do and habit will bring belief.",
-  "**Kierkegaard broke his engagement and wrote about choice ever after.** He wrote under invented names so that readers would have to choose for themselves.",
-  "**Abraham is either a murderer or a knight of faith.** Kierkegaard asked whether a direct relation to God can suspend ethical duty.",
-  "**Faith, for Kierkegaard, is a leap.** No evidence carries you across; the phrase \"leap of faith\" is a later label.",
-  "**Anxiety is the dizziness of freedom.** Sartre later took up the idea without the faith."
- ],
- "footnotes": {
-  "regine": {
-   "kind": "technical",
-   "title": "Regine Olsen",
-   "text": "Regine married a former tutor of hers, Johan Frederik Schlegel, in 1847, and lived until 1904. Kierkegaard kept her letters and wrote about her in his journals for the rest of his life. She accepted the bequest only in part, and helped scholars with his papers in her old age."
-  },
-  "leap": {
-   "kind": "technical",
-   "title": "Lessing's ditch",
-   "text": "Kierkegaard's leap answers the German writer Gotthold Lessing, who in 1777 called the gap between historical evidence and religious truth \"the ugly, broad ditch\" that he could not get across, however often he tried to jump."
-  },
-  "fermat": {
-   "kind": "digression",
-   "title": "The problem of points",
-   "text": "The question Pascal and Fermat solved in 1654 came from a gambler: how should the stakes be divided fairly if a game of chance is stopped before the end? Their answer, dividing by the chances each player had of winning, is the root of the idea of expected value that the wager uses."
-  },
-  "corsair": {
-   "kind": "digression",
-   "title": "The Corsair",
-   "text": "At the end of 1845 Kierkegaard picked a public fight with a Copenhagen satirical paper, The Corsair, which responded with cartoons of his thin legs and uneven trousers. For months children followed him in the street jeering \"Either Or\", the title of his first major book."
-  }
- }
 }

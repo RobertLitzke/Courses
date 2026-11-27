@@ -1,266 +1,266 @@
 {
- "id": "gibberish",
- "n": 307,
- "branch": "tools",
- "needs": [
-  "sartre"
- ],
- "title": "Why does some philosophy sound like gibberish?",
- "teaches": "The analytic and continental split, and Heidegger in plain words",
- "parts": [
-  {
-   "title": "The nothing nothings",
-   "blocks": [
+  "id": "gibberish",
+  "n": 307,
+  "branch": "tools",
+  "needs": [
+    "sartre"
+  ],
+  "title": "Why does some philosophy sound like gibberish?",
+  "teaches": "The analytic and continental split, and Heidegger in plain words",
+  "parts": [
     {
-     "type": "text",
-     "text": "In July 1929 Martin Heidegger, then the most celebrated philosopher in Germany, gave his inaugural lecture as professor at the University of Freiburg. Its title was \"What Is Metaphysics?\" It was about nothing, in a precise sense: the nothing that we meet, Heidegger said, in the mood of anxiety, when everything we care about slips away and we are left facing the bare fact that there is something at all. In the middle of the lecture comes the sentence *Das Nichts selbst nichtet*: \"The nothing itself nothings.\""
-    },
-    {
-     "type": "text",
-     "text": "Three years later, Rudolf Carnap of the Vienna Circle, from the science branch lesson, published a paper called \"The Elimination of Metaphysics Through Logical Analysis of Language\". His main example was Heidegger's lecture. \"Nothing\" in ordinary language, Carnap explained, is not a name for a thing. \"There is nothing outside\" means \"there is not anything outside\", not \"there is a something, called Nothing, outside\". Heidegger had turned the word into a noun, then a verb, and produced sentences that broke the rules of logic while looking like sentences. They were not false, Carnap said, but meaningless: \"pseudo-statements\".[^davos]"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Heidegger's sentence. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "nothing",
-      "ask": "\"The nothing itself nothings.\" Is the sentence meaningless, or does it say something hard to put another way?",
-      "choices": [
-       "Meaningless: it misuses the word \"nothing\"",
-       "It says something, if read in its context",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Carnap's answer.",
-       "You chose the answer of Heidegger's defenders, who say it describes the experience of anxiety in which the world slips away.",
-       "Many readers of both are unsure."
+      "title": "The nothing nothings",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In July 1929 Martin Heidegger, then the most celebrated philosopher in Germany, gave his inaugural lecture as professor at the University of Freiburg. Its title was \"What Is Metaphysics?\" It was about nothing, in a precise sense: the nothing that we meet, Heidegger said, in the mood of anxiety, when everything we care about slips away and we are left facing the bare fact that there is something at all. In the middle of the lecture comes the sentence *Das Nichts selbst nichtet*: \"The nothing itself nothings.\""
+        },
+        {
+          "type": "text",
+          "text": "Three years later, Rudolf Carnap of the Vienna Circle, from the science branch lesson, published a paper called \"The Elimination of Metaphysics Through Logical Analysis of Language\". His main example was Heidegger's lecture. \"Nothing\" in ordinary language, Carnap explained, is not a name for a thing. \"There is nothing outside\" means \"there is not anything outside\", not \"there is a something, called Nothing, outside\". Heidegger had turned the word into a noun, then a verb, and produced sentences that broke the rules of logic while looking like sentences. They were not false, Carnap said, but meaningless: \"pseudo-statements\".[^davos]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Heidegger's sentence. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "nothing",
+            "ask": "\"The nothing itself nothings.\" Is the sentence meaningless, or does it say something hard to put another way?",
+            "choices": [
+              "Meaningless: it misuses the word \"nothing\"",
+              "It says something, if read in its context",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Carnap's answer.",
+              "You chose the answer of Heidegger's defenders, who say it describes the experience of anxiety in which the world slips away.",
+              "Many readers of both are unsure."
+            ]
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Two traditions",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The exchange is often taken as the moment philosophy split in two. Through the 20th century, most philosophers in Britain, America, Scandinavia and Australia worked in the **analytic** tradition, which descends from Frege, Russell, Moore, the early Wittgenstein and the Vienna Circle. It prizes clarity, logic and argument in small steps, often borrows the methods of mathematics and science, and tends to break big questions into small, precise ones."
     },
     {
-     "type": "text",
-     "text": "Most philosophers in France and Germany worked in what English speakers called the **continental** tradition, which descends from Husserl's phenomenology, the careful description of experience as it is lived, through Heidegger, Sartre and Beauvoir, to later French thinkers such as Michel Foucault and Jacques Derrida. It tends to start from human experience, history and culture rather than logic, reads earlier philosophers closely, and is often written in a deliberately difficult style, on the view that ordinary language carries hidden assumptions that need to be broken."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Eight philosophers and habits. Sort each by the tradition it is usually placed in.",
-     "task": "Sort all eight",
-     "goal": "sorted",
-     "options": {
-      "ask": "Analytic or continental?",
-      "groups": [
-       {
-        "name": "Analytic",
-        "color": "analytic"
-       },
-       {
-        "name": "Continental",
-        "color": "continental"
-       }
-      ],
-      "items": [
-       {
-        "name": "Bertrand Russell",
-        "group": "Analytic",
-        "why": "A founder of modern logic and of the analytic style."
-       },
-       {
-        "name": "Rudolf Carnap",
-        "group": "Analytic",
-        "why": "The Vienna Circle's leading logician."
-       },
-       {
-        "name": "Breaking a question into small, precise claims and testing each with examples",
-        "group": "Analytic",
-        "why": "The method of most papers in analytic journals."
-       },
-       {
-        "name": "Thought experiments such as Gettier cases and trolley problems",
-        "group": "Analytic",
-        "why": "Short imagined cases that test a definition or a principle."
-       },
-       {
-        "name": "Martin Heidegger",
-        "group": "Continental",
-        "why": "The central figure of 20th-century German philosophy."
-       },
-       {
-        "name": "Simone de Beauvoir",
-        "group": "Continental",
-        "why": "Existentialism and phenomenology, applied to women's lives."
-       },
-       {
-        "name": "Describing in detail how an experience feels from the inside",
-        "group": "Continental",
-        "why": "Husserl's phenomenology, the method Heidegger and Sartre began from."
-       },
-       {
-        "name": "Reading the history of a concept to show how it came to seem natural",
-        "group": "Continental",
-        "why": "Foucault's method, and Nietzsche's genealogy before him."
-       }
+      "title": "Two traditions",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "This clash is often taken as the moment philosophy split in two. Through the 20th century, most philosophers in Britain, America, Scandinavia and Australia worked in the **analytic** tradition, which descends from Frege, Russell, Moore, the early Wittgenstein and the Vienna Circle. It prizes clarity, logic and argument in small steps, often borrows the methods of mathematics and science, and tends to break big questions into small, precise ones."
+        },
+        {
+          "type": "text",
+          "text": "Most philosophers in France and Germany worked in what English speakers called the **continental** tradition. It descends from Husserl's phenomenology, the careful description of experience as it is lived, through Heidegger, Sartre and Beauvoir, to later French thinkers such as Michel Foucault and Jacques Derrida. It tends to start from human experience, history and culture rather than logic, reads earlier philosophers closely, and is often written in a deliberately difficult style, on the view that ordinary language carries hidden assumptions that need to be broken."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Eight philosophers and habits. Sort each by the tradition it is usually placed in.",
+          "task": "Sort all eight",
+          "goal": "sorted",
+          "options": {
+            "ask": "Analytic or continental?",
+            "groups": [
+              {
+                "name": "Analytic",
+                "color": "analytic"
+              },
+              {
+                "name": "Continental",
+                "color": "continental"
+              }
+            ],
+            "items": [
+              {
+                "name": "Bertrand Russell",
+                "group": "Analytic",
+                "why": "A founder of modern logic and of the analytic style."
+              },
+              {
+                "name": "Rudolf Carnap",
+                "group": "Analytic",
+                "why": "The Vienna Circle's leading logician."
+              },
+              {
+                "name": "Breaking a question into small, precise claims and testing each with examples",
+                "group": "Analytic",
+                "why": "The method of most papers in analytic journals."
+              },
+              {
+                "name": "Thought experiments such as Gettier cases and trolley problems",
+                "group": "Analytic",
+                "why": "Short imagined cases that test a definition or a principle."
+              },
+              {
+                "name": "Martin Heidegger",
+                "group": "Continental",
+                "why": "The central figure of 20th-century German philosophy."
+              },
+              {
+                "name": "Simone de Beauvoir",
+                "group": "Continental",
+                "why": "Existentialism and phenomenology, applied to women's lives."
+              },
+              {
+                "name": "Describing in detail how an experience feels from the inside",
+                "group": "Continental",
+                "why": "Husserl's phenomenology, the method Heidegger and Sartre began from."
+              },
+              {
+                "name": "Reading the history of a concept to show how it came to seem natural",
+                "group": "Continental",
+                "why": "Foucault's method, and Nietzsche's genealogy before him."
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The labels are odd, as the philosopher Bernard Williams pointed out: it is like dividing cars into Japanese and front-wheel drive, since one label is about a method and the other about a place. Some of the founders of analytic philosophy, such as Frege and the Vienna Circle, were continental Europeans."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The labels are odd, as the philosopher Bernard Williams pointed out: it is like dividing cars into Japanese and front-wheel drive, since one label is about a method and the other about a place. Some of the founders of analytic philosophy, such as Frege and the Vienna Circle, were continental Europeans."
-    }
-   ]
-  },
-  {
-   "title": "Heidegger in plain words",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Heidegger's main book, *Being and Time* (1927), asks what it means for anything to be. He started from the one being that can ask the question, the human being, which he called **Dasein**, ordinary German for \"existence\", literally \"being there\". He used odd words on purpose. Words such as \"subject\", \"mind\" and \"consciousness\" came with Descartes's picture of a mind looking out at a world of objects, and Heidegger thought that picture was wrong from the start."
-    },
-    {
-     "type": "text",
-     "text": "His best-known example is a hammer. When you are hammering well, you do not notice the hammer as an object with a weight and shape. You are absorbed in the work, and the hammer is part of your activity; it is **ready-to-hand**. Only when it breaks, or is too heavy, does it become an object you look at and think about, **present-at-hand**. Heidegger's point was that our basic relation to the world is practical involvement, not detached observation; science's way of seeing things as objects with properties is a later, special attitude."
-    },
-    {
-     "type": "text",
-     "text": "We find ourselves **thrown** into a world we did not choose, with a language, a history and a body. Most of the time we live as \"one\" lives, which Heidegger called *das Man*, \"the They\": \"we take pleasure and enjoy ourselves as they take pleasure; we read, see and judge about literature and art as they see and judge\". Facing our own death, which no one else can die for us, can pull us out of this and make us own our lives, which Heidegger called **authenticity**. Sartre's bad faith, in lesson 19, owes a great deal to this."
-    },
-    {
-     "type": "text",
-     "text": "Put that way, much of it is clear, and some of it is close to ideas in the analytic tradition, such as the later Wittgenstein's language games. The difficulty is partly the ideas, partly the invented vocabulary, partly German, and partly a style that Heidegger, and many who followed him, thought was required by the subject. Critics reply that difficulty often hides confusion, and that a clear idea can be said clearly."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Style and substance. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "clarity",
-      "ask": "When a philosophy book is very hard to read, is that usually a sign it has less to say than it seems?",
-      "choices": [
-       "Yes: what can be said at all can be said clearly",
-       "No: some ideas need new words and hard reading",
-       "Sometimes, but it has to be judged case by case",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the analytic answer. The early Wittgenstein wrote: what can be said at all can be said clearly.",
-       "You chose the continental answer.",
-       "You chose the answer of most people who read in both traditions.",
-       "Readers of Heidegger often feel the same."
+      "title": "Heidegger in plain words",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Heidegger's main book, *Being and Time* (1927), asks what it means for anything to be. He started from the one being that can ask the question, the human being, which he called **Dasein**, ordinary German for \"existence\", literally \"being there\". He used odd words on purpose. Words such as \"subject\", \"mind\" and \"consciousness\" came with Descartes's picture of a mind looking out at a world of objects, and Heidegger thought that picture was wrong from the start."
+        },
+        {
+          "type": "text",
+          "text": "His best-known example is a hammer. When you are hammering well, you do not notice the hammer as an object with a weight and shape. You are absorbed in the work, and the hammer is part of your activity; it is **ready-to-hand**. Only when it breaks, or is too heavy, does it become an object you look at and think about, **present-at-hand**. Heidegger's point was that our basic relation to the world is practical involvement, not detached observation; science's way of seeing things as objects with properties is a later, special attitude."
+        },
+        {
+          "type": "text",
+          "text": "We find ourselves **thrown** into a world we did not choose, with a language, a history and a body. Most of the time we live as \"one\" lives, which Heidegger called *das Man*, \"the They\": \"we take pleasure and enjoy ourselves as they take pleasure; we read, see and judge about literature and art as they see and judge\". Facing our own death, which no one else can die for us, can pull us out of this and make us own our lives, which Heidegger called **authenticity**. Sartre's bad faith, in lesson 19, owes a great deal to this."
+        },
+        {
+          "type": "text",
+          "text": "Put that way, much of it is clear, and some of it is close to ideas in the analytic tradition, such as the later Wittgenstein's language games. The difficulty lies in the ideas, the invented vocabulary, the German, and a style that Heidegger and his followers thought the subject required. Critics reply that difficulty often hides confusion, and that a clear idea can be said clearly."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Style and substance. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "clarity",
+            "ask": "When a philosophy book is very hard to read, is that usually a sign it has less to say than it seems?",
+            "choices": [
+              "Yes: what can be said at all can be said clearly",
+              "No: some ideas need new words and hard reading",
+              "Sometimes, but it has to be judged case by case",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the analytic answer. The early Wittgenstein wrote: what can be said at all can be said clearly.",
+              "You chose the continental answer.",
+              "You chose the answer of most people who read in both traditions.",
+              "Readers of Heidegger often feel the same."
+            ]
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Why they stopped reading each other",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "For much of the century the two sides rarely met. Departments hired from one tradition, journals published one or the other, and each side's students were taught to think the other was not doing proper philosophy. Analytic philosophers tended to see continental writing as obscure; continental philosophers tended to see analytic work as narrow, technical and blind to history."
     },
     {
-     "type": "text",
-     "text": "Politics made it worse. Heidegger joined the Nazi party in 1933, became rector of Freiburg University, and gave speeches in support of the regime; he never clearly apologised after the war. His private notebooks, published from 2014, contain antisemitic passages. For many analytic philosophers, this confirmed their distrust. In 1992 Cambridge University held a vote on whether to give Derrida an honorary degree after a group of philosophers from both sides of the Atlantic protested that his work did not meet accepted standards of clarity and rigour; the degree was granted, 336 votes to 204.[^sokal]"
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The split is still argued over, but it has narrowed. Many younger philosophers read across it, and topics such as embodiment, emotion, feminism and the philosophy of mind draw on both. Analytic philosophers now write books on Heidegger and Hegel, and phenomenology is used in cognitive science, in work on how the mind is shaped by the body and its activity. Heidegger is read and taught in both traditions, while his politics remain a reason many refuse to. The idea that unclear writing is always empty is, like Carnap's verdict on Heidegger, now held by few philosophers in its strong form."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on the split",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What was Carnap's objection to Heidegger's sentence \"the nothing itself nothings\"?",
-        "choices": [
-         "It treats \"nothing\" as the name of a thing, producing a pseudo-statement that is meaningless rather than false",
-         "It is false because nothing cannot exist",
-         "It was badly translated from German",
-         "It contradicts Heidegger's earlier work"
-        ],
-        "answer": 0,
-        "why": "\"There is nothing outside\" means there is not anything outside, not that a Nothing is there."
-       },
-       {
-        "ask": "Which of these is typical of the analytic tradition?",
-        "choices": [
-         "Breaking big questions into small, precise claims and testing them with examples",
-         "Describing in detail how experience feels from the inside",
-         "Reading the history of a concept to show how it came to seem natural",
-         "Writing in a deliberately difficult style to break ordinary assumptions"
-        ],
-        "answer": 0,
-        "why": "The other three are more typical of continental philosophy."
-       },
-       {
-        "ask": "What did Heidegger mean by the hammer being ready-to-hand?",
-        "choices": [
-         "When we use it well we do not notice it as an object; it is part of our activity",
-         "The hammer is always within reach",
-         "Tools are more real than other objects",
-         "The hammer belongs to whoever is using it"
-        ],
-        "answer": 0,
-        "why": "It becomes an object to look at, present-at-hand, only when it breaks, goes missing or is too heavy."
-       },
-       {
-        "ask": "What did Bernard Williams mean by comparing the analytic and continental labels to Japanese and front-wheel-drive cars?",
-        "choices": [
-         "One label is about a method and the other about a place, so they do not divide the field cleanly",
-         "Continental philosophy is older than analytic philosophy",
-         "Analytic philosophy is more popular than continental philosophy",
-         "Both traditions began in Japan"
-        ],
-        "answer": 0,
-        "why": "Several founders of analytic philosophy were continental Europeans."
-       }
+      "title": "Why they stopped reading each other",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "For much of the century the two sides rarely met. Departments hired from one tradition, journals published one or the other, and each side's students were taught to think the other was not doing proper philosophy. Analytic philosophers tended to see continental writing as obscure; continental philosophers tended to see analytic work as narrow, technical and blind to history."
+        },
+        {
+          "type": "text",
+          "text": "Politics made it worse. Heidegger joined the Nazi party in 1933, became rector of Freiburg University, and gave speeches in support of the regime; he never clearly apologised after the war. His private notebooks, published from 2014, contain antisemitic passages. For many analytic philosophers, this confirmed their distrust. In 1992 Cambridge University held a vote on whether to give Derrida an honorary degree after a group of philosophers from both sides of the Atlantic protested that his work did not meet accepted standards of clarity and rigour; the degree was granted, 336 votes to 204.[^sokal]"
+        }
       ]
-     }
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The split is still argued over, but it has narrowed. Many younger philosophers read across it, and topics such as embodiment, emotion, feminism and the philosophy of mind draw on both. Analytic philosophers now write books on Heidegger and Hegel, and phenomenology is used in cognitive science, in work on how the mind is shaped by the body and its activity. Heidegger is read and taught in both traditions, while his politics remain a reason many refuse to read him. Few philosophers now hold, in its strong form, Carnap's verdict on Heidegger or the idea that unclear writing is always empty."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on the split",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What was Carnap's objection to Heidegger's sentence \"the nothing itself nothings\"?",
+                "choices": [
+                  "It treats \"nothing\" as the name of a thing, producing a pseudo-statement that is meaningless rather than false",
+                  "It is false because nothing cannot exist",
+                  "It was badly translated from German",
+                  "It contradicts Heidegger's earlier work"
+                ],
+                "answer": 0,
+                "why": "\"There is nothing outside\" means there is not anything outside, not that a Nothing is there."
+              },
+              {
+                "ask": "Which of these is typical of the analytic tradition?",
+                "choices": [
+                  "Breaking big questions into small, precise claims and testing them with examples",
+                  "Describing in detail how experience feels from the inside",
+                  "Reading the history of a concept to show how it came to seem natural",
+                  "Writing in a deliberately difficult style to break ordinary assumptions"
+                ],
+                "answer": 0,
+                "why": "The other three are more typical of continental philosophy."
+              },
+              {
+                "ask": "What did Heidegger mean by the hammer being ready-to-hand?",
+                "choices": [
+                  "When we use it well we do not notice it as an object; it is part of our activity",
+                  "The hammer is always within reach",
+                  "Tools are more real than other objects",
+                  "The hammer belongs to whoever is using it"
+                ],
+                "answer": 0,
+                "why": "It becomes an object to look at, present-at-hand, only when it breaks, goes missing or is too heavy."
+              },
+              {
+                "ask": "What did Bernard Williams mean by comparing the analytic and continental labels to Japanese and front-wheel-drive cars?",
+                "choices": [
+                  "One label is about a method and the other about a place, so they do not divide the field cleanly",
+                  "Continental philosophy is older than analytic philosophy",
+                  "Analytic philosophy is more popular than continental philosophy",
+                  "Both traditions began in Japan"
+                ],
+                "answer": 0,
+                "why": "Several founders of analytic philosophy were continental Europeans."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Heidegger said \"the nothing itself nothings\" in 1929.** Carnap called it a pseudo-statement in 1932.",
+    "**Analytic philosophy prizes clarity, logic and small steps.** Frege, Russell, the Vienna Circle.",
+    "**Continental philosophy starts from lived experience, history and culture.** Husserl, Heidegger, Sartre, Foucault, Derrida.",
+    "**The labels mix a method with a place.** Williams's Japanese and front-wheel-drive cars.",
+    "**Heidegger: we are involved in the world before we observe it.** The hammer is ready-to-hand until it breaks.",
+    "**Authenticity means owning your life against \"the They\".** Sartre's bad faith owes much to it.",
+    "**The traditions stopped reading each other, and are starting again.** Heidegger's Nazism made the split harder."
+  ],
+  "footnotes": {
+    "davos": {
+      "kind": "digression",
+      "title": "Davos, 1929",
+      "text": "Earlier in 1929, Carnap had been in the audience at Davos in Switzerland for a famous debate between Heidegger and the neo-Kantian Ernst Cassirer, which many present took as a contest between an old and a new philosophy. Heidegger, younger and in ski clothes, was thought by most to have won."
+    },
+    "sokal": {
+      "kind": "digression",
+      "title": "The Sokal hoax",
+      "text": "In 1996 the physicist Alan Sokal had a deliberately nonsensical paper, full of fashionable jargon, accepted by the cultural studies journal Social Text. He revealed the hoax on publication. It was aimed at postmodern writing about science, not at continental philosophy as a whole, but it was widely read as a verdict on both."
+    }
   }
- ],
- "summary": [
-  "**Heidegger said \"the nothing itself nothings\" in 1929.** Carnap called it a pseudo-statement in 1932.",
-  "**Analytic philosophy prizes clarity, logic and small steps.** Frege, Russell, the Vienna Circle.",
-  "**Continental philosophy starts from lived experience, history and culture.** Husserl, Heidegger, Sartre, Foucault, Derrida.",
-  "**The labels mix a method with a place.** Williams's Japanese and front-wheel-drive cars.",
-  "**Heidegger: we are involved in the world before we observe it.** The hammer is ready-to-hand until it breaks.",
-  "**Authenticity means owning your life against \"the They\".** Sartre's bad faith owes much to it.",
-  "**The traditions stopped reading each other, and are starting again.** Heidegger's Nazism made the split harder."
- ],
- "footnotes": {
-  "davos": {
-   "kind": "digression",
-   "title": "Davos, 1929",
-   "text": "Earlier in 1929, Carnap had been in the audience at Davos in Switzerland for a famous debate between Heidegger and the neo-Kantian Ernst Cassirer, which many present took as a contest between an old and a new philosophy. Heidegger, younger and in ski clothes, was thought by most to have won."
-  },
-  "sokal": {
-   "kind": "digression",
-   "title": "The Sokal hoax",
-   "text": "In 1996 the physicist Alan Sokal had a deliberately nonsensical paper, full of fashionable jargon, accepted by the cultural studies journal Social Text. He revealed the hoax on publication. It was aimed at postmodern writing about science, not at continental philosophy as a whole, but it was widely read as a verdict on both."
-  }
- }
 }

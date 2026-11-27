@@ -1,346 +1,346 @@
 {
- "id": "spinoza",
- "n": 12,
- "title": "Could you have done otherwise?",
- "teaches": "Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show",
- "parts": [
-  {
-   "title": "Cursed by day and by night",
-   "blocks": [
+  "id": "spinoza",
+  "n": 12,
+  "title": "Could you have done otherwise?",
+  "teaches": "Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show",
+  "parts": [
     {
-     "type": "text",
-     "text": "On 27 July 1656 the leaders of the Portuguese Jewish congregation in Amsterdam read out a decree of *herem*, the strongest form of expulsion from the community, against a 23-year-old merchant named Baruch de Espinosa. \"Cursed be he by day and cursed be he by night,\" it ran; no one was to speak with him, write to him, stay under the same roof or come within four cubits of him, or read anything he wrote. It did not say exactly what he had done, only that he held \"abominable heresies\". He was never readmitted.[^herem]"
-    },
-    {
-     "type": "text",
-     "text": "He changed his first name to its Latin form, Benedictus, and is known as Spinoza. He lived quietly in small Dutch towns, earned part of his living grinding lenses for microscopes and telescopes,[^lenses] turned down a professorship at Heidelberg in 1673 to keep his freedom to think, and died in The Hague in 1677, aged 44, probably of a lung disease made worse by glass dust. His main book, the *Ethics*, was published after his death by friends, without his name on it. Within a few years it was banned across much of Europe."
-    },
-    {
-     "type": "text",
-     "text": "Spinoza's heresy was a picture of the world in which God is not a person who makes choices, and neither, in the way we usually think, are we. In this lesson we look at that picture, at the question it raises about whether anyone could ever have done otherwise, and at the answers philosophers and neuroscientists have given since."
-    }
-   ]
-  },
-  {
-   "title": "God or Nature",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The *Ethics* is written like Euclid's geometry, in definitions, axioms and numbered propositions, each proved from the ones before. Its first part argues that there can be only one substance, one thing that exists in itself and depends on nothing else, and that this substance is infinite and has infinitely many aspects. Spinoza called it God, and also Nature: *Deus sive Natura*, \"God, or Nature\". Everything else, including stars, stones and human beings, is a way that one substance exists, as waves are ways the sea exists."
-    },
-    {
-     "type": "text",
-     "text": "This God does not plan, judge, reward or punish, and has no purposes. Everything follows from its nature with the same necessity with which the angles of a triangle add up to two right angles. \"In nature there is nothing contingent,\" Spinoza wrote; \"all things have been determined from the necessity of the divine nature to exist and to produce an effect in a certain way.\" Some readers called him an atheist, since his God is not the God of the Bible. Others, such as the poet Novalis, called him \"a God-intoxicated man\". Albert Einstein, asked in 1929 whether he believed in God, replied that he believed in \"Spinoza's God\".[^einstein]"
-    },
-    {
-     "type": "text",
-     "text": "The view that every event, including every human choice, is fixed by what came before it and the laws of nature is called **determinism**. In 1814 the French mathematician Pierre-Simon Laplace gave it its best-known image: an intellect that knew, at one moment, the position of every particle in the universe and every force acting on it would be able to predict the whole future and reconstruct the whole past. Philosophers call this imagined mind **Laplace's demon**."
-    }
-   ]
-  },
-  {
-   "title": "The stone that thinks it chooses",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "If everything is fixed, why do we feel free? Spinoza answered in a letter of 1674. Take a stone that is thrown and keeps moving. Now suppose that the stone, while it moves, could think and know that it was trying to keep moving. It would believe itself completely free, and think it went on moving only because it wanted to. \"This is that human freedom which all boast of possessing, and which consists solely in this, that men are conscious of their desire and ignorant of the causes by which they are determined.\""
-    },
-    {
-     "type": "text",
-     "text": "Spinoza did not conclude that nobody is free. He redefined freedom. A person is in bondage when they are pushed about by passions they do not understand, such as jealousy, fear and greed, as the stone is pushed by the throw. A person is free to the degree that they act from an understanding of the causes of things, including the causes of their own feelings. Understanding why you are angry, on his view, already weakens the anger's hold. The free person, for Spinoza, is not one who escapes cause and effect but one who understands it."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Determinism is often confused with fatalism. Sort each claim.",
-     "task": "Sort all six",
-     "goal": "sorted",
-     "options": {
-      "ask": "Which view does this claim express?",
-      "groups": [
-       {
-        "name": "Determinism",
-        "color": "claim"
-       },
-       {
-        "name": "Fatalism",
-        "color": "objection"
-       }
-      ],
-      "items": [
-       {
-        "name": "Your decision to study tonight was caused by earlier events, including your own reasons",
-        "group": "Determinism",
-        "why": "Determinism includes your reasons and efforts among the causes."
-       },
-       {
-        "name": "Whatever you do, you will die on the day already fixed for you",
-        "group": "Fatalism",
-        "why": "Fatalism says the outcome is fixed whatever you do, so your choices make no difference to it."
-       },
-       {
-        "name": "If you had wanted something different, you would have chosen differently",
-        "group": "Determinism",
-        "why": "A determinist accepts this: your wants make a difference, though your wants were caused too."
-       },
-       {
-        "name": "There is no point in revising, since your exam result is already settled",
-        "group": "Fatalism",
-        "why": "The lazy argument. On determinism the result depends partly on whether you revise."
-       },
-       {
-        "name": "A perfect predictor who knew everything about the world now could tell what you will choose",
-        "group": "Determinism",
-        "why": "This is Laplace's demon. Prediction is possible because choices have causes."
-       },
-       {
-        "name": "The oracle's prophecy will come true however hard you try to avoid it",
-        "group": "Fatalism",
-        "why": "Oedipus's story. Fate works around his choices, not through them."
-       }
+      "title": "Cursed by day and by night",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On 27 July 1656 the leaders of the Portuguese Jewish congregation in Amsterdam read out a decree of *herem*, the strongest form of expulsion from the community, against a 23-year-old merchant named Baruch de Espinosa. \"Cursed be he by day and cursed be he by night,\" it ran; no one was to speak with him, write to him, stay under the same roof or come within four cubits of him, or read anything he wrote. It did not say exactly what he had done, only that he held \"abominable heresies\". He was never readmitted.[^herem]"
+        },
+        {
+          "type": "text",
+          "text": "He changed his first name to its Latin form, Benedictus, and is known as Spinoza. He lived quietly in small Dutch towns, earned part of his living grinding lenses for microscopes and telescopes,[^lenses] turned down a professorship at Heidelberg in 1673 to keep his freedom to think, and died in The Hague in 1677, aged 44, probably of a lung disease made worse by glass dust. His main book, the *Ethics*, was published after his death by friends, without his name on it. Within a few years it was banned across much of Europe."
+        },
+        {
+          "type": "text",
+          "text": "Spinoza's heresy was a picture of the world in which God is not a person who makes choices, and neither, in the way we usually think, are we."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Free and caused",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Determinism seems to threaten responsibility. If every choice you make was fixed by events before you were born, it is hard to see how you could have done otherwise, and if you could not have done otherwise, it seems unfair to blame you. Philosophers have set this out as an argument."
     },
     {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "The argument that determinism rules out free will, in its simplest form.",
-     "options": {
-      "steps": [
-       {
-        "text": "If determinism is true, every choice is fixed by the past and the laws of nature."
-       },
-       {
-        "text": "Nobody controls the past or the laws of nature."
-       },
-       {
-        "text": "So nobody controls their choices, and nobody could have done otherwise."
-       },
-       {
-        "text": "Free will requires being able to do otherwise.",
-        "kind": "premise"
-       },
-       {
-        "text": "If determinism is true, nobody has free will.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Free will requires only that you act on your own reasons without being forced, which is compatible with your reasons having causes.",
-        "kind": "objection",
-        "against": 4,
-        "who": "Hume"
-       }
+      "title": "God or Nature",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The *Ethics* is written like Euclid's geometry, in definitions, axioms and numbered propositions, each proved from the ones before. Its first part argues that there can be only one substance, one thing that exists in itself and depends on nothing else, and that this substance is infinite and has infinitely many aspects. Spinoza called it God, and also Nature: *Deus sive Natura*, \"God, or Nature\". Everything else, including stars, stones and human beings, is a way that one substance exists, as waves are ways the sea exists."
+        },
+        {
+          "type": "text",
+          "text": "This God does not plan, judge, reward or punish, and has no purposes. Everything follows from its nature with the same necessity with which the angles of a triangle add up to two right angles. \"In nature there is nothing contingent,\" Spinoza wrote; \"all things have been determined from the necessity of the divine nature to exist and to produce an effect in a certain way.\" Some readers called him an atheist, since his God is not the God of the Bible. Others, such as the poet Novalis, called him \"a God-intoxicated man\". Albert Einstein, asked in 1929 whether he believed in God, replied that he believed in \"Spinoza's God\".[^einstein]"
+        },
+        {
+          "type": "text",
+          "text": "The view that every event, including every human choice, is fixed by what came before it and the laws of nature is called **determinism**. In 1814 the French mathematician Pierre-Simon Laplace gave it its best-known image: an intellect that knew, at one moment, the position of every particle in the universe and every force acting on it would be able to predict the whole future and reconstruct the whole past. Philosophers call this imagined mind **Laplace's demon**."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "There are three main responses. **Libertarians** (no relation to the political view) accept the argument and deny determinism: at least some choices are not fixed in advance. **Hard determinists** accept the argument and determinism, and conclude that nobody has free will. **Compatibilists** reject the argument: they hold that free will and determinism are compatible, because being free means something other than escaping causes."
-    },
-    {
-     "type": "text",
-     "text": "David Hume, in 1748, gave the classic compatibilist account. Liberty, he said, means \"a power of acting or not acting, according to the determinations of the will\": if you choose to stay, you can stay, and if you choose to go, you can go. Its opposite is not cause but constraint, being chained or forced. A prisoner is unfree, and a person who walks out of a room because they want to is free, even if their wanting had causes. Libertarians reply that this freedom is too thin. If what you want was fixed before you were born, being able to act on it is the freedom of Spinoza's stone."
-    },
-    {
-     "type": "text",
-     "text": "In 1969 the American philosopher Harry Frankfurt gave compatibilism a new argument. In the version later writers made standard, Black, a neuroscientist, has secretly fitted a device to Jones's brain. Black wants Jones to vote for a certain candidate. If Jones were about to decide to vote the other way, the device would make him vote Black's way; but Jones decides on his own to vote for that candidate, and the device never does anything. Jones could not have done otherwise, yet he seems fully responsible, since he chose exactly as he would have without the device. If so, responsibility does not require the ability to do otherwise, and if free will is the control that responsibility needs, the fourth premise above is false.[^frankfurt]"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Your view before the experiment below. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "freewill",
-      "ask": "Suppose every choice you make is fully caused by earlier events. Could you still have free will?",
-      "choices": [
-       "Yes: being free means acting on your own reasons, caused or not",
-       "No, but some choices are not fully caused, so we are free",
-       "No: nobody has free will",
-       "Not sure"
-      ],
-      "who": [
-       "You chose compatibilism, the most common view among philosophers.",
-       "You chose libertarianism. Its defenders owe an account of how an uncaused choice is any more yours than a caused one.",
-       "You chose hard determinism or something like it. Its defenders, such as Derk Pereboom, argue that we can live well without blame.",
-       "Not sure is a common answer; most philosophers hold one of the first three, but often loosely."
-      ],
-      "poll": {
-       "shares": [
-        59,
-        19,
-        11,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Free will: compatibilism, libertarianism or no free will?\", share accepting or leaning towards each."
-      }
-     }
-    }
-   ]
-  },
-  {
-   "title": "Libet's experiment",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1983 the American neuroscientist Benjamin Libet published an experiment that seemed to bring the question into the laboratory. He asked volunteers to flex a wrist whenever they felt like it, and to note, by watching a fast-moving dot on a clock face, the moment they first felt the urge to move. Electrodes on the scalp recorded a slow build-up of electrical activity in the brain, which neuroscientists had found in 1965 and named the **readiness potential**."
-    },
-    {
-     "type": "text",
-     "text": "The readiness potential began about half a second before the movement. The volunteers reported feeling the urge only about a fifth of a second before it. So the brain seemed to start preparing the movement about a third of a second before the person was aware of deciding. Many writers concluded that the brain decides before we know it, and that conscious will is an illusion."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Libet's result, as first reported. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "libet",
-      "ask": "If brain activity reliably preceded your conscious decision to move by a third of a second, would that show the decision was not free?",
-      "choices": [
-       "Yes: the brain decided before I did",
-       "No: the brain activity is part of me deciding",
-       "It shows something, but less than it seems",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the reading that made the experiment famous. Most researchers now think it goes too far, for the reasons below.",
-       "You chose a compatibilist reply: you are not something separate from your brain, so your brain deciding is you deciding.",
-       "You chose the view of most researchers who have looked at the experiment closely since 2012.",
-       "Libet himself was unsure, and argued that we keep a power to veto a movement after the urge appears."
+      "title": "The stone that thinks it chooses",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In a letter of 1674, Spinoza explained why we still feel free even if everything is fixed. Take a stone that is thrown and keeps moving. Now suppose that the stone, while it moves, could think and know that it was trying to keep moving. It would believe itself completely free, and think it went on moving only because it wanted to. \"This is that human freedom which all boast of possessing, and which consists solely in this, that men are conscious of their desire and ignorant of the causes by which they are determined.\""
+        },
+        {
+          "type": "text",
+          "text": "Spinoza did not conclude that nobody is free. He redefined freedom. A person is in bondage when they are pushed about by passions they do not understand, such as jealousy, fear and greed, as the stone is pushed by the throw. A person is free to the degree that they act from an understanding of the causes of things, including the causes of their own feelings. Understanding why you are angry, on his view, already weakens the anger's hold. For Spinoza, a free person does not escape cause and effect, but understands it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Determinism is often confused with fatalism. Sort each claim.",
+          "task": "Sort all six",
+          "goal": "sorted",
+          "options": {
+            "ask": "Which view does this claim express?",
+            "groups": [
+              {
+                "name": "Determinism",
+                "color": "claim"
+              },
+              {
+                "name": "Fatalism",
+                "color": "objection"
+              }
+            ],
+            "items": [
+              {
+                "name": "Your decision to study tonight was caused by earlier events, including your own reasons",
+                "group": "Determinism",
+                "why": "Determinism includes your reasons and efforts among the causes."
+              },
+              {
+                "name": "Whatever you do, you will die on the day already fixed for you",
+                "group": "Fatalism",
+                "why": "Fatalism says the outcome is fixed whatever you do, so your choices make no difference to it."
+              },
+              {
+                "name": "If you had wanted something different, you would have chosen differently",
+                "group": "Determinism",
+                "why": "A determinist accepts this: your wants make a difference, though your wants were caused too."
+              },
+              {
+                "name": "There is no point in revising, since your exam result is already settled",
+                "group": "Fatalism",
+                "why": "The lazy argument. On determinism the result depends partly on whether you revise."
+              },
+              {
+                "name": "A perfect predictor who knew everything about the world now could tell what you will choose",
+                "group": "Determinism",
+                "why": "This is Laplace's demon. Prediction is possible because choices have causes."
+              },
+              {
+                "name": "The oracle's prophecy will come true however hard you try to avoid it",
+                "group": "Fatalism",
+                "why": "Oedipus's story. Fate works around his choices, not through them."
+              }
+            ]
+          }
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The experiment has been heavily criticised. The volunteers were making a trivial choice with no reasons on either side, which is unlike most decisions people care about. Timing a feeling against a moving dot is unreliable. And in 2012 Aaron Schurger and colleagues argued that the readiness potential may not be a decision at all, but the build-up of random background activity that happens to cross a threshold, which looks like a ramp when averaged over many trials. On this reading, the brain was not deciding early; it was idling until something tipped it over. Libet himself thought the experiment left room for free will, since people could still veto a movement after feeling the urge."
-    },
-    {
-     "type": "text",
-     "text": "Even if the readiness potential were a decision, it would tell against free will only on one picture of it, the picture of a mind separate from the brain that steps in at the last moment. Compatibilists never held that picture. Indeterminism does not help the libertarian much either: if quantum physics makes some events in the brain random, a choice that depends on a random event is not obviously more under your control."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Compatibilism is the majority view among professional philosophers and is still argued over, in versions descended from Hume and Frankfurt and in Daniel Dennett's books. Libertarianism has a substantial minority, and hard determinism and the view that we should give up blame, defended by Derk Pereboom and others, a smaller one. The reading of Libet's experiment as a proof that free will is an illusion is abandoned by most researchers in the field, though it survives in popular books."
-    },
-    {
-     "type": "text",
-     "text": "Spinoza's system as a whole, with its single substance and its geometrical proofs, is respected history, much admired and seldom defended. His influence is much wider than his followers: on Einstein, on the German philosophers of the late 18th century, on modern ideas of freedom of thought, and on psychologists who see in his account of the passions an early version of the idea that understanding a feeling changes it. Fatalism, the view that what will happen will happen whatever we do, has no defenders and is the commonest mistake people make about determinism."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on free will",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is the difference between determinism and fatalism?",
-        "choices": [
-         "Determinism says your choices are among the causes of what happens; fatalism says the outcome is fixed whatever you choose",
-         "Determinism is about physical events; fatalism is about human choices only",
-         "Fatalism says nothing is caused; determinism says everything is",
-         "They are two names for the same view, one scientific and one religious"
-        ],
-        "answer": 0,
-        "why": "On determinism your revision is a cause of your exam result. On fatalism the result comes regardless."
-       },
-       {
-        "ask": "What does Spinoza's thinking stone show?",
-        "choices": [
-         "Feeling free is compatible with being fully caused, if you do not know the causes",
-         "Stones have a kind of mind, as everything is part of God",
-         "Only beings that understand their causes can move at all",
-         "Human beings are freer than stones because they can think"
-        ],
-        "answer": 0,
-        "why": "The stone would think it moves because it wants to. We feel free because we know our desires and not their causes."
-       },
-       {
-        "ask": "Which view holds that free will and determinism can both be true?",
-        "choices": [
-         "Compatibilism",
-         "Libertarianism",
-         "Hard determinism",
-         "Fatalism"
-        ],
-        "answer": 0,
-        "why": "Compatibilists say freedom means acting on your own reasons without constraint, which is possible even if those reasons were caused."
-       },
-       {
-        "ask": "In Frankfurt's case, Jones votes on his own, but a device would have forced the same vote. What does the case suggest?",
-        "choices": [
-         "Someone can be responsible even if they could not have done otherwise",
-         "Nobody is ever responsible, since a device could always intervene",
-         "Jones is not responsible, since he could not have voted differently",
-         "Responsibility depends on whether the device was switched on"
-        ],
-        "answer": 0,
-        "why": "Jones chose exactly as he would have without the device, so he seems responsible though no other choice was open."
-       },
-       {
-        "ask": "Which criticism of Libet's experiment did Schurger and colleagues raise in 2012?",
-        "choices": [
-         "The readiness potential may be random activity crossing a threshold, not a decision",
-         "Volunteers lied about when they felt the urge to move",
-         "The electrodes were too weak to detect activity in the brain",
-         "Libet only tested people who believed in free will"
-        ],
-        "answer": 0,
-        "why": "Averaged over many trials, random build-up looks like a ramp, so the ramp need not be the brain deciding early."
-       }
+      "title": "Free and caused",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Determinism seems to threaten responsibility. If every choice you make was fixed by events before you were born, it is hard to see how you could have done otherwise, and if you could not have done otherwise, it seems unfair to blame you. Philosophers have set this out as an argument."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "The argument that determinism rules out free will, in its simplest form.",
+          "options": {
+            "steps": [
+              {
+                "text": "If determinism is true, every choice is fixed by the past and the laws of nature."
+              },
+              {
+                "text": "Nobody controls the past or the laws of nature."
+              },
+              {
+                "text": "So nobody controls their choices, and nobody could have done otherwise."
+              },
+              {
+                "text": "Free will requires being able to do otherwise.",
+                "kind": "premise"
+              },
+              {
+                "text": "If determinism is true, nobody has free will.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Free will requires only that you act on your own reasons without being forced, which is compatible with your reasons having causes.",
+                "kind": "objection",
+                "against": 4,
+                "who": "Hume"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "There are three main responses. **Libertarians** (no relation to the political view) accept the argument and deny determinism: at least some choices are not fixed in advance. **Hard determinists** accept the argument and determinism, and conclude that nobody has free will. **Compatibilists** reject the argument: they hold that free will and determinism are compatible, because being free means something other than escaping causes."
+        },
+        {
+          "type": "text",
+          "text": "David Hume, in 1748, gave the classic compatibilist account. Liberty, he said, means \"a power of acting or not acting, according to the determinations of the will\": if you choose to stay, you can stay, and if you choose to go, you can go. Its opposite is not cause but constraint, being chained or forced. A prisoner is unfree, and a person who walks out of a room because they want to is free, even if their wanting had causes. Libertarians reply that this freedom is too thin. If what you want was fixed before you were born, being able to act on it is the freedom of Spinoza's stone."
+        },
+        {
+          "type": "text",
+          "text": "In 1969 the American philosopher Harry Frankfurt gave compatibilism a new argument. In the version later writers made standard, Black, a neuroscientist, has secretly fitted a device to Jones's brain. Black wants Jones to vote for a certain candidate. If Jones were about to decide to vote the other way, the device would make him vote Black's way; but Jones decides on his own to vote for that candidate, and the device never does anything. Jones could not have done otherwise, yet he seems fully responsible, since he chose exactly as he would have without the device. If so, responsibility does not require the ability to do otherwise, and if free will is the control that responsibility needs, the fourth premise above is false.[^frankfurt]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Your view before the experiment below. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "freewill",
+            "ask": "Suppose every choice you make is fully caused by earlier events. Could you still have free will?",
+            "choices": [
+              "Yes: being free means acting on your own reasons, caused or not",
+              "No, but some choices are not fully caused, so we are free",
+              "No: nobody has free will",
+              "Not sure"
+            ],
+            "who": [
+              "You chose compatibilism, the most common view among philosophers.",
+              "You chose libertarianism. Its defenders owe an account of how an uncaused choice is any more yours than a caused one.",
+              "You chose hard determinism or something like it. Its defenders, such as Derk Pereboom, argue that we can live well without blame.",
+              "Not sure is a common answer; most philosophers hold one of the first three, but often loosely."
+            ],
+            "poll": {
+              "shares": [
+                59,
+                19,
+                11,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Free will: compatibilism, libertarianism or no free will?\", share accepting or leaning towards each."
+            }
+          }
+        }
       ]
-     }
+    },
+    {
+      "title": "Libet's experiment",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1983 the American neuroscientist Benjamin Libet published an experiment that seemed to bring the question into the laboratory. He asked volunteers to flex a wrist whenever they felt like it, and to note, by watching a fast-moving dot on a clock face, the moment they first felt the urge to move. Electrodes on the scalp recorded a slow build-up of electrical activity in the brain, which neuroscientists had found in 1965 and named the **readiness potential**."
+        },
+        {
+          "type": "text",
+          "text": "The readiness potential began about half a second before the movement. The volunteers reported feeling the urge only about a fifth of a second before it. So the brain seemed to start preparing the movement about a third of a second before the person was aware of deciding. Many writers concluded that the brain decides before we know it, and that conscious will is an illusion."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Libet's result, as first reported. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "libet",
+            "ask": "If brain activity reliably preceded your conscious decision to move by a third of a second, would that show the decision was not free?",
+            "choices": [
+              "Yes: the brain decided before I did",
+              "No: the brain activity is part of me deciding",
+              "It shows something, but less than it seems",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the reading that made the experiment famous. Most researchers now think it goes too far, for the reasons below.",
+              "You chose a compatibilist reply: you are not something separate from your brain, so your brain deciding is you deciding.",
+              "You chose the view of most researchers who have looked at the experiment closely since 2012.",
+              "Libet himself was unsure, and argued that we keep a power to veto a movement after the urge appears."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The experiment has been heavily criticised. The volunteers were making a trivial choice with no reasons on either side, which is unlike most decisions people care about. Timing a feeling against a moving dot is unreliable. And in 2012 Aaron Schurger and colleagues argued that the readiness potential may not be a decision at all, but the build-up of random background activity that happens to cross a threshold, which looks like a ramp when averaged over many trials. On this reading, the brain was not deciding early; it was idling until something tipped it over. Libet himself thought the experiment left room for free will, since people could still veto a movement after feeling the urge."
+        },
+        {
+          "type": "text",
+          "text": "Even if the readiness potential were a decision, it would tell against free will only on one picture of it, the picture of a mind separate from the brain that steps in at the last moment. Compatibilists never held that picture. Indeterminism does not help the libertarian much either: if quantum physics makes some events in the brain random, a choice that depends on a random event is not obviously more under your control."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Compatibilism is the majority view among professional philosophers and is still argued over, in versions descended from Hume and Frankfurt and in Daniel Dennett's books. Libertarianism has a substantial minority, and hard determinism and the view that we should give up blame, defended by Derk Pereboom and others, a smaller one. The reading of Libet's experiment as a proof that free will is an illusion is abandoned by most researchers in the field, though it survives in popular books."
+        },
+        {
+          "type": "text",
+          "text": "Spinoza's system as a whole, with its single substance and its geometrical proofs, is respected history, much admired and seldom defended. His influence is much wider than his followers: on Einstein, on the German philosophers of the late 18th century, on modern ideas of freedom of thought, and on psychologists who see in his account of the passions an early version of the idea that understanding a feeling changes it. Fatalism, the view that what will happen will happen whatever we do, has few defenders and is the commonest mistake people make about determinism."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on free will",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is the difference between determinism and fatalism?",
+                "choices": [
+                  "Determinism says your choices are among the causes of what happens; fatalism says the outcome is fixed whatever you choose",
+                  "Determinism is about physical events; fatalism is about human choices only",
+                  "Fatalism says nothing is caused; determinism says everything is",
+                  "They are two names for the same view, one scientific and one religious"
+                ],
+                "answer": 0,
+                "why": "On determinism your revision is a cause of your exam result. On fatalism the result comes regardless."
+              },
+              {
+                "ask": "What does Spinoza's thinking stone show?",
+                "choices": [
+                  "Feeling free is compatible with being fully caused, if you do not know the causes",
+                  "Stones have a kind of mind, as everything is part of God",
+                  "Only beings that understand their causes can move at all",
+                  "Human beings are freer than stones because they can think"
+                ],
+                "answer": 0,
+                "why": "The stone would think it moves because it wants to. We feel free because we know our desires and not their causes."
+              },
+              {
+                "ask": "Which view holds that free will and determinism can both be true?",
+                "choices": [
+                  "Compatibilism",
+                  "Libertarianism",
+                  "Hard determinism",
+                  "Fatalism"
+                ],
+                "answer": 0,
+                "why": "Compatibilists say freedom means acting on your own reasons without constraint, which is possible even if those reasons were caused."
+              },
+              {
+                "ask": "In Frankfurt's case, Jones votes on his own, but a device would have forced the same vote. What does the case suggest?",
+                "choices": [
+                  "Someone can be responsible even if they could not have done otherwise",
+                  "Nobody is ever responsible, since a device could always intervene",
+                  "Jones is not responsible, since he could not have voted differently",
+                  "Responsibility depends on whether the device was switched on"
+                ],
+                "answer": 0,
+                "why": "Jones chose exactly as he would have without the device, so he seems responsible though no other choice was open."
+              },
+              {
+                "ask": "Which criticism of Libet's experiment did Schurger and colleagues raise in 2012?",
+                "choices": [
+                  "The readiness potential may be random activity crossing a threshold, not a decision",
+                  "Volunteers lied about when they felt the urge to move",
+                  "The electrodes were too weak to detect activity in the brain",
+                  "Libet only tested people who believed in free will"
+                ],
+                "answer": 0,
+                "why": "Averaged over many trials, random build-up looks like a ramp, so the ramp need not be the brain deciding early."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Amsterdam's Jewish community expelled Spinoza in 1656.** He lived quietly grinding lenses, and his Ethics appeared only after his death in 1677.",
+    "**Spinoza's God is Nature.** One infinite substance, with no plans or purposes, from which everything follows by necessity.",
+    "**Determinism says every event is fixed by the past and the laws of nature.** Laplace's demon could predict everything from one complete snapshot.",
+    "**Feeling free is not being free.** Spinoza's thinking stone would believe it chooses, knowing its desire but not its cause.",
+    "**For Spinoza freedom is understanding.** We are free to the degree that we act from knowledge of causes, not pushed by passions.",
+    "**Determinism is not fatalism.** On determinism your choices are among the causes; on fatalism the outcome comes regardless.",
+    "**Compatibilists say free will and determinism fit together.** Hume defined liberty as acting as you will without constraint, and Frankfurt argued responsibility does not need alternatives.",
+    "**Libet's experiment does not show free will is an illusion.** The readiness potential may be random build-up, and the choice tested was trivial."
+  ],
+  "footnotes": {
+    "herem": {
+      "kind": "technical",
+      "title": "Why Spinoza was expelled",
+      "text": "The decree gives no details. Later accounts suggest he had been saying that God has a body, that the soul is mortal and that the Law of Moses was not given by God. His family's business had also failed, and he had gone to a Dutch court to be freed from his father's debts, which may not have helped."
+    },
+    "frankfurt": {
+      "kind": "technical",
+      "title": "Frankfurt cases",
+      "text": "Harry Frankfurt's paper \"Alternate Possibilities and Moral Responsibility\" appeared in 1969. Critics have argued about whether the device must detect some sign of Jones's decision before it is made, which might leave him a small alternative after all. Philosophers call such examples Frankfurt cases."
+    },
+    "lenses": {
+      "kind": "digression",
+      "title": "The lens grinder",
+      "text": "Spinoza's lenses were well regarded; the Dutch scientist Christiaan Huygens, who built telescopes, mentioned them in letters. The image of the lonely lens grinder is partly a legend, though: Spinoza had friends, correspondents and patrons, including a small pension from a supporter."
+    },
+    "einstein": {
+      "kind": "digression",
+      "title": "Einstein's telegram",
+      "text": "In 1929 Rabbi Herbert Goldstein of New York cabled Einstein: \"Do you believe in God?\" Einstein replied that he believed in Spinoza's God, \"who reveals himself in the orderly harmony of what exists, not in a God who concerns himself with the fates and actions of human beings\"."
+    }
   }
- ],
- "summary": [
-  "**Amsterdam's Jewish community expelled Spinoza in 1656.** He lived quietly grinding lenses, and his Ethics appeared only after his death in 1677.",
-  "**Spinoza's God is Nature.** One infinite substance, with no plans or purposes, from which everything follows by necessity.",
-  "**Determinism says every event is fixed by the past and the laws of nature.** Laplace's demon could predict everything from one complete snapshot.",
-  "**Feeling free is not being free.** Spinoza's thinking stone would believe it chooses, knowing its desire but not its cause.",
-  "**For Spinoza freedom is understanding.** We are free to the degree that we act from knowledge of causes, not pushed by passions.",
-  "**Determinism is not fatalism.** On determinism your choices are among the causes; on fatalism the outcome comes regardless.",
-  "**Compatibilists say free will and determinism fit together.** Hume defined liberty as acting as you will without constraint, and Frankfurt argued responsibility does not need alternatives.",
-  "**Libet's experiment does not show free will is an illusion.** The readiness potential may be random build-up, and the choice tested was trivial."
- ],
- "footnotes": {
-  "herem": {
-   "kind": "technical",
-   "title": "Why Spinoza was expelled",
-   "text": "The decree gives no details. Later accounts suggest he had been saying that God has a body, that the soul is mortal and that the Law of Moses was not given by God. His family's business had also failed, and he had gone to a Dutch court to be freed from his father's debts, which may not have helped."
-  },
-  "frankfurt": {
-   "kind": "technical",
-   "title": "Frankfurt cases",
-   "text": "Harry Frankfurt's paper \"Alternate Possibilities and Moral Responsibility\" appeared in 1969. Critics have argued about whether the device must detect some sign of Jones's decision before it is made, which might leave him a small alternative after all. Philosophers call such examples Frankfurt cases."
-  },
-  "lenses": {
-   "kind": "digression",
-   "title": "The lens grinder",
-   "text": "Spinoza's lenses were well regarded; the Dutch scientist Christiaan Huygens, who built telescopes, mentioned them in letters. The image of the lonely lens grinder is partly a legend, though: Spinoza had friends, correspondents and patrons, including a small pension from a supporter."
-  },
-  "einstein": {
-   "kind": "digression",
-   "title": "Einstein's telegram",
-   "text": "In 1929 Rabbi Herbert Goldstein of New York cabled Einstein: \"Do you believe in God?\" Einstein replied that he believed in Spinoza's God, \"who reveals himself in the orderly harmony of what exists, not in a God who concerns himself with the fates and actions of human beings\"."
-  }
- }
 }

@@ -1,274 +1,274 @@
 {
- "id": "gyges",
- "n": 3,
- "title": "Would you be good if no one could see you?",
- "teaches": "The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city",
- "parts": [
-  {
-   "title": "A philosopher for a tyrant",
-   "blocks": [
+  "id": "gyges",
+  "n": 3,
+  "title": "Would you be good if no one could see you?",
+  "teaches": "The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city",
+  "parts": [
     {
-     "type": "text",
-     "text": "In 367 BC Plato, then about sixty, sailed from Athens to Syracuse in Sicily, the richest Greek city in the west. Its tyrant, Dionysius I, had just died, and his son Dionysius II, about thirty and untrained for anything, had inherited absolute power. Dion, the young ruler's brother-in-law and an admirer of Plato, persuaded him to send for the philosopher. He had been to Sicily once before, about 388 BC, and had met Dion then. Plato went, he wrote later, because if anyone was ever going to put his ideas about government into practice, now was the time: he needed to persuade only one man."
-    },
-    {
-     "type": "text",
-     "text": "It went badly. Courtiers who feared Dion turned the young tyrant against him, and within months Dion was exiled. Plato was kept at court, half guest and half prisoner, until he was allowed to leave. He went back once more, in 361 BC, and was again held against his will until the philosopher-statesman Archytas of Tarentum sent a ship to fetch him. A later story, told by Diodorus and by Diogenes Laertius centuries afterwards, says that on the first visit, about 388 BC, Dionysius I had Plato sold in a slave market, and a friend bought his freedom; it is probably a legend.[^sicily]"
-    },
-    {
-     "type": "text",
-     "text": "Plato's interest in tyrants was not only practical. The *Republic*, which he probably wrote in the years before this trip, asks a question about them that is still argued over: whether someone with the power to do anything he liked and get away with it would have any reason to be just."
-    }
-   ]
-  },
-  {
-   "title": "The ring",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The question is put by Glaucon, one of Plato's elder brothers, who appears in the *Republic* as Socrates' sharpest listener. He tells an old story. Gyges, a shepherd in the service of the king of Lydia, was out with his flock when an earthquake split the ground. In the chasm he found a hollow bronze horse, and inside it a corpse wearing a gold ring. He took the ring. Later, sitting among the other shepherds, he happened to turn its setting towards the inside of his hand and found that he had become invisible; turning it back made him visible again. Gyges got himself sent to the palace as a messenger, seduced the queen, killed the king with her help and took the throne."
-    },
-    {
-     "type": "text",
-     "text": "Glaucon's point is that nobody is just willingly. Give one ring to a just man and another to an unjust man, he says, and they would end up doing the same things. People keep the rules because they fear being caught or being wronged themselves, and justice is a compromise between doing wrong unpunished, which is best, and suffering wrong without revenge, which is worst."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Glaucon's challenge, put to you.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "ring",
-      "ask": "If you had Gyges' ring, and no one could ever find out, would you behave exactly as you do now?",
-      "choices": [
-       "No: I would use it, at least sometimes",
-       "Yes: I would behave the same",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the answer Glaucon calls the honest one, and most people who give it mean small things, not murder. Plato's reply is that you would be making yourself worse off.",
-       "You chose the answer Plato wants to show is reasonable, not just admirable: that justice is worth having for its own sake.",
-       "Being unsure is most people's first reaction, and Plato spends most of the Republic trying to settle it."
+      "title": "A philosopher for a tyrant",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 367 BC Plato, then about sixty, sailed from Athens to Syracuse in Sicily, the richest Greek city in the west. Its tyrant, Dionysius I, had just died, and his son Dionysius II, about thirty and untrained for anything, had inherited absolute power. Dion, the young ruler's brother-in-law and an admirer of Plato, persuaded him to send for the philosopher. Plato had been to Sicily once before, about 388 BC, and had met Dion then. He went, he wrote later, because if anyone was ever going to put his ideas about government into practice, now was the time: he needed to persuade only one man."
+        },
+        {
+          "type": "text",
+          "text": "It went badly. Courtiers who feared Dion turned the young tyrant against him, and within months Dion was exiled. Plato was kept at court, half guest and half prisoner, until he was allowed to leave. He went back once more, in 361 BC, and was again held against his will until the philosopher-statesman Archytas of Tarentum sent a ship to fetch him. A later story, told by Diodorus and by Diogenes Laertius centuries afterwards, says that on the first visit, about 388 BC, Dionysius I had Plato sold in a slave market, and a friend bought his freedom; it is probably a legend.[^sicily]"
+        },
+        {
+          "type": "text",
+          "text": "Plato's interest in tyrants was not only practical. The *Republic*, which he probably wrote in the years before this trip, asks a question about them that is still argued over: whether someone with the power to do anything he liked and get away with it would have any reason to be just."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "This is a [[thought experiment|claim]]: a situation that could not happen, or has not happened, set up to isolate one question. Nobody has an invisibility ring, but the story strips away the usual reasons for being good, such as fear of punishment and wanting a good name, so that we can ask whether any reason is left. Philosophers use thought experiments the way physicists use idealised experiments with frictionless planes, and the rest of the course is full of them."
-    }
-   ]
-  },
-  {
-   "title": "Justice as the interest of the stronger",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Glaucon is restating, more politely, a view the *Republic* opens with. In Book I, as Socrates is questioning the son of their elderly host about justice, a teacher of rhetoric named Thrasymachus loses patience and bursts in. \"Justice is nothing other than the advantage of the stronger,\" he says. Every government makes laws that suit itself, whether it is a tyranny, an aristocracy or a democracy, and then calls obeying them justice. The just person is a dupe who serves someone else's interest; the clever and strong break the rules when they can."
-    },
-    {
-     "type": "text",
-     "text": "Socrates argues with him for the rest of Book I and does not convince him, and the arguments he uses there are generally thought to be weak, which may be why Plato wrote nine more books. But Thrasymachus raises a deeper worry than whether crime pays. If justice is whatever those in power say it is, then there is no fact about what is really just, only different cities with different rules. That worry has a name: **moral relativism**."
-    }
-   ]
-  },
-  {
-   "title": "Is morality just opinion?",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The historian Herodotus, writing a generation before Plato, tells a story about the Persian king Darius. Darius called in some Greeks at his court and asked what he would have to pay them to eat their fathers' bodies when they died. They said no price would make them do it; Greeks burned their dead. Then he called in members of an Indian people, the Callatiae, who ate their dead parents, and asked, with the Greeks listening through an interpreter, what he would have to pay them to burn their fathers. They cried out and begged him not to say such things. Herodotus concludes, quoting the poet Pindar, that custom is king of all."
-    },
-    {
-     "type": "text",
-     "text": "Stories like this make relativism seem obvious. Cultures disagree about right and wrong, there is no neutral judge, so perhaps moral claims are only true for a culture, or only express how a person feels. Philosophers who think moral claims can be true or false whatever anyone believes are called **moral realists**; those who think otherwise are **anti-realists**, a group that includes relativists and people who think moral statements are expressions of feeling, like a cheer or a boo."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "The question under Thrasymachus' challenge. Lesson 14 comes back to it.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "relativism",
-      "ask": "Is morality, in the end, a matter of opinion, your own or your culture's?",
-      "choices": [
-       "Yes: it is opinion or custom",
-       "No: some moral claims are true whatever anyone thinks",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the anti-realist side, which includes relativists and those who think moral claims express feelings. A minority of philosophers take it.",
-       "You chose moral realism, which most professional philosophers hold, though they disagree about what makes moral claims true.",
-       "Many philosophers are unsure too, and most of the arguments are still in play."
-      ],
-      "poll": {
-       "shares": [
-        26,
-        62,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Meta-ethics: moral realism or moral anti-realism?\", share accepting or leaning towards each."
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "The argument from disagreement says that because cultures disagree so deeply about right and wrong, there is probably no moral fact for them to be right or wrong about. Realists have several replies to it. People also disagree about facts, such as the shape of the Earth, without anyone concluding there is no fact of the matter. Much moral disagreement turns out to rest on disagreement about facts: the Callatiae and the Greeks both honoured their parents and differed about how to do it. And relativism has awkward consequences. If right means right-for-a-culture, then a reformer who says her own society's slavery is wrong is simply mistaken, since her culture approved of it. Few people are willing to say that the abolition of slavery was a change of fashion rather than an improvement.[^relativism]"
-    },
-    {
-     "type": "text",
-     "text": "None of this settles the question, and anti-realists have answers of their own. But it explains why relativism, which can seem like the default view outside philosophy, is held by a minority inside it."
-    }
-   ]
-  },
-  {
-   "title": "The ideal city",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Plato's own reply to Glaucon takes up most of the *Republic*. Justice in a person is hard to see, Socrates says, so look first at justice in a city, where it is written in larger letters, and then come back to the soul, by which Plato means a person's mind and character rather than a ghost inside them. He then designs a city from scratch."
-    },
-    {
-     "type": "text",
-     "text": "It has three classes. Farmers and craftsmen produce what the city needs. Auxiliaries, a soldier class, defend it. And a small class of guardians, men and women chosen for their intelligence and trained for decades in mathematics and philosophy, rule it. These are the **philosopher kings**: \"until philosophers rule as kings,\" Socrates says, \"cities will have no rest from evils.\" The city is just when each class does its own work and does not meddle with the others'."
-    },
-    {
-     "type": "text",
-     "text": "A person, Plato argues, has the same three parts: reason, which thinks and plans; spirit, which feels anger and pride; and appetite, which wants food, drink, sex and money. A just person is one in whom reason rules, with spirit as its ally, and appetite is kept in its place. The unjust person, and above all the tyrant, is ruled by appetite. He is like a city in civil war, never satisfied and always afraid, and Plato claims, with a sum some readers take seriously and others as a joke, that the tyrant lives 729 times less pleasantly than the just king. He gets the number by counting the tyrant third in line from the oligarch, and the oligarch third from the king, so nine, and then cubing it, since 9 × 9 × 9 = 729. So Gyges, with his queen and his throne, was not better off. He had made himself a slave to the worst part of himself."
-    },
-    {
-     "type": "text",
-     "text": "The city that carries this theory is the frightening part of the book. The guardians own no property and have no families; children are raised in common and do not know their parents. Marriages are arranged by rigged lotteries so that the best breed with the best. Most poetry and music are banned or censored. And the rulers may tell the people a \"noble lie\": a myth that the gods mixed gold into the souls of rulers, silver into auxiliaries and bronze and iron into everyone else, so that each will accept his place. In 1945 the philosopher Karl Popper, who had fled Austria before the Nazis, attacked Plato in *The Open Society and Its Enemies* as an enemy of freedom and a forerunner of totalitarian states. Defenders reply that the city is a model for the soul, not a political programme, though Plato's trips to Syracuse suggest he meant at least some of it."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Plato's answer to Glaucon, set against your first answer.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "ring-happier",
-      "ask": "Is a just person better off than an unjust one, even if no one ever finds out what either did?",
-      "choices": [
-       "Yes: injustice harms the person who does it",
-       "No: getting away with it is simply better for you",
-       "Only if there is some reward or punishment after death",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Plato's answer, and most of the Republic is his argument for it.",
-       "You chose Thrasymachus' side, which Glaucon restates as a challenge. Plato thought it rested on a mistake about what people really want.",
-       "Plato adds a myth of judgement after death in the last book of the Republic, but insists justice pays even without it.",
-       "Plato thought the question could be settled by argument, and the rest of this lesson gives his."
+      "title": "The ring",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The question is put by Glaucon, one of Plato's elder brothers, who appears in the *Republic* as Socrates' sharpest listener. He tells an old story. Gyges, a shepherd in the service of the king of Lydia, was out with his flock when an earthquake split the ground. In the chasm he found a hollow bronze horse, and inside it a corpse wearing a gold ring. He took the ring. Later, sitting among the other shepherds, he happened to turn its setting towards the inside of his hand and found that he had become invisible; turning it back made him visible again. Gyges got himself sent to the palace as a messenger, seduced the queen, killed the king with her help and took the throne."
+        },
+        {
+          "type": "text",
+          "text": "Glaucon's point is that nobody is just willingly. Give one ring to a just man and another to an unjust man, he says, and they would end up doing the same things. People keep the rules because they fear being caught or being wronged themselves, and justice is a compromise between doing wrong unpunished, which is best, and suffering wrong without revenge, which is worst."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Glaucon's challenge, put to you.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "ring",
+            "ask": "If you had Gyges' ring, and no one could ever find out, would you behave exactly as you do now?",
+            "choices": [
+              "No: I would use it, at least sometimes",
+              "Yes: I would behave the same",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the answer Glaucon calls the honest one, and most people who give it mean small things, not murder. Plato's reply is that you would be making yourself worse off.",
+              "You chose the answer Plato wants to show is reasonable, not just admirable: that justice is worth having for its own sake.",
+              "Being unsure is most people's first reaction, and Plato spends most of the Republic trying to settle it."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "This is a [[thought experiment|claim]]: a situation that could not happen, or has not happened, set up to isolate one question. Nobody has an invisibility ring, but the story strips away the usual reasons for being good, such as fear of punishment and wanting a good name, so that we can ask whether any reason is left. Philosophers use thought experiments the way physicists use idealised experiments with frictionless planes, and the rest of the course is full of them."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The ring's question is still argued over, and the Verdicts page, listed in the menu, keeps every answer you give in the course. It sits behind modern debates about why we should be moral at all, and behind experiments in psychology on how people behave when they think no one is watching."
     },
     {
-     "type": "text",
-     "text": "Moral realism and anti-realism are still argued over too, with realists in the majority. The naive version of relativism, that anything a culture approves of is right for it, has few defenders among philosophers, for the reasons above. Plato's theory of a soul in three parts is respected history; psychologists no longer divide the mind his way, though the picture of reason struggling with appetite is still how many people describe themselves."
-    },
-    {
-     "type": "text",
-     "text": "The ideal city itself has been abandoned as a plan. No serious political philosopher defends rule by a trained elite who may lie to the people for their own good, breed them and censor their music. The questions it was built to answer, who should rule and what makes a society just, return in lessons 11 and 22."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on the ring and the Republic",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is Glaucon's story of the ring of Gyges meant to show?",
-        "choices": [
-         "That people are just only for fear of being caught",
-         "That power always corrupts those who hold it",
-         "That the gods punish injustice even when people cannot",
-         "That a just ruler needs to see everything his subjects do"
-        ],
-        "answer": 0,
-        "why": "Glaucon uses the ring to strip away fear of punishment and the wish for a good name, and claims that a just person with the ring would end up doing what the unjust one does."
-       },
-       {
-        "ask": "Why do philosophers use thought experiments like the ring?",
-        "choices": [
-         "To set aside the usual factors and isolate one question",
-         "To show what people would actually do in strange situations",
-         "To prove that what happens in the story could really happen",
-         "To make an argument easier to remember than a list of premises"
-        ],
-        "answer": 0,
-        "why": "The ring removes punishment and reputation from the picture so that we can ask whether any other reason to be just remains. Finding out what people actually do is psychology."
-       },
-       {
-        "ask": "Thrasymachus says justice is \"the advantage of the stronger\". Which later view is closest to the worry behind it?",
-        "choices": [
-         "Moral relativism",
-         "Moral realism",
-         "Utilitarianism",
-         "Pacifism"
-        ],
-        "answer": 0,
-        "why": "If justice is whatever rulers decree, there is no standard of justice beyond the rules each city makes. Relativism says the same about cultures."
-       },
-       {
-        "ask": "A relativist says right means right for a culture. Which objection does this lesson give?",
-        "choices": [
-         "It makes a reformer who condemns her own society's slavery simply mistaken",
-         "It cannot explain how the Greeks and the Callatiae came to disagree",
-         "It makes it impossible to know what one's own culture approves",
-         "It shows that every moral claim is an expression of feeling"
-        ],
-        "answer": 0,
-        "why": "If right means approved by one's culture, a society's own critics are wrong by definition, which few people accept."
-       },
-       {
-        "ask": "How does Plato answer Glaucon's challenge in the Republic?",
-        "choices": [
-         "The just are better off, since reason rules their soul and keeps it at peace",
-         "The just are rewarded by the gods after death, and that is reason enough",
-         "The just are happier because others trust them and their reputation grows",
-         "Justice is what the guardians decide, so the challenge does not arise"
-        ],
-        "answer": 0,
-        "why": "Plato argues that justice is a kind of health of the soul and that the tyrant, ruled by appetite, is the most miserable of men. The myth of reward after death comes at the end of the Republic as an extra, not as the argument; reputation is exactly what the ring takes away."
-       }
+      "title": "Justice as the interest of the stronger",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Glaucon is restating, more politely, a view the *Republic* opens with. In Book I, as Socrates is questioning the son of their elderly host about justice, a teacher of rhetoric named Thrasymachus loses patience and bursts in. \"Justice is nothing other than the advantage of the stronger,\" he says. Every government makes laws that suit itself, whether it is a tyranny, an aristocracy or a democracy, and then calls obeying them justice. The just person is a dupe who serves someone else's interest; the clever and strong break the rules when they can."
+        },
+        {
+          "type": "text",
+          "text": "Socrates argues with him for the rest of Book I without convincing him. His arguments there are generally thought to be weak, which may be why Plato wrote nine more books. But Thrasymachus raises a deeper worry than whether crime pays. If justice is whatever those in power say it is, then there is no fact about what is really just, only different cities with different rules. That worry has a name: **moral relativism**."
+        }
       ]
-     }
+    },
+    {
+      "title": "Is morality just opinion?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The historian Herodotus, writing a generation before Plato, tells a story about the Persian king Darius. Darius called in some Greeks at his court and asked what he would have to pay them to eat their fathers' bodies when they died. They said no price would make them do it; Greeks burned their dead. Then he called in members of an Indian people, the Callatiae, who ate their dead parents, and asked, with the Greeks listening through an interpreter, what he would have to pay them to burn their fathers. They cried out and begged him not to say such things. Herodotus concludes, quoting the poet Pindar, that custom is king of all."
+        },
+        {
+          "type": "text",
+          "text": "Stories like this make relativism seem obvious. Cultures disagree about right and wrong, and there is no neutral judge, so perhaps moral claims are only true for a culture, or only express how a person feels. Philosophers who think moral claims can be true or false whatever anyone believes are called **moral realists**; those who think otherwise are **anti-realists**, a group that includes relativists and people who think moral statements are expressions of feeling, like a cheer or a boo."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "The question under Thrasymachus' challenge. Lesson 14 comes back to it.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "relativism",
+            "ask": "Is morality, in the end, a matter of opinion, your own or your culture's?",
+            "choices": [
+              "Yes: it is opinion or custom",
+              "No: some moral claims are true whatever anyone thinks",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the anti-realist side, which includes relativists and those who think moral claims express feelings. A minority of philosophers take it.",
+              "You chose moral realism, which most professional philosophers hold, though they disagree about what makes moral claims true.",
+              "Many philosophers are unsure too, and most of the arguments are still in play."
+            ],
+            "poll": {
+              "shares": [
+                26,
+                62,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Meta-ethics: moral realism or moral anti-realism?\", share accepting or leaning towards each."
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "The argument from disagreement says that because cultures disagree so deeply about right and wrong, there is probably no moral fact for them to be right or wrong about. Realists have several replies to it. People also disagree about facts, such as the shape of the Earth, without anyone concluding there is no fact of the matter. Much moral disagreement turns out to rest on disagreement about facts: the Callatiae and the Greeks both honoured their parents and differed about how to do it. And relativism has awkward consequences. If right means right-for-a-culture, then a reformer who says her own society's slavery is wrong is simply mistaken, since her culture approved of it. Few people are willing to say that the abolition of slavery was a change of fashion rather than an improvement.[^relativism]"
+        },
+        {
+          "type": "text",
+          "text": "None of this settles the question, and anti-realists have answers of their own. But it explains why relativism, which can seem like the default view outside philosophy, is held by a minority inside it."
+        }
+      ]
+    },
+    {
+      "title": "The ideal city",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Plato's own reply to Glaucon takes up most of the *Republic*. Justice in a person is hard to see, Socrates says, so look first at justice in a city, where it is written in larger letters, and then come back to the soul, by which Plato means a person's mind and character rather than a ghost inside them. He then designs a city from scratch."
+        },
+        {
+          "type": "text",
+          "text": "It has three classes. Farmers and craftsmen produce what the city needs. Auxiliaries, a soldier class, defend it. And a small class of guardians, men and women chosen for their intelligence and trained for decades in mathematics and philosophy, rule it. These are the **philosopher kings**: \"until philosophers rule as kings,\" Socrates says, \"cities will have no rest from evils.\" The city is just when each class does its own work and does not meddle with the others'."
+        },
+        {
+          "type": "text",
+          "text": "A person, Plato argues, has the same three parts: reason, which thinks and plans; spirit, which feels anger and pride; and appetite, which wants food, drink, sex and money. A just person is one in whom reason rules, with spirit as its ally, and appetite is kept in its place. The unjust person, and above all the tyrant, is ruled by appetite. He is like a city in civil war, never satisfied and always afraid, and Plato claims, with a sum some readers take seriously and others as a joke, that the tyrant lives 729 times less pleasantly than the just king. He gets the number by counting the tyrant third in line from the oligarch, and the oligarch third from the king, so nine, and then cubing it, since 9 × 9 × 9 = 729. So Gyges, with his queen and his throne, was not better off. He had made himself a slave to the worst part of himself."
+        },
+        {
+          "type": "text",
+          "text": "The city that carries this theory is the frightening part of the book. The guardians own no property and have no families; children are raised in common and do not know their parents. Marriages are arranged by rigged lotteries so that the best breed with the best. Most poetry and music are banned or censored. And the rulers may tell the people a \"noble lie\": a myth that the gods mixed gold into the souls of rulers, silver into auxiliaries and bronze and iron into everyone else, so that each will accept his place. In 1945 the philosopher Karl Popper, who had fled Austria before the Nazis, attacked Plato in *The Open Society and Its Enemies* as an enemy of freedom and a forerunner of totalitarian states. Defenders reply that the city is a model for the soul, not a political programme, though Plato's trips to Syracuse suggest he meant at least some of it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Plato's answer to Glaucon, set against your first answer.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "ring-happier",
+            "ask": "Is a just person better off than an unjust one, even if no one ever finds out what either did?",
+            "choices": [
+              "Yes: injustice harms the person who does it",
+              "No: getting away with it is simply better for you",
+              "Only if there is some reward or punishment after death",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Plato's answer, and most of the Republic is his argument for it.",
+              "You chose Thrasymachus' side, which Glaucon restates as a challenge. Plato thought it rested on a mistake about what people really want.",
+              "Plato adds a myth of judgement after death in the last book of the Republic, but insists justice pays even without it.",
+              "Plato thought the question could be settled by argument, and the rest of this lesson gives his."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The ring's question is still argued over. (The Verdicts page, listed in the menu, keeps every answer you give in the course.) That question sits behind modern debates about why we should be moral at all, and behind experiments in psychology on how people behave when they think no one is watching."
+        },
+        {
+          "type": "text",
+          "text": "Moral realism and anti-realism are still argued over too, with realists in the majority. The naive version of relativism, that anything a culture approves of is right for it, has few defenders among philosophers, for the reasons above. Plato's theory of a soul in three parts is respected history; psychologists no longer divide the mind his way, though the picture of reason struggling with appetite is still how many people describe themselves."
+        },
+        {
+          "type": "text",
+          "text": "The ideal city itself has been abandoned as a plan. No serious political philosopher defends rule by a trained elite who may lie to the people for their own good, breed them and censor their music. The questions it was built to answer, who should rule and what makes a society just, return in lessons 11 and 22."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the ring and the Republic",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is Glaucon's story of the ring of Gyges meant to show?",
+                "choices": [
+                  "That people are just only for fear of being caught",
+                  "That power always corrupts those who hold it",
+                  "That the gods punish injustice even when people cannot",
+                  "That a just ruler needs to see everything his subjects do"
+                ],
+                "answer": 0,
+                "why": "Glaucon uses the ring to strip away fear of punishment and the wish for a good name, and claims that a just person with the ring would end up doing what the unjust one does."
+              },
+              {
+                "ask": "Why do philosophers use thought experiments like the ring?",
+                "choices": [
+                  "To set aside the usual factors and isolate one question",
+                  "To show what people would actually do in strange situations",
+                  "To prove that what happens in the story could really happen",
+                  "To make an argument easier to remember than a list of premises"
+                ],
+                "answer": 0,
+                "why": "The ring removes punishment and reputation from the picture so that we can ask whether any other reason to be just remains. Finding out what people actually do is psychology."
+              },
+              {
+                "ask": "Thrasymachus says justice is \"the advantage of the stronger\". Which later view is closest to the worry behind it?",
+                "choices": [
+                  "Moral relativism",
+                  "Moral realism",
+                  "Utilitarianism",
+                  "Pacifism"
+                ],
+                "answer": 0,
+                "why": "If justice is whatever rulers decree, there is no standard of justice beyond the rules each city makes. Relativism says the same about cultures."
+              },
+              {
+                "ask": "A relativist says right means right for a culture. Which objection does this lesson give?",
+                "choices": [
+                  "It makes a reformer who condemns her own society's slavery simply mistaken",
+                  "It cannot explain how the Greeks and the Callatiae came to disagree",
+                  "It makes it impossible to know what one's own culture approves",
+                  "It shows that every moral claim is an expression of feeling"
+                ],
+                "answer": 0,
+                "why": "If right means approved by one's culture, a society's own critics are wrong by definition, which few people accept."
+              },
+              {
+                "ask": "How does Plato answer Glaucon's challenge in the Republic?",
+                "choices": [
+                  "The just are better off, since reason rules their soul and keeps it at peace",
+                  "The just are rewarded by the gods after death, and that is reason enough",
+                  "The just are happier because others trust them and their reputation grows",
+                  "Justice is what the guardians decide, so the challenge does not arise"
+                ],
+                "answer": 0,
+                "why": "Plato argues that justice is a kind of health of the soul and that the tyrant, ruled by appetite, is the most miserable of men. The myth of reward after death comes at the end of the Republic as an extra, not as the argument; reputation is exactly what the ring takes away."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Plato tried to train a tyrant and failed.** His visits to Syracuse in 367 and 361 BC ended with him held at court against his will.",
+    "**The ring of Gyges asks why be just if you could never be caught.** Glaucon says anyone made invisible would act like the unjust.",
+    "**A thought experiment isolates one question.** The ring removes fear of punishment and reputation to see whether any reason to be just remains.",
+    "**Thrasymachus said justice is the advantage of the stronger.** Laws suit those who make them, and the just are dupes.",
+    "**Moral realism holds that some moral claims are true whatever anyone thinks.** Most philosophers in 2020 were realists; anti-realists, relativists among them, were about a quarter.",
+    "**Disagreement does not prove relativism.** People disagree about facts too, and relativism makes every reformer wrong by definition.",
+    "**Plato's answer is that justice is the health of the soul.** Reason should rule spirit and appetite, and the tyrant, ruled by appetite, is the most miserable of men.",
+    "**The ideal city is respected history at best.** Philosopher kings, a noble lie, rigged breeding and censorship have no defenders as a plan of government."
+  ],
+  "footnotes": {
+    "sicily": {
+      "kind": "technical",
+      "title": "Plato in Sicily",
+      "text": "Plato went to Sicily three times: about 388 BC, when he met Dion at the court of Dionysius I; in 367; and in 361. The fullest account is the Seventh Letter, if it is his. Dion later took Syracuse by force in 357 BC and was murdered three years after, by a member of the Academy."
+    },
+    "relativism": {
+      "kind": "digression",
+      "title": "Tolerance",
+      "text": "Relativism is often defended as the tolerant view. But the claim that every culture ought to tolerate others is itself a moral claim meant to hold for every culture, which a consistent relativist cannot make. Many philosophers think tolerance is better defended as a true moral principle than as a consequence of there being none."
+    }
   }
- ],
- "summary": [
-  "**Plato tried to train a tyrant and failed.** His visits to Syracuse in 367 and 361 BC ended with him held at court against his will.",
-  "**The ring of Gyges asks why be just if you could never be caught.** Glaucon says anyone made invisible would act like the unjust.",
-  "**A thought experiment isolates one question.** The ring removes fear of punishment and reputation to see whether any reason to be just remains.",
-  "**Thrasymachus said justice is the advantage of the stronger.** Laws suit those who make them, and the just are dupes.",
-  "**Moral realism holds that some moral claims are true whatever anyone thinks.** Most philosophers in 2020 were realists; anti-realists, relativists among them, were about a quarter.",
-  "**Disagreement does not prove relativism.** People disagree about facts too, and relativism makes every reformer wrong by definition.",
-  "**Plato's answer is that justice is the health of the soul.** Reason should rule spirit and appetite, and the tyrant, ruled by appetite, is the most miserable of men.",
-  "**The ideal city is respected history at best.** Philosopher kings, a noble lie, rigged breeding and censorship have no defenders as a plan of government."
- ],
- "footnotes": {
-  "sicily": {
-   "kind": "technical",
-   "title": "Plato in Sicily",
-   "text": "Plato went to Sicily three times: about 388 BC, when he met Dion at the court of Dionysius I; in 367; and in 361. The fullest account is the Seventh Letter, if it is his. Dion later took Syracuse by force in 357 BC and was murdered three years after, by a member of the Academy."
-  },
-  "relativism": {
-   "kind": "digression",
-   "title": "Tolerance",
-   "text": "Relativism is often defended as the tolerant view. But the claim that every culture ought to tolerate others is itself a moral claim meant to hold for every culture, which a consistent relativist cannot make. Many philosophers think tolerance is better defended as a true moral principle than as a consequence of there being none."
-  }
- }
 }

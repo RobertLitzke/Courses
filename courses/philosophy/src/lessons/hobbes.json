@@ -1,288 +1,288 @@
 {
- "id": "hobbes",
- "n": 11,
- "title": "Why obey anyone?",
- "teaches": "Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion",
- "parts": [
-  {
-   "title": "Fear and I were born twins",
-   "blocks": [
+  "id": "hobbes",
+  "n": 11,
+  "title": "Why obey anyone?",
+  "teaches": "Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion",
+  "parts": [
     {
-     "type": "text",
-     "text": "In the spring of 1588 England was waiting for an invasion. The Spanish Armada, the largest fleet Europe had yet seen, was being prepared to carry an army across the Channel, and rumours of it reached every village. In Westport, near Malmesbury in Wiltshire, the wife of a quarrelsome country vicar went into labour early, and gave birth, so the family story went, because of her terror at the news. Eighty-four years later her son wrote his life in Latin verse, and said that his mother had brought forth twins together: \"myself and fear\"."
-    },
-    {
-     "type": "text",
-     "text": "Thomas Hobbes spent most of his long life as tutor and secretary to the Cavendish family, the Earls of Devonshire, and came to philosophy late. When he was about forty, his friend John Aubrey reports, he saw a copy of Euclid lying open in a gentleman's library at the theorem about right-angled triangles, read it, and swore, \"By God, this is impossible!\" He followed the proof back step by step to the beginning and fell in love with geometry. From then on he wanted a science of politics as certain as Euclid's.[^galileo]"
-    },
-    {
-     "type": "text",
-     "text": "In 1640, as England slid towards civil war, Hobbes fled to Paris, fearing that his writings in defence of the king's power had made him a target. The war that followed killed perhaps one in twenty-five people in England, and the king was beheaded in 1649. In 1651 Hobbes published his answer to the question the war had made urgent: why anyone should obey a government at all. The book was *Leviathan*. In this lesson we follow its argument, test it with a modern puzzle, and look at the reply that shaped the American and French revolutions."
-    }
-   ]
-  },
-  {
-   "title": "Life without a state",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Hobbes began with a thought experiment. Take away all government: no laws, no police, no courts, nobody with the power to make anyone keep a promise. Philosophers call this imagined condition the **state of nature**. What would people do in it?"
-    },
-    {
-     "type": "text",
-     "text": "Hobbes's answer starts from three claims. People are roughly equal: even the weakest can kill the strongest, by a trick or with friends, so nobody is safe. They want the same scarce things. And each has a right to do whatever keeps them alive. From these he found three causes of quarrel. People attack to gain what others have, which he called competition. They attack to stop others attacking them first, which he called diffidence, meaning mistrust. And they attack for reputation, to be feared, which he called glory. The second is the important one: even peaceful people, who want nothing of anyone else's, have reason to strike first."
-    },
-    {
-     "type": "text",
-     "text": "The result is \"a war of every man against every man\". In such a condition, Hobbes wrote in the most quoted sentence in English political philosophy, there is no farming, because no one is sure to reap what they sow, no trade, no building, no knowledge, no arts, \"and which is worst of all, continual fear and danger of violent death: and the life of man, solitary, poor, nasty, brutish, and short\"."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Hobbes's starting point. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "nature",
-      "ask": "If every government, police force and court vanished tomorrow, would life soon become as Hobbes describes?",
-      "choices": [
-       "Yes: fear of attack would make even decent people strike first",
-       "No: most people would go on cooperating",
-       "It depends on how long it lasted and how much there was to go round",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Hobbes's answer. He pointed to civil wars, and to the way people lock their doors even with police nearby.",
-       "You chose the view of many anthropologists and historians, who point to stateless societies that kept peace by custom, kinship and reputation. Hobbes would ask how large such societies were.",
-       "You chose the answer the prisoner's dilemma below makes precise: it depends on whether people expect to meet again.",
-       "Hobbes thought his readers would agree once they looked at their own behaviour. Many of them did not."
+      "title": "Fear and I were born twins",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the spring of 1588 England was waiting for an invasion. The Spanish Armada, the largest fleet Europe had yet seen, was being prepared to carry an army across the Channel, and rumours of it reached every village. In Westport, near Malmesbury in Wiltshire, the wife of a quarrelsome country vicar went into labour early, and gave birth, so the family story went, because of her terror at the news. Eighty-four years later her son wrote his life in Latin verse, and said that his mother had brought forth twins together: \"myself and fear\"."
+        },
+        {
+          "type": "text",
+          "text": "Thomas Hobbes spent most of his long life as tutor and secretary to the Cavendish family, the Earls of Devonshire, and came to philosophy late. When he was about forty, his friend John Aubrey reports, he saw a copy of Euclid lying open in a gentleman's library at the theorem about right-angled triangles, read it, and swore, \"By God, this is impossible!\" He followed the proof back step by step to the beginning and fell in love with geometry. From then on he wanted a science of politics as certain as Euclid's.[^galileo]"
+        },
+        {
+          "type": "text",
+          "text": "In 1640, as England slid towards civil war, Hobbes fled to Paris, fearing that his writings in defence of the king's power had made him a target. The war that followed killed perhaps one in twenty-five people in England, and the king was beheaded in 1649. In 1651 Hobbes published his answer to the question the war had made urgent: why anyone should obey a government at all. The book was *Leviathan*."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "The prisoner's dilemma",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Three centuries after Hobbes, two mathematicians at the RAND Corporation in California, Merrill Flood and Melvin Dresher, found a simple game that captured his problem exactly. Their colleague Albert Tucker gave it a story in 1950. Two people are arrested for a crime and questioned separately. If both stay silent, both get a short sentence. If both confess, both get a long one. If one confesses and the other stays silent, the one who confesses goes free and the other gets the longest sentence of all. It is called the **prisoner's dilemma**."
     },
     {
-     "type": "text",
-     "text": "Whatever the other prisoner does, you are better off confessing: if they stay silent, you go free instead of serving a short sentence, and if they confess, you avoid the longest sentence. So each prisoner, reasoning carefully, confesses, and both end up worse off than if both had stayed silent. Game theorists call cooperating and defecting the two moves. In the version used below, both cooperating earns 3 points each, both defecting 1 point each, and a defector who meets a cooperator gets 5 points while the cooperator gets nothing."
-    },
-    {
-     "type": "text",
-     "text": "This is Hobbes's state of nature in miniature. Everyone would be better off at peace, but no one can afford to be the only one who keeps the peace. In 1980 the political scientist Robert Axelrod invited experts in game theory to send him computer programs to play the game over and over against one another. The winner was the simplest program entered, written by the psychologist Anatol Rapoport: **tit for tat**, which cooperates on the first move and then copies whatever its partner did last. Axelrod then ran his strategies as a population in which the higher-scoring kinds became more common in each generation, like species in an ecosystem. The figure does the same with three strategies.[^axelrod]"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "dilemma",
-     "caption": "A hundred players over forty generations. In each generation every pair meets a set number of times, and each strategy grows in proportion to its average score.",
-     "task": "Find how often pairs must meet for tit for tat to take over",
-     "goal": "cooperate"
-    },
-    {
-     "type": "text",
-     "text": "When pairs meet once, defection wins every time, exactly as Hobbes predicted for strangers with no government. When the same pairs meet again and again, tit for tat can take over, because a defector gains once against it and then faces defection for ever after, while tit for tat players do well with each other. Axelrod called this \"the shadow of the future\". It is a qualified answer to Hobbes: cooperation can grow without a sovereign, but only among people who expect to deal with each other repeatedly and can remember how they were treated."
-    }
-   ]
-  },
-  {
-   "title": "The sovereign",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Hobbes's own way out did not rely on repeated meetings. Reason, he said, tells each person to seek peace, and to give up their right to all things on condition that everyone else does the same. But a promise alone is not enough, since a person who keeps it while others break it is simply a victim. \"Covenants, without the sword, are but words.\" So people must together hand their power to one person or assembly, the sovereign, strong enough to punish anyone who breaks the peace. That agreement is the **social contract**, and the state it creates is the Leviathan, a sea monster from the Book of Job, \"that mortal god\".[^leviathan]"
-    },
-    {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "Hobbes's argument for obeying the sovereign, compressed.",
-     "options": {
-      "steps": [
-       {
-        "text": "Without a common power to keep them in awe, people are in a war of all against all."
-       },
-       {
-        "text": "Each person wants above all to stay alive, and the war makes that unlikely."
-       },
-       {
-        "text": "Only a sovereign with power to punish can end the war, since promises without force are only words."
-       },
-       {
-        "text": "So it is rational for everyone to give up their liberty to a sovereign and to obey it.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "An all-powerful sovereign is itself a danger: you avoid the polecats and foxes by giving yourself to a lion.",
-        "kind": "objection",
-        "against": 3,
-        "who": "Locke"
-       }
+      "title": "Life without a state",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hobbes began with a thought experiment. Take away all government: no laws, no police, no courts, nobody with the power to make anyone keep a promise. Philosophers call this imagined condition the **state of nature**. He asked what people would do in it."
+        },
+        {
+          "type": "text",
+          "text": "Hobbes's answer starts from three claims. People are roughly equal: even the weakest can kill the strongest, by a trick or with friends, so nobody is safe. They want the same scarce things. And each has a right to do whatever keeps them alive. From these he found three causes of quarrel. People attack to gain what others have, which he called competition. They attack to stop others attacking them first, which he called diffidence, meaning mistrust. And they attack for reputation, to be feared, which he called glory. The second is the important one: even peaceful people, who want nothing of anyone else's, have reason to strike first."
+        },
+        {
+          "type": "text",
+          "text": "The result is \"a war of every man against every man\". In such a condition, Hobbes wrote in the most quoted sentence in English political philosophy, there is no farming, because no one is sure to reap what they sow, no trade, no building, no knowledge, no arts, \"and which is worst of all, continual fear and danger of violent death: and the life of man, solitary, poor, nasty, brutish, and short\"."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Hobbes's starting point. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "nature",
+            "ask": "If every government, police force and court vanished tomorrow, would life soon become as Hobbes describes?",
+            "choices": [
+              "Yes: fear of attack would make even decent people strike first",
+              "No: most people would go on cooperating",
+              "It depends on how long it lasted and how much there was to go round",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Hobbes's answer. He pointed to civil wars, and to the way people lock their doors even with police nearby.",
+              "You chose the view of many anthropologists and historians, who point to stateless societies that kept peace by custom, kinship and reputation. Hobbes would ask how large such societies were.",
+              "You chose the answer the prisoner's dilemma below makes precise: it depends on whether people expect to meet again.",
+              "Hobbes thought his readers would agree once they looked at their own behaviour. Many of them did not."
+            ]
+          }
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Hobbes's sovereign had to be close to absolute. Dividing its power, between a king and a parliament for example, would only start the war again, which was how he read England's civil war. Subjects keep one right, the right to defend their own lives, so no one is obliged to kill themselves or to go quietly to execution. Everything else the sovereign commands, including what may be taught and printed, they must accept. Bad government, Hobbes thought, is always better than the war of all against all."
-    }
-   ]
-  },
-  {
-   "title": "Locke's reply",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Hobbes's most influential opponent was another Englishman, John Locke. His *Two Treatises of Government* were published anonymously in 1689, the year after King James II was driven from the throne, though most of the book was written earlier. Its main target was not Hobbes but a royalist writer, Sir Robert Filmer, who had argued that kings rule by a right inherited from Adam, the first father. Locke spent his whole first treatise dismantling that claim, and in the second set out his own account of why governments exist.[^filmer]"
-    },
-    {
-     "type": "text",
-     "text": "Locke's state of nature is not a war. It is governed by a law of nature, which reason can know, that no one may harm another's life, health, liberty or possessions. People in it can own property, which they gain by mixing their labour with things that belong to no one. The trouble is that everyone is judge in their own case, and there is no one to enforce the law impartially. So people agree to form a government, giving it the power to make and enforce laws, but only to protect the rights they already had."
-    },
-    {
-     "type": "text",
-     "text": "This changes what the contract is. For Locke, government rests on the **consent** of the governed, and holds its power in trust. A government that seizes people's property or lives without law breaks that trust, and the people may resist and replace it. Thomas Jefferson's Declaration of Independence of 1776 put Locke's argument in a sentence: governments derive \"their just powers from the consent of the governed\", and when a government destroys the rights it exists to protect, \"it is the right of the people to alter or to abolish it\"."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "The question in the title. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "obey",
-      "ask": "You never signed anything. Are you bound to obey the laws of the country where you live?",
-      "choices": [
-       "Yes: I benefit from its protection, so I owe it obedience",
-       "Only while its government protects people's rights",
-       "Only where a law is just, whatever the government",
-       "Not sure"
-      ],
-      "who": [
-       "You chose a view close to Hobbes's, and to Socrates' argument in the Crito in lesson 1: staying and accepting benefits counts as agreeing.",
-       "You chose Locke's answer: obedience is owed to a government that keeps its trust.",
-       "You chose the view of philosophical anarchists such as Robert Paul Wolff, who argue there is no general duty to obey the law as such, only to do what is right.",
-       "Political philosophers have not settled it either. Many now doubt that any argument for a general duty to obey the law works."
+      "title": "The prisoner's dilemma",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Three centuries after Hobbes, two mathematicians at the RAND Corporation in California, Merrill Flood and Melvin Dresher, found a simple game that captured his problem exactly. Their colleague Albert Tucker gave it a story in 1950. Two people are arrested for a crime and questioned separately. If both stay silent, both get a short sentence. If both confess, both get a long one. If one confesses and the other stays silent, the one who confesses goes free and the other gets the longest sentence of all. It is called the **prisoner's dilemma**."
+        },
+        {
+          "type": "text",
+          "text": "Whatever the other prisoner does, you are better off confessing: if they stay silent, you go free instead of serving a short sentence, and if they confess, you avoid the longest sentence. So each prisoner, reasoning carefully, confesses, and both end up worse off than if both had stayed silent. Game theorists call the two moves cooperating and defecting. In the version used below, both cooperating earns 3 points each, both defecting 1 point each, and a defector who meets a cooperator gets 5 points while the cooperator gets nothing."
+        },
+        {
+          "type": "text",
+          "text": "This is Hobbes's state of nature in miniature. Everyone would be better off at peace, but no one can afford to be the only one who keeps the peace. In 1980 the political scientist Robert Axelrod invited experts in game theory to send him computer programs to play the game over and over against one another. The winner was the simplest program entered, written by the psychologist Anatol Rapoport: **tit for tat**, which cooperates on the first move and then copies whatever its partner did last. Axelrod then ran his strategies as a population in which the higher-scoring kinds became more common in each generation, like species in an ecosystem. The figure does the same with three strategies.[^axelrod]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "dilemma",
+          "caption": "A hundred players over forty generations. In each generation every pair meets a set number of times, and each strategy grows in proportion to its average score.",
+          "task": "Find how often pairs must meet for tit for tat to take over",
+          "goal": "cooperate"
+        },
+        {
+          "type": "text",
+          "text": "When pairs meet once, defection wins every time, exactly as Hobbes predicted for strangers with no government. When the same pairs meet again and again, tit for tat can take over, because a defector gains once against it and then faces defection in return, while tit for tat players do well with each other. Axelrod called this \"the shadow of the future\". It is a qualified answer to Hobbes: cooperation can grow without a sovereign, but only among people who expect to deal with each other repeatedly and can remember how they were treated."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Locke's critics pointed out that almost no one has ever actually consented to a government. Locke answered that anyone who lives in a country and enjoys its protection gives tacit consent. David Hume, whom lesson 14 meets, replied in 1748 that this is like saying a man carried onto a ship while asleep has freely agreed to obey the captain, since he could always jump into the sea."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The social contract as a way of thinking about government is still argued over. Lesson 22 meets its most important modern form, John Rawls's, in which the contract is a thought experiment about what rules people would choose, not an event in history. The prisoner's dilemma and its relatives are a working tool of economics, biology and international relations, used to study everything from price wars to arms races to cooperation among vampire bats, and they keep Hobbes's problem alive."
-    },
-    {
-     "type": "text",
-     "text": "Hobbes's absolute sovereign is respected history. Almost no political philosopher now defends it, and most think the 20th century showed that unlimited states can be worse than the disorder they were meant to prevent. Hobbes's picture of the state of nature is also widely doubted as history, since anthropologists find that stateless societies managed conflict in many ways. Locke's ideas of consent, rights and the right to resist are built into modern constitutions; his theory of property, which justified taking land from people who did not farm it in the European way, has been heavily criticised, including for its use against indigenous peoples in America."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on Hobbes and Locke",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "Why does Hobbes think even peaceful people would attack others in the state of nature?",
-        "choices": [
-         "Mistrust: with no one to protect them, striking first is the safest defence",
-         "Human beings are naturally cruel and enjoy fighting for its own sake",
-         "They are commanded to by the strongest person in their area",
-         "They have no idea of right and wrong without a government to teach it"
-        ],
-        "answer": 0,
-        "why": "Hobbes called it diffidence. Even someone who wants nothing of anyone else's has reason to fear others and strike first."
-       },
-       {
-        "ask": "In a one-off prisoner's dilemma, why does each player defect?",
-        "choices": [
-         "Whatever the other player does, defecting gives a better result",
-         "Each player expects the other to cooperate and wants to exploit them",
-         "The rules forbid cooperation unless both players agree in advance",
-         "Defecting gives the best result for both players together"
-        ],
-        "answer": 0,
-        "why": "Defecting is better against a cooperator (5 rather than 3) and against a defector (1 rather than 0), so each defects, and both do worse than if both cooperated."
-       },
-       {
-        "ask": "What lets tit for tat spread in a population where pairs meet many times?",
-        "choices": [
-         "Defectors gain once against it and then face defection, while tit for tat players cooperate with each other",
-         "It never defects, so other players learn to trust it and copy it",
-         "It defects first, so it gains the 5 points before anyone else can",
-         "It changes strategy at random, so no one can predict and exploit it"
-        ],
-        "answer": 0,
-        "why": "Repetition is the shadow of the future: exploiting a tit for tat player pays only once."
-       },
-       {
-        "ask": "How does Locke's state of nature differ from Hobbes's?",
-        "choices": [
-         "It is governed by a law of nature that gives people rights before any government",
-         "It is a time of peace and plenty in which no one needs anything from anyone",
-         "It is a historical period that Locke dated to before the Flood",
-         "It is a war of all against all, but one that ends quickly"
-        ],
-        "answer": 0,
-        "why": "For Locke people already have rights to life, liberty and property; government exists to protect them, and loses its claim when it does not."
-       },
-       {
-        "ask": "Hume compares tacit consent to a man carried onto a ship asleep. What is his point?",
-        "choices": [
-         "Staying where leaving is very hard is not real agreement",
-         "People should leave countries whose laws they dislike",
-         "Sailors must obey their captain, so citizens must obey their rulers",
-         "Consent can be given while asleep if it is later confirmed"
-        ],
-        "answer": 0,
-        "why": "Most people cannot leave their country, so living in it is no more consent than staying aboard is consent to the captain."
-       }
+      "title": "The sovereign",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hobbes's own way out did not rely on repeated meetings. Reason, he said, tells each person to seek peace, and to give up their right to all things on condition that everyone else does the same. But a promise alone is not enough, since a person who keeps it while others break it is simply a victim. \"Covenants, without the sword, are but words.\" So people must together hand their power to one person or assembly, the sovereign, strong enough to punish anyone who breaks the peace. That agreement is the **social contract**, and the state it creates is the Leviathan, a sea monster from the Book of Job, \"that mortal god\".[^leviathan]"
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "Hobbes's argument for obeying the sovereign, compressed.",
+          "options": {
+            "steps": [
+              {
+                "text": "Without a common power to keep them in awe, people are in a war of all against all."
+              },
+              {
+                "text": "Each person wants above all to stay alive, and the war makes that unlikely."
+              },
+              {
+                "text": "Only a sovereign with power to punish can end the war, since promises without force are only words."
+              },
+              {
+                "text": "So it is rational for everyone to give up their liberty to a sovereign and to obey it.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "An all-powerful sovereign is itself a danger: you avoid the polecats and foxes by giving yourself to a lion.",
+                "kind": "objection",
+                "against": 3,
+                "who": "Locke"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Hobbes's sovereign had to be close to absolute. Dividing its power, between a king and a parliament for example, would only start the war again, which was how he read England's civil war. Subjects keep one right, the right to defend their own lives, so no one is obliged to kill themselves or to go quietly to execution. Everything else the sovereign commands, including what may be taught and printed, they must accept. Bad government, Hobbes thought, is always better than the war of all against all."
+        }
       ]
-     }
+    },
+    {
+      "title": "Locke's reply",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hobbes's most influential opponent was another Englishman, John Locke. His *Two Treatises of Government* were published anonymously in 1689, the year after King James II was driven from the throne, though most of the book was written earlier. Its main target was not Hobbes but a royalist writer, Sir Robert Filmer, who had argued that kings rule by a right inherited from Adam, the first father. Locke spent his whole first treatise dismantling that claim, and in the second set out his own account of why governments exist.[^filmer]"
+        },
+        {
+          "type": "text",
+          "text": "Locke's state of nature is not a war. It is governed by a law of nature, which reason can know, that no one may harm another's life, health, liberty or possessions. People in it can own property, which they gain by mixing their labour with things that belong to no one. The trouble is that everyone is judge in their own case, and there is no one to enforce the law impartially. So people agree to form a government, giving it the power to make and enforce laws, but only to protect the rights they already had."
+        },
+        {
+          "type": "text",
+          "text": "This changes what the contract is. For Locke, government rests on the **consent** of the governed, and holds its power in trust. A government that seizes people's property or lives without law breaks that trust, and the people may resist and replace it. Thomas Jefferson's Declaration of Independence of 1776 put Locke's argument in a sentence: governments derive \"their just powers from the consent of the governed\", and when a government destroys the rights it exists to protect, \"it is the right of the people to alter or to abolish it\"."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "The question in the title. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "obey",
+            "ask": "You never signed anything. Are you bound to obey the laws of the country where you live?",
+            "choices": [
+              "Yes: I benefit from its protection, so I owe it obedience",
+              "Only while its government protects people's rights",
+              "Only where a law is just, whatever the government",
+              "Not sure"
+            ],
+            "who": [
+              "You chose a view close to Hobbes's, and to Socrates' argument in the Crito in lesson 1: staying and accepting benefits counts as agreeing.",
+              "You chose Locke's answer: obedience is owed to a government that keeps its trust.",
+              "You chose the view of philosophical anarchists such as Robert Paul Wolff, who argue there is no general duty to obey the law as such, only to do what is right.",
+              "Political philosophers have not settled it either. Many now doubt that any argument for a general duty to obey the law works."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Locke's critics pointed out that almost no one has ever actually consented to a government. Locke answered that anyone who lives in a country and enjoys its protection gives tacit consent. David Hume, whom lesson 14 meets, replied in 1748 that this is like saying a man carried onto a ship while asleep has freely agreed to obey the captain, since he could always jump into the sea."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The social contract as a way of thinking about government is still argued over. Lesson 22 meets its most important modern form, John Rawls's, in which the contract is a thought experiment about what rules people would choose, not an event in history. The prisoner's dilemma and its relatives are a working tool of economics, biology and international relations, used to study everything from price wars to arms races to cooperation among vampire bats, and they keep Hobbes's problem alive."
+        },
+        {
+          "type": "text",
+          "text": "Hobbes's absolute sovereign is respected history. Almost no political philosopher now defends it, and most think the 20th century showed that unlimited states can be worse than the disorder they were meant to prevent. Hobbes's picture of the state of nature is also widely doubted as history, since anthropologists find that stateless societies managed conflict in many ways. Locke's ideas of consent, rights and the right to resist are built into modern constitutions; his theory of property, which justified taking land from people who did not farm it in the European way, has been heavily criticised, including for its use against indigenous peoples in America."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Hobbes and Locke",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does Hobbes think even peaceful people would attack others in the state of nature?",
+                "choices": [
+                  "Mistrust: with no one to protect them, striking first is the safest defence",
+                  "Human beings are naturally cruel and enjoy fighting for its own sake",
+                  "They are commanded to by the strongest person in their area",
+                  "They have no idea of right and wrong without a government to teach it"
+                ],
+                "answer": 0,
+                "why": "Hobbes called it diffidence. Even someone who wants nothing of anyone else's has reason to fear others and strike first."
+              },
+              {
+                "ask": "In a one-off prisoner's dilemma, why does each player defect?",
+                "choices": [
+                  "Whatever the other player does, defecting gives a better result",
+                  "Each player expects the other to cooperate and wants to exploit them",
+                  "The rules forbid cooperation unless both players agree in advance",
+                  "Defecting gives the best result for both players together"
+                ],
+                "answer": 0,
+                "why": "Defecting is better against a cooperator (5 rather than 3) and against a defector (1 rather than 0), so each defects, and both do worse than if both cooperated."
+              },
+              {
+                "ask": "What lets tit for tat spread in a population where pairs meet many times?",
+                "choices": [
+                  "Defectors gain once against it and then face defection, while tit for tat players cooperate with each other",
+                  "It never defects, so other players learn to trust it and copy it",
+                  "It defects first, so it gains the 5 points before anyone else can",
+                  "It changes strategy at random, so no one can predict and exploit it"
+                ],
+                "answer": 0,
+                "why": "Repetition is the shadow of the future: exploiting a tit for tat player pays only once."
+              },
+              {
+                "ask": "How does Locke's state of nature differ from Hobbes's?",
+                "choices": [
+                  "It is governed by a law of nature that gives people rights before any government",
+                  "It is a time of peace and plenty in which no one needs anything from anyone",
+                  "It is a historical period that Locke dated to before the Flood",
+                  "It is a war of all against all, but one that ends quickly"
+                ],
+                "answer": 0,
+                "why": "For Locke people already have rights to life, liberty and property; government exists to protect them, and loses its claim when it does not."
+              },
+              {
+                "ask": "Hume compares tacit consent to a man carried onto a ship asleep. What is his point?",
+                "choices": [
+                  "Staying where leaving is very hard is not real agreement",
+                  "People should leave countries whose laws they dislike",
+                  "Sailors must obey their captain, so citizens must obey their rulers",
+                  "Consent can be given while asleep if it is later confirmed"
+                ],
+                "answer": 0,
+                "why": "Most people cannot leave their country, so living in it is no more consent than staying aboard is consent to the captain."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Hobbes wrote Leviathan in exile during the English Civil War.** He wanted a science of politics as certain as geometry.",
+    "**The state of nature is a war of all against all.** Equality, scarcity and mistrust make life \"solitary, poor, nasty, brutish, and short\".",
+    "**In a one-off prisoner's dilemma both players defect.** Defecting is better whatever the other does, so both end up worse off than if both cooperated.",
+    "**Repeated meetings change the outcome.** In Axelrod's tournaments tit for tat won, because exploiting it pays only once.",
+    "**Hobbes's answer is a sovereign with the sword.** People give their power to one ruler, since \"covenants, without the sword, are but words\".",
+    "**Locke's state of nature already has rights.** Government exists to protect life, liberty and property, by the consent of the governed.",
+    "**A government that breaks its trust may be resisted.** Locke's argument shaped the American Declaration of Independence.",
+    "**Tacit consent is the weak point.** Hume compared it to a man carried onto a ship asleep."
+  ],
+  "footnotes": {
+    "axelrod": {
+      "kind": "technical",
+      "title": "Axelrod's tournaments",
+      "text": "The first tournament, in 1980, had 14 entries, each playing every other for 200 moves. Axelrod published the results and held a second with 62 entries, many designed to beat tit for tat. It won again. His book The Evolution of Cooperation (1984) describes both. The figure here uses three strategies and a simple rule of growth, so it shows the idea, not his exact results."
+    },
+    "filmer": {
+      "kind": "technical",
+      "title": "Locke and Filmer",
+      "text": "Filmer's Patriarcha was written decades earlier but printed in 1680, when it became the royalists' main text. Locke's treatises were probably written in the early 1680s, during the crisis over whether the Catholic James could inherit the throne, and kept hidden until it was safe."
+    },
+    "galileo": {
+      "kind": "digression",
+      "title": "Hobbes and Galileo",
+      "text": "On a tour of Europe in 1636 Hobbes visited Galileo near Florence, then under house arrest. He came away convinced that everything, including human beings and their passions, could be explained as matter in motion."
+    },
+    "leviathan": {
+      "kind": "digression",
+      "title": "The frontispiece",
+      "text": "The first edition of Leviathan opens with an engraving of a giant king rising over a landscape, holding a sword and a bishop's staff. His body is made of hundreds of tiny people, all facing him: the state as the subjects joined into one person."
+    }
   }
- ],
- "summary": [
-  "**Hobbes wrote Leviathan in exile during the English Civil War.** He wanted a science of politics as certain as geometry.",
-  "**The state of nature is a war of all against all.** Equality, scarcity and mistrust make life \"solitary, poor, nasty, brutish, and short\".",
-  "**In a one-off prisoner's dilemma both players defect.** Defecting is better whatever the other does, so both end up worse off than if both cooperated.",
-  "**Repeated meetings change the outcome.** In Axelrod's tournaments tit for tat won, because exploiting it pays only once.",
-  "**Hobbes's answer is a sovereign with the sword.** People give their power to one ruler, since \"covenants, without the sword, are but words\".",
-  "**Locke's state of nature already has rights.** Government exists to protect life, liberty and property, by the consent of the governed.",
-  "**A government that breaks its trust may be resisted.** Locke's argument shaped the American Declaration of Independence.",
-  "**Tacit consent is the weak point.** Hume compared it to a man carried onto a ship asleep."
- ],
- "footnotes": {
-  "axelrod": {
-   "kind": "technical",
-   "title": "Axelrod's tournaments",
-   "text": "The first tournament, in 1980, had 14 entries, each playing every other for 200 moves. Axelrod published the results and held a second with 62 entries, many designed to beat tit for tat. It won again. His book The Evolution of Cooperation (1984) describes both. The figure here uses three strategies and a simple rule of growth, so it shows the idea, not his exact results."
-  },
-  "filmer": {
-   "kind": "technical",
-   "title": "Locke and Filmer",
-   "text": "Filmer's Patriarcha was written decades earlier but printed in 1680, when it became the royalists' main text. Locke's treatises were probably written in the early 1680s, during the crisis over whether the Catholic James could inherit the throne, and kept hidden until it was safe."
-  },
-  "galileo": {
-   "kind": "digression",
-   "title": "Hobbes and Galileo",
-   "text": "On a tour of Europe in 1636 Hobbes visited Galileo near Florence, then under house arrest. He came away convinced that everything, including human beings and their passions, could be explained as matter in motion."
-  },
-  "leviathan": {
-   "kind": "digression",
-   "title": "The frontispiece",
-   "text": "The first edition of Leviathan opens with an engraving of a giant king rising over a landscape, holding a sword and a bishop's staff. His body is made of hundreds of tiny people, all facing him: the state as the subjects joined into one person."
-  }
- }
 }

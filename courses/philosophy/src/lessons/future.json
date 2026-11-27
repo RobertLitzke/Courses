@@ -1,227 +1,227 @@
 {
- "id": "future",
- "n": 308,
- "branch": "tools",
- "needs": [
-  "singer"
- ],
- "title": "What do we owe people who don't exist yet?",
- "teaches": "Parfit's non-identity problem and duties to future generations",
- "parts": [
-  {
-   "title": "Which child",
-   "blocks": [
+  "id": "future",
+  "n": 308,
+  "branch": "tools",
+  "needs": [
+    "singer"
+  ],
+  "title": "What do we owe people who don't exist yet?",
+  "teaches": "Parfit's non-identity problem and duties to future generations",
+  "parts": [
     {
-     "type": "text",
-     "text": "In 1984 the Oxford philosopher Derek Parfit published *Reasons and Persons*, a long book that many philosophers rank among the most important of the century. Part of it is about people who do not yet exist. Parfit began with a simple case. A 14-year-old girl decides to have a child. If she waited several years, she would have a child with a better start in life. We would usually say she is doing something wrong, and that the wrong is done to her child."
-    },
-    {
-     "type": "text",
-     "text": "But the child she would have later would be a different child, from a different egg and sperm. The child she actually has would not exist at all if she waited. Suppose the child's life, though harder, is well worth living. Then the child is not worse off than they would otherwise have been, since otherwise they would not have been. So whom has the girl harmed? Parfit called this the **non-identity problem**: when a choice affects who will exist, the people who result cannot complain that they were made worse off by it."
-    }
-   ]
-  },
-  {
-   "title": "Depletion",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Parfit then made it a question about whole societies. Suppose a country must choose between two policies: conserving its resources, or using them up quickly. Using them up would make life a little better for the next two centuries and much worse after that. But a choice of policy on this scale changes who meets whom, who marries, and when children are conceived. After a few generations, entirely different people would exist under each policy."
-    },
-    {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "Parfit's depletion case. Each step seems true, and the conclusion seems false.",
-     "options": {
-      "steps": [
-       {
-        "text": "An act is wrong only if it makes some person worse off than they would otherwise have been."
-       },
-       {
-        "text": "The people living in three centuries under depletion would not exist under conservation."
-       },
-       {
-        "text": "Their lives, though worse than lives under conservation, are still worth living."
-       },
-       {
-        "text": "So depletion makes none of them worse off than they would otherwise have been."
-       },
-       {
-        "text": "So depletion wrongs no one, and is not wrong.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Something can be wrong without being worse for any particular person: it is enough that the world goes worse than it could have.",
-        "kind": "objection",
-        "against": 1,
-        "who": "Parfit"
-       }
+      "title": "Which child",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1984 the Oxford philosopher Derek Parfit published *Reasons and Persons*, a long book that many philosophers rank among the most important of the century. Part of it is about people who do not yet exist. Parfit began with a simple case. A 14-year-old girl decides to have a child. If she waited several years, she would have a child with a better start in life. We would usually say she is doing something wrong, and that the wrong is done to her child."
+        },
+        {
+          "type": "text",
+          "text": "But the child she would have later would be a different child, from a different egg and sperm. The child she actually has would not exist at all if she waited. Suppose the child's life, though harder, is well worth living. Then the child is not worse off than they would otherwise have been, since otherwise they would not have existed. It is hard to say whom the girl has harmed. Parfit called this the **non-identity problem**: when a choice affects who will exist, the people who result cannot complain that they were made worse off by it."
+        }
       ]
-     }
     },
     {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Parfit's depletion case. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "depletion",
-      "ask": "A policy makes life worse for people three centuries from now, who would not have existed under any other policy, though their lives are still worth living. Is the policy wrong?",
-      "choices": [
-       "Yes: it is wrong, even if no particular person is worse off",
-       "No: if nobody is made worse off, there is no one it wrongs",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Parfit's answer, which means accepting that some wrongs are not wrongs to anyone in particular.",
-       "You chose the answer the argument leads to. Most people who reach it look for a premise to give up.",
-       "Parfit spent much of the rest of his life on the question."
+      "title": "Depletion",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Parfit then made it a question about whole societies. Suppose a country must choose between two policies: conserving its resources, or using them up quickly. Using them up would make life a little better for the next two centuries and much worse after that. But a choice of policy on this scale changes who meets whom and when children are conceived. After a few generations, entirely different people would exist under each policy."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "Parfit's depletion case. Each step seems true, and the conclusion seems false.",
+          "options": {
+            "steps": [
+              {
+                "text": "An act is wrong only if it makes some person worse off than they would otherwise have been."
+              },
+              {
+                "text": "The people living in three centuries under depletion would not exist under conservation."
+              },
+              {
+                "text": "Their lives, though worse than lives under conservation, are still worth living."
+              },
+              {
+                "text": "So depletion makes none of them worse off than they would otherwise have been."
+              },
+              {
+                "text": "So depletion wrongs no one, and is not wrong.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Something can be wrong without being worse for any particular person: it is enough that the world goes worse than it could have.",
+                "kind": "objection",
+                "against": 1,
+                "who": "Parfit"
+              }
+            ]
+          }
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Parfit's depletion case. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "depletion",
+            "ask": "A policy makes life worse for people three centuries from now, who would not have existed under any other policy, though their lives are still worth living. Is the policy wrong?",
+            "choices": [
+              "Yes: it is wrong, even if no particular person is worse off",
+              "No: if nobody is made worse off, there is no one it wrongs",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Parfit's answer, which means accepting that some wrongs are not wrongs to anyone in particular.",
+              "You chose the answer the argument leads to. Most people who reach it look for a premise to give up.",
+              "Parfit spent much of the rest of his life on the question."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Parfit's own view was that the first premise is false. Some acts are wrong because they make the world worse, even when they are worse for nobody. This matters directly for climate policy: the large decisions countries take on energy over this century will change who exists in the next."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Parfit's own view was that the first premise is false. Some acts are wrong because they make the world worse, even when they are worse for nobody. This matters directly for climate policy: the large decisions countries take on energy over this century will change who exists in the next."
-    }
-   ]
-  },
-  {
-   "title": "The repugnant conclusion",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "If what matters is how good the world is, how should we compare worlds with different numbers of people? One simple answer, the **total view**, adds up all the wellbeing in each. Parfit showed that this leads somewhere troubling. Take a world of ten billion people, all with excellent lives. Now picture a world of vastly more people, each with a life only just worth living, \"muzak and potatoes\", in Parfit's phrase, meaning bland background music and plain food. If there are enough of them, the total wellbeing is greater. So, on the total view, the second world is better."
-    },
-    {
-     "type": "text",
-     "text": "Parfit called this the **repugnant conclusion**, and spent decades looking for a theory that avoided it while keeping other things he believed. Other views, such as counting the average rather than the total, avoid it but lead to conclusions that seem even worse: on the average view, adding a person whose life is very good makes the world worse if their life is less good than the average. Parfit and others proved that no theory can satisfy all of a short list of plausible conditions at once."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "The repugnant conclusion. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "repugnant",
-      "ask": "Which world is better: ten billion people with excellent lives, or a vastly larger number with lives only just worth living, enough that the total wellbeing is greater?",
-      "choices": [
-       "The ten billion with excellent lives",
-       "The vastly larger population",
-       "Neither is better than the other",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the answer most people give, and Parfit's intuition. The task is finding a theory that delivers it without other absurd results.",
-       "You chose the answer of the total view. In 2021, 29 philosophers signed a paper arguing that this answer should not be ruled out.",
-       "You chose the answer of some philosophers who hold that such worlds cannot be ranked.",
-       "Parfit was unsure too, and kept working on it."
+      "title": "The repugnant conclusion",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "If what matters is how good the world is, we have to compare worlds with different numbers of people. One simple answer, the **total view**, adds up all the wellbeing in each. Parfit showed that this leads somewhere troubling. Take a world of ten billion people, all with excellent lives. Now consider a world of vastly more people, each with a life only just worth living, \"muzak and potatoes\", in Parfit's phrase, meaning bland background music and plain food. If there are enough of them, the total wellbeing is greater. So, on the total view, the second world is better."
+        },
+        {
+          "type": "text",
+          "text": "Parfit called this the **repugnant conclusion**, and spent decades looking for a theory that avoided it while keeping other things he believed. Other views, such as counting the average rather than the total, avoid it but lead to conclusions that seem even worse: on the average view, adding a person whose life is very good makes the world worse if their life is less good than the average. Parfit and others proved that no theory can satisfy all of a short list of plausible conditions at once."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "The repugnant conclusion. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "repugnant",
+            "ask": "Which world is better: ten billion people with excellent lives, or a vastly larger number with lives only just worth living, enough that the total wellbeing is greater?",
+            "choices": [
+              "The ten billion with excellent lives",
+              "The vastly larger population",
+              "Neither is better than the other",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the answer most people give, and Parfit's intuition. The task is finding a theory that delivers it without other absurd results.",
+              "You chose the answer of the total view. In 2021, 29 philosophers signed a paper arguing that this answer should not be ruled out.",
+              "You chose the answer of some philosophers who hold that such worlds cannot be ranked.",
+              "Parfit was unsure too, and kept working on it."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "In 2021 a group of 29 philosophers published a short paper arguing that avoiding the repugnant conclusion should no longer be treated as a test every theory must pass, since theories that avoid it have troubling results of their own. Others replied that the conclusion is a reason to doubt the whole approach of adding up wellbeing."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "In 2021 a group of 29 philosophers published a short paper arguing that avoiding the repugnant conclusion should no longer be treated as a test every theory must pass, since theories that avoid it have troubling results of their own. Others replied that the conclusion is a reason to doubt the whole approach of adding up wellbeing."
-    }
-   ]
-  },
-  {
-   "title": "How far ahead?",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The puzzles have practical weight. Economists compare costs now with benefits later by **discounting**: valuing future benefits less, year by year. Part of this is reasonable, since people in the future may be richer. But a discount rate also says how much the wellbeing of future people counts at all, and over centuries small differences in the rate make enormous differences. In 2006 the British government's Stern Review on climate change argued that it is unethical to count future people's wellbeing less merely because it is later, and recommended strong action; economists using higher rates, such as William Nordhaus, recommended slower action."
-    },
-    {
-     "type": "text",
-     "text": "Some philosophers, following Parfit and the effective altruists of the Singer lesson, have gone further. If future people count as much as present ones, and humanity might last for millions of years, then by far the most people who will ever live are in the future, and the most important thing we can do is to reduce the risk of events that would end humanity or ruin its prospects. This view, called **longtermism**, was set out for a general audience in William MacAskill's *What We Owe the Future* (2022). Critics argue that it lets speculative far-future benefits outweigh real suffering now, and that we know too little about the far future to act on such calculations."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The non-identity problem and the repugnant conclusion are still argued over, and **population ethics**, the field Parfit largely founded, is one of the most active in moral philosophy. Duties to future generations are widely accepted in principle,[^seventh] and written into some countries' laws, such as Wales's Well-being of Future Generations Act of 2015, but how to weigh them against present needs is unsettled. Longtermism is argued over inside and outside philosophy. Parfit himself died in 2017, having spent his last years on a three-volume work, *On What Matters*, arguing that the main moral theories, properly understood, agree.[^parfit]"
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on future people",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is the non-identity problem?",
-        "choices": [
-         "When a choice affects who will exist, the people who result cannot say they were made worse off by it",
-         "Future people may not be the same people we expect",
-         "Nobody can be sure who they will be in the future",
-         "Identical twins have different moral claims"
-        ],
-        "answer": 0,
-        "why": "The child born later would be a different child, so the actual child is not made worse off."
-       },
-       {
-        "ask": "Why does Parfit's depletion case matter for climate policy?",
-        "choices": [
-         "Large policies change who exists, so their victims would not otherwise have existed, yet the policies still seem wrong",
-         "Climate change affects only people now alive",
-         "Using up resources always makes everyone better off",
-         "Future people can vote on present policies"
-        ],
-        "answer": 0,
-        "why": "Parfit concluded that some acts are wrong without being worse for anyone in particular."
-       },
-       {
-        "ask": "What is the repugnant conclusion?",
-        "choices": [
-         "On the total view, a vast population with lives barely worth living is better than a smaller one with excellent lives",
-         "Future people are less important than present people",
-         "It is wrong to have children",
-         "The average happiness of the world can never rise"
-        ],
-        "answer": 0,
-        "why": "Parfit called it repugnant and looked for decades for a theory that avoids it."
-       },
-       {
-        "ask": "What is longtermism?",
-        "choices": [
-         "The view that, since most people who will ever live are in the future, reducing risks to humanity's long-term future is a top priority",
-         "The view that people should plan their own careers decades ahead",
-         "The view that only long-lived species matter morally",
-         "The view that governments should never change their policies"
-        ],
-        "answer": 0,
-        "why": "MacAskill set it out in 2022; critics say it lets speculation outweigh present suffering."
-       }
+      "title": "How far ahead?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The puzzles have practical weight. Economists compare costs now with benefits later by **discounting**: valuing future benefits less, year by year. Part of this is reasonable, since people in the future may be richer. But a discount rate also says how much the wellbeing of future people counts at all, and over centuries small differences in the rate make enormous differences. In 2006 the British government's Stern Review on climate change argued that it is unethical to count future people's wellbeing less merely because it is later, and recommended strong action; economists using higher rates, such as William Nordhaus, recommended slower action."
+        },
+        {
+          "type": "text",
+          "text": "Some philosophers, following Parfit and the effective altruists of the Singer lesson, have gone further. If future people count as much as present ones, and humanity might last for millions of years, then by far the most people who will ever live are in the future, and the most important thing we can do is to reduce the risk of events that would end humanity or ruin its prospects. This view, called **longtermism**, was set out for a general audience in William MacAskill's *What We Owe the Future* (2022). Critics argue that it lets speculative far-future benefits outweigh real suffering now, and that we know too little about the far future to act on such calculations."
+        }
       ]
-     }
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The non-identity problem and the repugnant conclusion are still argued over, and **population ethics**, the field Parfit largely founded, is one of the most active in moral philosophy. Duties to future generations are widely accepted in principle,[^seventh] and written into some countries' laws, such as Wales's Well-being of Future Generations Act of 2015, but how to weigh them against present needs is unsettled. Longtermism is argued over inside and outside philosophy. Parfit himself died in 2017, having spent his last years on a three-volume work, *On What Matters*, arguing that the main moral theories, properly understood, agree.[^parfit]"
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on future people",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is the non-identity problem?",
+                "choices": [
+                  "When a choice affects who will exist, the people who result cannot say they were made worse off by it",
+                  "Future people may not be the same people we expect",
+                  "Nobody can be sure who they will be in the future",
+                  "Identical twins have different moral claims"
+                ],
+                "answer": 0,
+                "why": "The child born later would be a different child, so the actual child is not made worse off."
+              },
+              {
+                "ask": "Why does Parfit's depletion case matter for climate policy?",
+                "choices": [
+                  "Large policies change who exists, so their victims would not otherwise have existed, yet the policies still seem wrong",
+                  "Climate change affects only people now alive",
+                  "Using up resources always makes everyone better off",
+                  "Future people can vote on present policies"
+                ],
+                "answer": 0,
+                "why": "Parfit concluded that some acts are wrong without being worse for anyone in particular."
+              },
+              {
+                "ask": "What is the repugnant conclusion?",
+                "choices": [
+                  "On the total view, a vast population with lives barely worth living is better than a smaller one with excellent lives",
+                  "Future people are less important than present people",
+                  "It is wrong to have children",
+                  "The average happiness of the world can never rise"
+                ],
+                "answer": 0,
+                "why": "Parfit called it repugnant and looked for decades for a theory that avoids it."
+              },
+              {
+                "ask": "What is longtermism?",
+                "choices": [
+                  "The view that, since most people who will ever live are in the future, reducing risks to humanity's long-term future is a top priority",
+                  "The view that people should plan their own careers decades ahead",
+                  "The view that only long-lived species matter morally",
+                  "The view that governments should never change their policies"
+                ],
+                "answer": 0,
+                "why": "MacAskill set it out in 2022; critics say it lets speculation outweigh present suffering."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Parfit's Reasons and Persons (1984) founded population ethics.** It asks what we owe people who do not yet exist.",
+    "**The non-identity problem: a different choice means a different child.** The actual child is not made worse off.",
+    "**Depletion seems wrong though it is worse for no one.** Parfit concluded some wrongs are not wrongs to anyone in particular.",
+    "**The repugnant conclusion follows from adding up wellbeing.** A vast population barely worth living beats a happy one.",
+    "**Every theory of population has a troubling result.** Parfit and others proved no theory meets all the plausible conditions.",
+    "**Discount rates decide how much future people count.** The Stern Review used a low one.",
+    "**Longtermism makes the far future the top priority.** Critics say we know too little to act on it."
+  ],
+  "footnotes": {
+    "seventh": {
+      "kind": "technical",
+      "title": "The seventh generation",
+      "text": "A principle that leaders should consider the effect of their decisions on the seventh generation to come is often attributed to the Haudenosaunee (Iroquois) Great Law of Peace. Historians note that the wording common today is mostly modern, though concern for descendants is part of the tradition."
+    },
+    "parfit": {
+      "kind": "digression",
+      "title": "Parfit at work",
+      "text": "Parfit was famous for working almost without stopping, wearing the same clothes each day to save time on choosing. His one other passion was photography: for years he travelled to Venice and St Petersburg to take the same kinds of architectural photographs, often waiting days for the right light."
+    }
   }
- ],
- "summary": [
-  "**Parfit's Reasons and Persons (1984) founded population ethics.** It asks what we owe people who do not yet exist.",
-  "**The non-identity problem: a different choice means a different child.** The actual child is not made worse off.",
-  "**Depletion seems wrong though it is worse for no one.** Parfit concluded some wrongs are not wrongs to anyone in particular.",
-  "**The repugnant conclusion follows from adding up wellbeing.** A vast population barely worth living beats a happy one.",
-  "**Every theory of population has a troubling result.** Parfit and others proved no theory meets all the plausible conditions.",
-  "**Discount rates decide how much future people count.** The Stern Review used a low one.",
-  "**Longtermism makes the far future the top priority.** Critics say we know too little to act on it."
- ],
- "footnotes": {
-  "seventh": {
-   "kind": "technical",
-   "title": "The seventh generation",
-   "text": "A principle that leaders should consider the effect of their decisions on the seventh generation to come is often attributed to the Haudenosaunee (Iroquois) Great Law of Peace. Historians note that the wording common today is mostly modern, though concern for descendants is part of the tradition."
-  },
-  "parfit": {
-   "kind": "digression",
-   "title": "Parfit at work",
-   "text": "Parfit was famous for working almost without stopping, wearing the same clothes each day to save time on choosing. His one other passion was photography: for years he travelled to Venice and St Petersburg to take the same kinds of architectural photographs, often waiting days for the right light."
-  }
- }
 }

@@ -1,224 +1,224 @@
 {
- "id": "ubuntu",
- "n": 104,
- "branch": "elsewhere",
- "needs": [
-  "aristotle"
- ],
- "title": "Are you a person through other people?",
- "teaches": "Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission",
- "parts": [
-  {
-   "title": "The truth for amnesty",
-   "blocks": [
+  "id": "ubuntu",
+  "n": 104,
+  "branch": "elsewhere",
+  "needs": [
+    "aristotle"
+  ],
+  "title": "Are you a person through other people?",
+  "teaches": "Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission",
+  "parts": [
     {
-     "type": "text",
-     "text": "In April 1996, in a town hall in East London, South Africa, the Truth and Reconciliation Commission began its public hearings. Apartheid had ended two years before with the country's first free election. Now victims of its violence, and their families, told their stories in public, often for the first time, and the hearings were broadcast every week. At the first, a widow whose husband had been abducted and killed by the security police broke into a cry that the poet and journalist Antjie Krog, reporting on the hearings, later wrote of as the moment the commission truly began."
-    },
-    {
-     "type": "text",
-     "text": "The commission also did something few countries had tried. People who had committed crimes for political reasons, on either side, could apply for amnesty: if they told the full truth about what they had done, and it met the commission's tests, they would not be prosecuted. About 7,000 people applied, and most applications were refused. Policemen described in public how they had tortured and killed prisoners, while their victims' families listened in the same room."
-    },
-    {
-     "type": "text",
-     "text": "Its chair, Archbishop Desmond Tutu, defended this with an African idea: **ubuntu**.[^linux] The interim constitution of 1993 had already named it. In its closing section, on national unity and reconciliation, it said there was \"a need for understanding but not for vengeance, a need for reparation but not for retaliation, a need for ubuntu but not for victimisation.\""
-    }
-   ]
-  },
-  {
-   "title": "A person through other persons",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Ubuntu is a word in the Nguni languages of southern Africa, such as Zulu and Xhosa, for humanness. It is usually explained by a saying: *umuntu ngumuntu ngabantu*, \"a person is a person through other persons\". Tutu put it this way: a person with ubuntu is open and available to others, and knows they belong to a greater whole, which is diminished when others are humiliated or oppressed. \"My humanity is caught up, is inextricably bound up, in yours.\""
-    },
-    {
-     "type": "text",
-     "text": "The idea has relatives across much of sub-Saharan Africa. The Kenyan philosopher John Mbiti summarised the African view of the person in 1969 as \"I am, because we are; and since we are, therefore I am\", a line often read as a reply to Descartes's \"I think, therefore I am\", in which the self is found in thought, alone. On the African view, Mbiti said, a person exists only in relation to others, the living and the dead."
-    },
-    {
-     "type": "text",
-     "text": "The Nigerian philosopher Ifeanyi Menkiti drew a striking conclusion in 1984: personhood comes in degrees, and is something you achieve. A newborn is a human being but not yet fully a person. You become one over a lifetime, by taking on the duties of your community and treating others well. Someone who lives selfishly or cruelly can be said, in the moral sense, to be \"not a person\", which is a common rebuke in several African languages.[^menkiti]"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Menkiti's idea. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "person-degree",
-      "ask": "Is someone who has done great wrong less of a person, in the moral sense, than someone who has lived well?",
-      "choices": [
-       "Yes: being a person is partly something you achieve by how you treat others",
-       "No: every human being is fully a person, with equal worth",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Menkiti's view.",
-       "You chose the view of Kant in lesson 15, and of most human rights law. Defenders of ubuntu say the two can be held together: equal worth, with personhood as an ideal to live up to.",
-       "Many African philosophers have argued over exactly this."
+      "title": "The truth for amnesty",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In April 1996, in a town hall in East London, South Africa, the Truth and Reconciliation Commission began its public hearings. Apartheid had ended two years before with the country's first free election. Now victims of its violence, and their families, told their stories in public, often for the first time, and the hearings were broadcast every week. At the first hearing, a widow whose husband had been abducted and killed by the security police broke into a cry that the poet and journalist Antjie Krog, reporting on the hearings, later wrote of as the moment the commission truly began."
+        },
+        {
+          "type": "text",
+          "text": "The commission also did something few countries had tried. People who had committed crimes for political reasons, on either side, could apply for amnesty: if they told the full truth about what they had done, and it met the commission's tests, they would not be prosecuted. About 7,000 people applied, and most applications were refused. Policemen described in public how they had tortured and killed prisoners, while their victims' families listened in the same room."
+        },
+        {
+          "type": "text",
+          "text": "Its chair, Archbishop Desmond Tutu, defended this with an African idea: **ubuntu**.[^linux] The interim constitution of 1993 had already named it. In its closing section, on national unity and reconciliation, it said there was \"a need for understanding but not for vengeance, a need for reparation but not for retaliation, a need for ubuntu but not for victimisation.\""
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "A theory of right action",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In the 2000s the philosopher Thaddeus Metz, working in Johannesburg, set out to state ubuntu as a moral theory precise enough to compare with utilitarianism and Kant. His version is that an act is right insofar as it honours friendly relationships, and wrong insofar as it fails to. A friendly relationship, for Metz, has two parts: **identity**, sharing a way of life and thinking of yourselves as \"we\", and **solidarity**, caring about each other's good and acting for it."
     },
     {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "Metz's ubuntu theory applied to the commission's choice, as its defenders put it. The objection is the one many victims' families made.",
-     "options": {
-      "steps": [
-       {
-        "text": "An act is right insofar as it honours relationships of identity and solidarity, and wrong insofar as it fails to."
-       },
-       {
-        "text": "Apartheid's crimes broke those relationships between South Africans on a vast scale."
-       },
-       {
-        "text": "Punishment, on its own, answers wrong with further harm and leaves the relationship broken."
-       },
-       {
-        "text": "Truth told in public, and acknowledged, can begin to restore it, for victims as well as for wrongdoers."
-       },
-       {
-        "text": "So amnesty for the full truth honoured ubuntu better than prosecution would have done.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Victims have a right to justice, and wrongdoers who are not punished have not been held to account; reconciliation cannot be required of them.",
-        "kind": "objection",
-        "against": 3,
-        "who": "The families of Steve Biko and others, who challenged the amnesty in court"
-       }
+      "title": "A person through other persons",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Ubuntu is a word in the Nguni languages of southern Africa, such as Zulu and Xhosa, for humanness. It is usually explained by a saying: *umuntu ngumuntu ngabantu*, \"a person is a person through other persons\". Tutu put it this way: a person with ubuntu is open and available to others, and knows they belong to a greater whole, which is diminished when others are humiliated or oppressed. \"My humanity is caught up, is inextricably bound up, in yours.\""
+        },
+        {
+          "type": "text",
+          "text": "The idea has relatives across much of sub-Saharan Africa. The Kenyan philosopher John Mbiti summarised the African view of the person in 1969 as \"I am, because we are; and since we are, therefore I am\", a line often read as a reply to Descartes's \"I think, therefore I am\", in which the self is found in thought, alone. On the African view, Mbiti said, a person exists only in relation to others, the living and the dead."
+        },
+        {
+          "type": "text",
+          "text": "The Nigerian philosopher Ifeanyi Menkiti argued in 1984 that personhood comes in degrees, and is something you achieve. A newborn is a human being but not yet fully a person. You become one over a lifetime, by taking on the duties of your community and treating others well. Someone who lives selfishly or cruelly can be said, in the moral sense, to be \"not a person\", which is a common rebuke in several African languages.[^menkiti]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Menkiti's idea. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "person-degree",
+            "ask": "Is someone who has done great wrong less of a person, in the moral sense, than someone who has lived well?",
+            "choices": [
+              "Yes: being a person is partly something you achieve by how you treat others",
+              "No: every human being is fully a person, with equal worth",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Menkiti's view.",
+              "You chose the view of Kant in lesson 15, and of most human rights law. Defenders of ubuntu say the two can be held together: equal worth, with personhood as an ideal to live up to.",
+              "Many African philosophers have argued over exactly this."
+            ]
+          }
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Set beside Aristotle in lesson 4, ubuntu shares the idea that people are social animals who can only live well in a community, and that ethics is about character more than rules. The difference is where the weight falls. For Aristotle, the virtues are qualities of the individual that make your own life go well. On the ubuntu view, what makes you good is the quality of your relationships, and harmony between people is the good itself, not a means to yours."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "The commission's choice. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "amnesty",
-      "ask": "Was it right to give amnesty to people who had committed political killings, in exchange for the full truth?",
-      "choices": [
-       "Yes: the truth and the chance of reconciliation were worth more than punishment",
-       "No: they should have been tried and, if guilty, punished",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the commission's answer, and Tutu's.",
-       "You chose the answer of many victims' families, some of whom went to court to stop it. The Constitutional Court upheld the amnesty in 1996.",
-       "Many South Africans who lived through it are still unsure."
+      "title": "A theory of right action",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the 2000s the philosopher Thaddeus Metz, working in Johannesburg, set out to state ubuntu as a moral theory precise enough to compare with utilitarianism and Kant. His version is that an act is right insofar as it honours friendly relationships, and wrong insofar as it fails to. A friendly relationship, for Metz, has two parts: **identity**, sharing a way of life and thinking of yourselves as \"we\", and **solidarity**, caring about each other's good and acting for it."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "Metz's ubuntu theory applied to the commission's choice, as its defenders put it. The objection is the one many victims' families made.",
+          "options": {
+            "steps": [
+              {
+                "text": "An act is right insofar as it honours relationships of identity and solidarity, and wrong insofar as it fails to."
+              },
+              {
+                "text": "Apartheid's crimes broke those relationships between South Africans on a vast scale."
+              },
+              {
+                "text": "Punishment, on its own, answers wrong with further harm and leaves the relationship broken."
+              },
+              {
+                "text": "Truth told in public, and acknowledged, can begin to restore it, for victims as well as for wrongdoers."
+              },
+              {
+                "text": "So amnesty for the full truth honoured ubuntu better than prosecution would have done.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Victims have a right to justice, and wrongdoers who are not punished have not been held to account; reconciliation cannot be required of them.",
+                "kind": "objection",
+                "against": 3,
+                "who": "The families of Steve Biko and others, who challenged the amnesty in court"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Like Aristotle's ethics in lesson 4, ubuntu holds that people are social animals who can only live well in a community, and that ethics is about character more than rules. The difference is where the weight falls. For Aristotle, the virtues are qualities of the individual that make your own life go well. On the ubuntu view, what makes you good is the quality of your relationships, and harmony between people is the good itself, not a means to yours."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "The commission's choice. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "amnesty",
+            "ask": "Was it right to give amnesty to people who had committed political killings, in exchange for the full truth?",
+            "choices": [
+              "Yes: the truth and the chance of reconciliation were worth more than punishment",
+              "No: they should have been tried and, if guilty, punished",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the commission's answer, and Tutu's.",
+              "You chose the answer of many victims' families, some of whom went to court to stop it. The Constitutional Court upheld the amnesty in 1996.",
+              "Many South Africans who lived through it are still unsure."
+            ]
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Ubuntu ethics is still argued over, and is the most discussed approach in African moral philosophy. Metz's theory is widely debated, and South African courts have cited ubuntu in many judgements, starting with the case of 1995 in which the Constitutional Court abolished the death penalty.[^court] Critics say the idea is too vague to decide hard cases, and that an ethics of community can press individuals to conform. Defenders reply that Metz's version answers the first worry, and that solidarity includes caring about each person's own good."
     },
     {
-     "type": "text",
-     "text": "The commission itself is still argued over. It is admired as a model and has been copied, in different forms, in dozens of countries. In South Africa, many victims felt that perpetrators got the truth-telling and the amnesty while victims waited years for the reparations they were promised, and that the economic injustice of apartheid was left untouched."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on ubuntu",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does the saying umuntu ngumuntu ngabantu mean?",
-        "choices": [
-         "A person is a person through other persons",
-         "Every person is alone in their own mind",
-         "A person is what they think",
-         "The community must obey its elders"
-        ],
-        "answer": 0,
-        "why": "It is the usual explanation of ubuntu, humanness, in the Nguni languages."
-       },
-       {
-        "ask": "What did Menkiti mean by saying personhood comes in degrees?",
-        "choices": [
-         "Being a person, in the moral sense, is achieved over a lifetime by how you live with others",
-         "Some people are born with more worth than others",
-         "Only adults have human rights",
-         "Personhood depends on how much property you own"
-        ],
-        "answer": 0,
-        "why": "A newborn is human but not yet fully a person; a cruel person can be called \"not a person\"."
-       },
-       {
-        "ask": "What makes an act right on Metz's theory of ubuntu?",
-        "choices": [
-         "Honouring relationships of identity and solidarity with others",
-         "Producing the greatest happiness for the greatest number",
-         "Following a rule you could will everyone to follow",
-         "Doing what the elders of the community command"
-        ],
-        "answer": 0,
-        "why": "Identity is sharing a way of life; solidarity is caring about each other's good."
-       },
-       {
-        "ask": "What did South Africa's Truth and Reconciliation Commission offer people who had committed political crimes?",
-        "choices": [
-         "Amnesty from prosecution, if they told the full truth and met the commission's tests",
-         "Immediate release from prison with no conditions",
-         "A chance to pay compensation instead of standing trial",
-         "Exile from South Africa instead of prison"
-        ],
-        "answer": 0,
-        "why": "Most of the roughly 7,000 applications were refused."
-       }
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Ubuntu ethics is still argued over, and is the most discussed approach in African moral philosophy. Metz's theory is widely debated, and South African courts have cited ubuntu in many judgements, starting with the case of 1995 in which the Constitutional Court abolished the death penalty.[^court] Critics say the idea is too vague to decide hard cases, and that an ethics of community can press individuals to conform. Defenders reply that Metz's version answers the first worry, and that solidarity includes caring about each person's own good."
+        },
+        {
+          "type": "text",
+          "text": "The commission itself is still argued over. It is admired as a model and has been copied, in different forms, in dozens of countries. In South Africa, many victims felt that perpetrators got the truth-telling and the amnesty while victims waited years for the reparations they were promised, and that the economic injustice of apartheid was left untouched."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on ubuntu",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does the saying umuntu ngumuntu ngabantu mean?",
+                "choices": [
+                  "A person is a person through other persons",
+                  "Every person is alone in their own mind",
+                  "A person is what they think",
+                  "The community must obey its elders"
+                ],
+                "answer": 0,
+                "why": "It is the usual explanation of ubuntu, humanness, in the Nguni languages."
+              },
+              {
+                "ask": "What did Menkiti mean by saying personhood comes in degrees?",
+                "choices": [
+                  "Being a person, in the moral sense, is achieved over a lifetime by how you live with others",
+                  "Some people are born with more worth than others",
+                  "Only adults have human rights",
+                  "Personhood depends on how much property you own"
+                ],
+                "answer": 0,
+                "why": "A newborn is human but not yet fully a person; a cruel person can be called \"not a person\"."
+              },
+              {
+                "ask": "What makes an act right on Metz's theory of ubuntu?",
+                "choices": [
+                  "Honouring relationships of identity and solidarity with others",
+                  "Producing the greatest happiness for the greatest number",
+                  "Following a rule you could will everyone to follow",
+                  "Doing what the elders of the community command"
+                ],
+                "answer": 0,
+                "why": "Identity is sharing a way of life; solidarity is caring about each other's good."
+              },
+              {
+                "ask": "What did South Africa's Truth and Reconciliation Commission offer people who had committed political crimes?",
+                "choices": [
+                  "Amnesty from prosecution, if they told the full truth and met the commission's tests",
+                  "Immediate release from prison with no conditions",
+                  "A chance to pay compensation instead of standing trial",
+                  "Exile from South Africa instead of prison"
+                ],
+                "answer": 0,
+                "why": "Most of the roughly 7,000 applications were refused."
+              }
+            ]
+          }
+        }
       ]
-     }
     }
-   ]
+  ],
+  "summary": [
+    "**South Africa's Truth and Reconciliation Commission traded amnesty for the full truth.** Its hearings began in 1996.",
+    "**Ubuntu means humanness.** A person is a person through other persons.",
+    "**Mbiti: I am, because we are.** A reply to Descartes, in which the self exists only in relation to others.",
+    "**Menkiti: personhood is achieved.** A cruel person can be called \"not a person\" in the moral sense.",
+    "**Metz: right acts honour identity and solidarity.** Harmony between people is the good itself.",
+    "**Ubuntu and the commission are still argued over.** Critics point to vagueness, pressure to conform, and victims who waited for justice."
+  ],
+  "footnotes": {
+    "menkiti": {
+      "kind": "technical",
+      "title": "Degrees and dignity",
+      "text": "Kwame Gyekye, a Ghanaian philosopher, replied to Menkiti that every human being has full moral worth from birth, and that what comes in degrees is moral achievement, not personhood itself. The disagreement is still one of the main debates in African philosophy."
+    },
+    "court": {
+      "kind": "technical",
+      "title": "S v Makwanyane",
+      "text": "In 1995 the new Constitutional Court ruled unanimously that the death penalty was unconstitutional. Several judges, among them Pius Langa and Yvonne Mokgoro, wrote that ubuntu, with its respect for the life and dignity of every person, including offenders, was part of the values the constitution protects."
+    },
+    "linux": {
+      "kind": "digression",
+      "title": "Ubuntu the software",
+      "text": "The word reached many people outside Africa through Ubuntu, a free computer operating system launched in 2004 by a South African entrepreneur, Mark Shuttleworth, who chose the name for its idea of sharing."
+    }
   }
- ],
- "summary": [
-  "**South Africa's Truth and Reconciliation Commission traded amnesty for the full truth.** Its hearings began in 1996.",
-  "**Ubuntu means humanness.** A person is a person through other persons.",
-  "**Mbiti: I am, because we are.** A reply to Descartes, in which the self exists only in relation to others.",
-  "**Menkiti: personhood is achieved.** A cruel person can be called \"not a person\" in the moral sense.",
-  "**Metz: right acts honour identity and solidarity.** Harmony between people is the good itself.",
-  "**Ubuntu and the commission are still argued over.** Critics point to vagueness, pressure to conform, and victims who waited for justice."
- ],
- "footnotes": {
-  "menkiti": {
-   "kind": "technical",
-   "title": "Degrees and dignity",
-   "text": "Kwame Gyekye, a Ghanaian philosopher, replied to Menkiti that every human being has full moral worth from birth, and that what comes in degrees is moral achievement, not personhood itself. The disagreement is still one of the main debates in African philosophy."
-  },
-  "court": {
-   "kind": "technical",
-   "title": "S v Makwanyane",
-   "text": "In 1995 the new Constitutional Court ruled unanimously that the death penalty was unconstitutional. Several judges, among them Pius Langa and Yvonne Mokgoro, wrote that ubuntu, with its respect for the life and dignity of every person, including offenders, was part of the values the constitution protects."
-  },
-  "linux": {
-   "kind": "digression",
-   "title": "Ubuntu the software",
-   "text": "The word reached many people outside Africa through Ubuntu, a free computer operating system launched in 2004 by a South African entrepreneur, Mark Shuttleworth, who chose the name for its idea of sharing."
-  }
- }
 }

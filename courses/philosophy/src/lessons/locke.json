@@ -1,353 +1,353 @@
 {
- "id": "locke",
- "n": 13,
- "title": "Are you the person you were at ten?",
- "teaches": "Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter",
- "parts": [
-  {
-   "title": "Now I am really awake",
-   "blocks": [
+  "id": "locke",
+  "n": 13,
+  "title": "Are you the person you were at ten?",
+  "teaches": "Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter",
+  "parts": [
     {
-     "type": "text",
-     "text": "In March 1985 Clive Wearing, a British conductor and expert on Renaissance music, caught a virus that usually causes nothing worse than cold sores. In his case it reached the brain and destroyed most of the hippocampus, the part needed to form new memories, and much of what held his old ones. Since then his memory has lasted between a few seconds and half a minute. Every time his wife Deborah comes into the room he greets her with overwhelming joy, as if they had not met for years."
-    },
-    {
-     "type": "text",
-     "text": "He kept a diary. Page after page holds entries such as \"8:31 AM: Now I am really, completely awake,\" followed a few minutes later by \"9:06 AM: Now I am perfectly, overwhelmingly awake,\" with the earlier entry angrily crossed out, since he has no memory of writing it and is sure he was not conscious then. Yet he still loves his wife, still has his manners and his sense of humour, and can still sight-read music and conduct a choir.[^wearing]"
-    },
-    {
-     "type": "text",
-     "text": "Is Clive Wearing the same person he was before 1985? Most people say yes without hesitating, and then find it hard to say why. In this lesson we follow the attempts to answer, starting with an ancient puzzle about a ship and ending with a machine that copies you."
-    }
-   ]
-  },
-  {
-   "title": "The ship of Theseus",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The Greek writer Plutarch, about AD 100, reports that the Athenians kept the ship in which the hero Theseus had returned from Crete. As its planks rotted they replaced them with new timber, and in the puzzle it became, no original plank was left. Philosophers, Plutarch says, used the ship as an example in arguments about growth: some said it was still the same ship, others that it was not."
-    },
-    {
-     "type": "text",
-     "text": "Thomas Hobbes, of lesson 11, added a twist in 1655. Suppose someone kept every old plank as it was removed, and at the end put them together again in the same order. Now there are two ships. One has every original part; the other has stood in the harbour the whole time, continuously maintained. Which is the ship of Theseus?"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Hobbes's version of the puzzle. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "ship",
-      "ask": "Which is the real ship of Theseus?",
-      "choices": [
-       "The one in the harbour, repaired plank by plank",
-       "The one rebuilt from the original planks",
-       "There is no fact of the matter; it depends what we mean",
-       "Not sure"
-      ],
-      "who": [
-       "You chose continuity: a thing survives gradual change. Most people choose this first, and it is how we treat bodies, whose cells are replaced over years.",
-       "You chose the original material. Consider how a museum would answer if both ships came up for sale.",
-       "You chose the answer many philosophers give: \"same ship\" can mean same material or same continuing object, and here the two come apart.",
-       "The puzzle has been argued over for two thousand years, so many philosophers share your doubt."
+      "title": "Now I am really awake",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In March 1985 Clive Wearing, a British conductor and expert on Renaissance music, caught a virus that usually causes nothing worse than cold sores. In his case it reached the brain and destroyed most of the hippocampus, the part needed to form new memories, and much of what held his old ones. Since then his memory has lasted between a few seconds and half a minute. Every time his wife Deborah comes into the room he greets her with overwhelming joy, as if they had not met for years."
+        },
+        {
+          "type": "text",
+          "text": "He kept a diary. Page after page holds entries such as \"8:31 AM: Now I am really, completely awake,\" followed a few minutes later by \"9:06 AM: Now I am perfectly, overwhelmingly awake,\" with the earlier entry angrily crossed out, since he has no memory of writing it and is sure he was not conscious then. Yet he still loves his wife, keeps his manners and sense of humour, and can sight-read music and conduct a choir.[^wearing]"
+        },
+        {
+          "type": "text",
+          "text": "Is Clive Wearing the same person he was before 1985? Most people say yes without hesitating, and then find it hard to say why."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The ship shows that \"the same thing\" can mean different things that usually go together and here come apart: the same material, the same shape, an unbroken history. People change too. Most of the atoms in your body have been replaced since you were ten, and your beliefs, tastes and plans have changed. The question is what makes you, now, the same person as that child."
-    }
-   ]
-  },
-  {
-   "title": "Locke: you are what you remember",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "John Locke, whom lesson 11 met as a political philosopher, gave the first modern answer in 1694, in a chapter he added to the second edition of his *Essay Concerning Human Understanding*. A person, he wrote, is \"a thinking intelligent being, that has reason and reflection, and can consider itself as itself, the same thinking thing, in different times and places\". What makes a person the same over time is not the same body, nor even the same soul, but the same **consciousness**: \"as far as this consciousness can be extended backwards to any past action or thought, so far reaches the identity of that person.\" In practice this means memory. You are the person who did the things you can remember doing."
-    },
-    {
-     "type": "text",
-     "text": "Locke tested his view with a story. Suppose the soul of a prince, with all his memories, entered the body of a cobbler, whose own soul had left it. Everyone around would see the cobbler. But the person in the cobbler's body would remember being the prince, and would be the prince, Locke said: \"the same person with the prince, accountable only for the prince's actions\". Locke cared about this because of punishment and reward. It would be unjust to punish someone for a crime they had no consciousness of having committed, and Locke thought God would not do it on the Day of Judgement."
-    },
-    {
-     "type": "text",
-     "text": "Locke's view fits Clive Wearing badly in one way and well in another. His past before 1985 is mostly gone, so on a strict memory view he is hardly the same person as the conductor of the 1970s. But his character, skills and love for his wife have survived, which suggests that memory of events is not all that ties a person together."
-    }
-   ]
-  },
-  {
-   "title": "The brave officer",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The most famous objection came from the Scottish philosopher Thomas Reid in 1785. Suppose a boy is flogged for stealing from an orchard. Years later, as a young officer, he takes an enemy standard in battle, and remembers being flogged as a boy. Later still, as an old general, he remembers taking the standard but has completely forgotten the flogging."
-    },
-    {
-     "type": "diagram",
-     "id": "argument",
-     "caption": "Reid's brave officer against Locke's memory theory.",
-     "options": {
-      "steps": [
-       {
-        "text": "The officer remembers the boy's flogging, so on Locke's theory the officer is the boy."
-       },
-       {
-        "text": "The general remembers the officer's battle, so on Locke's theory the general is the officer."
-       },
-       {
-        "text": "If the general is the officer and the officer is the boy, then the general is the boy."
-       },
-       {
-        "text": "But the general remembers nothing of the boy, so on Locke's theory the general is not the boy.",
-        "kind": "premise"
-       },
-       {
-        "text": "Locke's theory says the general both is and is not the boy, so it must be wrong.",
-        "kind": "conclusion"
-       },
-       {
-        "text": "Count overlapping chains of memory, not direct memory: the general is linked to the boy through the officer.",
-        "kind": "objection",
-        "against": 4,
-        "who": "later Lockeans"
-       }
+      "title": "The ship of Theseus",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Greek writer Plutarch, about AD 100, reports that the Athenians kept the ship in which the hero Theseus had returned from Crete. As its planks rotted they replaced them with new timber, and in the puzzle it became, no original plank was left. Philosophers, Plutarch says, used the ship as an example in arguments about growth: some said it was still the same ship, others that it was not."
+        },
+        {
+          "type": "text",
+          "text": "Thomas Hobbes, of lesson 11, added a twist in 1655. Suppose someone kept every old plank as it was removed, and at the end put them together again in the same order. Now there are two ships. One has every original part; the other has stood in the harbour the whole time, continuously maintained. Which is the ship of Theseus?"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Hobbes's version of the puzzle. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "ship",
+            "ask": "Which is the real ship of Theseus?",
+            "choices": [
+              "The one in the harbour, repaired plank by plank",
+              "The one rebuilt from the original planks",
+              "There is no fact of the matter; it depends what we mean",
+              "Not sure"
+            ],
+            "who": [
+              "You chose continuity: a thing survives gradual change. Most people choose this first, and it is how we treat bodies, whose cells are replaced over years.",
+              "You chose the original material. Consider how a museum would answer if both ships came up for sale.",
+              "You chose the answer many philosophers give: \"same ship\" can mean same material or same continuing object, and here the two come apart.",
+              "The puzzle has been argued over for two thousand years, so many philosophers share your doubt."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The ship shows that \"the same thing\" can mean different things that usually go together and here come apart: the same material, the same shape, an unbroken history. People change too. Most of the atoms in your body have been replaced since you were ten, and your beliefs, tastes and plans have changed. The question is what makes you, now, the same person as that child."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Locke's defenders mended the theory by counting chains of overlapping memories, so that the general is connected to the boy through the officer. The modern version, called the **psychological continuity** view, counts other psychological links as well: beliefs, intentions, character and skills, not only memories of events.[^blank] On it, Clive Wearing is still strongly continuous with his earlier self, since so much of his character survives."
-    }
-   ]
-  },
-  {
-   "title": "The chariot",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Buddhist philosophers had reached a more radical answer many centuries earlier. A Pali text called *The Questions of King Milinda*, probably compiled over several centuries from the 1st century BC, presents a dialogue between a Buddhist monk named Nagasena and Menander, a Greek king who ruled in what is now Pakistan and northern India in the 2nd century BC,[^menander] heir to the Greek kingdoms that Alexander the Great's conquests had left in the east."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "dialogue",
-     "caption": "Nagasena and King Milinda, shortened from The Questions of King Milinda. At each turn pick what the king replies. His real answers are among the choices.",
-     "task": "Read the exchange to the end",
-     "goal": "end",
-     "options": {
-      "a": "Nagasena",
-      "b": "King Milinda",
-      "open": "Your Majesty, did you come here on foot or in a chariot?",
-      "turns": [
-       {
-        "replies": [
-         {
-          "say": "I came in a chariot, venerable sir.",
-          "answer": "Then tell me what the chariot is. Is the pole the chariot?"
-         },
-         {
-          "say": "On foot. It is good for the health.",
-          "answer": "Then let us suppose you came in a chariot, as kings do. Is the pole the chariot?"
-         }
-        ],
-        "then": "Are the axle, the wheels, the frame, the reins or the yoke the chariot?"
-       },
-       {
-        "replies": [
-         {
-          "say": "No, none of them is the chariot.",
-          "answer": "Then is the chariot all the parts put together? Or something apart from the parts?"
-         },
-         {
-          "say": "Yes, the wheels are the chariot, since without them it cannot move.",
-          "answer": "Without the pole it cannot move either. Is the chariot then two different things?"
-         }
-        ],
-        "then": "I have asked about every part and cannot find the chariot. Is the chariot only a sound, then?"
-       },
-       {
-        "replies": [
-         {
-          "say": "\"Chariot\" is a name used for the pole, axle, wheels and frame when they are put together in a certain way.",
-          "answer": "Well said. And \"Nagasena\" is likewise a name for a body, feelings, perceptions, dispositions and consciousness together. There is no person to be found beyond them."
-         },
-         {
-          "say": "The chariot is something more than its parts, which holds them together.",
-          "answer": "Then show it to me apart from the parts. You cannot, any more than you can show me a Nagasena apart from body, feelings, perceptions, dispositions and consciousness."
-         }
-        ]
-       }
-      ],
-      "end": "The king is satisfied, and praises the answer. In Buddhist teaching this is the doctrine of no-self, anatta: a person is a changing collection of parts and processes, named for convenience."
-     }
-    },
-    {
-     "type": "text",
-     "text": "Nagasena does not say that he does not exist, any more than the chariot does not exist. He says there is no extra thing, a self or soul, beyond the parts and processes, and that the name picks out the whole collection as it changes. On this view the question \"is it really the same person?\" may have no deep answer, as \"is it really the same ship?\" may not."
-    },
-    {
-     "type": "text",
-     "text": "David Hume reached a similar view in 1739 by looking inward. \"When I enter most intimately into what I call myself,\" he wrote, \"I always stumble on some particular perception or other, of heat or cold, light or shade, love or hatred, pain or pleasure. I never can catch myself at any time without a perception.\" The self, he concluded, is \"nothing but a bundle or collection of different perceptions\", following one another with great speed.[^hume]"
-    }
-   ]
-  },
-  {
-   "title": "The teletransporter",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In his book *Reasons and Persons* (1984) the English philosopher Derek Parfit pushed the question with a machine from science fiction. You step into a booth on Earth. A scanner records the exact state of every cell in your body and brain and destroys them; the information is sent by radio to Mars, where a replicator builds a body exactly like yours from new matter. The person who steps out on Mars has your memories, your character and your plans, and believes he or she is you, having travelled at the speed of light."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Parfit's machine. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "teletransporter",
-      "ask": "Would you step into the teletransporter to get to Mars, if it worked perfectly every time?",
-      "choices": [
-       "Yes: the person on Mars would be me",
-       "No: I would die, and someone else would wake up",
-       "Not sure"
-      ],
-      "who": [
-       "You are with about a third of professional philosophers, who think teletransportation is a way of travelling.",
-       "You are with the largest group, about two fifths, who think it would kill you.",
-       "Many philosophers who work on the question are unsure too."
-      ],
-      "poll": {
-       "shares": [
-        35,
-        40,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Teletransporter (new matter): survival or death?\", share accepting or leaning towards each."
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Parfit then changed the story. Suppose the new machine scans you without destroying you. You step out of the booth on Earth, and are told that the replica on Mars has been made, and also that the scanner damaged your heart, so you will die in a few days. Most people now feel sure that they are the one on Earth and that the person on Mars is someone else, however much like them. But if so, they were not the one on Mars in the first story either, since the replica was made the same way."
-    },
-    {
-     "type": "text",
-     "text": "Parfit's conclusion was startling. He argued that identity is not what matters. What matters, in survival, is psychological continuity and connectedness, and those can hold in degrees, between more than one future person, or fade over a long life. The question \"will it be me?\" can have no answer, as the ship's question can have none, without anything important being left unknown. Parfit said he found this liberating. He had felt himself living in a glass tunnel, with death at the end; once he gave up the idea of a deep further fact about his identity, the walls disappeared and he lived in the open air."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Personal identity is still argued over. The psychological continuity view, descended from Locke, is the most common among philosophers; the biological view, that you are a human animal and survive as long as that animal lives, has a substantial minority; and the view that there is a further fact, a soul or self beyond body and mind, is held by fewer. The Buddhist no-self view is now taken seriously in comparative philosophy and in the study of meditation, and Parfit himself noted how close his conclusions were to it."
-    },
-    {
-     "type": "text",
-     "text": "Locke's memory theory in its first form is respected history, defeated by Reid's officer and by the objection that real memory already presupposes the identity it is meant to explain. Locke's view of the mind at birth as a blank slate, which comes from the same book, is abandoned in the form he held it, since psychology has found many abilities and tendencies that infants are born with."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on personal identity",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does the ship of Theseus show about the phrase \"the same\"?",
-        "choices": [
-         "Same material and same continuing object usually go together but can come apart",
-         "Objects that are repaired stop existing when the first part is replaced",
-         "Only living things can stay the same through change",
-         "Physical objects cannot change their parts at all"
-        ],
-        "answer": 0,
-        "why": "Hobbes's version gives one ship with the original planks and another with the unbroken history."
-       },
-       {
-        "ask": "On Locke's theory, what makes a person at sixty the same person as one at thirty?",
-        "choices": [
-         "Being able to remember the earlier person's actions and thoughts",
-         "Having the same body, even if every cell has changed",
-         "Having the same soul, whether or not they remember",
-         "Having the same name and legal records"
-        ],
-        "answer": 0,
-        "why": "Personal identity reaches as far back as consciousness extends, which Locke understood as memory."
-       },
-       {
-        "ask": "Reid's general remembers being the officer, who remembered being the boy, but the general remembers nothing of the boy. What does this show against Locke?",
-        "choices": [
-         "Direct memory gives an inconsistent result: the general both is and is not the boy",
-         "The general is lying about remembering the battle",
-         "Memory is too unreliable to tell us anything about the past",
-         "Children and adults can never be the same person"
-        ],
-        "answer": 0,
-        "why": "Identity is transitive, but direct memory is not. The fix is to count chains of overlapping memories."
-       },
-       {
-        "ask": "What is Nagasena's point about the chariot?",
-        "choices": [
-         "Chariot names the parts arranged together, and there is no extra thing beyond them",
-         "The chariot does not exist, because it is only a word",
-         "The chariot is the wheels, since they let it move",
-         "The chariot is a soul that holds the parts together"
-        ],
-        "answer": 0,
-        "why": "Nagasena does not deny the chariot or himself. He denies a self beyond body, feelings, perceptions, dispositions and consciousness."
-       },
-       {
-        "ask": "Parfit's replica is made while you survive on Earth. Why does this matter for the original teletransporter?",
-        "choices": [
-         "The replica is made the same way in both cases, so if it is not you here, it was not you there",
-         "It shows that the machine is faulty and should not be used",
-         "It proves the person on Earth was the replica all along",
-         "It shows that two people can be the same person at the same time"
-        ],
-        "answer": 0,
-        "why": "Most people feel sure they are the one on Earth. If so, the same process cannot have made them the replica in the first story either."
-       }
+      "title": "Locke: you are what you remember",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "John Locke, whom lesson 11 met as a political philosopher, gave the first modern answer in 1694, in a chapter he added to the second edition of his *Essay Concerning Human Understanding*. A person, he wrote, is \"a thinking intelligent being, that has reason and reflection, and can consider itself as itself, the same thinking thing, in different times and places\". What makes a person the same over time is not the same body, nor even the same soul, but the same **consciousness**: \"as far as this consciousness can be extended backwards to any past action or thought, so far reaches the identity of that person.\" In practice this means memory. You are the person who did the things you can remember doing."
+        },
+        {
+          "type": "text",
+          "text": "Locke tested his view with a story. Suppose the soul of a prince, with all his memories, entered the body of a cobbler, whose own soul had left it. Everyone around would see the cobbler. But the person in the cobbler's body would remember being the prince, and would be the prince, Locke said: \"the same person with the prince, accountable only for the prince's actions\". Locke cared about this because of punishment and reward. It would be unjust to punish someone for a crime they had no consciousness of having committed, and Locke thought God would not do it on the Day of Judgement."
+        },
+        {
+          "type": "text",
+          "text": "Locke's view fits Clive Wearing badly in one way and well in another. His past before 1985 is mostly gone, so on a strict memory view he is hardly the same person as the conductor of the 1970s. But his character, skills and love for his wife have survived, which suggests that memory of events is not all that ties a person together."
+        }
       ]
-     }
+    },
+    {
+      "title": "The brave officer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The most famous objection came from the Scottish philosopher Thomas Reid in 1785. Suppose a boy is flogged for stealing from an orchard. Years later, as a young officer, he takes an enemy standard in battle, and remembers being flogged as a boy. Later still, as an old general, he remembers taking the standard but has completely forgotten the flogging."
+        },
+        {
+          "type": "diagram",
+          "id": "argument",
+          "caption": "Reid's brave officer against Locke's memory theory.",
+          "options": {
+            "steps": [
+              {
+                "text": "The officer remembers the boy's flogging, so on Locke's theory the officer is the boy."
+              },
+              {
+                "text": "The general remembers the officer's battle, so on Locke's theory the general is the officer."
+              },
+              {
+                "text": "If the general is the officer and the officer is the boy, then the general is the boy."
+              },
+              {
+                "text": "But the general remembers nothing of the boy, so on Locke's theory the general is not the boy.",
+                "kind": "premise"
+              },
+              {
+                "text": "Locke's theory says the general both is and is not the boy, so it must be wrong.",
+                "kind": "conclusion"
+              },
+              {
+                "text": "Count overlapping chains of memory, not direct memory: the general is linked to the boy through the officer.",
+                "kind": "objection",
+                "against": 4,
+                "who": "later Lockeans"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Locke's defenders mended the theory by counting chains of overlapping memories, so that the general is connected to the boy through the officer. The modern version, called the **psychological continuity** view, counts other psychological links as well: beliefs, intentions, character and skills, not only memories of events.[^blank] On it, Clive Wearing is still strongly continuous with his earlier self, since so much of his character survives."
+        }
+      ]
+    },
+    {
+      "title": "The chariot",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Buddhist philosophers had reached a more radical answer many centuries earlier. A Pali text called *The Questions of King Milinda*, probably compiled over several centuries from the 1st century BC, presents a dialogue between a Buddhist monk named Nagasena and Menander, a Greek king who ruled in what is now Pakistan and northern India in the 2nd century BC.[^menander]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "dialogue",
+          "caption": "Nagasena and King Milinda, shortened from The Questions of King Milinda. At each turn pick what the king replies. His real answers are among the choices.",
+          "task": "Read the exchange to the end",
+          "goal": "end",
+          "options": {
+            "a": "Nagasena",
+            "b": "King Milinda",
+            "open": "Your Majesty, did you come here on foot or in a chariot?",
+            "turns": [
+              {
+                "replies": [
+                  {
+                    "say": "I came in a chariot, venerable sir.",
+                    "answer": "Then tell me what the chariot is. Is the pole the chariot?"
+                  },
+                  {
+                    "say": "On foot. It is good for the health.",
+                    "answer": "Then let us suppose you came in a chariot, as kings do. Is the pole the chariot?"
+                  }
+                ],
+                "then": "Are the axle, the wheels, the frame, the reins or the yoke the chariot?"
+              },
+              {
+                "replies": [
+                  {
+                    "say": "No, none of them is the chariot.",
+                    "answer": "Then is the chariot all the parts put together? Or something apart from the parts?"
+                  },
+                  {
+                    "say": "Yes, the wheels are the chariot, since without them it cannot move.",
+                    "answer": "Without the pole it cannot move either. Is the chariot then two different things?"
+                  }
+                ],
+                "then": "I have asked about every part and cannot find the chariot. Is the chariot only a sound, then?"
+              },
+              {
+                "replies": [
+                  {
+                    "say": "\"Chariot\" is a name used for the pole, axle, wheels and frame when they are put together in a certain way.",
+                    "answer": "Well said. And \"Nagasena\" is likewise a name for a body, feelings, perceptions, dispositions and consciousness together. There is no person to be found beyond them."
+                  },
+                  {
+                    "say": "The chariot is something more than its parts, which holds them together.",
+                    "answer": "Then show it to me apart from the parts. You cannot, any more than you can show me a Nagasena apart from body, feelings, perceptions, dispositions and consciousness."
+                  }
+                ]
+              }
+            ],
+            "end": "The king is satisfied, and praises the answer. In Buddhist teaching this is the doctrine of no-self, anatta: a person is a changing collection of parts and processes, named for convenience."
+          }
+        },
+        {
+          "type": "text",
+          "text": "Nagasena does not deny that he exists, any more than he denies that the chariot exists. He says there is no extra thing, a self or soul, beyond the parts and processes, and that the name picks out the whole collection as it changes. On this view the question \"is it really the same person?\" may have no deep answer, as \"is it really the same ship?\" may not."
+        },
+        {
+          "type": "text",
+          "text": "David Hume reached a similar view in 1739 by looking inward. \"When I enter most intimately into what I call myself,\" he wrote, \"I always stumble on some particular perception or other, of heat or cold, light or shade, love or hatred, pain or pleasure. I never can catch myself at any time without a perception.\" The self, he concluded, is \"nothing but a bundle or collection of different perceptions\", following one another with great speed.[^hume]"
+        }
+      ]
+    },
+    {
+      "title": "The teletransporter",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In his book *Reasons and Persons* (1984) the English philosopher Derek Parfit pushed the question with a machine from science fiction. You step into a booth on Earth. A scanner records the exact state of every cell in your body and brain and destroys them; the information is sent by radio to Mars, where a replicator builds a body exactly like yours from new matter. The person who steps out on Mars has your memories, your character and your plans, and believes he or she is you, having travelled at the speed of light."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Parfit's machine. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "teletransporter",
+            "ask": "Would you step into the teletransporter to get to Mars, if it worked perfectly every time?",
+            "choices": [
+              "Yes: the person on Mars would be me",
+              "No: I would die, and someone else would wake up",
+              "Not sure"
+            ],
+            "who": [
+              "You are with about a third of professional philosophers, who think teletransportation is a way of travelling.",
+              "You are with the largest group, about two fifths, who think it would kill you.",
+              "Many philosophers who work on the question are unsure too."
+            ],
+            "poll": {
+              "shares": [
+                35,
+                40,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Teletransporter (new matter): survival or death?\", share accepting or leaning towards each."
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Parfit then changed the story. Suppose the new machine scans you without destroying you. You step out of the booth on Earth, and are told that the replica on Mars has been made, and also that the scanner damaged your heart, so you will die in a few days. Most people now feel sure that they are the one on Earth and that the person on Mars is someone else, however much like them. But if so, they were not the one on Mars in the first story either, since the replica was made the same way."
+        },
+        {
+          "type": "text",
+          "text": "Parfit's conclusion was startling. He argued that identity is not what matters. What matters, in survival, is psychological continuity and connectedness, and those can hold in degrees, between more than one future person, or fade over a long life. The question \"will it be me?\" may have no answer, just as the question about the ship may have none, without leaving anything important unknown. Parfit said he found this liberating. He had felt himself living in a glass tunnel, with death at the end; once he gave up the idea of a deep further fact about his identity, the walls disappeared and he lived in the open air."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Personal identity is still argued over. The psychological continuity view, descended from Locke, is the most common among philosophers; the biological view, that you are a human animal and survive as long as that animal lives, has a substantial minority; and the view that there is a further fact, a soul or self beyond body and mind, is held by fewer. The Buddhist no-self view is now taken seriously in comparative philosophy and in the study of meditation, and Parfit himself noted how close his conclusions were to it."
+        },
+        {
+          "type": "text",
+          "text": "Locke's memory theory in its first form is respected history, defeated by Reid's officer and by the objection that real memory already presupposes the identity it is meant to explain. Locke's view of the mind at birth as a blank slate, which comes from the same book, is abandoned in the form he held it, since psychology has found many abilities and tendencies that infants are born with."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on personal identity",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does the ship of Theseus show about the phrase \"the same\"?",
+                "choices": [
+                  "Same material and same continuing object usually go together but can come apart",
+                  "Objects that are repaired stop existing when the first part is replaced",
+                  "Only living things can stay the same through change",
+                  "Physical objects cannot change their parts at all"
+                ],
+                "answer": 0,
+                "why": "Hobbes's version gives one ship with the original planks and another with the unbroken history."
+              },
+              {
+                "ask": "On Locke's theory, what makes a person at sixty the same person as one at thirty?",
+                "choices": [
+                  "Being able to remember the earlier person's actions and thoughts",
+                  "Having the same body, even if every cell has changed",
+                  "Having the same soul, whether or not they remember",
+                  "Having the same name and legal records"
+                ],
+                "answer": 0,
+                "why": "Personal identity reaches as far back as consciousness extends, which Locke understood as memory."
+              },
+              {
+                "ask": "Reid's general remembers being the officer, who remembered being the boy, but the general remembers nothing of the boy. What does this show against Locke?",
+                "choices": [
+                  "Direct memory gives an inconsistent result: the general both is and is not the boy",
+                  "The general is lying about remembering the battle",
+                  "Memory is too unreliable to tell us anything about the past",
+                  "Children and adults can never be the same person"
+                ],
+                "answer": 0,
+                "why": "Identity is transitive, but direct memory is not. The fix is to count chains of overlapping memories."
+              },
+              {
+                "ask": "What is Nagasena's point about the chariot?",
+                "choices": [
+                  "Chariot names the parts arranged together, and there is no extra thing beyond them",
+                  "The chariot does not exist, because it is only a word",
+                  "The chariot is the wheels, since they let it move",
+                  "The chariot is a soul that holds the parts together"
+                ],
+                "answer": 0,
+                "why": "Nagasena does not deny the chariot or himself. He denies a self beyond body, feelings, perceptions, dispositions and consciousness."
+              },
+              {
+                "ask": "Parfit's replica is made while you survive on Earth. Why does this matter for the original teletransporter?",
+                "choices": [
+                  "The replica is made the same way in both cases, so if it is not you here, it was not you there",
+                  "It shows that the machine is faulty and should not be used",
+                  "It proves the person on Earth was the replica all along",
+                  "It shows that two people can be the same person at the same time"
+                ],
+                "answer": 0,
+                "why": "Most people feel sure they are the one on Earth. If so, the same process cannot have made them the replica in the first story either."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Clive Wearing's memory has lasted seconds since 1985.** His character, skills and love have survived, which complicates any memory theory of the self.",
+    "**The ship of Theseus separates same material from same object.** Hobbes's version makes two ships with equal claims.",
+    "**Locke said a person is the same as far as consciousness reaches back.** The prince in the cobbler's body is still the prince.",
+    "**Reid's brave officer broke the simple memory theory.** Direct memory is not transitive, but identity is.",
+    "**Psychological continuity is the mended version.** Overlapping chains of memory, belief, character and intention tie a person together.",
+    "**Nagasena's chariot is a name for its parts.** Buddhist no-self teaching finds no person beyond body and mind, and Hume found only a bundle of perceptions.",
+    "**Parfit's teletransporter divides philosophers.** About two fifths think it kills you and about a third think you survive.",
+    "**Parfit concluded that identity is not what matters.** Continuity of mind matters, and it can come in degrees."
+  ],
+  "footnotes": {
+    "wearing": {
+      "kind": "technical",
+      "title": "Clive Wearing",
+      "text": "His case is described in his wife Deborah Wearing's book Forever Today (2005) and in the neurologist Oliver Sacks's essay \"The Abyss\" (2007). The illness was herpes simplex encephalitis."
+    },
+    "hume": {
+      "kind": "digression",
+      "title": "Hume's second thoughts",
+      "text": "In an appendix to the Treatise, Hume admitted he was not satisfied with his account of what binds the perceptions together into one self, and confessed that the question was \"too hard for my understanding\"."
+    },
+    "blank": {
+      "kind": "technical",
+      "title": "Memory and circularity",
+      "text": "Joseph Butler objected in 1736 that genuine memory already presupposes identity: you can only remember doing what you yourself did, so memory cannot be what makes you the same person. Modern Lockeans answer with a looser notion, quasi-memory, which does not presuppose it."
+    },
+    "menander": {
+      "kind": "digression",
+      "title": "A Greek king in India",
+      "text": "Menander I ruled one of the Greek kingdoms that grew out of Alexander's conquests, in the 2nd century BC. His coins carry his name in Greek on one side and in an Indian script on the other. Later Buddhist tradition says he became a Buddhist, which may be a pious legend."
+    }
   }
- ],
- "summary": [
-  "**Clive Wearing's memory has lasted seconds since 1985.** His character, skills and love have survived, which complicates any memory theory of the self.",
-  "**The ship of Theseus separates same material from same object.** Hobbes's version makes two ships with equal claims.",
-  "**Locke said a person is the same as far as consciousness reaches back.** The prince in the cobbler's body is still the prince.",
-  "**Reid's brave officer broke the simple memory theory.** Direct memory is not transitive, but identity is.",
-  "**Psychological continuity is the mended version.** Overlapping chains of memory, belief, character and intention tie a person together.",
-  "**Nagasena's chariot is a name for its parts.** Buddhist no-self teaching finds no person beyond body and mind, and Hume found only a bundle of perceptions.",
-  "**Parfit's teletransporter divides philosophers.** About two fifths think it kills you and about a third think you survive.",
-  "**Parfit concluded that identity is not what matters.** Continuity of mind matters, and it can come in degrees."
- ],
- "footnotes": {
-  "wearing": {
-   "kind": "technical",
-   "title": "Clive Wearing",
-   "text": "His case is described in his wife Deborah Wearing's book Forever Today (2005) and in the neurologist Oliver Sacks's essay \"The Abyss\" (2007). The illness was herpes simplex encephalitis."
-  },
-  "hume": {
-   "kind": "digression",
-   "title": "Hume's second thoughts",
-   "text": "In an appendix to the Treatise, Hume admitted he was not satisfied with his account of what binds the perceptions together into one self, and confessed that the question was \"too hard for my understanding\"."
-  },
-  "blank": {
-   "kind": "technical",
-   "title": "Memory and circularity",
-   "text": "Joseph Butler objected in 1736 that genuine memory already presupposes identity: you can only remember doing what you yourself did, so memory cannot be what makes you the same person. Modern Lockeans answer with a looser notion, quasi-memory, which does not presuppose it."
-  },
-  "menander": {
-   "kind": "digression",
-   "title": "A Greek king in India",
-   "text": "Menander I ruled one of the Greek kingdoms that grew out of Alexander's conquests, in the 2nd century BC. His coins carry his name in Greek on one side and in an Indian script on the other. Later Buddhist tradition says he became a Buddhist, which may be a pious legend."
-  }
- }
 }

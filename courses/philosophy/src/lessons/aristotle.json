@@ -1,318 +1,323 @@
 {
- "id": "aristotle",
- "n": 4,
- "title": "Can you practise being good?",
- "teaches": "Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound",
- "parts": [
-  {
-   "title": "Builders and harpists",
-   "blocks": [
+  "id": "aristotle",
+  "n": 4,
+  "title": "Can you practise being good?",
+  "teaches": "Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound",
+  "parts": [
     {
-     "type": "text",
-     "text": "Nobody becomes a builder by reading about building. You become one by building, badly at first and then better, until the right moves come without thinking. You become a harpist by playing the harp. Aristotle, in the second book of his *Nicomachean Ethics*, draws the conclusion that gives this lesson its question: \"we become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.\" Being good, on this view, is less like knowing a fact and more like having a skill."
-    },
-    {
-     "type": "text",
-     "text": "That was a quiet break with Socrates, who thought that anyone who truly knew what was good would do it, so that teaching people goodness meant teaching them the truth. Aristotle thought this was plainly false. Everyone knows people who know perfectly well that they should not have the third drink, or should apologise, and do the opposite. The Greeks had a word for it, *akrasia*, usually translated as weakness of will, and Aristotle took it seriously. If knowing is not enough, then being good must be partly a matter of training: of feelings and habits as well as thoughts."
-    }
-   ]
-  },
-  {
-   "title": "The student who stayed twenty years",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Aristotle was born in 384 BC in Stagira, a small town in the north of Greece, the son of a doctor to the king of Macedon. At seventeen he went to Athens and joined Plato's Academy, and he stayed for twenty years, until Plato died in about 347 BC. He then spent some years at Assos, across the water in Asia Minor, and on the island of Lesbos, where he studied the animals of its lagoon with a care no one matched for nearly two thousand years.[^darwin] In 343 BC Philip II of Macedon hired him to tutor his thirteen-year-old son, Alexander, later called the Great. Nobody knows what Aristotle taught him, and it did not obviously take."
-    },
-    {
-     "type": "text",
-     "text": "In 335 BC Aristotle came back to Athens and opened a school of his own, the Lyceum, where he taught for twelve years. His followers were called Peripatetics, probably after a covered walk, the *peripatos*, where they met. When Alexander died in 323 BC, anti-Macedonian feeling ran high and Aristotle left Athens, reportedly saying he would not let the city sin twice against philosophy. He died the next year. What survives of his writing is mostly lecture notes, compressed and dry, on almost every subject: logic, physics, biology, the soul, politics, poetry and ethics."
-    },
-    {
-     "type": "diagram",
-     "id": "tree",
-     "caption": "Teacher and pupil, from Socrates to Alexander. Each taught the next, and each disagreed with his teacher about something that mattered.",
-     "options": {
-      "layout": "across",
-      "root": {
-       "label": "Socrates",
-       "note": "about 470 to 399 BC",
-       "children": [
+      "title": "Builders and harpists",
+      "blocks": [
         {
-         "label": "Plato",
-         "note": "about 428 to 347 BC, the Academy",
-         "children": [
-          {
-           "label": "Aristotle",
-           "note": "384 to 322 BC, the Lyceum",
-           "children": [
-            {
-             "label": "Alexander the Great",
-             "note": "356 to 323 BC, his pupil from 343 BC"
-            }
-           ]
-          }
-         ]
+          "type": "text",
+          "text": "Nobody becomes a builder by reading about building. You become one by building, badly at first and then better, until the right moves come without thinking. You become a harpist by playing the harp. Aristotle, in the second book of his *Nicomachean Ethics*[^nicomachean], draws the conclusion that gives this lesson its question: \"we become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.\" Being good, on this view, is less like knowing a fact and more like having a skill."
+        },
+        {
+          "type": "text",
+          "text": "That was a quiet break with Socrates, who thought that anyone who truly knew what was good would do it, so that teaching people goodness meant teaching them the truth. Aristotle thought this was plainly false. Everyone knows people who know perfectly well that they should not have the third drink, or should apologise, and do the opposite. The Greeks had a word for it, *akrasia*, usually translated as weakness of will, and Aristotle took it seriously. If knowing is not enough, then being good must be partly a matter of training: of feelings and habits as well as thoughts."
         }
-       ]
-      }
-     }
-    }
-   ]
-  },
-  {
-   "title": "A life going well",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Aristotle's ethics starts from a question earlier than Euthyphro's. Everything we do aims at some good, he says, and most goods are wanted for the sake of something else: money for what it buys, medicine for health. There must be something wanted for its own sake, at which everything else aims. Everyone agrees on its name, *eudaimonia*, but not on what it is. The word is usually translated as happiness, though it means less a feeling than a life going well, as we might say of someone that they have done well for themselves. Some people say it is pleasure, some honour, some money."
-    },
-    {
-     "type": "text",
-     "text": "To find out what it is, Aristotle asks what human beings are for. A good knife is one that cuts well, and a good eye one that sees well, because cutting and seeing are what knives and eyes do. What people do that no plant or animal does is live by reason. So a good human life is one of reason well used, in thought and in action, over a whole life. \"One swallow does not make a spring,\" he adds, \"nor does one day\": a single good day does not make a person happy, any more than one good act makes a person good."
-    },
-    {
-     "type": "text",
-     "text": "Living well needs more than character. Aristotle is frank that it needs some luck as well: health, enough money, friends, children who turn out well, and a city fit to live in. A good man who loses everything, like Priam of Troy, is not called happy. That frankness is one of the reasons his ethics feels more like a description of real lives than Plato's."
-    }
-   ]
-  },
-  {
-   "title": "The mean",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A virtue, for Aristotle, is a settled state of character, built by practice, that lets a person feel and act well. His best-known claim about virtues is that each lies at a **mean** between two vices, one of too much and one of too little. Courage is the mean between cowardice, too much fear, and rashness, too little. Generosity lies between stinginess and wastefulness. Even being good company has its mean, wit, between being a bore and being a buffoon."
-    },
-    {
-     "type": "text",
-     "text": "The mean is not an average, and it is not moderation in everything. Aristotle's example is food for an athlete. If ten pounds of food is too much and two too little, the trainer will not order six for everyone; Milo, the famous wrestler, needs more than a beginner. The mean is \"relative to us\": the right amount of anger, at the right person, at the right time, for the right reason. Sometimes the mean is a great deal of anger. Finding it takes a capacity Aristotle calls *phronesis*, practical wisdom, which is learned from experience and cannot be written down as rules."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Aristotle's mean, on six cases. Each lies between a vice of too little and a vice of too much.",
-     "task": "Sort all six",
-     "goal": "sorted",
-     "options": {
-      "ask": "Too little, the mean, or too much?",
-      "groups": [
-       {
-        "name": "Too little"
-       },
-       {
-        "name": "The mean",
-        "color": "good"
-       },
-       {
-        "name": "Too much"
-       }
-      ],
-      "items": [
-       {
-        "name": "Running into a burning house with no plan to rescue a cat",
-        "group": "Too much",
-        "why": "Rashness: too much confidence for the danger. The brave person feels fear and acts anyway, with a plan."
-       },
-       {
-        "name": "Telling a friend, kindly and in private, that their business plan has a hole in it",
-        "group": "The mean",
-        "why": "Truthfulness and friendliness together: neither flattering nor harsh."
-       },
-       {
-        "name": "Saying nothing when someone insults your friend, to avoid an argument",
-        "group": "Too little",
-        "why": "Too little anger: Aristotle calls the person who puts up with insults to himself or his friends slavish."
-       },
-       {
-        "name": "Leaving a 60 percent tip on every bill to look generous",
-        "group": "Too much",
-        "why": "Wastefulness, and showing off: giving to the wrong people for the wrong reason."
-       },
-       {
-        "name": "Being angry at a friend who broke a promise, and telling them so once",
-        "group": "The mean",
-        "why": "Good temper: anger at the right person, for the right reason, to the right degree."
-       },
-       {
-        "name": "Splitting a restaurant bill to the cent with a friend who is broke",
-        "group": "Too little",
-        "why": "Stinginess: giving less than the situation asks."
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Aristotle also wrote two whole books of the *Ethics* on friendship, more than on any single virtue. He thought there are three kinds: friendships of use, like those between business partners; friendships of pleasure, like those between drinking companions; and friendships of character, between good people who wish each other well for each other's sake. Only the third kind lasts, and nobody, he says, would choose to live without friends even if he had every other good."
-    }
-   ]
-  },
-  {
-   "title": "Confucius and the same bet",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A century and a half before Aristotle, and nearly 8,000 km to the east, another teacher had made the same bet on habit. Kongzi, called Confucius in the West, was born in 551 BC in the small state of Lu, in what is now Shandong province in eastern China. He held minor posts in its government, and for some fourteen years travelled from state to state with a band of students, looking for a ruler who would employ him. None did for long. He came home and taught until he died in 479 BC. His students wrote down his sayings, and the collection, the *Analects*, became one of the most influential books in Chinese history.[^confucius]"
-    },
-    {
-     "type": "text",
-     "text": "Like Aristotle, Confucius thought goodness is built by long practice until it becomes natural. He describes his own life that way: by fifteen he had set his heart on learning, and only at seventy could he follow his heart's desire without going wrong. The highest virtue in the *Analects* is *ren*, usually translated as humaneness or goodness, the quality of a person who treats others well. It is learned through *li*, ritual: not only ceremonies, but all the forms of courtesy and respect between parent and child, ruler and minister, host and guest, practised until they shape a person's feelings."
-    },
-    {
-     "type": "text",
-     "text": "The difference from Aristotle is where goodness lives. For Aristotle it is the excellence of an individual reasoning well. For Confucius it is a matter of roles and relationships: a good person is a good son, a good friend and a good minister, and filial respect, one of his students said, is \"the root of goodness\". When a student asked for one word to live by, Confucius gave him *shu*, which might be translated as understanding others by oneself: \"Do not impose on others what you yourself do not want.\""
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Three answers to the question of how goodness is learned. Later lessons add others.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "habit",
-      "ask": "What mainly makes someone a good person?",
-      "choices": [
-       "Knowing the right rules and following them",
-       "Practising good acts until they come naturally",
-       "Living their roles and relationships well",
-       "Not sure"
-      ],
-      "who": [
-       "Closest to Kant (lesson 15), for whom morality is acting on a rule you could will for everyone.",
-       "Aristotle's answer. Modern virtue ethics, which descends from it, was the view the most philosophers leaned towards in the 2020 survey, though many lean towards more than one.",
-       "Confucius' answer. Modern philosophers who defend it call it role ethics.",
-       "None of these needs to rule out the others: Aristotle and Confucius both thought rules, habit and relationships work together."
+      "title": "The student who stayed twenty years",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Aristotle was born in 384 BC in Stagira, a small town in the north of Greece, the son of a doctor to the king of Macedon. At seventeen he went to Athens and joined Plato's Academy, and he stayed for twenty years, until Plato died in about 347 BC. He then spent some years at Assos, across the water in Asia Minor, and on the island of Lesbos, where he studied the animals of its lagoon with a care no one matched for nearly two thousand years.[^darwin] In 343 BC Philip II of Macedon hired him to tutor his thirteen-year-old son, Alexander, later called the Great. Nobody knows what Aristotle taught him, and it did not obviously take."
+        },
+        {
+          "type": "text",
+          "text": "In 335 BC Aristotle came back to Athens and opened a school of his own, the Lyceum, where he taught for twelve years. His followers were called Peripatetics, probably after a covered walk, the *peripatos*, where they met. When Alexander died in 323 BC, anti-Macedonian feeling ran high and Aristotle left Athens, reportedly saying he would not let the city sin twice against philosophy. He died the next year. What survives of his writing is mostly lecture notes, compressed and dry, on almost every subject: logic, physics, biology, the soul, politics, poetry and ethics."
+        },
+        {
+          "type": "diagram",
+          "id": "tree",
+          "caption": "Teacher and pupil, from Socrates to Alexander. Each taught the next, and each disagreed with his teacher about something that mattered.",
+          "options": {
+            "layout": "across",
+            "root": {
+              "label": "Socrates",
+              "note": "about 470 to 399 BC",
+              "children": [
+                {
+                  "label": "Plato",
+                  "note": "about 428 to 347 BC, the Academy",
+                  "children": [
+                    {
+                      "label": "Aristotle",
+                      "note": "384 to 322 BC, the Lyceum",
+                      "children": [
+                        {
+                          "label": "Alexander the Great",
+                          "note": "356 to 323 BC, his pupil from 343 BC"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Valid and sound",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Aristotle also invented logic as a subject: the study of which arguments are good because of their form, whatever they are about. His basic unit was the **syllogism**, two premises and a conclusion, such as: all humans are mortal; Socrates is human; so Socrates is mortal."
     },
     {
-     "type": "text",
-     "text": "Two words from logic will be useful for the rest of the course. An argument is **valid** if its conclusion must be true whenever its premises are; validity is about the form alone. \"All fish can fly; a salmon is a fish; so a salmon can fly\" is valid, since if the premises were true the conclusion would have to be. It is not **sound**, because a sound argument is a valid one whose premises are actually true. The Socrates argument is both. Most philosophical arguments are valid, or easily made so; the fighting is nearly always about whether a premise is true. When Socrates attacked Euthyphro's definitions, he was showing that a premise was false, not that the reasoning was bad."
-    },
-    {
-     "type": "text",
-     "text": "Aristotle's logic lasted a remarkably long time. In 1787 Immanuel Kant wrote that logic had not been able to take a single step forward since Aristotle. Within a century it had: in 1879 the German mathematician Gottlob Frege published a logic that could handle sentences such as \"everyone loves someone\", which syllogisms cannot, and it is logic descended from Frege's, not Aristotle's, that mathematicians and computer scientists use today."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Aristotle's ethics is the lesson's clearest case of an idea that went out of fashion and came back. For most of the 19th and 20th centuries moral philosophy argued about rules and consequences, the subjects of lessons 15 and 17. Then in 1958 the English philosopher Elizabeth Anscombe argued that this was a dead end and that ethics should go back to character, and Alasdair MacIntyre's book *After Virtue* (1981) made the case to a wide audience. In the 2020 PhilPapers Survey virtue ethics was the largest of the three main camps in ethics, with about 37 percent of philosophers leaning towards it, against about 32 percent for deontology, the ethics of duty that Kant made famous, and 31 percent for consequentialism; people could pick more than one.[^camps] Confucian role ethics is a growing field too."
-    },
-    {
-     "type": "text",
-     "text": "Other parts of Aristotle are respected history. His syllogistic logic was replaced by Frege's. His biology was admired by Darwin, but his physics, in which heavy things fall faster than light ones and everything seeks its natural place, was abandoned by the 17th century."
-    },
-    {
-     "type": "text",
-     "text": "Some of his views have no defenders at all. In the *Politics* Aristotle argued that some people are slaves by nature, fit only to be ruled, and that women have the power to deliberate but \"without authority\". These ideas were used to defend slavery and the subjection of women for two thousand years; lesson 9 follows one famous attempt, in 1550, to apply them to the peoples of the Americas."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on Aristotle and Confucius",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "Why did Aristotle think knowing what is good is not enough to do it?",
-        "choices": [
-         "People often know what they should do and do something else",
-         "Nobody can know what is good, so action has to rest on habit",
-         "Goodness depends on luck, so knowledge cannot guarantee it",
-         "Socrates had shown that knowledge is only remembered, never learned"
-        ],
-        "answer": 0,
-        "why": "Weakness of will, akrasia, is common. If knowing were enough it would not happen, so Aristotle concluded goodness is partly a matter of habit and feeling."
-       },
-       {
-        "ask": "Someone rushes into a fight they cannot win, for no good reason. In Aristotle's terms, what is that?",
-        "choices": [
-         "Rashness",
-         "Courage",
-         "Cowardice",
-         "Practical wisdom"
-        ],
-        "answer": 0,
-        "why": "Courage is the mean between cowardice and rashness. The rash person has too much confidence for the danger, and the brave person feels fear and acts well anyway."
-       },
-       {
-        "ask": "What is the most accurate account of Aristotle's mean?",
-        "choices": [
-         "The right amount for this person and situation, which can sometimes be a great deal",
-         "The average of the two extremes, the same for every person and case",
-         "Moderation: always a little of everything and nothing to excess",
-         "Whatever most of the citizens in one's own city would do in that case"
-        ],
-        "answer": 0,
-        "why": "The mean is relative to us, as with Milo's food, and finding it takes practical wisdom. An athlete's right amount is not the average of a little and a lot, and courage can call for a great deal of daring."
-       },
-       {
-        "ask": "Where do Aristotle and Confucius differ most?",
-        "choices": [
-         "Confucius put relationships and ritual at the centre",
-         "Confucius thought goodness is inborn, not practised",
-         "Aristotle thought friendship has no place in a good life",
-         "Aristotle thought goodness could be learned from books"
-        ],
-        "answer": 0,
-        "why": "Both thought goodness is built by practice. Confucius made roles, relationships and li, ritual, central where Aristotle stressed reason."
-       },
-       {
-        "ask": "\"All cats are mammals; no fish are cats; so no fish are mammals.\" What is wrong with this argument?",
-        "choices": [
-         "It is invalid: the conclusion is true, but it does not follow",
-         "It is valid but unsound: the form is fine, but a premise is false",
-         "Nothing: both premises are true, so the conclusion follows",
-         "It is valid and sound, but its conclusion is false"
-        ],
-        "answer": 0,
-        "why": "Both premises and the conclusion are true, yet the form is bad: \"All cats are mammals; no dogs are cats; so no dogs are mammals\" has the same form, true premises and a false conclusion. A valid argument cannot do that."
-       }
+      "title": "A life going well",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Aristotle's ethics starts from a question earlier than Euthyphro's. Everything we do aims at some good, he says, and most goods are wanted for the sake of something else: money for what it buys, medicine for health. There must be something wanted for its own sake, at which everything else aims. Everyone agrees on its name, *eudaimonia*, but not on what it is. The word is usually translated as happiness, though it means less a feeling than a life going well, as we might say of someone that they have done well for themselves. Some people say it is pleasure, some honour, some money."
+        },
+        {
+          "type": "text",
+          "text": "To find out what it is, Aristotle asks what human beings are for. A good knife is one that cuts well, and a good eye one that sees well, because cutting and seeing are what knives and eyes do. What people do that no plant or animal does is live by reason. So a good human life is one of reason well used, in thought and in action, over a whole life. \"One swallow does not make a spring,\" he adds, \"nor does one day\": a single good day does not make a person happy, any more than one good act makes a person good."
+        },
+        {
+          "type": "text",
+          "text": "Living well needs more than character. Aristotle is frank that it needs some luck as well: health, enough money, friends, children who turn out well, and a city fit to live in. A good man who loses everything, like Priam of Troy, is not called happy. That frankness is one of the reasons his ethics feels more like a description of real lives than Plato's."
+        }
       ]
-     }
+    },
+    {
+      "title": "The mean",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A virtue, for Aristotle, is a settled state of character, built by practice, that lets a person feel and act well. His best-known claim about virtues is that each lies at a **mean** between two vices, one of too much and one of too little. Courage is the mean between cowardice, too much fear, and rashness, too little. Generosity lies between stinginess and wastefulness. Even being good company has its mean, wit, between being a bore and being a buffoon."
+        },
+        {
+          "type": "text",
+          "text": "The mean is not an average, and it is not moderation in everything. Aristotle's example is food for an athlete. If ten pounds of food is too much and two too little, the trainer will not order six for everyone; Milo, the famous wrestler, needs more than a beginner. The mean is \"relative to us\": the right amount of anger, at the right person, at the right time, for the right reason. Sometimes the mean is a great deal of anger. Finding it takes a capacity Aristotle calls *phronesis*, practical wisdom, which is learned from experience and cannot be written down as rules."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Aristotle's mean, on six cases. Each lies between a vice of too little and a vice of too much.",
+          "task": "Sort all six",
+          "goal": "sorted",
+          "options": {
+            "ask": "Too little, the mean, or too much?",
+            "groups": [
+              {
+                "name": "Too little"
+              },
+              {
+                "name": "The mean",
+                "color": "good"
+              },
+              {
+                "name": "Too much"
+              }
+            ],
+            "items": [
+              {
+                "name": "Running into a burning house with no plan to rescue a cat",
+                "group": "Too much",
+                "why": "Rashness: too much confidence for the danger. The brave person feels fear and acts anyway, with a plan."
+              },
+              {
+                "name": "Telling a friend, kindly and in private, that their business plan has a hole in it",
+                "group": "The mean",
+                "why": "Truthfulness and friendliness together: neither flattering nor harsh."
+              },
+              {
+                "name": "Saying nothing when someone insults your friend, to avoid an argument",
+                "group": "Too little",
+                "why": "Too little anger: Aristotle calls the person who puts up with insults to himself or his friends slavish."
+              },
+              {
+                "name": "Leaving a 60 percent tip on every bill to look generous",
+                "group": "Too much",
+                "why": "Wastefulness, and showing off: giving to the wrong people for the wrong reason."
+              },
+              {
+                "name": "Being angry at a friend who broke a promise, and telling them so once",
+                "group": "The mean",
+                "why": "Good temper: anger at the right person, for the right reason, to the right degree."
+              },
+              {
+                "name": "Splitting a restaurant bill to the cent with a friend who is broke",
+                "group": "Too little",
+                "why": "Stinginess: giving less than the situation asks."
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Aristotle also wrote two whole books of the *Ethics* on friendship, more than on any single virtue. He thought there are three kinds: friendships of use, like those between business partners; friendships of pleasure, like those between drinking companions; and friendships of character, between good people who wish each other well for each other's sake. Only the third kind lasts, and nobody, he says, would choose to live without friends even if he had every other good."
+        }
+      ]
+    },
+    {
+      "title": "Confucius and the same bet",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A century and a half before Aristotle, and nearly 8,000 km to the east, another teacher had made the same bet on habit. Kongzi, called Confucius in the West, was born in 551 BC in the small state of Lu, in what is now Shandong province in eastern China. He held minor posts in its government, and for some fourteen years travelled from state to state with a band of students, looking for a ruler who would employ him. None did for long. He came home and taught until he died in 479 BC. His students wrote down his sayings, and the collection, the *Analects*, became one of the most influential books in Chinese history.[^confucius]"
+        },
+        {
+          "type": "text",
+          "text": "Like Aristotle, Confucius thought goodness is built by long practice until it becomes natural. He describes his own life that way: by fifteen he had set his heart on learning, and only at seventy could he follow his heart's desire without going wrong. The highest virtue in the *Analects* is *ren*, usually translated as humaneness or goodness, the quality of a person who treats others well. It is learned through *li*, ritual: both ceremonies and the everyday forms of courtesy and respect between parent and child, ruler and minister, host and guest, practised until they shape a person's feelings."
+        },
+        {
+          "type": "text",
+          "text": "The difference from Aristotle is where goodness lives. For Aristotle it is the excellence of an individual reasoning well. For Confucius it is a matter of roles and relationships: a good person is a good son, a good friend and a good minister, and filial respect, one of his students said, is \"the root of goodness\". When a student asked for one word to live by, Confucius gave him *shu*, which might be translated as understanding others by oneself: \"Do not impose on others what you yourself do not want.\""
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Three answers to the question of how goodness is learned. Later lessons add others.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "habit",
+            "ask": "What mainly makes someone a good person?",
+            "choices": [
+              "Knowing the right rules and following them",
+              "Practising good acts until they come naturally",
+              "Living their roles and relationships well",
+              "Not sure"
+            ],
+            "who": [
+              "Closest to Kant (lesson 15), for whom morality is acting on a rule you could will for everyone.",
+              "Aristotle's answer. Modern virtue ethics, which descends from it, was the view the most philosophers leaned towards in the 2020 survey, though many lean towards more than one.",
+              "Confucius' answer. Modern philosophers who defend it call it role ethics.",
+              "None of these needs to rule out the others: Aristotle and Confucius both thought rules, habit and relationships work together."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Valid and sound",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Aristotle also invented logic as a subject: the study of which arguments are good because of their form, whatever they are about. His basic unit was the **syllogism**, two premises and a conclusion, such as: all humans are mortal; Socrates is human; so Socrates is mortal."
+        },
+        {
+          "type": "text",
+          "text": "An argument is **valid** if its conclusion must be true whenever its premises are; validity is about the form alone. \"All fish can fly; a salmon is a fish; so a salmon can fly\" is valid, since if the premises were true the conclusion would have to be. It is not **sound**, because a sound argument is a valid one whose premises are actually true. The Socrates argument is both. Most philosophical arguments are valid, or easily made so; the fighting is nearly always about whether a premise is true. When Socrates attacked Euthyphro's definitions, he was showing that a premise was false, not that the reasoning was bad."
+        },
+        {
+          "type": "text",
+          "text": "Aristotle's logic lasted more than two thousand years. In 1787 Immanuel Kant wrote that logic had not been able to take a single step forward since Aristotle. Within a century it had: in 1879 the German mathematician Gottlob Frege published a logic that could handle sentences such as \"everyone loves someone\", which syllogisms cannot, and it is logic descended from Frege's, not Aristotle's, that mathematicians and computer scientists use today."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Aristotle's ethics is a clear case of an idea that went out of fashion and came back. For most of the 19th and 20th centuries moral philosophy argued about rules and consequences, the subjects of lessons 15 and 17. Then in 1958 the English philosopher Elizabeth Anscombe argued that this was a dead end and that ethics should go back to character, and Alasdair MacIntyre's book *After Virtue* (1981) made the case to a wide audience. In the 2020 PhilPapers Survey virtue ethics was the largest of the three main camps in ethics, with about 37 percent of philosophers leaning towards it, against about 32 percent for deontology, the ethics of duty that Kant made famous, and 31 percent for consequentialism; people could pick more than one.[^camps] Confucian role ethics is a growing field too."
+        },
+        {
+          "type": "text",
+          "text": "Other parts of Aristotle are respected history. His syllogistic logic was replaced by Frege's. His biology was admired by Darwin, but his physics, in which heavy things fall faster than light ones and everything seeks its natural place, was abandoned by the 17th century."
+        },
+        {
+          "type": "text",
+          "text": "Some of his views have no defenders at all. In the *Politics* Aristotle argued that some people are slaves by nature, fit only to be ruled, and that women have the power to deliberate but \"without authority\". These ideas were used to defend slavery and the subjection of women for two thousand years; lesson 9 follows one famous attempt, in 1550, to apply them to the peoples of the Americas."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Aristotle and Confucius",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why did Aristotle think knowing what is good is not enough to do it?",
+                "choices": [
+                  "People often know what they should do and do something else",
+                  "Nobody can know what is good, so action has to rest on habit",
+                  "Goodness depends on luck, so knowledge cannot guarantee it",
+                  "Socrates had shown that knowledge is only remembered, never learned"
+                ],
+                "answer": 0,
+                "why": "Weakness of will, akrasia, is common. If knowing were enough it would not happen, so Aristotle concluded goodness is partly a matter of habit and feeling."
+              },
+              {
+                "ask": "Someone rushes into a fight they cannot win, for no good reason. In Aristotle's terms, what is that?",
+                "choices": [
+                  "Rashness",
+                  "Courage",
+                  "Cowardice",
+                  "Practical wisdom"
+                ],
+                "answer": 0,
+                "why": "Courage is the mean between cowardice and rashness. The rash person has too much confidence for the danger, and the brave person feels fear and acts well anyway."
+              },
+              {
+                "ask": "What is the most accurate account of Aristotle's mean?",
+                "choices": [
+                  "The right amount for this person and situation, which can sometimes be a great deal",
+                  "The average of the two extremes, the same for every person and case",
+                  "Moderation: always a little of everything and nothing to excess",
+                  "Whatever most of the citizens in one's own city would do in that case"
+                ],
+                "answer": 0,
+                "why": "The mean is relative to us, as with Milo's food, and finding it takes practical wisdom. An athlete's right amount is not the average of a little and a lot, and courage can call for a great deal of daring."
+              },
+              {
+                "ask": "Where do Aristotle and Confucius differ most?",
+                "choices": [
+                  "Confucius put relationships and ritual at the centre",
+                  "Confucius thought goodness is inborn, not practised",
+                  "Aristotle thought friendship has no place in a good life",
+                  "Aristotle thought goodness could be learned from books"
+                ],
+                "answer": 0,
+                "why": "Both thought goodness is built by practice. Confucius made roles, relationships and li, ritual, central where Aristotle stressed reason."
+              },
+              {
+                "ask": "\"All cats are mammals; no fish are cats; so no fish are mammals.\" What is wrong with this argument?",
+                "choices": [
+                  "It is invalid: the conclusion is true, but it does not follow",
+                  "It is valid but unsound: the form is fine, but a premise is false",
+                  "Nothing: both premises are true, so the conclusion follows",
+                  "It is valid and sound, but its conclusion is false"
+                ],
+                "answer": 0,
+                "why": "Both premises and the conclusion are true, yet the form is bad: \"All cats are mammals; no dogs are cats; so no dogs are mammals\" has the same form, true premises and a false conclusion. A valid argument cannot do that."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**For Aristotle, goodness is learned like a skill.** We become just by doing just acts, as builders become builders by building.",
+    "**Knowing is not enough.** Against Socrates, Aristotle took weakness of will seriously: people often know the good and do otherwise.",
+    "**Eudaimonia is a life going well.** It is reason well used over a whole life, with some luck in health, friends and circumstances.",
+    "**Each virtue is a mean between two vices.** Courage lies between cowardice and rashness, and the mean is relative to the person and the situation.",
+    "**Practical wisdom finds the mean.** It comes from experience and cannot be reduced to rules.",
+    "**Confucius made the same bet on habit, through relationships.** Goodness, ren, is built by practising li, ritual courtesy, in the roles of family and state.",
+    "**Valid is about form; sound adds true premises.** Most philosophical arguments are valid, and the fight is over whether their premises are true.",
+    "**Virtue ethics came back and now leads.** It was the largest camp in ethics in 2020, while Aristotle's physics and his natural slaves are long abandoned."
+  ],
+  "footnotes": {
+    "darwin": {
+      "kind": "digression",
+      "title": "Darwin on Aristotle",
+      "text": "In 1882, a few weeks before he died, Charles Darwin thanked a translator for a copy of Aristotle's Parts of Animals and wrote that Linnaeus and Cuvier had been his two gods, but they were \"mere school-boys to old Aristotle\"."
+    },
+    "confucius": {
+      "kind": "technical",
+      "title": "What we know of Confucius",
+      "text": "The Analects were put together by students and their students over several generations, and much of the biography of Confucius comes from a history written about 400 years after his death. Scholars agree he lived and taught, and treat many of the stories about his career as uncertain."
+    },
+    "camps": {
+      "kind": "technical",
+      "title": "The three camps",
+      "text": "Consequentialists judge acts by their results, deontologists, Kant the best known among them, by whether they keep to duties such as not lying, and virtue ethicists by what a person of good character would do. The survey let philosophers accept or lean towards more than one."
+    },
+    "nicomachean": {
+      "kind": "digression",
+      "title": "Why Nicomachean?",
+      "text": "Both Aristotle's father and his son were named Nicomachus. The Ethics is usually thought to be named after his son, who may have edited his father's lecture notes after Aristotle died."
+    }
   }
- ],
- "summary": [
-  "**For Aristotle, goodness is learned like a skill.** We become just by doing just acts, as builders become builders by building.",
-  "**Knowing is not enough.** Against Socrates, Aristotle took weakness of will seriously: people often know the good and do otherwise.",
-  "**Eudaimonia is a life going well.** It is reason well used over a whole life, with some luck in health, friends and circumstances.",
-  "**Each virtue is a mean between two vices.** Courage lies between cowardice and rashness, and the mean is relative to the person and the situation.",
-  "**Practical wisdom finds the mean.** It comes from experience and cannot be reduced to rules.",
-  "**Confucius made the same bet on habit, through relationships.** Goodness, ren, is built by practising li, ritual courtesy, in the roles of family and state.",
-  "**Valid is about form; sound adds true premises.** Most philosophical arguments are valid, and the fight is over whether their premises are true.",
-  "**Virtue ethics came back and now leads.** It was the largest camp in ethics in 2020, while Aristotle's physics and his natural slaves are long abandoned."
- ],
- "footnotes": {
-  "darwin": {
-   "kind": "digression",
-   "title": "Darwin on Aristotle",
-   "text": "In 1882, a few weeks before he died, Charles Darwin thanked a translator for a copy of Aristotle's Parts of Animals and wrote that Linnaeus and Cuvier had been his two gods, but they were \"mere school-boys to old Aristotle\"."
-  },
-  "confucius": {
-   "kind": "technical",
-   "title": "What we know of Confucius",
-   "text": "The Analects were put together by students and their students over several generations, and much of the biography of Confucius comes from a history written about 400 years after his death. Scholars agree he lived and taught, and treat many of the stories about his career as uncertain."
-  },
-  "camps": {
-   "kind": "technical",
-   "title": "The three camps",
-   "text": "Consequentialists judge acts by their results, deontologists, Kant the best known among them, by whether they keep to duties such as not lying, and virtue ethicists by what a person of good character would do. The survey let philosophers accept or lean towards more than one."
-  }
- }
 }

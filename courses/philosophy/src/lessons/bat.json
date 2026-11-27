@@ -1,300 +1,300 @@
 {
- "id": "bat",
- "n": 24,
- "title": "What is it like to be a bat?",
- "teaches": "Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain",
- "parts": [
-  {
-   "title": "A case of wine",
-   "blocks": [
+  "id": "bat",
+  "n": 24,
+  "title": "What is it like to be a bat?",
+  "teaches": "Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain",
+  "parts": [
     {
-     "type": "text",
-     "text": "In 1998, at a conference in Bremen, a neuroscientist made a bet with a philosopher. Christof Koch, who studied vision in the brain, bet David Chalmers a case of good wine that within 25 years scientists would find the brain mechanism that produces consciousness: a clear signature in the neurons that is present whenever we are conscious of something and absent when we are not. Chalmers bet that they would not."
-    },
-    {
-     "type": "text",
-     "text": "In June 2023, at the same conference series meeting in New York, Koch admitted on stage that it had not happened and handed Chalmers a case of Portuguese wine. He then offered the same bet again for another 25 years, and Chalmers accepted.[^wine] This lesson is about why the question is so hard that a quarter of a century of brain science did not settle it, and whether part of it might never be settled by brain science at all."
-    }
-   ]
-  },
-  {
-   "title": "Something it is like",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1974 the American philosopher Thomas Nagel wrote a short paper with the title \"What Is It Like to Be a Bat?\" His definition of consciousness became the standard one: a creature is conscious if \"there is something that it is like to be that organism\". There is something it is like to be you reading this, and probably something it is like to be a dog, but nothing it is like to be a thermostat or a stone."
-    },
-    {
-     "type": "text",
-     "text": "Nagel chose bats because they are mammals like us, so few doubt they are conscious, but they find their way mainly by **echolocation**: they send out high-pitched calls and build a picture of the world from the echoes. The Bats course on this site explains how that works, from the calls to the echoes from a moth. Nagel's point was that even if we knew every such fact, about the calls, the ears and the brain, we still would not know what it is like for the bat to perceive a moth that way. Imagining having webbed arms, hanging upside down and hearing echoes only tells you what it would be like for *you* to behave like a bat. The bat's own point of view seems to be left out of any objective description, however complete."
-    },
-    {
-     "type": "text",
-     "text": "This is a problem for **physicalism**, the view from lesson 10 that the mind is ultimately something physical. Physical science describes the world from no particular point of view. Experience exists only from a point of view. Nagel did not say physicalism was false. He said we do not yet have any idea how it could be true."
-    }
-   ]
-  },
-  {
-   "title": "The hard problem",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Twenty years later, at a conference in Tucson in 1994, Chalmers, then 27, gave the problem the name that stuck. Science, he said, faces many **easy problems** of consciousness: how the brain tells colours apart, focuses attention, combines information from the senses, and lets us report what we see. These are not easy in practice, but we know what an answer would look like, a mechanism that does the job. The **hard problem** is why any of this processing is accompanied by experience at all: why there is something it is like to see red, rather than all the work going on in the dark.[^zombie]"
-    },
-    {
-     "type": "text",
-     "text": "Chalmers's argument is that explaining a function can never by itself explain experience, because once the functions are explained, the question \"but why is it felt?\" is still open. Many philosophers and scientists reply that the hard problem is an illusion: once the easy problems are solved, nothing will be left over, as nothing was left over once biology explained what life is, though people once thought life needed a special vital spark too."
-    }
-   ]
-  },
-  {
-   "title": "Mary's room",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1982 the Australian philosopher Frank Jackson gave the argument its most famous form. Mary is a brilliant scientist who, for whatever reason, has spent her whole life in a black and white room, learning about the world through a black and white television. She becomes the world's expert on colour vision. She knows every physical fact about what happens when people see a ripe tomato: the wavelengths of light, the cells in the eye, the activity in the brain, the words people use."
-    },
-    {
-     "type": "text",
-     "text": "One day she is let out of the room and sees a red tomato for the first time."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Jackson's thought experiment. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "mary",
-      "ask": "When Mary first sees red, does she learn something new about the world?",
-      "choices": [
-       "Yes: she learns what it is like to see red",
-       "No: she knew all the facts already, and only gains a new ability or a new way of thinking of them",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Jackson's answer in 1982. He concluded that physical facts are not all the facts there are.",
-       "You chose the answer most physicalists give, and the one Jackson himself came to in the late 1990s.",
-       "Jackson changed his mind about it, so you are in good company."
+      "title": "A case of wine",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1998, at a conference in Bremen, a neuroscientist made a bet with a philosopher. Christof Koch, who studied vision in the brain, bet David Chalmers a case of good wine that within 25 years scientists would find the brain mechanism that produces consciousness: a clear signature in the neurons that is present whenever we are conscious of something and absent when we are not. Chalmers bet that they would not."
+        },
+        {
+          "type": "text",
+          "text": "In June 2023, at the same conference series meeting in New York, Koch admitted on stage that it had not happened and handed Chalmers a case of Portuguese wine. He then offered the same bet again for another 25 years, and Chalmers accepted.[^wine] A quarter of a century of brain science did not settle the question, and some philosophers think brain science never will."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Jackson's argument was simple. Mary knew all the physical facts before she left the room. She learns something when she leaves. So there are facts that are not physical, and physicalism is false. Physicalists have answered in several ways. Some say Mary gains no new fact, only a new ability, to recognise and imagine red. Others say she learns an old fact in a new way, as you might know that the Morning Star is bright and then learn to recognise it in the sky. Jackson himself changed sides in the late 1990s and became a physicalist, though his argument is still taught as one of the strongest against the view."
-    }
-   ]
-  },
-  {
-   "title": "The Chinese room",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A different question is whether a computer could think. In 1950 the mathematician Alan Turing had proposed what he called the imitation game: if a machine can hold a conversation in writing that a judge cannot tell apart from a person's, we should accept that it thinks. In 1980 the American philosopher John Searle replied with a thought experiment."
-    },
-    {
-     "type": "text",
-     "text": "Searle imagined himself locked in a room. He speaks no Chinese. Through a slot come cards with Chinese characters on them, and he has a huge rule book, in English, telling him which characters to send back out for any characters that come in. The rule book is so good that people outside, who write questions in Chinese, get answers that read as if written by a fluent speaker. To them the room understands Chinese. But Searle, inside, understands none of it: he is matching shapes. And a computer running a program, Searle said, is doing exactly what he is doing. Manipulating symbols by rules, however well, is not understanding them. In his phrase, syntax is not semantics."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Searle's thought experiment. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "room",
-      "ask": "Does the Chinese room, taken as a whole, understand Chinese?",
-      "choices": [
-       "Yes: the whole system understands, even if the man in it does not",
-       "No: nothing in the room understands Chinese",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the systems reply, the most common answer to Searle. Searle replied that he could memorise the rule book and still not understand a word.",
-       "You chose Searle's answer, and the most common one among philosophers in 2020.",
-       "Searle's paper was printed with replies from 27 other researchers, and they did not agree either."
-      ],
-      "poll": {
-       "shares": [
-        18,
-        67,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Chinese room: understands or doesn't understand?\", share accepting or leaning towards each."
-      }
-     }
-    }
-   ]
-  },
-  {
-   "title": "Could a chatbot feel pain?",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Since about 2022 the question has stopped being only a thought experiment. Large language models, trained on huge amounts of text, hold conversations that would pass many versions of Turing's test. In 2022 a Google engineer, Blake Lemoine, said publicly that the company's chatbot was sentient; Google disagreed and fired him. Most researchers thought he was misled by a system built to produce text that sounds like a person's, which includes text about having feelings."
-    },
-    {
-     "type": "text",
-     "text": "The two problems in this lesson pull different ways here. Searle's argument says that a program, however fluent, does not understand anything just by running, and so would not feel anything either. On the other side, if consciousness comes from what a system does rather than what it is made of, a view called **functionalism**, then a machine doing the right things could be conscious, and we would have no test to tell. Nagel's bat shows why that is hard: we cannot even be sure what it is like to be a bat, which is a mammal with a brain like ours. In 2023 Chalmers estimated the chance that the language models of the time were conscious at under one in ten, but higher for their successors."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "The question as it stands now. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "chatbot",
-      "ask": "Could a computer program ever really feel pain, rather than only say that it does?",
-      "choices": [
-       "Yes: if it works the right way, what it is made of does not matter",
-       "No: running a program is never enough to feel anything",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the functionalist answer.",
-       "You chose Searle's side of the question.",
-       "You chose what most people who work on it would say about the programs that exist now."
+      "title": "Something it is like",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1974 the American philosopher Thomas Nagel wrote a short paper with the title \"What Is It Like to Be a Bat?\" His definition of consciousness became the standard one: a creature is conscious if \"there is something that it is like to be that organism\". There is something it is like to be you reading this, and probably something it is like to be a dog, but nothing it is like to be a thermostat or a stone."
+        },
+        {
+          "type": "text",
+          "text": "Nagel chose bats because they are mammals like us, so few doubt they are conscious, but they find their way mainly by **echolocation**: they send out high-pitched calls and build a picture of the world from the echoes. The Bats course on this site explains how that works, from the calls to the echoes from a moth. Nagel's point was that even if we knew every physical fact about the calls, the ears and the brain, we still would not know what it is like for the bat to perceive a moth that way. Imagining having webbed arms, hanging upside down and hearing echoes only tells you what it would be like for *you* to behave like a bat. The bat's own point of view seems to be left out of any objective description, however complete."
+        },
+        {
+          "type": "text",
+          "text": "This is a problem for **physicalism**, the view from lesson 10 that the mind is something physical. Physical science describes the world from no particular point of view. Experience exists only from a point of view. Nagel did not say physicalism was false. He said we do not yet have any idea how it could be true."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Consciousness is one of the most open questions in philosophy. The hard problem, the knowledge argument and the Chinese room are all still argued over, and the arrival of fluent chatbots and the money spent on artificial intelligence have made machine minds a practical question for companies and governments as well as a philosophical one. Neuroscience has found much about which brain activity goes with which experiences, but not, as Koch's bet showed, a signature that settles the question."
     },
     {
-     "type": "text",
-     "text": "**Behaviourism** about the mind, the view of the 1930s to 1950s that having a mind is nothing more than behaving or being disposed to behave in certain ways, is abandoned. It could not explain why a person in pain who hides it is still in pain, and it gave way in the 1960s to the view that mental states are brain states, and then to functionalism.[^ryle] Here is lesson 10's question again, now that you have met the arguments on both sides."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Lesson 10's question, asked again after the bat, Mary and the room. Your earlier answer is shown.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "mind",
-      "ask": "Is the mind ultimately something physical, a working of the brain?",
-      "choices": [
-       "Yes",
-       "No: it is something more",
-       "Not sure"
-      ],
-      "who": [
-       "You are with about half of professional philosophers. Nagel would ask you how the bat's point of view fits in; you may think the hard problem will dissolve as the easy ones are solved.",
-       "You are with about a third. Mary and the bat are your strongest arguments; the room is about understanding, and tells against programs rather than against physicalism.",
-       "The arguments in this lesson leave many philosophers unsure, which is an honest answer."
-      ],
-      "poll": {
-       "shares": [
-        52,
-        32,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Mind: physicalism or non-physicalism?\", share accepting or leaning towards each."
-      },
-      "again": true
-     }
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on consciousness",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What did Nagel mean by saying a creature is conscious if there is something it is like to be it?",
-        "choices": [
-         "It has experiences from its own point of view, such as how things look or feel to it",
-         "It behaves in ways that look similar to human behaviour",
-         "It can describe its own states in language",
-         "It is made of the same materials as a human brain"
-        ],
-        "answer": 0,
-        "why": "There is something it is like to be a bat, and probably nothing it is like to be a thermostat."
-       },
-       {
-        "ask": "What is Chalmers's hard problem of consciousness?",
-        "choices": [
-         "Why the brain's processing is accompanied by experience at all",
-         "How the brain tells colours apart and focuses attention",
-         "Why consciousness is hard to measure with current scanners",
-         "How to build a computer that passes Turing's test"
-        ],
-        "answer": 0,
-        "why": "The easy problems are about functions. The hard problem is why any function is felt."
-       },
-       {
-        "ask": "What is Mary's room meant to show?",
-        "choices": [
-         "That knowing every physical fact about colour vision may still leave out what it is like to see red",
-         "That scientists cannot learn about colour without seeing it themselves",
-         "That black and white television is a poor teaching tool",
-         "That colours do not exist outside the mind"
-        ],
-        "answer": 0,
-        "why": "If Mary learns something new on leaving, Jackson argued, physical facts are not all the facts."
-       },
-       {
-        "ask": "What does Searle's Chinese room argue?",
-        "choices": [
-         "Following rules for manipulating symbols, however well, is not the same as understanding them",
-         "Computers will never be able to produce fluent Chinese",
-         "Human beings understand language only by following rules",
-         "Turing's test is too difficult for any machine to pass"
-        ],
-        "answer": 0,
-        "why": "Syntax is not semantics: Searle matches shapes perfectly and understands nothing."
-       },
-       {
-        "ask": "Why is behaviourism about the mind now abandoned?",
-        "choices": [
-         "It could not explain mental states that do not show in behaviour, such as hidden pain",
-         "It was proved false by brain scans in the 1950s",
-         "It required belief in an immaterial soul",
-         "It applied only to animals, not people"
-        ],
-        "answer": 0,
-        "why": "A person who hides their pain is still in pain. The view gave way to brain-state theories and functionalism."
-       }
+      "title": "The hard problem",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Twenty years later, at a conference in Tucson in 1994, Chalmers, then 27, gave the problem the name that stuck. Science, he said, faces many **easy problems** of consciousness: how the brain tells colours apart, focuses attention, combines information from the senses, and lets us report what we see. These are not easy in practice, but we know what an answer would look like: a mechanism that does the job. The **hard problem** is why any of this processing is accompanied by experience at all: why there is something it is like to see red, rather than all the work going on in the dark.[^zombie]"
+        },
+        {
+          "type": "text",
+          "text": "Chalmers's argument is that explaining a function can never by itself explain experience, because once the functions are explained, the question \"but why is it felt?\" is still open. Many philosophers and scientists reply that the hard problem is an illusion: once the easy problems are solved, nothing will be left over, as nothing was left over once biology explained what life is, though people once thought life needed a special life force too."
+        }
       ]
-     }
+    },
+    {
+      "title": "Mary's room",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1982 the Australian philosopher Frank Jackson gave the argument its most famous form. Mary is a brilliant scientist who, for whatever reason, has spent her whole life in a black and white room, learning about the world through a black and white television. She becomes the world's expert on colour vision. She knows every physical fact about what happens when people see a ripe tomato: the wavelengths of light, the cells in the eye, the activity in the brain, the words people use."
+        },
+        {
+          "type": "text",
+          "text": "One day she is let out of the room and sees a red tomato for the first time."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Jackson's thought experiment. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "mary",
+            "ask": "When Mary first sees red, does she learn something new about the world?",
+            "choices": [
+              "Yes: she learns what it is like to see red",
+              "No: she knew all the facts already, and only gains a new ability or a new way of thinking of them",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Jackson's answer in 1982. He concluded that physical facts are not all the facts there are.",
+              "You chose the answer most physicalists give, and the one Jackson himself came to in the late 1990s.",
+              "Jackson changed his mind about it, so you are in good company."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Jackson's argument was simple. Mary knew all the physical facts before she left the room. She learns something when she leaves. So there are facts that are not physical, and physicalism is false. Physicalists have answered in several ways. Some say Mary gains no new fact, only a new ability, to recognise and imagine red. Others say she learns an old fact in a new way, as you might know that the Morning Star is bright and then learn to recognise it in the sky. Jackson himself changed sides in the late 1990s and became a physicalist, though his argument is still taught as one of the strongest against the view."
+        }
+      ]
+    },
+    {
+      "title": "The Chinese room",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A different question is whether a computer could think. In 1950 the mathematician Alan Turing had proposed what he called the imitation game: if a machine can hold a conversation in writing that a judge cannot tell apart from a person's, we should accept that it thinks. In 1980 the American philosopher John Searle replied with a thought experiment."
+        },
+        {
+          "type": "text",
+          "text": "Searle imagined himself locked in a room. He speaks no Chinese. Through a slot come cards with Chinese characters on them, and he has a huge rule book, in English, telling him which characters to send back out for any characters that come in. The rule book is so good that people outside, who write questions in Chinese, get answers that read as if written by a fluent speaker. To them the room understands Chinese. But Searle, inside, understands none of it: he is matching shapes. And a computer running a program, Searle said, is doing exactly what he is doing. Manipulating symbols by rules, however well, is not understanding them. In his phrase, syntax is not semantics."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Searle's thought experiment. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "room",
+            "ask": "Does the Chinese room, taken as a whole, understand Chinese?",
+            "choices": [
+              "Yes: the whole system understands, even if the man in it does not",
+              "No: nothing in the room understands Chinese",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the systems reply, the most common answer to Searle. Searle replied that he could memorise the rule book and still not understand a word.",
+              "You chose Searle's answer, and the most common one among philosophers in 2020.",
+              "Searle's paper was printed with replies from 27 other researchers, and they did not agree either."
+            ],
+            "poll": {
+              "shares": [
+                18,
+                67,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Chinese room: understands or doesn't understand?\", share accepting or leaning towards each."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Could a chatbot feel pain?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Since about 2022, this has no longer been just a thought experiment. Large language models, trained on huge amounts of text, hold conversations that would pass many versions of Turing's test. In 2022 a Google engineer, Blake Lemoine, said publicly that the company's chatbot was sentient; Google disagreed and fired him. Most researchers thought he was misled by a system built to produce text that sounds like a person's, which includes text about having feelings."
+        },
+        {
+          "type": "text",
+          "text": "The two problems in this lesson pull different ways here. Searle's argument says that a program, however fluent, does not understand anything just by running, and so would not feel anything either. On the other side, if consciousness comes from what a system does rather than what it is made of, a view called **functionalism**, then a machine doing the right things could be conscious, and we would have no test to tell. Nagel's bat shows why that is hard: we cannot even be sure what it is like to be a bat, which is a mammal with a brain like ours. In 2023 Chalmers estimated the chance that the language models of the time were conscious at under one in ten, but higher for their successors."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "The question as it stands now. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "chatbot",
+            "ask": "Could a computer program ever really feel pain, rather than only say that it does?",
+            "choices": [
+              "Yes: if it works the right way, what it is made of does not matter",
+              "No: running a program is never enough to feel anything",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the functionalist answer.",
+              "You chose Searle's side of the question.",
+              "You chose what most people who work on it would say about the programs that exist now."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Consciousness is one of the most open questions in philosophy. The hard problem, the knowledge argument and the Chinese room are all still argued over, and the arrival of fluent chatbots and the money spent on artificial intelligence have made machine minds a practical question for companies and governments as well as a philosophical one. Neuroscience has found much about which brain activity goes with which experiences, but not, as Koch's bet showed, a signature that settles the question."
+        },
+        {
+          "type": "text",
+          "text": "**Behaviourism** about the mind, the view of the 1930s to 1950s that having a mind is nothing more than behaving or being disposed to behave in certain ways, is abandoned. It could not explain why a person in pain who hides it is still in pain, and it gave way in the 1960s to the view that mental states are brain states, and then to functionalism.[^ryle] Here is lesson 10's question again, now that you have met the arguments on both sides."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Lesson 10's question, asked again after the bat, Mary and the room. Your earlier answer is shown.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "mind",
+            "ask": "Is the mind ultimately something physical, a working of the brain?",
+            "choices": [
+              "Yes",
+              "No: it is something more",
+              "Not sure"
+            ],
+            "who": [
+              "You are with about half of professional philosophers. Nagel would ask you how the bat's point of view fits in; you may think the hard problem will dissolve as the easy ones are solved.",
+              "You are with about a third. Mary and the bat are your strongest arguments; the room is about understanding, and tells against programs rather than against physicalism.",
+              "The arguments in this lesson leave many philosophers unsure, which is an honest answer."
+            ],
+            "poll": {
+              "shares": [
+                52,
+                32,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Mind: physicalism or non-physicalism?\", share accepting or leaning towards each."
+            },
+            "again": true
+          }
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on consciousness",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What did Nagel mean by saying a creature is conscious if there is something it is like to be it?",
+                "choices": [
+                  "It has experiences from its own point of view, such as how things look or feel to it",
+                  "It behaves in ways that look similar to human behaviour",
+                  "It can describe its own states in language",
+                  "It is made of the same materials as a human brain"
+                ],
+                "answer": 0,
+                "why": "There is something it is like to be a bat, and probably nothing it is like to be a thermostat."
+              },
+              {
+                "ask": "What is Chalmers's hard problem of consciousness?",
+                "choices": [
+                  "Why the brain's processing is accompanied by experience at all",
+                  "How the brain tells colours apart and focuses attention",
+                  "Why consciousness is hard to measure with current scanners",
+                  "How to build a computer that passes Turing's test"
+                ],
+                "answer": 0,
+                "why": "The easy problems are about functions. The hard problem is why any function is felt."
+              },
+              {
+                "ask": "What is Mary's room meant to show?",
+                "choices": [
+                  "That knowing every physical fact about colour vision may still leave out what it is like to see red",
+                  "That scientists cannot learn about colour without seeing it themselves",
+                  "That black and white television is a poor teaching tool",
+                  "That colours do not exist outside the mind"
+                ],
+                "answer": 0,
+                "why": "If Mary learns something new on leaving, Jackson argued, physical facts are not all the facts."
+              },
+              {
+                "ask": "What does Searle's Chinese room argue?",
+                "choices": [
+                  "Following rules for manipulating symbols, however well, is not the same as understanding them",
+                  "Computers will never be able to produce fluent Chinese",
+                  "Human beings understand language only by following rules",
+                  "Turing's test is too difficult for any machine to pass"
+                ],
+                "answer": 0,
+                "why": "Syntax is not semantics: Searle matches shapes perfectly and understands nothing."
+              },
+              {
+                "ask": "Why is behaviourism about the mind now abandoned?",
+                "choices": [
+                  "It could not explain mental states that do not show in behaviour, such as hidden pain",
+                  "It was proved false by brain scans in the 1950s",
+                  "It required belief in an immaterial soul",
+                  "It applied only to animals, not people"
+                ],
+                "answer": 0,
+                "why": "A person who hides their pain is still in pain. The view gave way to brain-state theories and functionalism."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Koch bet Chalmers in 1998 that the brain basis of consciousness would be found within 25 years.** In 2023 Koch paid.",
+    "**A creature is conscious if there is something it is like to be it.** Nagel's definition, from 1974.",
+    "**A bat's point of view seems left out of any physical description.** Knowing all about echolocation does not tell us what it is like.",
+    "**The hard problem is why processing is felt at all.** The easy problems are about functions, and are solvable in principle.",
+    "**Mary learns something when she first sees red, or seems to.** If so, physical facts are not all the facts.",
+    "**The Chinese room says symbol manipulation is not understanding.** The systems reply says the whole room understands.",
+    "**Whether a chatbot could feel pain turns on functionalism.** If what matters is what a system does, a machine could be conscious.",
+    "**Behaviourism is abandoned; the rest is wide open.** About half of philosophers accept or lean towards physicalism."
+  ],
+  "footnotes": {
+    "wine": {
+      "kind": "digression",
+      "title": "The wine",
+      "text": "The case Koch handed over in 2023 was Madeira, from Portugal, chosen partly because it keeps for decades. Two theories of consciousness had been tested against each other in a large collaborative experiment, and the results, announced at the same meeting, supported neither cleanly."
+    },
+    "zombie": {
+      "kind": "technical",
+      "title": "Zombies",
+      "text": "Chalmers made the point with a philosophical zombie: a being physically identical to you, atom for atom, that behaves exactly as you do but has no experience at all. If such a being is even conceivable, he argued, experience is something over and above the physical facts. Physicalists reply that it only seems conceivable."
+    },
+    "ryle": {
+      "kind": "technical",
+      "title": "The ghost in the machine",
+      "text": "The British philosopher Gilbert Ryle, in The Concept of Mind (1949), mocked Descartes's view of the mind as \"the ghost in the machine\". His own view was close to behaviourism, though he did not accept the label. The phrase outlived the theory."
+    }
   }
- ],
- "summary": [
-  "**Koch bet Chalmers in 1998 that the brain basis of consciousness would be found within 25 years.** In 2023 Koch paid.",
-  "**A creature is conscious if there is something it is like to be it.** Nagel's definition, from 1974.",
-  "**A bat's point of view seems left out of any physical description.** Knowing all about echolocation does not tell us what it is like.",
-  "**The hard problem is why processing is felt at all.** The easy problems are about functions, and are solvable in principle.",
-  "**Mary learns something when she first sees red, or seems to.** If so, physical facts are not all the facts.",
-  "**The Chinese room says symbol manipulation is not understanding.** The systems reply says the whole room understands.",
-  "**Whether a chatbot could feel pain turns on functionalism.** If what matters is what a system does, a machine could be conscious.",
-  "**Behaviourism is abandoned; the rest is wide open.** About half of philosophers accept or lean towards physicalism."
- ],
- "footnotes": {
-  "wine": {
-   "kind": "digression",
-   "title": "The wine",
-   "text": "The case Koch handed over in 2023 was Madeira, from Portugal, chosen partly because it keeps for decades. Two theories of consciousness had been tested against each other in a large collaborative experiment, and the results, announced at the same meeting, supported neither cleanly."
-  },
-  "zombie": {
-   "kind": "technical",
-   "title": "Zombies",
-   "text": "Chalmers made the point with a philosophical zombie: a being physically identical to you, atom for atom, that behaves exactly as you do but has no experience at all. If such a being is even conceivable, he argued, experience is something over and above the physical facts. Physicalists reply that it only seems conceivable."
-  },
-  "ryle": {
-   "kind": "technical",
-   "title": "The ghost in the machine",
-   "text": "The British philosopher Gilbert Ryle, in The Concept of Mind (1949), mocked Descartes's view of the mind as \"the ghost in the machine\". His own view was close to behaviourism, though he did not accept the label. The phrase outlived the theory."
-  }
- }
 }

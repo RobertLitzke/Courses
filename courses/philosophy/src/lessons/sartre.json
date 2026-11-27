@@ -1,266 +1,266 @@
 {
- "id": "sartre",
- "n": 19,
- "title": "Are you condemned to be free?",
- "teaches": "Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism",
- "parts": [
-  {
-   "title": "The crowd at Club Maintenant",
-   "blocks": [
+  "id": "sartre",
+  "n": 19,
+  "title": "Are you condemned to be free?",
+  "teaches": "Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism",
+  "parts": [
     {
-     "type": "text",
-     "text": "On the evening of 29 October 1945, two months after the end of the war, a small club in Paris called Club Maintenant, \"Club Now\", had booked a lecture by a 40-year-old novelist and philosopher in a hall off the Champs-Élysées. Far more people came than the room could hold. The crowd blocked the street, the box office was overrun, chairs were broken, and, according to newspaper reports that may have improved the story, several people fainted.[^crowd] The speaker took a quarter of an hour to push his way to the front."
-    },
-    {
-     "type": "text",
-     "text": "Jean-Paul Sartre had spent part of the war as a prisoner in a German camp[^prisoner] and the rest in occupied Paris, writing in cafés. His novel *Nausea* (1938)[^nausea] and his long philosophical book *Being and Nothingness* (1943) had made his name, and the word existentialism, which he had at first refused, had become a fashion: the newspapers wrote about existentialist cafés, existentialist haircuts and existentialist jazz clubs. That evening he set out to explain, in plain terms, what it actually meant, and to answer critics on both the Catholic right and the Communist left who said it was a philosophy of despair. The lecture was published the next year as *Existentialism Is a Humanism*, and became the most widely read short introduction to the movement."
-    }
-   ]
-  },
-  {
-   "title": "Existence before essence",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Sartre began with a paper knife. Before a craftsman makes one, he has an idea of what it is for and how to make it: its purpose and nature, which philosophers call its **essence**, come before its existence. Traditional religion, he said, thought of human beings the same way, as made by God according to a plan, so that each person's nature and purpose were fixed before they were born. Many atheists of the 18th century had dropped God but kept the idea of a fixed human nature."
-    },
-    {
-     "type": "text",
-     "text": "Sartre dropped both. If there is no God, there is no plan for human beings, and so no human nature that comes first. \"Man first of all exists, encounters himself, surges up in the world, and defines himself afterwards.\" This is the slogan of existentialism: **existence precedes essence**. You are not born a coward, a hero, a good mother or a writer; you become one by what you do. \"Man is nothing else but what he makes of himself.\""
-    },
-    {
-     "type": "text",
-     "text": "This freedom is not a gift. \"Man is condemned to be free: condemned, because he did not create himself, yet nonetheless free, because once cast into the world, he is responsible for everything he does.\" There is no excuse to fall back on: not human nature, not your upbringing, not God's will, not your passions, which Sartre said you are responsible for too."
-    }
-   ]
-  },
-  {
-   "title": "The student's dilemma",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Sartre then told a story about one of his own students during the war. The young man's father had quarrelled with his mother and was inclined to collaborate with the Germans; his older brother had been killed in the German offensive of 1940. He lived alone with his mother, whose only consolation he was. He wanted to escape to England and join the Free French forces to fight. He came to Sartre for advice: should he go, or stay with his mother?"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Sartre's student, in 1942 or so. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "student",
-      "ask": "Should the young man leave his mother to fight with the Free French, or stay and look after her?",
-      "choices": [
-       "Go: the war against the occupation matters more",
-       "Stay: his duty to his mother comes first",
-       "No moral theory can settle it; he has to choose",
-       "Not sure"
-      ],
-      "who": [
-       "A utilitarian might agree, though Sartre pointed out that the young man's contribution might come to nothing, held in a camp in Spain on the way or put to filling in forms in an office.",
-       "A Kantian might agree, since his mother is a real person he would otherwise abandon; but the Free French are people too, and Kant gives no ranking.",
-       "You chose Sartre's answer.",
-       "Sartre would say you have still chosen, by not choosing, and must own that too."
+      "title": "The crowd at Club Maintenant",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On the evening of 29 October 1945, two months after the end of the war, a small club in Paris called Club Maintenant, \"Club Now\", had booked a lecture by a 40-year-old novelist and philosopher in a hall off the Champs-Élysées. Far more people came than the room could hold. The crowd blocked the street, the box office was overrun, chairs were broken, and, according to newspaper reports that may have improved the story, several people fainted.[^crowd] The speaker took a quarter of an hour to push his way to the front."
+        },
+        {
+          "type": "text",
+          "text": "Jean-Paul Sartre had spent part of the war as a prisoner in a German camp[^prisoner] and the rest in occupied Paris, writing in cafés. His novel *Nausea* (1938)[^nausea] and his long philosophical book *Being and Nothingness* (1943) had made his name, and the word existentialism, which he had at first refused, had become a fashion: the newspapers wrote about existentialist cafés, existentialist haircuts and existentialist jazz clubs. That evening he set out to explain, in plain terms, what it actually meant, and to answer critics on both the Catholic right and the Communist left who said it was a philosophy of despair. The lecture was published the next year as *Existentialism Is a Humanism*, and became the most widely read short introduction to the movement."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Sartre's answer was that no doctrine could decide for him. Christian ethics says love your neighbour, but which neighbour, the mother or the people he would fight for? Kant says never treat a person merely as a means, but either choice treats someone that way. Even advice is no escape, since in choosing whom to ask, he has already half-chosen the answer: he came to Sartre, not to a priest who supported the occupation. \"You are free, therefore choose, that is to say, invent.\""
-    },
-    {
-     "type": "text",
-     "text": "This is the source of what Sartre called **anguish**: the feeling of a person who knows they are choosing, with no rule to rely on, and who must accept the result. He illustrated it with Kierkegaard's Abraham from lesson 16. If a voice tells me to sacrifice my son, Sartre said, I must still decide whether it is an angel and whether I am Abraham; nothing outside me can decide it for me. Sartre called the related feeling **abandonment**: there is no God, and no fixed human nature, to tell us what to do."
-    }
-   ]
-  },
-  {
-   "title": "Bad faith",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Most people, Sartre thought, spend much of their lives fleeing this freedom. In *Being and Nothingness* he called the flight **bad faith**, *mauvaise foi*: lying to yourself about your own freedom, pretending you are a fixed thing whose actions follow from your nature or your role, as a stone's fall follows from its weight."
-    },
-    {
-     "type": "text",
-     "text": "His most famous example is a waiter in a Paris café. His movements are a little too precise, a little too quick; he bends forward a little too eagerly, balances his tray with a tightrope walker's recklessness, and carries himself like a machine. \"He is playing at being a waiter in a café.\" He is trying to be a waiter the way an inkwell is an inkwell, so that what he does follows from what he is. But he is not a waiter in that way. He is a free person who could walk out tomorrow, and his performance is a way of hiding that from himself."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Sartre's idea on six modern cases. Bad faith is denying your own freedom, or denying the facts of your situation.",
-     "task": "Sort all six",
-     "goal": "sorted",
-     "options": {
-      "ask": "Is this bad faith?",
-      "groups": [
-       {
-        "name": "Bad faith",
-        "color": "bad"
-       },
-       {
-        "name": "Not bad faith",
-        "color": "good"
-       }
-      ],
-      "items": [
-       {
-        "name": "\"I'm just not a maths person, so there's no point trying\"",
-        "group": "Bad faith",
-        "why": "Treating a choice as a fixed nature, as if you were an object with properties."
-       },
-       {
-        "name": "\"I followed company policy; it wasn't my decision\"",
-        "group": "Bad faith",
-        "why": "Hiding behind a role. Sartre would say you chose to follow the policy."
-       },
-       {
-        "name": "\"I've decided to give up the violin, though I could keep going\"",
-        "group": "Not bad faith",
-        "why": "An honest choice that owns its freedom."
-       },
-       {
-        "name": "\"I'm the kind of person who always loses my temper\"",
-        "group": "Bad faith",
-        "why": "Sartre held that we are responsible even for our passions."
-       },
-       {
-        "name": "\"I can't fly by flapping my arms\"",
-        "group": "Not bad faith",
-        "why": "Admitting a real fact of your situation is not bad faith. Denying such facts would be."
-       },
-       {
-        "name": "\"I'm a waiter for now, and I could leave if I chose\"",
-        "group": "Not bad faith",
-        "why": "Holding a role while knowing it is a role you have chosen."
-       }
+      "title": "Existence before essence",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Sartre began with a paper knife. Before a craftsman makes one, he has an idea of what it is for and how to make it: its purpose and nature, which philosophers call its **essence**, come before its existence. Traditional religion, he said, thought of human beings the same way, as made by God according to a plan, so that each person's nature and purpose were fixed before they were born. Many atheists of the 18th century had dropped God but kept the idea of a fixed human nature."
+        },
+        {
+          "type": "text",
+          "text": "Sartre dropped both. If there is no God, there is no plan for human beings, and so no human nature that comes first. \"Man first of all exists, encounters himself, surges up in the world, and defines himself afterwards.\" This is the slogan of existentialism: **existence precedes essence**. You are not born a coward, a hero, a good mother or a writer; you become one by what you do. \"Man is nothing else but what he makes of himself.\""
+        },
+        {
+          "type": "text",
+          "text": "This freedom is not a gift. \"Man is condemned to be free: condemned, because he did not create himself, yet nonetheless free, because once cast into the world, he is responsible for everything he does.\" There is no excuse to fall back on: not human nature, not your upbringing, not God's will, not your passions, which Sartre said you are responsible for too."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Not nihilism",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Sartre's critics said existentialism made everything arbitrary: if there are no values given in advance, anything goes. He answered that we choose for everyone. \"In choosing myself, I choose man.\" Every choice of how to act is also a picture of how a human being ought to act. A worker who joins a Christian trade union rather than a Communist one is saying, by his act, that resignation is the right response to this world, for anyone in his position. So each person bears the weight of the whole of humanity in their choices, which is another reason for anguish."
     },
     {
-     "type": "text",
-     "text": "This is why existentialism, as Sartre saw it, is a humanism: it puts human beings at the centre, as the only source of value in the world, and holds them fully responsible for it. It is not nihilism, the view in lesson 18 that nothing has value. For Sartre, values exist; we create them, by choosing, and once created they bind us. Critics reply that values we simply choose cannot bind anyone, including ourselves, and that \"invent\" is not an answer to the student. Lesson 21 sets Sartre beside Camus, who disagreed with him about almost everything except the starting point."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Bad faith is still argued over and widely used in moral psychology, in work on self-deception, and in everyday criticism of people who hide behind roles and rules. The idea that people are responsible for what they make of themselves, and that excuses such as \"that's just who I am\" are often evasions, has entered ordinary thinking."
-    },
-    {
-     "type": "text",
-     "text": "Existentialism as a movement is respected history; few philosophers now call themselves existentialists, though Sartre is still widely read. His view of radical freedom, that we are fully free whatever our situation, has been criticised since the 1940s as ignoring how much poverty, oppression and upbringing limit what people can do. One of the earliest and best-known critics was Simone de Beauvoir, his lifelong partner, in lesson 20. Sartre's political judgements are mostly abandoned: he defended the Soviet Union for years while playing down its labour camps, and in the 1970s supported French Maoist groups. He turned down the Nobel Prize for Literature in 1964, saying a writer should not let himself be turned into an institution.[^nobel] About 50,000 people followed his funeral procession through Paris in 1980."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on Sartre",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does Sartre mean by \"existence precedes essence\"?",
-        "choices": [
-         "Human beings exist first and define themselves by what they do",
-         "Every person is born with a nature that later develops",
-         "Things must exist before we can know what they are for",
-         "Nothing has an essence, including tools such as paper knives"
-        ],
-        "answer": 0,
-        "why": "A paper knife's purpose comes before it is made. A human being, with no maker, has no purpose given in advance."
-       },
-       {
-        "ask": "What was Sartre's answer to the student who asked whether to fight or stay with his mother?",
-        "choices": [
-         "No doctrine can decide it; he must choose and take responsibility",
-         "He should stay, since his duty to his mother is greater",
-         "He should go, since the war is more important",
-         "He should ask a priest, since Christian ethics can settle it"
-        ],
-        "answer": 0,
-        "why": "\"You are free, therefore choose, that is to say, invent.\" Even choosing whom to ask is already part of the choice."
-       },
-       {
-        "ask": "Why is the café waiter in bad faith?",
-        "choices": [
-         "He acts as though being a waiter were his fixed nature, hiding his freedom from himself",
-         "He is rude to customers while pretending to be polite",
-         "He secretly wants a different job and is lazy at this one",
-         "He pretends to be free when in fact his boss controls him"
-        ],
-        "answer": 0,
-        "why": "Playing at being a waiter, as an inkwell is an inkwell, is a way of fleeing the freedom to be otherwise."
-       },
-       {
-        "ask": "How did Sartre answer the charge that existentialism makes everything arbitrary?",
-        "choices": [
-         "In choosing for ourselves we choose for everyone, so each choice is a claim about how anyone should act",
-         "Values are given by human nature, so they are not arbitrary",
-         "God gives values, so they are binding even without belief",
-         "Values are arbitrary, but that does not matter"
-        ],
-        "answer": 0,
-        "why": "\"In choosing myself, I choose man.\" Each act is a picture of how a person ought to act."
-       },
-       {
-        "ask": "What was the main criticism of Sartre's radical freedom, made early and best known from Beauvoir?",
-        "choices": [
-         "It ignores how much a person's situation limits what they can do",
-         "It makes people too responsible for their passions",
-         "It depends on belief in God after all",
-         "It is the same as determinism under another name"
-        ],
-        "answer": 0,
-        "why": "A prisoner, a slave or a woman in 1940s France does not have the same open options as a Paris philosopher."
-       }
+      "title": "The student's dilemma",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Sartre then told a story about one of his own students during the war. The young man's father had quarrelled with his mother and was inclined to collaborate with the Germans; his older brother had been killed in the German offensive of 1940. He lived alone with his mother and was her only consolation. He wanted to escape to England and join the Free French forces to fight. He came to Sartre for advice: should he go, or stay with his mother?"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Sartre's student, in 1942 or so. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "student",
+            "ask": "Should the young man leave his mother to fight with the Free French, or stay and look after her?",
+            "choices": [
+              "Go: the war against the occupation matters more",
+              "Stay: his duty to his mother comes first",
+              "No moral theory can settle it; he has to choose",
+              "Not sure"
+            ],
+            "who": [
+              "A utilitarian might agree, though Sartre pointed out that the young man's contribution might come to nothing, held in a camp in Spain on the way or put to filling in forms in an office.",
+              "A Kantian might agree, since his mother is a real person he would otherwise abandon; but the Free French are people too, and Kant gives no ranking.",
+              "You chose Sartre's answer.",
+              "Sartre would say you have still chosen, by not choosing, and must own that too."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Sartre's answer was that no doctrine could decide for him. Christian ethics says love your neighbour, but which neighbour: his mother, or the people he would fight for? Kant says never treat a person merely as a means, but either choice treats someone that way. Even advice is no escape, since in choosing whom to ask, he has already half-chosen the answer: he came to Sartre, not to a priest who supported the occupation. \"You are free, therefore choose, that is to say, invent.\""
+        },
+        {
+          "type": "text",
+          "text": "This is the source of what Sartre called **anguish**: the feeling of a person who knows they are choosing, with no rule to rely on, and who must accept the result. He illustrated it with Kierkegaard's Abraham from lesson 16. If a voice tells me to sacrifice my son, Sartre said, I must still decide whether it is an angel and whether I am Abraham; nothing outside me can decide it for me. Sartre called the related feeling **abandonment**: there is no God, and no fixed human nature, to tell us what to do."
+        }
       ]
-     }
+    },
+    {
+      "title": "Bad faith",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most people, Sartre thought, spend much of their lives fleeing this freedom. In *Being and Nothingness* he called the flight **bad faith**, *mauvaise foi*: lying to yourself about your own freedom, pretending you are a fixed thing whose actions follow from your nature or your role, as a stone's fall follows from its weight."
+        },
+        {
+          "type": "text",
+          "text": "His most famous example is a waiter in a Paris café. The man's movements are a little too precise, a little too quick; he bends forward a little too eagerly, balances his tray with a tightrope walker's recklessness, and carries himself like a machine. \"He is playing at being a waiter in a café.\" He is trying to be a waiter the way an inkwell is an inkwell, so that what he does follows from what he is. But he is not a waiter in that way. He is a free person who could walk out tomorrow, and his performance is a way of hiding that from himself."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Sartre's idea on six modern cases. Bad faith is denying your own freedom, or denying the facts of your situation.",
+          "task": "Sort all six",
+          "goal": "sorted",
+          "options": {
+            "ask": "Is this bad faith?",
+            "groups": [
+              {
+                "name": "Bad faith",
+                "color": "bad"
+              },
+              {
+                "name": "Not bad faith",
+                "color": "good"
+              }
+            ],
+            "items": [
+              {
+                "name": "\"I'm just not a maths person, so there's no point trying\"",
+                "group": "Bad faith",
+                "why": "Treating a choice as a fixed nature, as if you were an object with properties."
+              },
+              {
+                "name": "\"I followed company policy; it wasn't my decision\"",
+                "group": "Bad faith",
+                "why": "Hiding behind a role. Sartre would say you chose to follow the policy."
+              },
+              {
+                "name": "\"I've decided to give up the violin, though I could keep going\"",
+                "group": "Not bad faith",
+                "why": "An honest choice that owns its freedom."
+              },
+              {
+                "name": "\"I'm the kind of person who always loses my temper\"",
+                "group": "Bad faith",
+                "why": "Sartre held that we are responsible even for our passions."
+              },
+              {
+                "name": "\"I can't fly by flapping my arms\"",
+                "group": "Not bad faith",
+                "why": "Admitting a real fact of your situation is not bad faith. Denying such facts would be."
+              },
+              {
+                "name": "\"I'm a waiter for now, and I could leave if I chose\"",
+                "group": "Not bad faith",
+                "why": "Holding a role while knowing it is a role you have chosen."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Not nihilism",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Sartre's critics said existentialism made everything arbitrary: if there are no values given in advance, anything goes. He answered that we choose for everyone. \"In choosing myself, I choose man.\" Every choice of how to act is also a picture of how a human being ought to act. A worker who joins a Christian trade union rather than a Communist one is saying, by his act, that resignation is the right response to this world, for anyone in his position. So each person bears the weight of the whole of humanity in their choices, which is another reason for anguish."
+        },
+        {
+          "type": "text",
+          "text": "This is why existentialism, as Sartre saw it, is a humanism: it puts human beings at the centre, as the only source of value in the world, and holds them fully responsible for it. It is not nihilism, the view in lesson 18 that nothing has value. For Sartre, values exist; we create them, by choosing, and once created they bind us. Critics reply that values we simply choose cannot bind anyone, including ourselves, and that \"invent\" is not an answer to the student. Lesson 21 sets Sartre beside Camus, who disagreed with him about almost everything except the starting point."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Bad faith is still argued over and widely used in moral psychology, in work on self-deception, and in everyday criticism of people who hide behind roles and rules. The idea that people are responsible for what they make of themselves, and that excuses such as \"that's just who I am\" are often evasions, has entered ordinary thinking."
+        },
+        {
+          "type": "text",
+          "text": "Existentialism as a movement is respected history; few philosophers now call themselves existentialists, though Sartre is still widely read. His view of radical freedom, that we are fully free whatever our situation, has been criticised since the 1940s as ignoring how much poverty, oppression and upbringing limit what people can do. One of the earliest and best-known critics was Simone de Beauvoir, his lifelong partner, in lesson 20. Sartre's political judgements are mostly abandoned: he defended the Soviet Union for years while playing down its labour camps, and in the 1970s supported French Maoist groups. He turned down the Nobel Prize for Literature in 1964, saying a writer should not let himself be turned into an institution.[^nobel] About 50,000 people followed his funeral procession through Paris in 1980."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Sartre",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does Sartre mean by \"existence precedes essence\"?",
+                "choices": [
+                  "Human beings exist first and define themselves by what they do",
+                  "Every person is born with a nature that later develops",
+                  "Things must exist before we can know what they are for",
+                  "Nothing has an essence, including tools such as paper knives"
+                ],
+                "answer": 0,
+                "why": "A paper knife's purpose comes before it is made. A human being, with no maker, has no purpose given in advance."
+              },
+              {
+                "ask": "What was Sartre's answer to the student who asked whether to fight or stay with his mother?",
+                "choices": [
+                  "No doctrine can decide it; he must choose and take responsibility",
+                  "He should stay, since his duty to his mother is greater",
+                  "He should go, since the war is more important",
+                  "He should ask a priest, since Christian ethics can settle it"
+                ],
+                "answer": 0,
+                "why": "\"You are free, therefore choose, that is to say, invent.\" Even choosing whom to ask is already part of the choice."
+              },
+              {
+                "ask": "Why is the café waiter in bad faith?",
+                "choices": [
+                  "He acts as though being a waiter were his fixed nature, hiding his freedom from himself",
+                  "He is rude to customers while pretending to be polite",
+                  "He secretly wants a different job and is lazy at this one",
+                  "He pretends to be free when in fact his boss controls him"
+                ],
+                "answer": 0,
+                "why": "Playing at being a waiter, as an inkwell is an inkwell, is a way of fleeing the freedom to be otherwise."
+              },
+              {
+                "ask": "How did Sartre answer the charge that existentialism makes everything arbitrary?",
+                "choices": [
+                  "In choosing for ourselves we choose for everyone, so each choice is a claim about how anyone should act",
+                  "Values are given by human nature, so they are not arbitrary",
+                  "God gives values, so they are binding even without belief",
+                  "Values are arbitrary, but that does not matter"
+                ],
+                "answer": 0,
+                "why": "\"In choosing myself, I choose man.\" Each act is a picture of how a person ought to act."
+              },
+              {
+                "ask": "What was the main criticism of Sartre's radical freedom, made early and best known from Beauvoir?",
+                "choices": [
+                  "It ignores how much a person's situation limits what they can do",
+                  "It makes people too responsible for their passions",
+                  "It depends on belief in God after all",
+                  "It is the same as determinism under another name"
+                ],
+                "answer": 0,
+                "why": "A prisoner, a slave or a woman in 1940s France does not have the same open options as a Paris philosopher."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Sartre's 1945 lecture drew a crowd far bigger than the room.** Existentialism Is a Humanism became the movement's best-known short text.",
+    "**Existence precedes essence.** Human beings have no nature given in advance; we define ourselves by what we do.",
+    "**We are condemned to be free.** We did not choose to exist, but once here we are responsible for everything we do.",
+    "**No doctrine can make the student's choice for him.** \"You are free, therefore choose, that is to say, invent.\"",
+    "**Anguish is the feeling of choosing with no rule to rely on.** Sartre borrowed Kierkegaard's Abraham to show it.",
+    "**Bad faith is lying to yourself about your freedom.** The café waiter plays at being a waiter as if it were his nature.",
+    "**In choosing for myself I choose for everyone.** Sartre's answer to the charge that existentialism is nihilism.",
+    "**Radical freedom ignores circumstance.** Beauvoir made the best-known early criticism."
+  ],
+  "footnotes": {
+    "crowd": {
+      "kind": "technical",
+      "title": "How big was the crowd?",
+      "text": "The fainting and broken chairs come from newspaper accounts that liked the story of a philosopher mobbed like a film star. The hall was small, and historians think the scene was more modest than the legend. Sartre himself was unhappy with the published lecture and later called it a mistake to have let it be printed."
+    },
+    "nobel": {
+      "kind": "digression",
+      "title": "The refused prize",
+      "text": "Sartre had written to the Swedish Academy in advance asking not to be chosen, but the letter arrived too late. He refused all official honours, he said, so that his readers would not be influenced by an institution's stamp."
+    },
+    "prisoner": {
+      "kind": "digression",
+      "title": "Stalag XII-D",
+      "text": "Sartre was captured in June 1940 while serving as a weather observer in the army, and spent about nine months as a prisoner, most of them in a camp at Trier, where he wrote and staged a Christmas play for his fellow prisoners. He was released in 1941, possibly by pretending to be a civilian with poor eyesight, which he had."
+    },
+    "nausea": {
+      "kind": "digression",
+      "title": "Nausea",
+      "text": "In Sartre's first novel the narrator, Antoine Roquentin, is overcome by the sight of a chestnut tree's root, which seems to him simply to exist, too much, with no reason to be there. The novel captures the feeling that his later philosophy tried to explain."
+    }
   }
- ],
- "summary": [
-  "**Sartre's 1945 lecture drew a crowd far bigger than the room.** Existentialism Is a Humanism became the movement's best-known short text.",
-  "**Existence precedes essence.** Human beings have no nature given in advance; we define ourselves by what we do.",
-  "**We are condemned to be free.** We did not choose to exist, but once here we are responsible for everything we do.",
-  "**No doctrine can make the student's choice for him.** \"You are free, therefore choose, that is to say, invent.\"",
-  "**Anguish is the feeling of choosing with no rule to rely on.** Sartre borrowed Kierkegaard's Abraham to show it.",
-  "**Bad faith is lying to yourself about your freedom.** The café waiter plays at being a waiter as if it were his nature.",
-  "**In choosing for myself I choose for everyone.** Sartre's answer to the charge that existentialism is nihilism.",
-  "**Radical freedom ignores circumstance.** Beauvoir made the best-known early criticism."
- ],
- "footnotes": {
-  "crowd": {
-   "kind": "technical",
-   "title": "How big was the crowd?",
-   "text": "The fainting and broken chairs come from newspaper accounts that liked the story of a philosopher mobbed like a film star. The hall was small, and historians think the scene was more modest than the legend. Sartre himself was unhappy with the published lecture and later called it a mistake to have let it be printed."
-  },
-  "nobel": {
-   "kind": "digression",
-   "title": "The refused prize",
-   "text": "Sartre had written to the Swedish Academy in advance asking not to be chosen, but the letter arrived too late. He refused all official honours, he said, so that his readers would not be influenced by an institution's stamp."
-  },
-  "prisoner": {
-   "kind": "digression",
-   "title": "Stalag XII-D",
-   "text": "Sartre was captured in June 1940 while serving as a weather observer in the army, and spent about nine months as a prisoner, most of them in a camp at Trier, where he wrote and staged a Christmas play for his fellow prisoners. He was released in 1941, possibly by pretending to be a civilian with poor eyesight, which he had."
-  },
-  "nausea": {
-   "kind": "digression",
-   "title": "Nausea",
-   "text": "In Sartre's first novel the narrator, Antoine Roquentin, is overcome by the sight of a chestnut tree's root, which seems to him simply to exist, too much, with no reason to be there. The novel is the feeling behind the philosophy."
-  }
- }
 }

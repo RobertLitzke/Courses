@@ -1,310 +1,310 @@
 {
- "id": "kant",
- "n": 15,
- "title": "Can you lie to a murderer at the door?",
- "teaches": "Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume",
- "parts": [
-  {
-   "title": "Two years of lies",
-   "blocks": [
+  "id": "kant",
+  "n": 15,
+  "title": "Can you lie to a murderer at the door?",
+  "teaches": "Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume",
+  "parts": [
     {
-     "type": "text",
-     "text": "On 6 July 1942 Otto Frank, a businessman in Amsterdam, moved his wife and two daughters into a set of rooms at the back of his company's building, whose door was soon hidden behind a bookcase, on the Prinsengracht canal. Four more people joined them. For more than two years a few of his employees kept them alive. One of them, Miep Gies, bought their food with illegally obtained ration cards, brought them news and books, and lied to German officials, Dutch police and neighbours whenever she had to. On 4 August 1944 the hiding place was raided. Seven of the eight people in it died in the camps. Miep Gies gathered up the diary of the younger daughter, Anne, from the floor and kept it unread until the war was over.[^gies]"
-    },
-    {
-     "type": "text",
-     "text": "Almost everyone who hears this story thinks Miep Gies did right, and that her lies were part of what she did right. Yet one of the greatest moral philosophers in history argued that lying is always wrong, even to a murderer asking where his victim is hiding. In this lesson we look at why Immanuel Kant thought so, why most of his followers disagree with him on this point, and what of his ethics survives the disagreement."
-    }
-   ]
-  },
-  {
-   "title": "A life by the clock",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Kant was born in 1724 in Königsberg, a port on the Baltic in East Prussia, now Kaliningrad in Russia, and spent almost his whole life there. He was the son of a harness maker, taught at the university for decades, and was famous for the regularity of his habits; the story that his neighbours set their clocks by his afternoon walk is told of him, probably with some exaggeration.[^walk] In his late fifties and early sixties he published, in quick succession, the books that made him the most influential philosopher of modern times: the *Critique of Pure Reason* in 1781, and in 1785 a short book on ethics, the *Groundwork of the Metaphysics of Morals*."
-    },
-    {
-     "type": "text",
-     "text": "Kant said it was David Hume who \"interrupted my dogmatic slumber\".[^slumber] Hume's argument in lesson 14, that reason cannot show that one thing must follow another, seemed to Kant to threaten all of science. His answer, set out at the end of this lesson, was one of the boldest moves in philosophy. But his ethics starts from a different question: what makes an action morally good at all."
-    }
-   ]
-  },
-  {
-   "title": "Acting from duty",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Kant's answer was that an action's moral worth does not lie in its results, which are often outside our control, but in the principle the person acted on. Consider a shopkeeper who never cheats children, because word would get around and hurt his business. He does the right thing, but for a selfish reason. Kant thought such an action deserves no moral credit. An action has moral worth only when it is done because it is right: from **duty**, as Kant put it, and not merely in line with it."
-    },
-    {
-     "type": "text",
-     "text": "To act from duty is to follow a rule you give yourself by reason. Kant distinguished two kinds of command. A **hypothetical imperative** says what to do if you want something: if you want to be trusted, keep your promises. It binds you only as long as you want the goal. A **categorical imperative** commands without any if: keep your promises. Kant thought morality must be categorical, binding every rational being whatever they happen to want, and that it rests on one supreme principle, which he called *the* categorical imperative."
-    },
-    {
-     "type": "text",
-     "text": "He gave it in several forms, which he thought came to the same thing. The first: \"Act only according to that maxim through which you can at the same time will that it become a universal law.\" A maxim is the personal rule behind an action, such as \"I will borrow money by promising to repay it, though I know I will not.\" To test it, imagine everyone acted on it, and ask whether you could still act on it in that world, and whether you could want that world to exist."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Kant's test on six maxims. Two are his own examples from the Groundwork.",
-     "task": "Sort all six",
-     "goal": "sorted",
-     "options": {
-      "ask": "Could you will this maxim as a law for everyone?",
-      "groups": [
-       {
-        "name": "Passes the test",
-        "color": "good"
-       },
-       {
-        "name": "Fails the test",
-        "color": "bad"
-       }
-      ],
-      "items": [
-       {
-        "name": "Borrow money with a promise to repay that I know I will break",
-        "group": "Fails the test",
-        "why": "Kant's own example. If everyone did it, no one would accept a promise to repay, so the maxim could not even be acted on."
-       },
-       {
-        "name": "Never help anyone in need, though I could easily do so",
-        "group": "Fails the test",
-        "why": "Kant's own example. Such a world could exist, but you could not want it, since you will one day need help yourself."
-       },
-       {
-        "name": "Keep my promises even when breaking one would be convenient",
-        "group": "Passes the test",
-        "why": "A world where everyone keeps promises is one in which promising works better, not worse."
-       },
-       {
-        "name": "Cheat on exams whenever I am sure I will not be caught",
-        "group": "Fails the test",
-        "why": "If everyone did, exams would measure nothing, and cheating on them would gain you nothing."
-       },
-       {
-        "name": "Take a turn doing the washing up in a shared house",
-        "group": "Passes the test",
-        "why": "Everyone doing it is exactly what makes a shared house work."
-       },
-       {
-        "name": "Skip the queue when I am in a hurry",
-        "group": "Fails the test",
-        "why": "If everyone did, there would be no queue to skip."
-       }
+      "title": "Two years of lies",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On 6 July 1942 Otto Frank, a businessman in Amsterdam, moved his wife and two daughters into a set of rooms at the back of his company's building on the Prinsengracht canal, behind a door soon hidden by a bookcase. Four more people joined them. For more than two years a few of his employees kept them alive. One of them, Miep Gies, bought their food with illegally obtained ration cards, brought them news and books, and lied to German officials, Dutch police and neighbours whenever she had to. On 4 August 1944 the hiding place was raided. Seven of the eight people in it died in the camps. Miep Gies gathered up the diary of the younger daughter, Anne, from the floor and kept it unread until the war was over.[^gies]"
+        },
+        {
+          "type": "text",
+          "text": "Almost everyone who hears this story thinks Miep Gies did right, and that her lies were part of what she did right. Yet Immanuel Kant, one of the greatest moral philosophers in history, argued that lying is always wrong, even to a murderer asking where his victim is hiding. Most of his followers today disagree with him on that point, though they keep the rest of his ethics."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Kant's second formula is the one most people find easier to use: \"So act that you use humanity, whether in your own person or in the person of any other, always at the same time as an end, never merely as a means.\" Using people is unavoidable; you use a bus driver to get to work. What is forbidden is using someone merely as a means, in a way they could not agree to, as when you deceive or coerce them. Every person has a dignity, Kant said, which is beyond price."
-    }
-   ]
-  },
-  {
-   "title": "The murderer at the door",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1797 the French-Swiss writer Benjamin Constant, a liberal politician, published an essay arguing that moral principles applied without exception make social life impossible. His example was a German philosopher, he did not name him, who had gone so far as to say that it would be a crime to lie to a murderer who asked whether our friend, whom he was pursuing, had taken refuge in our house. Kant recognised himself and replied within months, in a short essay titled *On a Supposed Right to Lie from Philanthropy*."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "dialogue",
-     "caption": "Constant and Kant, 1797, shortened from their essays. At each turn pick Kant's reply. His real answers are among the choices.",
-     "task": "Read the exchange to the end",
-     "goal": "end",
-     "options": {
-      "a": "Constant",
-      "b": "Kant",
-      "open": "To tell the truth is a duty, but only towards those who have a right to the truth. A murderer hunting your friend has no right to it. Surely you may lie to him.",
-      "turns": [
-       {
-        "replies": [
-         {
-          "say": "Truthfulness in statements that cannot be avoided is a formal duty to everyone, however great the harm. A lie always harms humanity in general, for it makes the source of right useless.",
-          "answer": "Then a principle meant to protect people would hand your friend to his killer."
-         },
-         {
-          "say": "You are right. In such a case the duty to save a life outweighs the duty to tell the truth.",
-          "answer": "Then we agree, and I have misread you. But your Groundwork seems to allow no exceptions."
-         }
-        ],
-        "then": "And if you tell the truth, and the murderer finds your friend and kills him, is that not partly your fault?"
-       },
-       {
-        "replies": [
-         {
-          "say": "If you lie, and your friend has meanwhile slipped out of the house, and the murderer meets him because of your lie, you are responsible for the death. If you tell the truth, what follows is not your doing.",
-          "answer": "So you would rather keep your own hands clean than save him."
-         },
-         {
-          "say": "The fault is the murderer's alone. And I never said you must answer him; you may refuse to say anything at all.",
-          "answer": "Silence would tell him where to look. But at least you do not require me to point the way."
-         }
-        ]
-       }
-      ],
-      "end": "Kant did not move. Most of his followers since have thought he was wrong about this case, and that his own principles do not require the answer he gave."
-     }
-    },
-    {
-     "type": "text",
-     "text": "Kant's reasoning has two parts. The first is that a lie, even to a murderer, damages trust in what people say, on which every agreement and every right depends. The second is about consequences, odd in a philosopher who usually ignored them: you cannot know what a lie will cause, and if it causes harm, the harm is yours, while if the truth causes harm, it is the murderer's."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Kant's case, and Miep Gies's. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "murderer",
-      "ask": "A man with a knife asks where your friend is hiding. You know. Is it wrong to lie to him?",
-      "choices": [
-       "No: lying to him is the right thing to do",
-       "Yes: lying is always wrong, though you may refuse to answer",
-       "Yes, it is still wrong, but the lesser wrong here",
-       "Not sure"
-      ],
-      "who": [
-       "You chose what almost everyone, including most Kantians, thinks. The question is whether Kant's theory can agree with you.",
-       "You chose Kant's own answer, with the escape route some readers find in his essay.",
-       "You chose a view called moral dilemma or moral remainder: every option does some wrong, and you should feel it even when you choose rightly.",
-       "Kant's essay has puzzled his admirers for more than two centuries."
+      "title": "A life by the clock",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Kant was born in 1724 in Königsberg, a port on the Baltic in East Prussia, now Kaliningrad in Russia, and spent almost his whole life there. He was the son of a harness maker, taught at the university for decades, and was famous for the regularity of his habits; his neighbours are said to have set their clocks by his afternoon walk, though the story is probably exaggerated.[^walk] In his late fifties and early sixties he published, in quick succession, the books that made him the most influential philosopher of modern times: the *Critique of Pure Reason* in 1781, and in 1785 a short book on ethics, the *Groundwork of the Metaphysics of Morals*."
+        },
+        {
+          "type": "text",
+          "text": "Kant said it was David Hume who \"interrupted my dogmatic slumber\".[^slumber] Hume's argument in lesson 14, that reason cannot show that one thing must follow another, seemed to Kant to threaten all of science. His answer, set out at the end of this lesson, was one of the boldest moves in philosophy. But his ethics starts from a different question: what makes an action morally good at all."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Most modern Kantians think Kant misapplied his own theory. In 1986 the American philosopher Christine Korsgaard argued that the murderer is himself acting on a maxim of deception, since he hides his purpose to get the information, and that a maxim of lying to such a deceiver passes the universal law test without defeating itself. She granted that the humanity formula seems to forbid every lie, and argued that in the face of evil the universal law formula is the guide to follow. Others point out that a maxim can be stated more precisely, \"lie when that is the only way to save an innocent person from a murderer\", and that such a maxim could easily be willed as a universal law. On either reading, Miep Gies acted as a Kantian might."
-    }
-   ]
-  },
-  {
-   "title": "Kant's answer to Hume",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Kant's reply to Hume, in the *Critique of Pure Reason*, turned the question around. Hume had assumed that the mind passively receives impressions from the world and then tries to find order in them. Kant proposed that the mind actively shapes experience. Space, time and cause and effect are not things we learn about from experience; they are the forms in which the mind must arrange anything it experiences at all, as a pair of tinted glasses colours everything seen through them. So we can know in advance, without induction, that every event we will ever experience will be in space and time and will have a cause."
-    },
-    {
-     "type": "text",
-     "text": "Kant compared this to Copernicus, who explained the movements of the heavens by supposing that the observer moves, not the stars. The price was steep. If space, time and cause are the mind's forms, then we know the world only as it appears to us, never as it is in itself, apart from our minds. Kant called the world in itself the *noumenon* and held that we can think about it but never know it."
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Deontology, the family of views led by Kant's that some actions are right or wrong in themselves and not only by their results, is still argued over and is one of the three main camps in ethics, held by about a third of philosophers in the 2020 survey alongside virtue ethics (lesson 4) and consequentialism (lesson 17). The humanity formula is its most influential part, and the idea of human dignity it expresses runs through modern human rights law and medical ethics, where informed consent is required so that patients are not used merely as means."
-    },
-    {
-     "type": "text",
-     "text": "A common picture of Kant as a rule-following robot who cared nothing for feelings or circumstances is a caricature; his ethics is about reason and freedom, and his later work on virtue gives a large role to character and love of others. But his absolute ban on lying, even to the murderer, is rejected by most Kantians and is respected history at best. Some of his other views are abandoned: his claim that space must be Euclidean, overturned by non-Euclidean geometry and by Einstein's general relativity, and his writings ranking human races, which Kantian philosophers now discuss as a failure to apply his own principle of equal dignity.[^race]"
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on Kant",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "A shopkeeper gives correct change only to protect his reputation. What would Kant say about the act?",
-        "choices": [
-         "It is right, but has no moral worth, since it is not done from duty",
-         "It is wrong, since it is done for a selfish reason",
-         "It has full moral worth, since the result is good",
-         "It is neither right nor wrong, since no one was harmed"
-        ],
-        "answer": 0,
-        "why": "Acting in line with duty is not the same as acting from duty. Only the second earns moral worth."
-       },
-       {
-        "ask": "Which is a categorical imperative?",
-        "choices": [
-         "Do not break your promises",
-         "If you want to be trusted, keep your promises",
-         "If you want to pass, revise every evening",
-         "If you want to stay healthy, avoid smoking"
-        ],
-        "answer": 0,
-        "why": "A categorical imperative commands without any condition about what you happen to want."
-       },
-       {
-        "ask": "Why does the maxim of a false promise fail Kant's universal law test?",
-        "choices": [
-         "If everyone made false promises, no one would accept a promise, so the maxim could not be acted on",
-         "False promises usually cause more harm than good",
-         "Someone who makes a false promise will probably be caught",
-         "The Bible forbids lying, and Kant accepted it as an authority"
-        ],
-        "answer": 0,
-        "why": "The test is not about results. Universalised, the maxim defeats itself, since promising would no longer work."
-       },
-       {
-        "ask": "What does it mean to use someone merely as a means?",
-        "choices": [
-         "To treat them in a way they could not agree to, as by deceiving or forcing them",
-         "To ask them for any kind of help or service",
-         "To pay them for their work",
-         "To benefit from what they do without thanking them"
-        ],
-        "answer": 0,
-        "why": "Using a bus driver to get to work is fine; deceiving or coercing someone treats their reason as if it did not count."
-       },
-       {
-        "ask": "How do many modern Kantians answer the murderer at the door?",
-        "choices": [
-         "The murderer is himself deceiving, so the universal law formula allows the lie",
-         "Kant was right: lying to him is wrong whatever happens",
-         "Kant's ethics should be given up, since it fails this case",
-         "Consequences decide the case, so Kantianism does not apply"
-        ],
-        "answer": 0,
-        "why": "Korsgaard argues that a maxim of lying to someone who deceives you in order to do evil passes the universal law test; others say a more precise maxim passes."
-       }
+      "title": "Acting from duty",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Kant's answer was that an action's moral worth does not lie in its results, which are often outside our control, but in the principle the person acted on. Consider a shopkeeper who never cheats children, because word would get around and hurt his business. He does the right thing, but for a selfish reason. Kant thought such an action deserves no moral credit. An action has moral worth only when it is done because it is right: from **duty**, as Kant put it, and not merely in line with it."
+        },
+        {
+          "type": "text",
+          "text": "To act from duty is to follow a rule you give yourself by reason. Kant distinguished two kinds of command. A **hypothetical imperative** says what to do if you want something: if you want to be trusted, keep your promises. It binds you only as long as you want the goal. A **categorical imperative** commands without any 'if': keep your promises. Kant thought morality must be categorical, binding every rational being whatever they happen to want, and that it rests on one supreme principle, which he called *the* categorical imperative."
+        },
+        {
+          "type": "text",
+          "text": "He gave it in several forms, which he thought came to the same thing. The first: \"Act only according to that maxim through which you can at the same time will that it become a universal law.\" A maxim is the personal rule behind an action, such as \"I will borrow money by promising to repay it, though I know I will not.\" To test it, imagine everyone acted on it. Ask whether you could still act on it in that world, and whether you could want that world to exist."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Kant's test on six maxims. Two are his own examples from the Groundwork.",
+          "task": "Sort all six",
+          "goal": "sorted",
+          "options": {
+            "ask": "Could you will this maxim as a law for everyone?",
+            "groups": [
+              {
+                "name": "Passes the test",
+                "color": "good"
+              },
+              {
+                "name": "Fails the test",
+                "color": "bad"
+              }
+            ],
+            "items": [
+              {
+                "name": "Borrow money with a promise to repay that I know I will break",
+                "group": "Fails the test",
+                "why": "Kant's own example. If everyone did it, no one would accept a promise to repay, so the maxim could not even be acted on."
+              },
+              {
+                "name": "Never help anyone in need, though I could easily do so",
+                "group": "Fails the test",
+                "why": "Kant's own example. Such a world could exist, but you could not want it, since you will one day need help yourself."
+              },
+              {
+                "name": "Keep my promises even when breaking one would be convenient",
+                "group": "Passes the test",
+                "why": "A world where everyone keeps promises is one in which promising works better, not worse."
+              },
+              {
+                "name": "Cheat on exams whenever I am sure I will not be caught",
+                "group": "Fails the test",
+                "why": "If everyone did, exams would measure nothing, and cheating on them would gain you nothing."
+              },
+              {
+                "name": "Take a turn doing the washing up in a shared house",
+                "group": "Passes the test",
+                "why": "Everyone doing it is exactly what makes a shared house work."
+              },
+              {
+                "name": "Skip the queue when I am in a hurry",
+                "group": "Fails the test",
+                "why": "If everyone did, there would be no queue to skip."
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Kant's second formula is the one most people find easier to use: \"So act that you use humanity, whether in your own person or in the person of any other, always at the same time as an end, never merely as a means.\" Using people is unavoidable; you use a bus driver to get to work. What is forbidden is using someone merely as a means, in a way they could not agree to, as when you deceive or coerce them. Every person has a dignity, Kant said, which is beyond price."
+        }
       ]
-     }
+    },
+    {
+      "title": "The murderer at the door",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1797 the French-Swiss writer Benjamin Constant, a liberal politician, published an essay arguing that moral principles applied without exception make social life impossible. His example was a German philosopher (he did not name him) who had gone so far as to say that it would be a crime to lie to a murderer who asked whether our friend, whom he was pursuing, had taken refuge in our house. Kant recognised himself and replied within months, in a short essay titled *On a Supposed Right to Lie from Philanthropy*."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "dialogue",
+          "caption": "Constant and Kant, 1797, shortened from their essays. At each turn pick Kant's reply. His real answers are among the choices.",
+          "task": "Read the exchange to the end",
+          "goal": "end",
+          "options": {
+            "a": "Constant",
+            "b": "Kant",
+            "open": "To tell the truth is a duty, but only towards those who have a right to the truth. A murderer hunting your friend has no right to it. Surely you may lie to him.",
+            "turns": [
+              {
+                "replies": [
+                  {
+                    "say": "Truthfulness in statements that cannot be avoided is a formal duty to everyone, however great the harm. A lie always harms humanity in general, for it makes the source of right useless.",
+                    "answer": "Then a principle meant to protect people would hand your friend to his killer."
+                  },
+                  {
+                    "say": "You are right. In such a case the duty to save a life outweighs the duty to tell the truth.",
+                    "answer": "Then we agree, and I have misread you. But your Groundwork seems to allow no exceptions."
+                  }
+                ],
+                "then": "And if you tell the truth, and the murderer finds your friend and kills him, is that not partly your fault?"
+              },
+              {
+                "replies": [
+                  {
+                    "say": "If you lie, and your friend has meanwhile slipped out of the house, and the murderer meets him because of your lie, you are responsible for the death. If you tell the truth, what follows is not your doing.",
+                    "answer": "So you would rather keep your own hands clean than save him."
+                  },
+                  {
+                    "say": "The fault is the murderer's alone. And I never said you must answer him; you may refuse to say anything at all.",
+                    "answer": "Silence would tell him where to look. But at least you do not require me to point the way."
+                  }
+                ]
+              }
+            ],
+            "end": "Kant did not move. Most of his followers since have thought he was wrong about this case, and that his own principles do not require the answer he gave."
+          }
+        },
+        {
+          "type": "text",
+          "text": "Kant's reasoning has two parts. The first is that a lie, even to a murderer, damages trust in what people say, on which every agreement and every right depends. The second is about consequences, odd in a philosopher who usually ignored them: you cannot know what a lie will cause, and if it causes harm, the harm is yours, while if the truth causes harm, it is the murderer's."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Kant's case, and Miep Gies's. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "murderer",
+            "ask": "A man with a knife asks where your friend is hiding. You know. Is it wrong to lie to him?",
+            "choices": [
+              "No: lying to him is the right thing to do",
+              "Yes: lying is always wrong, though you may refuse to answer",
+              "Yes, it is still wrong, but the lesser wrong here",
+              "Not sure"
+            ],
+            "who": [
+              "You chose what almost everyone, including most Kantians, thinks. The question is whether Kant's theory can agree with you.",
+              "You chose Kant's own answer, with the escape route some readers find in his essay.",
+              "You chose a view called moral dilemma or moral remainder: every option does some wrong, and you should feel it even when you choose rightly.",
+              "Kant's essay has puzzled his admirers for more than two centuries."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Most modern Kantians think Kant misapplied his own theory. In 1986 the American philosopher Christine Korsgaard argued that the murderer is himself acting on a maxim of deception, since he hides his purpose to get the information, and that a maxim of lying to such a deceiver passes the universal law test without defeating itself. She granted that the humanity formula seems to forbid every lie, and argued that in the face of evil the universal law formula is the guide to follow. Others point out that a maxim can be stated more precisely, \"lie when that is the only way to save an innocent person from a murderer\", and that such a maxim could easily be willed as a universal law. On either reading, Miep Gies acted as a Kantian might."
+        }
+      ]
+    },
+    {
+      "title": "Kant's answer to Hume",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Kant's reply to Hume, in the *Critique of Pure Reason*, turned the question around. Hume had assumed that the mind passively receives impressions from the world and then tries to find order in them. Kant proposed that the mind actively shapes experience. Space, time and cause and effect are not things we learn about from experience; they are the forms in which the mind must arrange anything it experiences at all, as a pair of tinted glasses colours everything seen through them. So we can know in advance, without induction, that every event we will ever experience will be in space and time and will have a cause."
+        },
+        {
+          "type": "text",
+          "text": "Kant compared this to Copernicus, who explained the movements of the heavens by supposing that the observer moves, not the stars. The price was steep. If space, time and cause are the mind's forms, then we know the world only as it appears to us, never as it is in itself, apart from our minds. Kant called the world in itself the *noumenon* and held that we can think about it but never know it."
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Deontology, the family of views led by Kant's that some actions are right or wrong in themselves and not only by their results, is still argued over and is one of the three main camps in ethics, held by about a third of philosophers in the 2020 survey alongside virtue ethics (lesson 4) and consequentialism (lesson 17). The humanity formula is its most influential part, and the idea of human dignity it expresses runs through modern human rights law and medical ethics, where informed consent is required so that patients are not used merely as means."
+        },
+        {
+          "type": "text",
+          "text": "A common picture of Kant as a rule-following robot who cared nothing for feelings or circumstances is a caricature; his ethics is about reason and freedom, and his later work on virtue gives a large role to character and love of others. But his absolute ban on lying, even to the murderer, is rejected by most Kantians and is respected history at best. Some of his other views are abandoned: his claim that space must be Euclidean, overturned by non-Euclidean geometry and by Einstein's general relativity, and his writings ranking human races, which Kantian philosophers now discuss as a failure to apply his own principle of equal dignity.[^race]"
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Kant",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A shopkeeper gives correct change only to protect his reputation. What would Kant say about the act?",
+                "choices": [
+                  "It is right, but has no moral worth, since it is not done from duty",
+                  "It is wrong, since it is done for a selfish reason",
+                  "It has full moral worth, since the result is good",
+                  "It is neither right nor wrong, since no one was harmed"
+                ],
+                "answer": 0,
+                "why": "Acting in line with duty is not the same as acting from duty. Only the second earns moral worth."
+              },
+              {
+                "ask": "Which is a categorical imperative?",
+                "choices": [
+                  "Do not break your promises",
+                  "If you want to be trusted, keep your promises",
+                  "If you want to pass, revise every evening",
+                  "If you want to stay healthy, avoid smoking"
+                ],
+                "answer": 0,
+                "why": "A categorical imperative commands without any condition about what you happen to want."
+              },
+              {
+                "ask": "Why does the maxim of a false promise fail Kant's universal law test?",
+                "choices": [
+                  "If everyone made false promises, no one would accept a promise, so the maxim could not be acted on",
+                  "False promises usually cause more harm than good",
+                  "Someone who makes a false promise will probably be caught",
+                  "The Bible forbids lying, and Kant accepted it as an authority"
+                ],
+                "answer": 0,
+                "why": "The test is not about results. Universalised, the maxim defeats itself, since promising would no longer work."
+              },
+              {
+                "ask": "What does it mean to use someone merely as a means?",
+                "choices": [
+                  "To treat them in a way they could not agree to, as by deceiving or forcing them",
+                  "To ask them for any kind of help or service",
+                  "To pay them for their work",
+                  "To benefit from what they do without thanking them"
+                ],
+                "answer": 0,
+                "why": "Using a bus driver to get to work is fine; deceiving or coercing someone treats their reason as if it did not count."
+              },
+              {
+                "ask": "How do many modern Kantians answer the murderer at the door?",
+                "choices": [
+                  "The murderer is himself deceiving, so the universal law formula allows the lie",
+                  "Kant was right: lying to him is wrong whatever happens",
+                  "Kant's ethics should be given up, since it fails this case",
+                  "Consequences decide the case, so Kantianism does not apply"
+                ],
+                "answer": 0,
+                "why": "Korsgaard argues that a maxim of lying to someone who deceives you in order to do evil passes the universal law test; others say a more precise maxim passes."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Miep Gies lied for two years to hide the Frank family.** Almost everyone thinks she was right, which Kant's absolute ban on lying cannot easily allow.",
+    "**Moral worth comes from acting from duty.** An act done only for gain may be right but earns no moral credit.",
+    "**The categorical imperative commands without conditions.** Act only on a maxim you could will as a universal law.",
+    "**A maxim that defeats itself when universalised is forbidden.** A world of false promises is one in which no one accepts a promise.",
+    "**Treat people never merely as means.** Deceiving or coercing someone treats their reason as if it did not count.",
+    "**Kant told Constant you may not lie even to a murderer.** Most Kantians since think he misapplied his own theory.",
+    "**Kant answered Hume by making the mind shape experience.** Space, time and cause are forms the mind imposes, so we know the world only as it appears.",
+    "**Deontology is one of the three main camps in ethics.** About a third of philosophers lean towards it, and its idea of dignity runs through human rights law."
+  ],
+  "footnotes": {
+    "gies": {
+      "kind": "technical",
+      "title": "Miep Gies",
+      "text": "Hermine Santrouschitz, called Miep, was born in Vienna in 1909 and sent to the Netherlands as a malnourished child after the First World War. She died in 2010, aged 100, and always refused to be called a hero, saying that she had simply done what was necessary."
+    },
+    "race": {
+      "kind": "technical",
+      "title": "Kant on race",
+      "text": "In lectures and essays from 1775 onward Kant set out a theory of human races and ranked them, placing white Europeans at the top. Some scholars argue that he changed his views in the 1790s; others that he never did. Either way, his own principle that every person has equal dignity condemns what he wrote."
+    },
+    "walk": {
+      "kind": "digression",
+      "title": "The walk",
+      "text": "The story usually told is that Kant missed his walk only once, for several days, when he received Rousseau's Émile and could not put it down. Like the clock story, it is told in early biographies and may be embellished."
+    },
+    "slumber": {
+      "kind": "digression",
+      "title": "Woken by Hume",
+      "text": "The remark is in Kant's Prolegomena of 1783, a shorter guide to the Critique written because readers had found the original impenetrable. One early reviewer accused Kant of simply repeating the idealism of George Berkeley, which annoyed him greatly."
+    }
   }
- ],
- "summary": [
-  "**Miep Gies lied for two years to hide the Frank family.** Almost everyone thinks she was right, which Kant's absolute ban on lying cannot easily allow.",
-  "**Moral worth comes from acting from duty.** An act done only for gain may be right but earns no moral credit.",
-  "**The categorical imperative commands without conditions.** Act only on a maxim you could will as a universal law.",
-  "**A maxim that defeats itself when universalised is forbidden.** A world of false promises is one in which no one accepts a promise.",
-  "**Treat people never merely as means.** Deceiving or coercing someone treats their reason as if it did not count.",
-  "**Kant told Constant you may not lie even to a murderer.** Most Kantians since think he misapplied his own theory.",
-  "**Kant answered Hume by making the mind shape experience.** Space, time and cause are forms the mind imposes, so we know the world only as it appears.",
-  "**Deontology is one of the three main camps in ethics.** About a third of philosophers lean towards it, and its idea of dignity runs through human rights law."
- ],
- "footnotes": {
-  "gies": {
-   "kind": "technical",
-   "title": "Miep Gies",
-   "text": "Hermine Santrouschitz, called Miep, was born in Vienna in 1909 and sent to the Netherlands as a malnourished child after the First World War. She died in 2010, aged 100, and always refused to be called a hero, saying that she had simply done what was necessary."
-  },
-  "race": {
-   "kind": "technical",
-   "title": "Kant on race",
-   "text": "In lectures and essays from 1775 onward Kant set out a theory of human races and ranked them, placing white Europeans at the top. Some scholars argue that he changed his views in the 1790s; others that he never did. Either way, his own principle that every person has equal dignity condemns what he wrote."
-  },
-  "walk": {
-   "kind": "digression",
-   "title": "The walk",
-   "text": "The story usually told is that Kant missed his walk only once, for several days, when he received Rousseau's Émile and could not put it down. Like the clock story, it is told in early biographies and may be embellished."
-  },
-  "slumber": {
-   "kind": "digression",
-   "title": "Woken by Hume",
-   "text": "The remark is in Kant's Prolegomena of 1783, a shorter guide to the Critique written because readers had found the original impenetrable. One early reviewer accused Kant of simply repeating the idealism of George Berkeley, which annoyed him greatly."
-  }
- }
 }

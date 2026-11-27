@@ -1,252 +1,257 @@
 {
- "id": "fallacies",
- "n": 301,
- "branch": "tools",
- "needs": [
-  "socrates"
- ],
- "title": "How to lose an argument",
- "teaches": "Common fallacies, charity and steelmanning",
- "parts": [
-  {
-   "title": "Stratagem 38",
-   "blocks": [
+  "id": "fallacies",
+  "n": 301,
+  "branch": "tools",
+  "needs": [
+    "socrates"
+  ],
+  "title": "How to lose an argument",
+  "teaches": "Common fallacies, charity and steelmanning",
+  "parts": [
     {
-     "type": "text",
-     "text": "Around 1830 the German philosopher Arthur Schopenhauer wrote a short, sour handbook called *The Art of Being Right*. It was not about being right, he admitted, but about seeming to be: 38 tricks, which he called stratagems, for winning an argument whether or not you had the truth on your side. Exaggerate your opponent's claim until it is easy to attack. Get them to agree to several small points, then announce a conclusion that does not follow, as though it did. If you are losing, change the subject. And the last, stratagem 38, for when all else fails: become personal, insulting and rude.[^schopenhauer]"
-    },
-    {
-     "type": "text",
-     "text": "Schopenhauer said the point was to let honest people recognise the tricks when they were used against them. He never published it; it appeared after his death. But his list overlaps with a much older one. In *Sophistical Refutations*, Aristotle set out thirteen ways an argument can look valid when it is not, which logicians have called **fallacies** ever since. In this lesson we will look at the fallacies you are most likely to meet, then at the cases where they turn out not to be fallacies after all, and then at the habit that defends against most of them."
-    }
-   ]
-  },
-  {
-   "title": "Four common fallacies",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A **straw man** attacks a weaker version of a view than the one its holder defends, as a fighter might knock over a figure of straw instead of a real opponent. \"You want lower speed limits near schools? So you think nobody should be allowed to drive.\""
-    },
-    {
-     "type": "text",
-     "text": "An **ad hominem**, \"to the person\", attacks the person making an argument instead of the argument. \"Why listen to her views on tax? She's rich.\" Her wealth may give her a motive, but it does not make her argument any worse."
-    },
-    {
-     "type": "text",
-     "text": "A **false dilemma** offers two options as if they were the only ones, when there are others. \"Either we ban cars from the city centre, or we accept that children will breathe polluted air.\""
-    },
-    {
-     "type": "text",
-     "text": "**Begging the question** assumes the conclusion in the premises, so that the argument goes round in a circle. \"The scriptures are true, because they are the word of God, and we know they are the word of God because the scriptures say so.\" In everyday speech \"begs the question\" is often used to mean \"raises the question\"; in logic it means this circle.[^beg]"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Eight short arguments. Sort each by the fallacy it commits.",
-     "task": "Sort all eight",
-     "goal": "sorted",
-     "options": {
-      "ask": "Which fallacy is this?",
-      "groups": [
-       {
-        "name": "Straw man",
-        "color": "strawman"
-       },
-       {
-        "name": "Ad hominem",
-        "color": "personal"
-       },
-       {
-        "name": "False dilemma",
-        "color": "falsechoice"
-       },
-       {
-        "name": "Begging the question",
-        "color": "circular"
-       }
-      ],
-      "items": [
-       {
-        "name": "\"Vegetarians think eating any animal makes you a murderer, which is absurd.\"",
-        "group": "Straw man",
-        "why": "Most vegetarians make a much weaker claim, which is harder to attack."
-       },
-       {
-        "name": "\"My opponent wants to review the police budget. Clearly she wants no police at all.\"",
-        "group": "Straw man",
-        "why": "A review is turned into abolition, which is easier to knock down."
-       },
-       {
-        "name": "\"He's never had a proper job, so his ideas on the economy are worthless.\"",
-        "group": "Ad hominem",
-        "why": "An attack on the speaker, not on the ideas."
-       },
-       {
-        "name": "\"You can't trust what he says about climate; he failed chemistry at school.\"",
-        "group": "Ad hominem",
-        "why": "His school results say nothing about whether his argument is sound."
-       },
-       {
-        "name": "\"You're either with us or against us.\"",
-        "group": "False dilemma",
-        "why": "There are other positions, such as agreeing in part or staying neutral."
-       },
-       {
-        "name": "\"Either you support this bill, or you don't care about children.\"",
-        "group": "False dilemma",
-        "why": "Someone can care about children and think the bill is the wrong way to help them."
-       },
-       {
-        "name": "\"Capital punishment is wrong because it is wrong for the state to put people to death.\"",
-        "group": "Begging the question",
-        "why": "The reason given is the conclusion in other words."
-       },
-       {
-        "name": "\"He is trustworthy, because he told me he never lies.\"",
-        "group": "Begging the question",
-        "why": "His word is trusted on the strength of his word."
-       }
+      "title": "Stratagem 38",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Around 1830 the German philosopher Arthur Schopenhauer wrote a short, sour handbook called *The Art of Being Right*. It was not about being right, he admitted, but about seeming to be: 38 tricks, which he called stratagems, for winning an argument whether or not you had the truth on your side. Exaggerate your opponent's claim until it is easy to attack. Get them to agree to several small points, then announce a conclusion that does not follow, as though it did. If you are losing, change the subject. And the last, stratagem 38, for when all else fails: become personal, insulting and rude.[^schopenhauer]"
+        },
+        {
+          "type": "text",
+          "text": "Schopenhauer said the point was to let honest people recognise the tricks when they were used against them. He never published it; it appeared after his death. But his list overlaps with a much older one. In *Sophistical Refutations*, Aristotle set out thirteen ways an argument can look valid when it is not, which logicians have called **fallacies** ever since."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "When they are not fallacies",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Many arguments that look like fallacies are not. An attack on the person is relevant when the argument depends on trusting the person: if a witness in a court case stands to inherit from the accused's death, the court should know. A **slippery slope** argument, that one step will lead to worse ones, is a fallacy only when there is no reason to expect the slide; when there is evidence that one change tends to lead to another, it is a reasonable argument. And an **appeal to authority** is a fallacy when the authority is speaking outside their field, but trusting experts in their own field is how most of us know most things, as branch lesson P4, on free speech, discusses."
     },
     {
-     "type": "text",
-     "text": "This is why naming a fallacy rarely ends an argument. \"That's an ad hominem\" invites the reply \"but in this case the motive matters\", and then the two sides are arguing about something real. Philosophers sometimes call the habit of shouting fallacy names the **fallacy fallacy**: concluding that a claim is false because one argument for it was bad."
-    }
-   ]
-  },
-  {
-   "title": "Charity",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The defence against most fallacies, especially the straw man, is the **principle of charity**: when interpreting what someone says, choose the reading that makes the most sense of it, the one on which they are most likely to be right. The philosopher Donald Davidson argued that some charity is unavoidable, since you cannot understand anyone at all unless you assume most of what they believe is true."
-    },
-    {
-     "type": "text",
-     "text": "A stronger version has become known online as **steelmanning**, the opposite of the straw man: before replying, build the strongest version of the other side's argument, stronger if you can than they put it themselves. The philosopher Daniel Dennett passed on a set of rules for doing it, which he credited to the game theorist Anatol Rapoport. First, restate the other person's position so clearly and fairly that they say, \"Thanks, I wish I'd thought of putting it that way.\" Second, list any points of agreement. Third, mention anything you have learned from them. Only then, fourth, say a word of criticism."
-    },
-    {
-     "type": "text",
-     "text": "This is close to what Socrates did in lesson 1, at least on his better days, and what the Nyāya philosophers of ancient India, in branch lesson E2, called vāda: honest discussion aimed at the truth. It has a practical advantage too: people are much more likely to listen to criticism from someone who has shown they understand their view."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Charity in practice. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "charity",
-      "ask": "Someone makes an argument that seems obviously foolish to you. What should you assume first?",
-      "choices": [
-       "That I have probably misunderstood it, and should find the best version",
-       "That it may be foolish, but I should check before saying so",
-       "That it is foolish, since it seems so",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the answer the principle of charity recommends.",
-       "You chose a cautious form of charity, which is how most people practise it.",
-       "Sometimes it is. The case for checking first is that people rarely hold views that seem foolish to themselves.",
-       "Socrates claimed to be unsure about most things, so you are in his company."
+      "title": "Four common fallacies",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **straw man** attacks a weaker version of a view than the one its holder defends, as a fighter might knock over a figure of straw instead of a real opponent. \"You want lower speed limits near schools? So you think nobody should be allowed to drive.\""
+        },
+        {
+          "type": "text",
+          "text": "An **ad hominem**, \"to the person\", attacks the person making an argument instead of the argument. \"Why listen to her views on tax? She's rich.\" Her wealth may give her a motive, but it does not make her argument any worse."
+        },
+        {
+          "type": "text",
+          "text": "A **false dilemma** offers two options as if they were the only ones, when there are others. \"Either we ban cars from the city centre, or we accept that children will breathe polluted air.\""
+        },
+        {
+          "type": "text",
+          "text": "**Begging the question** assumes the conclusion in the premises, so that the argument goes round in a circle. \"The scriptures are true, because they are the word of God, and we know they are the word of God because the scriptures say so.\" In everyday speech \"begs the question\" is often used to mean \"raises the question\"; in logic it means this circle.[^beg]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Eight short arguments. Sort each by the fallacy it commits.",
+          "task": "Sort all eight",
+          "goal": "sorted",
+          "options": {
+            "ask": "Which fallacy is this?",
+            "groups": [
+              {
+                "name": "Straw man",
+                "color": "strawman"
+              },
+              {
+                "name": "Ad hominem",
+                "color": "personal"
+              },
+              {
+                "name": "False dilemma",
+                "color": "falsechoice"
+              },
+              {
+                "name": "Begging the question",
+                "color": "circular"
+              }
+            ],
+            "items": [
+              {
+                "name": "\"Vegetarians think eating any animal makes you a murderer, which is absurd.\"",
+                "group": "Straw man",
+                "why": "Most vegetarians make a much weaker claim, which is harder to attack."
+              },
+              {
+                "name": "\"My opponent wants to review the police budget. Clearly she wants no police at all.\"",
+                "group": "Straw man",
+                "why": "A review is turned into abolition, which is easier to knock down."
+              },
+              {
+                "name": "\"He's never had a proper job, so his ideas on the economy are worthless.\"",
+                "group": "Ad hominem",
+                "why": "An attack on the speaker, not on the ideas."
+              },
+              {
+                "name": "\"You can't trust what he says about climate; he failed chemistry at school.\"",
+                "group": "Ad hominem",
+                "why": "His school results say nothing about whether his argument is sound."
+              },
+              {
+                "name": "\"You're either with us or against us.\"",
+                "group": "False dilemma",
+                "why": "There are other positions, such as agreeing in part or staying neutral."
+              },
+              {
+                "name": "\"Either you support this bill, or you don't care about children.\"",
+                "group": "False dilemma",
+                "why": "Someone can care about children and think the bill is the wrong way to help them."
+              },
+              {
+                "name": "\"Capital punishment is wrong because it is wrong for the state to put people to death.\"",
+                "group": "Begging the question",
+                "why": "The reason given is the conclusion in other words."
+              },
+              {
+                "name": "\"He is trustworthy, because he told me he never lies.\"",
+                "group": "Begging the question",
+                "why": "His word is trusted on the strength of his word."
+              }
+            ]
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The study of fallacies is respected history in formal logic, which since the late 19th century has worked with precise symbols rather than lists of errors. It is still argued over in **informal logic** and argumentation theory, the study of arguments as people actually make them in speech and writing, rather than in symbols, and which have shown that most of the traditional fallacies are reasonable in some contexts and faulty in others. Charity is a working principle in philosophy, law and the study of language, and steelmanning is widely recommended, though harder to practise than to praise."
     },
     {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on fallacies",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is a straw man?",
-        "choices": [
-         "Attacking a weaker version of a view than the one its holder defends",
-         "Attacking the person who holds a view instead of the view",
-         "Offering two options as if they were the only ones",
-         "Arguing from a premise that already contains the conclusion"
-        ],
-        "answer": 0,
-        "why": "It is easier to knock over a figure of straw than a real opponent."
-       },
-       {
-        "ask": "When is an attack on the person NOT a fallacy?",
-        "choices": [
-         "When the argument depends on trusting the person, as with a witness who has a motive",
-         "When the person has made a different mistake in the past",
-         "When the person is speaking about something outside their own field",
-         "When the person has not given any evidence of their own"
-        ],
-        "answer": 0,
-        "why": "A motive matters for testimony. It does not by itself show an argument is unsound."
-       },
-       {
-        "ask": "What does begging the question mean in logic?",
-        "choices": [
-         "Assuming what you are trying to prove",
-         "Raising a new question that needs an answer",
-         "Asking a question you already know the answer to",
-         "Refusing to answer a question"
-        ],
-        "answer": 0,
-        "why": "The argument goes round in a circle."
-       },
-       {
-        "ask": "What is the first of Rapoport's rules, as Dennett passed them on?",
-        "choices": [
-         "Restate the other person's position so well they wish they had put it that way",
-         "Point out the weakest step in their argument first, so the discussion stays focused",
-         "List the places where you disagree, then the places where you agree",
-         "Ask the other person to restate your own position before you reply"
-        ],
-        "answer": 0,
-        "why": "Criticism comes last, after agreement and what you have learned."
-       }
+      "title": "When they are not fallacies",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Many arguments that look like fallacies are not. An attack on the person is relevant when the argument depends on trusting the person: if a witness in a court case stands to gain if the accused is convicted, the court should know. A **slippery slope** argument, that one step will lead to worse ones, is a fallacy only when there is no reason to expect the slide; when there is evidence that one change tends to lead to another, it is a reasonable argument. And an **appeal to authority** is a fallacy when the authority is speaking outside their field, but trusting experts in their own field is how most of us know most things, as branch lesson P4, on free speech, discusses."
+        },
+        {
+          "type": "text",
+          "text": "This is why naming a fallacy rarely ends an argument. \"That's an ad hominem\" invites the reply \"but in this case the motive matters\", and then the two sides are arguing about something real. Philosophers sometimes call the habit of shouting fallacy names the **fallacy fallacy**: concluding that a claim is false because one argument for it was bad."
+        }
       ]
-     }
+    },
+    {
+      "title": "Charity",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The defence against most fallacies, especially the straw man, is the **principle of charity**: when interpreting what someone says, choose the reading that makes the most sense of it, the one on which they are most likely to be right. The philosopher Donald Davidson argued that some charity is unavoidable, since you cannot understand anyone at all unless you assume most of what they believe is true."
+        },
+        {
+          "type": "text",
+          "text": "A stronger version has become known online as **steelmanning**, the opposite of the straw man: before replying, build the strongest version of the other side's argument, stronger if you can than they put it themselves. The philosopher Daniel Dennett passed on a set of rules for doing it, which he credited to the game theorist Anatol Rapoport.[^rapoport] First, restate the other person's position so clearly and fairly that they say, \"Thanks, I wish I'd thought of putting it that way.\" Second, list any points of agreement. Third, mention anything you have learned from them. Only then, fourth, say a word of criticism."
+        },
+        {
+          "type": "text",
+          "text": "This is close to what Socrates did in lesson 1, at least on his better days, and what the Nyāya philosophers of ancient India, in branch lesson E2, called vāda: honest discussion aimed at the truth. It has a practical advantage too: people are much more likely to listen to criticism from someone who has shown they understand their view."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Charity in practice. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "charity",
+            "ask": "Someone makes an argument that seems obviously foolish to you. What should you assume first?",
+            "choices": [
+              "That I have probably misunderstood it, and should find the best version",
+              "That it may be foolish, but I should check before saying so",
+              "That it is foolish, since it seems so",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the answer the principle of charity recommends.",
+              "You chose a cautious form of charity, which is how most people practise it.",
+              "Sometimes it is. The case for checking first is that people rarely hold views that seem foolish to themselves.",
+              "Socrates claimed to be unsure about most things, so you are in his company."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The study of fallacies is respected history in formal logic, which since the late 19th century has worked with precise symbols rather than lists of errors. It is still argued over in **informal logic** and argumentation theory, the study of arguments as people actually make them in speech and writing, rather than in symbols, and which have shown that most of the traditional fallacies are reasonable in some contexts and faulty in others. Charity is a working principle in philosophy, law and the study of language, and steelmanning is widely recommended, though harder to practise than to praise."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on fallacies",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is a straw man?",
+                "choices": [
+                  "Attacking a weaker version of a view than the one its holder defends",
+                  "Attacking the person who holds a view instead of the view",
+                  "Offering two options as if they were the only ones",
+                  "Arguing from a premise that already contains the conclusion"
+                ],
+                "answer": 0,
+                "why": "It is easier to knock over a figure of straw than a real opponent."
+              },
+              {
+                "ask": "When is an attack on the person NOT a fallacy?",
+                "choices": [
+                  "When the argument depends on trusting the person, as with a witness who has a motive",
+                  "When the person has made a different mistake in the past",
+                  "When the person is speaking about something outside their own field",
+                  "When the person has not given any evidence of their own"
+                ],
+                "answer": 0,
+                "why": "A motive matters for testimony. It does not by itself show an argument is unsound."
+              },
+              {
+                "ask": "What does begging the question mean in logic?",
+                "choices": [
+                  "Assuming what you are trying to prove",
+                  "Raising a new question that needs an answer",
+                  "Asking a question you already know the answer to",
+                  "Refusing to answer a question"
+                ],
+                "answer": 0,
+                "why": "The argument goes round in a circle."
+              },
+              {
+                "ask": "What is the first of Rapoport's rules, as Dennett passed them on?",
+                "choices": [
+                  "Restate the other person's position so well they wish they had put it that way",
+                  "Point out the weakest step in their argument first, so the discussion stays focused",
+                  "List the places where you disagree, then the places where you agree",
+                  "Ask the other person to restate your own position before you reply"
+                ],
+                "answer": 0,
+                "why": "Criticism comes last, after agreement and what you have learned."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Schopenhauer listed 38 tricks for seeming right.** The last was to become personal and rude.",
+    "**Aristotle listed the first fallacies.** Arguments that look valid but are not.",
+    "**Straw man, ad hominem, false dilemma, begging the question.** Four of the most common.",
+    "**Many apparent fallacies are reasonable in context.** A motive can matter; some slopes really are slippery.",
+    "**Naming a fallacy does not show a claim is false.** That is the fallacy fallacy.",
+    "**Charity: read others in the way that makes most sense of them.** Steelmanning builds the strongest version before replying."
+  ],
+  "footnotes": {
+    "schopenhauer": {
+      "kind": "digression",
+      "title": "A quarrelsome man",
+      "text": "Schopenhauer was famous for his temper. In 1821 he forcibly pushed a seamstress, Caroline Marquet, out of the entrance to his Berlin lodgings after she refused to stop talking loudly there, and a court later made him pay her a pension until she died in 1842."
+    },
+    "beg": {
+      "kind": "technical",
+      "title": "Why \"beg\"?",
+      "text": "The phrase translates the medieval Latin petitio principii, \"asking for the starting point\", from Aristotle's Greek. In a formal debate, it meant asking your opponent to grant you the very thing in dispute."
+    },
+    "rapoport": {
+      "kind": "digression",
+      "title": "Anatol Rapoport",
+      "text": "Rapoport (1911–2007) was a Russian-born mathematical psychologist and former concert pianist who studied how adversaries can cooperate instead of fighting. Dennett drew these four rules from Rapoport's 1960 book *Fights, Games, and Debates*."
+    }
   }
- ],
- "summary": [
-  "**Schopenhauer listed 38 tricks for seeming right.** The last was to become personal and rude.",
-  "**Aristotle listed the first fallacies.** Arguments that look valid but are not.",
-  "**Straw man, ad hominem, false dilemma, begging the question.** Four of the most common.",
-  "**Many apparent fallacies are reasonable in context.** A motive can matter; some slopes really are slippery.",
-  "**Naming a fallacy does not show a claim is false.** That is the fallacy fallacy.",
-  "**Charity: read others in the way that makes most sense of them.** Steelmanning builds the strongest version before replying."
- ],
- "footnotes": {
-  "schopenhauer": {
-   "kind": "digression",
-   "title": "A quarrelsome man",
-   "text": "Schopenhauer was famous for his temper. In 1821 he forcibly pushed a seamstress, Caroline Marquet, out of the entrance to his Berlin lodgings after she refused to stop talking loudly there, and a court later made him pay her a pension until she died in 1842."
-  },
-  "beg": {
-   "kind": "technical",
-   "title": "Why \"beg\"?",
-   "text": "The phrase translates the medieval Latin petitio principii, \"asking for the starting point\", from Aristotle's Greek. In a formal debate, it meant asking your opponent to grant you the very thing in dispute."
-  }
- }
 }

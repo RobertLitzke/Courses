@@ -1,202 +1,202 @@
 {
- "id": "arendt",
- "n": 205,
- "branch": "power",
- "needs": [
-  "rawls"
- ],
- "title": "Can ordinary people do great evil?",
- "teaches": "Arendt at the Eichmann trial and the banality of evil",
- "parts": [
-  {
-   "title": "The man in the glass booth",
-   "blocks": [
+  "id": "arendt",
+  "n": 205,
+  "branch": "power",
+  "needs": [
+    "rawls"
+  ],
+  "title": "Can ordinary people do great evil?",
+  "teaches": "Arendt at the Eichmann trial and the banality of evil",
+  "parts": [
     {
-     "type": "text",
-     "text": "In May 1960, Israeli agents seized a man on a quiet street in a suburb of Buenos Aires, where he had lived for ten years as Ricardo Klement, a worker at a car factory. He was Adolf Eichmann, the SS officer who had organised the transport of millions of Jews from across Europe to the ghettos and death camps of the Holocaust. He was flown secretly to Israel. His trial opened in Jerusalem in April 1961, and he sat through it in a booth of bulletproof glass."
-    },
-    {
-     "type": "text",
-     "text": "Among the reporters was Hannah Arendt, a German Jewish philosopher who had studied under Martin Heidegger[^scholem] and fled the Nazis herself. She had been arrested by the Gestapo in 1933, escaped to France, been held in an internment camp there in 1940, escaped again, and reached New York in 1941. Her book *The Origins of Totalitarianism* (1951) had made her famous. She went to Jerusalem for *The New Yorker*, where the prosecution set out to show the court a monster."
-    }
-   ]
-  },
-  {
-   "title": "Terribly and terrifyingly normal",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "What she saw was a middle-aged official who spoke in bureaucratic clichés, corrected small details of dates and departments, and insisted that he had had nothing against Jews personally. He had done his job, he said, and done it well; he had followed orders and the law. \"Officialese is my only language\", he told the court. According to Arendt, half a dozen psychiatrists had certified him as normal. He even claimed to have lived according to Kant's categorical imperative, from lesson 15, which he took to mean doing your duty as the law commands."
-    },
-    {
-     "type": "text",
-     "text": "In her book *Eichmann in Jerusalem: A Report on the Banality of Evil* (1963), Arendt concluded that the trouble with Eichmann was precisely that so many were like him, \"neither perverted nor sadistic\" but \"terribly and terrifyingly normal\". She did not mean that what he had done was banal, or that he was innocent. She meant that great evil did not require a demonic character. It could be carried out by an ambitious, unremarkable man whose main failing was what she called **thoughtlessness**: an inability, or refusal, to think about what he was doing from the standpoint of anyone else, especially his victims."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Arendt's question. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "ordinary-evil",
-      "ask": "Under enough pressure from authority and the people around them, could most ordinary people be led to take part in great evil?",
-      "choices": [
-       "Yes, most could",
-       "Some could, but most would refuse",
-       "No: it takes a particular kind of person",
-       "Not sure"
-      ],
-      "who": [
-       "You chose the answer suggested by Arendt and by Milgram's experiments in the next part.",
-       "You chose a hopeful answer. Historians stress that people under the Nazis made real choices and some refused, though in the units they studied most did not.",
-       "You chose the view Arendt wrote against.",
-       "The evidence in the next part has been argued over for 60 years."
+      "title": "The man in the glass booth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In May 1960, Israeli agents seized a man on a quiet street in a suburb of Buenos Aires, where he had lived for ten years as Ricardo Klement, a worker at a car factory. He was Adolf Eichmann, the SS officer who had organised the transport of millions of Jews from across Europe to the ghettos and death camps of the Holocaust. He was flown secretly to Israel. His trial opened in Jerusalem in April 1961, and he sat through it in a booth of bulletproof glass."
+        },
+        {
+          "type": "text",
+          "text": "Among the reporters was Hannah Arendt, a German Jewish philosopher who had studied under Martin Heidegger[^scholem] and fled the Nazis herself. She had been arrested by the Gestapo in 1933, escaped to France, been held in an internment camp there in 1940, escaped again, and reached New York in 1941. Her book *The Origins of Totalitarianism* (1951) had made her famous. She went to Jerusalem for *The New Yorker*. There, the prosecution set out to show the court a monster."
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Milgram's shocks",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In August 1961, four months after the trial opened, a psychologist at Yale, Stanley Milgram, began a series of experiments that seemed to bear Arendt out. Volunteers were told they were taking part in a study of learning. Each was told to give electric shocks to a \"learner\" in the next room whenever he answered wrongly, raising the voltage each time, up to a switch marked 450 volts. The learner was an actor and received no shocks, but the volunteers did not know that. As the voltage rose he cried out, begged to stop, and then fell silent. When volunteers hesitated, a man in a grey lab coat told them calmly to continue."
     },
     {
-     "type": "text",
-     "text": "Milgram described the experiment to psychiatrists and asked them to predict the result, and they expected only a tiny fraction to go to the end. In the best-known version, 26 of 40, nearly two thirds, went all the way to 450 volts. Milgram wrote that ordinary people, simply doing their jobs and without any particular hostility, can become agents in a terrible destructive process.[^milgram]"
-    }
-   ]
-  },
-  {
-   "title": "Was Eichmann banal?",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Arendt's book caused an uproar, mostly over a few pages about the Jewish councils that the Nazis forced to help organise deportations, which many readers took as blaming the victims. Her old friend, the scholar Gershom Scholem, wrote to accuse her of having no love for the Jewish people. She replied that she had never loved any people or collective, only persons, and lost many friends."
-    },
-    {
-     "type": "text",
-     "text": "Later historians raised a different objection. Tapes and notes from interviews Eichmann gave to a Dutch Nazi journalist in Argentina in the 1950s, studied in full only decades later, show a committed antisemite who boasted of his work and said he regretted that not all the Jews had been killed. The philosopher Bettina Stangneth argued in 2011 that the grey bureaucrat in the glass booth was a performance put on to save his life, and that Arendt, who did not know the tapes in full, was taken in.[^tapes]"
-    },
-    {
-     "type": "text",
-     "text": "Even if Eichmann himself was not banal, the idea may still be true of many others, the clerks, railway officials and police who did their part of the work without strong feelings either way. Arendt's own verdict was not softened by it. The book ends with what she thought the judges should have said to him: since he had supported and carried out a policy of not wanting to share the earth with the Jewish people and others, \"we find that no one, that is, no member of the human race, can be expected to want to share the earth with you. This is the reason, and the only reason, you must hang.\" Obeying orders was no excuse in her view, because \"in politics obedience and support are the same\"."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Following orders. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "orders",
-      "ask": "Someone carries out orders to do great harm, without hating anyone, because it is their job. Are they as guilty as the person who gave the orders?",
-      "choices": [
-       "Yes: in politics, obeying is supporting",
-       "Guilty, but less than the one who gave the orders",
-       "No: the guilt lies with whoever gave the orders",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Arendt's answer: \"in politics obedience and support are the same\".",
-       "You chose the answer most courts give, which treats orders as reducing guilt but not removing it.",
-       "You chose Eichmann's defence. The Nuremberg principles of 1950 rejected it.",
-       "Many judges have struggled with exactly this question."
+      "title": "Terribly and terrifyingly normal",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "What she saw was a middle-aged official who spoke in bureaucratic clichés, corrected small details of dates and departments, and insisted that he had had nothing against Jews personally. He had done his job, he said, and done it well; he had followed orders and the law. \"Officialese is my only language\", he told the court. According to Arendt, half a dozen psychiatrists had certified him as normal. He even claimed to have lived according to Kant's categorical imperative, from lesson 15, which he took to mean doing your duty as the law commands."
+        },
+        {
+          "type": "text",
+          "text": "In her book *Eichmann in Jerusalem: A Report on the Banality of Evil* (1963), Arendt concluded that the trouble with Eichmann was precisely that so many were like him, \"neither perverted nor sadistic\" but \"terribly and terrifyingly normal\". She did not mean that what he had done was banal, or that he was innocent. She meant that great evil did not require a demonic character. It could be carried out by an ambitious, unremarkable man whose main failing was what she called **thoughtlessness**: an inability, or refusal, to think about what he was doing from the standpoint of anyone else, especially his victims."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Arendt's question. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "ordinary-evil",
+            "ask": "Under enough pressure from authority and the people around them, could most ordinary people be led to take part in great evil?",
+            "choices": [
+              "Yes, most could",
+              "Some could, but most would refuse",
+              "No: it takes a particular kind of person",
+              "Not sure"
+            ],
+            "who": [
+              "You chose the answer suggested by Arendt and by Milgram's experiments in the next part.",
+              "You chose a hopeful answer. Historians stress that people under the Nazis made real choices and some refused, though in the units they studied most did not.",
+              "You chose the view Arendt wrote against.",
+              "The evidence in the next part has been argued over for 60 years."
+            ]
+          }
+        }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The banality of evil is still argued over, by historians, philosophers and psychologists. Most historians now think Eichmann himself was more fanatical than Arendt saw, but the broader claim, that ordinary people in ordinary jobs carried out most of the Holocaust, is supported by later research, such as Christopher Browning's study of a police battalion of middle-aged Hamburg men who shot tens of thousands of Jews in Poland. Milgram's experiments are still discussed, though later re-examination of his records found that many volunteers doubted the shocks were real, and that the lab coat's orders were less scripted than he reported. Arendt's other books, on totalitarianism and on what she called the human condition, are widely read in political philosophy."
     },
     {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on Arendt",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What did Arendt mean by the banality of evil?",
-        "choices": [
-         "Great evil can be carried out by unremarkable people through thoughtlessness, not demonic hatred",
-         "The crimes of the Holocaust were not very serious",
-         "Evil is common and so should not be punished",
-         "Only bureaucrats are capable of evil"
-        ],
-        "answer": 0,
-        "why": "She meant that the doer was ordinary, not that the deeds were."
-       },
-       {
-        "ask": "What did Arendt mean by Eichmann's thoughtlessness?",
-        "choices": [
-         "His failure to think about what he was doing from the standpoint of others, especially his victims",
-         "His lack of intelligence",
-         "His inability to remember the details of his work",
-         "His refusal to answer the court's questions"
-        ],
-        "answer": 0,
-        "why": "He spoke in clichés and saw his work only as a job well done."
-       },
-       {
-        "ask": "What did Milgram's best-known experiment find?",
-        "choices": [
-         "Nearly two thirds of volunteers went to the highest shock when told to continue",
-         "Almost no one obeyed once the learner cried out",
-         "Volunteers obeyed only when paid more",
-         "Most volunteers refused to take part at all"
-        ],
-        "answer": 0,
-        "why": "Psychiatrists had predicted a tiny fraction would go to the end."
-       },
-       {
-        "ask": "What did later historians find about Eichmann himself?",
-        "choices": [
-         "Interviews from Argentina show a committed antisemite, suggesting his manner at the trial was partly a performance",
-         "He had never worked for the SS",
-         "He had tried to save Jews in secret",
-         "He was found mentally ill by the court"
-        ],
-        "answer": 0,
-        "why": "Stangneth argued in 2011 that his manner at the trial was partly an act. Not every historian agrees."
-       }
+      "title": "Milgram's shocks",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In August 1961, four months after the trial opened, a psychologist at Yale, Stanley Milgram, began a series of experiments that seemed to bear Arendt out. Volunteers were told they were taking part in a study of learning. Each was instructed to give electric shocks to a \"learner\" in the next room whenever he answered wrongly, raising the voltage each time, up to a switch marked 450 volts. The learner was an actor and received no shocks, but the volunteers did not know that. As the voltage rose he cried out, begged to stop, and then fell silent. When volunteers hesitated, a man in a grey lab coat told them calmly to continue."
+        },
+        {
+          "type": "text",
+          "text": "Milgram described the experiment to psychiatrists and asked them to predict the result, and they expected only a tiny fraction to go to the end. In the best-known version, 26 of 40, nearly two thirds, went all the way to 450 volts. Milgram wrote that ordinary people, simply doing their jobs and without any particular hostility, can become agents in a terrible destructive process.[^milgram]"
+        }
       ]
-     }
+    },
+    {
+      "title": "Was Eichmann banal?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Arendt's book caused an uproar, mostly over a few pages about the Jewish councils that the Nazis forced to help organise deportations, which many readers took as blaming the victims. Her old friend, the scholar Gershom Scholem, wrote to accuse her of having no love for the Jewish people. She replied that she had never loved any people or collective, only persons. The controversy cost her many friends."
+        },
+        {
+          "type": "text",
+          "text": "Later historians raised a different objection. Tapes and notes from interviews Eichmann gave to a Dutch Nazi journalist in Argentina in the 1950s, studied in full only decades later, show a committed antisemite who boasted of his work and said he regretted that not all the Jews had been killed. The philosopher Bettina Stangneth argued in 2011 that the grey bureaucrat in the glass booth was a performance put on to save his life, and that Arendt, who did not know the tapes in full, was taken in.[^tapes]"
+        },
+        {
+          "type": "text",
+          "text": "Even if Eichmann himself was not banal, the idea may still be true of many others, the clerks, railway officials and police who did their part of the work without strong feelings either way. Nor did Arendt's idea soften her own verdict on Eichmann. The book ends with what she thought the judges should have said to him: since he had supported and carried out a policy of not wanting to share the earth with the Jewish people and others, \"we find that no one, that is, no member of the human race, can be expected to want to share the earth with you. This is the reason, and the only reason, you must hang.\" Obeying orders was no excuse in her view, because \"in politics obedience and support are the same\"."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Following orders. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "orders",
+            "ask": "Someone carries out orders to do great harm, without hating anyone, because it is their job. Are they as guilty as the person who gave the orders?",
+            "choices": [
+              "Yes: in politics, obeying is supporting",
+              "Guilty, but less than the one who gave the orders",
+              "No: the guilt lies with whoever gave the orders",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Arendt's answer: \"in politics obedience and support are the same\".",
+              "You chose the answer most courts give, which treats orders as reducing guilt but not removing it.",
+              "You chose Eichmann's defence. The Nuremberg principles of 1950 rejected it.",
+              "Many judges have struggled with exactly this question."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The banality of evil is still argued over, by historians, philosophers and psychologists. Most historians now think Eichmann himself was more fanatical than Arendt saw, but the broader claim, that ordinary people in ordinary jobs carried out most of the Holocaust, is supported by later research, such as Christopher Browning's study of a police battalion of middle-aged Hamburg men who shot tens of thousands of Jews in Poland. Milgram's experiments are still discussed, though later re-examination of his records found that many volunteers doubted the shocks were real, and that the lab coat's orders were less scripted than he reported. Arendt's other books, on totalitarianism and on what she called the human condition, are widely read in political philosophy."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on Arendt",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What did Arendt mean by the banality of evil?",
+                "choices": [
+                  "Great evil can be carried out by unremarkable people through thoughtlessness, not demonic hatred",
+                  "The crimes of the Holocaust were not very serious",
+                  "Evil is common and so should not be punished",
+                  "Only bureaucrats are capable of evil"
+                ],
+                "answer": 0,
+                "why": "She meant that the doer was ordinary, not that the deeds were."
+              },
+              {
+                "ask": "What did Arendt mean by Eichmann's thoughtlessness?",
+                "choices": [
+                  "His failure to think about what he was doing from the standpoint of others, especially his victims",
+                  "His lack of intelligence",
+                  "His inability to remember the details of his work",
+                  "His refusal to answer the court's questions"
+                ],
+                "answer": 0,
+                "why": "He spoke in clichés and saw his work only as a job well done."
+              },
+              {
+                "ask": "What did Milgram's best-known experiment find?",
+                "choices": [
+                  "Nearly two thirds of volunteers went to the highest shock when told to continue",
+                  "Almost no one obeyed once the learner cried out",
+                  "Volunteers obeyed only when paid more",
+                  "Most volunteers refused to take part at all"
+                ],
+                "answer": 0,
+                "why": "Psychiatrists had predicted a tiny fraction would go to the end."
+              },
+              {
+                "ask": "What did later historians find about Eichmann himself?",
+                "choices": [
+                  "Interviews from Argentina show a committed antisemite, suggesting his manner at the trial was partly a performance",
+                  "He had never worked for the SS",
+                  "He had tried to save Jews in secret",
+                  "He was found mentally ill by the court"
+                ],
+                "answer": 0,
+                "why": "Stangneth argued in 2011 that his manner at the trial was partly an act. Not every historian agrees."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Eichmann was captured in 1960 and tried in Jerusalem in 1961.** He had organised the transports of the Holocaust.",
+    "**The prosecution portrayed a monster; Arendt saw a normal man.** He spoke in clichés and said he had done his job.",
+    "**The banality of evil means ordinary doers, not ordinary deeds.** Its root was thoughtlessness.",
+    "**Milgram's volunteers mostly obeyed to the end.** Nearly two thirds went to 450 volts.",
+    "**Eichmann himself may have been performing.** His interviews in Argentina show a committed antisemite.",
+    "**In politics, Arendt said, obedience and support are the same.** Following orders is no defence."
+  ],
+  "footnotes": {
+    "milgram": {
+      "kind": "technical",
+      "title": "Did Milgram know about Eichmann?",
+      "text": "Milgram, the son of Jewish immigrants, said he had the Holocaust in mind from the start, and in his 1974 book Obedience to Authority he quoted Arendt's idea of the banality of evil with approval."
+    },
+    "tapes": {
+      "kind": "technical",
+      "title": "The Sassen interviews",
+      "text": "In 1957 Eichmann recorded long conversations with Willem Sassen, a Dutch former SS member in Buenos Aires. Parts reached the prosecution in 1961, but the court admitted only a little of them, and the full material was examined only from the late 1990s."
+    },
+    "scholem": {
+      "kind": "digression",
+      "title": "Heidegger's student",
+      "text": "As a student in the 1920s, Arendt had a love affair with her teacher Martin Heidegger, who later joined the Nazi party. She renewed their friendship after the war, which her critics have never forgiven."
+    }
   }
- ],
- "summary": [
-  "**Eichmann was captured in 1960 and tried in Jerusalem in 1961.** He had organised the transports of the Holocaust.",
-  "**The prosecution showed a monster; Arendt saw a normal man.** He spoke in clichés and said he had done his job.",
-  "**The banality of evil means ordinary doers, not ordinary deeds.** Its root was thoughtlessness.",
-  "**Milgram's volunteers mostly obeyed to the end.** Nearly two thirds went to 450 volts.",
-  "**Eichmann himself may have been performing.** His interviews in Argentina show a committed antisemite.",
-  "**In politics, Arendt said, obedience and support are the same.** Following orders is no defence."
- ],
- "footnotes": {
-  "milgram": {
-   "kind": "technical",
-   "title": "Did Milgram know about Eichmann?",
-   "text": "Milgram, the son of Jewish immigrants, said he had the Holocaust in mind from the start, and in his 1974 book Obedience to Authority he quoted Arendt's idea of the banality of evil with approval."
-  },
-  "tapes": {
-   "kind": "technical",
-   "title": "The Sassen interviews",
-   "text": "In 1957 Eichmann recorded long conversations with Willem Sassen, a Dutch former SS member in Buenos Aires. Parts reached the prosecution in 1961, but the court admitted only a little of them, and the full material was examined only from the late 1990s."
-  },
-  "scholem": {
-   "kind": "digression",
-   "title": "Heidegger's student",
-   "text": "As a student in the 1920s, Arendt had a love affair with her teacher Martin Heidegger, who later joined the Nazi party. She renewed their friendship after the war, which her critics have never forgiven."
-  }
- }
 }

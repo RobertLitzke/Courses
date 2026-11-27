@@ -1,308 +1,308 @@
 {
- "id": "mill",
- "n": 17,
- "title": "Is it better to be Socrates dissatisfied than a pig satisfied?",
- "teaches": "Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine",
- "parts": [
-  {
-   "title": "A philosopher in a cabinet",
-   "blocks": [
+  "id": "mill",
+  "n": 17,
+  "title": "Is it better to be Socrates dissatisfied than a pig satisfied?",
+  "teaches": "Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine",
+  "parts": [
     {
-     "type": "text",
-     "text": "At University College London, in a glass case at the entrance of the student centre, sits a man in an 18th-century coat and a broad-brimmed hat, holding his walking stick, which he called Dapple. Inside the clothes is the skeleton of Jeremy Bentham, philosopher and law reformer, who died in 1832. He left instructions in his will that his body should be dissected for a public anatomy lecture, then preserved and put on display, so that he could be useful after death. The attempt to preserve his head went badly, leaving it shrunken and dark, so the figure in the cabinet has a wax head instead. The real one was shown at his feet for many years and is now kept in storage.[^head]"
-    },
-    {
-     "type": "text",
-     "text": "Bentham thought most of what passed for morality was prejudice and superstition, and wanted to replace it with a single, measurable test. In this lesson we follow that test, the changes his most famous follower made to it, and the thought experiment that has done most to damage it."
-    }
-   ]
-  },
-  {
-   "title": "The greatest happiness",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "\"Nature has placed mankind under the governance of two sovereign masters, pain and pleasure,\" Bentham wrote in 1789. \"It is for them alone to point out what we ought to do.\" An action is right, on his view, if it produces the greatest total balance of pleasure over pain for everyone affected, and wrong if some other action would have produced more. This is the **principle of utility**, and the theory built on it is **utilitarianism**. It is the best-known form of **consequentialism**, the view that the rightness of an act depends only on its results."
-    },
-    {
-     "type": "text",
-     "text": "Bentham meant it to be practical. He listed the features of a pleasure or pain that should count, including its intensity, its duration, how certain and how soon it is, and how many people it affects, and imagined adding them up, a method later called the felicific calculus. Everyone's pleasure counts, and counts equally: \"everybody to count for one, nobody for more than one,\" as Bentham's maxim was later put. That included animals. \"The question is not, Can they reason? nor, Can they talk? but, Can they suffer?\""
-    },
-    {
-     "type": "text",
-     "text": "The theory made Bentham a radical. He used it to argue for votes for all men, the decriminalisation of homosexuality, the abolition of slavery and of cruelty to animals, and prison reform, at a time when most of these were far outside respectable opinion. It also gave him a notorious view of culture. Pleasures differ only in quantity, he held, so \"prejudice apart, the game of push-pin is of equal value with the arts and sciences of music and poetry\". Push-pin was a children's game played with pins on a table.[^pushpin]"
-    }
-   ]
-  },
-  {
-   "title": "An education and a breakdown",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "John Stuart Mill was raised by his father, James Mill, Bentham's close friend and ally, as an experiment in education and a future leader of the utilitarian cause. He began Greek at three and Latin at eight, had read Plato's dialogues in Greek by twelve, and was writing on political economy in his teens. He had no friends his own age and, as he wrote later, no real childhood.[^father]"
-    },
-    {
-     "type": "text",
-     "text": "In the autumn of 1826, when he was twenty, he asked himself a question. Suppose all the reforms he was working for were achieved at once: would that make him happy? \"An irrepressible self-consciousness distinctly answered, 'No!'\" He fell into a depression that lasted months. What brought him out of it, he wrote, was first a passage in a memoir that moved him to tears and then poetry, above all Wordsworth's, which gave him a joy in feeling and in nature that his education had left out. He concluded that his father's and Bentham's picture of human happiness was too narrow."
-    }
-   ]
-  },
-  {
-   "title": "Higher and lower pleasures",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In *Utilitarianism* (1861) Mill defended Bentham's principle and changed it. Critics had called utilitarianism \"a doctrine worthy only of swine\", since it seemed to make the life of a contented pig as good as any human life. Mill answered that pleasures differ in quality as well as quantity. Some, the pleasures of the intellect, of feeling and imagination and of moral sentiment, are higher than others, and a small amount of a higher pleasure can be worth more than a great deal of a lower one."
-    },
-    {
-     "type": "text",
-     "text": "How can you tell which is higher? Ask people who have experienced both, Mill said. If all or almost all of those who know both prefer one, even knowing it brings more discontent, it is the higher. Few people would agree to become an animal, or a fool, for the promise of the fullest allowance of animal pleasure. \"It is better to be a human being dissatisfied than a pig satisfied; better to be Socrates dissatisfied than a fool satisfied. And if the fool, or the pig, are of a different opinion, it is because they only know their own side of the question.\""
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Mill against Bentham. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "higher",
-      "ask": "Two lives are equally happy, moment by moment. One is spent on video games and takeaways, the other on music, books and conversation. Is the second better?",
-      "choices": [
-       "Yes: some pleasures are worth more than others",
-       "No: if they are equally happy, they are equally good",
-       "Only for people who would choose it",
-       "Not sure"
-      ],
-      "who": [
-       "You chose Mill's side. Critics ask whether Mill is still a hedonist, if something other than pleasure decides which pleasures are higher.",
-       "You chose Bentham's side, and the more consistent hedonism.",
-       "You chose something close to Mill's test of competent judges, with a modern twist: it may vary from person to person.",
-       "Many people share the doubt, which is part of why the question has lasted 160 years."
+      "title": "A philosopher in a cabinet",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At University College London, in a glass case at the entrance of the student centre, sits a man in an 18th-century coat and a broad-brimmed hat, holding his walking stick, which he called Dapple. Inside the clothes is the skeleton of Jeremy Bentham, philosopher and law reformer, who died in 1832. He left instructions in his will that his body should be dissected for a public anatomy lecture, then preserved and put on display, so that he could be useful after death. The attempt to preserve his head went badly, leaving it shrunken and dark, so the figure in the cabinet has a wax head instead. The real one was shown at his feet for many years and is now kept in storage.[^head]"
+        },
+        {
+          "type": "text",
+          "text": "Bentham thought most of what passed for morality was prejudice and superstition, and wanted to replace it with a single, measurable test."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Mill also answered a misreading that is still common: that utilitarians do not care about individuals, since anything goes if it makes the total larger. Mill argued that rules of justice, such as not punishing the innocent and keeping promises, are themselves justified by utility, because a society that keeps them is far happier and more secure than one that breaks them whenever a calculation seems to favour it. Critics reply that this makes the rules hostage to the calculation, as the trolley cases in lesson 23, on Peter Singer, show."
-    }
-   ]
-  },
-  {
-   "title": "The harm principle",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Two years before *Utilitarianism* Mill published *On Liberty* (1859), which he said he wrote together with his wife, Harriet Taylor, who had died the year before. Its central claim is one of the most quoted sentences in political philosophy. \"The only purpose for which power can be rightfully exercised over any member of a civilised community, against his will, is to prevent harm to others. His own good, either physical or moral, is not a sufficient warrant.\" This is the **harm principle**. The state may stop you harming others; it may not stop you harming yourself, though it may argue with you, warn you and try to persuade you."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "groups",
-     "caption": "Mill's harm principle on six cases. Mill gave versions of two of them himself.",
-     "task": "Sort all six",
-     "goal": "sorted",
-     "options": {
-      "ask": "Would Mill let the law stop it?",
-      "groups": [
-       {
-        "name": "The law may stop it",
-        "color": "bad"
-       },
-       {
-        "name": "The law may not",
-        "color": "good"
-       }
-      ],
-      "items": [
-       {
-        "name": "Driving home after six pints",
-        "group": "The law may stop it",
-        "why": "It puts other people at serious risk of harm."
-       },
-       {
-        "name": "Drinking six pints at home alone every night",
-        "group": "The law may not",
-        "why": "The harm falls mainly on the drinker. Mill: others may warn and advise, not compel."
-       },
-       {
-        "name": "A police officer drunk on duty",
-        "group": "The law may stop it",
-        "why": "Mill's own example: being drunk is your business, but not when you have a duty to others."
-       },
-       {
-        "name": "Riding a motorbike without a helmet",
-        "group": "The law may not",
-        "why": "A risk to yourself only. Most countries disagree with Mill here."
-       },
-       {
-        "name": "Spreading a lie that costs someone their job",
-        "group": "The law may stop it",
-        "why": "Damaging another's reputation and livelihood is a harm to them."
-       },
-       {
-        "name": "Writing an essay arguing for an unpopular religion",
-        "group": "The law may not",
-        "why": "Freedom of thought and discussion is the centre of On Liberty."
-       }
+      "title": "The greatest happiness",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "\"Nature has placed mankind under the governance of two sovereign masters, pain and pleasure,\" Bentham wrote in 1789. \"It is for them alone to point out what we ought to do.\" An action is right, on his view, if it produces the greatest total balance of pleasure over pain for everyone affected, and wrong if some other action would have produced more. This is the **principle of utility**, and the theory built on it is **utilitarianism**. It is the best-known form of **consequentialism**, the view that the rightness of an act depends only on its results."
+        },
+        {
+          "type": "text",
+          "text": "Bentham meant it to be practical. He listed the features of a pleasure or pain that should count, including its intensity, its duration, how certain and how soon it is, and how many people it affects, and imagined adding them up, a method later called the felicific calculus. Everyone's pleasure counts, and counts equally: \"everybody to count for one, nobody for more than one,\" as Bentham's maxim was later put. That included animals. \"The question is not, Can they reason? nor, Can they talk? but, Can they suffer?\""
+        },
+        {
+          "type": "text",
+          "text": "The theory made Bentham a radical. He used it to argue for votes for all men, the decriminalisation of homosexuality, the abolition of slavery and of cruelty to animals, and prison reform, at a time when most of these were far outside respectable opinion. It also gave him a notorious view of culture. Pleasures differ only in quantity, he held, so \"prejudice apart, the game of push-pin is of equal value with the arts and sciences of music and poetry\". Push-pin was a children's game played with pins on a table.[^pushpin]"
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "*On Liberty* also defends freedom of speech, on grounds that branch lesson P4, on free speech, takes up: a silenced opinion may be true, and even a false one, argued against, keeps the truth from becoming a dead slogan. Mill practised what he argued. Elected to Parliament for Westminster in 1865, he proposed in 1867 that women be given the vote on the same terms as men, the first such motion in the House of Commons. It was defeated by 196 votes to 73. Two years later he published *The Subjection of Women*, arguing for full legal equality."
-    }
-   ]
-  },
-  {
-   "title": "The experience machine",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The best-known objection to hedonism, the view behind both Bentham and Mill that pleasure is the only thing good in itself, came from the American philosopher Robert Nozick in 1974. Suppose, he wrote, there were an experience machine that could give you any experience you wanted. Neuroscientists could stimulate your brain so that you would think and feel you were writing a great novel, or making a friend, or reading an interesting book. All the time you would be floating in a tank, with electrodes attached to your brain. You could choose your experiences in advance, for life, and while in the tank you would not know you were there."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "verdict",
-     "caption": "Nozick's machine. Lesson 2 asked a version of this question. Your answer is saved on the Verdicts page.",
-     "task": "Give your verdict",
-     "goal": "answer",
-     "options": {
-      "key": "machine",
-      "ask": "Would you plug in for life, if the experiences were the best you could choose and you would never know?",
-      "choices": [
-       "Yes",
-       "No",
-       "Not sure"
-      ],
-      "who": [
-       "You are with a small minority of professional philosophers, and with hedonism: if pleasure is all that matters, the machine gives more of it.",
-       "You are with about three quarters of professional philosophers, and with Nozick.",
-       "Some philosophers think the answer depends on whether people you love would be left behind, which the thought experiment is meant to set aside."
-      ],
-      "poll": {
-       "shares": [
-        13,
-        77,
-        null
-       ],
-       "source": "PhilPapers Survey 2020, \"Experience machine: would you enter?\", share accepting or leaning towards each."
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Most people refuse, and Nozick drew the lesson. We want to do certain things, not just to have the experience of doing them; we want to be a certain sort of person, not an indeterminate blob in a tank; and we want contact with reality, not with an imitation of it. If that is right, something besides how life feels matters to us, and hedonism is false. Defenders of hedonism reply that the refusal reflects a bias towards the status quo: in experiments, people who are told they are already in a machine are much less keen to unplug.[^bias]"
-    }
-   ]
-  },
-  {
-   "title": "Where it stands now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Consequentialism is still argued over and is one of the three main camps in ethics, with about a third of philosophers leaning towards it in the 2020 survey, alongside virtue ethics and deontology. It is the working method of much of public policy, in cost-benefit analysis and in the measurement of health in quality-adjusted life years, and of the effective altruism movement that lesson 23 meets. Hedonism, the view that pleasure is the only good, is respected history with few defenders; most modern consequentialists count other goods, such as the satisfaction of people's preferences, knowledge or friendship."
-    },
-    {
-     "type": "text",
-     "text": "Mill's distinction between higher and lower pleasures is respected history, usually taught as a brave attempt that gave up the simplicity of Bentham's theory without fully explaining what made the higher pleasures higher. The harm principle is still argued over, and is the starting point of most debates about drug laws, public health rules and free speech. Bentham's calculus, taken as a literal way of measuring happiness, is abandoned, though economists and psychologists who study wellbeing have in some ways revived his ambition."
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on utilitarianism",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "According to Bentham's principle of utility, what makes an act right?",
-        "choices": [
-         "It produces the greatest total balance of pleasure over pain for everyone affected",
-         "It follows a rule that everyone could accept",
-         "It is what a person of good character would do",
-         "It produces the greatest pleasure for the person who acts"
-        ],
-        "answer": 0,
-        "why": "Utilitarianism counts everyone's pleasure and pain equally, not only the agent's."
-       },
-       {
-        "ask": "How does Mill decide that one pleasure is higher than another?",
-        "choices": [
-         "Ask those who have experienced both which they prefer",
-         "Measure which lasts longer and is more intense",
-         "Follow the judgement of tradition and religion",
-         "Count how many people enjoy each one"
-        ],
-        "answer": 0,
-        "why": "The test of competent judges: if those who know both prefer one even with more discontent, it is higher."
-       },
-       {
-        "ask": "Under Mill's harm principle, which law is justified?",
-        "choices": [
-         "A ban on driving while drunk",
-         "A ban on drinking alcohol at home",
-         "A law requiring adults to exercise",
-         "A ban on books that criticise religion"
-        ],
-        "answer": 0,
-        "why": "Only harm to others justifies compulsion. Drunk driving endangers others; the rest concern only the person or freedom of thought."
-       },
-       {
-        "ask": "What does Nozick's experience machine aim to show?",
-        "choices": [
-         "Something besides how life feels matters to us, so hedonism is false",
-         "Machines will one day replace human experience",
-         "Pleasure is the only thing that matters in a good life",
-         "People prefer real pain to simulated pleasure"
-        ],
-        "answer": 0,
-        "why": "If people refuse the machine, they value doing things and contact with reality, not just experiences."
-       },
-       {
-        "ask": "A critic says utilitarians would punish an innocent person if it made the majority happier. What is Mill's reply?",
-        "choices": [
-         "Rules of justice are justified by utility, since a society that keeps them is far happier",
-         "Utilitarians never consider the majority's happiness",
-         "Punishing the innocent always causes more pain than pleasure in every case",
-         "Justice matters more than happiness, so utility must give way"
-        ],
-        "answer": 0,
-        "why": "Mill defended rules of justice on utilitarian grounds. Critics doubt this protects individuals in every case."
-       }
+      "title": "An education and a breakdown",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "John Stuart Mill was raised by his father, James Mill, Bentham's close friend and ally, as an experiment in education and a future leader of the utilitarian cause. He began Greek at three and Latin at eight, had read Plato's dialogues in Greek by twelve, and was writing on political economy in his teens. He had no friends his own age and, as he wrote later, no real childhood.[^father]"
+        },
+        {
+          "type": "text",
+          "text": "In the autumn of 1826, when he was twenty, he asked himself a question. Suppose all the reforms he was working for were achieved at once: would that make him happy? \"An irrepressible self-consciousness distinctly answered, 'No!'\" He fell into a depression that lasted months. What brought him out of it, he wrote, was first a passage in a memoir that moved him to tears and then poetry, above all Wordsworth's, which gave him a joy in feeling and in nature that his education had left out. He concluded that his father's and Bentham's picture of human happiness was too narrow."
+        }
       ]
-     }
+    },
+    {
+      "title": "Higher and lower pleasures",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In *Utilitarianism* (1861) Mill defended Bentham's principle and changed it. Critics had called utilitarianism \"a doctrine worthy only of swine\", since it seemed to make the life of a contented pig as good as any human life. Mill answered that pleasures differ in quality as well as quantity. Some, the pleasures of the intellect, of feeling and imagination and of moral sentiment, are higher than others, and a small amount of a higher pleasure can be worth more than a great deal of a lower one."
+        },
+        {
+          "type": "text",
+          "text": "To tell which pleasure is higher, Mill said, ask people who have experienced both. If all or almost all of those who know both prefer one, even knowing it brings more discontent, it is the higher. Few people would agree to become an animal, or a fool, for the promise of the fullest allowance of animal pleasure. \"It is better to be a human being dissatisfied than a pig satisfied; better to be Socrates dissatisfied than a fool satisfied. And if the fool, or the pig, are of a different opinion, it is because they only know their own side of the question.\""
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Mill against Bentham. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "higher",
+            "ask": "Two lives are equally happy, moment by moment. One is spent on video games and takeaways, the other on music, books and conversation. Is the second better?",
+            "choices": [
+              "Yes: some pleasures are worth more than others",
+              "No: if they are equally happy, they are equally good",
+              "Only for people who would choose it",
+              "Not sure"
+            ],
+            "who": [
+              "You chose Mill's side. Critics ask whether Mill is still a hedonist, if something other than pleasure decides which pleasures are higher.",
+              "You chose Bentham's side, and the more consistent hedonism.",
+              "You chose something close to Mill's test of competent judges, with a modern twist: it may vary from person to person.",
+              "Many people share the doubt, which is part of why the question has lasted 160 years."
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Mill also answered a misreading that is still common: that utilitarians do not care about individuals, since anything goes if it makes the total larger. Mill argued that rules of justice, such as not punishing the innocent and keeping promises, are themselves justified by utility, because a society that keeps them is far happier and more secure than one that breaks them whenever a calculation seems to favour it. Critics reply that this makes the rules hostage to the calculation, as the trolley cases in lesson 23, on Peter Singer, show."
+        }
+      ]
+    },
+    {
+      "title": "The harm principle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Two years before *Utilitarianism* Mill published *On Liberty* (1859), which he said he wrote together with his wife, Harriet Taylor, who had died the year before. Its central claim is one of the most quoted sentences in political philosophy. \"The only purpose for which power can be rightfully exercised over any member of a civilised community, against his will, is to prevent harm to others. His own good, either physical or moral, is not a sufficient warrant.\" This is the **harm principle**. The state may stop you harming others; it may not stop you harming yourself, though it may argue with you, warn you and try to persuade you."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Mill's harm principle on six cases. Mill gave versions of two of them himself.",
+          "task": "Sort all six",
+          "goal": "sorted",
+          "options": {
+            "ask": "Would Mill let the law stop it?",
+            "groups": [
+              {
+                "name": "The law may stop it",
+                "color": "bad"
+              },
+              {
+                "name": "The law may not",
+                "color": "good"
+              }
+            ],
+            "items": [
+              {
+                "name": "Driving home after six pints",
+                "group": "The law may stop it",
+                "why": "It puts other people at serious risk of harm."
+              },
+              {
+                "name": "Drinking six pints at home alone every night",
+                "group": "The law may not",
+                "why": "The harm falls mainly on the drinker. Mill: others may warn and advise, not compel."
+              },
+              {
+                "name": "A police officer drunk on duty",
+                "group": "The law may stop it",
+                "why": "Mill's own example: being drunk is your business, but not when you have a duty to others."
+              },
+              {
+                "name": "Riding a motorbike without a helmet",
+                "group": "The law may not",
+                "why": "A risk to yourself only. Most countries disagree with Mill here."
+              },
+              {
+                "name": "Spreading a lie that costs someone their job",
+                "group": "The law may stop it",
+                "why": "Damaging another's reputation and livelihood is a harm to them."
+              },
+              {
+                "name": "Writing an essay arguing for an unpopular religion",
+                "group": "The law may not",
+                "why": "Freedom of thought and discussion is the centre of On Liberty."
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "*On Liberty* also defends freedom of speech, on grounds that branch lesson P4, on free speech, takes up: a silenced opinion may be true, and even a false one, argued against, keeps the truth from becoming a dead slogan. Mill practised what he argued. Elected to Parliament for Westminster in 1865, he proposed in 1867 that women be given the vote on the same terms as men, the first such motion in the House of Commons. It was defeated by 196 votes to 73. Two years later he published *The Subjection of Women*, arguing for full legal equality."
+        }
+      ]
+    },
+    {
+      "title": "The experience machine",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The best-known objection to hedonism, the view behind both Bentham and Mill that pleasure is the only thing good in itself, came from the American philosopher Robert Nozick in 1974. Suppose, he wrote, there were an experience machine that could give you any experience you wanted. Neuroscientists could stimulate your brain so that you would think and feel you were writing a great novel, or making a friend, or reading an interesting book. All the time you would be floating in a tank, with electrodes attached to your brain. You could choose your experiences in advance, for life, and while in the tank you would not know you were there."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "verdict",
+          "caption": "Nozick's machine. Lesson 2 asked a version of this question. Your answer is saved on the Verdicts page.",
+          "task": "Give your verdict",
+          "goal": "answer",
+          "options": {
+            "key": "machine",
+            "ask": "Would you plug in for life, if the experiences were the best you could choose and you would never know?",
+            "choices": [
+              "Yes",
+              "No",
+              "Not sure"
+            ],
+            "who": [
+              "You are with a small minority of professional philosophers, and with hedonism: if pleasure is all that matters, the machine gives more of it.",
+              "You are with about three quarters of professional philosophers, and with Nozick.",
+              "Some philosophers think the answer depends on whether people you love would be left behind, which the thought experiment is meant to set aside."
+            ],
+            "poll": {
+              "shares": [
+                13,
+                77,
+                null
+              ],
+              "source": "PhilPapers Survey 2020, \"Experience machine: would you enter?\", share accepting or leaning towards each."
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Most people refuse, and Nozick drew the lesson. We want to do certain things, not just to have the experience of doing them; we want to be a certain sort of person, not an indeterminate blob in a tank; and we want contact with reality, not with an imitation of it. If that is right, something besides how life feels matters to us, and hedonism is false. Defenders of hedonism reply that the refusal reflects a bias towards the status quo: in experiments, people who are told they are already in a machine are much less keen to unplug.[^bias]"
+        }
+      ]
+    },
+    {
+      "title": "Where it stands now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Consequentialism is still argued over and is one of the three main camps in ethics, with about a third of philosophers leaning towards it in the 2020 survey, alongside virtue ethics and deontology. It is the working method of much of public policy, in cost-benefit analysis and in the measurement of health in quality-adjusted life years, and of the effective altruism movement that lesson 23 meets. Hedonism, the view that pleasure is the only good, is respected history with few defenders; most modern consequentialists count other goods, such as the satisfaction of people's preferences, knowledge or friendship."
+        },
+        {
+          "type": "text",
+          "text": "Mill's distinction between higher and lower pleasures is respected history, usually taught as a brave attempt that gave up the simplicity of Bentham's theory without fully explaining what made the higher pleasures higher. The harm principle is still argued over, and is the starting point of most debates about drug laws, public health rules and free speech. Bentham's calculus, taken as a literal way of measuring happiness, is abandoned, though economists and psychologists who study wellbeing have in some ways revived his ambition."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on utilitarianism",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "According to Bentham's principle of utility, what makes an act right?",
+                "choices": [
+                  "It produces the greatest total balance of pleasure over pain for everyone affected",
+                  "It follows a rule that everyone could accept",
+                  "It is what a person of good character would do",
+                  "It produces the greatest pleasure for the person who acts"
+                ],
+                "answer": 0,
+                "why": "Utilitarianism counts everyone's pleasure and pain equally, not only the agent's."
+              },
+              {
+                "ask": "How does Mill decide that one pleasure is higher than another?",
+                "choices": [
+                  "Ask those who have experienced both which they prefer",
+                  "Measure which lasts longer and is more intense",
+                  "Follow the judgement of tradition and religion",
+                  "Count how many people enjoy each one"
+                ],
+                "answer": 0,
+                "why": "The test of competent judges: if those who know both prefer one even with more discontent, it is higher."
+              },
+              {
+                "ask": "Under Mill's harm principle, which law is justified?",
+                "choices": [
+                  "A ban on driving while drunk",
+                  "A ban on drinking alcohol at home",
+                  "A law requiring adults to exercise",
+                  "A ban on books that criticise religion"
+                ],
+                "answer": 0,
+                "why": "Only harm to others justifies compulsion. Drunk driving endangers others; the rest concern only the person or freedom of thought."
+              },
+              {
+                "ask": "What does Nozick's experience machine aim to show?",
+                "choices": [
+                  "Something besides how life feels matters to us, so hedonism is false",
+                  "Machines will one day replace human experience",
+                  "Pleasure is the only thing that matters in a good life",
+                  "People prefer real pain to simulated pleasure"
+                ],
+                "answer": 0,
+                "why": "If people refuse the machine, they value doing things and contact with reality, not just experiences."
+              },
+              {
+                "ask": "A critic says utilitarians would punish an innocent person if it made the majority happier. What is Mill's reply?",
+                "choices": [
+                  "Rules of justice are justified by utility, since a society that keeps them is far happier",
+                  "Utilitarians never consider the majority's happiness",
+                  "Punishing the innocent always causes more pain than pleasure in every case",
+                  "Justice matters more than happiness, so utility must give way"
+                ],
+                "answer": 0,
+                "why": "Mill defended rules of justice on utilitarian grounds. Critics doubt this protects individuals in every case."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Bentham's skeleton sits in a cabinet at University College London.** He wanted to be useful even after death.",
+    "**The principle of utility judges acts by their results.** Right acts produce the greatest balance of pleasure over pain for everyone affected.",
+    "**Everybody counts for one.** Bentham included animals: the question is whether they can suffer.",
+    "**Mill's breakdown at twenty showed him that Bentham's picture of happiness was too narrow.** Wordsworth's poetry brought him out of it.",
+    "**Some pleasures are higher than others.** Better to be Socrates dissatisfied than a fool satisfied, judged by those who know both.",
+    "**The harm principle limits state power.** Only harm to others justifies compulsion; your own good does not.",
+    "**Most people would not plug into Nozick's experience machine.** That suggests we value more than how life feels.",
+    "**Consequentialism is one of ethics' three main camps.** Hedonism and Bentham's calculus are respected history or abandoned."
+  ],
+  "footnotes": {
+    "head": {
+      "kind": "technical",
+      "title": "Bentham's head",
+      "text": "The preserved head was displayed at the cabinet's feet for some years before being moved to storage. Students from a rival college, King's, are said to have taken it in 1975 and demanded a ransom. In 2020 the preserved figure, which Bentham called his 'auto-icon', was moved to a new glass case in the university's student centre."
+    },
+    "pushpin": {
+      "kind": "digression",
+      "title": "Push-pin and poetry",
+      "text": "The remark is in Bentham's The Rationale of Reward (1825). He went on to say that if push-pin gave more pleasure it would be more valuable, and that poetry, which deals in fiction, is in some ways worse."
+    },
+    "bias": {
+      "kind": "technical",
+      "title": "The reverse machine",
+      "text": "The philosopher Felipe De Brigard ran surveys in 2010 in which people were told they were already in an experience machine and could unplug to their real lives. Many chose to stay plugged in, especially when the real life was described as worse. This suggests some of the original refusal comes from preferring what we already have."
+    },
+    "father": {
+      "kind": "digression",
+      "title": "James Mill's experiment",
+      "text": "James Mill taught his son himself, at the same table where he was writing a history of British India, and made him teach his younger brothers and sisters. John later said that he started life a quarter of a century ahead of his contemporaries, and blamed his training in part for his breakdown at twenty."
+    }
   }
- ],
- "summary": [
-  "**Bentham's skeleton sits in a cabinet at University College London.** He wanted to be useful even after death.",
-  "**The principle of utility judges acts by their results.** Right acts produce the greatest balance of pleasure over pain for everyone affected.",
-  "**Everybody counts for one.** Bentham included animals: the question is whether they can suffer.",
-  "**Mill's breakdown at twenty showed him that Bentham's picture of happiness was too narrow.** Wordsworth's poetry brought him out of it.",
-  "**Some pleasures are higher than others.** Better to be Socrates dissatisfied than a fool satisfied, judged by those who know both.",
-  "**The harm principle limits state power.** Only harm to others justifies compulsion; your own good does not.",
-  "**Most people would not plug into Nozick's experience machine.** That suggests we value more than how life feels.",
-  "**Consequentialism is one of ethics' three main camps.** Hedonism and Bentham's calculus are respected history or abandoned."
- ],
- "footnotes": {
-  "head": {
-   "kind": "technical",
-   "title": "Bentham's head",
-   "text": "The preserved head was displayed at the cabinet's feet for some years. It was later moved to storage. Students from a rival college, King's, are said to have taken it in 1975 and demanded a ransom. It is now kept in storage. In 2020 the auto-icon was moved to a new glass case in the university's student centre."
-  },
-  "pushpin": {
-   "kind": "digression",
-   "title": "Push-pin and poetry",
-   "text": "The remark is in Bentham's The Rationale of Reward (1825). He went on to say that if push-pin gave more pleasure it would be more valuable, and that poetry, which deals in fiction, is in some ways worse."
-  },
-  "bias": {
-   "kind": "technical",
-   "title": "The reverse machine",
-   "text": "The philosopher Felipe De Brigard ran surveys in 2010 in which people were told they were already in an experience machine and could unplug to their real lives. Many chose to stay plugged in, especially when the real life was described as worse. This suggests some of the original refusal comes from preferring what we already have."
-  },
-  "father": {
-   "kind": "digression",
-   "title": "James Mill's experiment",
-   "text": "James Mill taught his son himself, at the same table where he was writing a history of British India, and made him teach his younger brothers and sisters. John later said that he started life a quarter of a century ahead of his contemporaries, and blamed his training in part for his breakdown at twenty."
-  }
- }
 }
