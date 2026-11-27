@@ -1,0 +1,123 @@
+{
+  "id": "warm",
+  "n": 103,
+  "branch": "wardrobe",
+  "needs": ["fibres"],
+  "title": "What makes down and fleece warm?",
+  "teaches": "Still air as the insulator; loft and the clo; down and fill power; polyester fleece; wind; why wet cotton is cold, and how wicking and wool's absorbed moisture help",
+  "parts": [
+    {
+      "title": "Wrapped in air",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A down jacket weighs a few hundred grams and keeps its wearer warm on a winter mountain. A cotton sweatshirt of the same weight does far less, and once it is damp it does almost nothing. In this lesson we look at what actually stops heat leaving the body, why the fibre matters less than how much air it holds, and why getting wet changes everything."
+        }
+      ]
+    },
+    {
+      "title": "Still air does the work",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Heat leaves warm skin in three ways: by **conduction** through whatever touches it, by **convection** as moving air or water carries heat away, and by **radiation**. Still air is a poor conductor of heat. It conducts several times less well than the fibres themselves, and about 25 times less well than water. Air left free to move, though, carries heat off by convection as fast as the skin can supply it."
+        },
+        {
+          "type": "text",
+          "text": "Insulating clothing therefore works by holding a layer of air still. The fibres divide the air into tiny pockets too small for it to circulate, and they also block radiation. As a result, the warmth of a layer depends mostly on its thickness, which outdoor makers call its **loft**, and much less on what the fibres are made of. A centimetre of loft from down, polyester, wool or even dry grass gives roughly the same insulation."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "loft",
+          "caption": "Heat flowing from skin at 34 °C through a layer of insulation to the air outside, for a person sitting still. The layer conducts like still air.",
+          "task": "Guess, then keep a seated person warm at −10 °C or colder",
+          "goal": "warm"
+        },
+        {
+          "type": "text",
+          "text": "Physiologists measure the insulation of clothing in a unit called the **clo**, defined in 1941 as the insulation needed to keep a seated person comfortable in a room at 21 °C, roughly that of a business suit with a shirt and underwear. A centimetre of loft gives about 1.6 clo. Since walking makes two or three times as much heat as sitting, people need much less insulation while moving than when they stop, which is why mountaineers carry a thick jacket to put on at rest stops."
+        }
+      ]
+    },
+    {
+      "title": "Down and fleece",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Down** is the fluffy undercoat of ducks and geese, which lies beneath their outer feathers. Each down cluster is a small central point with hundreds of fine filaments radiating from it, and the filaments of neighbouring clusters push apart and hold a great deal of air for their weight. Down is graded by its **fill power**: the volume in cubic inches that one ounce of it fills when allowed to expand. Ordinary down measures about 550; the best goose down 800 or more, so a jacket filled with it is lighter for the same warmth. Down also compresses into a small space and springs back many times over."
+        },
+        {
+          "type": "text",
+          "text": "**Fleece**, in the sense of a fleece jacket, is a knitted polyester cloth whose surface is brushed to raise the fibres into a soft pile that holds air. It was developed in 1979 by Malden Mills, a textile company in Massachusetts, working with the outdoor clothing company Patagonia, and since the 1990s much of it has been made from recycled plastic bottles. Fleece is less warm for its weight than down but cheaper, dries quickly and stays warm when damp."
+        }
+      ]
+    },
+    {
+      "title": "Wind and water",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Two things defeat insulation. The first is wind. Even with no clothing, a thin film of still air clings to the skin and gives a little insulation, and wind strips it away. Wind also blows straight through open layers such as fleece and knitted wool, replacing the warm still air inside with cold moving air. A thin windproof outer shell on top of the insulation stops this."
+        },
+        {
+          "type": "text",
+          "text": "The second is water. Water conducts heat about 25 times better than still air, so a layer whose air spaces fill with water stops insulating. Cotton absorbs water readily and holds it, and wet cotton clings flat to the skin and dries slowly. Hikers and mountain rescue teams have a blunt saying for this: \"cotton kills\". Down suffers too, because wet clusters collapse and lose their loft, so down jackets usually have a water-repellent shell and some are filled with down treated to repel water."
+        },
+        {
+          "type": "text",
+          "text": "Polyester absorbs very little water, under 1 percent of its weight. In a base layer worn against the skin, sweat spreads along the surfaces of the fibres by capillary action, as water creeps up a paper towel, and reaches the outside of the cloth where it can evaporate. Makers call this **wicking**. Wool behaves differently. It can absorb about a third of its own weight of water vapour into the fibre without feeling wet to the touch, and as it absorbs moisture it releases a little heat. A damp wool jumper therefore still feels warm, which is one reason wool base layers are popular for long days outdoors."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on warmth.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What mainly decides how warm an insulating layer is?",
+                "choices": ["How thick a layer of still air it holds", "Which animal or plant the fibre came from", "How dark its colour is", "How tightly its yarns are twisted"],
+                "answer": 0,
+                "why": "Still air is the insulator, and the fibres hold it still. Warmth depends mostly on the thickness of that air."
+              },
+              {
+                "ask": "What does a higher fill power mean for down?",
+                "choices": ["Each ounce fills more space, so less is needed", "The down is heavier and packs more tightly", "The down has been treated to repel water", "The down comes from ducks rather than geese"],
+                "answer": 0,
+                "why": "Fill power is the volume one ounce fills. Higher fill power gives the same loft with less weight."
+              },
+              {
+                "ask": "Why is wet cotton so cold to wear?",
+                "choices": ["Water fills the air spaces and conducts heat away", "Water makes the cotton fibres shrink tightly", "Wet cotton reflects body heat back outwards", "Cotton becomes waterproof when it is wet"],
+                "answer": 0,
+                "why": "Water conducts heat about 25 times better than still air, and cotton holds it next to the skin."
+              },
+              {
+                "ask": "What does a windproof shell add over a fleece?",
+                "choices": ["It stops wind replacing the still air inside", "It adds a thick layer of extra loft", "It absorbs sweat from the skin", "It reflects sunlight onto the wearer"],
+                "answer": 0,
+                "why": "Wind blows through open layers and carries off the warm air they hold. A shell keeps that air still."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Still air insulates.** Air conducts heat poorly, but only when it cannot move.",
+    "**Fibres hold the air still.** Warmth depends mostly on the thickness of the layer, its loft.",
+    "**About 2 cm keeps you warm sitting at 0 °C.** Moving makes more heat, so less insulation is needed.",
+    "**Down is light loft.** Fill power measures how much space an ounce fills.",
+    "**Fleece is brushed polyester.** It dries fast and keeps some warmth when damp.",
+    "**Wind strips the warm air.** A windproof shell keeps the insulation's air still.",
+    "**Water conducts heat away.** Wet cotton and wet down stop insulating.",
+    "**Wicking and wool help.** Polyester moves sweat outwards; wool absorbs vapour without feeling wet."
+  ],
+  "footnotes": {}
+}

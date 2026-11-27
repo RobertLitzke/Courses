@@ -102,31 +102,31 @@
             "items": [
               {
                 "ask": "Why does English have so many cloth words from Arabic, Persian and Indian languages, and so few from, say, Chinese?",
-                "choices": ["For centuries Europeans bought cloth through Middle Eastern and Indian Ocean traders, and named it in their words", "Chinese has no words for cloth", "English borrowed these words in the 20th century", "Arabic was the language of Europe's weavers"],
+                "choices": ["Europeans bought cloth through Arab, Persian and Indian traders", "Chinese had no words of its own for kinds of cloth", "English borrowed all these words in the 20th century", "Arabic was the language spoken by Europe's weavers"],
                 "answer": 0,
                 "why": "Words travel with goods and with the people who sell them. Chinese silk reached Europe through Persian and Arab middlemen, so even satin probably came through an Arabic name."
               },
               {
                 "ask": "Cotton spread into Iraq, Egypt and Spain after the 7th century. What did growing it there depend on most?",
-                "choices": ["Irrigation, because it grows through the hot, dry summer", "Cold winters", "Silkworms", "A wet growing season like Bengal's monsoon"],
+                "choices": ["Irrigation through the hot, dry summer", "Cold winters that kill off insect pests", "Silkworms to feed on the cotton plants", "A wet monsoon season like Bengal's"],
                 "answer": 0,
                 "why": "In the Middle East and the Mediterranean, cotton is a summer crop. It needs water when it rarely rains, so it spread with irrigation."
               },
               {
                 "ask": "A governor in Fatimid Egypt receives a robe with the caliph's name woven on the sleeve. What does wearing it say?",
-                "choices": ["That he holds his office from the caliph and accepts his authority", "That he has bought an expensive garment", "That he is a weaver", "Nothing; tiraz were decorative"],
+                "choices": ["That he holds office from the caliph", "That he can afford an expensive robe", "That he belongs to the weavers' guild", "Nothing; tiraz were only decoration"],
                 "answer": 0,
                 "why": "Robes of honour with tiraz were given with appointments. Like a name on coins, a name in tiraz claimed sovereignty, and wearing it acknowledged that claim."
               },
               {
                 "ask": "European weavers in the 12th century made fustian with a linen warp and a cotton weft. Why not all cotton?",
-                "choices": ["Their cotton yarn was not strong enough to stand the tension of the warp", "Cotton was forbidden in Europe", "Linen was cheaper than cotton", "Cotton cannot be woven"],
+                "choices": ["Their cotton yarn was too weak for the warp", "Cotton warps were forbidden by church law", "Linen was cheaper than cotton in Europe", "Cotton can be woven only as a weft"],
                 "answer": 0,
                 "why": "The warp is held under tension and rubbed by the loom. European spinners could not yet spin cotton strong enough for it, so they used linen, as Lancashire still did in the early 18th century."
               },
               {
                 "ask": "Turkey red was made in Glasgow from 1785 and still called Turkey red. What does the name tell a historian?",
-                "choices": ["Where Europeans learned the method, not where the cloth was made", "That the cloth was imported from Turkey", "That the dye came from a Turkish plant", "That only Turks could wear it"],
+                "choices": ["Where Europeans learned the method", "That the cloth was imported from Turkey", "That the dye came from a Turkish plant", "That only Turks were allowed to wear it"],
                 "answer": 0,
                 "why": "Like calico and muslin, the name records where Europeans first bought the product. The method came from India and the Ottoman Empire, carried by Greek dyers."
               }
@@ -136,16 +136,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Words follow goods.** Damask, muslin, cotton, taffeta, calico, chintz and many more came into English from Arabic, Persian and Indian languages, and from cities between Spain and India.",
-    "**Cotton spread west after the Arab conquests.** By the 10th century it was grown, with irrigation, from Iran to Spain.",
-    "**The spread was an expansion, not a sudden arrival.** Andrew Watson called it an agricultural revolution; later historians showed some crops were already grown under the Romans and Sasanians.",
-    "**Cloth was a tool of government.** Tiraz bands named the ruler, and robes of honour marked appointments and loyalty.",
-    "**Cloth was the leading business.** The Cairo Geniza letters show textiles at the centre of Mediterranean trade from the 10th to the 13th century.",
-    "**Silk supply was a lever.** Bursa depended on Iranian raw silk, and the Ottomans and Safavids fought over that trade after 1514.",
-    "**Fustian was Europe's first use of cotton.** A linen warp carried the tension; a cotton weft made the cloth soft.",
-    "**Turkey red kept its name.** A slow oil and madder process gave a fast red on cotton; Greek dyers brought it to France and a French dyer to Glasgow."
-  ],
+  "summary": ["**Words follow goods.** Damask, muslin, cotton, taffeta, calico, chintz and many more came into English from Arabic, Persian and Indian languages, and from cities between Spain and India.", "**Cotton spread west after the Arab conquests.** By the 10th century it was grown, with irrigation, from Iran to Spain.", "**The spread was an expansion, not a sudden arrival.** Andrew Watson called it an agricultural revolution; later historians showed some crops were already grown under the Romans and Sasanians.", "**Cloth was a tool of government.** Tiraz bands named the ruler, and robes of honour marked appointments and loyalty.", "**Cloth was the leading business.** The Cairo Geniza letters show textiles at the centre of Mediterranean trade from the 10th to the 13th century.", "**Silk supply was a lever.** Bursa depended on Iranian raw silk, and the Ottomans and Safavids fought over that trade after 1514.", "**Fustian was Europe's first use of cotton.** A linen warp carried the tension; a cotton weft made the cloth soft.", "**Turkey red kept its name.** A slow oil and madder process gave a fast red on cotton; Greek dyers brought it to France and a French dyer to Glasgow."],
   "footnotes": {
     "muslin": {
       "kind": "digression",

@@ -16,6 +16,9 @@ import { seriesProblems } from '../src/figures/series';
 import { load, output as loomOutput } from '../src/figures/looms';
 import { BAND, bodies } from '../src/figures/bodies';
 import { PRICE, priceWith } from '../src/figures/tshirt';
+import { comfort } from '../src/figures/prickle';
+import { heatLoss, MET } from '../src/figures/loft';
+import { threadCount } from '../src/figures/threads';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -192,6 +195,65 @@ describe('the T-shirt price', () => {
     const h = FIGURES.tshirt(context(), 'triple');
     setSlider(h.node, 0, 3);
     click(h.node, 'Markup: same percentage');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the prickle figure', () => {
+  it('passes fine merino and fails jumper wool', () => {
+    expect(comfort(19)).toBeGreaterThan(0.95);
+    expect(comfort(21)).toBeGreaterThan(0.95);
+    expect(comfort(27)).toBeLessThan(0.9);
+  });
+  it('is done after a guess and a soft and a scratchy wool', async () => {
+    const h = FIGURES.prickle(context(), 'soft');
+    guess(h.node, 'About 21 µm');
+    setSlider(h.node, 0, 18);
+    setSlider(h.node, 0, 30);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the crease figure', () => {
+  it('is done once every cloth is tried', async () => {
+    const h = FIGURES.crease(context(), 'all');
+    for (const n of ['Cotton', 'Durable-press cotton', 'Wool', 'Polyester']) click(h.node, n);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the loft figure', () => {
+  it('needs about 2 cm at 0 °C sitting still', () => {
+    expect(heatLoss(10, 0)).toBeGreaterThan(MET);
+    expect(heatLoss(20, 0)).toBeLessThan(MET);
+  });
+  it('is done after a guess and a warm layer at -10 °C', async () => {
+    const h = FIGURES.loft(context(), 'warm');
+    guess(h.node, 'About 2 cm');
+    setSlider(h.node, 1, -15);
+    setSlider(h.node, 0, 35);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the thread count figure', () => {
+  it('keeps honest counts under 600', () => {
+    expect(threadCount(0.08)).toBeLessThan(600);
+    expect(threadCount(0.3)).toBeGreaterThan(100);
+  });
+  it('is done when plies are counted past 800', async () => {
+    const h = FIGURES.threads(context(), 'ply');
+    click(h.node, 'Count each of 3 plies');
+    setSlider(h.node, 0, 0.12);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the stretch figure', () => {
+  it('is done once jersey and the elastane knit are pulled hard', async () => {
+    const h = FIGURES.stretch(context(), 'compare');
+    setSlider(h.node, 0, 40);
+    click(h.node, 'Jersey with 5% elastane');
     await expect(h.done).resolves.toBeUndefined();
   });
 });

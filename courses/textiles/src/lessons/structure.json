@@ -98,56 +98,31 @@
             "items": [
               {
                 "ask": "A weaver lifts the same warp threads for every pick. What comes off the loom?",
-                "choices": [
-                  "No cloth: the weft never interlaces, so it pulls straight out",
-                  "A very firm plain weave",
-                  "A twill with steep diagonals",
-                  "A satin with long floats"
-                ],
+                "choices": ["No cloth: the weft never interlaces", "A very firm plain weave", "A twill with steep diagonals", "A satin with long floats"],
                 "answer": 0,
                 "why": "Cloth holds together only because the weft goes over and under different warp threads on different picks. If the lift never changes, nothing interlaces."
               },
               {
                 "ask": "Why is warp yarn usually spun with more twist than weft, and often starched?",
-                "choices": [
-                  "The warp is held under tension and rubbed at every pick for the whole weaving",
-                  "The warp shows on the face, so it must be shinier",
-                  "Weft is woven first and needs to be soft to hold the warp",
-                  "Starch makes the warp take dye better"
-                ],
+                "choices": ["It is held under tension and rubbed at every pick", "It shows on the face, so it must be shinier", "It is put on the loom first and has to hold the weft", "Starch and twist help the warp take dye evenly"],
                 "answer": 0,
                 "why": "The warp hangs under strain on the loom for days or weeks and is chafed by heddles and reed, so it has to be strong and smooth; the weft is under little load."
               },
               {
                 "ask": "The back of a pair of jeans is mostly white. Why?",
-                "choices": [
-                  "In a 3/1 twill each warp thread floats over three weft threads, so the blue warp is on the face and the white weft on the back",
-                  "The denim is bleached on the inside",
-                  "The inside is a separate layer of white cloth",
-                  "Indigo only stays on the side exposed to air"
-                ],
+                "choices": ["In 3/1 twill the blue warp floats on the face", "The denim is bleached white on the inside", "The inside is a separate layer of white cloth", "Indigo stays only on the side exposed to air"],
                 "answer": 0,
                 "why": "Denim is warp-faced: three warp floats for every one weft float on the face, and the reverse on the back."
               },
               {
                 "ask": "A weaver with a four-shaft loom wants a satin. What is the problem?",
-                "choices": [
-                  "Satin's scattered crossings need at least five shafts",
-                  "Satin can only be woven from silk",
-                  "Satin needs a weft that is stronger than its warp",
-                  "Four shafts can only make plain weave"
-                ],
+                "choices": ["Satin's scattered crossings need at least five shafts", "Satin can only be woven from silk, not other fibres", "Satin needs a weft much stronger than its warp", "A four-shaft loom can only weave plain weave"],
                 "answer": 0,
                 "why": "In a satin each crossing must be kept apart from its neighbours so no diagonal forms, which needs at least five shafts. Four shafts can make plain weave and twills."
               },
               {
                 "ask": "A knitted sleeve stretches a long way when pulled across, then springs back. Where does the stretch come from?",
-                "choices": [
-                  "The loops bend wider and shorter, and the springy yarn returns them",
-                  "The yarn fibres themselves stretch by more than half their length",
-                  "The threads slide through each other and are pulled back by friction",
-                  "Knits are woven very loosely"
-                ],
+                "choices": ["The loops bend wider and shorter, then spring back", "The fibres themselves stretch by half their length", "The threads slide through each other and back again", "Knits are woven very loosely, so the threads shift"],
                 "answer": 0,
                 "why": "In a knit the yarn's path changes shape. Stretch yarns such as elastane (also sold as spandex or Lycra) add more, but even plain cotton jersey stretches because of its loops."
               }
@@ -157,16 +132,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Warp and weft.** The warp is stretched on the loom; the weft crosses it one pick at a time.",
-    "**Three moves.** Every loom opens a shed, passes the weft, and beats it in with the reed.",
-    "**Shafts lift many threads at once.** Heddles on shafts decide which warp threads rise for each pick.",
-    "**Warp needs strength.** Warp yarn is harder twisted and sized; weft can be soft.",
-    "**Plain, twill, satin.** Over one under one is firm; stepped floats make a twill's diagonal; scattered long floats make satin shine.",
-    "**Denim is a 3/1 twill.** Blue warp on the face, white weft on the back.",
-    "**Shafts limit patterns.** Four shafts give plain and twills; satin needs five, and large figures need another method.",
-    "**Knits stretch because loops bend.** One yarn in rows of loops (courses) and columns (wales) gives and recovers."
-  ],
+  "summary": ["**Warp and weft.** The warp is stretched on the loom; the weft crosses it one pick at a time.", "**Three moves.** Every loom opens a shed, passes the weft, and beats it in with the reed.", "**Shafts lift many threads at once.** Heddles on shafts decide which warp threads rise for each pick.", "**Warp needs strength.** Warp yarn is harder twisted and sized; weft can be soft.", "**Plain, twill, satin.** Over one under one is firm; stepped floats make a twill's diagonal; scattered long floats make satin shine.", "**Denim is a 3/1 twill.** Blue warp on the face, white weft on the back.", "**Shafts limit patterns.** Four shafts give plain and twills; satin needs five, and large figures need another method.", "**Knits stretch because loops bend.** One yarn in rows of loops (courses) and columns (wales) gives and recovers."],
   "footnotes": {
     "jersey": {
       "kind": "digression",

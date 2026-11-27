@@ -168,56 +168,31 @@
             "items": [
               {
                 "ask": "A shop lists a scarf as \"silk satin\". What does each word describe?",
-                "choices": [
-                  "Silk is the fibre and satin is the weave structure",
-                  "Silk is the weave and satin is the fibre",
-                  "Both words name the fibre, in two languages",
-                  "Silk is the finish and satin is the yarn"
-                ],
+                "choices": ["Silk is the fibre; satin is the weave structure", "Silk is the weave; satin is the fibre it is made of", "Both words name the fibre, one in Chinese and one in Arabic", "Silk is the finish; satin is the kind of yarn used"],
                 "answer": 0,
                 "why": "Silk is the raw material. Satin is a woven structure with long floating threads on its face, and it can be woven from silk, polyester or cotton."
               },
               {
                 "ask": "Why does a bundle of untwisted cotton fibres pull apart easily, while the same fibres twisted into yarn do not?",
-                "choices": [
-                  "Twist makes each fibre spiral, so a pull presses the fibres together and friction stops them sliding",
-                  "Twist melts the fibres' waxy coating so that they stick together",
-                  "Twist makes the fibres longer, so they overlap more",
-                  "Twist glues the fibres together with their own natural oils"
-                ],
+                "choices": ["Twist turns a pull into a squeeze, and friction holds", "Twist melts the fibres' waxy coating so they stick together", "Twist stretches each fibre longer, so they overlap more", "Twist glues the fibres with their own natural oils"],
                 "answer": 0,
                 "why": "Short fibres hold only by friction. A spiral pulled straight tightens inward, so the harder the yarn is pulled, the harder the fibres press against each other."
               },
               {
                 "ask": "A spinner keeps adding twist to a single yarn, far beyond what it needs. What happens?",
-                "choices": [
-                  "It gets weaker and snarls when slack, because the fibres run across it and strain to untwist",
-                  "It keeps getting stronger, so the most twisted yarn is always best",
-                  "Nothing changes once the fibres stop slipping",
-                  "It turns into a plied yarn by itself"
-                ],
+                "choices": ["It weakens and snarls when slack, as fibres strain to untwist", "It keeps getting stronger, so the most twisted yarn is best", "It stays the same once the fibres have stopped slipping", "It doubles back on itself and becomes a plied yarn"],
                 "answer": 0,
                 "why": "Past a moderate twist the fibres lie more across the yarn than along it, so less of their strength resists a pull, and the stored twist makes a slack length kink."
               },
               {
                 "ask": "Two Z-twisted singles are to be plied into a balanced yarn that lies straight. Which way should the ply go?",
-                "choices": [
-                  "S, the opposite way, so each single's urge to untwist is cancelled",
-                  "Z, the same way, to add more twist",
-                  "Either way; direction makes no difference to plying",
-                  "No ply twist at all; the singles are laid side by side"
-                ],
+                "choices": ["S, the opposite way, so the two urges to untwist cancel", "Z, the same way, so the extra twist makes it stronger", "Either way, since direction makes no difference to plying", "No ply twist at all; the singles are just laid side by side"],
                 "answer": 0,
                 "why": "Plying in the opposite direction twists the singles back against their own twist, so the strains cancel. Two Z singles are plied S."
               },
               {
                 "ask": "Cord more than 40,000 years old is very rarely found. What is the main reason?",
-                "choices": [
-                  "Plant fibre rots within years except in very dry, wet or frozen ground",
-                  "People did not make cord until about 10,000 years ago",
-                  "Early cord was made only of animal sinew, which dissolves",
-                  "Archaeologists only began looking for cord in 2020"
-                ],
+                "choices": ["Plant fibre rots within years except in very dry, wet or frozen ground", "People did not make any cord until about 10,000 years ago", "Early cord was made only of sinew, which dissolves in soil", "Archaeologists did not look for cord until recent decades"],
                 "answer": 0,
                 "why": "Fibre decays fast, so even common objects rarely survive. The Abri du Maras scrap survived because it was stuck to a stone tool, and most early evidence is indirect: carvings, clay impressions and tools."
               }
@@ -227,15 +202,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Four layers.** Every cloth is a fibre, twisted into yarn, built into a structure (woven, knitted or felted), then finished (dyed, printed, brushed).",
-    "**Names belong to layers.** Satin is a weave, jersey is a knit, denim is a cotton twill; \"100% cotton\" names only the fibre.",
-    "**Twist holds by friction.** Spiralling fibres press together when the yarn is pulled, so short fibres can make an endless thread.",
-    "**There is a best twist.** Too little and fibres slip; too much and the yarn weakens and snarls when slack.",
-    "**S and Z.** Twist goes one of two ways, named by the slant of the letters, and traditions keep to one, which helps date and place a cloth.",
-    "**Plying balances.** Singles twisted together the opposite way cancel each other's strain, as in rope, sewing thread and the Abri du Maras cord.",
-    "**String is very old.** Cord at least 41,000 years old, most likely made by Neanderthals, used the same three-ply construction as modern rope."
-  ],
+  "summary": ["**Four layers.** Every cloth is a fibre, twisted into yarn, built into a structure (woven, knitted or felted), then finished (dyed, printed, brushed).", "**Names belong to layers.** Satin is a weave, jersey is a knit, denim is a cotton twill; \"100% cotton\" names only the fibre.", "**Twist holds by friction.** Spiralling fibres press together when the yarn is pulled, so short fibres can make an endless thread.", "**There is a best twist.** Too little and fibres slip; too much and the yarn weakens and snarls when slack.", "**S and Z.** Twist goes one of two ways, named by the slant of the letters, and traditions keep to one, which helps date and place a cloth.", "**Plying balances.** Singles twisted together the opposite way cancel each other's strain, as in rope, sewing thread and the Abri du Maras cord.", "**String is very old.** Cord at least 41,000 years old, most likely made by Neanderthals, used the same three-ply construction as modern rope."],
   "footnotes": {
     "maras": {
       "kind": "digression",

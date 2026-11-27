@@ -96,31 +96,31 @@
             "items": [
               {
                 "ask": "A spinner's yarn keeps coming out thick and lumpy in places. Which part of spinning is going wrong?",
-                "choices": ["Drafting: in places the fibres are not drawn out thin enough before the twist locks them", "Plying: the yarn has not been doubled", "The whorl is too light to turn", "The fibre was not retted"],
+                "choices": ["Drafting: the fibres are not drawn out evenly before twisting", "Plying: two singles have not been twisted together yet", "The whorl: it is too light to keep the spindle turning", "Retting: the flax was not soaked long enough to loosen"],
                 "answer": 0,
                 "why": "Drafting sets the thickness. Where the spinner lets too many fibres through before the twist runs in, the yarn is thick, and the twist then fixes it that way."
               },
               {
                 "ask": "An archaeologist finds many very light spindle whorls at a site. What does that suggest?",
-                "choices": ["Fine yarn was being spun there", "Thick rope was being made there", "The site had spinning wheels", "The site made only plied yarn"],
+                "choices": ["Fine yarn was being spun there", "Thick rope was being made there", "Spinning wheels were in use there", "Only plied yarn was made there"],
                 "answer": 0,
                 "why": "A light whorl turns fast with little momentum and suits fine yarn; a heavy whorl keeps a thick yarn turning. Whorl weights are evidence of what was spun."
               },
               {
                 "ask": "A cloth of the same size and weave has twice as many threads per centimetre in each direction as another, so its yarn must be finer. Roughly how does the spinning compare?",
-                "choices": ["About twice the yarn, and more than twice the hours, since finer yarn spins slower", "The same, since the cloth is the same size", "Four times less, since finer yarn is lighter", "Half, because the finer yarn weighs less"],
+                "choices": ["About twice the yarn, and more than twice the hours", "The same, since the cloth is the same size", "A quarter as much, since finer yarn is lighter", "Half the hours, because finer yarn weighs less"],
                 "answer": 0,
                 "why": "Yarn length rises in proportion to thread density, and finer yarn is also spun more slowly, so fine cloth cost far more spinning."
               },
               {
                 "ask": "Why did one weaver need several spinners?",
-                "choices": ["A pass of the shuttle lays down a whole width of yarn, while spinning makes it a few metres at a time", "Weavers worked longer days than spinners", "Spinners had to make yarn for the loom's frame as well", "Each weaver used several looms at once"],
+                "choices": ["One pass of the shuttle uses far more yarn than a spinner makes in that time", "Weavers worked much longer days than spinners, so needed more yarn", "Spinners also had to make the yarn for the loom's frame and cords", "Each weaver worked several looms at once, so needed several spinners"],
                 "answer": 0,
                 "why": "Weaving uses yarn much faster than hand spinning produces it, so before machines, several spinners fed every loom."
               },
               {
                 "ask": "Why did spinning wheels not replace spindles quickly in Europe?",
-                "choices": ["Wheels cost money and stood still, spindles could be used anywhere, and early wheel yarn was thought weaker", "Wheels were banned by the Church", "Wheels could spin only cotton, which Europe did not grow", "Spindles were faster for every kind of yarn"],
+                "choices": ["Wheels cost money and stayed home, and early wheel yarn seemed weaker", "Wheels were banned by the Church as a tool of idleness", "Wheels could spin only cotton, which Europe did not grow", "Spindles were faster than wheels for every kind of yarn"],
                 "answer": 0,
                 "why": "The wheel was faster, but the spindle was cheap and portable, and some guilds at first allowed wheel-spun yarn only for weft."
               }
@@ -130,15 +130,7 @@
       ]
     }
   ],
-  "summary": [
-    "**Spinning is drafting plus twist.** The spinner draws fibres out thin, and twist locks them at that thickness.",
-    "**The spindle.** A stick with a whorl as its flywheel; cheap, portable, and slow, at roughly 30 to 100 m of yarn an hour.",
-    "**Cloth is mostly yarn.** A square metre of ordinary cloth holds thousands of metres of thread, so spinning took most of the hours.",
-    "**One weaver, several spinners.** Weaving uses yarn far faster than a hand spinner makes it, an imbalance the machines of lesson 14 attacked.",
-    "**The wheel.** Pictured in Baghdad in 1237 and in Europe by about 1280; faster, but it took centuries to displace the spindle.",
-    "**Women's work.** Spinning fitted around childcare and other tasks, so it was women's work almost everywhere, unpaid and unrecorded.",
-    "**Count measures fineness.** Higher counts are finer yarns; India's hand spinners made the finest cotton yarn in the world."
-  ],
+  "summary": ["**Spinning is drafting plus twist.** The spinner draws fibres out thin, and twist locks them at that thickness.", "**The spindle.** A stick with a whorl as its flywheel; cheap, portable, and slow, at roughly 30 to 100 m of yarn an hour.", "**Cloth is mostly yarn.** A square metre of ordinary cloth holds thousands of metres of thread, so spinning took most of the hours.", "**One weaver, several spinners.** Weaving uses yarn far faster than a hand spinner makes it, an imbalance the machines of lesson 14 attacked.", "**The wheel.** Pictured in Baghdad in 1237 and in Europe by about 1280; faster, but it took centuries to displace the spindle.", "**Women's work.** Spinning fitted around childcare and other tasks, so it was women's work almost everywhere, unpaid and unrecorded.", "**Count measures fineness.** Higher counts are finer yarns; India's hand spinners made the finest cotton yarn in the world."],
   "footnotes": {
     "count": {
       "kind": "technical",

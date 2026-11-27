@@ -91,31 +91,31 @@
             "items": [
               {
                 "ask": "A weaver wants a pattern of a deer facing left, 40 warp threads wide, on a shaft loom. Why is that harder than a diamond of the same width?",
-                "choices": ["A lopsided figure has few warp threads that behave alike, so it needs many more shafts", "Deer patterns need more colours", "The diamond uses less yarn", "Shaft looms cannot weave curves"],
+                "choices": ["Few of its warp threads behave alike, so it needs many shafts", "A deer needs more colours of thread than a simple diamond", "A diamond uses much less yarn, so it is quicker to weave", "Shaft looms cannot weave curved lines, only straight ones"],
                 "answer": 0,
                 "why": "Each different kind of warp thread needs its own shaft. A symmetric diamond reuses each column on both sides; an animal facing one way does not."
               },
               {
                 "ask": "On a drawloom, where is the pattern kept while the cloth is being woven?",
-                "choices": ["In the lashes: bundles of cords prepared in advance, one for each pick", "In the weaver's memory", "On a drawing pinned above the loom", "In the threading of four shafts"],
+                "choices": ["In the lashes of cords, one per pick", "In the weaver's memory, pick by pick", "On a drawing pinned above the loom", "In the threading of four shafts"],
                 "answer": 0,
                 "why": "The lashes are tied before weaving begins. The drawboy pulls them in order, so the pattern is stored in string and can be woven again."
               },
               {
                 "ask": "A drawloom can weave almost any motif. What does it cost compared with a shaft loom?",
-                "choices": ["A second worker on every pick, and a long setup tying the lashes", "Nothing; it is simply better", "It can only weave plain silk", "It needs water power"],
+                "choices": ["A second worker on every pick, and a long setup", "Nothing; it is simply faster and better in every way", "It can weave only plain silk, not wool or cotton", "It needs a water wheel to lift the heavy cords"],
                 "answer": 0,
                 "why": "The drawboy pulled a lash for every pick. The limit moved from the number of shafts to labour and setup time."
               },
               {
                 "ask": "A Han brocade has warps of five colours. Why does a warp-faced compound weave use so much warp yarn?",
-                "choices": ["Every colour runs through the cloth all the time, hidden underneath except where the pattern brings it up", "Warp is thicker than weft", "The weft is left out", "Each colour is woven as a separate cloth and sewn on"],
+                "choices": ["Each colour runs the whole length, hidden except where it shows", "Warp yarn is always spun much thicker than weft yarn", "The weft is left out, so the warp has to fill the cloth", "Each colour is woven as its own cloth and sewn on top"],
                 "answer": 0,
                 "why": "In a *jin* each warp colour is present across the whole width. The loom chooses which one shows on each pick, so several layers of warp lie in every part of the cloth."
               },
               {
                 "ask": "Someone says weaving invented the computer. What is the more accurate claim?",
-                "choices": ["Pattern looms stored a sequence of instructions apart from the weaver, and Jacquard's swappable cards carried that idea to Babbage and Hollerith", "Jacquard looms could do arithmetic", "Han looms used binary numbers", "Babbage was a weaver"],
+                "choices": ["Looms stored instructions apart from the weaver, an idea Babbage borrowed", "Jacquard looms could do arithmetic with their punched cards", "Han looms stored their patterns as binary numbers", "Babbage trained as a weaver before building his engines"],
                 "answer": 0,
                 "why": "Looms never calculated. What passed from looms to computing was the idea of a stored sequence of instructions, which Jacquard's cards made easy to replace."
               }
@@ -125,15 +125,7 @@
       ]
     }
   ],
-  "summary": [
-    "**A pattern is a list of lifts.** For each pick, some warp threads rise and others stay down; a loom that weaves a picture must store that list.",
-    "**A shaft loom stores it in shafts.** Each different kind of warp thread needs a shaft of its own, so lopsided pictures need many shafts and symmetric ones fewer.",
-    "**Han looms had many pattern shafts.** Models from the Laoguanshan tombs in Chengdu, 2nd century BC, show pattern looms that one weaver could probably run.",
-    "**Han brocade was warp-faced.** In *jin*, warps of several colours ran through the whole cloth, and the loom brought up the colour each part of the pattern needed.",
-    "**The drawloom stores the pattern in cords.** A drawboy pulls one prepared lash per pick, so any motif fits, at the cost of a second worker.",
-    "**Every fix moved the limit.** Shafts were limited by the frame; the drawloom by labour and setup time.",
-    "**The idea outlived the loom.** Jacquard's punched cards replaced the drawboy in 1804, and the idea of stored, swappable instructions passed to Babbage and Hollerith."
-  ],
+  "summary": ["**A pattern is a list of lifts.** For each pick, some warp threads rise and others stay down; a loom that weaves a picture must store that list.", "**A shaft loom stores it in shafts.** Each different kind of warp thread needs a shaft of its own, so lopsided pictures need many shafts and symmetric ones fewer.", "**Han looms had many pattern shafts.** Models from the Laoguanshan tombs in Chengdu, 2nd century BC, show pattern looms that one weaver could probably run.", "**Han brocade was warp-faced.** In *jin*, warps of several colours ran through the whole cloth, and the loom brought up the colour each part of the pattern needed.", "**The drawloom stores the pattern in cords.** A drawboy pulls one prepared lash per pick, so any motif fits, at the cost of a second worker.", "**Every fix moved the limit.** Shafts were limited by the frame; the drawloom by labour and setup time.", "**The idea outlived the loom.** Jacquard's punched cards replaced the drawboy in 1804, and the idea of stored, swappable instructions passed to Babbage and Hollerith."],
   "footnotes": {
     "laoguanshan": {
       "kind": "digression",

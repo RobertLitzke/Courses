@@ -113,31 +113,31 @@
             "items": [
               {
                 "ask": "What two jobs did the Jacquard head take over from the drawloom?",
-                "choices": ["The drawboy's pulling of cords on every pick, and the weeks of tying lashes for each new design", "Spinning the yarn and dyeing it", "Throwing the shuttle and beating the weft", "Selling the cloth and paying the weavers"],
+                "choices": ["The drawboy's pulling, and tying lashes for each design", "Spinning the yarn and dyeing it before weaving", "Throwing the shuttle and beating in the weft", "Measuring the cloth and paying the weavers"],
                 "answer": 0,
                 "why": "Cards chose the threads on each pick, so no second worker was needed, and a new design meant punching cards instead of tying thousands of lashes."
               },
               {
                 "ask": "In a Jacquard head, a card has no hole at a particular needle. What happens to that needle's warp thread on this pick?",
-                "choices": ["The card pushes the needle and its hook off the griffe, so the thread stays down", "The thread rises with the griffe", "The thread is cut", "The weaver lifts it by hand"],
+                "choices": ["Its hook is pushed off the griffe, so it stays down", "It rises with the griffe like the others", "It is cut and must be tied again", "The weaver must lift it by hand"],
                 "answer": 0,
                 "why": "Only hooks left over the rising griffe are lifted. A blank pushes its hook aside, so the thread stays down."
               },
               {
                 "ask": "A weaver changes one pick of a Jacquard design. What has to be redone?",
-                "choices": ["Only the card for that pick", "The threading of the whole loom", "Every card in the deck", "The shafts for that thread"],
+                "choices": ["Only the card for that pick", "The threading of the whole loom", "Every card in the deck", "The shafts for that one thread"],
                 "answer": 0,
                 "why": "Each card holds one pick of the pattern, and the threading never changes, so a change to one pick means punching one new card."
               },
               {
                 "ask": "What did the Lyon weavers of 1831 rise over?",
-                "choices": ["Merchants refusing to pay an agreed minimum piece rate, the tarif", "The arrival of the Jacquard head", "A ban on silk imports", "Conscription into the army"],
+                "choices": ["Merchants refusing an agreed minimum piece rate", "The spread of the Jacquard head in workshops", "A new ban on imports of raw silk from Italy", "Conscription of young weavers into the army"],
                 "answer": 0,
                 "why": "The canuts already worked Jacquard looms. They rose when merchants and the government rejected the minimum rates agreed in October 1831."
               },
               {
                 "ask": "Which statement about the Jacquard loom and computers is accurate?",
-                "choices": ["Its cards were replaceable stored instructions, but the loom did no arithmetic and could not choose what to do next", "The Jacquard loom was the first computer", "Jacquard's cards counted the US census", "Babbage built the Analytical Engine from a Jacquard loom"],
+                "choices": ["Its cards stored swappable instructions but did no arithmetic", "It was the first computer, since it could follow a program", "Jacquard's punched cards were used to count the US census", "Babbage built his Analytical Engine from a Jacquard loom"],
                 "answer": 0,
                 "why": "The loom read its cards in order and lifted hooks. Babbage planned to add a store, arithmetic and choices; Hollerith's cards held data, not instructions."
               }
@@ -147,16 +147,7 @@
       ]
     }
   ],
-  "summary": [
-    "**The drawloom had two costs.** A drawboy on every pick, and weeks of tying lashes for each new design.",
-    "**Jacquard's head replaced both.** Shown in 1801 and completed in 1804 and 1805, it used a chain of punched cards, one card per pick.",
-    "**A hole lifts a thread.** Where the card has a hole, the hook stays on the rising griffe; a blank pushes the hook off.",
-    "**A pattern became a deck.** Cards could be changed one pick at a time, swapped, stored and copied without rethreading the loom.",
-    "**The canuts rose over pay.** Lyon's silk weavers revolted in 1831 and 1834 over piece rates and the right to organise, and were put down by the army.",
-    "**Babbage borrowed the cards.** His Analytical Engine was to take operations and variables from punched cards, and Lovelace compared it to the loom.",
-    "**Hollerith's cards held data.** They counted the 1890 census electrically, which was a different use from the loom's.",
-    "**Stored control is not computing.** The loom read cards in order; it did no arithmetic and made no choices."
-  ],
+  "summary": ["**The drawloom had two costs.** A drawboy on every pick, and weeks of tying lashes for each new design.", "**Jacquard's head replaced both.** Shown in 1801 and completed in 1804 and 1805, it used a chain of punched cards, one card per pick.", "**A hole lifts a thread.** Where the card has a hole, the hook stays on the rising griffe; a blank pushes the hook off.", "**A pattern became a deck.** Cards could be changed one pick at a time, swapped, stored and copied without rethreading the loom.", "**The canuts rose over pay.** Lyon's silk weavers revolted in 1831 and 1834 over piece rates and the right to organise, and were put down by the army.", "**Babbage borrowed the cards.** His Analytical Engine was to take operations and variables from punched cards, and Lovelace compared it to the loom.", "**Hollerith's cards held data.** They counted the 1890 census electrically, which was a different use from the loom's.", "**Stored control is not computing.** The loom read cards in order; it did no arithmetic and made no choices."],
   "footnotes": {
     "portrait": {
       "kind": "technical",

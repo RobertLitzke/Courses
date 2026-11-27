@@ -99,13 +99,13 @@
             "items": [
               {
                 "ask": "The Inca state had no coins. How did it pay soldiers and reward loyal local lords?",
-                "choices": ["With goods from its storehouses, above all cloth, made by households as labour tax", "With silver bars", "With land in Spain", "It did not pay them"],
+                "choices": ["With cloth and goods from its storehouses", "With bars of silver from its mines", "With grants of land in conquered provinces", "With shells used as money across the Andes"],
                 "answer": 0,
                 "why": "Labour tax filled the storehouses, and stored cloth and food were handed out as pay, rewards and gifts."
               },
               {
                 "ask": "A highland household receives a bundle of alpaca wool from a state official. What is expected of it?",
-                "choices": ["To spin and weave a fixed amount of plain cloth and return it", "To sell the wool at market", "To pay for the wool in silver", "To dye it red with cochineal and keep it"],
+                "choices": ["To spin and weave a set amount of cloth", "To sell the wool at the nearest market", "To pay for the wool later in silver", "To dye it with cochineal and keep it"],
                 "answer": 0,
                 "why": "The state supplied the fibre and the household supplied the labour. The tax was the work, and the product went back to the state."
               },
@@ -117,13 +117,13 @@
               },
               {
                 "ask": "Why would an Inca army burn its own storehouses when retreating?",
-                "choices": ["The stores of cloth and food were the state's wealth and would have supplied the enemy", "To signal to other armies", "Cloth was burned at every retreat as a ritual", "The storehouses were made of cloth"],
+                "choices": ["The stores were state wealth that would supply the enemy", "To signal their position to other Inca armies nearby", "Burning cloth was a ritual performed at every retreat", "The storehouses were too heavy to carry with them"],
                 "answer": 0,
                 "why": "In a state without money, stored goods were the treasury and the army's supply. Destroying them denied both to an invader."
               },
               {
                 "ask": "Why did cochineal become valuable in Europe after the 1520s?",
-                "choices": ["It gave a brighter, faster red on wool and silk than any European dye", "It was the only dye that worked on cotton", "It was cheaper than madder", "Spain banned all other reds"],
+                "choices": ["It gave a brighter, faster red than any European dye", "It was the only red dye that worked on cotton", "It was much cheaper than madder or kermes", "Spain banned every other red dye in Europe"],
                 "answer": 0,
                 "why": "Cochineal's red was stronger and more lasting than Europe's own, so dyers paid a high price for it, and it became one of New Spain's leading exports."
               }
@@ -133,15 +133,6 @@
       ]
     }
   ],
-  "summary": [
-    "**The Inca state ran without money.** Subjects paid tax in labour, and the state stored and handed out the products.",
-    "**Cloth was the main store of wealth.** It paid soldiers, rewarded lords, marked rank and was burned as an offering.",
-    "**Two grades of cloth.** Households wove plain *awasqa* from state fibre; specialists and chosen women wove fine tapestry *cumbi*.",
-    "**Storehouses held it.** Rows of *qullqa*, up to thousands at one site, lined the roads of a network of some 30,000 to 40,000 km.",
-    "**Khipus kept the accounts.** Knotted cords recorded numbers in a decimal system by the position and type of knot.",
-    "**The skills were older than the Inca.** Paracas embroidery and Wari tapestry tunics came centuries earlier.",
-    "**The conquest redirected the system.** Labour drafts went to the silver mines, and obrajes made cloth with forced labour.",
-    "**Cochineal went global.** An American insect red became one of New Spain's most valuable exports."
-  ],
+  "summary": ["**The Inca state ran without money.** Subjects paid tax in labour, and the state stored and handed out the products.", "**Cloth was the main store of wealth.** It paid soldiers, rewarded lords, marked rank and was burned as an offering.", "**Two grades of cloth.** Households wove plain *awasqa* from state fibre; specialists and chosen women wove fine tapestry *cumbi*.", "**Storehouses held it.** Rows of *qullqa*, up to thousands at one site, lined the roads of a network of some 30,000 to 40,000 km.", "**Khipus kept the accounts.** Knotted cords recorded numbers in a decimal system by the position and type of knot.", "**The skills were older than the Inca.** Paracas embroidery and Wari tapestry tunics came centuries earlier.", "**The conquest redirected the system.** Labour drafts went to the silver mines, and obrajes made cloth with forced labour.", "**Cochineal went global.** An American insect red became one of New Spain's most valuable exports."],
   "footnotes": {}
 }

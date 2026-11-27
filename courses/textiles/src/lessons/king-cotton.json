@@ -48,313 +48,16 @@
           "options": {
             "from": 1855,
             "to": 1870,
-            "ticks": [
-              1855,
-              1860,
-              1865,
-              1870
-            ],
+            "ticks": [1855, 1860, 1865, 1870],
             "panels": [
               {
                 "title": "Raw cotton imported into Britain",
                 "unit": "million pounds",
                 "lines": [
-                  {
-                    "name": "US",
-                    "color": "usa",
-                    "points": [
-                      [
-                        1855,
-                        680
-                      ],
-                      [
-                        1856,
-                        780
-                      ],
-                      [
-                        1857,
-                        650
-                      ],
-                      [
-                        1858,
-                        830
-                      ],
-                      [
-                        1859,
-                        960
-                      ],
-                      [
-                        1860,
-                        1120
-                      ],
-                      [
-                        1861,
-                        820
-                      ],
-                      [
-                        1862,
-                        14
-                      ],
-                      [
-                        1863,
-                        6
-                      ],
-                      [
-                        1864,
-                        14
-                      ],
-                      [
-                        1865,
-                        140
-                      ],
-                      [
-                        1866,
-                        520
-                      ],
-                      [
-                        1867,
-                        530
-                      ],
-                      [
-                        1868,
-                        570
-                      ],
-                      [
-                        1869,
-                        460
-                      ],
-                      [
-                        1870,
-                        720
-                      ]
-                    ],
-                    "at": [
-                      1860,
-                      1120
-                    ]
-                  },
-                  {
-                    "name": "India",
-                    "color": "india",
-                    "points": [
-                      [
-                        1855,
-                        145
-                      ],
-                      [
-                        1856,
-                        180
-                      ],
-                      [
-                        1857,
-                        250
-                      ],
-                      [
-                        1858,
-                        130
-                      ],
-                      [
-                        1859,
-                        190
-                      ],
-                      [
-                        1860,
-                        200
-                      ],
-                      [
-                        1861,
-                        370
-                      ],
-                      [
-                        1862,
-                        390
-                      ],
-                      [
-                        1863,
-                        430
-                      ],
-                      [
-                        1864,
-                        510
-                      ],
-                      [
-                        1865,
-                        450
-                      ],
-                      [
-                        1866,
-                        620
-                      ],
-                      [
-                        1867,
-                        500
-                      ],
-                      [
-                        1868,
-                        490
-                      ],
-                      [
-                        1869,
-                        510
-                      ],
-                      [
-                        1870,
-                        340
-                      ]
-                    ],
-                    "at": [
-                      1864,
-                      510
-                    ]
-                  },
-                  {
-                    "name": "Egypt",
-                    "color": "egypt",
-                    "points": [
-                      [
-                        1855,
-                        33
-                      ],
-                      [
-                        1856,
-                        37
-                      ],
-                      [
-                        1857,
-                        24
-                      ],
-                      [
-                        1858,
-                        38
-                      ],
-                      [
-                        1859,
-                        38
-                      ],
-                      [
-                        1860,
-                        44
-                      ],
-                      [
-                        1861,
-                        41
-                      ],
-                      [
-                        1862,
-                        60
-                      ],
-                      [
-                        1863,
-                        94
-                      ],
-                      [
-                        1864,
-                        126
-                      ],
-                      [
-                        1865,
-                        177
-                      ],
-                      [
-                        1866,
-                        135
-                      ],
-                      [
-                        1867,
-                        125
-                      ],
-                      [
-                        1868,
-                        133
-                      ],
-                      [
-                        1869,
-                        132
-                      ],
-                      [
-                        1870,
-                        142
-                      ]
-                    ],
-                    "at": [
-                      1865.6,
-                      177
-                    ]
-                  },
-                  {
-                    "name": "Elsewhere",
-                    "color": "elsewhere",
-                    "points": [
-                      [
-                        1855,
-                        31
-                      ],
-                      [
-                        1856,
-                        26
-                      ],
-                      [
-                        1857,
-                        41
-                      ],
-                      [
-                        1858,
-                        31
-                      ],
-                      [
-                        1859,
-                        34
-                      ],
-                      [
-                        1860,
-                        27
-                      ],
-                      [
-                        1861,
-                        27
-                      ],
-                      [
-                        1862,
-                        57
-                      ],
-                      [
-                        1863,
-                        135
-                      ],
-                      [
-                        1864,
-                        245
-                      ],
-                      [
-                        1865,
-                        220
-                      ],
-                      [
-                        1866,
-                        107
-                      ],
-                      [
-                        1867,
-                        113
-                      ],
-                      [
-                        1868,
-                        128
-                      ],
-                      [
-                        1869,
-                        119
-                      ],
-                      [
-                        1870,
-                        140
-                      ]
-                    ],
-                    "at": [
-                      1863.4,
-                      180
-                    ]
-                  }
+                  {"name": "US", "color": "usa", "points": [[1855, 680], [1856, 780], [1857, 650], [1858, 830], [1859, 960], [1860, 1120], [1861, 820], [1862, 14], [1863, 6], [1864, 14], [1865, 140], [1866, 520], [1867, 530], [1868, 570], [1869, 460], [1870, 720]], "at": [1860, 1120]},
+                  {"name": "India", "color": "india", "points": [[1855, 145], [1856, 180], [1857, 250], [1858, 130], [1859, 190], [1860, 200], [1861, 370], [1862, 390], [1863, 430], [1864, 510], [1865, 450], [1866, 620], [1867, 500], [1868, 490], [1869, 510], [1870, 340]], "at": [1864, 510]},
+                  {"name": "Egypt", "color": "egypt", "points": [[1855, 33], [1856, 37], [1857, 24], [1858, 38], [1859, 38], [1860, 44], [1861, 41], [1862, 60], [1863, 94], [1864, 126], [1865, 177], [1866, 135], [1867, 125], [1868, 133], [1869, 132], [1870, 142]], "at": [1865.6, 177]},
+                  {"name": "Elsewhere", "color": "elsewhere", "points": [[1855, 31], [1856, 26], [1857, 41], [1858, 31], [1859, 34], [1860, 27], [1861, 27], [1862, 57], [1863, 135], [1864, 245], [1865, 220], [1866, 107], [1867, 113], [1868, 128], [1869, 119], [1870, 140]], "at": [1863.4, 180]}
                 ],
                 "max": 1200
               },
@@ -362,76 +65,7 @@
                 "title": "Price of American cotton at Liverpool",
                 "unit": "pence per pound",
                 "lines": [
-                  {
-                    "name": "price",
-                    "color": "usa",
-                    "points": [
-                      [
-                        1855,
-                        5.9
-                      ],
-                      [
-                        1856,
-                        6.4
-                      ],
-                      [
-                        1857,
-                        7.7
-                      ],
-                      [
-                        1858,
-                        6.7
-                      ],
-                      [
-                        1859,
-                        6.7
-                      ],
-                      [
-                        1860,
-                        6.2
-                      ],
-                      [
-                        1861,
-                        8.5
-                      ],
-                      [
-                        1862,
-                        17.3
-                      ],
-                      [
-                        1863,
-                        23.3
-                      ],
-                      [
-                        1864,
-                        27.5
-                      ],
-                      [
-                        1865,
-                        19
-                      ],
-                      [
-                        1866,
-                        15.3
-                      ],
-                      [
-                        1867,
-                        10.8
-                      ],
-                      [
-                        1868,
-                        10.5
-                      ],
-                      [
-                        1869,
-                        12.1
-                      ],
-                      [
-                        1870,
-                        9.9
-                      ]
-                    ]
-                  }
+                  {"name": "price", "color": "usa", "points": [[1855, 5.9], [1856, 6.4], [1857, 7.7], [1858, 6.7], [1859, 6.7], [1860, 6.2], [1861, 8.5], [1862, 17.3], [1863, 23.3], [1864, 27.5], [1865, 19], [1866, 15.3], [1867, 10.8], [1868, 10.5], [1869, 12.1], [1870, 9.9]]}
                 ],
                 "max": 30
               }
@@ -490,56 +124,31 @@
             "items": [
               {
                 "ask": "Why did the shortage of Southern cotton hit Britain later than Confederate leaders hoped?",
-                "choices": [
-                  "Record crops in 1859 and 1860 had left large stocks of raw cotton and unsold cloth in British warehouses",
-                  "Britain grew its own cotton",
-                  "The blockade was never enforced",
-                  "Britain had stopped making cotton cloth"
-                ],
+                "choices": ["Record crops had left British warehouses full", "Britain grew enough cotton in its own colonies", "The Union blockade was never really enforced", "British mills had already switched to wool"],
                 "answer": 0,
                 "why": "The glut meant mills could run on stocks through 1861. By the time the shortage bit in 1862, opinion and policy had moved."
               },
               {
                 "ask": "The Confederacy held its 1861 crop off the market. What was this meant to do?",
-                "choices": [
-                  "Show Britain how much it depended on Southern cotton, so it would recognise the Confederacy",
-                  "Raise money for the Union",
-                  "Save cotton for Southern mills",
-                  "Lower the price of cotton in Liverpool"
-                ],
+                "choices": ["Show Britain its dependence, so it would recognise the South", "Raise the price so the South could pay for its army", "Save the crop for new cotton mills in the South", "Keep cotton away from Union troops in the border states"],
                 "answer": 0,
                 "why": "The informal embargo was meant to put pressure on Britain. Britain responded by drawing on other suppliers instead of intervening."
               },
               {
                 "ask": "The price of raw cotton rose more than fourfold between 1860 and 1864. Why did that not help Lancashire's cotton workers?",
-                "choices": [
-                  "Mills could not sell cloth at a profit with such dear cotton, so they closed or ran short time",
-                  "Workers were paid in raw cotton",
-                  "The price rise was only in America",
-                  "Mills had already switched to wool"
-                ],
+                "choices": ["Mills could not sell cloth at a profit, so they cut work", "Workers were paid partly in raw cotton, not in money", "The price rose only in America, not in Liverpool", "Mills had already switched to weaving wool instead"],
                 "answer": 0,
                 "why": "A high price for the raw material squeezed the mills, so they cut work. Unemployment and short time spread through the cotton towns."
               },
               {
                 "ask": "What did Mary Ellison find when she looked at local newspapers from the cotton towns?",
-                "choices": [
-                  "Many towns held meetings supporting recognition of the Confederacy or mediation, especially as distress grew",
-                  "Every town supported the Union",
-                  "No meetings were held",
-                  "Workers were not affected by the war"
-                ],
+                "choices": ["Many towns passed motions for the South or for mediation", "Every cotton town held meetings in support of the Union", "The cotton towns held no political meetings in the war", "Workers in the cotton towns took no interest in the war"],
                 "answer": 0,
                 "why": "The Manchester address to Lincoln was real, but other towns passed pro-Southern motions. Later work found opinion varied by town and over time."
               },
               {
                 "ask": "What was the longest-lasting effect of the cotton famine?",
-                "choices": [
-                  "Cotton growing expanded in India, Egypt and elsewhere, and Britain learned to draw on several continents",
-                  "Britain stopped making cotton cloth",
-                  "The American South never grew cotton again",
-                  "Lancashire mills moved to Egypt"
-                ],
+                "choices": ["Cotton growing spread to India, Egypt and elsewhere", "Britain stopped making cotton cloth for good", "The American South never grew cotton again", "Lancashire's mill owners moved to Egypt"],
                 "answer": 0,
                 "why": "High prices drew new suppliers into the market, and colonial governments kept promoting cotton growing after American supply returned."
               }
@@ -549,15 +158,6 @@
       ]
     }
   ],
-  "summary": [
-    "**The South bet on cotton.** Confederate leaders expected Britain to recognise them to keep its mills running.",
-    "**The timing was wrong.** Record crops in 1859 and 1860 left British warehouses full when the war began.",
-    "**The embargo and blockade cut supply.** The South held its 1861 crop back, and the Union blockade tightened each year.",
-    "**Lancashire paid the price.** By the end of 1862 about a quarter of a million cotton workers were out of work, living on relief.",
-    "**Lancashire opinion was divided.** Manchester's workers wrote to Lincoln in support, but other cotton towns passed motions for the South.",
-    "**Britain stayed neutral.** Antietam and the Emancipation Proclamation made siding with the South riskier and less popular.",
-    "**Other suppliers grew.** India, Egypt and Brazil expanded cotton growing, and Egypt's debts led towards British occupation in 1882.",
-    "**American cotton came back.** By the 1870s, grown by freedpeople and sharecroppers, it passed its pre-war level."
-  ],
+  "summary": ["**The South bet on cotton.** Confederate leaders expected Britain to recognise them to keep its mills running.", "**The timing was wrong.** Record crops in 1859 and 1860 left British warehouses full when the war began.", "**The embargo and blockade cut supply.** The South held its 1861 crop back, and the Union blockade tightened each year.", "**Lancashire paid the price.** By the end of 1862 about a quarter of a million cotton workers were out of work, living on relief.", "**Lancashire opinion was divided.** Manchester's workers wrote to Lincoln in support, but other cotton towns passed motions for the South.", "**Britain stayed neutral.** Antietam and the Emancipation Proclamation made siding with the South riskier and less popular.", "**Other suppliers grew.** India, Egypt and Brazil expanded cotton growing, and Egypt's debts led towards British occupation in 1882.", "**American cotton came back.** By the 1870s, grown by freedpeople and sharecroppers, it passed its pre-war level."],
   "footnotes": {}
 }

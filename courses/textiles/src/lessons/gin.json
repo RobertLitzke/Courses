@@ -65,8 +65,20 @@
             "to": 1860,
             "ticks": [1790, 1800, 1810, 1820, 1830, 1840, 1850, 1860],
             "panels": [
-              { "title": "Cotton grown", "unit": "million pounds", "lines": [{ "name": "cotton", "color": "gold", "points": [[1790, 1.5], [1800, 36], [1810, 85], [1820, 160], [1830, 330], [1840, 830], [1850, 1000], [1860, 2150]] }] },
-              { "title": "Enslaved people in the US", "unit": "millions", "lines": [{ "name": "enslaved", "color": "enslaved", "points": [[1790, 0.7], [1800, 0.89], [1810, 1.19], [1820, 1.54], [1830, 2.01], [1840, 2.49], [1850, 3.2], [1860, 3.95]] }] }
+              {
+                "title": "Cotton grown",
+                "unit": "million pounds",
+                "lines": [
+                  {"name": "cotton", "color": "gold", "points": [[1790, 1.5], [1800, 36], [1810, 85], [1820, 160], [1830, 330], [1840, 830], [1850, 1000], [1860, 2150]]}
+                ]
+              },
+              {
+                "title": "Enslaved people in the US",
+                "unit": "millions",
+                "lines": [
+                  {"name": "enslaved", "color": "enslaved", "points": [[1790, 0.7], [1800, 0.89], [1810, 1.19], [1820, 1.54], [1830, 2.01], [1840, 2.49], [1850, 3.2], [1860, 3.95]]}
+                ]
+              }
             ]
           }
         },
@@ -105,31 +117,31 @@
             "items": [
               {
                 "ask": "Indian roller gins had worked for centuries. Why were they no use for upland cotton?",
-                "choices": ["Upland cotton's fuzzy seeds cling to the fibre, so rollers crushed them or let them through", "Rollers were too expensive in America", "Upland cotton had no seeds", "Roller gins needed water power"],
+                "choices": ["Its fuzzy seeds cling, so rollers crush them", "Rollers were too expensive to make in America", "Upland cotton has no seeds for rollers to remove", "Roller gins needed water power the uplands lacked"],
                 "answer": 0,
                 "why": "Rollers work for smooth-seeded cottons. Upland cotton's seeds hold the fibre tightly, which Whitney's teeth solved by pulling the fibre off."
               },
               {
                 "ask": "The gin made cleaning cotton far faster. Why did the demand for enslaved labour rise rather than fall?",
-                "choices": ["Cleaning was no longer the limit, so planters grew far more cotton, and planting and picking were still done by hand", "The gin itself needed many people to run", "Enslaved people were used to build gins", "Cotton prices fell to nothing"],
+                "choices": ["Planters grew far more, and picking stayed by hand", "Each gin needed dozens of people to keep it running", "Enslaved people were needed to build the new gins", "Cotton prices rose so high that every farm grew it"],
                 "answer": 0,
                 "why": "A machine at one step removed a bottleneck. Output grew until the hand steps, picking above all, needed many more workers."
               },
               {
                 "ask": "Cotton spread across a huge area of the South between 1800 and 1860. What decided who got that land?",
-                "choices": ["Federal wars, treaties and the removal of Native nations, then sales to planters", "The climate alone", "Cotton companies in Britain", "A lottery among enslaved people"],
+                "choices": ["Wars, treaties and Native removal, then land sales", "The climate alone, since cotton grew wherever it was warm", "British cotton firms, which bought the land directly", "The first planters to arrive, who claimed land freely"],
                 "answer": 0,
                 "why": "Climate made the land suitable; law and force decided who owned it and who worked it."
               },
               {
                 "ask": "Congress banned the import of enslaved people from 1808. How did the cotton states get workers after that?",
-                "choices": ["By buying enslaved people from the older slave states, about a million moved south by 1860", "By hiring free workers from Europe", "By ending slavery", "By using machines for picking"],
+                "choices": ["By buying people from the older slave states", "By hiring free workers who came from Europe", "By smuggling captives in despite the ban", "By using new machines to pick the cotton"],
                 "answer": 0,
                 "why": "The domestic slave trade moved people from Virginia and Maryland to the cotton states, often separating families."
               },
               {
                 "ask": "Olmstead and Rhode disagree with Baptist about rising picking rates. What do they argue?",
-                "choices": ["New cotton varieties with larger bolls explain most of the rise, without denying the violence of slavery", "Slavery was not violent", "Picking rates did not rise", "Machines did the picking"],
+                "choices": ["New varieties with larger bolls explain most of it", "Slavery in the cotton fields was not violent", "Picking rates did not rise at all before 1860", "Machines did much of the picking by the 1850s"],
                 "answer": 0,
                 "why": "Their dispute is about the cause of the productivity gain, not about the brutality of slavery, which both sides document."
               }
@@ -139,16 +151,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Upland cotton had a cleaning bottleneck.** Its fuzzy seeds cling to the fibre, and roller gins could not separate them.",
-    "**Whitney's saw gin solved it.** From 1793, teeth pulled the fibre through bars too narrow for seeds; copies spread fast.",
-    "**Climate set the limit.** Upland cotton needs about 200 frost-free days, which much of the South had.",
-    "**Force decided who had the land.** Removal of Native nations, especially after 1830, opened tens of millions of acres to planters.",
-    "**Slavery supplied the labour.** The enslaved population grew from about 700,000 in 1790 to almost four million in 1860.",
-    "**A domestic slave trade moved people south.** About a million were taken from the upper South to the cotton states.",
-    "**The fix multiplied forced labour.** The gin sped one step, and the hand steps, picking above all, needed far more people.",
-    "**Historians disagree on how much slavery built industry.** Williams, Engerman and O'Brien, Inikori, Beckert, Baptist, and Olmstead and Rhode weigh profits, markets and productivity differently.",
-    "**The American South supplied Britain's mills.** By the 1850s about three quarters of the cotton spun in Lancashire came from it."
-  ],
+  "summary": ["**Upland cotton had a cleaning bottleneck.** Its fuzzy seeds cling to the fibre, and roller gins could not separate them.", "**Whitney's saw gin solved it.** From 1793, teeth pulled the fibre through bars too narrow for seeds; copies spread fast.", "**Climate set the limit.** Upland cotton needs about 200 frost-free days, which much of the South had.", "**Force decided who had the land.** Removal of Native nations, especially after 1830, opened tens of millions of acres to planters.", "**Slavery supplied the labour.** The enslaved population grew from about 700,000 in 1790 to almost four million in 1860.", "**A domestic slave trade moved people south.** About a million were taken from the upper South to the cotton states.", "**The fix multiplied forced labour.** The gin sped one step, and the hand steps, picking above all, needed far more people.", "**Historians disagree on how much slavery built industry.** Williams, Engerman and O'Brien, Inikori, Beckert, Baptist, and Olmstead and Rhode weigh profits, markets and productivity differently.", "**The American South supplied Britain's mills.** By the 1850s about three quarters of the cotton spun in Lancashire came from it."],
   "footnotes": {}
 }

@@ -39,11 +39,11 @@
           "options": {
             "item": "10 m of fine chintz, India, about 1680",
             "stages": [
-              { "stage": "Cleaning fibre", "hours": 150, "who": "household" },
-              { "stage": "Spinning", "hours": 1350, "who": "household" },
-              { "stage": "Weaving", "hours": 250, "who": "waged" },
-              { "stage": "Bleaching", "hours": 60, "who": "waged" },
-              { "stage": "Printing, dyeing", "hours": 300, "who": "waged" }
+              {"stage": "Cleaning fibre", "hours": 150, "who": "household"},
+              {"stage": "Spinning", "hours": 1350, "who": "household"},
+              {"stage": "Weaving", "hours": 250, "who": "waged"},
+              {"stage": "Bleaching", "hours": 60, "who": "waged"},
+              {"stage": "Printing, dyeing", "hours": 300, "who": "waged"}
             ]
           }
         },
@@ -110,31 +110,31 @@
             "items": [
               {
                 "ask": "Dutch traders in the spice islands around 1600 found that silver did not buy as many spices as they hoped. What did they do?",
-                "choices": ["Bought Indian cotton cloth on the Indian coast and traded it for spices", "Brought Dutch woollens instead", "Grew their own spices in Holland", "Paid in gold"],
+                "choices": ["Bought Indian cloth and traded it for spices", "Brought Dutch woollens to trade instead", "Planted their own spices in Holland", "Paid the growers in gold coins"],
                 "answer": 0,
                 "why": "Indian cloth was the currency the spice growers wanted, so the European companies had to buy into the Indian cloth trade to reach the spices."
               },
               {
                 "ask": "A Gujarati merchant misses the sailing season for the Red Sea by a month. What does it cost him?",
-                "choices": ["Most of a year: his cloth and money wait in port for the next season's wind", "A month", "Nothing; ships could sail any time", "Only the cost of storing the ship"],
+                "choices": ["Most of a year, waiting for the next season's wind", "About a month, until the next ship sails", "Nothing; ships could sail whenever they liked", "Only the cost of storing the ship in port"],
                 "answer": 0,
                 "why": "Each leg could be sailed only in its monsoon season, so a missed season meant waiting months with capital tied up."
               },
               {
                 "ask": "The 1700 Calico Act banned printed Indian cotton but allowed white calico. What happened?",
-                "choices": ["English printers imported white calico and printed it in London", "Calico disappeared from England", "Indian printers moved to England", "Wool sales tripled"],
+                "choices": ["English printers printed white calico in London", "Calico disappeared from English shops", "Indian printers moved to London to work", "English wool sales tripled within a year"],
                 "answer": 0,
                 "why": "The loophole created an English printing industry on Indian cloth, which is one reason the riots and the 1721 Act followed."
               },
               {
                 "ask": "Why did the 1721 ban end up helping Lancashire?",
-                "choices": ["It protected fustian, a part-cotton cloth Lancashire made, while shutting out Indian competition", "It paid Lancashire weavers a subsidy", "It banned wool", "It moved the East India Company to Manchester"],
+                "choices": ["It shielded Lancashire's fustian from Indian cloth", "It paid Lancashire's weavers a yearly subsidy", "It banned wool, so buyers turned to cotton", "It moved the East India Company to Manchester"],
                 "answer": 0,
                 "why": "Fustian was exempt, so a British cotton-linen industry grew behind the ban. It needed only a strong cotton warp yarn to make all-cotton cloth."
               },
               {
                 "ask": "Jan de Vries's industrious revolution says demand grew before the machines. What is the evidence of it in this lesson?",
-                "choices": ["Ordinary households bought Indian cottons in such numbers that silk and wool weavers rioted", "Factories were built in India", "Prices of cotton rose sharply", "Only the rich wore cotton"],
+                "choices": ["Ordinary households bought so much cotton that weavers rioted", "Factories were built in India to meet European demand", "Cotton prices rose sharply as supply failed to keep up", "Only the rich could afford to wear Indian cotton"],
                 "answer": 0,
                 "why": "The calico craze reached far down the social scale. Households worked more for wages to buy goods like cotton, which created a market before British machines could supply it."
               }
@@ -144,16 +144,6 @@
       ]
     }
   ],
-  "summary": [
-    "**India led the world in cotton.** Its spinners made the finest yarn and its dyers the fastest colours on cotton, for markets all round the Indian Ocean.",
-    "**Indian cloth bought spices.** In Southeast Asia it worked as currency, so the European companies had to buy cloth in India first.",
-    "**Spinning was most of the work.** Even fine chintz took more hours at the spinning wheel and spindle than at the loom or the dye vat.",
-    "**The monsoon set the calendar.** Ships sailed each leg only in its season, so capital was tied up for most of a year.",
-    "**Europeans wanted cotton.** By the 1680s the East India Company shipped over a million pieces a year in some years, printed to European taste.",
-    "**Demand came first.** The industrious revolution describes households working more to buy goods like cotton.",
-    "**Silk and wool weavers fought back.** France banned calicoes from 1686 to 1759; England's Acts of 1700 and 1721 banned printed Indian cotton and then its wearing.",
-    "**The bans had loopholes.** White calico was printed in London, and fustian was protected, which helped Lancashire's part-cotton industry grow.",
-    "**The ban ended in 1774.** British machines could by then spin cotton strong enough for an all-cotton cloth."
-  ],
+  "summary": ["**India led the world in cotton.** Its spinners made the finest yarn and its dyers the fastest colours on cotton, for markets all round the Indian Ocean.", "**Indian cloth bought spices.** In Southeast Asia it worked as currency, so the European companies had to buy cloth in India first.", "**Spinning was most of the work.** Even fine chintz took more hours at the spinning wheel and spindle than at the loom or the dye vat.", "**The monsoon set the calendar.** Ships sailed each leg only in its season, so capital was tied up for most of a year.", "**Europeans wanted cotton.** By the 1680s the East India Company shipped over a million pieces a year in some years, printed to European taste.", "**Demand came first.** The industrious revolution describes households working more to buy goods like cotton.", "**Silk and wool weavers fought back.** France banned calicoes from 1686 to 1759; England's Acts of 1700 and 1721 banned printed Indian cotton and then its wearing.", "**The bans had loopholes.** White calico was printed in London, and fustian was protected, which helped Lancashire's part-cotton industry grow.", "**The ban ended in 1774.** British machines could by then spin cotton strong enough for an all-cotton cloth."],
   "footnotes": {}
 }

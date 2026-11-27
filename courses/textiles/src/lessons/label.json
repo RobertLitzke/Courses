@@ -1,0 +1,243 @@
+{
+  "id": "label",
+  "n": 27,
+  "title": "What does the label in your shirt not say?",
+  "teaches": "The whole course applied to three garments: a shirt from your own wardrobe, a 1930s rayon dress and a West African wax-print shirt, read layer by layer (fibre, yarn, structure, finish) and step by step along the supply chain; the burn test for fibres",
+  "parts": [
+    {
+      "title": "Three lines on a label",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Turn an ordinary shirt inside out and look at the small label sewn into a side seam. It might say *60% cotton, 40% polyester*, *Made in Bangladesh*, and show a few symbols: a tub with 40 in it (wash at up to 40 °C), a crossed-out triangle (no bleach), an iron with one dot (a cool iron). Most countries require a label like this, listing the fibres by weight, the country where the garment was made, and how to wash it."
+        },
+        {
+          "type": "text",
+          "text": "The label leaves out almost everything this course has been about. It does not say how the yarn was spun or the cloth made, how it was dyed, where the cotton was grown, who picked it, or how many countries the garment crossed before it reached the shop. *Made in Bangladesh* usually means only that it was sewn there. In this lesson we read three garments with what the earlier lessons taught: first a shirt of your own, then two pieces from other times and places."
+        }
+      ]
+    },
+    {
+      "title": "Your own shirt, layer by layer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 1 split every cloth into four layers: fibre, yarn, structure and finish. Take a T-shirt or a shirt from your wardrobe and work through them."
+        },
+        {
+          "type": "text",
+          "text": "**Fibre.** The label gives the fibres. Cotton and linen are cellulose from plants, wool and silk are protein from animals (lesson 2), rayon or viscose is cellulose from wood pulp, and polyester, nylon, acrylic and elastane (spandex) are synthetic polymers made from oil (lesson 23). A blend of cotton and polyester combines the comfort of cotton with the strength and quick drying of polyester, and as lesson 23 explained, it is hard to recycle."
+        },
+        {
+          "type": "text",
+          "text": "**Yarn.** Pull a thread from an inside seam allowance and untwist it. You will feel the twist that holds the fibres together (lesson 1). Hold the thread upright: if the fibres slope like the middle stroke of a letter Z, it is Z-twisted, as almost all machine-spun single yarn is today. Most cotton T-shirts are knitted from yarn made on ring frames like those of lesson 22, or on rotor spinning machines, a faster method from the 1970s that twists fibres in a spinning cup."
+        },
+        {
+          "type": "text",
+          "text": "**Structure.** Stretch the cloth gently. A T-shirt stretches easily in both directions and its surface shows rows of tiny loops: it is knitted (lesson 4). A shirt or a pair of jeans barely stretches except on the diagonal: it is woven. (Stretch jeans are the exception: elastane in the yarn lets them give in every direction.) Look closely at jeans and you will see the diagonal lines of a twill, with blue warp on the face and pale weft behind, as you wove in lesson 4. A shirt is usually plain weave or a fine twill."
+        },
+        {
+          "type": "text",
+          "text": "**Finish.** Most cotton clothes today are coloured with reactive dyes, synthetic dyes descended from the industry of lesson 20 whose molecules form a chemical bond with the cellulose itself, so they need no mordant. Denim is still dyed with indigo, now synthetic, by the dipping and airing of lesson 5, which leaves the dye mostly in the outer layer of each yarn, so jeans fade where they rub. Turn the cloth over to tell how a pattern was made: a print is paler on the back, while a pattern woven from dyed yarns shows on both sides."
+        },
+        {
+          "type": "text",
+          "text": "If the label has worn away, a burn test can tell the main groups of fibre apart. Hold a small snippet of cloth, cut from an inside seam allowance, in tweezers over a sink or a metal tray and touch it to a flame. Cellulose burns quickly with a yellow flame, smells of burning paper and leaves a soft grey ash. Protein fibres smoulder, smell of burning hair and leave a black ash that crushes. Synthetics shrink from the flame and melt into a hard bead. The key below has three samples to try; it leaves out acrylic and elastane, which also melt. Burning fibre can drip and flare, so keep water nearby and work away from anything that could catch fire."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "id-key",
+          "caption": "A burn-test key for the main fibre groups. Cotton, linen and rayon are all cellulose, so they burn alike.",
+          "task": "Key out all three samples",
+          "goal": "keyed",
+          "options": {
+            "features": [
+              {
+                "name": "Near the flame",
+                "values": ["does not shrink", "curls away"]
+              },
+              {
+                "name": "In the flame",
+                "values": ["burns fast", "smoulders", "melts"]
+              },
+              {
+                "name": "Smell",
+                "values": ["burning paper", "burning hair", "sweet", "like celery"]
+              },
+              {
+                "name": "What is left",
+                "values": ["soft grey ash", "crushable black ash", "hard black bead", "hard pale bead"]
+              }
+            ],
+            "taxa": [
+              {
+                "name": "Cellulose: cotton, linen or rayon",
+                "traits": {
+                  "Near the flame": "does not shrink",
+                  "In the flame": "burns fast",
+                  "Smell": "burning paper",
+                  "What is left": "soft grey ash"
+                },
+                "about": "Plant fibre, or wood pulp made into rayon (lessons 2 and 23)."
+              },
+              {
+                "name": "Protein: wool or silk",
+                "traits": {
+                  "Near the flame": "curls away",
+                  "In the flame": "smoulders",
+                  "Smell": "burning hair",
+                  "What is left": "crushable black ash"
+                },
+                "about": "Animal fibre, the same protein family as hair (lesson 2)."
+              },
+              {
+                "name": "Polyester",
+                "traits": {
+                  "Near the flame": "curls away",
+                  "In the flame": "melts",
+                  "Smell": "sweet",
+                  "What is left": "hard black bead"
+                },
+                "about": "A synthetic polymer made from oil (lesson 23). It melts before it burns."
+              },
+              {
+                "name": "Nylon",
+                "traits": {
+                  "Near the flame": "curls away",
+                  "In the flame": "melts",
+                  "Smell": "like celery",
+                  "What is left": "hard pale bead"
+                },
+                "about": "The polyamide of Carothers's stockings (lesson 23)."
+              }
+            ],
+            "specimens": [
+              {
+                "name": "Polyester",
+                "hint": "a sports shirt scrap that curled from the flame, melted, smelled sweet and left a hard black bead"
+              },
+              {
+                "name": "Cellulose: cotton, linen or rayon",
+                "hint": "a scrap of a 1930s dress that flared up fast, smelled of paper and left soft grey ash"
+              },
+              {
+                "name": "Protein: wool or silk",
+                "hint": "a jumper thread that smouldered, smelled of hair and left a black ash you could crush"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Now the steps the label leaves out. The cotton could have come from the United States, India, Brazil or China, perhaps several of them mixed in one bale (lesson 26). It was probably spun and knitted or woven in a different country from the one where it was sewn. The sewing, the step lesson 25 showed still needs a person at every machine, took around ten minutes, and the person who did it received under 1 percent of the price. If the shirt is cotton and polyester, part of it began as oil. When you give it away, it may be sold by weight to a trader and shipped to a market in Africa (lesson 26)."
+        }
+      ]
+    },
+    {
+      "title": "A rayon dress, 1934",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now a garment from another time: a printed day dress sold in a department store in Britain or the United States in about 1934. Its label, if it has one, says *rayon* or *art silk*, short for artificial silk, and a burn test would show cellulose."
+        },
+        {
+          "type": "text",
+          "text": "**Fibre.** The rayon was made from wood pulp by the viscose process (lesson 23), quite possibly by Courtaulds in Coventry or by an American firm. In the 1930s rayon was replacing silk in cheaper dresses, stockings and linings, and silk itself came mostly from Japan (lesson 22). The workers who made the viscose risked carbon disulphide poisoning."
+        },
+        {
+          "type": "text",
+          "text": "**Yarn and structure.** The rayon was a smooth continuous filament, not spun from short fibres, which gave it the drape and shine of silk. It was woven, perhaps in plain weave or in a crêpe, a cloth woven from tightly twisted yarns that give it a crinkled surface, and the dress was often cut on the bias, diagonally across the warp and weft, so that it would hang and cling to the body the way 1930s fashion wanted. Cutting on the bias uses the stretch that woven cloth has only on the diagonal (lesson 4)."
+        },
+        {
+          "type": "text",
+          "text": "**Finish.** The print was made with synthetic dyes (lesson 20), probably printed from engraved copper rollers, a method developed in the cotton printing works of the late 18th century."
+        },
+        {
+          "type": "text",
+          "text": "**Making and selling.** The dress was cut and sewn on electric sewing machines in a factory or a contractor's workshop, perhaps in New York's garment district after the reforms that followed the Triangle fire (lesson 24). It was sold in a size based on bust alone, before the survey of 1939 and 1940. Its low price, during the Depression, came from a fibre made in a chemical plant and from sewing machines, cheap wages and long production runs."
+        }
+      ]
+    },
+    {
+      "title": "A wax-print shirt from Accra",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Finally, a man's shirt from Accra, Ghana, made by a local tailor from **wax-print** cloth, the brightly patterned cotton worn across West and Central Africa, sometimes called Ankara or Dutch wax."
+        },
+        {
+          "type": "text",
+          "text": "**Fibre, yarn and structure.** The cloth is cotton, spun into fine yarn and woven in plain weave. If it came from the best-known maker, Vlisco, it was printed in Helmond, in the Netherlands. It might also have been printed in Ghana or Nigeria, or be a cheaper copy printed in China."
+        },
+        {
+          "type": "text",
+          "text": "**Finish.** Wax print is an industrial version of Javanese batik. Batik makers in Java draw a pattern on cloth in hot wax, a **resist** like those of lesson 5, then dye the cloth; the waxed parts stay undyed. In the mid 19th century Dutch firms, Vlisco among them, mechanised the process by printing a resist on both sides of the cloth with rollers, using resin in place of the batik maker's wax, then dyeing it with indigo and adding other colours, for sale in the Dutch colony of Java. Javanese buyers preferred their own hand-drawn batik. The resin cracked during dyeing and left fine veins of colour, which Javanese buyers saw as a flaw."
+        },
+        {
+          "type": "text",
+          "text": "**Buyers decide.** West African buyers liked exactly those veins, and from the late 19th century Dutch and British merchants sold more and more of the cloth on the Gold Coast, now Ghana, and beyond. As in lesson 13, the buyers set the terms. West African traders, many of them women, chose which designs to stock, and gave them names, often proverbs or comments on events, so that a pattern could carry a message to those who knew its name. Designs that sold were printed again for decades. A cloth first made in Europe as an imitation of an Asian technique became a mark of West African identity, chosen for weddings and funerals and worn by political leaders on formal occasions."
+        },
+        {
+          "type": "text",
+          "text": "**Making.** The shirt was not bought in a size. It was sewn to the buyer's measurements by a tailor on a treadle or electric sewing machine, as most clothes everywhere were before ready-to-wear (lesson 24). Tailoring like this is still a large trade in West Africa, alongside the market in second-hand clothing from abroad (lesson 26)."
+        }
+      ]
+    },
+    {
+      "title": "What the course has shown",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every garment can be read the same way: what the fibre is and where it grew, how it was spun, how it was woven or knitted, how it was coloured, and who did each step, under what rules. Those questions have explained Tyrian purple (lesson 6), the wool that paid for Edward III's war (lesson 10), the Calico Acts (lesson 12), the bottlenecks behind the machines of Lancashire and Lyon (lessons 14 and 18), and the cotton fields and sewing lines of today (lessons 25 and 26). The answers for any one piece of cloth can be found, but most of them are not on the label."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on reading a garment.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A shirt's label says Made in Bangladesh. What does that usually tell you?",
+                "choices": ["Where it was sewn", "Where its cotton was grown", "Where it was designed", "Every country it passed through"],
+                "answer": 0,
+                "why": "Origin labels usually name the country of the last major step, which for clothing is sewing. The fibre and cloth often come from elsewhere."
+              },
+              {
+                "ask": "A cloth stretches easily in both directions and shows rows of tiny loops. What is its structure?",
+                "choices": ["Knitted", "Plain woven", "Twill woven", "Felted"],
+                "answer": 0,
+                "why": "Knitted loops can open and close, so knits stretch; woven cloth barely stretches except on the diagonal (lesson 4)."
+              },
+              {
+                "ask": "A scrap from a 1930s dress burns fast, smells of paper and leaves soft grey ash. Why might it still be rayon rather than cotton?",
+                "choices": ["Rayon is cellulose too", "Rayon smells of hair", "Rayon always melts", "Cotton never burns"],
+                "answer": 0,
+                "why": "Rayon is cellulose from wood pulp, regenerated into fibre (lesson 23), so a burn test groups it with cotton and linen."
+              },
+              {
+                "ask": "Why did a 1930s dressmaker cut a rayon dress on the bias?",
+                "choices": ["Woven cloth gives on the diagonal", "Bias cutting used less cloth", "Rayon frays if cut along the grain", "Bias-cut dresses were cheaper to sew"],
+                "answer": 0,
+                "why": "Woven cloth is stiff along warp and weft but gives on the diagonal, which lets a bias-cut dress hang close to the body."
+              },
+              {
+                "ask": "Why did Dutch wax print succeed in West Africa after failing in Java?",
+                "choices": ["Buyers there liked the crackle and chose the designs", "It was much cheaper in West Africa than in Java", "The Dutch colonial government banned it in Java", "West Africa had no printed cloth of its own"],
+                "answer": 0,
+                "why": "As with the checks and stripes of lesson 13, buyers decided what sold. West African traders and customers made the cloth their own."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**A label tells little.** It gives the fibres by weight, the country where it was sewn and how to wash it.", "**Read cloth in four layers.** Fibre, yarn, structure and finish, as lesson 1 set out.", "**Structure shows in a stretch.** Knits stretch both ways and show loops; woven cloth gives only on the diagonal.", "**A burn test sorts fibre groups.** Cellulose burns like paper, protein like hair, and synthetics melt into a bead.", "**The supply chain is invisible.** Cotton, spinning, weaving and sewing are often in different countries.", "**A 1930s rayon dress joins chemistry, fashion and sizes.** Wood-pulp filament, a bias cut, synthetic print and bust-only sizing.", "**Wax print shows buyers deciding.** A Dutch imitation of Javanese batik became West African cloth because West African buyers chose it.", "**Each step has a who.** For any garment, ask what was done at each step, how, by whom and under what rules."],
+  "footnotes": {}
+}

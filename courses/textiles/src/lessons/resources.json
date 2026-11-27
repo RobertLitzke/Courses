@@ -1,0 +1,184 @@
+{
+  "id": "resources",
+  "n": 26,
+  "title": "Who decides where cotton is grown, and where clothes go to die?",
+  "teaches": "Soviet irrigation and the Aral Sea; forced labour in Uzbek and Xinjiang cotton and import bans; Bt cotton in India; US subsidies, Brazil's WTO case and the Cotton-4; colonial cotton schemes in Sudan and Mozambique; second-hand clothing exports; microfibres; telling solid environmental figures from myths",
+  "parts": [
+    {
+      "title": "A sea that disappeared",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1960 the Aral Sea, on the border of what are now Kazakhstan and Uzbekistan, was the fourth largest lake in the world, covering about 68,000 square kilometres. Fishing towns such as Muynak, on its southern shore, caught and canned tens of thousands of tonnes of fish a year. In August 2014 satellite images from NASA showed that the eastern half of the sea's southern basin had dried up completely for the first time in modern history. Muynak was more than 100 kilometres from the water, and rusting fishing boats lay on the sand of the old seabed."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "Area of the Aral Sea, 1960 to 2015. Rounded estimates from satellite and survey data.",
+          "options": {
+            "from": 1960,
+            "to": 2015,
+            "ticks": [1960, 1980, 2000, 2015],
+            "panels": [
+              {
+                "title": "Area of the Aral Sea",
+                "unit": "thousand square kilometres",
+                "max": 70,
+                "lines": [
+                  {"name": "area", "color": "bysea", "points": [[1960, 68], [1970, 60], [1980, 51], [1990, 36.5], [2000, 24], [2010, 13.5], [2015, 8.3]]}
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The cause was cotton. From the 1960s, Soviet planners greatly expanded irrigated cotton growing in Central Asia, above all in Uzbekistan and Turkmenistan, to make the Soviet Union self-sufficient in cotton and earn foreign currency. They took the water from the two rivers that fed the Aral Sea, the Amu Darya and the Syr Darya, through thousands of kilometres of canals, many of them unlined, so that much of the water soaked away or evaporated before it reached the fields. Less and less water reached the sea, and it shrank and grew saltier until most of its fish died. Winds now carry dust from the dry seabed, mixed with salt and the residues of farm chemicals, across the surrounding region, where studies have found high rates of respiratory illness."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 17 showed planters deciding where cotton grew in the American South, with land taken from Native nations and labour taken by force. In this lesson we look at who decides now: governments, international trade rules, seed companies, brands and buyers. Then we follow clothes to the end of their lives, and look at which of the numbers quoted about fashion's environmental damage can be trusted."
+        }
+      ]
+    },
+    {
+      "title": "Forced labour in the fields",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "After independence in 1991, Uzbekistan kept the Soviet system of state cotton quotas. Each region had to deliver a set amount of cotton at a price fixed by the state, and to meet it, local officials sent schoolchildren, students, teachers, doctors and other public employees to pick cotton every autumn, often for weeks. From 2011 a coalition of unions, human rights groups and investors, the Cotton Campaign, asked clothing brands to pledge not to use Uzbek cotton, and more than 300 did. The government gradually ended child labour in the harvest, then forced adult labour, under monitoring by the International Labour Organization, which reported in 2021 that systematic forced labour had ended. The campaign lifted its boycott in 2022."
+        },
+        {
+          "type": "text",
+          "text": "The largest current case is in China. The Xinjiang region in China's far west grows most of China's cotton, roughly a fifth of the world's. Researchers, journalists and the United Nations human rights office have reported that Uyghurs and other mainly Muslim minorities in Xinjiang have been placed in state labour transfer programmes and detention camps, and that some cotton picking and textile work has been done under coercion. The Chinese government denies this and describes the programmes as job training and poverty relief. In 2021 the United States passed the Uyghur Forced Labor Prevention Act, which since June 2022 has required importers to prove that goods containing anything from Xinjiang were not made with forced labour, or have them stopped at the border."
+        },
+        {
+          "type": "text",
+          "text": "Proving where cotton came from is difficult, because fibre from many farms and countries is mixed at spinning mills. Brands and border agencies now use supply-chain records and laboratory tests of the fibre's isotopes, forms of the same element that differ slightly in weight and whose mix varies with the soil, water and climate where the plant grew, to trace cotton back to its region."
+        }
+      ]
+    },
+    {
+      "title": "Seeds and subsidies",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 2002 India approved **Bt cotton**, a genetically modified variety containing a gene from the soil bacterium *Bacillus thuringiensis* that makes the plant produce a protein poisonous to the bollworm caterpillars that eat cotton bolls. Within about a decade, Bt hybrids (seeds crossed from two parent lines, which farmers buy fresh each year) were planted on more than 90 percent of India's cotton land, insecticide spraying against bollworms fell, and India's cotton output more than doubled between 2000 and 2010, making it one of the world's two largest producers with China."
+        },
+        {
+          "type": "text",
+          "text": "How much of that rise came from the Bt gene is disputed. Some economists credit it with most of the gain. Others, such as the entomologist Keshav Kranthi and the anthropologist Glenn Davis Stone, argue that more fertiliser, irrigation and new hybrids explain much of the increase, and that yields per hectare stopped rising once the pink bollworm evolved resistance to Bt in the 2010s. Claims that Bt cotton caused a wave of farmer suicides in India were widely repeated, but studies of the suicide figures have not found a rise linked to its introduction; farmer distress in India has many causes, including debt, drought and crop prices."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "Cotton grown by the largest producers, 1980 to 2023, as cleaned fibre (lint). Rounded figures; Uzbekistan was part of the Soviet Union until 1991.",
+          "options": {
+            "from": 1980,
+            "to": 2023,
+            "ticks": [1980, 1990, 2000, 2010, 2023],
+            "panels": [
+              {
+                "title": "Cotton production",
+                "unit": "million tonnes",
+                "max": 7,
+                "lines": [
+                  {"name": "China", "color": "china", "points": [[1980, 2.7], [1990, 4.5], [2000, 4.4], [2010, 6], [2020, 6.4], [2023, 5.9]], "at": [2000, 4.4]},
+                  {"name": "India", "color": "india", "points": [[1980, 1.3], [1990, 1.7], [2000, 2.4], [2010, 5.8], [2020, 6], [2023, 5.5]], "at": [2023, 4.7]},
+                  {"name": "US", "color": "usa", "points": [[1980, 2.4], [1990, 3.4], [2000, 3.7], [2010, 3.9], [2020, 3.2], [2023, 2.6]], "at": [2010, 3.9]},
+                  {"name": "Brazil", "color": "brazil", "points": [[1980, 0.6], [1990, 0.7], [2000, 0.9], [2010, 2], [2020, 3], [2023, 3.2]], "at": [2007, 1.6]},
+                  {"name": "Uzbekistan", "color": "uzbekistan", "points": [[1980, 1.8], [1990, 1.6], [2000, 1], [2010, 0.9], [2020, 0.7], [2023, 0.6]], "at": [1990, 1.6]}
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Prices are shaped by governments too. The United States pays its cotton farmers subsidies and supports their exports, and in the early 2000s these payments sometimes exceeded $3 billion a year. Because the US is one of the largest exporters, the subsidies lowered the world price that every grower received. In 2002 Brazil challenged them at the World Trade Organization, won rulings in 2004 and 2005, and in 2014 accepted a settlement under which the US paid $300 million to a fund for Brazilian cotton growers. In 2003 four West African countries whose economies depend heavily on cotton, Benin, Burkina Faso, Chad and Mali, known as the **Cotton-4**, asked the WTO to end cotton subsidies in rich countries. Subsidies have since been reduced but not ended."
+        },
+        {
+          "type": "text",
+          "text": "Using state power to decide where cotton grows is old. In 1925 the British opened the **Gezira Scheme** in Sudan, irrigating hundreds of thousands of hectares from a dam on the Blue Nile, where tenant farmers grew cotton for Lancashire under the scheme's rules. In Mozambique, from 1938 the Portuguese colonial government forced African farmers to grow cotton on part of their land and sell it at low fixed prices to concession companies, private firms licensed by the state to buy in a district, a system that caused hunger and became one of the grievances behind the war for independence."
+        }
+      ]
+    },
+    {
+      "title": "Where clothes go",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In rich countries, most discarded clothing is thrown away and burned or buried. Of what is given to charity, only a part is sold in local shops. The rest is sorted and sold by weight to traders, and a large share is shipped in bales to markets in Africa, Eastern Europe, Latin America and Asia, like the parrot T-shirt of lesson 25. In East Africa used clothes are called *mitumba*, and in Ghana the Kantamanto market in Accra receives millions of garments every week."
+        },
+        {
+          "type": "text",
+          "text": "The trade provides cheap clothing and work for traders, tailors and repairers, but it also undercuts local clothing makers, and a growing share of what arrives is fast fashion too poor in quality to resell, which ends up in dumps, on beaches or burned. In 2016 the countries of the East African Community proposed to phase out imports of used clothing. The United States, whose exporters would lose the trade, threatened to remove their duty-free access to US markets under its African Growth and Opportunity Act, and most of the countries backed down. Rwanda kept its higher tariffs on used clothing, and in 2018 the United States suspended Rwanda's duty-free access for its clothing exports."
+        },
+        {
+          "type": "text",
+          "text": "Synthetic clothes leave another trace. Washing polyester, nylon and acrylic breaks off tiny fibres, called **microfibres**, too small for washing machines and many sewage plants to catch. They are a large source of microplastics, plastic particles smaller than 5 millimetres, in the oceans, and they have been found in seawater, sediments, fish and drinking water around the world. Filters for washing machines can catch many of them, and France has required them in new machines from 2025."
+        }
+      ]
+    },
+    {
+      "title": "Which numbers to trust",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Figures about fashion's damage spread quickly, and some have no clear source. Two widely shared claims are that fashion causes 10 percent of the world's greenhouse gas emissions and that it is the second most polluting industry after oil. Researchers who traced these claims could not find the studies they were said to come from. Published estimates of the clothing and textile industry's share of global emissions range from about 2 to 8 percent, depending on what is counted, such as whether making the fibre, washing the clothes and transporting them are included. The United Nations Environment Programme quotes that range."
+        },
+        {
+          "type": "text",
+          "text": "The often-quoted 2,700 litres of water for a cotton T-shirt has a real source: a global average for the water used to grow the cotton in one shirt. But most of it is rain that falls on the fields anyway, and the amount drawn from rivers and aquifers varies enormously, from almost nothing in rain-fed fields to a great deal in Central Asia, where it came from the Aral Sea's rivers. When you meet a figure about clothing and the environment, it is worth asking three questions: who calculated it and from what data, what stages of a garment's life it includes, and what it is being compared with."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on cotton, power and waste.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Why did the Aral Sea shrink?",
+                "choices": ["Its rivers were diverted to irrigate cotton", "A drought that lasted fifty years", "It drained into an underground cave", "Fishing fleets took too much water"],
+                "answer": 0,
+                "why": "From the 1960s the Amu Darya and Syr Darya were diverted through canals to irrigate cotton in Central Asia, so little water reached the sea."
+              },
+              {
+                "ask": "Why is it hard to keep cotton picked by forced labour out of clothes?",
+                "choices": ["Mills mix fibre from many places, so origin must be traced", "Forced-labour cotton cannot be told apart in a laboratory", "Brands buy their cotton directly from the farms", "Customs agencies do not inspect imported clothing"],
+                "answer": 0,
+                "why": "A shirt's cotton can come from several countries. Importers now use supply-chain records and isotope tests to show where it was grown."
+              },
+              {
+                "ask": "What is disputed about Bt cotton in India?",
+                "choices": ["How much of the rise in output the gene explains", "Whether India grows any Bt cotton at all", "Whether bollworms really damage cotton", "Whether India's cotton output rose at all"],
+                "answer": 0,
+                "why": "Output clearly rose. Economists and other researchers disagree on how much of the rise the gene explains, especially after bollworms evolved resistance."
+              },
+              {
+                "ask": "How did US cotton subsidies affect farmers in West Africa?",
+                "choices": ["They lowered the world price all growers received", "They paid West African farmers directly", "They banned West African cotton from the US", "They had no effect outside the US"],
+                "answer": 0,
+                "why": "Subsidised US cotton added to world supply and depressed prices, which is why the Cotton-4 and Brazil challenged the subsidies."
+              },
+              {
+                "ask": "A post says fashion causes 10 percent of global emissions. What is the best response?",
+                "choices": ["Ask for the source; estimates run about 2 to 8 percent", "Accept it, since so many sources repeat it", "Assume the true figure must be close to zero", "Assume the true figure is higher still"],
+                "answer": 0,
+                "why": "The 10 percent figure has no traceable study behind it. Estimates with stated methods fall in a range that depends on which stages are included."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": ["**Cotton drained the Aral Sea.** Soviet irrigation from the 1960s diverted its rivers, and by 2014 most of it was dry.", "**States have forced people to pick cotton.** Uzbekistan's quota system did so until about 2021; reports from Xinjiang led a US law of 2022 to stop goods at the border unless importers prove they are free of forced labour.", "**Bt cotton spread fast in India.** Output roughly doubled, but how much is due to the gene is disputed.", "**Subsidies move the world price.** US payments lowered it for all growers; Brazil won a WTO case and the Cotton-4 pressed for change.", "**Colonial governments planted cotton too.** Gezira in Sudan and forced growing in Mozambique served the mills of Europe.", "**Used clothes travel on.** Much of what is given away is sold abroad, where it supports traders but undercuts local makers.", "**Synthetics shed microfibres.** Washing releases tiny plastic fibres that reach the sea.", "**Check environmental figures.** Fashion's share of emissions is about 2 to 8 percent; the 10 percent claim has no clear source."],
+  "footnotes": {}
+}

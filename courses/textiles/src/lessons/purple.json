@@ -39,10 +39,23 @@
             "unit": "snails",
             "log": true,
             "items": [
-              { "label": "A full bucket of snails", "value": 300, "color": "soft" },
-              { "label": "Snails for 1 g of pure purple dye", "value": 9000, "color": "purple", "says": "about 9,000 snails for a single gram" }
+              {
+                "label": "A full bucket of snails",
+                "value": 300,
+                "color": "soft"
+              },
+              {
+                "label": "Snails for 1 g of pure purple dye",
+                "value": 9000,
+                "color": "purple",
+                "says": "about 9,000 snails for a single gram"
+              }
             ],
-            "guess": { "item": 1, "ask": "A bucket holds about 300 snails. How many snails does it take to make one gram of pure purple dye?", "options": [100, 900, 9000] }
+            "guess": {
+              "item": 1,
+              "ask": "A bucket holds about 300 snails. How many snails does it take to make one gram of pure purple dye?",
+              "options": [100, 900, 9000]
+            }
           }
         },
         {
@@ -78,13 +91,48 @@
           "options": {
             "spacing": "even",
             "events": [
-              { "at": -100, "when": "Roman Republic", "label": "Purple stripes and borders mark senators, knights and magistrates", "color": "purple" },
-              { "at": 301, "when": "301", "label": "Diocletian's price edict values purple silk above gold", "color": "purple" },
-              { "at": 968, "when": "10th century", "label": "Byzantium forbids the export of the finest purple silks", "color": "purple" },
-              { "at": 1400, "when": "Ming China, from 1368", "label": "Dragon robes and certain colours reserved for the emperor and court ranks", "color": "gold" },
-              { "at": 1533, "when": "1533", "label": "England's Act of Apparel: purple silk only for the king and his close family", "color": "purple" },
-              { "at": 1600, "when": "Ottoman Empire, 16th to 18th centuries", "label": "Rules on colours and headgear for officials and for non-Muslims", "color": "gold" },
-              { "at": 1683, "when": "Edo Japan, 1683", "label": "Merchants forbidden luxury silks; they line plain robes with silk instead", "color": "gold" }
+              {
+                "at": -100,
+                "when": "Roman Republic",
+                "label": "Purple stripes and borders mark senators, knights and magistrates",
+                "color": "purple"
+              },
+              {
+                "at": 301,
+                "when": "301",
+                "label": "Diocletian's price edict values purple silk above gold",
+                "color": "purple"
+              },
+              {
+                "at": 968,
+                "when": "10th century",
+                "label": "Byzantium forbids the export of the finest purple silks",
+                "color": "purple"
+              },
+              {
+                "at": 1400,
+                "when": "Ming China, from 1368",
+                "label": "Dragon robes and certain colours reserved for the emperor and court ranks",
+                "color": "gold"
+              },
+              {
+                "at": 1533,
+                "when": "1533",
+                "label": "England's Act of Apparel: purple silk only for the king and his close family",
+                "color": "purple"
+              },
+              {
+                "at": 1600,
+                "when": "Ottoman Empire, 16th to 18th centuries",
+                "label": "Rules on colours and headgear for officials and for non-Muslims",
+                "color": "gold"
+              },
+              {
+                "at": 1683,
+                "when": "Edo Japan, 1683",
+                "label": "Merchants forbidden luxury silks; they line plain robes with silk instead",
+                "color": "gold"
+              }
             ]
           }
         },
@@ -110,31 +158,31 @@
             "items": [
               {
                 "ask": "Why did purple become the colour of Roman and Byzantine emperors?",
-                "choices": ["Its dye came from thousands of sea snails a gram, so it was the costliest colour there was", "Purple was the only colour that could be woven into silk", "Emperors were descended from the Phoenicians of Tyre", "Purple dye was made from gold"],
+                "choices": ["Its dye took thousands of snails a gram, so it cost the most", "Purple was the only colour that could be woven into silk", "Emperors claimed descent from the Phoenicians of Tyre", "Purple dye was made with gold, so only rulers had it"],
                 "answer": 0,
                 "why": "Rarity and cost made purple a believable signal of power, and its fastness made it a durable one."
               },
               {
                 "ask": "Tyrian purple and indigo are dyed the same way. Why?",
-                "choices": ["They are chemically close relatives, and both must be made soluble in a vat and turn coloured in air", "Both come from sea snails", "Both need an alum mordant", "Both are made from the leaves of the same plant"],
+                "choices": ["Both are close chemical relatives that develop colour in air", "Both dyes come from the glands of the same sea snails", "Both need an alum mordant to bind them to the fibre", "Both are made from the leaves of the same plant"],
                 "answer": 0,
                 "why": "Tyrian purple is indigo with two bromine atoms added; like indigo, it is insoluble until reduced in a vat."
               },
               {
                 "ask": "A country passes a law forbidding merchants to wear silk, then passes the same law again ten years later, and again ten years after that. What does the repetition most likely show?",
-                "choices": ["The law was widely broken, as rich people outside the old elite kept buying what they could afford", "Silk became more expensive each decade", "The merchants had asked for the law", "The first law had been forgotten by the government"],
+                "choices": ["The law was widely broken by people with new money", "Silk became more expensive with every decade", "The merchants themselves had asked for the law", "The government had forgotten the first law"],
                 "answer": 0,
                 "why": "Historians read repeated sumptuary laws as evidence that they failed; money kept letting new people buy the old signals."
               },
               {
                 "ask": "In Edo Japan, rich merchants wore plain outer robes lined with expensive silk. What were they doing?",
-                "choices": ["Obeying the sumptuary laws on the surface while still spending on luxury, seen only by intimates", "Keeping warm in winter", "Hiding silk to sell abroad", "Following a religious rule against bright colours"],
+                "choices": ["Obeying the law on the surface while spending on silk inside", "Keeping warm in winter with a quilted silk layer", "Hiding silk inside their robes to sell it abroad", "Following a religious rule against bright outer colours"],
                 "answer": 0,
                 "why": "The laws restricted what merchants could show; the lining moved the signal to a smaller audience, who would know what it cost."
               },
               {
                 "ask": "Which explains why sumptuary laws appear when they do in a society's history?",
-                "choices": ["When new wealth lets people outside the elite afford elite clothing, the signal stops working unless law restricts it", "When cloth becomes so cheap that everyone dresses alike", "When a ruler first learns to dye purple", "When a society first starts weaving"],
+                "choices": ["When new wealth lets outsiders dress like the elite", "When cloth becomes so cheap that everyone dresses alike", "When a ruler's dyers first learn to make purple", "When a society first starts to weave patterned cloth"],
                 "answer": 0,
                 "why": "A signal is believable only while it is costly to fake. Sumptuary laws try to restore that cost by law once money can buy it."
               }
@@ -144,15 +192,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Purple came from sea snails.** About 9,000 Murex snails gave one gram of pure dye.",
-    "**It is a cousin of indigo.** Indigo with bromine added, vatted the same way, and very fast.",
-    "**Purple silk cost more than gold.** Diocletian's edict of 301 priced a pound of the finest purple silk at about twice a pound of gold.",
-    "**Rome graded rank by purple.** Stripes for senators and knights, borders for magistrates, the whole robe for a triumph and later the emperor.",
-    "**Byzantium made it law.** The finest purple silks were the emperor's, forbidden to foreigners, as Liudprand found in 968.",
-    "**Clothes are signals.** They tell others about rank and wealth, and a signal is believable only if it is costly to fake.",
-    "**Sumptuary laws.** Rules on who may wear what, from Rome to Ming China, Edo Japan, the Ottomans and England, repeated because they were broken.",
-    "**Cheap cloth ended them.** Taxing luxury paid better than banning it, and printed cotton made fashion too common to police."
-  ],
+  "summary": ["**Purple came from sea snails.** About 9,000 Murex snails gave one gram of pure dye.", "**It is a cousin of indigo.** Indigo with bromine added, vatted the same way, and very fast.", "**Purple silk cost more than gold.** Diocletian's edict of 301 priced a pound of the finest purple silk at about twice a pound of gold.", "**Rome graded rank by purple.** Stripes for senators and knights, borders for magistrates, the whole robe for a triumph and later the emperor.", "**Byzantium made it law.** The finest purple silks were the emperor's, forbidden to foreigners, as Liudprand found in 968.", "**Clothes are signals.** They tell others about rank and wealth, and a signal is believable only if it is costly to fake.", "**Sumptuary laws.** Rules on who may wear what, from Rome to Ming China, Edo Japan, the Ottomans and England, repeated because they were broken.", "**Cheap cloth ended them.** Taxing luxury paid better than banning it, and printed cotton made fashion too common to police."],
   "footnotes": {}
 }

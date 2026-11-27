@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In the late 1990s the economist Pietra Rivoli bought a white cotton T-shirt with a printed parrot for $5.99 from a bin in a Florida drugstore, and set out to find where it had come from. Her book, *The Travels of a T-Shirt in the Global Economy* (2005), followed it backwards and forwards around the world. Its cotton was grown on a family farm near Lubbock, Texas, on land worked with tractors, chemicals and government subsidies. The cotton was shipped to China, where it was spun into yarn, knitted into fabric and sewn into a shirt in a factory in Shanghai, by young women who had moved from the countryside. The shirt then went back across the Pacific to be printed and sold in Florida. When someone in the United States gave a shirt like it to charity, it was likely to be sold in a bale of used clothing to a trader in East Africa, where it was sold again in the second-hand markets of Tanzania."
+          "text": "In the late 1990s the economist Pietra Rivoli bought a white cotton T-shirt with a printed parrot for $5.99 from a bin in a Florida drugstore, and set out to find where it had come from. Her book, *The Travels of a T-Shirt in the Global Economy* (2005), followed it backwards and forwards around the world. Its cotton was grown on a family farm near Lubbock, Texas, on land worked with tractors, chemicals and government subsidies. The cotton was shipped to China, where it was spun into yarn, knitted into fabric and sewn into a shirt in a factory in Shanghai, by young women who had moved from the countryside. The shirt then went back across the Pacific to be printed and sold in Florida. When someone in the United States gave away a shirt like it, it was likely to be sold in a bale of used clothing to a trader in East Africa, where it was sold again in the second-hand markets of Tanzania."
         },
         {
           "type": "text",
@@ -22,7 +22,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lessons 3 and 12 used the hours bar to show where the work went in a sail and a length of chintz. The same arithmetic for a modern T-shirt shows how far the machines of this course have taken it."
+          "text": "Lessons 3 and 12 used the hours bar to show where the work went in a sail and a length of chintz. The same arithmetic for a modern T-shirt shows how far the machines of this course have taken it: about a quarter of an hour of work in all, against roughly a year for the chintz. Orange marks paid work in the United States, blue paid work overseas."
         },
         {
           "type": "diagram",
@@ -31,17 +31,17 @@
           "options": {
             "item": "A cotton T-shirt, 2020s",
             "stages": [
-              { "stage": "Growing cotton", "hours": 0.05, "who": "waged" },
-              { "stage": "Spinning", "hours": 0.02, "who": "overseas" },
-              { "stage": "Knitting", "hours": 0.01, "who": "overseas" },
-              { "stage": "Dyeing, finishing", "hours": 0.03, "who": "overseas" },
-              { "stage": "Cutting, sewing", "hours": 0.15, "who": "overseas" }
+              {"stage": "Growing cotton", "hours": 0.05, "who": "waged"},
+              {"stage": "Spinning", "hours": 0.02, "who": "overseas"},
+              {"stage": "Knitting", "hours": 0.01, "who": "overseas"},
+              {"stage": "Dyeing, finishing", "hours": 0.03, "who": "overseas"},
+              {"stage": "Cutting, sewing", "hours": 0.15, "who": "overseas"}
             ]
           }
         },
         {
           "type": "text",
-          "text": "Every step except one is now done by machines that one worker tends in large numbers: cotton pickers, spinning frames, knitting machines and dye ranges. The exception is sewing. A sewing machine runs fast, but a person still has to guide every seam, because limp cloth is hard for machines to handle. That is why sewing is the largest share of the work in the bar, and why the garment industry has always moved to wherever sewing labour is cheapest, from the immigrant workshops of New York in lesson 24 to Hong Kong, China and Bangladesh."
+          "text": "Where cotton is grown with machines, as in Texas, every step except one is now done by machines that one worker tends in large numbers: cotton pickers, spinning frames, knitting machines and dye ranges. The exception is sewing. A sewing machine runs fast, but a person still has to guide every seam, because limp cloth is hard for machines to handle. That is why sewing is the largest share of the work in the bar, and why the garment industry has tended to move towards cheap sewing labour, from the immigrant workshops of New York in lesson 24 to Hong Kong, China and Bangladesh."
         }
       ]
     },
@@ -50,7 +50,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From the 1950s, rich countries tried to protect their own textile and clothing industries from imports from Japan, Hong Kong, Taiwan and South Korea. In 1974 these arrangements were brought together in the **Multi Fibre Arrangement**, an international agreement under which importing countries such as the United States and the members of the European Community set **quotas**, fixed limits on how much of each kind of clothing each exporting country could send them every year."
+          "text": "From the 1950s, rich countries tried to protect their own textile and clothing industries from imports from Japan, Hong Kong, Taiwan and South Korea. In 1974 these arrangements were brought together in the **Multi Fibre Arrangement**, an international agreement under which importing countries such as the United States and the members of the European Community, the forerunner of the European Union, set **quotas**, fixed limits on how much of each kind of clothing each exporting country could send them every year."
         },
         {
           "type": "text",
@@ -83,8 +83,8 @@
                 "unit": "index",
                 "max": 250,
                 "lines": [
-                  { "name": "Everything", "color": "soft", "points": [[1990, 100], [1995, 117], [2000, 132], [2005, 149], [2010, 167], [2015, 181], [2020, 198], [2023, 233]] },
-                  { "name": "Clothing", "color": "overseas", "points": [[1990, 100], [1995, 107], [2000, 104], [2005, 96], [2010, 96], [2015, 100], [2020, 95], [2023, 102]] }
+                  {"name": "Everything", "color": "soft", "points": [[1990, 100], [1995, 117], [2000, 132], [2005, 149], [2010, 167], [2015, 181], [2020, 198], [2023, 233]]},
+                  {"name": "Clothing", "color": "overseas", "points": [[1990, 100], [1995, 107], [2000, 104], [2005, 96], [2010, 96], [2015, 100], [2020, 95], [2023, 102]]}
                 ]
               }
             ]
@@ -114,7 +114,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The people who sew a garment receive a very small part of what it sells for. Researchers and campaigners have published many breakdowns of clothing prices, and they agree on the shape: most of the price goes to the shop and the brand, which pay for rent, staff, advertising, design, unsold stock and profit. Cloth, transport and duties take most of the rest. The factory's own costs and profit are a few percent, and the wages of the sewers are often under 1 percent."
+          "text": "The people who sew a garment receive a very small part of what it sells for. Researchers and campaigners have published many breakdowns of clothing prices, and they agree on the shape: most of the price goes to the shop and the brand, which pay for rent, staff, advertising, design, unsold stock and profit. Cloth, transport and duties take most of the rest. The factory's own costs and profit are around 5 percent, and the wages of the sewers are often under 1 percent."
         },
         {
           "type": "interactive_diagram",
@@ -125,7 +125,7 @@
         },
         {
           "type": "text",
-          "text": "In the figure, tripling the wages of the people who sew the shirt raises its shop price by a few percent at most. This calculation is why campaigners argue that higher pay is affordable. It leaves out several things. Factories compete fiercely for orders, so one that raises its wages alone may lose its customers to another factory or another country, and buyers often push for lower prices each season. Higher wages could also speed up the replacement of sewers by machines, which is starting in some factories. Whether a pay rise sticks therefore depends on whether brands, governments and unions apply it across a whole industry, as the Accord did for building safety."
+          "text": "In the figure, tripling the wages of the people who sew the shirt raises its shop price by about 1 percent if the extra cost is passed on as it is, and about 6 percent if each firm along the way adds its usual percentage on top. This calculation is why campaigners argue that higher pay is affordable. It leaves out several things. Factories compete fiercely for orders, so one that raises its wages alone may lose its customers to another factory or another country, and buyers often push for lower prices each season. Higher wages could also speed up the replacement of sewers by machines, which is starting in some factories. Whether a pay rise sticks therefore depends on whether brands, governments and unions apply it across a whole industry, as the Accord did for building safety."
         }
       ]
     },
@@ -141,31 +141,31 @@
             "items": [
               {
                 "ask": "Why is sewing still the largest share of the work in a modern T-shirt?",
-                "choices": ["Limp cloth is hard for machines to handle, so a person still guides every seam", "Sewing machines are slower than hand sewing", "Cotton must be sewn before it is spun", "Laws require garments to be sewn by hand"],
+                "choices": ["Limp cloth needs a person to guide every seam", "Sewing machines are slower than hand sewing", "Cotton has to be sewn before it is spun", "Laws require clothes to be sewn by hand"],
                 "answer": 0,
                 "why": "Spinning, knitting and dyeing are run by machines one worker tends in large numbers. Sewing still needs a person at each machine."
               },
               {
                 "ask": "How did the quotas of the Multi Fibre Arrangement help start garment industries in countries such as Bangladesh?",
-                "choices": ["Exporters that used up their own quota set up factories in countries with quota to spare", "They banned clothing made in China", "They paid poor countries to build factories", "They set a minimum wage for garment workers"],
+                "choices": ["Firms that used up their quota built factories elsewhere", "They banned clothing made in China from Western shops", "They paid poor countries to build their first factories", "They set a minimum wage for garment workers everywhere"],
                 "answer": 0,
                 "why": "Quotas limited each country's exports, so production spread to countries that still had room under their limits."
               },
               {
                 "ask": "What happened when the last quotas ended on 1 January 2005?",
-                "choices": ["Buyers moved orders to the cheapest producers, and China's exports jumped", "Clothing prices rose sharply", "Bangladesh's garment industry closed", "Production moved back to the United States"],
+                "choices": ["Orders moved to the cheapest makers, above all China", "Clothing prices in shops rose sharply", "Bangladesh's garment industry closed down", "Production moved back to the United States"],
                 "answer": 0,
                 "why": "Without quotas, buyers could order wherever was cheapest. China grew fastest, and Bangladesh, with lower wages, also kept growing."
               },
               {
                 "ask": "What made Zara's short cycle different from a traditional clothing firm?",
-                "choices": ["Small first batches, daily sales data and nearby factories that could restock popular designs within weeks", "Larger orders placed a year ahead", "Selling only online", "Making every garment by hand"],
+                "choices": ["Small batches, daily sales data and quick restocking", "Larger orders placed a year ahead of each season", "Selling only online, with no shops of its own", "Making every garment by hand in its own workshops"],
                 "answer": 0,
                 "why": "The short cycle cut unsold stock and put new designs in shops often, which brought customers back more often."
               },
               {
                 "ask": "In the figure, tripling sewing wages raises a €29 shirt's price by a few percent at most. What does that calculation leave out?",
-                "choices": ["Factories compete for orders, so one that pays more alone may lose its buyers", "Wages are most of the price", "Brands pay sewers directly", "Shirts are priced by weight"],
+                "choices": ["Factories compete, so one that pays more may lose buyers", "Wages are in fact most of a shirt's price", "Brands pay the sewers directly, not the factories", "Shirts are really priced by weight, not by cost"],
                 "answer": 0,
                 "why": "The arithmetic shows a pay rise is small next to the price. Competition between factories and countries is what makes a rise hard for one factory to make alone."
               }
@@ -175,15 +175,6 @@
       ]
     }
   ],
-  "summary": [
-    "**A T-shirt crosses the world.** Rivoli's shirt was grown in Texas, made in China, sold in Florida and resold in Tanzania.",
-    "**Sewing is the last hand step.** Every other stage is tended by machines; a person still guides every seam.",
-    "**Quotas spread the industry.** From 1974 the Multi Fibre Arrangement limited each country's exports, so production moved to countries with quota to spare.",
-    "**The quotas ended in 2005.** Orders moved to the cheapest producers, above all China and Bangladesh.",
-    "**Fast fashion shortened the cycle.** Small batches, sales data and quick restocking put new designs in shops every few weeks.",
-    "**Clothing got relatively cheaper.** US clothing prices barely changed from 1990 to 2023 while prices overall more than doubled.",
-    "**Rana Plaza killed 1,134 people.** The 2013 collapse led to a binding safety accord between brands and unions.",
-    "**Sewers get a tiny share.** Wages are often under 1 percent of the price, but competition makes a raise hard for one factory alone."
-  ],
+  "summary": ["**A T-shirt crosses the world.** Rivoli's shirt was grown in Texas, made in China and sold in Florida; shirts like it are resold in Tanzania.", "**Sewing is the last hand step.** Every other stage is tended by machines; a person still guides every seam.", "**Quotas spread the industry.** From 1974 the Multi Fibre Arrangement limited each country's exports, so production moved to countries with quota to spare.", "**The quotas ended in 2005.** Orders moved to the cheapest producers, above all China and Bangladesh.", "**Fast fashion shortened the cycle.** Small batches, sales data and quick restocking put new designs in shops every few weeks.", "**Clothing got relatively cheaper.** US clothing prices barely changed from 1990 to 2023 while prices overall more than doubled.", "**Rana Plaza killed 1,134 people.** The 2013 collapse led to a binding safety accord between brands and unions.", "**Sewers get a tiny share.** Wages are often under 1 percent of the price, but competition makes a raise hard for one factory alone."],
   "footnotes": {}
 }

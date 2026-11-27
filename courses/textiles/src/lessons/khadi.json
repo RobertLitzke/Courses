@@ -72,9 +72,9 @@
                 "unit": "million yards a year",
                 "max": 4000,
                 "lines": [
-                  { "name": "Imported", "color": "britain", "points": [[1900, 2000], [1905, 2400], [1910, 2600], [1913, 3200], [1916, 1900], [1920, 1500], [1925, 1800], [1929, 1900], [1931, 900], [1935, 950], [1940, 580]], "at": [1913, 3200] },
-                  { "name": "Indian mills", "color": "india", "points": [[1900, 420], [1905, 650], [1910, 1040], [1913, 1160], [1916, 1580], [1920, 1640], [1925, 1970], [1929, 2420], [1931, 2560], [1935, 3570], [1940, 4000]] },
-                  { "name": "Handlooms (rough)", "color": "soft", "dashed": true, "points": [[1900, 1000], [1910, 1100], [1920, 1100], [1930, 1300], [1940, 1500]], "at": [1940, 750] }
+                  {"name": "Imported", "color": "britain", "points": [[1900, 2000], [1905, 2400], [1910, 2600], [1913, 3200], [1916, 1900], [1920, 1500], [1925, 1800], [1929, 1900], [1931, 900], [1935, 950], [1940, 580]], "at": [1913, 3200]},
+                  {"name": "Indian mills", "color": "india", "points": [[1900, 420], [1905, 650], [1910, 1040], [1913, 1160], [1916, 1580], [1920, 1640], [1925, 1970], [1929, 2420], [1931, 2560], [1935, 3570], [1940, 4000]]},
+                  {"name": "Handlooms (rough)", "color": "soft", "dashed": true, "points": [[1900, 1000], [1910, 1100], [1920, 1100], [1930, 1300], [1940, 1500]], "at": [1940, 750]}
                 ]
               }
             ]
@@ -111,31 +111,31 @@
             "items": [
               {
                 "ask": "Which part of India's cloth industry suffered most from British machine-made imports in the 19th century?",
-                "choices": ["Hand spinning, because machine yarn was far cheaper", "Handloom weaving of fine saris", "The Bombay mills", "Cotton growing"],
+                "choices": ["Hand spinning, as machine yarn was far cheaper", "Weaving of fine saris on handlooms", "The new mills of Bombay and Ahmedabad", "Growing cotton for export to Britain"],
                 "answer": 0,
                 "why": "Spinning took the most hours of any step (lesson 3), so machines cut its cost the most. Many handloom weavers survived by weaving machine yarn."
               },
               {
                 "ask": "Why did Indian nationalists object to the cotton excise of 1896?",
-                "choices": ["It taxed Indian mill cloth at the same rate as the import duty on British cloth, so Indian mills gained no advantage at home", "It taxed raw cotton exports", "It banned handlooms", "It funded Indian mills"],
+                "choices": ["It cancelled the protection the import duty gave Indian mills", "It taxed raw cotton exported from India to Lancashire", "It banned handlooms in towns that had cotton mills", "It paid for new mills owned by British companies"],
                 "answer": 0,
                 "why": "The excise removed the advantage Indian mills would have had from the import duty, at Lancashire's request."
               },
               {
                 "ask": "Clingingsmith and Williamson accept that India deindustrialised. How do they differ from Dutt and Naoroji?",
-                "choices": ["They give more weight to Mughal decline and world prices, and less to British policy alone", "They deny any decline in Indian industry", "They blame Indian mill owners", "They say the decline began after 1947"],
+                "choices": ["They weigh Mughal decline and world prices more", "They deny that Indian industry declined at all", "They blame the decline on Indian mill owners", "They date the decline to after independence"],
                 "answer": 0,
                 "why": "The debate is about causes and scale. They point to forces that would have hurt Indian weaving even without British policy."
               },
               {
                 "ask": "During the boycotts of the 1920s and 1930s, where did most of the cloth that replaced British imports come from?",
-                "choices": ["Indian mills in Bombay, Ahmedabad and elsewhere", "Hand-spun khadi", "Japan only", "Lancashire mills in India"],
+                "choices": ["Indian mills in Bombay, Ahmedabad and elsewhere", "Hand-spun and hand-woven khadi", "Japanese mills, and only Japanese mills", "British-owned mills built inside India"],
                 "answer": 0,
                 "why": "Indian mill output grew throughout, as the chart shows. Khadi was a small share of supply but a large political symbol."
               },
               {
                 "ask": "Which reason did Gandhi give for asking everyone to spin?",
-                "choices": ["It gave work to farmers idle between harvests and turned support for independence into a daily, visible practice", "Hand-spun yarn was stronger than mill yarn", "Indian mills could not make cloth", "It was cheaper than buying mill cloth"],
+                "choices": ["It gave idle farmers work and made support visible daily", "Hand-spun yarn was stronger than any yarn from a mill", "Indian mills could not make enough cloth for India", "Spinning at home was cheaper than buying mill cloth"],
                 "answer": 0,
                 "why": "Gandhi saw spinning as both rural employment and political discipline. Khadi made the wearer's loyalty visible."
               }
@@ -145,15 +145,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Machines first ruined India's hand spinners.** Cheap British yarn and cloth entered India at low duties from the early 19th century.",
-    "**Handloom weavers adapted.** Many switched to machine yarn and kinds of cloth the mills could not make.",
-    "**India built its own mills.** From 1854, Indian merchants opened mills in Bombay and Ahmedabad, over 250 by 1914.",
-    "**Policy favoured Lancashire.** Low tariffs and the cotton excise of 1896 kept Indian mills from an advantage at home.",
-    "**Historians disagree on deindustrialisation.** Naoroji and Dutt blame British rule and Bagchi measured the decline; Clingingsmith, Williamson and Roy weigh other causes and what survived.",
-    "**Cloth became politics.** The swadeshi boycott of 1905 and the bonfires of 1921 targeted British cloth.",
-    "**Imports fell and Indian mills grew.** By the 1930s Indian mills wove several times as much cloth as India imported.",
-    "**Khadi was a symbol.** Gandhi's spinning offered work to idle farmers and made support for independence a visible daily practice."
-  ],
+  "summary": ["**Machines first ruined India's hand spinners.** Cheap British yarn and cloth entered India at low duties from the early 19th century.", "**Handloom weavers adapted.** Many switched to machine yarn and kinds of cloth the mills could not make.", "**India built its own mills.** From 1854, Indian merchants opened mills in Bombay and Ahmedabad, over 250 by 1914.", "**Policy favoured Lancashire.** Low tariffs and the cotton excise of 1896 kept Indian mills from an advantage at home.", "**Historians disagree on deindustrialisation.** Naoroji and Dutt blame British rule and Bagchi measured the decline; Clingingsmith, Williamson and Roy weigh other causes and what survived.", "**Cloth became politics.** The swadeshi boycott of 1905 and the bonfires of 1921 targeted British cloth.", "**Imports fell and Indian mills grew.** By the 1930s Indian mills wove several times as much cloth as India imported.", "**Khadi was a symbol.** Gandhi's spinning offered work to idle farmers and made support for independence a visible daily practice."],
   "footnotes": {}
 }

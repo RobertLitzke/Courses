@@ -20,8 +20,8 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 25 | 2 | 3 | 25 | 25 | 0 | 0 |
+| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 7 | 34 |
+| [Fabric & Form](#textiles) | 0.1 beta | 32 | 0 | 5 | 32 | 32 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -41,8 +41,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 2 lessons to write, 3 to read through, 25 to copy-edit, 25 to fact-check |
+| Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 7 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 to read through, 32 to copy-edit, 32 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -553,7 +553,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- | --- | --- |
 | 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) |  | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
 | 2 | What if everything you see is shadows? (`cave`) |  | done |  | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
-| 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting Gemini review (queued 2026-11-27) |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
+| 3 | Would you be good if no one could see you? (`gyges`) |  | done |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
 | 4 | Can you practise being good? (`aristotle`) |  | done |  | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
 | 5 | How little do you need to be happy? (`epicurus`) |  | done |  | Epicurus's garden, pleasure as the absence of pain, sorting desires, "death is nothing to us", and Lucretius's symmetry argument. |
 | 6 | What is up to you? (`stoics`) |  | done |  | Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy. |
@@ -622,11 +622,16 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 20 | How did a failed malaria cure end natural dyes? (`mauve`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Perkin's mauveine (1856) and coal-tar chemistry; the German dye industry; synthetic alizarin and the end of madder growing; the Bengal Indigo Revolt and BASF's synthetic indigo (1897); from dyes to Ehrlich's Salvarsan and Domagk's Prontosil. |
 | 21 | Why did Gandhi spin every day? (`khadi`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Bombay's Indian-owned mills and the survival of handloom weaving; historians disagree on how far India was deindustrialised; tariffs and the cotton excise; swadeshi (1905); the foreign-cloth bonfires of 1921; khadi as politics in a country with its own mill industry. |
 | 22 | How did a loom company become Toyota? (`toyoda`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Raw silk as Meiji Japan's export engine; the Tomioka silk mill (1872) and the young women who worked in Japan's mills; Osaka's cotton spinning; Japan overtaking Britain in cotton cloth exports in the 1930s; Sakichi Toyoda's automatic loom (1924), the 1929 sale of its patent rights to Platt Brothers, and how that money helped start Toyota. |
-| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Rayon (viscose) as regenerated cellulose; what a polymer is; Carothers and nylon at DuPont (1935, on sale 15 May 1940); nylon at war; polyester, acrylic and spandex; why synthetics are now about two thirds of the world's fibre and why that is not simply a loss. |
-| 24 | When did clothes start coming in sizes? (`sizes`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Sewing by hand; the sewing machine (Howe 1846, Singer 1851) and hire purchase; ready-made clothing; men's sizes from tailors' systems and uniforms; women's sizes and the 1939 to 1940 USDA survey; garment districts, sweatshops and the Triangle Shirtwaist fire of 1911. |
-| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | One T-shirt's journey from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price. |
-| 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | planned, listed as coming |  | The Aral Sea, Xinjiang, Bt cotton, subsidies and the Cotton-4, second-hand exports, microfibres, and which numbers to trust. |
-| 27 | What does the label in your shirt not say? (`label`) |  | planned, listed as coming |  | The whole course applied to a garment you own, a 1930s rayon dress and a wax-print shirt. |
+| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Rayon (viscose) as regenerated cellulose; what a polymer is; Carothers and nylon at DuPont (1935, on sale 15 May 1940); nylon at war; polyester, acrylic and spandex; why synthetics are now about two thirds of the world's fibre and why that is not simply a loss. |
+| 24 | When did clothes start coming in sizes? (`sizes`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Sewing by hand; the sewing machine (Howe 1846, Singer 1851) and hire purchase; ready-made clothing; men's sizes from tailors' systems and uniforms; women's sizes and the 1939 to 1940 USDA survey; garment districts, sweatshops and the Triangle Shirtwaist fire of 1911. |
+| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | One T-shirt's journey from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price. |
+| 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check; Photos (2 photos parked in pending-photos.json) | Soviet irrigation and the Aral Sea; forced labour in Uzbek and Xinjiang cotton and import bans; Bt cotton in India; US subsidies, Brazil's WTO case and the Cotton-4; colonial cotton schemes in Sudan and Mozambique; second-hand clothing exports; microfibres; telling solid environmental figures from myths. |
+| 27 | What does the label in your shirt not say? (`label`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | The whole course applied to three garments: a shirt from your own wardrobe, a 1930s rayon dress and a West African wax-print shirt, read layer by layer (fibre, yarn, structure, finish) and step by step along the supply chain; the burn test for fibres. |
+| M1 | Why does wool shrink in a hot wash? (`shrink`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Felting shrinkage against relaxation shrinkage; how superwash wool is made; why some wool itches and some does not; fibre diameter, merino and cashmere. |
+| M2 | Why does linen wrinkle and polyester spring back? (`wrinkle`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Crease recovery; hydrogen bonds in cellulose and how an iron resets them; durable-press cross-linking; the glass transition of polyester and heat-set pleats; why steam takes creases out of wool. |
+| M3 | What makes down and fleece warm? (`warm`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Still air as the insulator; loft and the clo; down and fill power; polyester fleece; wind; why wet cotton is cold, and how wicking and wool's absorbed moisture help. |
+| M4 | What does thread count measure? (`thread-count`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Thread count as warp plus weft per square inch; why yarn fineness limits it; how counting plies inflates it; percale and sateen; fibre length; pile cloths such as towelling, velvet and corduroy. |
+| M5 | How does stretch fabric spring back? (`stretch`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Stretch from knitted loops against stretch from elastic fibre; how elastane is built and who made it; how much goes into jeans and swimwear; why stretch wears out; why blends are hard to recycle. |
 
 ## Not started
 

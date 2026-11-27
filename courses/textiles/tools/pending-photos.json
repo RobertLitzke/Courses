@@ -1,1 +1,32 @@
-[]
+[
+ {
+  "lesson": "resources",
+  "part": "A sea that disappeared",
+  "after": "In 1960 the Aral Sea, on the border of what are now Kazakhstan and Uzbekistan",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Aral Sea from space in 2000, its southern basin still holding water on both sides.",
+   "options": {
+    "photo": "aral-2000",
+    "aspect": 1
+   }
+  },
+  "search": "Wikimedia Commons, Category:Aral Sea satellite images (NASA Terra MODIS, August 2000, the pair to the 2014 image; public domain)"
+ },
+ {
+  "lesson": "resources",
+  "part": "A sea that disappeared",
+  "after": "In 1960 the Aral Sea, on the border of what are now Kazakhstan and Uzbekistan",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The same view in August 2014: the eastern half of the southern basin has dried out completely.",
+   "options": {
+    "photo": "aral-2014",
+    "aspect": 1
+   }
+  },
+  "search": "Wikimedia Commons, 'Aral Sea 2014' or Category:Aral Sea satellite images (NASA Terra MODIS, August 2014; public domain)"
+ }
+]

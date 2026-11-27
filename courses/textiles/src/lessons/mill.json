@@ -96,31 +96,31 @@
             "items": [
               {
                 "ask": "Why were early cotton mills built in remote valleys rather than in towns?",
-                "choices": ["The water frame needed water power, so mills went where the rivers were fast", "Towns had banned factories", "Workers preferred the countryside", "Cotton grew in the valleys"],
+                "choices": ["The water frame needed fast rivers for power", "Towns had passed laws banning new factories", "Workers preferred to live in the countryside", "Cotton was grown in the valleys of the north"],
                 "answer": 0,
                 "why": "Before steam engines were adopted for cotton, a mill needed a fast stream. Steam later let mills move to towns."
               },
               {
                 "ask": "Who did most of the work in an early cotton spinning mill?",
-                "choices": ["Women, girls and children, with a few skilled men", "Skilled adult men who had been hand spinners", "Engineers", "Handloom weavers"],
+                "choices": ["Women, girls and children, with a few skilled men", "Skilled men who had been hand spinners", "Trained engineers who built the machines", "Handloom weavers who had lost their trade"],
                 "answer": 0,
                 "why": "The machines needed tending, not strength or craft skill, and women and children could be paid least. Mule spinners and mechanics were the skilled minority."
               },
               {
                 "ask": "Handloom weavers did well around 1800 and badly by the 1830s. What changed?",
-                "choices": ["Too many people had entered the trade, and power looms then cut piece rates further", "Yarn became scarce", "Weaving was banned", "Cloth went out of fashion"],
+                "choices": ["Too many entered the trade, then power looms cut rates", "Machine yarn became scarce and too dear to weave", "Parliament banned handloom weaving in factory towns", "Cotton cloth went out of fashion after the wars"],
                 "answer": 0,
                 "why": "Cheap machine yarn first created work for weavers. Overcrowding of the trade and then the power loom drove their piece rates down."
               },
               {
                 "ask": "A croppers' group in Yorkshire in 1812 smashes a shearing frame. What were they most likely trying to do?",
-                "choices": ["Protect their wages and trade from a machine that replaced them, by pressuring employers", "Stop all use of machines everywhere", "Steal the frames to use themselves", "Protest against cotton imports"],
+                "choices": ["Pressure employers to protect their wages and trade", "Stop the use of every kind of machine in England", "Steal the frames to set up workshops of their own", "Protest against imports of cheap Indian cotton"],
                 "answer": 0,
                 "why": "Luddite attacks were targeted. Hobsbawm called them collective bargaining by riot, in trades with no legal unions."
               },
               {
                 "ask": "Why did mill owners fine workers for arriving late and lock the gates?",
-                "choices": ["Every machine had to be staffed at once, so the mill needed everyone at the same fixed time", "To keep the cotton dry", "To stop theft of yarn", "The law required it"],
+                "choices": ["Every machine needed its workers at the same time", "Opening the gates let damp air in and spoiled the cotton", "Workers who came and went freely could steal yarn", "The Factory Acts required owners to keep set hours"],
                 "answer": 0,
                 "why": "Hand workers could set their own hours. Machines driven by one water wheel or engine needed all their workers together, which brought in the discipline of the clock."
               }
@@ -130,15 +130,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Factories began with water.** Lombe's silk mill of 1721 and Arkwright's Cromford of 1771 ran every machine from one water wheel.",
-    "**Steam moved mills to towns.** Water stayed the main power for cotton spinning until the 1820s and 1830s; steam freed mills from rivers.",
-    "**The early workforce was women and children.** Machines needed tending, not craft, and pauper apprentices filled remote mills.",
-    "**The day ran by the clock.** Twelve-hour shifts, locked gates and fines taught a new time discipline.",
-    "**The law came slowly.** The Factory Act of 1802 protected apprentices; the Act of 1833 limited child labour and appointed inspectors.",
-    "**Cheap yarn first helped weavers.** Their numbers rose to around a quarter of a million by the 1820s.",
-    "**The power loom ruined them.** Cartwright's loom of 1785 spread in the 1810s and 1820s, and handloom piece rates collapsed.",
-    "**The Luddites were specific.** Framework knitters, croppers and handloom weavers broke particular machines to defend their trades, and were put down by force."
-  ],
+  "summary": ["**Factories began with water.** Lombe's silk mill of 1721 and Arkwright's Cromford of 1771 ran every machine from one water wheel.", "**Steam moved mills to towns.** Water stayed the main power for cotton spinning until the 1820s and 1830s; steam freed mills from rivers.", "**The early workforce was women and children.** Machines needed tending, not craft, and pauper apprentices filled remote mills.", "**The day ran by the clock.** Twelve-hour shifts, locked gates and fines taught a new time discipline.", "**The law came slowly.** The Factory Act of 1802 protected apprentices; the Act of 1833 limited child labour and appointed inspectors.", "**Cheap yarn first helped weavers.** Their numbers rose to around a quarter of a million by the 1820s.", "**The power loom ruined them.** Cartwright's loom of 1785 spread in the 1810s and 1820s, and handloom piece rates collapsed.", "**The Luddites were specific.** Framework knitters, croppers and handloom weavers broke particular machines to defend their trades, and were put down by force."],
   "footnotes": {}
 }
