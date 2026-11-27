@@ -307,14 +307,14 @@ html { overflow-x: clip; }
 .cover .bar i { display: block; height: 100%; background: var(--a, #e0a458); }
 .cover .going { font-weight: 700; color: var(--a, #e0a458); }
 
-/* The star on each book: an outline until the reader makes it a favourite, then
-   filled in the course's accent. A button beside the link, not inside it. */
+/* The ribbon on each book marks a favourite: an outline until the reader taps
+   it, then filled in the course's accent. A button beside the link, not inside it. */
 .fav {
-  position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; display: grid; place-items: center;
-  padding: 0; border: 0; border-radius: 50%; background: none; color: var(--t, #f1e7d4); cursor: pointer; opacity: 0.55;
+  position: absolute; top: 0; right: 10px; width: 40px; height: 52px; display: grid; justify-items: center; align-items: start;
+  padding: 0; border: 0; background: none; color: var(--t, #f1e7d4); cursor: pointer; opacity: 0.5;
 }
-.fav svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
-.fav:hover, .fav:focus-visible { opacity: 1; }
+.fav svg { width: 22px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; overflow: visible; }
+.fav:hover, .fav:focus-visible { opacity: 0.9; }
 .fav:focus-visible { outline: 3px solid var(--link); outline-offset: -3px; }
 .fav[aria-pressed='true'] { opacity: 1; color: var(--a, #e0a458); }
 .fav[aria-pressed='true'] svg { fill: currentColor; }
@@ -327,7 +327,7 @@ html { overflow-x: clip; }
   font: 600 0.95rem var(--sans); cursor: pointer;
 }
 .shelf-filter button[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
-.shelf-filter svg { width: 16px; height: 16px; fill: currentColor; }
+.shelf-filter svg { width: 10px; height: 18px; fill: currentColor; }
 .shelf-filter .n { font-weight: 400; opacity: 0.75; }
 .shelf-filter .n:empty { display: none; }
 .home [hidden] { display: none !important; }
@@ -351,7 +351,8 @@ html { overflow-x: clip; }
   .cover { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; align-items: center; min-height: 0; padding: 12px 14px 12px 20px; }
   .book:hover, .cover.bridge:hover { transform: none; }
   .book .cover-text { padding-right: 30px; }
-  .fav { top: 2px; right: 2px; }
+  .fav { right: 6px; width: 36px; height: 44px; }
+  .fav svg { width: 16px; height: 32px; }
   .cover .ico { grid-row: span 2; width: 58px; height: 58px; }
   .cover-text { margin-top: 0; }
   .cover-text b { font-size: 1.15rem; }

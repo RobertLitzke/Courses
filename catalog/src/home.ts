@@ -8,7 +8,7 @@
 // The bridges sit on a last shelf; the map and the full listing are at #map
 // (page.ts).
 //
-// Each book has a star to keep it among the reader's favourites, and above the
+// Each book has a ribbon to keep it among the reader's favourites, and above the
 // shelves a filter shows all the books, only the favourites, or only those
 // under way (begun and not finished). Both are kept in this browser's storage,
 // beside the install hint.
@@ -188,28 +188,28 @@ export function favorites(read: Read): Set<string> {
   }
 }
 
-const starIcon = () =>
-  svg('svg', { viewBox: '0 0 24 24', 'aria-hidden': 'true' }, svg('path', { d: 'M12 2.6l2.9 6 6.5.8-4.8 4.5 1.2 6.5L12 17.2l-5.8 3.2 1.2-6.5-4.8-4.5 6.5-.8z' }));
+/** The ribbon that marks a favourite, as a bookmark hangs from the top of a book. */
+const ribbonIcon = () => svg('svg', { viewBox: '0 0 22 40', 'aria-hidden': 'true' }, svg('path', { d: 'M1.5 0V38L11 31L20.5 38V0' }));
 
-function cover(c: CatalogEntry, read: Read, fav: boolean, onStar: (on: boolean) => void): HTMLElement {
+function cover(c: CatalogEntry, read: Read, fav: boolean, onMark: (on: boolean) => void): HTMLElement {
   const { done } = progress(c, read);
   const t = c.theme;
   const first = c.lessonList[0];
   const all = done >= c.lessonCount;
   const going = underWay(c, read);
-  const star = el('button.fav', {
+  const ribbon = el('button.fav', {
     type: 'button',
     'aria-pressed': String(fav),
     'aria-label': `Favorite: ${c.title}`,
     title: fav ? 'Remove from favorites' : 'Add to favorites',
     onclick: () => {
-      const on = star.getAttribute('aria-pressed') !== 'true';
-      star.setAttribute('aria-pressed', String(on));
-      star.title = on ? 'Remove from favorites' : 'Add to favorites';
+      const on = ribbon.getAttribute('aria-pressed') !== 'true';
+      ribbon.setAttribute('aria-pressed', String(on));
+      ribbon.title = on ? 'Remove from favorites' : 'Add to favorites';
       book.classList.toggle('is-fav', on);
-      onStar(on);
+      onMark(on);
     },
-  }, starIcon());
+  }, ribbonIcon());
   const book = el(
     `div.book${fav ? '.is-fav' : ''}`,
     { 'data-folder': c.folder, 'data-going': String(going) },
@@ -233,7 +233,7 @@ function cover(c: CatalogEntry, read: Read, fav: boolean, onStar: (on: boolean) 
             : [first ? el('span.begins', {}, `Begins: “${first.title}”`) : null, el('span', {}, lessonsLine(c.lessonCount))],
       ),
     ),
-    star,
+    ribbon,
   );
   if (t) book.setAttribute('style', `--a:${t.accent};--t:${t.text}`);
   return book;
@@ -287,7 +287,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
 
   const counts = new Map<ShelfFilter, HTMLElement>(FILTERS.filter((f) => f.id !== 'all').map((f) => [f.id, el('span.n')]));
   const buttons = FILTERS.map((f) =>
-    el('button', { type: 'button', 'data-filter': f.id, onclick: () => { filter = f.id; write(FILTER_KEY, f.id); apply(); } }, f.id === 'favorites' ? starIcon() : null, f.label, counts.get(f.id) ?? null),
+    el('button', { type: 'button', 'data-filter': f.id, onclick: () => { filter = f.id; write(FILTER_KEY, f.id); apply(); } }, f.id === 'favorites' ? ribbonIcon() : null, f.label, counts.get(f.id) ?? null),
   );
   const filterBar = el('div.shelf-filter', { role: 'group', 'aria-label': 'Show' }, buttons);
   const empty = el('p.shelf-empty', { hidden: true, role: 'status' });
@@ -341,7 +341,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       any ||= !bridgeShelf.hidden;
     }
     empty.hidden = any;
-    empty.textContent = filter === 'favorites' ? 'No favorites yet. Tap the star on a course to keep it here.' : 'No course is under way yet. A course shows here once you start a lesson in it.';
+    empty.textContent = filter === 'favorites' ? 'No favorites yet. Tap the ribbon on a course to keep it here.' : 'No course is under way yet. A course shows here once you start a lesson in it.';
   };
   recount();
   apply();
