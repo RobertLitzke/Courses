@@ -183,7 +183,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The split is still argued over, but it has narrowed. Many younger philosophers read across it, and topics such as embodiment, emotion, feminism and the philosophy of mind draw on both. Analytic philosophers now write books on Heidegger and Hegel, and phenomenology is used in cognitive science, in work on how the mind is shaped by the body and its activity. Heidegger is read and taught in both traditions, while his politics remain a reason many refuse to. The idea that unclear writing is always empty is, like the verification principle that Carnap used against Heidegger, now held by few philosophers in its strong form."
+     "text": "The split is still argued over, but it has narrowed. Many younger philosophers read across it, and topics such as embodiment, emotion, feminism and the philosophy of mind draw on both. Analytic philosophers now write books on Heidegger and Hegel, and phenomenology is used in cognitive science, in work on how the mind is shaped by the body and its activity. Heidegger is read and taught in both traditions, while his politics remain a reason many refuse to. The idea that unclear writing is always empty is, like Carnap's verdict on Heidegger, now held by few philosophers in its strong form."
     },
     {
      "type": "quiz",
@@ -223,7 +223,7 @@
          "The hammer belongs to whoever is using it"
         ],
         "answer": 0,
-        "why": "It becomes an object to look at only when it breaks: present-at-hand."
+        "why": "It becomes an object to look at, present-at-hand, only when it breaks, goes missing or is too heavy."
        },
        {
         "ask": "What did Bernard Williams mean by comparing the analytic and continental labels to Japanese and front-wheel-drive cars?",

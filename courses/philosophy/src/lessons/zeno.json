@@ -13,7 +13,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Achilles, the fastest runner in Greek legend, races a tortoise. Being a sporting hero, he gives it a head start of 100 metres. Say Achilles runs ten times as fast. By the time he reaches the tortoise's starting point, it has moved on 10 metres. By the time he covers those 10 metres, it has moved 1 metre further. When he covers that metre, it is 10 centimetres ahead, and so on. Each time Achilles reaches where the tortoise was, it has moved a little further. There are infinitely many such stages, and he must complete every one of them to catch up. So, the argument concludes, he never does."
+     "text": "Achilles, the fastest runner in Greek legend, races a tortoise. Being a sporting hero, he gives it a head start of 100 metres. Say Achilles runs 10 metres a second and the tortoise 1 metre a second, ten times slower. By the time he reaches the tortoise's starting point, it has moved on 10 metres. By the time he covers those 10 metres, it has moved 1 metre further. When he covers that metre, it is 10 centimetres ahead, and so on. Each time Achilles reaches where the tortoise was, it has moved a little further. There are infinitely many such stages, and he must complete every one of them to catch up. So, the argument concludes, he never does."
     },
     {
      "type": "text",
@@ -34,7 +34,7 @@
     },
     {
      "type": "text",
-     "text": "The **stadium** sets rows of bodies moving past each other, to argue that time cannot be made of smallest indivisible units: if it were, one body would pass another in half the smallest possible time. Few modern readers find it as strong as the others."
+     "text": "A fourth, the **stadium**, about rows of runners passing each other, survives only in a garbled form, and few modern readers find it as strong as the others."
     },
     {
      "type": "diagram",
@@ -56,7 +56,7 @@
         "kind": "conclusion"
        },
        {
-        "text": "An infinite series of times can add up to a finite total: 10 + 1 + 0.1 + 0.01 + … seconds adds up to 11.1 seconds.",
+        "text": "An infinite series of times can add up to a finite total: 10 + 1 + 0.1 + 0.01 + … seconds adds up to 11.1 recurring seconds, about 11.11.",
         "kind": "objection",
         "against": 3,
         "who": "Mathematicians, made rigorous in the 19th century"
@@ -75,7 +75,7 @@
     },
     {
      "type": "text",
-     "text": "The Greeks had the beginnings of this idea; Archimedes added up an infinite series in the 3rd century BC to find the area of a segment of a parabola. But it was made rigorous only in the 19th century, when mathematicians such as Augustin-Louis Cauchy defined what it means for an infinite sum to have a value, using the idea of a **limit**: the sum is the number the partial totals get as close to as you like. The same idea answers the arrow in a way. In calculus, an object's speed at an instant is defined as a limit of average speeds over shorter and shorter intervals, so a moving arrow can have a speed at an instant without moving during it."
+     "text": "The Greeks had the beginnings of this idea; Archimedes added up an infinite series in the 3rd century BC to find the area under a curved line. But it was made rigorous only in the 19th century, when mathematicians such as Augustin-Louis Cauchy defined what it means for an infinite sum to have a value, using the idea of a **limit**: the sum is the number the partial totals get as close to as you like. The same idea gives an answer to the arrow. In **calculus**, the mathematics of continuous change worked out by Newton and Leibniz in the 17th century, an object's speed at an instant is defined as a limit of average speeds over shorter and shorter intervals, so a moving arrow can have a speed at an instant without moving during it."
     },
     {
      "type": "interactive_diagram",
@@ -92,9 +92,9 @@
        "Not sure"
       ],
       "who": [
-       "You chose the answer most mathematicians and many philosophers give.",
+       "You chose the usual answer among mathematicians.",
        "You chose the answer of philosophers who think the paradoxes raise questions about completing infinitely many tasks that the sum does not touch.",
-       "Philosophers who specialise in it are divided too."
+       "The next part gives a reason some philosophers think the sums leave something out."
       ]
      }
     }
@@ -129,8 +129,8 @@
       "who": [
        "Every \"off\" is followed by an \"on\", so it cannot be that the last move was \"off\". But every \"on\" is followed by an \"off\" too.",
        "Every \"on\" is followed by an \"off\". But every \"off\" is followed by an \"on\" too.",
-       "You chose the answer most philosophers give: the description fixes the lamp's state at every moment before two minutes, and says nothing about the moment itself.",
-       "Thomson concluded that such a task, called a supertask, cannot be done."
+       "You chose the answer most philosophers give. The story says what the lamp does at every moment before two minutes are up, and nothing about the moment itself.",
+       "Thomson concluded that a task like this cannot be done at all."
       ]
      }
     },
@@ -145,7 +145,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Zeno's paradoxes in their original use, as proofs that motion is impossible, are abandoned: nobody now thinks Achilles loses. As puzzles they are still argued over, about supertasks, about whether space and time are continuous, and about what a mathematical model tells us about the physical world. They were also, for 2,000 years, one of the main reasons mathematicians kept working on the infinite, until Cauchy, Georg Cantor and others gave it a precise theory.[^cantor]"
+     "text": "Zeno's paradoxes in their original use, as proofs that motion is impossible, are abandoned: nobody now thinks they show that motion is impossible. As puzzles they are still argued over, about supertasks, about whether space and time are continuous, divisible without end, or made of tiny smallest units, and about what a mathematical model tells us about the physical world. They were also, for 2,000 years, one of the main reasons mathematicians kept working on the infinite, until Cauchy, Georg Cantor and others gave it a precise theory.[^cantor]"
     },
     {
      "type": "quiz",
@@ -158,9 +158,9 @@
         "ask": "What was the purpose of Zeno's paradoxes?",
         "choices": [
          "To defend Parmenides' view that motion and change are illusions",
-         "To show that Achilles was slower than legend said",
-         "To invent the mathematics of infinite sums",
-         "To prove that time runs backwards"
+         "To show that space is made of smallest indivisible points",
+         "To prove that infinite sums always add up to a finite total",
+         "To show that the senses are a reliable guide to motion"
         ],
         "answer": 0,
         "why": "They aimed to show that the common-sense belief in motion leads to absurdities."
@@ -174,7 +174,7 @@
          "It shows that the tortoise must stop moving at some point"
         ],
         "answer": 0,
-        "why": "In the example, 10 + 1 + 0.1 + … seconds comes to 11.1 seconds."
+        "why": "In the example, 10 + 1 + 0.1 + … seconds comes to 11.1 recurring seconds."
        },
        {
         "ask": "What is the arrow paradox?",
@@ -188,15 +188,15 @@
         "why": "Calculus answers by defining speed at an instant as a limit."
        },
        {
-        "ask": "What is Thomson's lamp meant to show?",
+        "ask": "What did Thomson conclude from his lamp?",
         "choices": [
-         "That completing infinitely many actions in a finite time raises questions the sums do not answer",
-         "That lamps wear out if switched too often",
-         "That electricity travels faster than light",
-         "That every infinite series adds up to zero"
+         "That performing infinitely many separate actions in a finite time is impossible",
+         "That the lamp must end up on, since it was switched on first",
+         "That the lamp must end up off, since the intervals shrink towards zero",
+         "That infinite sums are always larger than any finite number"
         ],
         "answer": 0,
-        "why": "Thomson concluded supertasks are impossible; others say the description is incomplete."
+        "why": "Thomson concluded supertasks are impossible; others reply that the story is simply incomplete."
        }
       ]
      }
@@ -208,7 +208,7 @@
   "**Achilles must reach infinitely many points where the tortoise was.** So, Zeno argued, he never catches it.",
   "**Zeno defended Parmenides' view that motion is an illusion.** Nine of his paradoxes survive.",
   "**The dichotomy and the arrow attack motion from two sides.** Infinite division, and stillness at each instant.",
-  "**Infinite sums can be finite.** Achilles draws level after 11.1 seconds in the example.",
+  "**Infinite sums can be finite.** Achilles draws level after 11.1 recurring seconds in the example.",
   "**Limits made this rigorous in the 19th century.** Speed at an instant is a limit too.",
   "**Supertasks are still argued over.** Thomson's lamp asks whether infinitely many acts can be completed."
  ],

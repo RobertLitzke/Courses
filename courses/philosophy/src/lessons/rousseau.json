@@ -90,7 +90,7 @@
     {
      "type": "diagram",
      "id": "argument",
-     "caption": "Rousseau's case for trusting a vote, with Condorcet's theorem as support. The objection is the one most later critics made.",
+     "caption": "Rousseau's case for trusting a vote, with Condorcet's later theorem as support. The objection is the one most later critics made.",
      "options": {
       "steps": [
        {
@@ -147,7 +147,7 @@
     },
     {
      "type": "text",
-     "text": "Critics in the 20th century, after Stalin and Hitler, read the general will and \"forced to be free\" as a recipe for a state that claims to know what citizens really want better than they do. Robespierre, during the Terror of 1793 and 1794, had admired Rousseau and quoted him. Defenders reply that Rousseau insisted on equal citizens making general laws, and that a dictator's will is exactly what he called a private will.[^cake] Rousseau's own life was not a model: he placed all five of his children with the Paris foundling hospital, where most children died young, and later wrote a treatise on education, *Émile*, which Wollstonecraft answered in lesson 20."
+     "text": "Critics in the 20th century, after Stalin and Hitler, read the general will and \"forced to be free\" as a recipe for a state that claims to know what citizens really want better than they do. Robespierre, during the Terror of 1793 and 1794, had admired Rousseau and quoted him. Defenders reply that Rousseau insisted on equal citizens making general laws, and that a dictator's will is exactly what he called a private will. Rousseau's own life, which he told in his *Confessions*,[^cake] was not a model: he placed all five of his children with the Paris foundling hospital, where most children died young, and later wrote a treatise on education, *Émile*, which Wollstonecraft answered in lesson 20."
     },
     {
      "type": "quiz",
@@ -161,7 +161,7 @@
         "choices": [
          "Hobbes had projected the vices of society onto natural human beings, who were in fact peaceful and simple",
          "Rousseau thought the state of nature was even more violent than Hobbes did",
-         "Rousseau thought there had never been any human beings without government",
+         "Rousseau thought people in the state of nature had already formed small kingdoms",
          "Rousseau agreed with Hobbes but thought the sovereign should be a king"
         ],
         "answer": 0,
@@ -182,12 +182,12 @@
         "ask": "Why did Rousseau want no factions in the state?",
         "choices": [
          "A faction makes its members vote together for its own interest, so the vote no longer shows the general will",
-         "Factions are always led by foreign powers",
+         "Factions give small groups too little say",
          "Factions make votes take too long",
          "He thought only one person should govern"
         ],
         "answer": 0,
-        "why": "Condorcet's theorem gives a reason: the majority is reliable only if voters judge independently."
+        "why": "Condorcet's theorem of 1785, published after Rousseau's death, gives a reason he did not have: the majority is reliable only if voters judge independently."
        },
        {
         "ask": "What does Condorcet's jury theorem say?",
@@ -224,7 +224,7 @@
   "cake": {
    "kind": "digression",
    "title": "Let them eat cake",
-   "text": "The line is from Rousseau's Confessions, where he says that a great princess, told the peasants had no bread, replied \"then let them eat brioche\". He wrote it around 1765, when Marie Antoinette was a child in Austria. It was attached to her only later."
+   "text": "The *Confessions* are also the source of a famous misattribution. Rousseau says that a great princess, told the peasants had no bread, replied \"then let them eat brioche\". He wrote it around 1765, when Marie Antoinette was a child in Austria. It was attached to her only later."
   }
  }
 }

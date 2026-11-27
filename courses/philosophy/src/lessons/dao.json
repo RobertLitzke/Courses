@@ -47,7 +47,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Zhuangzi taught mostly by stories, many of them funny, and many of them aimed at the confident certainties of other schools. His friend and rival in them is the logician Huizi."
+     "text": "Zhuangzi taught mostly by stories, many of them funny, and many of them aimed at the confident certainties of other schools. His friend and rival in them is the logician Huizi.[^fish]"
     },
     {
      "type": "text",
@@ -55,7 +55,7 @@
     },
     {
      "type": "text",
-     "text": "When Zhuangzi's wife died, Huizi came to offer sympathy and found him sitting with his legs sprawled, drumming on a pot and singing. Huizi was shocked. Zhuangzi said that at first he had grieved like anyone. Then he thought about how she had once had no life, no form and no breath; how she had come into being through a change, and had now changed again into death, as spring turns to summer and autumn to winter. To go on wailing would have shown he did not understand how things go, so he stopped.[^fish]"
+     "text": "When Zhuangzi's wife died, Huizi came to offer sympathy and found him sitting with his legs sprawled, drumming on a pot and singing. Huizi was shocked. Zhuangzi said that at first he had grieved like anyone. Then he thought about how she had once had no life, no form and no breath; how she had come into being through a change, and had now changed again into death, as spring turns to summer and autumn to winter. To go on wailing would have shown he did not understand how things go, so he stopped."
     },
     {
      "type": "text",
@@ -68,7 +68,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The Daoists and the Stoics of lesson 6 lived at about the same time, at opposite ends of Asia, and never heard of each other. Both thought unhappiness comes from fighting how things are, and both admired a calm person who accepts loss, as Zhuangzi did at his wife's death. But their advice differs. The Stoics told you to sort what is up to you from what is not, and to work hard at the first: your judgements, your choices, your duty. Reason, trained by effort, is in charge. The Daoists distrusted that kind of effort. Cook Ding does not decide where to cut; after years of practice his knife finds the gaps of itself."
+     "text": "The early Daoists in China and the first Stoics of lesson 6 in Athens lived within a century or so of each other, at opposite ends of Eurasia, and never heard of each other. Both thought unhappiness comes from fighting how things are, and both admired a calm person who accepts loss, as Zhuangzi did at his wife's death. But their advice differs. The Stoics told you to sort what is up to you from what is not, and to work hard at the first: your judgements, your choices, your duty. Reason, trained by effort, is in charge. The Daoists distrusted that kind of effort. Cook Ding does not decide where to cut; after years of practice his knife finds the gaps of itself."
     },
     {
      "type": "interactive_diagram",
@@ -140,7 +140,7 @@
       "who": [
        "You chose the Stoic answer, which is also the basis of cognitive behavioural therapy.",
        "You chose the Daoist answer. Psychologists who study insight find that a break often helps a stuck problem.",
-       "Most people who use either would say so. Zhuangzi's cook still practised for nineteen years.",
+       "Most people who use either would say so. Zhuangzi's own cook needed long practice before carving became effortless.",
        "Zhuangzi would approve."
       ]
      }
@@ -168,9 +168,9 @@
        {
         "ask": "Why does Cook Ding's knife never need sharpening?",
         "choices": [
-         "He follows the natural joints and spaces of the ox, so the blade never hits bone or gristle",
+         "He follows the natural joints and spaces of the ox, so the blade never hits bone or ligament",
          "He uses a better kind of steel than other cooks",
-         "He sharpens it secretly every night",
+         "He replaces it more often than other cooks do",
          "He only carves very small animals"
         ],
         "answer": 0,

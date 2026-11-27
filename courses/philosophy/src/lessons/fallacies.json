@@ -13,11 +13,11 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Around 1830 the German philosopher Arthur Schopenhauer wrote a short, sour handbook called *The Art of Being Right*. It was not about being right, he admitted, but about seeming to be: 38 tricks for winning an argument whether or not you had the truth on your side. Exaggerate your opponent's claim until it is easy to attack. Get them to agree to several small points, then announce a conclusion that does not follow, as though it did. If you are losing, change the subject. And the last, stratagem 38, for when all else fails: become personal, insulting and rude.[^schopenhauer]"
+     "text": "Around 1830 the German philosopher Arthur Schopenhauer wrote a short, sour handbook called *The Art of Being Right*. It was not about being right, he admitted, but about seeming to be: 38 tricks, which he called stratagems, for winning an argument whether or not you had the truth on your side. Exaggerate your opponent's claim until it is easy to attack. Get them to agree to several small points, then announce a conclusion that does not follow, as though it did. If you are losing, change the subject. And the last, stratagem 38, for when all else fails: become personal, insulting and rude.[^schopenhauer]"
     },
     {
      "type": "text",
-     "text": "Schopenhauer meant it as a warning, and never published it; it appeared after his death. But his list overlaps with a much older one. In *Sophistical Refutations*, Aristotle set out thirteen ways an argument can look valid when it is not, which logicians have called **fallacies** ever since. This lesson covers the fallacies you are most likely to meet, when they are not really fallacies at all, and the habit that defends against most of them."
+     "text": "Schopenhauer said the point was to let honest people recognise the tricks when they were used against them. He never published it; it appeared after his death. But his list overlaps with a much older one. In *Sophistical Refutations*, Aristotle set out thirteen ways an argument can look valid when it is not, which logicians have called **fallacies** ever since. In this lesson we will look at the fallacies you are most likely to meet, then at the cases where they turn out not to be fallacies after all, and then at the habit that defends against most of them."
     }
    ]
   },
@@ -83,9 +83,9 @@
         "why": "An attack on the speaker, not on the ideas."
        },
        {
-        "name": "\"Of course a scientist funded by the government would say that.\"",
+        "name": "\"You can't trust what he says about climate; he failed chemistry at school.\"",
         "group": "Ad hominem",
-        "why": "A motive is not a refutation, though it may be a reason to check the evidence."
+        "why": "His school results say nothing about whether his argument is sound."
        },
        {
         "name": "\"You're either with us or against us.\"",
@@ -93,14 +93,14 @@
         "why": "There are other positions, such as agreeing in part or staying neutral."
        },
        {
-        "name": "\"If you don't support this bill, you don't care about children.\"",
+        "name": "\"Either you support this bill, or you don't care about children.\"",
         "group": "False dilemma",
         "why": "Someone can care about children and think the bill is the wrong way to help them."
        },
        {
-        "name": "\"Paranormal events are impossible, so any report of one must be mistaken.\"",
+        "name": "\"Capital punishment is wrong because it is wrong for the state to put people to death.\"",
         "group": "Begging the question",
-        "why": "The argument assumes what is in dispute."
+        "why": "The reason given is the conclusion in other words."
        },
        {
         "name": "\"He is trustworthy, because he told me he never lies.\"",
@@ -117,7 +117,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Many arguments that look like fallacies are not. An attack on the person is relevant when the argument depends on trusting the person: if a witness in a court case stands to inherit from the accused's death, the court should know. A **slippery slope** argument, that one step will lead to worse ones, is a fallacy only when there is no reason to expect the slide; when there is evidence that one change tends to lead to another, it is a reasonable argument. And an **appeal to authority** is a fallacy when the authority is speaking outside their field, but trusting experts in their own field is how most of us know most things, as the free speech lesson discusses."
+     "text": "Many arguments that look like fallacies are not. An attack on the person is relevant when the argument depends on trusting the person: if a witness in a court case stands to inherit from the accused's death, the court should know. A **slippery slope** argument, that one step will lead to worse ones, is a fallacy only when there is no reason to expect the slide; when there is evidence that one change tends to lead to another, it is a reasonable argument. And an **appeal to authority** is a fallacy when the authority is speaking outside their field, but trusting experts in their own field is how most of us know most things, as branch lesson P4, on free speech, discusses."
     },
     {
      "type": "text",
@@ -138,7 +138,7 @@
     },
     {
      "type": "text",
-     "text": "This is close to what Socrates did in lesson 1, at least on his better days, and what the Nyāya philosophers called vāda, honest discussion, in their branch lesson. It has a practical advantage too: people are much more likely to listen to criticism from someone who has shown they understand their view."
+     "text": "This is close to what Socrates did in lesson 1, at least on his better days, and what the Nyāya philosophers of ancient India, in branch lesson E2, called vāda: honest discussion aimed at the truth. It has a practical advantage too: people are much more likely to listen to criticism from someone who has shown they understand their view."
     },
     {
      "type": "interactive_diagram",
@@ -156,10 +156,10 @@
        "Not sure"
       ],
       "who": [
-       "You chose Davidson's and Rapoport's answer.",
-       "You chose the answer most philosophers would give in practice.",
-       "Sometimes true. Charity says to check, since people rarely hold views that seem foolish to them.",
-       "Socrates would say that is a good place to start."
+       "You chose the answer the principle of charity recommends.",
+       "You chose a cautious form of charity, which is how most people practise it.",
+       "Sometimes it is. The case for checking first is that people rarely hold views that seem foolish to themselves.",
+       "Socrates claimed to be unsure about most things, so you are in his company."
       ]
      }
     }
@@ -170,7 +170,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The study of fallacies is respected history in formal logic, which since the late 19th century has worked with precise symbols rather than lists of errors. It is still argued over in **informal logic** and argumentation theory, which study real arguments as people make them, and which have shown that most of the traditional fallacies are reasonable in some contexts and faulty in others. Charity is a working principle in philosophy, law and the study of language, and steelmanning is widely recommended, though harder to practise than to praise."
+     "text": "The study of fallacies is respected history in formal logic, which since the late 19th century has worked with precise symbols rather than lists of errors. It is still argued over in **informal logic** and argumentation theory, the study of arguments as people actually make them in speech and writing, rather than in symbols, and which have shown that most of the traditional fallacies are reasonable in some contexts and faulty in others. Charity is a working principle in philosophy, law and the study of language, and steelmanning is widely recommended, though harder to practise than to praise."
     },
     {
      "type": "quiz",
@@ -183,9 +183,9 @@
         "ask": "What is a straw man?",
         "choices": [
          "Attacking a weaker version of a view than the one its holder defends",
-         "Attacking the person instead of the argument",
-         "Offering only two options when there are more",
-         "Assuming the conclusion in the premises"
+         "Attacking the person who holds a view instead of the view",
+         "Offering two options as if they were the only ones",
+         "Arguing from a premise that already contains the conclusion"
         ],
         "answer": 0,
         "why": "It is easier to knock over a figure of straw than a real opponent."
@@ -194,12 +194,12 @@
         "ask": "When is an attack on the person NOT a fallacy?",
         "choices": [
          "When the argument depends on trusting the person, as with a witness who has a motive",
-         "Whenever the person is rich or famous",
-         "Whenever the person has been wrong before",
-         "It is always a fallacy"
+         "When the person has made a different mistake in the past",
+         "When the person is speaking about something outside their own field",
+         "When the person has not given any evidence of their own"
         ],
         "answer": 0,
-        "why": "A motive can matter for testimony, though it never refutes an argument by itself."
+        "why": "A motive matters for testimony. It does not by itself show an argument is unsound."
        },
        {
         "ask": "What does begging the question mean in logic?",
@@ -216,9 +216,9 @@
         "ask": "What is the first of Rapoport's rules, as Dennett passed them on?",
         "choices": [
          "Restate the other person's position so well they wish they had put it that way",
-         "List the fallacies in their argument",
-         "Point out where they contradict themselves",
-         "Say what you disagree with before what you agree with"
+         "Point out the weakest step in their argument first, so the discussion stays focused",
+         "List the places where you disagree, then the places where you agree",
+         "Ask the other person to restate your own position before you reply"
         ],
         "answer": 0,
         "why": "Criticism comes last, after agreement and what you have learned."
@@ -241,7 +241,7 @@
   "schopenhauer": {
    "kind": "digression",
    "title": "A quarrelsome man",
-   "text": "Schopenhauer was famous for his temper. In 1821 he pushed a seamstress, Caroline Marquet, down the stairs outside his Berlin lodgings for talking loudly on the landing, and a court made him pay her a pension for twenty years. When she died, he is said to have written in his account book, in Latin, \"the old woman dies, the burden is lifted\"."
+   "text": "Schopenhauer was famous for his temper. In 1821 he pushed a seamstress, Caroline Marquet, down the stairs outside his Berlin lodgings for talking loudly on the landing, and a court made him pay her a pension for twenty years."
   },
   "beg": {
    "kind": "technical",

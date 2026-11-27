@@ -36,7 +36,7 @@
         "kind": "conclusion"
        },
        {
-        "text": "One grain plainly does not make a heap, so one of the premises must be false, and the second is the only candidate.",
+        "text": "One grain plainly does not make a heap. The first premise is plainly true, so the second must be at fault.",
         "kind": "objection",
         "against": 2
        }
@@ -54,13 +54,13 @@
     },
     {
      "type": "text",
-     "text": "The law usually draws one by decision. A person becomes an adult for voting at 18, not because anything changes on the birthday, but because some line is needed. A driver in England is over the limit at 80 milligrams of alcohol per 100 millilitres of blood, though 79 is not safe and 81 is not dangerous in any sharp sense. These lines are useful precisely because they are sharp, and arbitrary for the same reason. The philosophical question is whether the words themselves, before any law, have sharp lines."
+     "text": "The law usually draws one by decision. A person becomes an adult for voting at 18, not because anything changes on the birthday, but because some line is needed. A driver in England is over the limit at 80 milligrams of alcohol per 100 millilitres of blood, though a driver at 79 is barely safer than one at 81. These lines are useful precisely because they are sharp, and arbitrary for the same reason. The philosophical question is whether the words themselves, before any law, have sharp lines."
     },
     {
      "type": "interactive_diagram",
      "id": "heap",
-     "caption": "A shrinking heap, and what three theories of vague words say about the sentence \"this is a heap\". The borderline zone, from 20 to 200 grains, is only for the drawing; where the real one lies is part of the question.",
-     "task": "Guess first, then see what each theory says in the borderline zone",
+     "caption": "A shrinking heap, and what three theories of vague words say about the sentence \"this is a heap\". The shaded zone from 20 to 200 grains is drawn only to show the idea of borderline cases; nobody claims they start at exactly 20.",
+     "task": "Guess where the heap stops being a heap, then try each theory in the shaded zone",
      "goal": "borderline"
     }
    ]
@@ -70,7 +70,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "**Degrees of truth.** Some philosophers say truth comes in degrees, like tallness. \"10,000 grains is a heap\" is fully true, \"one grain is a heap\" is fully false, and in between the truth slides smoothly down. The second premise of the paradox is then nearly true for each step but not quite, and thousands of tiny losses add up to the whole. The mathematics comes from the **fuzzy logic** of the engineer Lotfi Zadeh, introduced in 1965[^fuzzy] and now used in washing machines and camera autofocus. Critics object that it gives exact numbers, such as 0.62 true, to things that are not exact either."
+     "text": "**Degrees of truth.** Some philosophers say truth comes in degrees, like tallness. \"10,000 grains is a heap\" is fully true, \"one grain is a heap\" is fully false, and in between the truth slides smoothly down. The second premise of the paradox is then nearly true for each step but not quite, and thousands of tiny losses add up to the whole. The mathematics comes from the **fuzzy logic** of the engineer Lotfi Zadeh, introduced in 1965[^fuzzy] and now used in washing machines and camera autofocus. Critics object that it gives exact numbers, such as \"true to degree 0.62\", to things that are not exact either."
     },
     {
      "type": "text",
@@ -97,8 +97,8 @@
       ],
       "who": [
        "You chose Williamson's epistemicism.",
-       "You chose the answer of degree theorists, and of most people asked for the first time.",
-       "You chose an answer close to supervaluation, on which each particular grain is borderline.",
+       "You chose the answer of degree theorists.",
+       "You chose an answer some philosophers give, who think there is no fact here to find. Supervaluation is subtler: it says \"some grain makes the difference\" is true, though no particular grain does.",
        "Philosophers who work on vagueness are divided too."
       ]
      }
@@ -114,7 +114,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The sorites is still argued over, and there is no agreed answer. All three theories have serious defenders. The puzzle matters outside philosophy wherever a gradual change has to meet a sharp rule: when a fetus becomes a person, when a patient's brain injury counts as death, when a collection of cells is an embryo, or when a pay gap counts as unfair. Arguments of the form \"one more cannot make a difference\" are sorites arguments, and recognising them is useful whichever theory is right."
+     "text": "The sorites is still argued over, and there is no agreed answer. All three theories have serious defenders. The puzzle matters outside philosophy wherever a gradual change has to meet a sharp rule: for example in debates over when a fetus becomes a person, where each day of development is a tiny change and yet the law needs a line. Arguments of the form \"one more cannot make a difference\" are sorites arguments, and recognising them is useful whichever theory is right."
     },
     {
      "type": "quiz",
@@ -127,9 +127,9 @@
         "ask": "What makes a word vague, in the philosophers' sense?",
         "choices": [
          "It has clear cases, clear non-cases and borderline cases in between, with no sharp boundary",
-         "It has two or more unrelated meanings",
-         "It is used without any definite meaning at all",
-         "It refers to something that does not exist"
+         "It has two or more unrelated meanings, such as \"bank\"",
+         "Its meaning changes depending on who is speaking, such as \"I\" or \"here\"",
+         "Its meaning has changed over the centuries"
         ],
         "answer": 0,
         "why": "Tall, bald, heap, red and child are all vague."
@@ -138,9 +138,9 @@
         "ask": "What does epistemicism say about the heap?",
         "choices": [
          "There is a sharp line between heap and non-heap, but nobody can know where it is",
-         "Truth comes in degrees, so no single grain matters",
-         "A sentence is true only if it is true on every way of drawing the line",
-         "Heaps do not really exist"
+         "Truth comes in degrees, so no single grain makes a difference",
+         "A sentence is true only if it is true on every acceptable way of drawing the line",
+         "The word heap is meaningless, so no sentence using it is true"
         ],
         "answer": 0,
         "why": "Williamson defended it in 1994. It keeps ordinary logic at the cost of an unknowable fact."
@@ -160,9 +160,9 @@
         "ask": "What is higher-order vagueness?",
         "choices": [
          "The boundary between clear cases and borderline cases is itself vague",
-         "Some words are more vague than others",
-         "A vague word becomes precise when the law defines it",
-         "Vagueness exists only in very old languages"
+         "Some vague words are vaguer than others, such as old compared with tall",
+         "A vague word becomes precise once a law defines it",
+         "Vague words can be made precise by adding more vague words"
         ],
         "answer": 0,
         "why": "Every theory that admits borderline cases has to face it."

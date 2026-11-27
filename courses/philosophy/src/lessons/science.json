@@ -173,7 +173,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In 1962 the American physicist turned historian Thomas Kuhn published *The Structure of Scientific Revolutions*, which became one of the most cited books of the century. Kuhn said that most science is **normal science**: work within a **paradigm**, an accepted framework of theory, methods and model examples, such as Newtonian mechanics. Normal scientists do not try to refute their paradigm; they solve puzzles within it, and when a result does not fit, they assume they have made a mistake, as Le Verrier did."
+     "text": "In 1962 the American physicist turned historian Thomas Kuhn published *The Structure of Scientific Revolutions*, which became one of the most cited books of the century. Kuhn said that most science is **normal science**: work within a **paradigm**, an accepted framework of theory, methods and model examples, such as Newtonian mechanics. Normal scientists do not try to refute their paradigm; they solve puzzles within it, and when a result does not fit, they look for a mistake or a missing factor, as Le Verrier did when he looked for an unseen planet rather than doubt Newton."
     },
     {
      "type": "text",
@@ -212,7 +212,7 @@
          "It is neither true by definition nor checkable by observation, so by its own test it is meaningless",
          "It was proved false by Einstein's theory",
          "It applies only to mathematics",
-         "Its authors abandoned it after one week"
+         "It was never published"
         ],
         "answer": 0,
         "why": "Ayer later said nearly all of it was false."
@@ -268,7 +268,7 @@
   "popper": {
    "kind": "digression",
    "title": "Popper's poker",
-   "text": "Popper met Wittgenstein only once, in Cambridge in 1946, at a meeting where, by Popper's account, Wittgenstein waved a poker at him while they argued. The story is in the Wittgenstein branch lesson."
+   "text": "Popper was never a member of the Vienna Circle, though he knew several of its members, and his first book, *Logik der Forschung* (1934), appeared in a series the Circle edited. He later claimed responsibility for killing logical positivism."
   }
  }
 }
