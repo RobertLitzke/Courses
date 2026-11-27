@@ -46,4 +46,14 @@ export const TENSIONS: readonly Tension[] = [
     b: { key: 'wilt', picks: [0] },
     text: 'You chose Rawls\'s rule behind the veil, and also said the state may not tax Wilt Chamberlain\'s earnings to help the worst-off. Rawls would say his rule is exactly a reason to tax them, and that the fans paid under tax rules everyone knew. Nozick would say your second answer shows why no pattern survives free choice.',
   },
+  {
+    a: { key: 'switch', picks: [0] },
+    b: { key: 'footbridge', picks: [1] },
+    text: 'You would pull the switch but not push the man, though both trade one life for five. Most people answer this way. Foot would say harming weighs more than failing to help; the doctrine of double effect says the man on the bridge is used as a means. Greene would say the second answer is a gut reaction your first answer has already overruled.',
+  },
+  {
+    a: { key: 'footbridge', picks: [0] },
+    b: { key: 'surgeon', picks: [1] },
+    text: 'You would push the man off the footbridge but not let the surgeon take the visitor\'s organs, though both kill one person to save five, using their body. A utilitarian who pushes usually points to the harm done if nobody could trust a hospital. Without some such reason, the two answers are hard to hold together.',
+  },
 ];

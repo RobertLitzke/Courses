@@ -1,0 +1,342 @@
+{
+ "id": "singer",
+ "n": 23,
+ "title": "Would you ruin your clothes to save a drowning child?",
+ "teaches": "Singer's drowning child, the trolley problem as Foot meant it, and effective altruism",
+ "parts": [
+  {
+   "title": "Bengal, 1971",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1971 the Pakistani army began a campaign of killing in East Pakistan, which became Bangladesh by the end of the year. About nine million refugees crossed into India, and by the autumn they were dying of hunger, cholera and exposure in camps around Calcutta. The British government gave about 15 million pounds in aid, less than a thirtieth of what it had sunk into developing the supersonic airliner Concorde."
+    },
+    {
+     "type": "text",
+     "text": "In November a 25-year-old Australian philosopher at Oxford, Peter Singer, wrote a paper about it. \"Famine, Affluence, and Morality\" came out in 1972 in the first volume of a new journal, *Philosophy and Public Affairs*. It is twelve pages long, uses one example, and has been argued over ever since.[^concert]"
+    }
+   ]
+  },
+  {
+   "title": "The child in the pond",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Singer's example is this. You are walking past a shallow pond and see a small child drowning in it. You could wade in and pull the child out. Your clothes would get muddy, and that is all. Almost everyone agrees you must do it, and that walking on to keep your clothes clean would be monstrous."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Singer's pond. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "pond",
+      "ask": "A child is drowning in a shallow pond next to you. Saving them will ruin your clothes, which cost 200 pounds. Must you save the child?",
+      "choices": [
+       "Yes, and walking on would be seriously wrong",
+       "Yes, but it would be generous rather than a duty",
+       "No",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the answer nearly everyone gives, and the one Singer builds on.",
+       "Singer would say almost nobody else thinks so in this case, which is the point of using it.",
+       "Very few people give this answer.",
+       "Few people are unsure about this one; the next question is harder."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Singer then pointed out that the same reasoning applies to the refugees in Bengal, and to anyone dying of poverty now. Aid agencies can save a child's life for a sum comparable to the price of good clothes. Distance does not seem to change the duty: a child 10,000 kilometres away is as much a person as one ten metres away. Nor does the number of other people who could help: if ten other adults were standing round the pond doing nothing, you would still have to wade in."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Singer's argument in his own steps. He thought the first premise uncontroversial and the second the one people would resist.",
+     "options": {
+      "steps": [
+       {
+        "text": "Suffering and death from lack of food, shelter and medical care are bad."
+       },
+       {
+        "text": "If it is in our power to prevent something bad from happening, without thereby sacrificing anything of comparable moral importance, we ought, morally, to do it."
+       },
+       {
+        "text": "Neither distance nor the presence of other people who could help changes this duty."
+       },
+       {
+        "text": "Giving money to famine relief prevents such suffering, and costs most people in rich countries nothing of comparable importance."
+       },
+       {
+        "text": "So most people in rich countries ought to give much more than they do, and not giving is wrong, not merely ungenerous.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "Morality cannot demand so much: a duty that leaves you giving until you are nearly as poor as those you help asks more than any person can live by.",
+        "kind": "objection",
+        "against": 2,
+        "who": "Critics, including many who accept the conclusion in part"
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The same question at a distance. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "far-child",
+      "ask": "Is failing to give 200 pounds to an aid agency that would save a child's life overseas as wrong as walking past the child in the pond?",
+      "choices": [
+       "Yes: distance makes no moral difference",
+       "It is wrong, but less wrong than walking past",
+       "No: it is generous to give, but not a duty",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Singer's answer.",
+       "You chose the view of most philosophers who resist Singer, who look for something about nearness or certainty that makes the pond special.",
+       "You chose the view Singer wrote the paper against. He would ask what makes the overseas child different from the one in the pond.",
+       "Many philosophers are unsure too, which is why the paper is still argued over."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Singer drew the conclusion plainly. The line between duty and charity is in the wrong place: giving to famine relief is not a kind act that deserves praise, but something we are wrong not to do. In the paper's strong form, we should give until giving more would cost us something as important as what it prevents, which would leave most of us close to the level of the people we help. He also gave a moderate form, asking only that we give up what is of no moral importance, and noted that even this would change how most people live."
+    }
+   ]
+  },
+  {
+   "title": "The trolley problem",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A few years before Singer's paper, the Oxford philosopher Philippa Foot had used a different example to ask when it is acceptable to cause one death to prevent several. In a 1967 paper about abortion she imagined the driver of a runaway tram that can only be steered from one narrow track to another. Five workmen are on the track ahead, one on the other. Most people think the driver should steer and kill the one. Yet a judge who could stop a riot that would kill five people only by framing and executing one innocent man should not do it. Foot's question was why the cases differ, since both trade one life for five.[^foot]"
+    },
+    {
+     "type": "text",
+     "text": "The American philosopher Judith Jarvis Thomson named it the **trolley problem** in 1976, using the American word for a tram, and added the cases most people now know. In hers, you are not the driver but a bystander next to a switch. In another, you are on a footbridge over the track, next to a large man, and the only way to stop the trolley is to push him off into its path."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The bystander at the switch. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "switch",
+      "ask": "A runaway trolley will kill five people unless you pull a switch that sends it onto a side track, where it will kill one. Should you pull it?",
+      "choices": [
+       "Yes",
+       "No",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the most common answer, among philosophers and among everyone else. In large online studies about nine people in ten say yes.",
+       "You chose the minority answer. Some philosophers hold that you may not turn a threat onto someone who was safe.",
+       "Many people find even this case harder than it first looks."
+      ],
+      "poll": {
+       "shares": [
+        63,
+        13,
+        null
+       ],
+       "source": "PhilPapers Survey 2020, \"Trolley problem: switch or don't switch?\", share accepting or leaning towards each."
+      }
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The footbridge. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "footbridge",
+      "ask": "The same trolley, the same five people. This time the only way to stop it is to push a large man off a footbridge into its path. He will die, and the five will live. Should you push him?",
+      "choices": [
+       "Yes",
+       "No",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the same answer as for the switch, as a strict utilitarian would. In large online studies only about one person in ten says yes.",
+       "You chose the most common answer. Most people who would pull the switch will not push.",
+       "The footbridge is where many people stop being sure."
+      ],
+      "poll": {
+       "shares": [
+        22,
+        56,
+        null
+       ],
+       "source": "PhilPapers Survey 2020, \"Footbridge: push or don't push?\", share accepting or leaning towards each."
+      }
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Thomson's surgeon. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "surgeon",
+      "ask": "A surgeon has five patients who will die without transplants, and one healthy visitor whose organs would match all five. Should the surgeon kill the visitor and save the five?",
+      "choices": [
+       "Yes",
+       "No",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the answer almost nobody gives. Utilitarians who accept it usually point to the harm done if hospitals could not be trusted.",
+       "You chose the answer almost everyone gives.",
+       "Few people are unsure here, which is why the case is useful."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The numbers are the same in all three cases: one dies, five live. Most people say yes to the switch, no to the footbridge, and no to the surgeon. Foot's own answer was that there is a difference between doing harm and allowing it, and that a duty not to harm weighs more than a duty to help. Others appeal to the **doctrine of double effect**, an idea going back to Aquinas: it can be acceptable to cause a death as a side effect of saving others, as at the switch, but not to use a person's death as the means, as on the footbridge, where the man's body is what stops the trolley. Thomson argued that neither account works for every variation, and in 2008 changed her mind about the bystander, deciding that he may not turn the trolley after all."
+    },
+    {
+     "type": "text",
+     "text": "Since 2001 psychologists have studied the cases too. Joshua Greene and colleagues scanned people's brains as they answered, and found that personal cases such as the footbridge drew more on areas linked with emotion. Greene argued that the refusal to push is an emotional reaction rather than a reasoned principle, and so less trustworthy. His critics replied that a reaction being emotional does not make it wrong."
+    }
+   ]
+  },
+  {
+   "title": "Effective altruism",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Singer kept pressing his argument for 50 years, and his ideas, with those of the Oxford philosophers Toby Ord and William MacAskill, became the basis of a movement called **effective altruism** around 2009. Its members pledge to give a share of their income, often a tenth, and ask which charities do the most good per pound, using evidence from trials. Charity evaluators estimate that a few thousand pounds, given to the most effective health programmes such as bed nets against malaria, saves a child's life on average."
+    },
+    {
+     "type": "text",
+     "text": "The movement grew quickly and attracted criticism from several sides. Some critics said it favours what can be measured, such as nets and deworming pills, over political change that might do more. Others objected to its later turn towards preventing future risks such as dangerous artificial intelligence, which is hard to measure at all. In 2022 the cryptocurrency exchange FTX, whose founder Sam Bankman-Fried had presented himself as an effective altruist earning money to give it away, collapsed, and in 2023 he was convicted of fraud. Supporters said one fraudster did not refute the argument from the pond; critics said a movement that tells people to maximise good outcomes had made it too easy to excuse almost anything along the way."
+    },
+    {
+     "type": "text",
+     "text": "Singer's other long campaign was for animals. In *Animal Liberation* (1975) he argued, as Bentham had in lesson 17, that the question is not whether animals can reason but whether they can suffer, and that giving their suffering less weight just because they belong to another species is a prejudice like racism, which he called **speciesism**.[^species] The book is often credited with starting the modern animal rights movement, though Singer, as a utilitarian, does not base his case on rights."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The drowning child is still argued over and is one of the most taught examples in ethics. Most philosophers accept that people in rich countries should give more than they do; fewer accept Singer's strong form. Effective altruism and its critics are an active debate, inside and outside universities. So is animal ethics: in the 2020 PhilPapers Survey over four in ten philosophers said that eating animals in ordinary circumstances is wrong, a view far less common in the general population."
+    },
+    {
+     "type": "text",
+     "text": "The trolley cases are still argued over, now in experimental psychology and in the design of self-driving cars as well as in philosophy, though Foot and Thomson meant them as tools for testing principles, not as problems that come up on railways. Most philosophers would switch, and few would push. Singer's argument has also met criticism from people in the countries it concerns, who object to being cast only as people to be rescued.[^rescue]"
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Singer and the trolley",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What does Singer's drowning child example show, according to Singer?",
+        "choices": [
+         "If you must save a child at small cost to yourself nearby, you must also help people dying of poverty far away",
+         "Children should be taught to swim in schools",
+         "Only people physically close to us have a claim on our help",
+         "Giving to charity is admirable but never required"
+        ],
+        "answer": 0,
+        "why": "Distance and the number of other possible helpers do not, he argued, change the duty."
+       },
+       {
+        "ask": "Which principle is the centre of Singer's 1972 argument?",
+        "choices": [
+         "If we can prevent something bad without sacrificing anything of comparable moral importance, we ought to",
+         "We should always maximise the total happiness in the world, whatever it costs us",
+         "We should give to charity only when others are also giving",
+         "Duties to family and friends come before any duty to strangers"
+        ],
+        "answer": 0,
+        "why": "He thought the principle hard to deny, and the conclusion hard to live with."
+       },
+       {
+        "ask": "What was Philippa Foot's question when she introduced the runaway tram in 1967?",
+        "choices": [
+         "Why steering the tram to kill one seems acceptable while framing one innocent to save five does not",
+         "Whether trams should be fitted with better brakes",
+         "Whether the driver of a tram is to blame for an accident",
+         "Whether five lives are always worth more than one"
+        ],
+        "answer": 0,
+        "why": "Both cases trade one life for five, yet most people treat them differently."
+       },
+       {
+        "ask": "What does the doctrine of double effect say about the footbridge case?",
+        "choices": [
+         "Pushing the man uses his death as the means to save the five, which is worse than causing a death as a side effect",
+         "Pushing the man is required, since it saves more lives",
+         "The footbridge and the switch are morally the same case",
+         "It is wrong to act in any case where someone will die"
+        ],
+        "answer": 0,
+        "why": "At the switch the death is a side effect; on the footbridge the man's body is what stops the trolley."
+       },
+       {
+        "ask": "What is effective altruism?",
+        "choices": [
+         "A movement that asks people to give a share of their income and to choose the charities that do the most good, using evidence",
+         "A government programme that matches private donations to charities",
+         "Singer's name for the duty to rescue a drowning child",
+         "A theory that all good acts are secretly selfish"
+        ],
+        "answer": 0,
+        "why": "It grew around 2009 out of Singer's argument and the work of Ord and MacAskill."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Singer wrote about the Bengal refugee crisis in 1971.** \"Famine, Affluence, and Morality\" came out in 1972.",
+  "**You must save the drowning child even if it ruins your clothes.** Almost everyone agrees.",
+  "**Distance and other bystanders do not change the duty.** So failing to give to famine relief is wrong, not just ungenerous.",
+  "**Foot's tram asked why one-for-five trades differ.** Steering seems acceptable; framing an innocent does not.",
+  "**Most would switch, few would push, almost none would let the surgeon kill.** The numbers are the same in each case.",
+  "**Doing versus allowing, and double effect, try to explain the difference.** A death used as a means seems worse than one caused as a side effect.",
+  "**Effective altruism grew from Singer's argument.** Give a share, and give where evidence says it does most good.",
+  "**Speciesism is giving animals' suffering less weight because of their species.** Singer's Animal Liberation appeared in 1975."
+ ],
+ "footnotes": {
+  "concert": {
+   "kind": "digression",
+   "title": "The concert",
+   "text": "The same crisis prompted the Concert for Bangladesh, organised by George Harrison and Ravi Shankar at Madison Square Garden in August 1971, the first big charity rock concert."
+  },
+  "foot": {
+   "kind": "technical",
+   "title": "Why Foot invented the tram",
+   "text": "Foot's paper was about abortion. Catholic teaching used the doctrine of double effect to allow some operations that kill a fetus as a side effect, such as removing a cancerous womb, while forbidding others. The tram was a way of testing that doctrine on a case with no religious or political charge."
+  },
+  "species": {
+   "kind": "technical",
+   "title": "Who coined speciesism",
+   "text": "The word was coined by the British psychologist Richard Ryder in a leaflet of 1970. Singer took it up and made it widely known."
+  },
+  "rescue": {
+   "kind": "technical",
+   "title": "The rescued",
+   "text": "Some economists, such as Angus Deaton, have argued that aid from outside can weaken the link between governments and the people they serve, so that more giving is not always better. Singer has replied that health programmes such as vaccines and bed nets are least open to this objection."
+  }
+ }
+}
