@@ -31,4 +31,9 @@ export const TENSIONS: readonly Tension[] = [
     b: { key: 'nature', picks: [0] },
     text: 'You agreed with al-Ghazali that we never see a cause, only one thing following another, and with Hobbes that people would fall into war without a government. Hobbes\'s argument relies on confident predictions about what causes what in human behaviour; al-Ghazali, and Hume after him, would ask what those predictions rest on.',
   },
+  {
+    a: { key: 'euthyphro', picks: [0] },
+    b: { key: 'abraham', picks: [1] },
+    text: 'You said an act is right because God commands it, and also that no command could make killing an innocent child right. Divine command theorists such as Robert Adams escape this by saying a loving God could never command cruelty; Kierkegaard thought Abraham\'s story shows the escape is not so easy.',
+  },
 ];

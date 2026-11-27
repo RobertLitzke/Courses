@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('leap', 16, 'Would you obey God if he told you to kill your son?', 'Faith without proof: Pascal\'s wager and Kierkegaard\'s Abraham'),
   coming('mill', 17, 'Is it better to be Socrates dissatisfied than a pig satisfied?', 'Utilitarianism, Mill\'s higher pleasures, the harm principle and the experience machine'),
   coming('nietzsche', 18, 'Who killed God?', 'The death of God, master and slave morality, eternal recurrence, and what his sister did to him'),
   coming('sartre', 19, 'Are you condemned to be free?', 'Existence before essence, bad faith, the student\'s dilemma and responsibility'),
