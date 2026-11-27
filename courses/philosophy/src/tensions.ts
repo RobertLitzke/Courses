@@ -21,4 +21,14 @@ export const TENSIONS: readonly Tension[] = [
     b: { key: 'ring-happier', picks: [0] },
     text: 'You said you would use Gyges\' ring, and also that a just person is better off even when no one finds out. Plato would say you have admitted the ring would make you worse off. Glaucon would say the second answer is what people say, and the first is what they do.',
   },
+  {
+    a: { key: 'freewill', picks: [0] },
+    b: { key: 'libet', picks: [0] },
+    text: 'You said a choice can be free even if it is fully caused, and also that brain activity coming before a decision would show it was not free. A compatibilist would say the brain activity is just one of the causes, and you have already allowed that a caused choice can be free. Libet\'s critics would say the same.',
+  },
+  {
+    a: { key: 'fire', picks: [1] },
+    b: { key: 'nature', picks: [0] },
+    text: 'You agreed with al-Ghazali that we never see a cause, only one thing following another, and with Hobbes that people would fall into war without a government. Hobbes\'s argument relies on confident predictions about what causes what in human behaviour; al-Ghazali, and Hume after him, would ask what those predictions rest on.',
+  },
 ];

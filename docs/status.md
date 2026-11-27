@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 11 | 31 | 7 | 11 | 11 | 11 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 12 | 30 | 8 | 12 | 12 | 12 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 31 lessons to write, 7 to read through, 11 to copy-edit, 11 to fact-check, 11 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 30 lessons to write, 8 to read through, 12 to copy-edit, 12 to fact-check, 12 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -560,7 +560,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 9 | Who counts as fully human? (`valladolid`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The Valladolid debate of 1550: Sepúlveda's use of Aristotle's "natural slaves", Las Casas's reply, and natural law. |
 | 10 | How do you know you're not dreaming? (`descartes`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The method of doubt, "I think, therefore I am", Ibn Sina's floating man, and the problem of how a mind moves a body. |
 | 11 | Why obey anyone? (`hobbes`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion. |
-| 12 | Could you have done otherwise? (`spinoza`) |  | planned, listed as coming |  | Determinism, Spinoza's freedom as understanding, compatibilism, and Libet's experiment. |
+| 12 | Could you have done otherwise? (`spinoza`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show. |
 | 13 | Are you the person you were at ten? (`locke`) |  | planned, listed as coming |  | Personal identity: the ship of Theseus, memory, the Buddhist chariot and the teletransporter. |
 | 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | planned, listed as coming |  | The problem of induction, cause as habit, and is against ought. |
 | 15 | Can you lie to a murderer at the door? (`kant`) |  | planned, listed as coming |  | Duty, the categorical imperative, and the 1797 argument with Constant. |
