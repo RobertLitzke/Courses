@@ -44,6 +44,9 @@ export const COL = {
   argued: '#3f8f5a',
   history: '#b08a3e',
   abandoned: '#7d7782',
+  /** Branch E1: Stoic and Daoist advice. */
+  stoic: '#3f6f8f',
+  daoist: '#4d7a5a',
 } as const;
 export type ColorKey = keyof typeof COL;
 

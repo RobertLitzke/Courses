@@ -1,0 +1,243 @@
+{
+ "id": "dao",
+ "n": 101,
+ "branch": "elsewhere",
+ "needs": [
+  "stoics"
+ ],
+ "title": "What happens if you stop forcing it?",
+ "teaches": "Laozi and Zhuangzi on acting without strain, beside the Stoics",
+ "parts": [
+  {
+   "title": "Cook Ding's knife",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In a story from a Chinese book of the 4th century BC, a cook called Ding is cutting up an ox for Lord Wenhui. Every touch of his hand, every shift of his shoulder and every step of his foot keeps time, and the knife moves through the carcass with a sound like music, in rhythm with an old dance. The lord is delighted and asks how skill can reach such a height."
+    },
+    {
+     "type": "text",
+     "text": "Ding puts down his knife. When he began, he says, all he could see was the ox. After three years he no longer saw the whole ox. Now he works by spirit rather than by sight: he follows the natural structure, slips the blade into the big hollows and along the joints, and never touches a ligament, let alone a bone. \"A good cook changes his knife once a year, because he cuts. An ordinary cook changes it once a month, because he hacks. I have had this knife for nineteen years and cut up thousands of oxen, and its edge is as if it had just come from the whetstone.\" Even so, when he comes to a difficult knot, he slows down, watches carefully and moves the knife very gently, until the meat falls away like a clod of earth."
+    },
+    {
+     "type": "text",
+     "text": "\"Excellent\", says the lord. \"From the words of Cook Ding I have learned how to care for life.\""
+    }
+   ]
+  },
+  {
+   "title": "The way that cannot be told",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The story is from the *Zhuangzi*, named after a philosopher, Zhuang Zhou, who lived in the 4th century BC. With the shorter *Daodejing*, traditionally said to be by an older sage called Laozi, it is one of the two founding texts of the school later called **Daoism**.[^laozi]"
+    },
+    {
+     "type": "text",
+     "text": "Both books are about the **Dao**, usually translated \"the way\". For Confucius, in lesson 4, the way was the right path of human conduct, learned through ritual and study. For the Daoists it was something larger: the way the whole world moves, the course of nature, which no words can capture. The *Daodejing* opens: \"The way that can be told is not the constant way; the name that can be named is not the constant name.\""
+    },
+    {
+     "type": "text",
+     "text": "The Daoist ideal of action is **wu wei**, often translated \"non-action\" but closer to effortless action: acting without strain, in line with how things move, as water does. \"Nothing in the world is softer or weaker than water,\" says the *Daodejing*, \"yet for attacking the hard and strong, nothing can beat it.\" A sage ruler governs as little as possible, so that people think things happened of themselves. \"Govern a large state as you would cook a small fish\", the book says: if you keep turning it over, it falls apart."
+    }
+   ]
+  },
+  {
+   "title": "Zhuangzi's jokes",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Zhuangzi taught mostly by stories, many of them funny, and many of them aimed at the confident certainties of other schools. His friend and rival in them is the logician Huizi."
+    },
+    {
+     "type": "text",
+     "text": "Huizi tells him about a huge tree whose trunk is too knotted to cut planks from and whose branches are too twisted to measure, so every carpenter walks past it. Useless, says Huizi, like your teaching. Zhuangzi replies that this is why it has lived so long and grown so big. Trees with good timber are cut down young. Why not, he says, plant it in an empty field and lie down under it?"
+    },
+    {
+     "type": "text",
+     "text": "When Zhuangzi's wife died, Huizi came to offer sympathy and found him sitting with his legs sprawled, drumming on a pot and singing. Huizi was shocked. Zhuangzi said that at first he had grieved like anyone. Then he thought about how she had once had no life, no form and no breath; how she had come into being through a change, and had now changed again into death, as spring turns to summer and autumn to winter. To go on wailing would have shown he did not understand how things go, so he stopped.[^fish]"
+    },
+    {
+     "type": "text",
+     "text": "Zhuangzi's most famous story is the one met in lesson 10. He dreamed he was a butterfly, flitting about happily, with no idea he was Zhuangzi. Then he woke, and was Zhuangzi. But he did not know whether he was Zhuangzi who had dreamed he was a butterfly, or a butterfly dreaming he was Zhuangzi. Descartes used dreams to find one thing he could be certain of. Zhuangzi used the same doubt to loosen his grip on any one fixed point of view."
+    }
+   ]
+  },
+  {
+   "title": "Daoists and Stoics",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The Daoists and the Stoics of lesson 6 lived at about the same time, at opposite ends of Asia, and never heard of each other. Both thought unhappiness comes from fighting how things are, and both admired a calm person who accepts loss, as Zhuangzi did at his wife's death. But their advice differs. The Stoics told you to sort what is up to you from what is not, and to work hard at the first: your judgements, your choices, your duty. Reason, trained by effort, is in charge. The Daoists distrusted that kind of effort. Cook Ding does not decide where to cut; after years of practice his knife finds the gaps of itself."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Six pieces of advice. Some are Stoic, from Epictetus, Seneca and Marcus Aurelius; some are Daoist, from the Daodejing and the Zhuangzi.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Whose advice is this?",
+      "groups": [
+       {
+        "name": "Stoic",
+        "color": "stoic"
+       },
+       {
+        "name": "Daoist",
+        "color": "daoist"
+       }
+      ],
+      "items": [
+       {
+        "name": "Sort what is up to you from what is not, and put your effort into the first",
+        "group": "Stoic",
+        "why": "The opening of Epictetus's Handbook."
+       },
+       {
+        "name": "Do your duty to your city and your family, whatever you feel",
+        "group": "Stoic",
+        "why": "Marcus Aurelius reminded himself of his duties as emperor every morning."
+       },
+       {
+        "name": "Examine your judgements every evening, as a judge examines a case",
+        "group": "Stoic",
+        "why": "Seneca's nightly review of his day."
+       },
+       {
+        "name": "Be like water, which yields and still wears down stone",
+        "group": "Daoist",
+        "why": "The Daodejing's favourite image of strength."
+       },
+       {
+        "name": "Follow the natural joints, and the knife never needs sharpening",
+        "group": "Daoist",
+        "why": "Cook Ding's skill comes from going with the grain."
+       },
+       {
+        "name": "Being useless to the carpenter is what lets the tree live long",
+        "group": "Daoist",
+        "why": "Zhuangzi's answer to Huizi's knotted tree."
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Two kinds of advice. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "forcing",
+      "ask": "You have been stuck on a hard problem for days. Which advice is better?",
+      "choices": [
+       "Stoic: work out what is in your control, and put steady effort there",
+       "Daoist: stop forcing it, step back, and let a way open",
+       "It depends on the problem",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the Stoic answer, which is also the basis of cognitive behavioural therapy.",
+       "You chose the Daoist answer. Psychologists who study insight find that a break often helps a stuck problem.",
+       "Most people who use either would say so. Zhuangzi's cook still practised for nineteen years.",
+       "Zhuangzi would approve."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "There is a puzzle in wu wei, which the scholar Edward Slingerland calls the paradox of trying not to try. If effortless action is the goal, how do you get there? Trying hard to relax, or to be spontaneous, defeats itself. Cook Ding's answer seems to be long practice, until skill becomes second nature; the Daodejing's seems to be stripping away desires and learning; neither tells you how to want less on purpose."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Daoist philosophy is respected history and is studied in comparative philosophy, where its ideas about skill and spontaneity are set beside Aristotle's virtues and the Stoics. The idea of effortless skill is still argued over in psychology, in work on what Mihaly Csikszentmihalyi called flow, the state of absorption in which skilled people lose track of themselves and of time. Daoism also became a religion in China, with temples, priests and practices for long life; that tradition grew from the texts but is separate from the philosophy in this lesson.[^dao]"
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Daoism",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "Why does Cook Ding's knife never need sharpening?",
+        "choices": [
+         "He follows the natural joints and spaces of the ox, so the blade never hits bone or gristle",
+         "He uses a better kind of steel than other cooks",
+         "He sharpens it secretly every night",
+         "He only carves very small animals"
+        ],
+        "answer": 0,
+        "why": "A good cook cuts and an ordinary cook hacks; Ding's knife finds the gaps."
+       },
+       {
+        "ask": "What does wu wei mean in Daoism?",
+        "choices": [
+         "Acting without strain, in line with how things naturally move",
+         "Doing nothing at all and refusing to act",
+         "Following the rituals of the court exactly",
+         "Using reason to control your emotions"
+        ],
+        "answer": 0,
+        "why": "It is often translated \"non-action\", but it means effortless action, like water's."
+       },
+       {
+        "ask": "How does the Daoist approach differ from the Stoic one?",
+        "choices": [
+         "The Stoics stress effort of reason in what is up to you; the Daoists distrust forcing and prize going with the grain",
+         "The Stoics believed in many gods and the Daoists in one",
+         "The Daoists valued duty to the state above all; the Stoics did not",
+         "The Stoics told people to give up all possessions; the Daoists told them to get rich"
+        ],
+        "answer": 0,
+        "why": "Both accept what cannot be changed; they differ about effort."
+       },
+       {
+        "ask": "What did Zhuangzi conclude from his butterfly dream?",
+        "choices": [
+         "He could not be sure which was the dreamer, so no single point of view should be held too tightly",
+         "He was certain of his own existence because he was thinking",
+         "Butterflies are conscious in the same way as humans",
+         "Dreams are messages from ancestors"
+        ],
+        "answer": 0,
+        "why": "Descartes used dream doubt to find a certainty; Zhuangzi used it to loosen certainty."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Cook Ding carved for nineteen years with one knife.** He followed the natural joints and never forced the blade.",
+  "**The Dao is the way the world moves, which words cannot capture.** \"The way that can be told is not the constant way.\"",
+  "**Wu wei is effortless action.** Like water, which yields and still wears down stone.",
+  "**Zhuangzi taught by stories.** The useless tree, the drum at his wife's death and the butterfly dream.",
+  "**Stoics stress effort in what is up to you; Daoists distrust forcing.** Both accept what cannot be changed.",
+  "**Trying not to try is a paradox.** Long practice seems to be the Daoist way through it."
+ ],
+ "footnotes": {
+  "laozi": {
+   "kind": "technical",
+   "title": "Was there a Laozi?",
+   "text": "The legend says Laozi, an archivist at the Zhou court, wrote the book's 5,000 characters for a gatekeeper as he left China for the west. Most scholars now think he may be legendary and that the Daodejing was compiled from sayings over a long period. The oldest copy, on bamboo strips found in a tomb at Guodian in 1993, dates from about 300 BC."
+  },
+  "fish": {
+   "kind": "digression",
+   "title": "The happy fish",
+   "text": "On a bridge over the Hao river, Zhuangzi said the fish below were happy. Huizi asked how he could know, not being a fish. Zhuangzi asked how Huizi could know he did not know, not being Zhuangzi. The argument has been read as a joke, a lesson about knowing other minds, and a trick, and it does not settle which."
+  },
+  "dao": {
+   "kind": "technical",
+   "title": "Dao in English",
+   "text": "The word is also spelled Tao, in the older Wade-Giles romanisation, as in Tao Te Ching. Pinyin, used in this course, writes Dao and Daodejing. The pronunciation is the same."
+  }
+ }
+}

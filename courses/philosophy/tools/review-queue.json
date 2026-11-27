@@ -153,5 +153,11 @@
     "added": "2026-11-27",
     "what": "new lesson: all prose, the where-it-stands sorter, the verdict ledger caption, verdict question, quiz and summary (no student review yet)",
     "notes": "The ledger's own sentences are code (src/figures/ledger.ts), not lesson text."
+  },
+  {
+    "lesson": "dao",
+    "added": "2026-11-27",
+    "what": "new branch lesson: all prose, Stoic and Daoist sorter, verdict question, quiz and summary (no student review yet)",
+    "notes": "Quotations are as published or in named translations: do not alter the wording inside quotation marks."
   }
 ]
