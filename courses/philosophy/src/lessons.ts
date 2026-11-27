@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('god', 7, 'Can you think God into existence?', 'The problem of evil, Augustine\'s answer, and Anselm\'s proof with Gaunilo\'s perfect island'),
   coming('faith', 8, 'Can reason overrule scripture?', 'Al-Ghazali\'s fire and cotton, Ibn Rushd\'s reply, and Aristotle\'s road into Latin Europe'),
   coming('valladolid', 9, 'Who counts as fully human?', 'The Valladolid debate of 1550: Las Casas against Sepúlveda and the "natural slave"'),
   coming('descartes', 10, 'How do you know you\'re not dreaming?', 'The method of doubt, "I think, therefore I am", Ibn Sina\'s floating man and the mind and body'),

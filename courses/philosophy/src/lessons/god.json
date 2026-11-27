@@ -1,0 +1,325 @@
+{
+ "id": "god",
+ "n": 7,
+ "title": "Can you think God into existence?",
+ "teaches": "The problem of evil, Augustine's free-will answer, and Anselm's ontological argument with Gaunilo's perfect island",
+ "parts": [
+  {
+   "title": "Take up and read",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In August 386 a professor of rhetoric in Milan was sitting in a garden in a state of misery. He was 31, born in the Roman province of Africa, ambitious, successful, and unable to make up his mind about God. He had spent nine years in a religious movement called Manichaeism, left it, and found that he could neither believe nor stop wanting to. From a neighbouring house he heard a child's voice chanting a phrase over and over, \"Take up and read, take up and read.\" He picked up the book of Paul's letters he had with him, opened it at random and read a verse telling him to put aside drunkenness and lust. He was baptised the following Easter."
+    },
+    {
+     "type": "text",
+     "text": "The professor was Augustine, later bishop of Hippo in North Africa and the most influential Christian thinker of the next thousand years. He told the garden story in his *Confessions*, written about ten years later, which is often called the first autobiography.[^confessions] What had held him back for so long was not only lust. It was a philosophical problem he could not solve, and it is still the most discussed argument against the existence of God."
+    },
+    {
+     "type": "text",
+     "text": "In this lesson we look at two arguments from the Christian Middle Ages: Augustine's answer to the problem of evil, and a proof of God's existence so short and strange that philosophers have argued about it for 900 years. Lesson 1 met the God of the Euthyphro; here the question is whether there is one at all."
+    }
+   ]
+  },
+  {
+   "title": "The problem of evil",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The problem is easy to state. The God of Judaism, Christianity and Islam is held to be all-powerful, all-knowing and wholly good. A good being wants to prevent suffering; an all-knowing one knows about it; an all-powerful one can stop it. Yet the world is full of suffering. So, it seems, there can be no such God. The Scottish philosopher David Hume put it in the mouth of a character in a book published after his death in 1779: \"Is he willing to prevent evil, but not able? then is he impotent. Is he able, but not willing? then is he malevolent. Is he both able and willing? whence then is evil?\" Hume attributed the puzzle to Epicurus, whom we met in lesson 5.[^epicurus]"
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "The problem of evil as an argument. Each premise is part of what most believers hold, which is why the argument is hard to dodge.",
+     "options": {
+      "steps": [
+       {
+        "text": "If God exists, God is all-powerful, all-knowing and wholly good."
+       },
+       {
+        "text": "A wholly good being prevents suffering whenever it can."
+       },
+       {
+        "text": "An all-knowing, all-powerful being can prevent any suffering."
+       },
+       {
+        "text": "There is suffering."
+       },
+       {
+        "text": "There is no God of that kind.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "A good being may allow suffering if it is the price of something better, such as free will.",
+        "kind": "objection",
+        "against": 2,
+        "who": "Augustine"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The Manichaeans whom Augustine had followed solved the problem by giving up God's power: the world was a battleground between two forces, one good and one evil, and the good one could not always win. Augustine came to reject this, and offered two answers that Christian thought has used ever since."
+    },
+    {
+     "type": "text",
+     "text": "The first is that evil is not a thing at all. Everything God made is good; evil is a lack or a corruption of good, as blindness is a lack of sight and rot is a corruption of wood. So God did not create evil. The second, and more important, is **free will**. God made angels and human beings free, because a world of free creatures who choose good is better than a world of puppets, and freedom must include the freedom to choose badly. Moral evil, the evil people do, comes from their choices, not from God. Augustine set this out in a dialogue called *On Free Choice of the Will*, begun soon after his conversion."
+    },
+    {
+     "type": "text",
+     "text": "The obvious objection is that much suffering is not caused by anyone's choice. On the morning of 1 November 1755 an earthquake, a tsunami and a fire destroyed Lisbon and killed tens of thousands of people, many of them at Mass, since it was All Saints' Day. Voltaire wrote a furious poem asking what sin the dead children had committed. Augustine's answer to this kind of evil was that the whole of nature had been damaged by the first human sin, which few modern philosophers, religious or not, find satisfying."
+    },
+    {
+     "type": "text",
+     "text": "In 1955 the Australian philosopher J. L. Mackie pressed a second objection. If God could make free people who sometimes choose good, God could have made free people who always choose good, so free will alone does not explain why there is evil. In 1974 the American philosopher Alvin Plantinga replied that it may not be in God's power to create free people and also guarantee what they freely choose. Most philosophers now accept that Plantinga showed there is no strict contradiction between God and evil. The argument has moved to a weaker form: not that evil makes God impossible, but that the amount of pointless suffering, such as a fawn burned to death in a forest fire that no one sees, makes God improbable.[^rowe]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The question behind the problem of evil. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "evil",
+      "ask": "Could an all-powerful, wholly good God have a good reason to allow the suffering in the world?",
+      "choices": [
+       "Yes: free will, or some good we cannot see, could justify it",
+       "No: some suffering is too pointless for any reason to cover",
+       "Not unless God is less powerful than believers say",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the believer's main line, in the tradition of Augustine and Plantinga. Its defenders admit that the reasons are often hidden from us.",
+       "You chose the evidential problem of evil, as William Rowe put it in 1979. Most atheist philosophers think it is the strongest argument they have.",
+       "You chose the Manichaeans' answer, also held by some modern theologians who think God shares the world's suffering rather than controlling it.",
+       "Both sides admit the argument is unfinished. It is still the most written-about question in the philosophy of religion."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "The proof from a definition",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Seven centuries after Augustine, about 1077, the abbot of a Benedictine monastery at Bec in Normandy wrote a short book called the *Proslogion*. Anselm, an Italian who would later be Archbishop of Canterbury, wanted a single argument that would prove God exists without any premise from experience at all. He found it, he said, after a long search, in a moment of sudden joy."
+    },
+    {
+     "type": "text",
+     "text": "The argument starts from a definition. God is \"that than which nothing greater can be thought\", a being so great that nothing greater could even be imagined. Anselm addresses a line from the Psalms, \"The fool has said in his heart, there is no God.\" Even the fool understands the definition, Anselm says, so God exists at least in the fool's mind, as an idea. But a being that exists in reality as well as in the mind is greater than one that exists only in the mind. So if God existed only as an idea, we could think of something greater: the same being, existing for real. That contradicts the definition. So God must exist in reality."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Anselm's argument, in plain steps. It uses no fact about the world, only a definition and a claim about greatness.",
+     "options": {
+      "steps": [
+       {
+        "text": "God is that than which nothing greater can be thought."
+       },
+       {
+        "text": "Even someone who denies God understands this idea, so God exists at least in the mind."
+       },
+       {
+        "text": "Existing in reality as well as in the mind is greater than existing in the mind alone."
+       },
+       {
+        "text": "If God existed only in the mind, something greater could be thought: God existing in reality."
+       },
+       {
+        "text": "God exists in reality.",
+        "kind": "conclusion"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "An argument of this kind, which tries to prove that something exists from its concept alone, is called an **ontological argument**, from the Greek for being. Arguments that start from the world, from motion, causes or design, are the other main family; Thomas Aquinas, whom we met in lesson 1, gave five of them in the 13th century."
+    }
+   ]
+  },
+  {
+   "title": "The perfect island",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Anselm's first critic was a monk called Gaunilo, from the monastery of Marmoutier near Tours, who wrote a reply titled *On Behalf of the Fool*. Somewhere in the ocean, Gaunilo wrote, there is said to be an island richer than any other, a lost island full of every delight. Use Anselm's reasoning: an island that exists in reality is greater than one that exists only in the mind; so if this most excellent island existed only in the mind, we could think of a greater one; so the island must exist. Anyone who believed that, Gaunilo said, would be a bigger fool than the one in the Psalm."
+    },
+    {
+     "type": "text",
+     "text": "Gaunilo did not say where Anselm's argument went wrong. He showed that something must be wrong with it, because the same form of argument proves something absurd. This is called a **parody**, or refuting an argument by a counterexample of the same form, and it is one of the most useful tools in philosophy: if your argument would also prove that the lost island exists, it proves too much."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Gaunilo's island against Anselm's God. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "island",
+      "ask": "Does Gaunilo's perfect island show that Anselm's proof fails?",
+      "choices": [
+       "Yes: the same reasoning proves the island, so it proves nothing",
+       "No: God is a special case, since an island always has a greater one",
+       "It shows something is wrong, but not what",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Gaunilo's side, and most philosophers agree with you.",
+       "You chose Anselm's reply. He said the argument works only for the greatest thing that can be thought, and an island is not that: a bigger or richer island can always be imagined. Modern defenders such as Alvin Plantinga use the same move.",
+       "You chose the view most teachers of philosophy would give: a parody shows that an argument fails without saying where. Kant later offered a diagnosis, in lesson 15.",
+       "Anselm's argument has had that effect on readers for 900 years, including on Bertrand Russell, who wrote that it is easier to feel convinced it must be wrong than to find out where."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Anselm answered Gaunilo, and asked that the reply and the objection be copied together with his book, which they have been ever since. The best-known diagnosis came 700 years later from Immanuel Kant, who argued that existence is not a quality that makes a thing greater. A hundred real coins and a hundred imagined coins have the same features; the real ones simply exist. If existence adds nothing to the concept, step 3 of Anselm's argument is false.[^russell]"
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The problem of evil is still argued over and is the most discussed topic in the philosophy of religion. Most philosophers on both sides accept that Plantinga's reply defeated the claim that God and evil are strictly incompatible, and the argument now turns on probabilities and on how much we could expect to understand of God's reasons. Augustine's account of natural evil as the result of human sin is respected history even among Christian philosophers."
+    },
+    {
+     "type": "text",
+     "text": "Anselm's argument in its original form is respected history. Most philosophers, religious ones included, think it fails, though there is no agreement on exactly where. Modern versions that use the logic of possibility, such as Plantinga's of 1974, are still defended by a few. Professional philosophers as a whole are mostly atheists, a reminder that the survey reports one profession's views, not the truth of the matter; among philosophers who specialise in the philosophy of religion, most are theists."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The survey's own question. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "theism",
+      "ask": "Is there a God?",
+      "choices": [
+       "Yes",
+       "No",
+       "Not sure"
+      ],
+      "who": [
+       "You are with about a fifth of professional philosophers, and with most of those who specialise in the philosophy of religion.",
+       "You are with about two thirds of professional philosophers.",
+       "Agnosticism, and the other answers the survey allowed, accounted for the rest."
+      ],
+      "poll": {
+       "shares": [
+        19,
+        67,
+        null
+       ],
+       "source": "PhilPapers Survey 2020, \"God: theism or atheism?\", share accepting or leaning towards each."
+      }
+     }
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on evil and Anselm's proof",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What is the problem of evil?",
+        "choices": [
+         "Suffering seems hard to square with a God who is all-powerful, all-knowing and good",
+         "Evil people often prosper while good people suffer in this life",
+         "Nobody can agree on a definition of evil that covers every case",
+         "Religions disagree about which acts are evil and which are good"
+        ],
+        "answer": 0,
+        "why": "The problem sets three of God's attributes against the fact of suffering: if God knows of it, can stop it and wants to, why does it exist?"
+       },
+       {
+        "ask": "How does Augustine's free-will answer deal with the evil people do?",
+        "choices": [
+         "A world of free creatures is better than one of puppets, and freedom includes freedom to choose badly",
+         "God causes evil acts in order to punish the people who commit them",
+         "Evil acts only seem evil to us, and are good when seen from God's point of view",
+         "Free will is an illusion, so no one is responsible for evil"
+        ],
+        "answer": 0,
+        "why": "Moral evil comes from creatures' choices, and God allows it because freedom is worth the risk."
+       },
+       {
+        "ask": "Which kind of suffering is hardest for the free-will answer to explain?",
+        "choices": [
+         "Children killed in an earthquake",
+         "A thief who regrets his crime",
+         "A soldier wounded in a war he chose to fight",
+         "A smoker who develops lung disease"
+        ],
+        "answer": 0,
+        "why": "Earthquakes are not anyone's choice, so free will does not explain them. Augustine blamed the first human sin, which few now accept."
+       },
+       {
+        "ask": "Gaunilo argues that Anselm's reasoning would also prove a perfect island exists. What kind of objection is this?",
+        "choices": [
+         "A parody: an argument of the same form proves something absurd, so the form is faulty",
+         "A counterexample to the premise that God is the greatest being",
+         "A proof that islands are greater than God in some respects",
+         "An argument that we cannot form an idea of God at all"
+        ],
+        "answer": 0,
+        "why": "Gaunilo did not say which step fails. He showed that some step must fail, because the same reasoning proves too much."
+       },
+       {
+        "ask": "Kant's objection to the ontological argument rests on which claim?",
+        "choices": [
+         "Existence is not a quality that makes a thing greater",
+         "Nothing can exist only in the mind",
+         "The idea of God is too vague to reason with",
+         "Only arguments from experience can prove anything exists"
+        ],
+        "answer": 0,
+        "why": "If a hundred real coins have no feature that a hundred imagined coins lack, existing adds nothing to a concept, and Anselm's third step fails."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Augustine converted in a garden in Milan in 386.** His Confessions tell the story, and the problem of evil was one of his obstacles.",
+  "**The problem of evil sets suffering against God's power, knowledge and goodness.** Hume gave it its best-known form and credited Epicurus.",
+  "**Augustine's answer is free will.** A world of free creatures is worth the evil they choose, and evil itself is a lack of good, not a thing God made.",
+  "**Natural evil is the hard case.** Earthquakes such as Lisbon's in 1755 are nobody's choice.",
+  "**The debate moved from contradiction to probability.** Plantinga's free-will defence is widely accepted against the strict version; pointless suffering is the live argument now.",
+  "**Anselm tried to prove God from a definition alone.** A being than which nothing greater can be thought must exist, or a greater one could be thought.",
+  "**Gaunilo's perfect island is a parody.** The same reasoning would prove an island exists, so something in it must be wrong.",
+  "**Kant's diagnosis is that existence is not a quality.** A hundred real coins have no feature that a hundred imagined ones lack."
+ ],
+ "footnotes": {
+  "epicurus": {
+   "kind": "technical",
+   "title": "Was it Epicurus?",
+   "text": "The Christian writer Lactantius, about AD 300, attributes the argument to Epicurus, but it appears in none of Epicurus's surviving writings, and some scholars think it came from a later sceptic. Hume's version is in his Dialogues Concerning Natural Religion."
+  },
+  "rowe": {
+   "kind": "technical",
+   "title": "Rowe's fawn",
+   "text": "The American philosopher William Rowe used the example in 1979. His point was that no good we can think of requires the fawn's suffering, so it is probably pointless, and pointless suffering is unlikely if there is a God."
+  },
+  "russell": {
+   "kind": "digression",
+   "title": "Russell and the tobacco tin",
+   "text": "Bertrand Russell wrote that one day in 1894, walking to buy tobacco, he suddenly threw the tin into the air and exclaimed \"Great Scott, the ontological argument is sound.\" He changed his mind later, and became one of the 20th century's best-known atheists."
+  },
+  "confessions": {
+   "kind": "digression",
+   "title": "The pears",
+   "text": "The Confessions also tell how Augustine, at sixteen, stole pears from a neighbour's tree with friends and threw them to pigs. He was not hungry; he did it, he says, for the pleasure of doing wrong, and he uses the theft to ask why anyone chooses evil at all."
+  }
+ }
+}

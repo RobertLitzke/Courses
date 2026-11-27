@@ -14,6 +14,7 @@ import { photoFigure } from './photo';
 import { verdictFigure } from './verdict';
 import { dialogueFigure } from './dialogue';
 import { caveFigure } from './cave';
+import { argumentFigure } from './argument';
 
 // The verdict and the dialogue are drawn from their options, so the gallery shows each block that uses them.
 const each = (f: FigureFactory): FigureFactory => Object.assign(f, { each: true as const });
@@ -26,4 +27,5 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   verdict: each(verdictFigure),
   dialogue: each(dialogueFigure),
   cave: caveFigure,
+  argument: argumentFigure,
 };
