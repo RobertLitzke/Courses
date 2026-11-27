@@ -6,7 +6,7 @@
 import type { Forecast, PhotoCalls, Profile } from '../../core/lessons';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
 import { dealFloorCalls } from '../../core/photo-call';
-import { dealNameCalls } from '../../core/radio-check';
+import { dealNameCalls } from '../../core/name-calls';
 import { shuffle, type Rng } from 'didactics/rng';
 import { check, type CheckStep } from 'didactics/check';
 import { el, svg } from 'didactics/dom';

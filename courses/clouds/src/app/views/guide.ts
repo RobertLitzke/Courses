@@ -1,7 +1,7 @@
-// The field guide, in three tabs. Clouds: the ten kinds and the rare sights,
+// The field guide, in two tabs. Clouds: the ten kinds and the rare sights,
 // as photos to tap for their card. Glossary: every term the lessons use, A to
-// Z (core/glossary.ts). And, with the radio on, the transcripts of every talk
-// heard. (Until 2026-11 this was the journal, with a Notes tab of lines each
+// Z (core/glossary.ts). (Until 2026-11-27 a Radio tab held the transcripts of
+// the radio talks, now removed. Until 2026-11 this was the journal, with a Notes tab of lines each
 // finished lesson unlocked; the lesson summaries say the same now.)
 
 import { GENERA, floorInfo, genus, type Genus, type GenusId } from '../../core/clouds';
@@ -17,11 +17,8 @@ import { prose } from '../figures/kit';
 import { photoFigure, PHOTOS } from '../photos';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { getSave } from '../store';
-import { allTalks, STATIONS, transcript } from '../../core/talk';
 
-type Save = ReturnType<typeof getSave>;
-type Tab = 'clouds' | 'glossary' | 'radio';
+type Tab = 'clouds' | 'glossary';
 
 const FLOORS: readonly { floor: Genus['floor']; title: string }[] = [
   { floor: 'low', title: 'Low floor' },
@@ -47,15 +44,11 @@ const RARE: readonly { id: FeatureId; name: string; sub: string; title: string; 
 ];
 
 export const guideView: View = (root, nav) => {
-  const save = getSave();
-  const radio = save.talk && allTalks().some((t) => save.heard[t.id]);
-  const tabs: [Tab, string][] = [['clouds', 'Clouds'], ['glossary', 'Glossary'], ...(radio ? [['radio', 'Radio'] as [Tab, string]] : [])];
+  const tabs: [Tab, string][] = [['clouds', 'Clouds'], ['glossary', 'Glossary']];
   const tab = (tabs.find(([t]) => t === nav.params.tab)?.[0] ?? 'clouds') as Tab;
 
   const body =
-    tab === 'glossary' ? glossaryTab()
-    : tab === 'radio' ? radioTab(save)
-    : cloudsTab();
+    tab === 'glossary' ? glossaryTab() : cloudsTab();
 
   root.append(
     el('div.page.guide', {},
@@ -162,15 +155,4 @@ function glossaryTab(): HTMLElement {
       },
     }),
   );
-}
-
-// ---- Radio ----------------------------------------------------------------
-
-function radioTab(save: Save): HTMLElement {
-  const heard = allTalks().filter((t) => save.heard[t.id]);
-  return el('div.radio-log', {}, heard.map((t) =>
-    el('details.radio-transcript', {},
-      el('summary', {}, t.when),
-      transcript(t, save.heard[t.id]).map((line) =>
-        el('p', { className: line.who }, el('b', {}, `${(line.who === 'them' ? STATIONS.them : STATIONS.you).place.toUpperCase()}: `), line.text)))));
 }

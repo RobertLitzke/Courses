@@ -24,7 +24,7 @@ export interface Photo extends Credited {
   genus: GenusId;
   /**
    * Set when the photo is of a rare cloud. It is shown on that cloud's own
-   * card and kept out of the everyday radio checks, where a lens
+   * card and kept out of the everyday lesson checks, where a lens
    * cloud filed as altocumulus would be an unfair call.
    */
   feature?: FeatureId;

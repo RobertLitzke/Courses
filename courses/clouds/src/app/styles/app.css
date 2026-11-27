@@ -21,14 +21,10 @@
   margin-top: 0.1em;
 }
 .hero .eyebrow { color: var(--text); opacity: 0.85; margin-bottom: 2vh; }
-.radio-log { display: grid; gap: 8px; }
 .sky-strip { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; }
 .sky-strip figure { margin: 0; }
 .sky-strip .scene { display: block; width: 100%; height: auto; aspect-ratio: 400 / 260; }
 .sky-strip figcaption { font: 600 0.7rem/1 var(--display); letter-spacing: 0.08em; text-align: center; padding: 4px 0 2px; color: var(--ink-soft); font-style: normal; }
-.radio-check .fig-scene .photo figcaption { background: transparent; padding: 4px 0; }
-.radio-check .fig-scene .photo .credit { color: var(--ink-soft); }
-.radio-check .fig-scene .photo .credit a { color: var(--ink-soft); }
 .fig-body .tray { margin-top: 10px; }
 .fig-body .floor-buttons { margin-bottom: 10px; }
 
