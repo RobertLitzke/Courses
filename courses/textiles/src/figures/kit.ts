@@ -41,6 +41,8 @@ export const COL = {
   waged: '#d98a3c',
   enslaved: '#6b3a26',
   overseas: '#4d8fa3',
+  /** Liquid water: rain, sweat that has condensed. */
+  water: '#3f7fb5',
   /** Maps: sea, land and coastline. */
   sea: '#dfe8ea',
   land: '#f1ead9',

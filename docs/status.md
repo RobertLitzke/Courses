@@ -20,8 +20,8 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 32 | 0 | 5 | 32 | 32 | 1 | 0 |
+| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 7 | 34 |
+| [Fabric & Form](#textiles) | 0.1 beta | 33 | 0 | 6 | 33 | 33 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -41,8 +41,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 to read through, 32 to copy-edit, 32 to fact-check, 1 awaiting photos |
+| Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 7 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 6 to read through, 33 to copy-edit, 33 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -553,7 +553,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- | --- | --- |
 | 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) |  | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
 | 2 | What if everything you see is shadows? (`cave`) |  | done |  | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
-| 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting Gemini review (queued 2026-11-27) |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
+| 3 | Would you be good if no one could see you? (`gyges`) |  | done |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
 | 4 | Can you practise being good? (`aristotle`) |  | done |  | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
 | 5 | How little do you need to be happy? (`epicurus`) |  | done |  | Epicurus's garden, pleasure as the absence of pain, sorting desires, "death is nothing to us", and Lucretius's symmetry argument. |
 | 6 | What is up to you? (`stoics`) |  | done |  | Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy. |
@@ -632,6 +632,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | M3 | What makes down and fleece warm? (`warm`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Still air as the insulator; loft and the clo; down and fill power; polyester fleece; wind; why wet cotton is cold, and how wicking and wool's absorbed moisture help. |
 | M4 | What does thread count measure? (`thread-count`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Thread count as warp plus weft per square inch; why yarn fineness limits it; how counting plies inflates it; percale and sateen; fibre length; pile cloths such as towelling, velvet and corduroy. |
 | M5 | How does stretch fabric spring back? (`stretch`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Stretch from knitted loops against stretch from elastic fibre; how elastane is built and who made it; how much goes into jeans and swimwear; why stretch wears out; why blends are hard to recycle. |
+| M6 | How can a jacket be waterproof and breathable? (`rain`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Rubberised cloth from Macintosh (1823) and vulcanised rubber; gabardine and waxed cotton; water-repellent finishes and PFAS; coated nylon; Gore-Tex's microporous membrane (1976) and its limits; Stephanie Kwolek and Kevlar. |
 
 ## Not started
 
