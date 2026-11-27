@@ -183,7 +183,7 @@
  {
   "lesson": "synthetics",
   "added": "2026-11-27",
-  "what": "New lesson 23; no student review yet",
+  "what": "New lesson 23; student read-through done and applied",
   "notes": [
    "Facts not yet checked: Pittsburgh June 1946, about 40,000 for 13,000 pairs, a mile of street; Chardonnet and the 1889 exhibition; Cross, Bevan and Beadle 1892; Courtaulds from 1905; the name rayon 1924; carbon disulphide harm; Staudinger in the 1920s; Carothers hired 1928, nylon February 1935, announced 1938, the toothbrush first, stockings on sale 15 May 1940, Carothers's death in 1937; Japanese assets frozen July 1941; wartime uses; Whinfield and Dickson 1941, Terylene and Dacron in the early 1950s; acrylic 1950; spandex 1959; synthetics passing cotton in the 1990s; polyester over half of all fibre; moisture regain 0.4, about 8 and about 15 percent.",
    "The fibre chart is rounded from memory of industry estimates (Textile Exchange, CIRFS) and needs checking against a source. The polymers still is schematic."
@@ -192,7 +192,7 @@
  {
   "lesson": "sizes",
   "added": "2026-11-27",
-  "what": "New lesson 24; no student review yet",
+  "what": "New lesson 24; student read-through done and applied",
   "notes": [
    "Facts not yet checked: the 1939 to 1940 USDA survey (about 15,000 women, eight states, WPA staff, 59 measurements, O'Brien and Girshick, published 1941); the 1958 standard (CS 215-58), its size range and withdrawal in 1983; the sample's age and race skew; Hood's Song of the Shirt in Punch 1843 and the quoted line; Howe 1846, Singer 1851, the 1856 patent pool and hire purchase from 1856; Singer's Scottish factory; a shirt in about 14 hours by hand and a little over an hour by machine; powered cutting from the 1870s; Civil War uniforms and men's sizes; the Uprising of the 20,000 in 1909; the Triangle fire of 25 March 1911 (Asch Building, about 500 workers, top three floors, locked ninth-floor door, collapsed fire escape, ladders to the sixth floor, 146 dead, owners acquitted); the Factory Investigating Commission; Frances Perkins watching.",
    "The body scatter uses illustrative generated points, labelled as such, not the survey's data."
@@ -201,7 +201,7 @@
  {
   "lesson": "fast",
   "added": "2026-11-27",
-  "what": "New lesson 25; no student review yet",
+  "what": "New lesson 25; student read-through done and applied",
   "notes": [
    "Facts not yet checked: Rivoli's shirt ($5.99, Florida drugstore, parrot print, Lubbock farm, Shanghai factory, printed in the US, Tanzanian second-hand market) and her 2005 book; the Multi Fibre Arrangement 1974, the 1995 WTO agreement and the end on 1 January 2005; Chinese safeguards in 2005; Desh and Daewoo in 1978 (outline marks unchecked), 130 trainees in Busan; Bangladesh second after China, over four fifths of exports, about four million workers; Inditex's short cycle; Shein's thousands of designs a day; Ellen MacArthur Foundation: production doubled 2000 to 2014, wear fell about a third (36 percent); Rana Plaza (cracks on 23 April, collapse on 24 April before 9 am, 1,134 dead, about 2,500 injured, five factories, illegal floors); the Accord (over 200 signatories) and the Alliance.",
    "The CPI chart is rounded from memory of BLS series (all items and apparel, rebased to 1990) and needs checking. The T-shirt figure uses a rounded version of the Clean Clothes Campaign style breakdown of a €29 shirt; the hours bar is a rough estimate."
@@ -210,7 +210,7 @@
  {
   "lesson": "resources",
   "added": "2026-11-27",
-  "what": "New lesson 26; no student review yet",
+  "what": "New lesson 26; student read-through done and applied",
   "notes": [
    "Facts not yet checked: Aral Sea 1960 area and rank, Muynak, NASA images of August 2014 and the eastern basin dry, Muynak's distance from the water; unlined canals; Uzbek quota system, Cotton Campaign from 2011 and over 300 brand pledges, ILO 2021 finding, boycott lifted 2022; Xinjiang about a fifth of world cotton, the UN human rights office report, UFLPA passed 2021 and in force June 2022; isotope testing; Bt cotton approved 2002, over 90 percent of area, output roughly doubled; Kranthi and Stone; pink bollworm resistance; the suicide studies; US subsidies over $3 billion a year in the early 2000s; Brazil's WTO case (2002, rulings 2004 and 2005, $300 million settlement 2014); Cotton-4 in 2003; Gezira 1925; Mozambique forced cotton from 1938; Kantamanto's millions of garments a week; the EAC 2016 proposal and Rwanda losing AGOA apparel access in 2018; France's filter rule from 2025; 2 to 8 percent emissions (UNEP); the untraced 10 percent claim; 2,700 litres per shirt.",
    "Aral area and producer series are rounded from memory and need checking. Two NASA Aral images (2000 and 2014) are parked in tools/pending-photos.json for Rob's PC."
@@ -219,9 +219,18 @@
  {
   "lesson": "label",
   "added": "2026-11-27",
-  "what": "New lesson 27 (capstone); no student review yet",
+  "what": "New lesson 27 (capstone); student read-through done and applied",
   "notes": [
    "Facts not yet checked: label rules (fibre by weight, country of origin as the last substantial step); most machine yarn Z-twisted; reactive dyes on cotton; burn-test behaviour of each fibre group (nylon's celery smell and pale bead, polyester's sweet smell and black bead); Courtaulds in Coventry; 1930s bias cutting; engraved copper roller printing from the late 18th century; Vlisco in Helmond; resin-resist wax print for Java from the mid 19th century and its failure there; the crackle; sales on the Gold Coast from the late 19th century; women traders naming designs."
+  ]
+ },
+ {
+  "lesson": "shrink",
+  "added": "2026-11-27",
+  "what": "New branch lesson M1; no student review yet",
+  "notes": [
+   "Facts not yet checked: relaxation against felting shrinkage; scales pointing to the tip and the directional friction; superwash from the 1970s, CSIRO's role, chlorine then resin (the Chlorine-Hercosett process); plasma and enzyme alternatives; fibre diameters for merino (18 to 20), jumper wool (25 to 30), carpet wool (35 and up) and cashmere (15 to 19); the 30 micron and 5 percent prickle thresholds; merino's origin in Spain.",
+   "The prickle figure assumes a 24 percent coefficient of variation for every fleece."
   ]
  }
 ]

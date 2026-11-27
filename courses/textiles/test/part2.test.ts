@@ -16,6 +16,7 @@ import { seriesProblems } from '../src/figures/series';
 import { load, output as loomOutput } from '../src/figures/looms';
 import { BAND, bodies } from '../src/figures/bodies';
 import { PRICE, priceWith } from '../src/figures/tshirt';
+import { comfort } from '../src/figures/prickle';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -192,6 +193,21 @@ describe('the T-shirt price', () => {
     const h = FIGURES.tshirt(context(), 'triple');
     setSlider(h.node, 0, 3);
     click(h.node, 'Markup: same percentage');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the prickle figure', () => {
+  it('passes fine merino and fails jumper wool', () => {
+    expect(comfort(19)).toBeGreaterThan(0.95);
+    expect(comfort(21)).toBeGreaterThan(0.95);
+    expect(comfort(27)).toBeLessThan(0.9);
+  });
+  it('is done after a guess and a soft and a scratchy wool', async () => {
+    const h = FIGURES.prickle(context(), 'soft');
+    guess(h.node, 'About 21 µm');
+    setSlider(h.node, 0, 18);
+    setSlider(h.node, 0, 30);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

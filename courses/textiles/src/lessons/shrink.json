@@ -1,0 +1,121 @@
+{
+  "id": "shrink",
+  "n": 101,
+  "branch": "wardrobe",
+  "needs": ["fibres"],
+  "title": "Why does wool shrink in a hot wash?",
+  "teaches": "Felting shrinkage against relaxation shrinkage; how superwash wool is made; why some wool itches and some does not; fibre diameter, merino and cashmere",
+  "parts": [
+    {
+      "title": "A jumper for a child",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Almost everyone who owns wool has done it once: a jumper goes into a hot wash by mistake and comes out thick, stiff and small enough for a child. Lesson 2 explained the cause in a sentence, the scales on a wool fibre ratcheting the fibres together. In this lesson we look at that more closely, at the other kind of shrinkage that affects cotton too, at how manufacturers make wool that can go in the washing machine, and at the related question of why one wool jumper itches and another does not."
+        }
+      ]
+    },
+    {
+      "title": "Two kinds of shrinking",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Cloth can shrink in two quite different ways. The first, **relaxation shrinkage**, happens to almost any cloth. During spinning, weaving and knitting the yarn is held under tension, and the finished cloth is often stretched flat while it dries in the factory. When the cloth is first wetted, the fibres swell and the yarns relax back towards their natural length, and the cloth shrinks a few percent. It happens mostly in the first wash or two and then stops. Cotton T-shirts often shrink this way, which is why makers pre-shrink cloth, by wetting and relaxing it before cutting."
+        },
+        {
+          "type": "text",
+          "text": "The second, **felting shrinkage**, happens to wool and other animal hair, and it does not stop. A wool fibre is covered in overlapping scales that all point towards its tip, like the tiles of a roof. A fibre can slide easily towards its root, but the scales catch when it slides the other way. When wool is wet, warm and rubbed, as in a washing machine, every movement of the fibres is more likely to carry them root-first, and they creep past and around each other into a denser and denser tangle. The cloth shrinks a little more with every hot wash until the fibres are locked into **felt**, the material of branch lesson K1."
+        },
+        {
+          "type": "text",
+          "text": "That is why wool should be washed cool and gently, by hand or on a wool cycle with little movement. Warm water alone does little harm, and neither does a gentle soak. The damage comes from warmth, water and movement together. Soap helps too, by letting the fibres slide more easily."
+        }
+      ]
+    },
+    {
+      "title": "Wool that can be machine washed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most wool jumpers sold today are labelled **superwash** or machine washable. The usual process, developed in the 1970s by wool researchers including those at Australia's national science agency, CSIRO, has two steps. The wool is first treated with chlorine, which softens and partly strips the edges of the scales. Then it is coated with a thin film of polymer resin that smooths over what is left. With no edges to catch, the fibres slide equally well in both directions, and the wool no longer felts."
+        },
+        {
+          "type": "text",
+          "text": "The treatment has costs. The chlorine process produces waste water containing compounds of chlorine that are harmful in rivers, and the resin coating is a plastic. Some makers now use other treatments, such as plasma or enzymes, to smooth the scales. Superwash wool also feels slightly slicker and takes dye more readily than untreated wool, and hand knitters notice that it stretches more."
+        }
+      ]
+    },
+    {
+      "title": "Why some wool itches",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Many people say they cannot wear wool because it itches, yet happily wear a merino base layer or a cashmere scarf. The difference is not lanolin, the grease in raw wool, which is washed out, and rarely an allergy. It is mostly the thickness of the fibres. Wool fibres are measured in **microns**, thousandths of a millimetre. A fine merino fibre is about 18 to 20 microns across, a typical jumper wool about 25 to 30, and wool for carpets 35 or more."
+        },
+        {
+          "type": "text",
+          "text": "At the surface of a knitted or woven cloth, many fibre ends stick out. When they press against skin, a thin fibre bends out of the way, but a fibre thicker than about 30 microns is stiff enough to press into the skin and set off the nerve endings that sense pain and itch. Wool researchers found that most people feel this **prickle** once more than about 5 percent of the fibre ends in a cloth are thicker than 30 microns. Since the fibres in any fleece vary in thickness around their average, the average has to be well below 30 microns to keep the thick ones rare."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "prickle",
+          "caption": "The spread of fibre diameters in a fleece, and the share thick enough to prick. A typical spread is assumed for every fleece.",
+          "task": "Guess, then find a wool that feels soft and one that prickles",
+          "goal": "soft"
+        },
+        {
+          "type": "text",
+          "text": "That is why merino, a breed developed in Spain and later raised in huge numbers in Australia, is prized for clothing worn next to the skin. **Cashmere** comes not from sheep but from the soft undercoat that goats grow under their coarse outer hair, especially in the cold highlands of Mongolia and northern China. It is about 15 to 19 microns across and has to be combed out or sorted by hand from the coarse hair, which is why it is expensive. The wool industry now measures and sells wool by its diameter, and the finest merino sells for several times the price of coarse wool."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on shrinking and prickle.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "A cotton T-shirt shrinks a little in its first wash and then no more. What kind of shrinkage is this?",
+                "choices": ["Relaxation of yarns stretched in making", "Felting, as the fibres lock together", "Damage from too much detergent", "Fibres dissolving in hot water"],
+                "answer": 0,
+                "why": "Yarns held under tension in the factory relax when first wetted. Cotton has no scales, so it does not keep shrinking."
+              },
+              {
+                "ask": "Which combination does most to felt a wool jumper?",
+                "choices": ["Warm water, soap and lots of movement", "Cold water and a long soak", "Drying it flat in the sun", "Storing it folded in a drawer"],
+                "answer": 0,
+                "why": "Felting needs the fibres to move while wet and warm. The scales then carry them root-first into a tangle."
+              },
+              {
+                "ask": "How does superwash treatment stop wool felting?",
+                "choices": ["It smooths the scales so fibres slide both ways", "It removes all the lanolin from the wool", "It makes the fibres thicker and stiffer", "It adds a layer of cotton to each yarn"],
+                "answer": 0,
+                "why": "Chlorine softens the scale edges and a resin film covers them, so there is nothing to catch."
+              },
+              {
+                "ask": "Why does a merino base layer feel soft when a coarse wool jumper prickles?",
+                "choices": ["Few of its fibre ends are thick enough to press into skin", "Merino has no scales on its fibres", "Merino keeps its lanolin after washing", "Coarse wool is always knitted more tightly"],
+                "answer": 0,
+                "why": "Fibres thicker than about 30 microns stay stiff against the skin. A fine fleece has very few of them."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Cloth shrinks in two ways.** Relaxation shrinkage happens once to most cloth; felting shrinkage keeps going in wool.",
+    "**Scales make wool felt.** Wet, warm and rubbed, fibres creep root-first and lock together.",
+    "**Wash wool cool and gently.** Warmth, water and movement together do the damage.",
+    "**Superwash smooths the scales.** Chlorine and a resin film stop felting, at some environmental cost.",
+    "**Prickle comes from thick fibres.** Ends thicker than about 30 microns press into the skin.",
+    "**Fine wool is soft.** Merino and cashmere average well under 20 microns, so few fibre ends prickle."
+  ],
+  "footnotes": {}
+}

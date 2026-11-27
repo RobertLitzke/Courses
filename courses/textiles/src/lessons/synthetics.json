@@ -13,7 +13,7 @@
         },
         {
           "type": "text",
-          "text": "Every fibre in this course so far, from flax and wool to silk and cotton, was grown by a plant or an animal. Nylon was the first fibre made entirely by chemists from small molecules. Today synthetic fibres make up about two thirds of all the fibre the world produces. In this lesson we look at how chemists learned to make fibres, what the new ones do better and worse than natural ones, and how they took over."
+          "text": "Every fibre in this course so far, from flax and wool to silk and cotton, was grown by a plant or an animal. Nylon was the first fibre made entirely by chemists from small molecules. Today synthetic fibres make up about two thirds or more of all the fibre the world produces. In this lesson we look at how chemists learned to make fibres, what the new ones do better and worse than natural ones, and how they took over."
         }
       ]
     },
@@ -22,11 +22,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The first step was not a new molecule. Lesson 2 described cotton and flax as made of **cellulose**, the long-chain molecule that forms the walls of plant cells. Wood is mostly cellulose too, but its fibres are short and stiff. In the 1880s the French chemist Hilaire de Chardonnet dissolved cellulose and pushed the solution through tiny holes to make long, shiny filaments, which he showed at the Paris exhibition of 1889 as artificial silk. His version was dangerously flammable."
+          "text": "The first step was not a new molecule. Lesson 2 described cotton and flax as made of **cellulose**, the long-chain molecule that forms the walls of plant cells. Wood is mostly cellulose too, but its fibres are short and stiff. In the 1880s the French chemist Hilaire de Chardonnet dissolved cellulose and pushed the solution through tiny holes to make long, shiny filaments, which he showed at the Paris exhibition of 1889 as artificial silk. His version was made from nitrocellulose, the same compound as guncotton, and it caught fire easily."
         },
         {
           "type": "text",
-          "text": "In 1892 three British chemists, Charles Cross, Edward Bevan and Clayton Beadle, patented the **viscose** process. Wood pulp is treated with caustic soda and carbon disulphide until it forms a thick, honey-coloured liquid, the viscose. This is pumped through a **spinneret**, a metal cap pierced with fine holes, into a bath of acid, where the cellulose sets again as filaments. The British silk firm Courtaulds began making viscose yarn in 1905, and it was sold widely as artificial silk until American makers named it **rayon** in 1924."
+          "text": "In 1892 three British chemists, Charles Cross, Edward Bevan and Clayton Beadle, patented the **viscose** process. Wood pulp is treated with caustic soda (sodium hydroxide, a strong alkali) and carbon disulphide, a solvent, until it forms a thick, honey-coloured liquid, the viscose. This is pumped through a **spinneret**, a metal cap pierced with fine holes, into a bath of acid, where the cellulose sets again as filaments. The British silk firm Courtaulds began making viscose yarn in 1905, and it was sold widely as artificial silk until American makers named it **rayon** in 1924."
         },
         {
           "type": "diagram",
@@ -48,7 +48,7 @@
         },
         {
           "type": "text",
-          "text": "Staudinger's idea suggested that chemists might build such chains themselves, from small molecules that join on to each other when heated with the right partners. Cellulose (cotton, flax, rayon), keratin (wool) and fibroin (silk) are natural polymers. The fibres in the rest of this lesson are polymers that do not occur in nature."
+          "text": "Staudinger's idea suggested that chemists might build such chains themselves, from small molecules, by heating them so that each joins to the next in a long chain. Cellulose (in cotton, flax and rayon) and the proteins keratin (in wool) and fibroin (in silk) are natural polymers. The fibres in the rest of this lesson are polymers that do not occur in nature."
         }
       ]
     },
@@ -57,7 +57,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 1928 the American chemical company DuPont hired Wallace Carothers, a young chemist from Harvard, to lead a laboratory doing basic research on polymers. His group made many new long-chain molecules. In February 1935 they made a **polyamide**, a polymer of two building blocks that alternate along the chain, which could be melted, drawn out into a filament and stretched until its chains lined up, giving a fibre stronger than silk and very elastic. DuPont called it **nylon**."
+          "text": "In 1928 the American chemical company DuPont hired Wallace Carothers, a young chemist from Harvard, to lead a laboratory doing basic research on polymers. His group made many new long-chain molecules. In February 1935 they made a **polyamide**, a polymer whose two building blocks, an acid and an amine, alternate along the chain, which could be melted, drawn out into a filament and stretched until its chains lined up, giving a fibre stronger than silk and very elastic. DuPont called it **nylon**."
         },
         {
           "type": "text",
@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "In July 1941 the United States froze Japanese assets, and silk imports stopped. After the United States entered the war that December, the government took nearly all nylon production for parachutes, tow ropes for gliders, tyre cords and other military uses, and stockings disappeared from the shops. Women drew a line up the back of their legs with eyebrow pencil to imitate a stocking seam. When nylon stockings returned in 1945 and 1946, demand was far greater than supply, which is how a queue of 40,000 formed in Pittsburgh."
+          "text": "In July 1941 the United States froze Japanese assets, which ended trade between the two countries, and silk imports stopped. After the United States entered the war that December, the government took nearly all nylon production for parachutes, tow ropes for gliders, tyre cords and other military uses, and stockings disappeared from the shops. Women drew a line up the back of their legs with eyebrow pencil to imitate a stocking seam. When nylon stockings returned in 1945 and 1946, demand was far greater than supply, which is how a queue of 40,000 formed in Pittsburgh."
         }
       ]
     },
@@ -118,7 +118,7 @@
         },
         {
           "type": "text",
-          "text": "**Where it went next.** The polymers developed for fibres became plastics. Nylon is used for gears, zips and machine parts. The polyester of a shirt, polyethylene terephthalate or PET, is the same material as most plastic drinks bottles, and recycled bottles are now a large source of the polyester used in clothing."
+          "text": "**Where it went next.** The polymers developed for fibres became plastics. Nylon is used for gears, zips and machine parts. The polyester of a shirt, polyethylene terephthalate or PET, is the same material as most plastic drinks bottles, and recycled bottles now supply a significant share of the polyester used in clothing."
         }
       ]
     },
@@ -154,7 +154,7 @@
                 "ask": "Why were there queues and fights for nylon stockings in 1946?",
                 "choices": ["The war had taken the nylon, and demand built up", "Nylon had only just been invented in 1946", "Silk stockings had become cheaper than nylon", "Stockings were rationed by law until 1950"],
                 "answer": 0,
-                "why": "From 1942 nylon went to parachutes, ropes and tyres. When stockings returned, years of pent-up demand met limited output."
+                "why": "Once the US entered the war, nylon went to parachutes, ropes and tyres. When stockings returned, years of pent-up demand met limited output."
               },
               {
                 "ask": "Polyester holds about 0.4 percent of its weight in moisture, cotton about 8 percent. What follows?",
@@ -168,6 +168,6 @@
       ]
     }
   ],
-  "summary": ["**Rayon came first.** From the 1890s, cellulose from wood pulp was dissolved and spun into filaments as artificial silk.", "**Fibres are polymers.** Long chains of repeating units, lined up side by side, give a fibre its strength.", "**Nylon was built from scratch.** Carothers's group at DuPont made it in 1935, and stockings went on sale on 15 May 1940.", "**War took the nylon.** With Japanese silk cut off, nylon went to parachutes and ropes, which is why stockings were scarce until 1946.", "**Polyester took over.** From the 1950s it made wash-and-wear clothing, and it is now more than half of all fibre made.", "**Synthetics are about two thirds of fibre today.** They passed cotton in the 1990s.", "**They are strong, cheap and quick-drying.** They also feel clammy, come from fossil fuels, shed microfibres and are hard to recycle in blends.", "**Fibre chemistry made plastics.** The polyester in a shirt is the same PET as a drinks bottle."],
+  "summary": ["**Artificial silk came first.** From the 1880s, cellulose was dissolved and spun into filaments; viscose rayon, from wood pulp, followed.", "**Fibres are polymers.** Long chains of repeating units, lined up side by side, give a fibre its strength.", "**Nylon was built from scratch.** Carothers's group at DuPont made it in 1935, and stockings went on sale on 15 May 1940.", "**War took the nylon.** With Japanese silk cut off, nylon went to parachutes and ropes, which is why stockings were scarce until 1946.", "**Polyester took over.** On sale from the 1950s, it went into almost everything by the 1970s, and it is now more than half of all fibre made.", "**Synthetics are about two thirds of fibre today.** They passed cotton in the 1990s.", "**They are strong, cheap and quick-drying.** They also feel clammy, come from fossil fuels, shed tiny fibres in the wash and are hard to recycle in blends.", "**Fibre chemistry made plastics.** The polyester in a shirt is the same PET as a drinks bottle."],
   "footnotes": {}
 }
