@@ -1,0 +1,26 @@
+{
+  "title": "Philosophy",
+  "subtitle": "What was Plato's Gig?",
+  "department": "Humanities",
+  "order": 15,
+  "summary": "In 399 BC an Athenian jury sentenced Socrates to death for asking questions in the market, and philosophy has been arguing about his questions since: how to live, what makes an act right, how you know anything, and what you are. The course takes them in the order people asked them, from the cave and the ring of Gyges through Descartes's demon, Kant's murderer at the door, Nietzsche's dead God and Sartre's café waiter, to the trolley and the question of whether a chatbot could feel pain. Al-Ghazali, Confucius, Ibn Sina and Las Casas join the argument where they took part in it. Before each argument you give your own verdict; the course keeps them, sets them against what professional philosophers answered in 2020, and shows you where your answers pull against each other. Most lessons end on which ideas are still argued over, which are respected history and which nobody holds any more.",
+  "lessons": "src/lessons",
+  "icon": "public/icons/icon.svg",
+  "save": "philosophy.save",
+  "theme": {
+    "bg": "#2a1e1a",
+    "panel": "#3b2c26",
+    "text": "#f0e8dc",
+    "accent": "#d9824a",
+    "good": "#3f8f5a",
+    "bad": "#b4372f",
+    "display": "Georgia, serif"
+  },
+  "release": {
+    "version": "0.1",
+    "stage": "beta",
+    "date": "2026-11-27",
+    "note": "First numbered version: the plan of the course, and its first lessons.",
+    "history": []
+  }
+}

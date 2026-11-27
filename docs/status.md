@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-26. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-27. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
@@ -20,6 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
+| [Philosophy](#philosophy) | 0.1 beta | 4 | 38 | 0 | 4 | 4 | 4 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -39,6 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 38 lessons to write, 4 to copy-edit, 4 to fact-check, 4 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -540,6 +542,55 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | P3 | A dataset everyone builds on (`datasets`) | Data and evaluation pipelines | done |  | A versioned dataset from many sources: conflation and stable IDs, immutable versions and deltas, pinned consumers, lineage, deletion, and incremental updates checked by full rebuilds. |
 | P4 | The numbers that quietly went wrong (`validation`) | Data and evaluation pipelines | done |  | Checking data before it is published: contracts and control totals, invariant and statistical checks, quarantine, write-audit-publish, and data SLIs. |
 | P5 | Training and serving from the same facts (`features`) | Data and evaluation pipelines | done |  | Feature stores: training and serving skew, point-in-time joins on availability time, offline and online stores, and logging against backfilling. |
+
+## Philosophy <a id="philosophy"></a>
+
+`courses/philosophy`, version 0.1 (beta, 2026-11-27). Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) after a philosopher, teacher, explainer and student review and three outside reviews: project files philosophy/outline.md. Lessons 1 to 4 written 27 Nov 2026 with a student read-through; the rest are coming(...) in lessons.ts. Photos are parked in tools/pending-photos.json with unverified search hints. PhilPapers 2020 survey shares were written from memory and wait for the fact check. Its catalog description waits for Gemini (queued 2026-11-27).
+
+| Code | Lesson | Branch | Status | Also waiting on | What it covers |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check; Photos (2 photos parked in pending-photos.json) | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
+| 2 | What if everything you see is shadows? (`cave`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check; Photos (2 photos parked in pending-photos.json) | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
+| 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check; Photos (1 photo parked in pending-photos.json) | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
+| 4 | Can you practise being good? (`aristotle`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check; Photos (2 photos parked in pending-photos.json) | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
+| 5 | How little do you need to be happy? (`epicurus`) |  | planned, listed as coming |  | Epicurus's garden, pleasure as the absence of pain, and why death is nothing to us. |
+| 6 | What is up to you? (`stoics`) |  | planned, listed as coming |  | Diogenes the Cynic, the Stoic dichotomy of control, and Stoicism in modern therapy. |
+| 7 | Can you think God into existence? (`god`) |  | planned, listed as coming |  | The problem of evil, Augustine's answer, and Anselm's proof with Gaunilo's perfect island. |
+| 8 | Can reason overrule scripture? (`faith`) |  | planned, listed as coming |  | Al-Ghazali's fire and cotton, Ibn Rushd's reply, and Aristotle's road into Latin Europe. |
+| 9 | Who counts as fully human? (`valladolid`) |  | planned, listed as coming |  | The Valladolid debate of 1550: Las Casas against Sepúlveda and the "natural slave". |
+| 10 | How do you know you're not dreaming? (`descartes`) |  | planned, listed as coming |  | The method of doubt, "I think, therefore I am", Ibn Sina's floating man and the mind and body. |
+| 11 | Why obey anyone? (`hobbes`) |  | planned, listed as coming |  | The state of nature, the social contract, the prisoner's dilemma, and Locke on consent. |
+| 12 | Could you have done otherwise? (`spinoza`) |  | planned, listed as coming |  | Determinism, Spinoza's freedom as understanding, compatibilism, and Libet's experiment. |
+| 13 | Are you the person you were at ten? (`locke`) |  | planned, listed as coming |  | Personal identity: the ship of Theseus, memory, the Buddhist chariot and the teletransporter. |
+| 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | planned, listed as coming |  | The problem of induction, cause as habit, and is against ought. |
+| 15 | Can you lie to a murderer at the door? (`kant`) |  | planned, listed as coming |  | Duty, the categorical imperative, and the 1797 argument with Constant. |
+| 16 | Would you obey God if he told you to kill your son? (`leap`) |  | planned, listed as coming |  | Faith without proof: Pascal's wager and Kierkegaard's Abraham. |
+| 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | planned, listed as coming |  | Utilitarianism, Mill's higher pleasures, the harm principle and the experience machine. |
+| 18 | Who killed God? (`nietzsche`) |  | planned, listed as coming |  | The death of God, master and slave morality, eternal recurrence, and what his sister did to him. |
+| 19 | Are you condemned to be free? (`sartre`) |  | planned, listed as coming |  | Existence before essence, bad faith, the student's dilemma and responsibility. |
+| 20 | Is a woman born or made? (`beauvoir`) |  | planned, listed as coming |  | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
+| 21 | Should we imagine Sisyphus happy? (`camus`) |  | planned, listed as coming |  | The absurd, revolt, and the 1952 quarrel with Sartre. |
+| 22 | What rules would you pick before you knew who you'd be? (`rawls`) |  | planned, listed as coming |  | The veil of ignorance, the difference principle, Harsanyi and Nozick. |
+| 23 | Would you ruin your clothes to save a drowning child? (`singer`) |  | planned, listed as coming |  | Singer's drowning child, the trolley problem as Foot meant it, and effective altruism. |
+| 24 | What is it like to be a bat? (`bat`) |  | planned, listed as coming |  | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
+| 25 | What do philosophers do now? (`gadfly`) |  | planned, listed as coming |  | Philosophy today, what is still argued over and what was abandoned, and your verdicts read back. |
+| E1 | What happens if you stop forcing it? (`dao`) | Elsewhere | planned, listed as coming |  | Laozi and Zhuangzi on acting without strain, beside the Stoics. |
+| E2 | Who wrote the first rules for a fair debate? (`nyaya`) | Elsewhere | planned, listed as coming |  | The Nyāya rules of argument and the Cārvāka sceptics of ancient India. |
+| E3 | How do you keep your footing on slippery earth? (`nahua`) | Elsewhere | planned, listed as coming |  | The Nahua (Aztec) sages on a world always in motion, and how we know what they said. |
+| E4 | Are you a person through other people? (`ubuntu`) | Elsewhere | planned, listed as coming |  | Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission. |
+| P1 | Is it better to be feared than loved? (`machiavelli`) | Power | planned, listed as coming |  | The Prince, read in its setting. |
+| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | planned, listed as coming |  | Rousseau's social contract and the general will. |
+| P3 | Is philosophy supposed to change things? (`marx`) | Power | planned, listed as coming |  | Alienation, and Marx's diagnosis set apart from his failed predictions. |
+| P4 | Should you hear out the other side? (`speech`) | Power | planned, listed as coming |  | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
+| P5 | Can ordinary people do great evil? (`arendt`) | Power | planned, listed as coming |  | Arendt at the Eichmann trial and the banality of evil. |
+| K1 | How to lose an argument (`fallacies`) | Tools and puzzles | planned, listed as coming |  | Common fallacies, charity and steelmanning. |
+| K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | planned, listed as coming |  | Zeno's paradoxes and what infinite sums settle. |
+| K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | planned, listed as coming |  | The sorites paradox and vague words. |
+| K4 | The three pages that broke knowledge (`gettier`) | Tools and puzzles | planned, listed as coming |  | Justified true belief and Gettier's 1963 counterexamples. |
+| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | planned, listed as coming |  | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
+| K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | planned, listed as coming |  | Wittgenstein, language games and the beetle in the box. |
+| K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | planned, listed as coming |  | The analytic and continental split, and Heidegger in plain words. |
+| K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | planned, listed as coming |  | Parfit's non-identity problem and duties to future generations. |
 
 ## Not started
 

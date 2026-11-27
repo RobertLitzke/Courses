@@ -1,0 +1,52 @@
+/* Design tokens: a red-figure pot. The page is the black-brown of the glaze,
+   lessons are on pale paper, and the accents are the fired clay's orange,
+   an olive leaf, the blue of an Aegean shutter and the wine of a symposium. */
+
+:root {
+  --bg: #2a1e1a; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #3b2c26;
+  --panel: #f2ece2;
+  --panel-2: #ddd4c4;
+  --ink: #26211d;
+  --ink-soft: #625a52;
+  --text: #f0e8dc;
+  --muted: #b5a99a;
+  --sun: #d9824a;
+  --sun-deep: #b8612f;
+  --rose: #b0546a;
+  --teal: #4d8fa3;
+  --violet: #8a74b8; /* branch colours */
+  --leaf: #8a9a5b;
+  --ice: #9bb7c9;
+  --ember: #a8492c;
+  --title: #f3c9a0;
+  --paper: #fbf8f2;
+  --good: #3f8f5a;
+  --bad: #b4372f;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }
+
+/* The verdict figure and the ledger page. */
+.verdict-ask { margin: 10px 14px 6px; font-weight: 600; color: var(--ink); }
+.verdict-earlier { margin: 0 14px 6px; font-size: 0.86rem; color: var(--ink-soft); }
+.verdict-bars { margin: 6px 14px 4px; display: grid; gap: 6px; }
+.verdict-bar { display: grid; grid-template-columns: minmax(7em, 40%) 1fr 3.2em; gap: 8px; align-items: center; font-size: 0.85rem; color: var(--ink); }
+.verdict-bar .track { height: 10px; border-radius: 5px; background: var(--panel-2); overflow: hidden; }
+.verdict-bar .fill { height: 100%; background: var(--teal); }
+.verdict-bar.mine { font-weight: 600; }
+.verdict-bar.mine .fill { background: var(--sun); }
+.verdict-source { margin: 2px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.dialogue-line { margin: 8px 14px; line-height: 1.45; color: var(--ink); }
+.dialogue-line b { color: var(--ember); }
+.dialogue-line.reader b { color: var(--teal); }
+.ledger { max-width: 680px; margin: 0 auto; padding: 16px; }
+.ledger h2 { font-family: var(--display); color: var(--title); }
+.ledger .entry { background: var(--paper); color: var(--ink); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+.ledger .entry .lesson { font-size: 0.78rem; color: var(--ink-soft); }
+.ledger .entry .changed { font-size: 0.85rem; color: var(--ember); }
+.ledger .tension { border-left: 4px solid var(--sun); }
+.fig-choices.verdict-row.frozen .chip.on::before { content: 'Your answer: '; }

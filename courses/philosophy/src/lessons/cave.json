@@ -1,0 +1,249 @@
+{
+ "id": "cave",
+ "n": 2,
+ "title": "What if everything you see is shadows?",
+ "teaches": "Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy",
+ "parts": [
+  {
+   "title": "The prisoners",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Halfway through the *Republic*, Plato's longest and best-known dialogue, Socrates asks his listeners to picture a strange scene. Deep in a cave, people sit chained by the legs and neck so that they can look only at the wall in front of them. They have been there since childhood. Behind them burns a fire, and between the fire and their backs runs a low wall, like the screen of a puppet show. Along it other people carry wooden and stone figures of animals and men, held up so that their shadows fall on the wall the prisoners face. The carriers sometimes talk, and the echo seems to come from the shadows."
+    },
+    {
+     "type": "text",
+     "text": "The prisoners have never seen anything but the shadows, so they take the shadows for the whole of reality. They hold contests to see who can best remember which shadow usually follows which, and honour the winners. \"They are like us,\" Socrates says. The figure follows what happens when one of them is set free."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "cave",
+     "caption": "Plato's cave, as Socrates describes it in Book VII of the Republic. The freed prisoner is drawn in green; the other prisoners stay chained facing the wall.",
+     "task": "Step through to the end",
+     "goal": "out",
+     "aspect_ratio": 1.74
+    },
+    {
+     "type": "text",
+     "text": "Plato wrote it as a picture of education, and he spells the picture out himself. The cave is the world we know through the senses. The shadows are the things we see and hear, and the opinions we pick up about them. The climb is the slow and painful work of thinking things through, which most people resist. The sun is the highest thing that can be known, which Plato calls the Good, and the rest of this lesson explains what he meant by it. Plato does not name the prisoner who goes back down and is laughed at, and would be killed if he tried to free the others, but few readers doubt he was thinking of Socrates."
+    }
+   ]
+  },
+  {
+   "title": "Plato's school",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Plato was born in Athens about 428 BC into one of its richest and best-connected families. He meant to go into politics, according to a letter that may be his own, until he watched the Thirty and then the restored democracy at work, and saw the democracy put Socrates to death.[^letter] After the execution he left Athens for some years. When he came back, about 387 BC, he bought land beside a grove called the Akademeia, a little way outside the city walls, and taught there. The place gave its name to the Academy, and through it to every academy since."
+    },
+    {
+     "type": "text",
+     "text": "The Academy was not a university with fees and degrees. It was closer to a research community: older members taught and argued with younger ones, and mathematics was studied hard, because Plato thought it trained the mind to think about things that cannot be seen. Plato taught there for about forty years, until his death in about 347 BC, and wrote some thirty dialogues, nearly all with Socrates as the main speaker. All of them survive, which is true of almost no other ancient author."
+    }
+   ]
+  },
+  {
+   "title": "The Forms",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The cave is a story about a theory, and the theory is the one Plato is most famous for. Draw a circle as carefully as you like. It will be a little uneven, a little thick, and in time it will smudge. Yet you know what a perfect circle is: every point the same distance from the centre. You have never seen one, and no one ever will, yet geometry proves things about it exactly, and those proofs hold for drawn circles only roughly, as far as each drawing is accurate. Plato thought real knowledge has to be of something exact and unchanging, so he concluded that the perfect circle is more real than any circle you can see. The drawn ones are shadows of it."
+    },
+    {
+     "type": "text",
+     "text": "Plato thought the same was true of justice, beauty, equality and goodness. Every just act we see is imperfect and mixed with other things; a law that is just in one case is unjust in another. Yet we can tell that these acts are just, if imperfectly, and Plato thought that means we are measuring them against a standard: justice itself, which every just act resembles in part. Plato called these perfect, unchanging originals the **Forms** . A Form is not an idea in anyone's head: it exists whether anyone thinks of it or not. Plato wrote the Euthyphro too, and in his reading the one feature Socrates wanted Euthyphro to name was the Form of piety. The Form of the Good is the highest Form, the one that makes the others knowable, as the sun makes things visible."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Plato's question, in a form philosophers still argue about.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "forms",
+      "ask": "Do numbers and perfect circles exist in their own right, apart from minds and the physical world?",
+      "choices": [
+       "Yes: they are there to be discovered",
+       "No: they are useful fictions or ways we talk",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Platonism, named after Plato. Many mathematicians hold it, including the logician Kurt Gödel.",
+       "You chose nominalism, from the Latin for \"name\". Its defenders say talk of numbers is a way of describing the physical world.",
+       "Professional philosophers are split almost evenly on it, as the bars show."
+      ],
+      "poll": {
+       "shares": [
+        38,
+        42,
+        null
+       ],
+       "source": "PhilPapers Survey 2020, \"Abstract objects: Platonism or nominalism?\", share accepting or leaning towards each."
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "Plato also offered an account of how we know the Forms if we never see them. In his dialogue *Meno* Socrates draws a square in the sand and questions a slave boy who has never studied geometry. Step by step, by answering questions alone, the boy works out how to draw a square with twice the area of the first: its side is the first square's diagonal, the line from one corner to the opposite one. Socrates claims he told the boy nothing, only asked, so he concludes the boy must have known it already and only been reminded. Critics since have pointed out that the questions were leading. Plato's conclusion is that the soul knew the Forms before birth and learning is **recollection**. Few philosophers have accepted that conclusion, but the experiment it rests on is a real puzzle: how can thinking alone, with no new evidence, show you something true?"
+    }
+   ]
+  },
+  {
+   "title": "Why Plato distrusted the senses",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Two reasons run through the dialogues. The first is that the things we perceive change and are relative. The same water feels warm to a cold hand and cold to a warm one; a person is tall beside a child and short beside a giant; a beautiful face ages. Knowledge, Plato thought, has to be of something that stays the same, and the senses give us only changing appearances. At best they give us **opinion**, which may happen to be true, as a guess may be right, but cannot explain why."
+    },
+    {
+     "type": "text",
+     "text": "The second reason is that the senses can be fooled, and Plato thought people who trust appearances are easy to mislead. Poets and painters, in his view, make their living from appearances, and this is why the *Republic* is hard on them. A painting of a bed, Plato says, copies a bed the carpenter made, which is itself a copy of the Form of the bed: the painter works at two removes from reality. Homer's poems, which Greek children learned by heart, made the gods quarrel, lie and lust, and taught by stirring the emotions rather than by argument. Plato's Socrates proposes to ban most poetry from the ideal city. The next lesson looks at the rest of that city, and at why many readers find it alarming."
+    },
+    {
+     "type": "text",
+     "text": "Plato's questions also fall into the main divisions philosophy still uses, though the names came later. Asking what really exists, as Plato did about circles and justice, is **metaphysics**. Asking how we know anything, and whether the senses can be trusted, is **epistemology**, the theory of knowledge. Asking how we should live and what makes an act right is **ethics**. And studying what makes an argument good, which Plato practised and his student Aristotle made into a subject of its own, is **logic**.[^names]"
+    }
+   ]
+  },
+  {
+   "title": "Leaving the cave",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The cave asks something of the reader as well as explaining a theory. The freed prisoner suffers: the light hurts, the old certainties vanish, and when he goes back his friends think he is ruined. Plato thought the climb was worth it anyway, and that the person who had made it had a duty to go back down."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The price Plato puts on the climb.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "cave",
+      "ask": "If finding out the truth about your life meant your friends would think you had lost your mind, would you want to find out?",
+      "choices": [
+       "Yes: I would rather know",
+       "No: some illusions are worth keeping",
+       "It depends on what the truth was",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Plato's answer, and Socrates'. The lesson on John Stuart Mill asks the same question in another form, with a machine that gives you any experience you like.",
+       "Plato thought most people choose this in practice, whatever they say. Some psychologists, notably Shelley Taylor and Jonathon Brown in 1988, have argued that mild illusions about ourselves are good for our health.",
+       "Plato would reply that you cannot know what the truth is worth before you have seen it.",
+       "You can change this answer later on the Verdicts page, in the menu, which keeps every verdict you give in the course."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The cave has had a long life outside philosophy. Readers have found it in films such as *The Matrix* (1999), whose hero learns his world is a simulation, and in arguments about screens and advertising. Those uses keep the shadows and drop the sun: for Plato the point was not only that appearances deceive but that something better and more real can be known beyond them."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Plato's theory of Forms in his own version, with a Form of the Good like a sun and souls that knew the Forms before birth, has few defenders today; it is respected history. Aristotle, who studied under Plato, raised the best-known objections. One of them, the **third man** (Aristotle's example was the Form of man), goes like this: if what all large things share is the Form of the large, then the large things together with the Form also share something, which would be a further Form, and so on without end. Plato raises a version of it against himself in the dialogue *Parmenides*."
+    },
+    {
+     "type": "text",
+     "text": "Platonism about abstract objects alone, without the cave and the souls, is very much alive. Whether numbers, sets and other abstract objects exist apart from minds and matter is still argued over, and in the 2020 PhilPapers Survey professional philosophers were split almost evenly between Platonism and nominalism. The puzzle of the *Meno*, how pure reasoning can tell you something true about the world, is still open, and lesson 15 returns to it with Immanuel Kant."
+    },
+    {
+     "type": "text",
+     "text": "What has been abandoned is Plato's general contempt for the senses. Since the 17th century, sciences built on measured, repeated observation, such as physics and astronomy, have produced reliable knowledge of things that change, which Plato thought impossible. Most philosophers now treat the senses as fallible but indispensable: a source of knowledge to be checked, not a cave to escape."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Plato's cave and the Forms",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "In Plato's cave, what do the shadows on the wall stand for?",
+        "choices": [
+         "What we perceive through the senses, and the opinions we form about it",
+         "The Forms, glimpsed dimly from inside the cave",
+         "The fire's light, which stands for human reason",
+         "The carriers, who stand for teachers and parents"
+        ],
+        "answer": 0,
+        "why": "Plato explains the picture himself: the cave is the world of the senses, and its shadows are what we perceive and the opinions we pick up about it. The Forms are outside, in the sunlight."
+       },
+       {
+        "ask": "Why did Plato think a perfect circle is more real than any drawn circle?",
+        "choices": [
+         "Geometry's proofs hold of it exactly, and of drawn circles only roughly",
+         "Trained mathematicians can see perfect circles when they concentrate",
+         "Perfect circles are found in nature, in the orbits of the planets",
+         "Drawn circles exist only in the mind of the person who draws them"
+        ],
+        "answer": 0,
+        "why": "What geometry proves holds exactly of the perfect circle and only roughly of drawn ones. Plato thought knowledge has to be of something exact and unchanging."
+       },
+       {
+        "ask": "In the Meno a slave boy, questioned step by step, works out how to draw a square with twice the area of another. What does Plato conclude?",
+        "choices": [
+         "The boy was remembering what his soul knew before birth",
+         "Socrates' questions led the boy to the answer, so he learned nothing",
+         "Geometry is learned by looking carefully at squares in the sand",
+         "The boy's lucky guess shows that true opinion is as good as knowledge"
+        ],
+        "answer": 0,
+        "why": "Plato's conclusion is the theory of recollection. The second choice is the critics' reply, not Plato's view."
+       },
+       {
+        "ask": "Someone asks whether we can ever be sure our memories are accurate. Which branch of philosophy is that question in?",
+        "choices": [
+         "Epistemology",
+         "Metaphysics",
+         "Ethics",
+         "Logic"
+        ],
+        "answer": 0,
+        "why": "It asks whether and how we know something, which is epistemology, the theory of knowledge. Metaphysics would ask what memories are."
+       },
+       {
+        "ask": "Which part of Plato's thinking about knowledge has been most thoroughly abandoned?",
+        "choices": [
+         "His distrust of the senses as a source of knowledge",
+         "His question of whether numbers exist apart from minds",
+         "His puzzle of how reasoning alone can show something true",
+         "His view that knowledge differs from a lucky true opinion"
+        ],
+        "answer": 0,
+        "why": "Most philosophers now treat the senses as fallible but indispensable. The question about numbers and the Meno's puzzle are still open, and the difference between knowledge and true opinion is still accepted."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**The cave is a picture of education.** Prisoners who see only shadows take them for reality; one who is freed climbs painfully out into the sun and is laughed at when he returns.",
+  "**Plato ran the Academy for about forty years.** He founded it outside Athens about 387 BC, and all of his roughly thirty dialogues survive.",
+  "**The Forms are perfect, unchanging originals.** Every drawn circle and every just act is an imperfect copy of the circle itself and justice itself.",
+  "**Plato thought learning was recollection.** In the Meno a slave boy works out geometry from questions alone, which Plato took as memory of what the soul knew before birth.",
+  "**The senses give opinion, not knowledge.** For Plato they show only changing, relative appearances, and a painting is a copy of a copy.",
+  "**Plato's questions fall into philosophy's main branches.** Metaphysics asks what exists, epistemology how we know, ethics how to live, and logic what makes an argument good.",
+  "**Platonism about numbers is still argued over.** Philosophers in 2020 were split almost evenly on whether abstract objects exist apart from minds.",
+  "**Plato's distrust of the senses has been abandoned.** Most philosophers now treat the senses as fallible but indispensable."
+ ],
+ "footnotes": {
+  "letter": {
+   "kind": "technical",
+   "title": "The Seventh Letter",
+   "text": "Thirteen letters have come down under Plato's name. Most are thought to be forgeries; the Seventh, which tells of his early politics and his trips to Sicily, is the one scholars most often accept, though many still doubt it."
+  },
+  "names": {
+   "kind": "digression",
+   "title": "Where the names come from",
+   "text": "Metaphysics is named after a book: Aristotle's editors placed his writings on being after his Physics, and *meta* is Greek for \"after\". Epistemology is from the Greek episteme, knowledge, and ethics from ethos, character."
+  }
+ }
+}

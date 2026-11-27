@@ -1,0 +1,395 @@
+{
+ "id": "socrates",
+ "n": 1,
+ "title": "Why did Athens kill Socrates?",
+ "teaches": "What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life",
+ "parts": [
+  {
+   "title": "A case on the porch",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Here is a case to decide before any history. A farm worker gets drunk and kills one of the household's servants in a fight. Your father, who owns the farm, ties the man up, throws him in a ditch and sends a messenger to the city to ask the religious officials what should be done with him. Before the messenger comes back, the man in the ditch dies of cold and hunger. Your family says the dead worker was a killer himself, that your father meant no harm, and that it is shameful for a son to take his own father to court."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Your first verdict. Answers are kept on the Verdicts page, and you can change them later.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "father",
+      "ask": "Should you take your father to court for the man's death?",
+      "choices": [
+       "Yes: the worker died through my father's fault",
+       "No: family comes first",
+       "It depends on what he meant to happen",
+       "Not sure"
+      ],
+      "who": [
+       "That is what Euthyphro decided, and he was sure he was right.",
+       "That is what Euthyphro's family told him, and what most Athenians would have said.",
+       "Socrates never answers the question directly. Both Euthyphro and his family say piety, respect for the gods and what they ask, is on their side, so Socrates wants to know first what piety is.",
+       "Socrates claimed to be unsure too, and spent the dialogue finding out what the question turns on."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The case comes from Plato, who presents it as real. In the spring of 399 BC a young priest named Euthyphro was on his way to bring exactly this charge against his father. On the porch of the office that heard religious cases in Athens he met Socrates, who was there for a case of his own: a young man named Meletus had charged him with impiety, failing to respect the city's gods. Within a few weeks Socrates was dead, sentenced by a jury of 500 of his fellow citizens. Plato, who was about 29 and one of the young men who followed Socrates around the city, wrote up their conversation on the porch as the dialogue *Euthyphro*, and the trial that followed as the *Apology* (from the Greek for a speech in one's defence).[^sources]"
+    },
+    {
+     "type": "text",
+     "text": "In this lesson we follow both: how Socrates questioned Euthyphro, which is an early, well-documented example of the questioning philosophers still do, and why a city that prided itself on free speech put him to death."
+    }
+   ]
+  },
+  {
+   "title": "The man who asked questions",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Socrates was born in Athens around 470 BC, is said to have been the son of a stonemason and a midwife, and fought as a foot soldier in three campaigns of the Peloponnesian War, the 27-year war between Athens and Sparta. He wrote nothing at all. What we know of him comes from three people who did write: Plato, the soldier and historian Xenophon, and the comic playwright Aristophanes, whose play *The Clouds* (423 BC) shows a Socrates who runs a school of nonsense from a basket hung in the air."
+    },
+    {
+     "type": "text",
+     "text": "Athens had professional teachers called [[Sophists|other]], who travelled from city to city and charged high fees to teach young men how to speak well in the assembly and the law courts. Socrates charged nothing and claimed to know nothing. In the *Apology* he explains how this started. His friend Chaerephon went to the oracle of Apollo at Delphi and asked whether anyone was wiser than Socrates, and the priestess answered that no one was. Socrates, sure he knew nothing important, set out to prove the god wrong by finding someone wiser. He questioned politicians, poets and craftsmen, and found that each believed he knew things he did not. He concluded that he was wiser than they were in one small way: they thought they knew things they did not, and he was aware of his ignorance.[^nothing]"
+    },
+    {
+     "type": "text",
+     "text": "He spent the rest of his life at it, questioning anyone who would talk to him in the market and the gymnasiums about the things they claimed to understand: what courage is, what justice is, what piety is. These are questions of a particular kind. Collecting more facts does not settle them, and no experiment can, yet some answers to them are clearly better than others. That is still the best short description of [[philosophy|claim]]: careful argument about questions of that kind."
+    }
+   ]
+  },
+  {
+   "title": "What is piety?",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Socrates hears Euthyphro's plan and is delighted, or pretends to be. A man who is willing to prosecute his own father on a religious charge must know exactly what piety is, he says, and since Socrates is about to be tried for impiety, he would like to learn it. Euthyphro is happy to explain. What follows is the method now called the **Socratic method**: ask for a definition, test it against cases, and see whether it fits with everything else the speaker believes."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "dialogue",
+     "caption": "The Euthyphro, shortened. At each turn pick what Euthyphro says. His real answers are among the choices; Socrates' replies follow Plato's text closely, in plain modern words.",
+     "task": "Talk it through to the end",
+     "goal": "end",
+     "options": {
+      "a": "Socrates",
+      "b": "Euthyphro",
+      "open": "Tell me then, what is piety, and what is impiety?",
+      "turns": [
+       {
+        "replies": [
+         {
+          "say": "Piety is doing what I am doing now: prosecuting a wrongdoer, whoever he is.",
+          "answer": "That is one pious act, Euthyphro. I asked what makes all pious acts pious. Give me the feature they all share, so that I can use it as a pattern."
+         },
+         {
+          "say": "Piety is whatever the priests say it is.",
+          "answer": "Then the priests must know something that makes their sayings right. It is that thing I am asking you for."
+         }
+        ],
+        "then": "So: what is the one thing that every pious act has?"
+       },
+       {
+        "replies": [
+         {
+          "say": "What is dear to the gods is pious, and what is not dear to them is impious.",
+          "answer": "But you tell me yourself that the gods quarrel. Zeus may love what you are doing to your father, and Kronos, the father Zeus overthrew, hate it. Then the same act is pious and impious at once."
+         },
+         {
+          "say": "What helps other people is pious.",
+          "answer": "Then piety would be the same as justice. Yet piety surely has to do with the gods, and helping a neighbour does not need any gods at all."
+         }
+        ],
+        "then": "Try again, then, so that the gods' quarrels do not spoil it."
+       },
+       {
+        "replies": [
+         {
+          "say": "Piety is what all the gods love, and impiety what they all hate.",
+          "answer": "Then consider this. Is the pious loved by the gods because it is pious, or is it pious because it is loved by the gods?"
+         },
+         {
+          "say": "Piety is what my own heart tells me the gods want.",
+          "answer": "Your father's heart tells him something else. We are back where we were."
+         }
+        ]
+       },
+       {
+        "replies": [
+         {
+          "say": "They love it because it is pious.",
+          "answer": "Then the gods love it for a reason, and that reason, not their love, is what makes it pious. You have told me something true of piety, but not what it is."
+         },
+         {
+          "say": "It is pious because they love it.",
+          "answer": "Then if the gods all came to love cruelty, cruelty would be pious. Is that what you believe?"
+         }
+        ],
+        "then": "We must begin again from the beginning. What is piety?"
+       }
+      ],
+      "end": "Euthyphro says he is in a hurry and must go. Socrates complains that he has been left to face his own trial knowing no more about piety than before."
+     }
+    },
+    {
+     "type": "text",
+     "text": "Socrates never says Euthyphro is wrong to prosecute. He takes each definition seriously, finds a case it gets wrong or a belief of Euthyphro's that it contradicts, and asks for a better one. Each definition is a [[claim|claim]], and each of Socrates' replies is an [[objection|objection]]: a reason to think the claim false. Philosophers call this kind of questioning the elenchus, Greek for a test or cross-examination."
+    },
+    {
+     "type": "text",
+     "text": "Two habits from this exchange run through the rest of the course. The first is to look for the **hidden premise**: the unstated belief an argument needs. The definition \"what is dear to the gods\" needs the premise that the gods agree, and the Greek gods plainly did not. The second is the **principle of charity**: before attacking an argument, put it in its strongest form. When \"dear to the gods\" fails, it is Socrates who suggests mending it to \"dear to all the gods\" instead of pouncing on the first slip. An argument beaten only in its weakest form has not been beaten."
+    }
+   ]
+  },
+  {
+   "title": "The dilemma",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "That mended definition, what all the gods love, runs into the question that has made this short dialogue famous. Is something good because the gods love it, or do the gods love it because it is good?"
+    },
+    {
+     "type": "text",
+     "text": "Each answer has a cost. If a thing is good only because the gods love or command it, then goodness is the gods' choice, and they could as easily have chosen cruelty. That makes morality arbitrary, and it makes the praise \"God is good\" empty, since it would only mean that God does what God wants. If instead the gods love good things because they are good, then goodness does not depend on the gods at all. They recognise it, as a good judge recognises a good argument, and we can ask what makes those things good without asking the gods. For a believer that is a cost too, since it makes God answer to a standard that is not God's own, and it leaves Euthyphro without the definition he wanted. A choice between two answers that both cost something is called a [[dilemma|objection]], and this one is still known as the **Euthyphro dilemma**."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The question Euthyphro could not answer, put in modern words.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "euthyphro",
+      "ask": "If there is a God, is an act right because God commands it, or does God command it because it is right?",
+      "choices": [
+       "Right because God commands it",
+       "God commands it because it is right",
+       "Neither: right and wrong have nothing to do with any god",
+       "Not sure"
+      ],
+      "who": [
+       "You chose divine command theory. Its defenders, such as William of Ockham in the 14th century, accept that God could have commanded otherwise.",
+       "Most philosophers since Plato, religious ones included, have taken this side, which makes goodness something even God answers to.",
+       "Most secular philosophers stand here; they still owe an account of what makes acts right, which later lessons try to give.",
+       "The dialogue ends without an answer, though Socrates' questions point towards the second one."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Religious philosophers have answers of their own. Thomas Aquinas in the 13th century held that God commands what is good because goodness is part of God's nature, so it is neither arbitrary nor outside God. The modern American philosopher Robert Adams defends a version of divine command theory on which God's commands could never be cruel because God is loving. Critics reply that the same question can be asked about God's nature: is it good because it is God's, or because it is loving and kind?"
+    }
+   ]
+  },
+  {
+   "title": "The trial",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Socrates' own case came to court a few weeks later. The charge, brought by Meletus with two more powerful backers, the politician Anytus and the orator Lycon, was that Socrates did not recognise the gods of the city, introduced new divine beings, and corrupted the young. The jury was 500 citizens chosen by lot, and the trial lasted a single day."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "Socrates' Athens. The war with Sparta ended in defeat and eight months of rule by the Thirty, a group of thirty pro-Spartan Athenians who killed their opponents, before democracy came back. Socrates' birth year is approximate.",
+     "options": {
+      "title": "Socrates' lifetime",
+      "spacing": "even",
+      "events": [
+       {
+        "at": -470,
+        "label": "Socrates born",
+        "when": "about 470 BC"
+       },
+       {
+        "at": -431,
+        "to": -404,
+        "label": "War with Sparta",
+        "when": "431 to 404 BC"
+       },
+       {
+        "at": -423,
+        "label": "The Clouds mocks him",
+        "when": "423 BC"
+       },
+       {
+        "at": -404,
+        "label": "Athens loses; the Thirty rule",
+        "when": "404 BC"
+       },
+       {
+        "at": -403,
+        "label": "Democracy back, with an amnesty",
+        "when": "403 BC"
+       },
+       {
+        "at": -399,
+        "label": "Trial and death",
+        "when": "399 BC",
+        "color": "bad",
+        "bold": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Socrates had been questioning people in public since at least the 420s, when The Clouds mocked him. Why prosecute him in 399? Historians point to the politics. Athens had just lost its war, and two men who had spent time with Socrates when young had done the city great harm: the general Alcibiades, who changed sides to Sparta during the war, and Critias, the most violent of the Thirty, whose rule cost about 1,500 Athenians their lives. An amnesty in 403 BC forbade prosecutions for what people had done under the Thirty, Socrates' enemies could not charge him over the Thirty, so a charge of impiety and corrupting the young may have been their way to strike at the man who, many Athenians believed, had taught such men. Plato's account leaves the politics out and makes the trial about philosophy itself."
+    },
+    {
+     "type": "text",
+     "text": "In Plato's account Socrates makes a defence speech but refuses to beg for mercy, as defendants usually did. He tells the jury that the god has attached him to the city \"like a gadfly\" (a biting fly) to a large, lazy horse, to sting it awake, and that they will not easily find another. He was found guilty by about 280 votes to 220; if thirty votes had gone the other way, he says, he would have been acquitted, since a tie went to the defendant. Athenian law then let the accuser propose a penalty and the defendant propose another, and the jury chose between them. Meletus asked for death. Socrates proposed, as what he really deserved, free meals for life at public expense, the honour given to Olympic champions. Then, at his friends' urging, he offered a fine, which Plato and others would guarantee. The jury voted for death, by a later account 360 votes to 140, a wider margin than it had voted for guilt.[^penalty]"
+    },
+    {
+     "type": "text",
+     "text": "Before the sentence was carried out his old friend Crito, a wealthy Athenian of his own age, arranged an escape. Socrates refused it: he had lived seventy years under the laws of Athens and would not break them now that they had turned against him. In Plato's *Phaedo* he spends his last day arguing about whether the soul survives death, then drinks a cup of poison hemlock, walks about until his legs grow heavy, and lies down.[^hemlock] His last words, Plato says, were a reminder to Crito that they owed a cockerel to Asclepius, the god of healing. A sick person who recovered sacrificed a cockerel to Asclepius, and many readers take the line to mean that death was a cure."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Socrates' own choice, at the end.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "crito",
+      "ask": "Socrates could have escaped and lived. Was he right to stay and die?",
+      "choices": [
+       "Yes: he had agreed to live by the city's laws",
+       "No: an unjust sentence does not bind you",
+       "Yes, but only because escaping would have undone his life's work",
+       "Not sure"
+      ],
+      "who": [
+       "This is the argument Plato gives him in the dialogue named after his friend, the *Crito*: by staying in Athens all his life, he had agreed to its laws.",
+       "Many modern readers side here. Martin Luther King Jr. took a middle line: break an unjust law openly and accept the penalty, as Socrates did, rather than escape it.",
+       "Some scholars read the Crito this way: running would have made his defence look like a lie.",
+       "The Crito's argument is still taught as a puzzle about when a law binds you."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most lessons in this course end on how their ideas are regarded today, and sort them roughly into three kinds: ideas still argued over, ideas that are respected history with few defenders now, and ideas nobody holds any more. The evidence is often the **PhilPapers Survey** of 2020, which asked about 1,800 professional philosophers, most in English-speaking universities, for their views on 100 questions.[^survey] It is a poll of one profession at one moment, not a vote on the truth, but it is the best picture there is of where the field stands."
+    },
+    {
+     "type": "text",
+     "text": "For Socrates the sorting is easy. His method is very much alive: it is how philosophy is still taught, in seminars where a definition is proposed and tested against cases, and law schools have called their way of questioning students the Socratic method since the 1870s. The Euthyphro dilemma is still the standard objection to divine command theory. His boldest claim, which appears across Plato's early dialogues, was that nobody does wrong knowingly, so all wrongdoing comes from ignorance. Philosophers call this Socratic intellectualism, and it has few defenders. Aristotle, who studied under Plato, answered it in lesson 4 by pointing out that people often know exactly what they should do and do something else."
+    },
+    {
+     "type": "text",
+     "text": "A common view of philosophy is that it is just opinion, so any answer is as good as another. The Euthyphro is evidence against it. Euthyphro's definitions were not mere opinions that Socrates happened not to share. Each failed for a reason Euthyphro himself had to accept. Philosophy rarely ends with everyone agreeing, but bad answers get thrown out: no philosopher now defends piety as \"whatever the gods love\" without an answer to Socrates' question."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Socrates and his method",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "Euthyphro first defines piety as \"prosecuting a wrongdoer, as I am doing now\". What is Socrates' main objection?",
+        "choices": [
+         "It gives one example of piety, not what all pious acts have in common",
+         "It leaves out piety towards the gods, such as prayer and sacrifice",
+         "It depends on the gods, who disagree with one another",
+         "It is too vague to apply to any real case"
+        ],
+        "answer": 0,
+        "why": "Socrates wanted the one feature that makes every pious act pious, and an example does not give it. The gods' disagreement was his answer to the definition \"what is dear to the gods\"."
+       },
+       {
+        "ask": "Someone argues: \"Lying is wrong because it harms people, so this white lie is wrong.\" What premise is hidden in the argument?",
+        "choices": [
+         "That this white lie harms someone",
+         "That a white lie counts as a lie",
+         "That harming people is sometimes right",
+         "That every harmful act is wrong"
+        ],
+        "answer": 0,
+        "why": "The argument already says lies are wrong because they harm, and a white lie is plainly a lie, so the unstated step is that this one does harm. That is where a critic would push."
+       },
+       {
+        "ask": "Which statement puts the Euthyphro dilemma correctly?",
+        "choices": [
+         "Right because God commands it makes morality arbitrary; commanded because right puts a standard above God",
+         "Without God there is no morality, and without morality no reason to believe in God",
+         "If the gods disagree, the same act is pious and impious, so piety cannot exist",
+         "Euthyphro must choose between respecting his father and obeying the gods"
+        ],
+        "answer": 0,
+        "why": "The dilemma asks which comes first, the goodness or the command, and both answers carry a cost. The third choice is Socrates' objection to an earlier definition."
+       },
+       {
+        "ask": "Why do some historians think politics lay behind a charge of impiety?",
+        "choices": [
+         "An amnesty barred charges over the Thirty, and he was linked to Critias and Alcibiades",
+         "Socrates had spoken against democracy in the assembly the year before",
+         "Meletus was a member of the Thirty, and wanted revenge on Socrates",
+         "The Clouds had accused him of treason, and the charge stuck"
+        ],
+        "answer": 0,
+        "why": "The amnesty blocked charges for what was done under the Thirty, and his links with the men who had harmed Athens may have given his enemies a motive."
+       },
+       {
+        "ask": "A friend says: \"Philosophy is just opinion; every answer is as good as any other.\" Which reply fits this lesson best?",
+        "choices": [
+         "Answers can fail for reasons their holders must accept, as Euthyphro's did",
+         "Right: so the best a philosopher can do is say what they feel",
+         "Right: Socrates showed that no definition ever survives questioning",
+         "Wrong: philosophy has settled most of its big questions by now"
+        ],
+        "answer": 0,
+        "why": "Euthyphro's definitions fell to objections drawn from his own beliefs. Philosophy seldom ends in agreement, but some answers are clearly worse than others."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Philosophy argues about questions experiments cannot settle.** What piety, justice or courage is cannot be measured, yet some answers are clearly better than others.",
+  "**Socrates questioned, he did not lecture.** He took nothing for teaching, wrote nothing, and claimed to be wiser than others only in being aware of his own ignorance.",
+  "**The Socratic method tests definitions against cases.** Ask what something is, find a case the answer gets wrong, and ask again.",
+  "**Look for the hidden premise, and argue with the strongest version.** Most arguments rest on something unstated, and an argument beaten only in its weakest form is not beaten.",
+  "**The Euthyphro dilemma.** If acts are right because God commands them, morality is arbitrary; if God commands them because they are right, rightness is a standard God answers to.",
+  "**Athens executed Socrates in 399 BC.** The charge was impiety and corrupting the young, probably sharpened by his links to Critias and Alcibiades after a lost war.",
+  "**He compared himself to a gadfly on the city.** Found guilty, he proposed free meals for life as his penalty, refused to escape, and died by hemlock.",
+  "**The method survives; his claim that all wrongdoing is ignorance does not.** Seminars and law schools still question his way, but few philosophers think all wrongdoing is ignorance."
+ ],
+ "footnotes": {
+  "sources": {
+   "kind": "technical",
+   "title": "How we know",
+   "text": "Plato's dialogues are dramas written years after the events, and scholars do not agree how much of their Socrates is the real man and how much is Plato. The early dialogues, the Euthyphro and Apology among them, are usually thought closest to the historical Socrates. Xenophon also wrote an *Apology of Socrates*, a shorter account of the same trial in which Socrates is more concerned to avoid the miseries of old age."
+  },
+  "nothing": {
+   "kind": "digression",
+   "title": "\"I know that I know nothing\"",
+   "text": "The famous line is a later summary, not a quotation. In the Apology Socrates says something more careful: that he does not think he knows what he does not know, and that this small difference makes him wiser than the people he questioned."
+  },
+  "penalty": {
+   "kind": "digression",
+   "title": "Free meals",
+   "text": "Meals at the Prytaneum, the city's hall, were given to Olympic victors, generals and benefactors. Socrates' point was that he had done the city more good than a chariot winner, since a victor only makes Athenians feel happy while he made their lives better. The fine he offered at the end was 30 minae, several years' wages for a skilled worker, with Plato among the guarantors."
+  },
+  "hemlock": {
+   "kind": "technical",
+   "title": "Hemlock",
+   "text": "Poison hemlock, Conium maculatum, kills by paralysing the muscles, so the victim's breathing stops. Real hemlock poisoning usually brings vomiting and convulsions, which Plato does not describe. Either the Athenians mixed it with something like opium, or Plato made the death more peaceful than it was."
+  },
+  "survey": {
+   "kind": "technical",
+   "title": "The PhilPapers Survey",
+   "text": "Run by David Bourget and David Chalmers in 2009 and again in 2020. The 2020 survey went to philosophers in leading departments, mostly in the United States, Britain, Canada and Australia; about 1,800 of them answered. It asked whether they accept or lean towards each answer. The survey figures in later lessons are its \"accept or lean towards\" shares for that group."
+  }
+ }
+}

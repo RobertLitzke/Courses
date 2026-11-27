@@ -304,6 +304,13 @@
       "facts": "pending",
       "expectsPhotos": true,
       "note": "Bats: seeing with sound. Outline v2 (7 Nov 2026), revised after a biologist, teacher, explainer and student review: project files bats/outline.md and bats/review-2026-11-07/. All 15 lessons (trunk 1-10, branches L, N, P) written 7 Nov 2026 with live figures; student read-through and revisions done the same day; queued for Gemini. Photos are queued in tools/pending-photos.json with search hints (none verified); calls are synthesised from published parameters."
+    },
+    "philosophy": {
+      "student": "done",
+      "facts": "pending",
+      "expectsPhotos": true,
+      "note": "Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) after a philosopher, teacher, explainer and student review and three outside reviews: project files philosophy/outline.md. Lessons 1 to 4 written 27 Nov 2026 with a student read-through; the rest are coming(...) in lessons.ts. Photos are parked in tools/pending-photos.json with unverified search hints. PhilPapers 2020 survey shares were written from memory and wait for the fact check.",
+      "lessons": {}
     }
   },
   "notStarted": []

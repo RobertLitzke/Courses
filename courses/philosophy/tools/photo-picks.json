@@ -1,0 +1,40 @@
+[
+  {
+    "id": "socrates-bust",
+    "title": "File:Socrates Louvre.jpg",
+    "about": "Marble head of Socrates, a Roman copy of a Greek original, in the Louvre"
+  },
+  {
+    "id": "death-of-socrates",
+    "title": "File:David - The Death of Socrates.jpg",
+    "about": "Jacques-Louis David's The Death of Socrates, 1787",
+    "kind": "painting"
+  },
+  {
+    "id": "plato-bust",
+    "title": "File:Plato Silanion Musei Capitolini MC1377.jpg",
+    "about": "Portrait head of Plato, a Roman copy of a Greek original by Silanion, Capitoline Museums"
+  },
+  {
+    "id": "school-of-athens",
+    "title": "File:Sanzio 01.jpg",
+    "about": "Raphael's The School of Athens, 1509 to 1511, Vatican",
+    "kind": "painting"
+  },
+  {
+    "id": "syracuse-theatre",
+    "title": "File:Siracusa-teatro greco01.jpg",
+    "about": "The Greek theatre of Syracuse, Sicily"
+  },
+  {
+    "id": "aristotle-bust",
+    "title": "File:Aristotle Altemps Inv8575.jpg",
+    "about": "Portrait head of Aristotle, a Roman copy of a Greek original, Palazzo Altemps, Rome"
+  },
+  {
+    "id": "confucius-portrait",
+    "title": "File:Konfuzius-1770.jpg",
+    "about": "Confucius in a European engraving of 1770",
+    "kind": "illustration"
+  }
+]
