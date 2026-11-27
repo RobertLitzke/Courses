@@ -33,11 +33,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Navajo weavers use an **upright loom**: two posts with crossbars, the warp stretched vertically between them, and the weaver sitting in front on the ground. The Navajo probably learned weaving from their Pueblo neighbours in the 17th and early 18th centuries, but developed their own style. Navajo weaving is a **tapestry weave**, as described in branch lesson K3: the weft is packed down with a wooden comb so that it covers the warp entirely, and each colour is woven back and forth only within its own area of the design. The result is thick, dense and nearly waterproof."
+          "text": "Navajo weavers use an **upright loom**: two posts with crossbars, the warp stretched vertically between them, and the weaver sitting in front on the ground. The Navajo probably learned weaving from their Pueblo neighbours, the farming peoples of the Rio Grande and Hopi villages, in the 17th and early 18th centuries, but developed their own style. Navajo weaving is a **tapestry weave**, as described in branch lesson K3: the weft is packed down with a wooden comb so that it covers the warp entirely, and each colour is woven back and forth only within its own area of the design. The result is thick and dense, and sheds light rain."
         },
         {
           "type": "text",
-          "text": "The best-known early style is the **chief's blanket**, woven wider than it is long and worn around the shoulders, with bold bands of white, brown-black and, later, blue and red. Red was the hardest colour to get. Weavers bought **bayeta**, a red woollen cloth from Spain and later England, unravelled it, and wove its red yarn into their blankets."
+          "text": "The best-known early style is the **chief's blanket**, woven wider than it is long and worn around the shoulders, with bold bands of white, brown-black and, later, blue and red. Red was the hardest colour to get, because no local plant gave a strong red on wool. Weavers bought **bayeta**, a red woollen cloth from Spain and later England, unravelled it, and wove its red yarn into their blankets."
         },
         {
           "type": "text",
@@ -46,7 +46,7 @@
         {
           "type": "diagram",
           "id": "hours",
-          "caption": "Rough hours in a rug about 1 by 1.5 metres, woven from the weaver's own churro wool, about 1880. Estimates vary widely with the weave.",
+          "caption": "Rough hours in a rug about 1 by 1.5 metres, woven from the weaver's own churro wool in natural colours plus one dyed colour, about 1880. Estimates vary widely with the weave.",
           "options": {
             "item": "A rug from the weaver's own wool, about 1880",
             "stages": [
@@ -87,7 +87,7 @@
         {
           "type": "diagram",
           "id": "hours",
-          "caption": "The same rug woven from machine-spun, ready-dyed yarn bought at a trading post.",
+          "caption": "The same rug woven from machine-spun, ready-dyed yarn bought at a trading post. The weaver no longer shears, cleans, spins or dyes.",
           "options": {
             "item": "The same rug from bought yarn",
             "stages": [
@@ -104,7 +104,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "By the 1930s the Navajo flocks had grown so large that federal officials blamed them for eroding the range and silting up the reservoir behind the new Boulder Dam. From 1933 the government forced a **livestock reduction**, buying and often slaughtering hundreds of thousands of Navajo sheep and goats, sometimes in front of their owners. Many families lost most of their wealth, and the memory of it still shapes Navajo relations with the federal government. Officials also encouraged breeds that gave more meat and finer wool for the market, and by the 1970s pure churro sheep were close to disappearing."
+          "text": "By the 1930s the Navajo flocks had grown so large that federal officials blamed them for overgrazing: with the grass gone, rain washed soil into the rivers, and officials feared it would fill the reservoir behind the new Boulder Dam with silt. From 1933 the government forced a **livestock reduction**, buying and often slaughtering hundreds of thousands of Navajo sheep and goats, sometimes in front of their owners. Many families lost most of their wealth, and the memory of it still shapes Navajo relations with the federal government. Officials also crossed the remaining churro with breeds that gave more meat and finer wool for the market, and by the 1970s pure churro sheep were close to disappearing."
         },
         {
           "type": "text",
@@ -130,7 +130,7 @@
               },
               {
                 "ask": "How did weavers get red yarn for early blankets?",
-                "choices": ["They unravelled imported red bayeta cloth", "They grew madder on the reservation", "They bought red yarn from Pennsylvania mills", "They chose red-fleeced churro sheep"],
+                "choices": ["They unravelled imported red bayeta cloth", "They grew madder on the reservation", "They grew red cotton in their fields", "They chose red-fleeced churro sheep"],
                 "answer": 0,
                 "why": "Red was hard to dye locally, so weavers unpicked bayeta and rewove its yarn."
               },
@@ -159,7 +159,7 @@
     "**Red came from unravelled bayeta.** Imported red cloth was unpicked for its yarn.",
     "**The Long Walk broke the old economy.** Forced removal in 1864 and return in 1868.",
     "**Trading posts turned blankets into rugs.** Hubbell and others sold heavy rugs to the East.",
-    "**Bought yarn cut the hours.** Germantown yarn removed spinning and dyeing, but rugs were paid by weight.",
+    "**Bought yarn cut the hours.** Germantown yarn removed spinning and dyeing, but rugs were often paid by weight.",
     "**Livestock reduction nearly ended the churro.** Breeders and Navajo families revived it from 1977."
   ],
   "footnotes": {}
