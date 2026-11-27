@@ -6,7 +6,7 @@ import { emptyProgress, migrateProgress, type Progress } from 'didactics/progres
 
 export type TextilesSave = Progress;
 
-export const emptySave = (): TextilesSave => emptyProgress('metric', { radio: false, fixedUnits: true });
+export const emptySave = (): TextilesSave => emptyProgress('metric', { fixedUnits: true });
 
 export const migrate = (raw: unknown): TextilesSave => migrateProgress(raw, emptySave());
 
