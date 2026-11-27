@@ -1,0 +1,127 @@
+{
+  "id": "denim",
+  "n": 402,
+  "branch": "fashion",
+  "needs": ["structure"],
+  "title": "How did workwear twill become denim?",
+  "teaches": "Jean and denim and the towns they are named after; warp-faced 3/1 twill with an indigo warp and white weft; ring dyeing and why denim fades; Jacob Davis, Levi Strauss and the 1873 rivet patent; from miners' overalls to a global uniform; stonewashing and sandblasting",
+  "parts": [
+    {
+      "title": "Blue on the outside",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A pair of jeans is blue on the outside and pale on the inside, and with wear it fades at the knees, the thighs and the creases behind the knee in a way no other cloth does. Those fades follow from how the cloth is woven and how its yarn is dyed. In this lesson we look at where denim's names come from, why it fades, and how a tough cloth for working men became the most widely worn garment in the world."
+        }
+      ]
+    },
+    {
+      "title": "Two towns",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Both of the cloth's names point to European towns. **Jean**, a tough cloth of cotton or cotton mixed with linen, takes its name from Genoa, called Gênes in French, whose port shipped it and whose sailors are said to have worn it. **Denim** is usually traced to *serge de Nîmes*, a twill from the French town of Nîmes. Historians have argued over whether the cloths sold under these names in the 18th century were really the same as today's denim, but by the 19th century denim meant a heavy cotton twill with a blue warp and a white weft, made in large quantities in mills in New England."
+        },
+        {
+          "type": "text",
+          "text": "Denim is a **3/1 twill**, the weave of lesson 4: each warp thread passes over three weft threads and under one, and the step moves by one thread in each row, which makes the diagonal ribs on the surface. Because the warp floats over three threads for every one it passes under, the warp covers about three quarters of the front of the cloth and the weft three quarters of the back. With a blue warp and a white weft, the front is blue and the back is pale."
+        }
+      ]
+    },
+    {
+      "title": "Why denim fades",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The warp is dyed with **indigo**, the dye of lesson 5. Indigo is dissolved in a vat, soaks into the yarn and turns blue again in the air, but it barely penetrates a tightly spun cotton yarn. Mills dip the warp yarn many times in quick succession, so the colour builds up in a ring at the surface of the yarn while the core stays white. This is called **ring dyeing**."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fade",
+          "caption": "The face of a 3/1 twill and the cross-section of one warp yarn as wear grinds the top of the yarn flat. Round, illustrative depths.",
+          "task": "Wear indigo denim until its white core shows",
+          "goal": "fade"
+        },
+        {
+          "type": "text",
+          "text": "Where jeans rub, at the knees, the thighs and the creases where the cloth folds, the blue surface wears away and the white core appears. Indigo also slowly washes out of the surface, so the whole cloth lightens. Many wearers value the fades as a record of how a pair was worn. Cloth dyed right through, for example with some sulphur dyes, does not fade this way."
+        }
+      ]
+    },
+    {
+      "title": "The rivet",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the American West, miners, farmers and labourers wore trousers of denim and of heavy cotton duck, and the pockets tore away under the weight of tools and ore. In 1870 **Jacob Davis**, a tailor in Reno, Nevada, began fastening the corners of pockets with copper rivets of the kind used on horse blankets. His riveted trousers sold well, but he could not afford to patent the idea. He wrote to **Levi Strauss**, a German-born dry goods wholesaler in San Francisco who supplied him with denim, and proposed that they patent it together. Their US patent was granted on 20 May 1873, and Davis moved to San Francisco to run the production of riveted \"waist overalls\" for Levi Strauss & Co."
+        },
+        {
+          "type": "text",
+          "text": "The patent gave the company a monopoly on riveted work trousers until it expired in 1890, after which many other makers copied the design. The rivets, the heavy indigo denim and the double row of stitching became the standard form of work trousers in the United States."
+        }
+      ]
+    },
+    {
+      "title": "From work to everywhere",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the 1930s, holidaymakers on Western \"dude ranches\" and fans of cowboy films took jeans home as a souvenir of the West. During the Second World War, American servicemen wore them off duty, and in the 1950s films showed rebellious young men such as those played by Marlon Brando and James Dean wearing jeans, and some American schools banned them. Within a generation jeans became the everyday dress of young people in Europe, and in the Soviet Union a pair of imported American jeans became a prized black-market item."
+        },
+        {
+          "type": "text",
+          "text": "Today more than a billion pairs of jeans are sold each year. The fade that once came from years of work is now often made in the factory. In the 1980s makers began **stonewashing**, tumbling jeans with pumice stones to abrade them, and later used bleach and enzymes. **Sandblasting**, spraying the cloth with sand under high pressure, gave a worn look but exposed workers to silica dust, which causes the lung disease silicosis, and it was banned in Turkey in 2009 and abandoned by many brands. Lasers are now used to burn the fade patterns in."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on denim.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "Why is the front of denim blue and the back pale?",
+                "choices": ["The blue warp floats over three wefts for every one it passes under", "The back of the cloth is bleached after weaving", "Only one side of the cloth is dipped in indigo", "The weft is dyed a paler blue than the warp"],
+                "answer": 0,
+                "why": "In a 3/1 twill the warp covers three quarters of the face; the white weft shows mostly on the back."
+              },
+              {
+                "ask": "What is ring dyeing?",
+                "choices": ["Indigo builds up at the surface and leaves a white core", "Yarn is dyed in rings of different colours", "The dye is printed in circles on the cloth", "Cloth is twisted into rings before dyeing"],
+                "answer": 0,
+                "why": "Indigo barely penetrates the yarn, so repeated quick dips build a blue ring around a white core."
+              },
+              {
+                "ask": "What did Jacob Davis add to work trousers?",
+                "choices": ["Copper rivets at the corners of the pockets", "A zip fly in place of buttons", "A double layer of cloth at the knees", "Elastane to let the cloth stretch"],
+                "answer": 0,
+                "why": "Rivets stopped pockets tearing away; he patented the idea with Levi Strauss in 1873."
+              },
+              {
+                "ask": "Why was sandblasting jeans banned in Turkey?",
+                "choices": ["Silica dust gave workers the lung disease silicosis", "It used too much water to dye the cloth", "It wore through the cloth and caused returns", "It faded the indigo unevenly"],
+                "answer": 0,
+                "why": "Spraying sand under pressure filled the air with silica dust, which damages the lungs."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Jean and denim are named after towns.** Genoa and Nîmes, though the old cloths may differ from today's.",
+    "**Denim is a 3/1 twill.** The blue warp covers about three quarters of the face.",
+    "**Indigo ring-dyes the warp.** The colour sits in a ring around a white core.",
+    "**Wear exposes the core.** Knees and creases fade first as the ring wears away.",
+    "**Davis and Strauss patented the rivet in 1873.** Riveted pockets made tough work trousers.",
+    "**Jeans moved from work to youth.** Dude ranches, servicemen and 1950s films spread them.",
+    "**Factory fades replaced wear.** Stonewashing, bleach and lasers; sandblasting caused silicosis."
+  ],
+  "footnotes": {}
+}

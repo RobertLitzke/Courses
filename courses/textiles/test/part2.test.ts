@@ -25,6 +25,7 @@ import { apply, travelled } from '../src/figures/bobbins';
 import { checkered } from '../src/figures/strips';
 import { days, knots } from '../src/figures/knots';
 import { GARMENTS, used } from '../src/figures/layout';
+import { whiteShare } from '../src/figures/fade';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -356,6 +357,19 @@ describe('the layout figure', () => {
   it('is done once every garment is laid out', async () => {
     const h = FIGURES.layout(context(), 'all');
     for (const n of ['Tunic with gores', 'Fitted gown', 'Bias-cut dress']) click(h.node, n);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the fade figure', () => {
+  it('shows the core only once the ring is worn through', () => {
+    expect(whiteShare(40, true)).toBe(0);
+    expect(whiteShare(100, true)).toBeGreaterThan(0.5);
+    expect(whiteShare(100, false)).toBe(0);
+  });
+  it('is done when ring-dyed yarn is worn to the core', async () => {
+    const h = FIGURES.fade(context(), 'fade');
+    setSlider(h.node, 0, 90);
     await expect(h.done).resolves.toBeUndefined();
   });
 });
