@@ -27,5 +27,17 @@
     "description": true,
     "added": "2026-11-27",
     "what": "new course: first description, written against the outline of 25 trunk lessons and three branches"
+  },
+  {
+    "lesson": "epicurus",
+    "added": "2026-11-27",
+    "what": "new lesson: all prose, figure captions, verdict questions, quiz and summary (no student review yet)",
+    "notes": "Quotations are translations: do not alter the wording inside quotation marks."
+  },
+  {
+    "lesson": "stoics",
+    "added": "2026-11-27",
+    "what": "new lesson: all prose, figure captions, verdict questions, quiz and summary (no student review yet)",
+    "notes": "Quotations are translations: do not alter the wording inside quotation marks."
   }
 ]

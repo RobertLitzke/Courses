@@ -15,8 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('epicurus', 5, 'How little do you need to be happy?', 'Epicurus\'s garden, pleasure as the absence of pain, and why death is nothing to us'),
-  coming('stoics', 6, 'What is up to you?', 'Diogenes the Cynic, the Stoic dichotomy of control, and Stoicism in modern therapy'),
   coming('god', 7, 'Can you think God into existence?', 'The problem of evil, Augustine\'s answer, and Anselm\'s proof with Gaunilo\'s perfect island'),
   coming('faith', 8, 'Can reason overrule scripture?', 'Al-Ghazali\'s fire and cotton, Ibn Rushd\'s reply, and Aristotle\'s road into Latin Europe'),
   coming('valladolid', 9, 'Who counts as fully human?', 'The Valladolid debate of 1550: Las Casas against Sepúlveda and the "natural slave"'),

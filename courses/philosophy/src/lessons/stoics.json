@@ -1,0 +1,352 @@
+{
+ "id": "stoics",
+ "n": 6,
+ "title": "What is up to you?",
+ "teaches": "Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy",
+ "parts": [
+  {
+   "title": "The world of Epictetus",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On 9 September 1965 Commander James Stockdale of the United States Navy was flying a bombing run over North Vietnam when his A-4 Skyhawk was hit by anti-aircraft fire. He ejected, and as his parachute carried him down towards a village street, he later wrote, he whispered to himself: \"I'm leaving the world of technology and entering the world of Epictetus.\""
+    },
+    {
+     "type": "text",
+     "text": "Three years earlier, as a graduate student at Stanford, Stockdale had been given a copy of the *Handbook* of Epictetus, a Greek philosopher born a slave about AD 50. He had read it many times and kept it on his bedside table on board his aircraft carrier. He spent the next seven and a half years as a prisoner of war, four of them in solitary confinement, much of it in leg irons, and was tortured fifteen times. As the senior American officer in the camp he organised the other prisoners' resistance. When he was released in 1973 he said that Epictetus was what had kept him going.[^stockdale]"
+    },
+    {
+     "type": "text",
+     "text": "Epictetus's book opens with one distinction: some things are up to us, and some are not. In this lesson we trace where that idea came from, what the Stoics built on it, and how it ended up in the most widely used talking therapy of the 20th century."
+    }
+   ]
+  },
+  {
+   "title": "The philosopher in a jar",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The Stoics traced their line back to Socrates through a stranger character. Diogenes of Sinope, born on the Black Sea coast about 404 BC, came to Athens in exile and decided that most of what people want is unnecessary. He owned a cloak, a bag and a cup, threw the cup away when he saw a boy drink from his hands, and slept in a large storage jar in the marketplace.[^jar] He ate, argued and relieved himself in public, which earned him and his followers the name Cynics, from the Greek for \"dog-like\". Plato, it is said, called him \"Socrates gone mad\"."
+    },
+    {
+     "type": "text",
+     "text": "Most stories about Diogenes come from the biography written by Diogenes Laertius about 500 years later, and are probably legends. The best-known says that Alexander the Great found him sunbathing in Corinth and offered him anything he wanted, and Diogenes asked him to stand out of his sunlight. Another says he walked through the marketplace in broad daylight with a lit lamp, \"looking for a human being\". Whatever their truth, the stories carry a real idea: that the good life needs almost nothing outside yourself, and that what other people think of you does not matter."
+    },
+    {
+     "type": "diagram",
+     "id": "tree",
+     "caption": "The line from Socrates to the Stoics, as the ancient writers told it. The links before Zeno are traditional and may be tidier than the history.",
+     "options": {
+      "layout": "across",
+      "root": {
+       "label": "Socrates",
+       "note": "about 470 to 399 BC",
+       "children": [
+        {
+         "label": "Antisthenes",
+         "note": "a companion of Socrates, said to have taught Diogenes",
+         "children": [
+          {
+           "label": "Diogenes the Cynic",
+           "note": "about 404 to 323 BC",
+           "children": [
+            {
+             "label": "Crates",
+             "note": "gave away his fortune to live as a Cynic",
+             "children": [
+              {
+               "label": "Zeno of Citium",
+               "note": "founded Stoicism about 300 BC",
+               "children": [
+                {
+                 "label": "Epictetus, Seneca, Marcus Aurelius",
+                 "note": "the Roman Stoics, 1st and 2nd centuries AD"
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "Diogenes taught Crates, a rich man from Thebes who gave his money away to live as a Cynic, and Crates taught Zeno, a merchant from Cyprus. About 300 BC Zeno began teaching in the Painted Porch, a public colonnade on the edge of the Athenian marketplace. In Greek a porch is a *stoa*, and his followers became the Stoics. They kept the Cynics' idea that virtue is all you need, and dropped the jar, the rudeness and the public squalor."
+    }
+   ]
+  },
+  {
+   "title": "Up to you, and not up to you",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Stoicism reached its widest audience in Rome, through three men who could hardly have been more different. Epictetus (about AD 50 to 135) was born a slave, freed, and taught in Rome until the emperor Domitian expelled the philosophers from the city about AD 93; he spent the rest of his life teaching in Nicopolis in western Greece. Seneca (about 4 BC to AD 65) was a millionaire playwright and the tutor and adviser of the emperor Nero. Marcus Aurelius (AD 121 to 180) was emperor himself, and wrote the notebook we call his *Meditations*, in Greek,[^meditations] partly in army camps on the Danube frontier."
+    },
+    {
+     "type": "text",
+     "text": "Epictetus wrote nothing himself. His student Arrian took down his lectures as the *Discourses* and boiled them down into the short *Handbook*, which begins: \"Some things are up to us and some are not up to us. Up to us are opinion, impulse, desire, aversion, and in a word whatever is our own doing. Not up to us are body, property, reputation, office, and in a word whatever is not our own doing.\" Scholars call this the **dichotomy of control**, a division into two parts. The Stoic claim is that a good life depends only on the first list. Your body can be hurt, your property taken and your reputation ruined, and none of that touches what makes you good or bad."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Epictetus's division, on eight modern cases. Some are harder than they look.",
+     "task": "Sort all eight",
+     "goal": "sorted",
+     "options": {
+      "ask": "Up to you, or not up to you?",
+      "groups": [
+       {
+        "name": "Up to you",
+        "color": "good"
+       },
+       {
+        "name": "Not up to you"
+       }
+      ],
+      "items": [
+       {
+        "name": "How much effort you put into a job interview",
+        "group": "Up to you",
+        "why": "Effort is your own doing. Whether it is enough is another matter."
+       },
+       {
+        "name": "Whether you get the job",
+        "group": "Not up to you",
+        "why": "It depends on the other candidates and on someone else's judgement."
+       },
+       {
+        "name": "What you decide a rude remark means",
+        "group": "Up to you",
+        "why": "Epictetus's main example: the insult is theirs, but the judgement that you have been harmed is yours."
+       },
+       {
+        "name": "Whether a stranger is rude to you",
+        "group": "Not up to you",
+        "why": "Other people's actions belong on the second list."
+       },
+       {
+        "name": "Whether your train is cancelled",
+        "group": "Not up to you",
+        "why": "Events in the world are not your doing."
+       },
+       {
+        "name": "Whether you treat the train staff decently",
+        "group": "Up to you",
+        "why": "Your own conduct towards others is always on the first list."
+       },
+       {
+        "name": "Your health next year",
+        "group": "Not up to you",
+        "why": "The Stoics put the body on the second list. Exercise is up to you; the result is not."
+       },
+       {
+        "name": "Whether you keep a promise you made",
+        "group": "Up to you",
+        "why": "Keeping your word is an act of your own will, whatever it costs."
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The Stoics illustrated the division with an archer. The archer can choose a good bow, practise, aim and release well. Once the arrow is in the air, a gust of wind may carry it off the target. A good archer's aim is to shoot well, not to hit; hitting is welcome, but it is not the archer's achievement. In the same way, the Stoics said, you should aim at acting well and treat the outcome as something you would prefer but do not need."
+    },
+    {
+     "type": "text",
+     "text": "Stockdale found the distinction practical. The jailers could break his leg, which they did, but they could not make him a different man without his consent. He also noticed which of his fellow prisoners broke down. In an interview for a business book in 2001 he said it was the optimists, who kept telling themselves they would be home by Christmas, then by Easter, and \"died of a broken heart\" when they were not. Their hope had been placed in something not up to them."
+    }
+   ]
+  },
+  {
+   "title": "Emotions are judgements",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "\"It is not things that disturb us,\" Epictetus wrote, \"but our judgements about things.\" Death is not terrible, he went on; if it were, Socrates would have found it so. The terror lies in the judgement that death is terrible. The Stoics held that emotions such as anger, fear and grief are not storms that happen to us but judgements we make, often quickly and without noticing: that something bad has happened, and that it is right to react in this way. Since the judgement is ours, it can be examined and, if it is false, withdrawn."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Epictetus's claim about emotions. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "judgement",
+      "ask": "A colleague takes credit for your work in a meeting, and you are furious. What mainly causes the anger?",
+      "choices": [
+       "What they did",
+       "What you judged it to mean",
+       "Both, about equally",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the common view, that events cause feelings directly. The Stoics would ask why the same event leaves another person calm.",
+       "You chose the Stoic answer. Modern cognitive therapy is built on a version of it.",
+       "You chose a view many modern psychologists hold: events and appraisals both shape an emotion, and appraisals can be changed.",
+       "The question is still studied, in psychology as much as in philosophy."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "This leads to the most common misunderstanding of the Stoics. In English *stoic* has come to mean unemotional, someone who keeps a stiff upper lip. The Stoics did not want people to suppress feelings while still holding the judgements behind them, and they did not think a wise person feels nothing. They distinguished harmful passions, built on false judgements, from good feelings such as joy, caution and goodwill, which a wise person has in plenty. Marcus Aurelius's notebook is full of affection and gratitude: its first book is a list of what he owed to each of his family and teachers."
+    },
+    {
+     "type": "text",
+     "text": "In 1955 the American psychologist Albert Ellis began a form of therapy built on the idea that people are disturbed less by events than by their beliefs about them, and he often quoted Epictetus. A few years later Aaron Beck developed cognitive therapy, now cognitive behavioural therapy or CBT, which trains patients to notice automatic thoughts and test whether they are true. Beck and his co-authors wrote in 1979 that \"the philosophical origins of cognitive therapy can be traced back to the Stoic philosophers\". CBT has been tested in hundreds of clinical trials and is one of the standard treatments for depression and anxiety."
+    }
+   ]
+  },
+  {
+   "title": "Too accepting",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The oldest objection to the Stoics is that their advice suits the powerful. If only your own will matters, and prison, poverty and pain are not truly bad, then a slave has no complaint against slavery and a ruler has no reason to fix the prisons. Epictetus told his students that a slave who judged correctly was freer than an emperor who did not. Seneca told his friend Lucilius to treat his slaves as human beings and eat with them, but neither he nor any other Stoic argued that slavery should end. Marcus Aurelius, the philosopher emperor, ruled while Christians were executed in Gaul in AD 177."
+    },
+    {
+     "type": "text",
+     "text": "Stoics reply that the objection confuses two things. The dichotomy of control is about where a person's own good lies, not about whether to act. The Stoics held that human beings are citizens of the world with duties to one another, and that justice is one of the four main virtues, with wisdom, courage and self-control. Acting against injustice is up to you; succeeding is not. Stockdale did not accept his imprisonment quietly. He organised resistance, and in 1969, to avoid being filmed for propaganda, he beat his own face with a stool so badly that his captors could not use him.[^stool]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The objection, in modern form. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "stoic-injustice",
+      "ask": "Does focusing on what is up to you make people too ready to put up with injustice?",
+      "choices": [
+       "Yes: it tells people to change their attitudes instead of their circumstances",
+       "No: it frees them to act without being crushed by the result",
+       "It depends on the person using it",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the critics' side. Some writers make the same complaint about workplace wellbeing courses that teach staff to cope with conditions instead of changing them.",
+       "You chose the Stoics' reply, and Stockdale's example is their best evidence.",
+       "Many modern Stoics would agree: the idea can be used as a crutch or as a discipline.",
+       "Both readings have a long history, and the debate goes on in books about modern Stoicism."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Stoic ethics is very much alive, though more as a practice than as a theory argued over in philosophy departments. Through CBT its central idea, that emotions depend on judgements that can be examined, is used in clinics every day. Books on Stoicism for modern readers have sold in large numbers since the 2010s, and the Stoic idea of a citizen of the world is one ancestor of modern cosmopolitanism, the view that our duties reach beyond our own country."
+    },
+    {
+     "type": "text",
+     "text": "The full Stoic claim that virtue is the only good, so that pain, poverty and the death of a child are not bad at all, has few defenders; most philosophers who admire the Stoics keep the method and soften the doctrine. Stoic physics is abandoned. The Stoics thought the universe was a living being whose soul was a fiery breath, and that it burns up in a great fire and is reborn, over and over, in exactly the same way. Diogenes is remembered as a character more than as a thinker, though his habit of testing every custom by asking whether it serves any purpose has never gone out of fashion."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the Cynics and Stoics",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "According to Epictetus, which of these is up to you?",
+        "choices": [
+         "The judgement you make about an insult",
+         "Whether people respect you",
+         "Whether you stay healthy",
+         "Whether your work is rewarded"
+        ],
+        "answer": 0,
+        "why": "Opinion, impulse, desire and aversion are up to us; body, property, reputation and office are not."
+       },
+       {
+        "ask": "What does the Stoic archer show?",
+        "choices": [
+         "A person's aim should be to act well, since the result is never fully in their power",
+         "Practice always brings success in the end, if the effort is great enough",
+         "Only the result matters, since nobody praises an archer who misses",
+         "A wise person avoids any task whose outcome is uncertain"
+        ],
+        "answer": 0,
+        "why": "The archer controls the shot but not the wind. The Stoic aim is to shoot well and to treat hitting as preferred but not needed."
+       },
+       {
+        "ask": "Which statement about the Stoics and emotion is accurate?",
+        "choices": [
+         "They held that harmful passions rest on false judgements, and valued good feelings such as joy",
+         "They taught that a wise person should feel nothing at all",
+         "They thought emotions are storms that reason can only wait out",
+         "They said emotions should be hidden from others but kept in private"
+        ],
+        "answer": 0,
+        "why": "Stoic means unemotional only in modern English. The Stoics wanted false judgements corrected, not feelings suppressed."
+       },
+       {
+        "ask": "Why do historians of psychology link CBT to the Stoics?",
+        "choices": [
+         "Its founders drew on the Stoic idea that beliefs about events shape emotions",
+         "It uses the Stoic list of four virtues to diagnose patients",
+         "It asks patients to accept that nothing is up to them",
+         "It was first developed by philosophers who called themselves Stoics"
+        ],
+        "answer": 0,
+        "why": "Ellis quoted Epictetus, and Beck wrote that cognitive therapy's philosophical origins lie with the Stoics."
+       },
+       {
+        "ask": "A critic says Stoicism teaches people to accept injustice. What is the Stoics' best reply?",
+        "choices": [
+         "Justice is a virtue, and acting against injustice is up to you even if success is not",
+         "Injustice is not real, since only virtue is good or bad",
+         "The powerful are always wise, so their decisions should be accepted",
+         "A person who suffers injustice must have judged wrongly about it"
+        ],
+        "answer": 0,
+        "why": "The dichotomy of control is about where your good lies, not a reason to do nothing. The Stoics counted justice among the four main virtues."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Diogenes the Cynic lived on almost nothing.** The stories about him are mostly legends, but they carry the idea that the good life needs little outside yourself.",
+  "**Stoicism came from the Cynics through Crates and Zeno.** Zeno taught in the Painted Porch in Athens about 300 BC, and the stoa gave the school its name.",
+  "**Some things are up to you and some are not.** Epictetus put your judgements and choices on the first list and your body, property and reputation on the second.",
+  "**Aim to act well, not to succeed.** Like an archer, you control the shot but not the wind.",
+  "**Emotions rest on judgements.** \"It is not things that disturb us, but our judgements about things.\"",
+  "**Stoic does not mean unemotional.** The Stoics valued joy and goodwill and wanted false judgements corrected, not feelings suppressed.",
+  "**Cognitive behavioural therapy draws on Stoicism.** Ellis and Beck both traced their methods to the Stoic idea that beliefs shape emotions.",
+  "**The oldest objection is that Stoicism accepts injustice.** Stoics reply that justice is a virtue and acting against injustice is always up to you."
+ ],
+ "footnotes": {
+  "stockdale": {
+   "kind": "technical",
+   "title": "Stockdale's own account",
+   "text": "Stockdale told the story in a 1993 lecture published as Courage Under Fire: Testing Epictetus's Doctrines in a Laboratory of Human Behavior. He received the Medal of Honor in 1976 and ran for vice president of the United States in 1992."
+  },
+  "stool": {
+   "kind": "digression",
+   "title": "The stool",
+   "text": "Stockdale was due to be paraded before foreign journalists as a well-treated prisoner. He cut his scalp with a razor and beat his face with a wooden stool until it was swollen shut, so that he could not be shown."
+  },
+  "jar": {
+   "kind": "digression",
+   "title": "Not a barrel",
+   "text": "Paintings often show Diogenes in a wooden barrel, but the Greek word is pithos, a large clay jar used for storing wine, oil or grain, big enough for a person to lie in."
+  },
+  "meditations": {
+   "kind": "technical",
+   "title": "A notebook, not a book",
+   "text": "Marcus Aurelius wrote the Meditations for himself, with no sign that he meant anyone else to read them. The title was added later; the manuscripts call the work \"To himself\"."
+  }
+ }
+}

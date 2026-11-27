@@ -1,0 +1,342 @@
+{
+ "id": "epicurus",
+ "n": 5,
+ "title": "How little do you need to be happy?",
+ "teaches": "Epicurus's garden, pleasure as the absence of pain, sorting desires, \"death is nothing to us\", and Lucretius's symmetry argument",
+ "parts": [
+  {
+   "title": "A little pot of cheese",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Some time after 306 BC a man in Athens wrote to a friend asking for a present. \"Send me a little pot of cheese,\" he wrote, \"so that I may have a feast whenever I like.\" The writer was Epicurus, whose name now means a lover of fine food and wine. In English an *epicure* is a gourmet. The man himself lived mostly on bread and water, and thought a pot of cheese was a luxury.[^sources]"
+    },
+    {
+     "type": "text",
+     "text": "Epicurus was born in 341 BC on the island of Samos, to Athenian parents, about twenty years after Plato's death. He taught in Asia Minor and then moved to Athens, where he bought a house with a garden outside the city walls. The school he ran there was known simply as the Garden. Unlike the Academy it took women and slaves as members, and its members lived together, ate simply and talked. According to the Roman writer Seneca, a sign over the gate read: \"Stranger, here you will do well to stay; here our highest good is pleasure.\""
+    },
+    {
+     "type": "text",
+     "text": "In this lesson we follow Epicurus's answer to the question Aristotle asked in lesson 4, what makes a life go well. Epicurus answered with one word, pleasure, and then spent his life explaining that he meant something very different from what his critics assumed."
+    }
+   ]
+  },
+  {
+   "title": "Pleasure, properly understood",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A view on which pleasure is the only thing good in itself, and pain the only thing bad in itself, is called [[hedonism|claim]], from the Greek *hēdonē*, pleasure. Epicurus was a hedonist, and his enemies said that his Garden was a place of feasting and orgies. He wrote to a student called Menoeceus to correct them: \"When we say that pleasure is the goal, we do not mean the pleasures of the profligate or the pleasures of sensuality. We mean the absence of pain in the body and of trouble in the soul.\""
+    },
+    {
+     "type": "text",
+     "text": "The Epicureans distinguished two kinds of pleasure. One is the pleasure of a process, such as eating when you are hungry or scratching an itch. The other is the pleasure of a state: being fed, warm and free of worry. Epicurus thought the second kind was the highest, and he had names for it. Freedom from bodily pain is *aponia*; freedom from mental disturbance is *ataraxia*, often translated as tranquillity. Once you have both, he argued, your pleasure cannot be increased, only varied. A feast after a meal of bread does not make you more free of hunger."
+    },
+    {
+     "type": "text",
+     "text": "This makes Epicurean hedonism unusually cheap. The things that bring tranquillity, he thought, are easy to get: simple food, shelter, a clear understanding of the world and, above all, friends. \"Of all the things that wisdom provides for the happiness of a whole life,\" he wrote, \"by far the greatest is friendship.\""
+    }
+   ]
+  },
+  {
+   "title": "Sorting desires",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most unhappiness, on Epicurus's account, comes from wanting the wrong things. In the *Letter to Menoeceus* and his short list of *Principal Doctrines* he sorts desires into three kinds. Some are **natural and necessary**: for food when hungry, for shelter, for friendship. They are easy to satisfy and painful to go without. Some are **natural but not necessary**: for rich food, for sex, for a particular comfort. They are fine to enjoy when they come but not worth chasing. The rest are **empty**: for wealth beyond need, for fame, for power, for a crown or a statue. These come from mistaken beliefs rather than from nature, and they have no limit, so they can never be satisfied."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Epicurus's three kinds of desire, on eight modern cases. His sorting follows how easily a desire is satisfied and what goes wrong if it is not.",
+     "task": "Sort all eight",
+     "goal": "sorted",
+     "options": {
+      "ask": "Which kind of desire is this?",
+      "groups": [
+       {
+        "name": "Natural and necessary",
+        "color": "good"
+       },
+       {
+        "name": "Natural, not necessary"
+       },
+       {
+        "name": "Empty"
+       }
+      ],
+      "items": [
+       {
+        "name": "Wanting a meal after a day without food",
+        "group": "Natural and necessary",
+        "why": "Hunger is natural, easily ended, and painful if it is not."
+       },
+       {
+        "name": "Wanting a friend to talk to after a bad week",
+        "group": "Natural and necessary",
+        "why": "Epicurus put friendship first among the things a happy life needs."
+       },
+       {
+        "name": "Wanting a warm coat for the winter",
+        "group": "Natural and necessary",
+        "why": "Shelter from cold is a need, and a plain coat meets it as well as an expensive one."
+       },
+       {
+        "name": "Wanting a tasting menu at a famous restaurant",
+        "group": "Natural, not necessary",
+        "why": "The desire for food is natural, but this way of meeting it adds variety, not freedom from hunger."
+       },
+       {
+        "name": "Wanting to sleep with someone you find attractive",
+        "group": "Natural, not necessary",
+        "why": "Epicurus counted sexual desire as natural but warned that it rarely does anyone good if chased at a cost."
+       },
+       {
+        "name": "Wanting a bigger house than your neighbours",
+        "group": "Empty",
+        "why": "It comes from comparison, not need, and no house is ever big enough to end it."
+       },
+       {
+        "name": "Wanting a million followers online",
+        "group": "Empty",
+        "why": "Fame is Epicurus's standard example of an empty desire: it has no natural limit and depends on other people."
+       },
+       {
+        "name": "Wanting your name on a building after you die",
+        "group": "Empty",
+        "why": "Statues and honours after death were his examples. You will not be there to enjoy them."
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The sorting is practical advice, and also an argument. If the desires that matter are easy to satisfy and the hard ones are empty, then happiness is mostly a matter of judging your desires correctly, and almost anyone can have it. A rich man who chases more is worse off than a poor man who wants only what he has. One of the sayings collected under his name puts it in a line: \"Nothing is enough for someone for whom enough is too little.\""
+    }
+   ]
+  },
+  {
+   "title": "Death is nothing to us",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The deepest trouble of the mind, Epicurus thought, was fear: fear of the gods and fear of death. His cure for both came from his physics. Following the earlier thinker Democritus, he held that everything is made of tiny, indivisible particles moving in empty space, which the Greeks called *atoms* (\"uncuttable\"). The soul is made of atoms too, spread through the body, and when the body dies they scatter. The gods exist, but they live in perfect tranquillity between the worlds and take no interest in us, so they neither reward nor punish.[^swerve]"
+    },
+    {
+     "type": "text",
+     "text": "From this he drew the argument he is most famous for. \"Death is nothing to us,\" he wrote to Menoeceus, \"since when we exist, death is not present, and when death is present, we do not exist.\" Good and bad, he reasoned, consist in sensation, pleasure and pain. Death is the end of sensation. So being dead cannot be bad for the person who is dead, because there is no longer any person for it to be bad for. Fearing it is like fearing a pain that will never be felt."
+    },
+    {
+     "type": "text",
+     "text": "Two centuries later the Roman poet Lucretius set out Epicurus's whole system in a long poem, *On the Nature of Things* (about 55 BC), and added an argument of his own. Look back, he wrote, at the endless time before you were born. It did not trouble you then, and it does not trouble you now. The time after your death is a mirror of it, held up by nature to show you what is coming. Since you do not regret the eternity before your birth, you have no reason to fear the eternity after your death. Philosophers call this the **symmetry argument**."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Lucretius's mirror. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "symmetry",
+      "ask": "You were not around for the billions of years before you were born, and that does not bother you. Should the billions of years after you die bother you any more?",
+      "choices": [
+       "No: the two are the same, so there is nothing to fear",
+       "Yes: death takes away a future you would have had",
+       "They differ, but neither is bad for me",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Lucretius's side. Few philosophers accept it in full, though many think it is harder to answer than it looks.",
+       "You chose the most common reply, the deprivation account. Thomas Nagel defended it in 1970: death is bad for you because it takes away the good things a longer life would have held.",
+       "You chose a middle line. Some philosophers accept that the two times differ, since we care about the future in a way we do not about the past, and still deny that either is bad for us.",
+       "Most people find the argument hard to refute and hard to believe, which is why it is still discussed."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The main reply came from the American philosopher Thomas Nagel in an essay called \"Death\" (1970). Something can be bad for you, he argued, without your ever feeling it: a friend who betrays you behind your back has harmed you even if you never find out. Death is bad in the same way, because it deprives you of the good things you would have had if you had lived longer. That also answers Lucretius. You could not have been born much earlier, since a person born decades earlier from a different egg and sperm would not be you, but you could die much later. So the time after your death takes something from you that the time before your birth never did."
+    }
+   ]
+  },
+  {
+   "title": "A poem in a monastery",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Epicureanism lasted for six centuries and then almost vanished. Christian writers attacked it for denying that the soul survives and that God cares about human lives, and most of Epicurus's three hundred books were lost. Our main sources are three of his letters and the *Principal Doctrines*, copied into a biography by Diogenes Laertius in the 3rd century AD, and Lucretius's poem."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "How Epicurus's ideas reached the modern world. Most of his own books were lost; Lucretius's poem survived in a few copies.",
+     "options": {
+      "title": "Epicurus and his readers",
+      "spacing": "even",
+      "events": [
+       {
+        "at": -341,
+        "label": "Epicurus born on Samos",
+        "when": "341 BC"
+       },
+       {
+        "at": -306,
+        "label": "The Garden opens in Athens",
+        "when": "about 306 BC"
+       },
+       {
+        "at": -270,
+        "label": "Epicurus dies",
+        "when": "270 BC"
+       },
+       {
+        "at": -55,
+        "label": "Lucretius's poem",
+        "when": "about 55 BC"
+       },
+       {
+        "at": 79,
+        "label": "Vesuvius buries a library at Herculaneum",
+        "when": "AD 79"
+       },
+       {
+        "at": 1417,
+        "label": "Poggio finds Lucretius",
+        "when": "1417",
+        "color": "good",
+        "bold": true
+       },
+       {
+        "at": 1819,
+        "label": "Jefferson: \"I too am an Epicurean\"",
+        "when": "1819"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "In 1417 the Italian book hunter Poggio Bracciolini found a copy of Lucretius's poem in a German monastery and had it copied. Its picture of a world of atoms with no plan behind it was read by scientists and freethinkers from Galileo's time onwards, and the poem became one of the routes by which atomism came back into European thought. Thomas Jefferson owned several copies, and in 1819 he wrote to a friend, \"I too am an Epicurean,\" adding that he thought Epicurus's ethics contained \"everything rational\" in the moral philosophy of Greece and Rome."
+    },
+    {
+     "type": "text",
+     "text": "Epicurus died in 270 BC, after two weeks of pain from a kidney stone. On his last day he wrote to a friend that he was writing \"on this blissful day, which is also the last of my life\", and that the pain was balanced by the joy he felt in remembering their conversations.[^idomeneus]"
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Hedonism as a full theory of the good life is respected history. Few philosophers now think pleasure is the only thing good in itself, partly because of an objection lesson 17 returns to: most people say they would not plug into a machine that gave them any pleasant experience they wanted, which suggests they value something besides how life feels. Epicurus's version, in which the highest pleasure is tranquillity rather than excitement, has more admirers than followers."
+    },
+    {
+     "type": "text",
+     "text": "The argument about death is still argued over. Nagel's deprivation account is the most common view among philosophers who write on the subject, but the symmetry argument has never been put to rest, and articles on it still appear every year. Epicurus's sorting of desires lives on outside philosophy, in psychology's research on materialism and wellbeing and in the advice to want less rather than earn more."
+    },
+    {
+     "type": "text",
+     "text": "Epicurus's atomism has a mixed record. Matter is made of atoms, as he said, though modern atoms can be cut, and nothing in physics matches the random \"swerve\" he added to make room for free will. His view that the gods exist but take no interest in us has no defenders. The search for his lost works goes on: the charred scrolls of a library at Herculaneum, buried by Vesuvius in AD 79 and full of books by the Epicurean Philodemus, are now being read with X-ray scans and machine learning, and in 2024 the first passage read this way turned out to be about pleasure.[^herculaneum]"
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Epicurus",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What did Epicurus mean by saying pleasure is the goal of life?",
+        "choices": [
+         "Freedom from bodily pain and from trouble of the mind",
+         "As much varied and intense pleasure as one can find",
+         "Pleasure that comes from serving the gods of the city",
+         "The pleasure of knowing one has acted from duty"
+        ],
+        "answer": 0,
+        "why": "He wrote to Menoeceus that he did not mean the pleasures of the profligate but the absence of pain in the body and of trouble in the soul."
+       },
+       {
+        "ask": "Someone gives up a well-paid job they dislike to earn less and spend evenings with friends. How would Epicurus judge the change?",
+        "choices": [
+         "Wise: friendship is necessary, and money beyond need feeds an empty desire",
+         "Unwise: money buys the varied pleasures that make life good",
+         "Neutral: only the pleasure of the moment counts, not the choice",
+         "Unwise: a person's duty is to the city, not to their friends"
+        ],
+        "answer": 0,
+        "why": "Friendship was first among the natural and necessary goods, and wealth beyond need is an empty desire with no limit."
+       },
+       {
+        "ask": "What is the central step in Epicurus's argument that death is nothing to us?",
+        "choices": [
+         "Bad things are bad because they are felt, and the dead feel nothing",
+         "The soul survives death and goes to a better place",
+         "The gods will not punish anyone after death",
+         "Death comes to everyone, so it is foolish to fight it"
+        ],
+        "answer": 0,
+        "why": "Good and bad consist in sensation. Death is the end of sensation, so it cannot be bad for the one who is dead."
+       },
+       {
+        "ask": "Lucretius says the time after death is a mirror of the time before birth. Which reply does Thomas Nagel give?",
+        "choices": [
+         "You could have died later, but you could not have been born much earlier",
+         "You did in fact suffer before you were born, though you do not remember it",
+         "Both times are bad for you, so you should regret your late birth too",
+         "The mirror shows the future is shorter than the past, so it matters less"
+        ],
+        "answer": 0,
+        "why": "A later death would give you more life, while an earlier birth would make someone else. So death deprives you of something that the time before birth did not."
+       },
+       {
+        "ask": "Which part of Epicurus's thought is most clearly abandoned today?",
+        "choices": [
+         "His gods who live between the worlds and take no interest in us",
+         "His view that death is not bad for the person who dies",
+         "His advice to want less instead of earning more",
+         "His idea that matter is made of tiny particles"
+        ],
+        "answer": 0,
+        "why": "The symmetry argument and his view of death are still argued over, and his sorting of desires lives on in psychology. Matter is made of atoms, though not his kind. His gods have no defenders."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Epicurus founded the Garden in Athens about 306 BC.** It admitted women and slaves, and its members lived simply and talked philosophy.",
+  "**For Epicurus pleasure was the goal, but pleasure meant tranquillity.** The highest pleasure is freedom from bodily pain and from trouble of the mind, not a stream of excitements.",
+  "**Desires come in three kinds.** Natural and necessary ones are easy to satisfy, natural but unnecessary ones can be enjoyed without being chased, and empty ones such as fame and wealth have no limit.",
+  "**Friendship was the greatest good he named.** Of all the things wisdom provides for a happy life, he wrote, friendship is by far the greatest.",
+  "**\"Death is nothing to us.\"** Good and bad consist in sensation, death ends sensation, so being dead cannot be bad for the dead.",
+  "**Lucretius added the symmetry argument.** The time after death mirrors the time before birth, which nobody regrets.",
+  "**Nagel's deprivation account is the main reply.** Death is bad because it takes away the good a longer life would have held, and a later death is possible in a way an earlier birth is not.",
+  "**Epicurus's ideas survived mostly through one poem.** Poggio's 1417 find of Lucretius brought atomism back into European thought."
+ ],
+ "footnotes": {
+  "sources": {
+   "kind": "technical",
+   "title": "The cheese and the sign",
+   "text": "The cheese letter is quoted by Diogenes Laertius in his life of Epicurus (book 10 of his Lives of the Eminent Philosophers). The sign over the gate is reported by Seneca in his Letter 21, written more than three centuries later, so it may be a later story."
+  },
+  "swerve": {
+   "kind": "digression",
+   "title": "The swerve",
+   "text": "If atoms only fell in straight lines and bounced off one another, every event would be fixed in advance, including every human choice. Epicurus said that atoms sometimes swerve a tiny distance for no cause, which he thought left room for free will. Critics in the ancient world already called this an ad hoc patch; lesson 12 returns to the question of whether free will needs anything of the kind."
+  },
+  "idomeneus": {
+   "kind": "digression",
+   "title": "The last letter",
+   "text": "The letter is preserved by Diogenes Laertius and addressed to Idomeneus, one of Epicurus's students. Epicurus asks him to look after the children of another student, Metrodorus, who had died a few years earlier."
+  },
+  "herculaneum": {
+   "kind": "technical",
+   "title": "Reading burned books",
+   "text": "The Villa of the Papyri at Herculaneum held about 1,800 scrolls, carbonised by the eruption. In the Vesuvius Challenge, a prize contest run from 2023, students used X-ray scans and machine learning to pick out ink on scrolls that cannot be unrolled. The passage announced in February 2024, probably by Philodemus, discusses whether scarcity makes pleasures greater."
+  }
+ }
+}
