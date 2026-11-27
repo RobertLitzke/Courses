@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 42 | 0 |
-| [Fabric & Form](#textiles) | 0.1 beta | 17 | 10 | 1 | 17 | 17 | 0 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 19 | 8 | 3 | 19 | 19 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 42 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 10 lessons to write, 1 to read through, 17 to copy-edit, 17 to fact-check |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 8 lessons to write, 3 to read through, 19 to copy-edit, 19 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -617,8 +617,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 15 | What was a factory day like? (`mill`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Water power before steam; Lombe's silk mill and Arkwright's Cromford; shifts and locked gates; women and children as the early workforce; the power loom and the handloom weavers; the Luddites; the factory clock. |
 | 16 | Why did the machines come to Lancashire and not Bengal? (`why-britain`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Why Britain mechanised cotton first: Allen's high wages and cheap coal, Humphries and Schneider on spinners' earnings, Pomeranz on coal and colonies, Parthasarathi on Indian competition and the British state, Mokyr on useful knowledge. |
 | 17 | How did a machine to clean cotton expand slavery? (`gin`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Upland cotton's sticky seeds and Whitney's saw gin; Indian Removal and the domestic slave trade; climate as the limit and slavery as the labour system; the debate on slavery and industrial capitalism. |
-| 18 | How did a loom learn to read? (`jacquard`) |  | planned, listed as coming |  | Jacquard's punched cards, the Lyon silk weavers, and what Babbage, Lovelace and Hollerith took from them. |
-| 19 | Why didn't cotton save the Confederacy? (`king-cotton`) |  | planned, listed as coming |  | King Cotton diplomacy, the glut, the embargo and blockade, the Lancashire cotton famine, and cotton from India and Egypt. |
+| 18 | How did a loom learn to read? (`jacquard`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | The drawloom's limits; Jacquard's punched-card attachment (shown 1801, completed 1804 to 1805) and its predecessors; how a Jacquard head works; the Lyon silk weavers' revolts of 1831 and 1834; what Babbage, Lovelace and Hollerith took from the cards, and why the loom stored control but did not compute. |
+| 19 | Why didn't cotton save the Confederacy? (`king-cotton`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | King Cotton diplomacy; the glut of 1860 and full Liverpool warehouses; the informal Southern embargo and the Union blockade; the Lancashire cotton famine and relief; historians disagree on Lancashire opinion; the shift to Indian, Egyptian and Brazilian cotton. |
 | 20 | How did a failed malaria cure end natural dyes? (`mauve`) |  | planned, listed as coming |  | Perkin's mauve, coal-tar dyes, synthetic alizarin and indigo, and the end of madder fields and indigo plantations. |
 | 21 | Why did Gandhi spin every day? (`khadi`) |  | planned, listed as coming |  | India's mills and handlooms, the deindustrialisation debate, swadeshi, and homespun cloth as politics. |
 | 22 | How did a loom company become Toyota? (`toyoda`) |  | planned, listed as coming |  | Japan's silk exports, the Tomioka mill and its women workers, Osaka's cotton mills, and Toyoda's automatic loom. |

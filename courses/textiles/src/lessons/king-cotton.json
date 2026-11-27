@@ -1,0 +1,563 @@
+{
+  "id": "king-cotton",
+  "n": 19,
+  "title": "Why didn't cotton save the Confederacy?",
+  "teaches": "King Cotton diplomacy; the glut of 1860 and full Liverpool warehouses; the informal Southern embargo and the Union blockade; the Lancashire cotton famine and relief; historians disagree on Lancashire opinion; the shift to Indian, Egyptian and Brazilian cotton",
+  "parts": [
+    {
+      "title": "Cotton is king",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On 4 March 1858 Senator James Henry Hammond of South Carolina told the United States Senate what would happen if the North ever went to war with the South. Without Southern cotton, he said, British mills would stop, and \"England would topple headlong and carry the whole civilized world with her.\" He went on: \"No, you dare not make war on cotton. No power on earth dares make war upon it. Cotton is king.\""
+        },
+        {
+          "type": "text",
+          "text": "Hammond had numbers on his side. Lesson 17 showed that by the 1850s about three quarters of the raw cotton used in British mills came from the American South, and cotton cloth was Britain's largest export. Lancashire's mills employed about half a million people, and many more depended on the trade. When eleven Southern states left the Union in 1860 and 1861 and formed the Confederacy, its leaders expected that Britain and France would need their cotton badly enough to recognise the new nation and, if necessary, break the Union's blockade of its ports. Neither country did. In this lesson we look at why the strategy failed and what it cost the people who worked in Lancashire's mills."
+        }
+      ]
+    },
+    {
+      "title": "Too much cotton",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first problem for the Confederacy was timing. The American crops of 1859 and 1860 were the largest ever grown, and British imports of raw cotton reached a record in 1860. Mills had spun and woven at full speed, and by 1861 the warehouses of Liverpool and Manchester held large stocks of both raw cotton and unsold cloth, much of it for markets in India and China that were already oversupplied. A shortage of raw cotton in 1861 did not alarm many mill owners. Some were glad of a reason to run short time and sell their stocks at higher prices."
+        },
+        {
+          "type": "text",
+          "text": "The second problem was the Confederacy's own policy. Without any law requiring it, planters, merchants and local committees kept most of the 1861 crop off the market, holding it on plantations and in Southern ports so that Britain would feel the shortage sooner. This informal **embargo** was meant to show Britain its dependence. At the same time President Lincoln declared a **blockade** of Southern ports in April 1861. The blockade was weak at first, and many small, fast ships, called blockade runners, slipped through it, but it grew stronger every year. Southern cotton exports fell from millions of bales to a small fraction. Some planters burned their cotton in 1862 rather than let Union troops take it."
+        },
+        {
+          "type": "text",
+          "text": "The embargo and the blockade had the effect the South wanted on prices, but too late and in the wrong way. By the time the old stocks ran out in 1862, British opinion had moved, and the shortage pushed British buyers to look for other suppliers instead of to recognise the Confederacy."
+        }
+      ]
+    },
+    {
+      "title": "The cotton famine",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The **Lancashire cotton famine** began in earnest in 1862. Mills went on short time and then closed. By the end of 1862, about a quarter of a million cotton workers were wholly out of work, and many more worked only a few days a week. Families sold their furniture, pawned their clothes, and turned to the Poor Law guardians, who ran relief for the destitute, and to charities raised across Britain and abroad, such as the Lancashire and Cheshire Operatives' Relief Fund. In early 1863 a ship from New York, the *George Griswold*, arrived in Liverpool with flour and other food sent by Americans in the North for Lancashire's workers."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "Raw cotton imported into Britain by source, and its price, 1855 to 1870. Figures rounded and approximate, from 19th-century trade returns.",
+          "options": {
+            "from": 1855,
+            "to": 1870,
+            "ticks": [
+              1855,
+              1860,
+              1865,
+              1870
+            ],
+            "panels": [
+              {
+                "title": "Raw cotton imported into Britain",
+                "unit": "million pounds",
+                "lines": [
+                  {
+                    "name": "US",
+                    "color": "usa",
+                    "points": [
+                      [
+                        1855,
+                        680
+                      ],
+                      [
+                        1856,
+                        780
+                      ],
+                      [
+                        1857,
+                        650
+                      ],
+                      [
+                        1858,
+                        830
+                      ],
+                      [
+                        1859,
+                        960
+                      ],
+                      [
+                        1860,
+                        1120
+                      ],
+                      [
+                        1861,
+                        820
+                      ],
+                      [
+                        1862,
+                        14
+                      ],
+                      [
+                        1863,
+                        6
+                      ],
+                      [
+                        1864,
+                        14
+                      ],
+                      [
+                        1865,
+                        140
+                      ],
+                      [
+                        1866,
+                        520
+                      ],
+                      [
+                        1867,
+                        530
+                      ],
+                      [
+                        1868,
+                        570
+                      ],
+                      [
+                        1869,
+                        460
+                      ],
+                      [
+                        1870,
+                        720
+                      ]
+                    ],
+                    "at": [
+                      1860,
+                      1120
+                    ]
+                  },
+                  {
+                    "name": "India",
+                    "color": "india",
+                    "points": [
+                      [
+                        1855,
+                        145
+                      ],
+                      [
+                        1856,
+                        180
+                      ],
+                      [
+                        1857,
+                        250
+                      ],
+                      [
+                        1858,
+                        130
+                      ],
+                      [
+                        1859,
+                        190
+                      ],
+                      [
+                        1860,
+                        200
+                      ],
+                      [
+                        1861,
+                        370
+                      ],
+                      [
+                        1862,
+                        390
+                      ],
+                      [
+                        1863,
+                        430
+                      ],
+                      [
+                        1864,
+                        510
+                      ],
+                      [
+                        1865,
+                        450
+                      ],
+                      [
+                        1866,
+                        620
+                      ],
+                      [
+                        1867,
+                        500
+                      ],
+                      [
+                        1868,
+                        490
+                      ],
+                      [
+                        1869,
+                        510
+                      ],
+                      [
+                        1870,
+                        340
+                      ]
+                    ],
+                    "at": [
+                      1864,
+                      510
+                    ]
+                  },
+                  {
+                    "name": "Egypt",
+                    "color": "egypt",
+                    "points": [
+                      [
+                        1855,
+                        33
+                      ],
+                      [
+                        1856,
+                        37
+                      ],
+                      [
+                        1857,
+                        24
+                      ],
+                      [
+                        1858,
+                        38
+                      ],
+                      [
+                        1859,
+                        38
+                      ],
+                      [
+                        1860,
+                        44
+                      ],
+                      [
+                        1861,
+                        41
+                      ],
+                      [
+                        1862,
+                        60
+                      ],
+                      [
+                        1863,
+                        94
+                      ],
+                      [
+                        1864,
+                        126
+                      ],
+                      [
+                        1865,
+                        177
+                      ],
+                      [
+                        1866,
+                        135
+                      ],
+                      [
+                        1867,
+                        125
+                      ],
+                      [
+                        1868,
+                        133
+                      ],
+                      [
+                        1869,
+                        132
+                      ],
+                      [
+                        1870,
+                        142
+                      ]
+                    ],
+                    "at": [
+                      1865.6,
+                      177
+                    ]
+                  },
+                  {
+                    "name": "Elsewhere",
+                    "color": "elsewhere",
+                    "points": [
+                      [
+                        1855,
+                        31
+                      ],
+                      [
+                        1856,
+                        26
+                      ],
+                      [
+                        1857,
+                        41
+                      ],
+                      [
+                        1858,
+                        31
+                      ],
+                      [
+                        1859,
+                        34
+                      ],
+                      [
+                        1860,
+                        27
+                      ],
+                      [
+                        1861,
+                        27
+                      ],
+                      [
+                        1862,
+                        57
+                      ],
+                      [
+                        1863,
+                        135
+                      ],
+                      [
+                        1864,
+                        245
+                      ],
+                      [
+                        1865,
+                        220
+                      ],
+                      [
+                        1866,
+                        107
+                      ],
+                      [
+                        1867,
+                        113
+                      ],
+                      [
+                        1868,
+                        128
+                      ],
+                      [
+                        1869,
+                        119
+                      ],
+                      [
+                        1870,
+                        140
+                      ]
+                    ],
+                    "at": [
+                      1863.4,
+                      180
+                    ]
+                  }
+                ],
+                "max": 1200
+              },
+              {
+                "title": "Price of American cotton at Liverpool",
+                "unit": "pence per pound",
+                "lines": [
+                  {
+                    "name": "price",
+                    "color": "usa",
+                    "points": [
+                      [
+                        1855,
+                        5.9
+                      ],
+                      [
+                        1856,
+                        6.4
+                      ],
+                      [
+                        1857,
+                        7.7
+                      ],
+                      [
+                        1858,
+                        6.7
+                      ],
+                      [
+                        1859,
+                        6.7
+                      ],
+                      [
+                        1860,
+                        6.2
+                      ],
+                      [
+                        1861,
+                        8.5
+                      ],
+                      [
+                        1862,
+                        17.3
+                      ],
+                      [
+                        1863,
+                        23.3
+                      ],
+                      [
+                        1864,
+                        27.5
+                      ],
+                      [
+                        1865,
+                        19
+                      ],
+                      [
+                        1866,
+                        15.3
+                      ],
+                      [
+                        1867,
+                        10.8
+                      ],
+                      [
+                        1868,
+                        10.5
+                      ],
+                      [
+                        1869,
+                        12.1
+                      ],
+                      [
+                        1870,
+                        9.9
+                      ]
+                    ]
+                  }
+                ],
+                "max": 30
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The price of raw cotton more than tripled between 1860 and 1864. That did not help the workers, because their mills could not buy cotton at a price that let them sell cloth at a profit, and the substitutes were harder to work. In March 1863 relief recipients in Stalybridge rioted over cuts to their payments. Parliament passed a Public Works Act in 1863 that lent money to Lancashire towns to employ men on sewers, roads, reservoirs and parks, several of which are still in use."
+        }
+      ]
+    },
+    {
+      "title": "Historians disagree: what did Lancashire think?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "One version of the story became famous. On 31 December 1862, at a meeting in the Free Trade Hall, working men of Manchester adopted an address to Lincoln that supported the Union and the end of slavery, the day before his Emancipation Proclamation took effect. Lincoln replied on 19 January 1863, thanking them for their \"decisive utterances\" and calling their stand, while they suffered from the war, \"an instance of sublime Christian heroism which has not been surpassed in any age or in any country.\" A statue of Lincoln in Manchester carries words from the letter."
+        },
+        {
+          "type": "text",
+          "text": "In 1972 the historian Mary Ellison challenged this picture. Going through local newspapers, she found that many of the cotton towns, such as Ashton-under-Lyne, Oldham and Stalybridge, held meetings that passed motions for recognising the Confederacy or for British mediation to end the war, and that support for the South grew as the distress deepened. Later historians, including R. J. M. Blackett in *Divided Hearts* (2001), found active campaigning on both sides and argued that opinion varied by town, by trade and over time. Manchester's meeting was real, but it did not speak for all of Lancashire."
+        },
+        {
+          "type": "text",
+          "text": "Whatever the workers thought, the decision lay with the British government, and it came closest to intervening in the autumn of 1862, when the Cabinet discussed offering mediation. The Union victory at Antietam in September and Lincoln's preliminary Emancipation Proclamation that followed made the risks of siding with the South greater, and Britain stayed neutral. Recognising a slaveholding state that was at war with a country now fighting against slavery would have been unpopular across much of Britain, and a war with the United States would have endangered Canada, British shipping and the large trade in American grain."
+        }
+      ]
+    },
+    {
+      "title": "Cotton from everywhere else",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The longest-lasting effect of the war was on where the world's cotton was grown. British merchants and officials pushed for more cotton from India, Egypt, Brazil and elsewhere, and high prices did the rest. Indian cotton, often called Surat after the port that shipped it, had shorter fibres than American upland cotton (lesson 2 explains why staple length matters), and Lancashire spinners complained about it and adapted their machines to use it. Bombay boomed: its merchants made fortunes in 1863 and 1864, and a speculative bubble in Bombay shares collapsed in 1865 when the war ended."
+        },
+        {
+          "type": "text",
+          "text": "In Egypt, the governors Said and Ismail expanded the growing of long-staple cotton on irrigated land in the Nile delta, much of it by peasants under heavy pressure from the state. Egypt's cotton exports more than tripled during the war. When prices fell afterwards, the debts Ismail had run up for irrigation, railways and other projects became unpayable, and British and French control of Egypt's finances led to the British occupation of 1882."
+        },
+        {
+          "type": "text",
+          "text": "The historian Sven Beckert has called the cotton famine the first global raw materials crisis. After the war, American cotton returned, grown now by freedpeople and poor white farmers, many of them sharecroppers tied by debt to landlords and merchants, and by the 1870s American exports passed their pre-war level. But Lancashire and the governments behind it had learned to draw on several continents, and colonial governments from India to Africa promoted cotton growing for decades afterwards, a story lesson 26 takes up."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on King Cotton.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Why did the shortage of Southern cotton hit Britain later than Confederate leaders hoped?",
+                "choices": [
+                  "Record crops in 1859 and 1860 had left large stocks of raw cotton and unsold cloth in British warehouses",
+                  "Britain grew its own cotton",
+                  "The blockade was never enforced",
+                  "Britain had stopped making cotton cloth"
+                ],
+                "answer": 0,
+                "why": "The glut meant mills could run on stocks through 1861. By the time the shortage bit in 1862, opinion and policy had moved."
+              },
+              {
+                "ask": "The Confederacy held its 1861 crop off the market. What was this meant to do?",
+                "choices": [
+                  "Show Britain how much it depended on Southern cotton, so it would recognise the Confederacy",
+                  "Raise money for the Union",
+                  "Save cotton for Southern mills",
+                  "Lower the price of cotton in Liverpool"
+                ],
+                "answer": 0,
+                "why": "The informal embargo was a bet on leverage. Britain responded by drawing on other suppliers instead of intervening."
+              },
+              {
+                "ask": "The price of raw cotton tripled between 1860 and 1864. Why did that not help Lancashire's cotton workers?",
+                "choices": [
+                  "Mills could not sell cloth at a profit with such dear cotton, so they closed or ran short time",
+                  "Workers were paid in raw cotton",
+                  "The price rise was only in America",
+                  "Mills had already switched to wool"
+                ],
+                "answer": 0,
+                "why": "A high price for the raw material squeezed the mills, so they cut work. Unemployment and short time spread through the cotton towns."
+              },
+              {
+                "ask": "What did Mary Ellison find when she looked at local newspapers from the cotton towns?",
+                "choices": [
+                  "Many towns held meetings supporting recognition of the Confederacy or mediation, especially as distress grew",
+                  "Every town supported the Union",
+                  "No meetings were held",
+                  "Workers were not affected by the war"
+                ],
+                "answer": 0,
+                "why": "The Manchester address to Lincoln was real, but other towns passed pro-Southern motions. Later work found opinion varied by town and over time."
+              },
+              {
+                "ask": "What was the longest-lasting effect of the cotton famine?",
+                "choices": [
+                  "Cotton growing expanded in India, Egypt and elsewhere, and Britain learned to draw on several continents",
+                  "Britain stopped making cotton cloth",
+                  "The American South never grew cotton again",
+                  "Lancashire mills moved to Egypt"
+                ],
+                "answer": 0,
+                "why": "High prices drew new suppliers into the market, and colonial governments kept promoting cotton growing after American supply returned."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**The South bet on cotton.** Leaders such as Hammond expected Britain to recognise the Confederacy to keep its mills running.",
+    "**The timing was wrong.** Record crops in 1859 and 1860 left British warehouses full when the war began.",
+    "**The embargo and blockade cut supply.** The South held its 1861 crop back, and the Union blockade tightened each year.",
+    "**Lancashire paid the price.** By the end of 1862 about a quarter of a million cotton workers were out of work, living on relief.",
+    "**Lancashire opinion was divided.** Manchester's workers wrote to Lincoln in support, but other cotton towns passed motions for the South.",
+    "**Britain stayed neutral.** Antietam and the Emancipation Proclamation made siding with the South riskier and less popular.",
+    "**Other suppliers grew.** India, Egypt and Brazil expanded cotton growing, and Egypt's debts led towards British occupation in 1882.",
+    "**American cotton came back.** By the 1870s, grown by freedpeople and sharecroppers, it passed its pre-war level."
+  ],
+  "footnotes": {}
+}

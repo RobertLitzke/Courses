@@ -13,7 +13,8 @@ import { svg } from 'didactics/dom';
 import { label, line, still } from 'didactics/draw';
 import { COL } from './kit';
 
-export interface SeriesLine { name: string; color: string; points: [number, number][]; dashed?: boolean }
+/** at: where to put the line's name, as [year, value]; the last point if left out. */
+export interface SeriesLine { name: string; color: string; points: [number, number][]; dashed?: boolean; at?: [number, number] }
 export interface SeriesPanel { title: string; unit: string; lines: SeriesLine[]; max?: number }
 export interface SeriesOptions { from: number; to: number; panels: SeriesPanel[]; ticks?: number[] }
 
@@ -52,7 +53,7 @@ export function seriesStill(_ctx: unknown, _goal?: string, options?: Options): {
     for (const l of p.lines) {
       const c = COL[l.color as keyof typeof COL];
       s.append(svg('polyline', { points: l.points.map(([a, b]) => `${x(a).toFixed(1)},${y(b).toFixed(1)}`).join(' '), fill: 'none', stroke: c, 'stroke-width': 2.5, 'stroke-linejoin': 'round', ...(l.dashed ? { 'stroke-dasharray': '5 3' } : {}) }));
-      const [lx, ly] = l.points.at(-1)!;
+      const [lx, ly] = l.at ?? l.points.at(-1)!;
       if (p.lines.length > 1) s.append(label(x(lx) - 4, y(ly) - 6, l.name, { size: 'small', anchor: 'end', fill: c, halo: COL.paper }));
     }
   });

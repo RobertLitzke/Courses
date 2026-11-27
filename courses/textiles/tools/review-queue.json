@@ -76,7 +76,7 @@
   "added": "2026-11-27",
   "what": "New lesson 10; student read-through done and applied",
   "notes": [
-   "Facts not yet checked: the 1337 wool scheme (30,000 sacks, \u00a3200,000, de la Pole) and the 1338 Dordrecht seizure and bonds; about 10,000 sacks shipped; sack of 26 stone and sheep per sack; exports over 40,000 sacks around 1300; 1275 custom 6s 8d; subsidy 40s; 1336 embargo and van Artevelde; Edward proclaimed king of France at Ghent 1340; staple at Calais 1363; Woolsack tradition; cloth export figures (Carus-Wilson and Coleman); Datini archive size; Carus-Wilson 1941 phrase; Ciompi 1378."
+   "Facts not yet checked: the 1337 wool scheme (30,000 sacks, £200,000, de la Pole) and the 1338 Dordrecht seizure and bonds; about 10,000 sacks shipped; sack of 26 stone and sheep per sack; exports over 40,000 sacks around 1300; 1275 custom 6s 8d; subsidy 40s; 1336 embargo and van Artevelde; Edward proclaimed king of France at Ghent 1340; staple at Calais 1363; Woolsack tradition; cloth export figures (Carus-Wilson and Coleman); Datini archive size; Carus-Wilson 1941 phrase; Ciompi 1378."
   ]
  },
  {
@@ -84,7 +84,7 @@
   "added": "2026-11-27",
   "what": "New lesson 11; student read-through done and applied",
   "notes": [
-   "Facts not yet checked: Xerez's Caxas passage and the quote; empire about 4,000 km and about ten million people; Murra 1962; acllawasi at Caxas; storehouse counts (Hu\u00e1nuco Pampa about 500, Hatun Xauxa about 1,000, Cotapachi about 2,400); road length 30,000 to 40,000 km; Paracas dating; Wari 600 to 1000; Locke 1912; Quito obrajes; cochineal exports from the 1520s and rank after silver."
+   "Facts not yet checked: Xerez's Caxas passage and the quote; empire about 4,000 km and about ten million people; Murra 1962; acllawasi at Caxas; storehouse counts (Huánuco Pampa about 500, Hatun Xauxa about 1,000, Cotapachi about 2,400); road length 30,000 to 40,000 km; Paracas dating; Wari 600 to 1000; Locke 1912; Quito obrajes; cochineal exports from the 1520s and rank after silver."
   ]
  },
  {
@@ -100,7 +100,7 @@
   "added": "2026-11-27",
   "what": "New lesson 13; student read-through done and applied",
   "notes": [
-   "Facts not yet checked: the 1756 Windward Coast abstract (\u00a32,418, 250 people, niccanees and Manchester niccanees); 12.5 and 10.7 million and the 36,000 voyages; strip widths; Barth on Kano cloth; cloth currencies; textiles often over half a cargo's value; merikani in Zanzibar; Inikori's argument as stated."
+   "Facts not yet checked: the 1756 Windward Coast abstract (£2,418, 250 people, niccanees and Manchester niccanees); 12.5 and 10.7 million and the 36,000 voyages; strip widths; Barth on Kano cloth; cloth currencies; textiles often over half a cargo's value; merikani in Zanzibar; Inikori's argument as stated."
   ]
  },
  {
@@ -133,6 +133,24 @@
   "what": "New lesson 17; no student review yet",
   "notes": [
    "Facts not yet checked: Whitney's letter of 11 September 1793 and the quote; patent 1794; roller gin and Sea Island cotton; a pound a day by hand; cotton output series (rounded); enslaved population (census, rounded); about a million moved south 1790 to 1860; Removal Act 1830 and acreage; three quarters of British cotton from the US South in the 1850s; the summaries of Williams, Engerman and O'Brien, Inikori, Beckert, Baptist, Olmstead and Rhode. The cotton belt map uses a smooth climate model, and the 1860 and present outlines are rough. Rob's outline also wanted removed land on the chart; left out for lack of a clean series."
+  ]
+ },
+ {
+  "lesson": "jacquard",
+  "added": "2026-11-27",
+  "what": "New lesson 18; no student review yet",
+  "notes": [
+   "Facts not yet checked: the 1839 portrait (Didier, Petit et Cie; Carquillat after Bonnefond; about 24,000 cards); Babbage's copy and the engraving story; Bouchon 1725, Falcon 1728, Vaucanson 1745 and Jacquard studying Vaucanson's loom; shown at the 1801 Paris exhibition, completed 1804 to 1805; 1805 pension of 3,000 francs and royalty of 50 francs per loom for six years; the story of attacks on Jacquard; canut workshops of two to six looms; the tarif of October 1831, the 21 November rising, the banner wording, Soult's army of about 20,000; April 1834 and the bloody week, several hundred dead; Analytical Engine from 1834, operation and variable cards; Lovelace's 1843 quote; Hollerith's mercury cups, first totals in about six weeks, the conductor's-ticket origin, IBM.",
+   "The pattern loom figure gains a Jacquard mode (goal 'cards') shared with lesson 8; the Jacquard head still is simplified to six hooks."
+  ]
+ },
+ {
+  "lesson": "king-cotton",
+  "added": "2026-11-27",
+  "what": "New lesson 19; no student review yet",
+  "notes": [
+   "Facts not yet checked: Hammond's 4 March 1858 speech and both quotes; about half a million Lancashire cotton workers; record 1859 and 1860 crops and stocks; informal embargo and burning of cotton in 1862; blockade declared April 1861; about a quarter of a million out of work by the end of 1862; the George Griswold in early 1863; Stalybridge riots March 1863; Public Works Act 1863; the Manchester address of 31 December 1862 and Lincoln's 19 January 1863 reply and quotes; Mary Ellison 1972 and the towns named; Blackett's Divided Hearts 2001; the Cabinet's autumn 1862 mediation debate; Bombay share collapse 1865; Egypt's exports more than tripled, Said and Ismail, occupation 1882; Beckert's 'first global raw materials crisis'.",
+   "The chart's import and price series are rounded from memory of 19th-century trade returns (Ellison, The Cotton Trade of Great Britain, 1886) and need checking against a source. Rob's outline asked for Lancashire mill employment on the chart; the price of cotton is shown instead until a sourced employment series is found."
   ]
  }
 ]

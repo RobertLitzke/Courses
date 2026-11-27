@@ -7,6 +7,10 @@
 // so the number of kinds of thread no longer matters; what is stored is one
 // lash per row, and the cost is a second worker on every pick.
 // Goal 'many': a motif that needs ten or more shafts, seen on both looms.
+// Goal 'cards' (lesson 18) adds a third loom, the Jacquard: every warp thread
+// has its own hook, and one punched card per pick says which hooks rise, so
+// the deck replaces both the extra shafts and the drawboy. Done when the
+// reader changes a square on the Jacquard and sees its card change.
 
 import { svg } from 'didactics/dom';
 import { label, redraw } from 'didactics/draw';
@@ -65,12 +69,17 @@ const CELL = 15;
 const GX = 20;
 const GY = 30;
 
-export const patternFigure = figure(['many'], (_ctx, t) => {
+/** Holes punched in a Jacquard deck for a motif: one per raised thread on each card. */
+export const holesPunched = (m: Motif): number => cordsPerPick(m).reduce((a, b) => a + b, 0);
+
+export const patternFigure = figure(['many', 'cards'], (_ctx, t) => {
+  const jacquard = t.goal === 'cards';
   const f = frame(W, H, 3);
   const g = svg('g');
   f.svg.append(g);
   let motif: Motif = MOTIFS.Diamond.map((r) => [...r]);
-  let loom: 'shaft' | 'draw' = 'shaft';
+  let loom: 'shaft' | 'draw' | 'jacquard' = jacquard ? 'jacquard' : 'shaft';
+  let changed = -1;
   const seen = new Set<string>();
 
   const paint = () => {
@@ -84,7 +93,7 @@ export const patternFigure = figure(['many'], (_ctx, t) => {
           fill: motif[r][c] ? COL.warp : COL.weft, style: 'cursor:pointer', role: 'button',
           'aria-label': `Warp ${c + 1}, pick ${r + 1}${motif[r][c] ? ', raised' : ''}`,
         });
-        cell.addEventListener('click', () => { motif[r][c] = !motif[r][c]; paint(); });
+        cell.addEventListener('click', () => { motif[r][c] = !motif[r][c]; changed = loom === 'jacquard' ? r : -1; paint(); });
         parts.push(cell);
       }
     }
@@ -100,6 +109,17 @@ export const patternFigure = figure(['many'], (_ctx, t) => {
       parts.push(label(px, GY + 134, 'Orange: extra pattern shafts.', { size: 'small', soft: true }));
       parts.push(label(px, GY + 160, 'Each shaft lifts every warp thread', { size: 'small' }));
       parts.push(label(px, GY + 174, 'that behaves the same way.', { size: 'small' }));
+    } else if (loom === 'jacquard') {
+      // One card per pick, drawn level with its row: a dark hole lets that warp's hook rise.
+      parts.push(label(px, GY - 10, `Cards: ${ROWS}, holes: ${holesPunched(motif)}`, { bold: true }));
+      const HOLE = 13;
+      for (let r = 0; r < ROWS; r++) {
+        parts.push(svg('rect', { x: px, y: GY + r * CELL + 1, width: COLS * HOLE + 6, height: CELL - 3, rx: 2, fill: COL.paper, stroke: r === changed ? COL.you : COL.coast, 'stroke-width': r === changed ? 2 : 1 }));
+        for (let c = 0; c < COLS; c++) {
+          parts.push(svg('circle', { cx: px + 3 + c * HOLE + HOLE / 2, cy: GY + r * CELL + CELL / 2 - 0.5, r: 3.2, fill: motif[r][c] ? COL.ink : 'none', stroke: motif[r][c] ? 'none' : COL.coast, 'stroke-width': 0.6 }));
+        }
+      }
+      parts.push(label(px, GY + ROWS * CELL + 16, 'One card per pick; a hole lifts that thread', { size: 'small', soft: true }));
     } else {
       const cords = cordsPerPick(motif);
       parts.push(label(px, GY - 10, `Lashes: ${ROWS}, one per pick`, { bold: true }));
@@ -111,17 +131,22 @@ export const patternFigure = figure(['many'], (_ctx, t) => {
     }
     redraw(g, ...parts);
     const sym = n <= Math.ceil(COLS / 2) + 1;
-    f.readout.textContent = loom === 'shaft'
+    f.readout.textContent = loom === 'jacquard'
+      ? (changed >= 0
+        ? `You changed pick ${changed + 1}, so only card ${changed + 1} is punched differently. Each of the ${COLS} warp threads has its own hook, so no shafts are threaded and no drawboy pulls cords; a new pattern is a new deck of cards.`
+        : `Each card holds one pick: a hole lets that warp thread's hook rise, and a blank pushes it down. This motif takes ${ROWS} cards. Tap a square to change a card.`)
+      : loom === 'shaft'
       ? `This motif has ${n} different kinds of warp thread, so a shaft loom needs ${n} shafts, threaded once and lifted in order pick by pick.${sym ? ' A mirror-image motif reuses its columns, which keeps the count down.' : ' A lopsided motif has few matching columns, so the count climbs.'}`
       : `The drawboy pulls one prepared lash of cords for each of the ${ROWS} picks, so any motif fits, however many kinds of thread it has. The cost is a second worker, pulling on every pick.`;
     if (n >= 10) seen.add(loom);
-    if (seen.size === 2) t.done();
+    if (jacquard ? (loom === 'jacquard' && changed >= 0) : seen.size === 2) t.done();
   };
 
-  const presets = choices(Object.keys(MOTIFS), (i) => { motif = Object.values(MOTIFS)[i].map((r) => [...r]); paint(); });
-  const looms = choices(['Shaft loom', 'Drawloom'], (i) => { loom = i === 0 ? 'shaft' : 'draw'; paint(); });
+  const presets = choices(Object.keys(MOTIFS), (i) => { motif = Object.values(MOTIFS)[i].map((r) => [...r]); changed = -1; paint(); });
+  const kinds = ['shaft', 'draw', 'jacquard'] as const;
+  const looms = choices(jacquard ? ['Shaft loom', 'Drawloom', 'Jacquard'] : ['Shaft loom', 'Drawloom'], (i) => { loom = kinds[i]; changed = -1; paint(); });
   presets.pick(0);
-  looms.pick(0);
+  looms.pick(jacquard ? 2 : 0);
   f.controls.append(presets.node, looms.node);
   paint();
   return f.node;

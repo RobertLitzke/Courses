@@ -50,6 +50,13 @@ export const COL = {
   bysea: '#1f6f8f',
   /** Where silkworms are raised. */
   silk: '#c9a13a',
+  /** Where cotton or cloth came from, in charts. */
+  usa: '#9c3b2f',
+  india: '#3c7d4e',
+  egypt: '#b38a1d',
+  elsewhere: '#8c8279',
+  britain: '#4a5f8f',
+  japan: '#c2456b',
 } as const;
 export type ColorKey = keyof typeof COL;
 

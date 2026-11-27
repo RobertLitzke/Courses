@@ -5,7 +5,7 @@ import { FIGURES } from '../src/figures';
 import { PERIODS } from '../src/figures/silk-routes';
 import { cropHeight, worldMap } from '../src/figures/world';
 import { click, context, guess, setSlider } from './helpers';
-import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
+import { MOTIFS, holesPunched, shaftsNeeded } from '../src/figures/pattern-loom';
 import { knotsFor } from '../src/figures/inca';
 import { ROUTES, voyage } from '../src/figures/monsoon';
 import { hoursProblems } from '../src/figures/hours';
@@ -46,6 +46,18 @@ describe('the pattern loom', () => {
     const h = FIGURES['pattern-loom'](context(), 'many');
     click(h.node, 'Bird');
     click(h.node, 'Drawloom');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+  it('punches one hole per raised thread on the Jacquard', () => {
+    expect(holesPunched(MOTIFS.Diamond)).toBe(MOTIFS.Diamond.flat().filter(Boolean).length);
+  });
+  it('is done once a square is changed on the Jacquard', async () => {
+    const h = FIGURES['pattern-loom'](context(), 'cards');
+    let finished = false;
+    h.done?.then(() => { finished = true; });
+    await Promise.resolve();
+    expect(finished).toBe(false);
+    (h.node.querySelector('[aria-label="Warp 1, pick 1"]') as SVGElement).dispatchEvent(new Event('click'));
     await expect(h.done).resolves.toBeUndefined();
   });
 });
