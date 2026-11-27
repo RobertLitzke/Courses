@@ -36,4 +36,9 @@ export const TENSIONS: readonly Tension[] = [
     b: { key: 'abraham', picks: [1] },
     text: 'You said an act is right because God commands it, and also that no command could make killing an innocent child right. Divine command theorists such as Robert Adams escape this by saying a loving God could never command cruelty; Kierkegaard thought Abraham\'s story shows the escape is not so easy.',
   },
+  {
+    a: { key: 'cave', picks: [0] },
+    b: { key: 'machine', picks: [0] },
+    text: 'You said you would rather know the truth about your life even at a cost, and also that you would plug into the experience machine for life. Plato and Nozick would both say the second answer gives up the first: the machine is a cave you choose, with better shadows.',
+  },
 ];
