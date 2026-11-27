@@ -24,6 +24,7 @@ import { area } from '../src/figures/fulling';
 import { apply, travelled } from '../src/figures/bobbins';
 import { checkered } from '../src/figures/strips';
 import { days, knots } from '../src/figures/knots';
+import { GARMENTS, used } from '../src/figures/layout';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -341,6 +342,20 @@ describe('the knots figure', () => {
   it('is done after a coarse and a fine density', async () => {
     const h = FIGURES.knots(context(), 'fine');
     setSlider(h.node, 0, 64);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the layout figure', () => {
+  it('wastes nothing draped and more when fitted', () => {
+    expect(used(GARMENTS[0])).toBeCloseTo(1);
+    expect(used(GARMENTS[1])).toBeCloseTo(1);
+    expect(used(GARMENTS[2])).toBeLessThan(0.95);
+    expect(used(GARMENTS[3])).toBeLessThan(used(GARMENTS[2]));
+  });
+  it('is done once every garment is laid out', async () => {
+    const h = FIGURES.layout(context(), 'all');
+    for (const n of ['Tunic with gores', 'Fitted gown', 'Bias-cut dress']) click(h.node, n);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

@@ -1,0 +1,132 @@
+{
+  "id": "cut",
+  "n": 401,
+  "branch": "fashion",
+  "needs": ["structure"],
+  "title": "When did clothes start to fit the body?",
+  "teaches": "Draped and loom-shaped clothing (peplos, toga, sari, Andean tunics); the T-tunic with gores; the 14th century turn to fitted, cut and buttoned clothing; the pourpoint of Charles de Blois; tailors and Alcega's pattern book of 1580; how much cloth fit costs; the bias cut",
+  "parts": [
+    {
+      "title": "The rectangle and the body",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A loom makes rectangles. For most of history, in most places, people wore those rectangles almost as they came off the loom, wrapped, folded, pinned or belted around the body. Clothes cut into curved pieces and sewn to follow the shape of the chest, waist and arms became the normal dress of Europe only in the 14th century. In this lesson we look at clothes that respect the loom, at the change to cut and fitted clothing, and at what fit costs in cloth."
+        }
+      ]
+    },
+    {
+      "title": "Clothes that keep the rectangle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A woman in classical Greece wore a **peplos**, a single large rectangle of wool folded over at the top, wrapped around the body, pinned at the shoulders and belted. Men and women also wore the **chiton**, two rectangles of linen pinned or sewn along the top edge. A Roman citizen's **toga** was a large piece of wool, with a curved edge, wrapped around the body and over one arm. In South Asia the **sari**, a single length of five to nine metres, is still wrapped and pleated without any cutting, as is the dhoti worn by men."
+        },
+        {
+          "type": "text",
+          "text": "Other peoples shaped garments on the loom itself. Andean weavers, as lesson 11 described, wove each piece of a tunic to its finished size, with four finished edges, so that it never had to be cut. The Japanese kimono of branch lesson W2 is sewn from straight pieces of one bolt, and can be taken apart and remade."
+        },
+        {
+          "type": "text",
+          "text": "Keeping the rectangle has advantages. Nothing is wasted, the cloth keeps its strong woven edges, a garment can be adjusted by wrapping it differently, and the cloth can be reused for something else. In a world where cloth took hundreds of hours to make, these were strong reasons."
+        }
+      ]
+    },
+    {
+      "title": "Tunics with gores",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In early medieval Europe both men and women wore the **tunic**, a T-shaped garment sewn from rectangles for the body and sleeves. To give room to walk or ride, tailors inserted **gores**, long triangles of cloth, into the sides of the skirt, and small square **gussets** under the arms. The triangles could be cut diagonally from a rectangle, so a tunic used nearly all the cloth. It hung loosely and was gathered at the waist with a belt."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "layout",
+          "caption": "Pattern pieces for four garments laid on cloth 70 cm wide. The pieces are simplified.",
+          "task": "Lay out all four garments",
+          "goal": "all"
+        }
+      ]
+    },
+    {
+      "title": "Cut to fit",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From about the 1330s, men in France, Burgundy and England began wearing short, tight jackets that followed the chest and waist, closed down the front with many buttons, worn with close-fitting hose on the legs. Chroniclers complained that the new clothes were indecently short and tight. Women's gowns were fitted closely to the body too, laced or buttoned, with long sleeves cut to the shape of the arm. Within a generation fitted clothing was the fashion across western Europe."
+        },
+        {
+          "type": "text",
+          "text": "Fitting needed new techniques. Tailors cut the body into several shaped **panels** with curved seams, and set the sleeves into curved armholes instead of sewing them straight on. Buttons and buttonholes, rare before the 13th century, allowed a tight garment to be put on and taken off. A rare surviving example is the **pourpoint** of Charles de Blois, a padded silk jacket from the middle of the 14th century now in a museum in Lyon, cut from many shaped pieces and closed with dozens of buttons."
+        },
+        {
+          "type": "text",
+          "text": "Historians still debate why the change happened. One theory points to armour: knights wore fitted padded jackets under the new plate armour, and the shape passed into ordinary dress. Others point to the skill of growing tailors' guilds in the cities, or to the wish of the rich to show off a cut that only a skilled tailor could make."
+        },
+        {
+          "type": "text",
+          "text": "Fit had a price in cloth. Curved panels do not fit together without gaps, so the offcuts between them were wasted or saved for patching. Tailors guarded their methods of laying out patterns to waste as little as possible. The first printed tailoring book, by Juan de Alcega in Madrid in 1580, was largely a set of diagrams showing how to lay out the pieces of each garment on a length of cloth of a given width."
+        }
+      ]
+    },
+    {
+      "title": "The bias",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 4 showed that woven cloth hardly stretches along its threads but gives on the diagonal, the **bias**. In the 1920s and 1930s the Paris designer **Madeleine Vionnet** cut whole dresses on the bias, so that the cloth stretched and draped closely over the body without darts or fastenings, and clung as the wearer moved. Bias cutting became the look of 1930s evening wear. It is also the most wasteful layout of all, since pieces turned at 45 degrees leave large triangles at the edges of the cloth, and only cheap industrial cloth made it practical for ordinary clothes."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on cut and fit.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "What did draped garments such as the peplos and sari have in common?",
+                "choices": ["The cloth was worn uncut, as it came from the loom", "They were cut on the bias to cling to the body", "They were closed with many small buttons", "They were knitted rather than woven"],
+                "answer": 0,
+                "why": "A peplos or sari is a rectangle wrapped, folded or pinned, with no cutting."
+              },
+              {
+                "ask": "Why did a tunic with gores waste almost no cloth?",
+                "choices": ["Its gores were triangles cut diagonally from a rectangle", "It was knitted to shape on the needles", "Its offcuts were used as padding inside", "It was woven in one piece on a wide loom"],
+                "answer": 0,
+                "why": "Rectangles for body and sleeves, and the leftover strip split into triangles, used the whole length."
+              },
+              {
+                "ask": "What changed in European dress from about the 1330s?",
+                "choices": ["Clothes were cut in shaped panels to fit the body", "Clothes were made from one uncut rectangle", "Clothes were woven to size on the loom", "Clothes were held only with a belt"],
+                "answer": 0,
+                "why": "Curved seams, set-in sleeves and buttons made tight-fitting jackets and gowns."
+              },
+              {
+                "ask": "Why does cutting on the bias waste so much cloth?",
+                "choices": ["Pieces turned at 45 degrees leave triangles at the edges", "Bias-cut cloth shrinks a third in the first wash", "The bias can be cut only from very narrow cloth", "Every bias piece must be lined with a second layer"],
+                "answer": 0,
+                "why": "Rectangles set diagonally on a rectangle of cloth leave large offcuts along both edges."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Looms make rectangles.** For most of history people wore them nearly uncut.",
+    "**Draped clothes waste nothing.** The peplos, toga, sari and dhoti are wrapped, pinned or pleated.",
+    "**Some cloth was woven to shape.** Andean tunics left the loom finished on all four edges.",
+    "**Medieval tunics used gores.** Triangles cut from a rectangle widened the skirt with almost no waste.",
+    "**Fitted clothing arrived in the 14th century.** Shaped panels, set-in sleeves and buttons followed the body.",
+    "**Why is debated.** Armour, tailors' guilds and display have all been suggested.",
+    "**Fit costs cloth.** Curved pieces leave offcuts; Alcega's 1580 book showed how to lay them out.",
+    "**The bias drapes but wastes.** Vionnet's 1930s dresses clung to the body at a high cost in cloth."
+  ],
+  "footnotes": {}
+}

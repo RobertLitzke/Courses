@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 43 | 0 | 5 | 43 | 43 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 44 | 0 | 6 | 44 | 44 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 to read through, 43 to copy-edit, 43 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 6 to read through, 44 to copy-edit, 44 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -643,6 +643,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | W3 | How did Navajo weavers make the churro blanket? (`navajo`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | Diné (Navajo) weaving on the upright loom; churro sheep and their wool; chief's blankets and unravelled bayeta; the Long Walk; trading posts, Germantown yarn and the turn from blankets to rugs; livestock reduction and the revival of the churro. |
 | W4 | How is a Persian carpet knotted? (`carpets`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | Knotted pile: how a knot is tied around warp threads and cut; symmetric and asymmetric knots; knot density as resolution and the hours it costs; the Pazyryk carpet; Safavid court workshops and the Ardabil carpet; nomadic, village and city rugs; child labour and labelling. |
 | W5 | How did a Kashmir shawl give Paisley its name? (`paisley`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | Pashm from Himalayan goats; Kashmir twill tapestry (kani) shawls and the hours in them; the buta motif; the shawl craze in Europe around 1800; imitations at Norwich, Edinburgh, Lyon and Paisley on drawlooms and Jacquard looms; the collapse of the Kashmir trade; pashmina and shahtoosh today. |
+| F1 | When did clothes start to fit the body? (`cut`) | Fashion and form | needs student read-through | Gemini (queued 2026-11-27); Fact check | Draped and loom-shaped clothing (peplos, toga, sari, Andean tunics); the T-tunic with gores; the 14th century turn to fitted, cut and buttoned clothing; the pourpoint of Charles de Blois; tailors and Alcega's pattern book of 1580; how much cloth fit costs; the bias cut. |
 
 ## Not started
 
