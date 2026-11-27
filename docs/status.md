@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 42 | 0 |
-| [Fabric & Form](#textiles) | 0.1 beta | 24 | 3 | 2 | 24 | 24 | 0 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 25 | 2 | 3 | 25 | 25 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 42 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 3 lessons to write, 2 to read through, 24 to copy-edit, 24 to fact-check |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 2 lessons to write, 3 to read through, 25 to copy-edit, 25 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -624,7 +624,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 22 | How did a loom company become Toyota? (`toyoda`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Raw silk as Meiji Japan's export engine; the Tomioka silk mill (1872) and the young women who worked in Japan's mills; Osaka's cotton spinning; Japan overtaking Britain in cotton cloth exports in the 1930s; Sakichi Toyoda's automatic loom (1924), the 1929 sale of its patent rights to Platt Brothers, and how that money helped start Toyota. |
 | 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Rayon (viscose) as regenerated cellulose; what a polymer is; Carothers and nylon at DuPont (1935, on sale 15 May 1940); nylon at war; polyester, acrylic and spandex; why synthetics are now about two thirds of the world's fibre and why that is not simply a loss. |
 | 24 | When did clothes start coming in sizes? (`sizes`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Sewing by hand; the sewing machine (Howe 1846, Singer 1851) and hire purchase; ready-made clothing; men's sizes from tailors' systems and uniforms; women's sizes and the 1939 to 1940 USDA survey; garment districts, sweatshops and the Triangle Shirtwaist fire of 1911. |
-| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | planned, listed as coming |  | Trade quotas and their end, Bangladesh's garment industry, short-cycle fashion, Rana Plaza, and who gets the price of a shirt. |
+| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | One T-shirt's journey from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price. |
 | 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | planned, listed as coming |  | The Aral Sea, Xinjiang, Bt cotton, subsidies and the Cotton-4, second-hand exports, microfibres, and which numbers to trust. |
 | 27 | What does the label in your shirt not say? (`label`) |  | planned, listed as coming |  | The whole course applied to a garment you own, a 1930s rayon dress and a wax-print shirt. |
 

@@ -22,6 +22,7 @@ import { jacquardStill } from './jacquard';
 import { loomsFigure } from './looms';
 import { polymersStill } from './polymers';
 import { bodiesStill } from './bodies';
+import { tshirtFigure } from './tshirt';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -52,6 +53,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   looms: loomsFigure,
   polymers: polymersStill,
   bodies: bodiesStill,
+  tshirt: tshirtFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,

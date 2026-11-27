@@ -15,6 +15,7 @@ import { grows } from '../src/figures/cotton-belt';
 import { seriesProblems } from '../src/figures/series';
 import { load, output as loomOutput } from '../src/figures/looms';
 import { BAND, bodies } from '../src/figures/bodies';
+import { PRICE, priceWith } from '../src/figures/tshirt';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -176,5 +177,21 @@ describe('the body scatter', () => {
     const hips = bodies().filter(([b]) => b >= BAND[0] && b <= BAND[1]).map(([, h]) => h);
     expect(hips.length).toBeGreaterThan(10);
     expect(Math.max(...hips) - Math.min(...hips)).toBeGreaterThan(15);
+  });
+});
+
+describe('the T-shirt price', () => {
+  it('rises by under 1% with fixed markups and a few percent with percentage markups when wages triple', () => {
+    expect(priceWith(1, 'percent')).toBeCloseTo(PRICE, 5);
+    expect(priceWith(3, 'fixed') / PRICE - 1).toBeLessThan(0.02);
+    const pct = priceWith(3, 'percent') / PRICE - 1;
+    expect(pct).toBeGreaterThan(0.04);
+    expect(pct).toBeLessThan(0.08);
+  });
+  it('is done once tripled wages are seen with both markups', async () => {
+    const h = FIGURES.tshirt(context(), 'triple');
+    setSlider(h.node, 0, 3);
+    click(h.node, 'Markup: same percentage');
+    await expect(h.done).resolves.toBeUndefined();
   });
 });
