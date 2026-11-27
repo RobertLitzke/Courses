@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Many fleeces, football shirts and running tops now carry a label saying they are made from recycled plastic bottles. Bottles and polyester fibre are the same plastic, so this works well. Yet less than 1 percent of the material in new clothes comes from old clothes. In this lesson we look at how bottles become fibre, what that saves, and why turning a worn garment back into a new one is so much harder."
+          "text": "Many fleeces, football shirts and running tops now carry a label saying they are made from recycled plastic bottles. Yet less than 1 percent of the material used to make clothes comes from old clothes. In this lesson we look at how bottles become fibre, what that saves, and why turning a worn garment back into a new one is so much harder."
         }
       ]
     },
@@ -20,11 +20,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Drinks bottles are made of **PET**, polyethylene terephthalate, the same polymer that lesson 23 described as polyester. Used bottles are sorted, washed, chopped into flakes, melted and pushed through a spinneret, just as new polyester is. The fibre is almost indistinguishable from new fibre made from oil. In 1993 the outdoor company Patagonia, working with the fibre maker Wellman, sold one of the first fleeces made this way."
+          "text": "Drinks bottles are made of **PET**, polyethylene terephthalate, the same polymer that lesson 23 described as polyester. Used bottles are sorted, washed, chopped into flakes, melted and pushed through a spinneret, the plate of fine holes described in lesson 23, just as new polyester is. The fibre is almost indistinguishable from new fibre made from oil. In 1993 the outdoor company Patagonia, working with the fibre maker Wellman, sold one of the first fleeces made this way."
         },
         {
           "type": "text",
-          "text": "By the early 2020s recycled polyester made up about an eighth of all polyester fibre, and nearly all of it came from bottles. Making it uses less energy than making polyester from oil, and it keeps some bottles out of landfill. It has limits, though. A bottle that is collected can also be made into a new bottle, and bottle makers and clothing makers now compete for the same clean, clear bottles. Once a bottle becomes a fleece, it usually leaves the loop: when the fleece wears out it is not made into anything else. And a fleece of recycled polyester sheds microfibres in the wash just as a new one does."
+          "text": "By the early 2020s recycled polyester made up about an eighth of all polyester fibre, and nearly all of it came from bottles. Making it uses less energy than making polyester from oil, and it keeps some bottles out of landfill. It has limits, though. A bottle that is collected can also be made into a new bottle, and bottle makers and clothing makers now compete for the same clean, clear bottles. Once a bottle becomes a fleece, it usually leaves the recycling loop, the cycle of use and remaking: when the fleece wears out it is not made into anything else. And a fleece of recycled polyester sheds microfibres, the tiny fragments of lesson 26, in the wash like any other polyester."
         }
       ]
     },
@@ -37,7 +37,7 @@
         },
         {
           "type": "text",
-          "text": "The difficulty is that shredding breaks the fibres. Lesson 3 showed that a yarn holds together because its fibres overlap and grip each other, and short fibres overlap less. Shoddy gave its name to anything cheap and weak because its short fibres made a weak, rough yarn. To spin a good yarn, shredded fibre has to be blended with new fibre long enough to carry it."
+          "text": "The difficulty is that shredding breaks the fibres. Lesson 3 showed that a yarn holds together because its fibres overlap and grip each other, and short fibres overlap less. Shoddy gave its name to anything cheap and weak because its short fibres made a weak, rough yarn. To spin a good yarn, shredded fibre has to be blended with new fibre long enough to carry it. A spinning mill making fine cotton yarn needs fibres averaging about 25 mm, and one shredding leaves cotton fibres little more than half their first length."
         },
         {
           "type": "interactive_diagram",
@@ -48,7 +48,7 @@
         },
         {
           "type": "text",
-          "text": "Each round of shredding shortens the fibres further, so cotton or wool can be mechanically recycled only a few times before the fibre is too short for anything but insulation, stuffing or cleaning rags. Most clothes collected for recycling end up as such lower-grade products, a process often called **downcycling**."
+          "text": "Each round of shredding shortens the fibres further, so cotton or wool can be recycled by shredding, called mechanical recycling, only a few times before the fibre is too short for anything but insulation, stuffing or cleaning rags. Of the clothes collected that are too worn to sell again, most end up as such lower-grade products, a process often called **downcycling**."
         }
       ]
     },
@@ -66,7 +66,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most recycling processes need a single, clean fibre, and clothes are rarely made of one. A shirt of 60 percent cotton and 40 percent polyester has two fibres twisted together in every yarn. Lesson M5 showed that a few percent of elastane, spread through the cloth, can spoil a polyester or cotton process. Dyes, finishes, printed logos, thread of a different fibre, buttons and zips all have to be removed. Sorting garments by fibre has mostly been done by hand, reading the labels; machines that identify fibres by the infrared light they reflect are now coming into use."
+          "text": "Most recycling processes need a single, clean fibre, and clothes are rarely made of one. A shirt of 60 percent cotton and 40 percent polyester has two fibres twisted together in every yarn. Branch lesson M5 noted that a few percent of elastane, spread through the cloth, can spoil a polyester or cotton process. Dyes, finishes, printed logos, thread of a different fibre, buttons and zips all have to be removed. Sorting garments by fibre has mostly been done by hand, reading the labels; machines that identify fibres by the infrared light they reflect are now coming into use."
         },
         {
           "type": "text",
@@ -104,7 +104,7 @@
               },
               {
                 "ask": "What is a limit of making clothes from bottles?",
-                "choices": ["The fleece usually leaves the loop when it wears out", "Recycled polyester never takes dye", "Bottle fibre is too short to spin", "It uses more oil than new polyester"],
+                "choices": ["The fleece usually leaves the loop when it wears out", "Recycled polyester is weaker than cotton", "Bottle fibre is too short to spin", "It uses more oil than new polyester"],
                 "answer": 0,
                 "why": "A bottle can become a bottle again, but a worn-out fleece is rarely made into anything else."
               }
@@ -122,7 +122,7 @@
     "**Shredding shortens fibres.** Recycled cotton needs long new fibre blended in to spin well.",
     "**Chemical recycling rebuilds the molecule.** It makes fibre as good as new, but costs more.",
     "**Blends and trims block recycling.** Mixed fibres, elastane, dyes and zips need separating.",
-    "**Under 1 percent of clothing becomes clothing.** Wearing clothes longer still saves the most."
+    "**Under 1 percent of clothing material comes from old clothes.** Wearing clothes longer still saves the most."
   ],
   "footnotes": {}
 }

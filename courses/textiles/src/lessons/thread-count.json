@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Bed sheets in shops are sold by thread count: 200 for a cheap set, 400 for a good one, and sometimes 1000 or more for a luxury one. In this lesson we look at what the number counts, how fine yarn has to be to reach it, how some makers raise the number without changing the cloth, and at the cloths, such as towels and velvet, that get their character from extra threads standing up from the surface."
+          "text": "Bed sheets in shops are sold by thread count: 200 for a cheap set, 400 for a good one, and sometimes 1000 or more on a set sold as luxury. In this lesson we look at what the number counts, how fine yarn has to be to reach it, how some makers raise the number without changing the cloth, and at the cloths, such as towels and velvet, that get their character from extra threads standing up from the surface."
         }
       ]
     },
@@ -24,12 +24,12 @@
         },
         {
           "type": "text",
-          "text": "How many threads fit into an inch depends on how thick they are. In a plain weave, as lesson 4 showed, every weft thread passes over one warp thread and under the next, so the threads cannot be packed much closer than their own width. To fit more threads, the yarn has to be spun finer, and fine yarn needs fibres long enough to hold together when only a few lie side by side. That is why high thread counts go with long-staple cottons such as Egyptian and Pima, and why the fibre matters as much as the count for how a sheet feels and lasts."
+          "text": "How many threads fit into an inch depends on how thick they are. In a plain weave, as lesson 4 showed, every weft thread passes over one warp thread and under the next, so the threads cannot be packed much closer than their own width. To fit more threads, the yarn has to be spun finer, and fine yarn needs fibres long enough to hold together when only a few lie side by side. The length of a fibre is called its **staple**, so high thread counts go with long-staple cottons such as Egyptian and Pima, and why the fibre matters as much as the count for how a sheet feels and lasts."
         },
         {
           "type": "interactive_diagram",
           "id": "threads",
-          "caption": "A magnified square of close plain weave. Warp threads run up the square, weft threads across it.",
+          "caption": "A magnified square of close plain weave, with the count scaled up to a square inch. Threads are taken to lie about 1.15 times their own width apart.",
           "task": "Find out how a count of 800 or more can be reached",
           "goal": "ply"
         }
@@ -40,15 +40,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Even very fine single cotton yarns fit only about 250 to 300 threads to the inch each way, so a woven sheet with a true count much above 600 is rare. Counts of 800 or 1000 are reached in another way. Many yarns are **plied**: two or three finer strands twisted together into one thread, which is stronger and smoother than a single yarn of the same thickness. Some makers count each ply as a separate thread, so a sheet woven with 150 three-ply yarns each way is sold as 900 thread count, although it is no denser than a sheet labelled 300."
+          "text": "Even very fine single cotton yarns fit only about 250 to 300 threads to the inch each way, so a woven sheet with a true count, counting each yarn once, much above 600 is rare. Counts of 800 or 1000 are reached in another way. Many yarns are **plied**: two or three finer strands twisted together into one thread, which is stronger and smoother than a single yarn of the same thickness. Some makers count each ply as a separate thread, so a sheet woven with 150 three-ply yarns each way is sold as 900 thread count, although it is no denser than a sheet labelled 300."
         },
         {
           "type": "text",
-          "text": "In 2005 the US Federal Trade Commission advised that counting plies in this way could mislead buyers, and that a plied yarn should be counted as one thread, with the ply given separately if the seller wishes. Textile testing standards count it the same way. Labels with very high counts are still common, and the number says little on its own. A sheet of 300 good single yarns usually feels better and lasts longer than one of 1000 counted plies of short, cheap fibre."
+          "text": "In 2005 the US Federal Trade Commission advised that counting plies in this way could mislead buyers, and that a plied yarn should be counted as one thread, with the ply given separately if the seller wishes. Textile testing standards count it the same way. Labels with very high counts are still common, and the number says little on its own. A sheet with an honest count of 300, counting each yarn once, usually feels better and lasts longer than one of 1000 counted plies of short, cheap fibre."
         },
         {
           "type": "text",
-          "text": "The weave matters too. **Percale** is a close plain weave, crisp and matt. **Sateen** uses a satin weave, in which each weft thread floats over four warp threads and under one, so the surface is mostly long floats of weft. It feels smoother and has a sheen, but the long floats snag and wear more easily."
+          "text": "The weave matters too. **Percale** is a close plain weave, crisp and matt. **Sateen** uses a satin weave, in which each weft thread passes over four warp threads and under one. A length of thread lying on the surface over several others is called a **float**, so the surface of sateen is mostly long floats of weft. It feels smoother and has a sheen, but the long floats snag and wear more easily."
         }
       ]
     },
@@ -66,7 +66,7 @@
         },
         {
           "type": "text",
-          "text": "**Towelling**, or terry cloth, has an extra warp held loosely on the loom. Every few picks the loom beats the weft forward with extra force, and the loose warp is pushed up into loops on both faces. The loops give a towel a great deal of surface to soak up water, and long loops of absorbent cotton make a towel thick and soft."
+          "text": "**Towelling**, or terry cloth, has an extra warp held loosely on the loom. Every few picks, that is passes of the weft, the loom pushes the last few weft threads into place with extra force, and the loose warp is pushed up into loops on both faces. The loops give a towel a great deal of surface to soak up water, and long loops of absorbent cotton make a towel thick and soft."
         },
         {
           "type": "text",
@@ -92,7 +92,7 @@
               },
               {
                 "ask": "What has to change to fit more threads into an inch of honest plain weave?",
-                "choices": ["The yarn has to be spun finer", "The yarn has to be dyed darker", "The cloth has to be washed hotter", "The loom has to run faster"],
+                "choices": ["The yarn has to be spun finer", "Each yarn has to be counted twice", "The warp has to be pulled tighter", "The cloth has to be washed hotter"],
                 "answer": 0,
                 "why": "Threads in a plain weave cannot pack much closer than their own width, so a higher count needs thinner yarn."
               },

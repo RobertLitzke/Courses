@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A plastic poncho keeps rain out completely, but after an hour of walking uphill in one, the wearer is soaked with sweat. A good hiking jacket keeps out the rain and lets most of that sweat escape. In this lesson we look at how waterproof cloth developed, from rubber to modern membranes, what \"breathable\" actually means, and how far it can go."
+          "text": "A plastic poncho keeps rain out completely, but after an hour of walking uphill in one, the wearer is soaked with sweat. A good hiking jacket keeps out the rain and lets most of that sweat escape. In this lesson we look at how waterproof cloth developed, from rubber to modern membranes, what \"breathable\" means, which is letting sweat escape as vapour, and how far it can go."
         }
       ]
     },
@@ -24,7 +24,7 @@
         },
         {
           "type": "text",
-          "text": "A rubber coat keeps out rain completely, and it keeps in sweat just as completely. Other makers chose a compromise. In 1879 Thomas Burberry, a draper in Hampshire, developed **gabardine**, a tightly woven twill of cotton yarn treated to repel water before weaving. Rain ran off it, while air and vapour could still pass between the fibres. Sailors, farmers and motorcyclists wore **waxed cotton**, a dense cotton cloth soaked in oil or wax, which kept out rain until the wax wore thin and was rubbed in again."
+          "text": "A rubber coat keeps out rain completely, and it keeps in sweat just as completely. Other makers chose a compromise. In 1879 Thomas Burberry, a draper in Hampshire, developed **gabardine**, a tightly woven twill of cotton yarn treated to repel water before weaving. Rain ran off it, while air and vapour could still pass between the fibres. Sailors, farmers and motorcyclists wore **waxed cotton**, a dense cotton cloth soaked in oil or wax, which kept out rain until the wax wore thin and was rubbed in again. The wax filled most of the gaps, so it let out less vapour than gabardine. A **windproof shell** with no barrier at all lets vapour out freely but lets rain through."
         }
       ]
     },
@@ -33,7 +33,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most modern outdoor clothing has an outer cloth treated with a **durable water repellent**, a finish that makes water bead up and roll off instead of soaking in. Water spreads into cotton or nylon because it is attracted to the fibre surface; a repellent finish lowers that attraction so the drop stays round. For decades the most effective finishes were fluorinated chemicals, related to the coating on non-stick pans. Some of these compounds, known together as **PFAS**, do not break down in the environment and have been found in water, wildlife and human blood around the world. The European Union, several US states and major outdoor brands have restricted or abandoned them, and most finishes now use other chemistry that is less durable."
+          "text": "Most modern outdoor clothing has an outer cloth treated with a **durable water repellent**, a finish that makes water bead up and roll off instead of soaking in. Water spreads into cotton or nylon because it is attracted to the fibre surface; a repellent finish lowers that attraction so the drop stays round. For decades the most effective finishes were fluorinated chemicals, related to the coating on non-stick pans. Some of these compounds, known together as **PFAS** (per- and polyfluoroalkyl substances), do not break down in the environment and have been found in water, wildlife and human blood around the world. The European Union, several US states and major outdoor brands have restricted or abandoned them, and most finishes now use other chemistry that is less durable."
         },
         {
           "type": "text",
@@ -46,11 +46,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In 1969 **Bob Gore**, working in his family's company in Delaware, found that PTFE, the plastic of non-stick coatings, could be stretched suddenly into a thin film full of tiny pores. In this **microporous** film each pore is far too small for a drop of liquid water to pass. PTFE repels water so strongly that it would take a great deal of pressure to force water into such a narrow opening. A single water molecule in sweat vapour, though, is thousands of times smaller than the pores and passes through freely. Gore and his company launched the membrane in outdoor clothing in 1976 as **Gore-Tex**, laminated between an outer nylon and an inner lining."
+          "text": "In 1969 **Bob Gore**, working in his family's company in Delaware, found that PTFE, the plastic of non-stick coatings, polytetrafluoroethylene, could be stretched suddenly into a thin film full of tiny pores. In this **microporous** film each pore is far too small for a drop of liquid water to pass. PTFE repels water so strongly that it would take a great deal of pressure to force water into such a narrow opening. A single water molecule in sweat vapour, though, is hundreds of times narrower than the pores and passes through freely. Gore and his company launched the membrane in outdoor clothing in 1976 as **Gore-Tex**, laminated between an outer nylon and an inner lining."
         },
         {
           "type": "text",
-          "text": "A membrane lets vapour out only as fast as it diffuses from the warm, humid air inside the jacket to the cooler, drier air outside. Laboratory tests give jackets impressive ratings, but on a hillside in steady rain the outer cloth is wet and cold, the air is already humid, and the flow is much slower. A body working hard makes more sweat than any membrane lets out."
+          "text": "A membrane lets vapour out only as fast as it diffuses from the warm, humid air inside the jacket to the cooler, drier air outside. Laboratory tests give jackets impressive ratings, but on a hillside in steady rain the outer cloth is wet and cold, the air is already humid, and the flow is much slower. A body working hard can make more sweat than a membrane lets out, and the extra vapour condenses into water inside the jacket."
         },
         {
           "type": "interactive_diagram",
@@ -70,7 +70,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Another fibre from the same era protects in a different way. In 1965 **Stephanie Kwolek**, a chemist at DuPont searching for a light, strong fibre for car tyres, produced a polymer solution that was thin and cloudy instead of thick and clear, as polymer solutions usually were. Colleagues were reluctant to spin it, expecting it to clog the spinneret, but she persuaded a technician to try. The long, stiff chains of the polymer lay aligned in the solution, and the fibre spun from it was five times as strong as steel for its weight."
+          "text": "Another fibre from the same era protects in a different way. In 1965 **Stephanie Kwolek**, a chemist at DuPont searching for a light, strong fibre for car tyres, produced a polymer solution that was thin and cloudy instead of thick and clear, as polymer solutions usually were. Colleagues were reluctant to spin it, expecting it to clog the spinneret, but she persuaded a technician to try. The long, stiff chains of the polymer lay aligned in bundles in the solution, like logs on a river, and these ordered patches scattered light, which made it cloudy. The fibre spun from it was five times as strong as steel for its weight."
         },
         {
           "type": "text",
@@ -121,7 +121,7 @@
   "summary": [
     "**Macintosh rubberised cloth in 1823.** Rubber between two cottons kept rain out and sweat in.",
     "**Vulcanisation made rubber stable.** Sulphur and heat stopped it turning sticky or stiff.",
-    "**Gabardine and waxed cotton compromised.** Tight weaves and wax shed rain and let some vapour out.",
+    "**Gabardine and waxed cotton compromised.** A tight, treated weave or a coat of wax shed rain; gabardine also let vapour out.",
     "**Repellent finishes bead water.** The best were fluorinated PFAS, now being phased out.",
     "**A membrane has pores of a useful size.** Too small for liquid drops, far bigger than vapour molecules.",
     "**Breathability has limits.** Hard work makes more sweat than a membrane can let out.",

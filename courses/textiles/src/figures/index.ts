@@ -32,6 +32,7 @@ import { rainFigure } from './rain';
 import { reshredFigure } from './reshred';
 import { fullingFigure } from './fulling';
 import { bobbinsFigure } from './bobbins';
+import { stitchedStill } from './stitched';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -73,6 +74,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   reshred: reshredFigure,
   fulling: fullingFigure,
   bobbins: bobbinsFigure,
+  stitched: stitchedStill,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,

@@ -20,22 +20,22 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Heat leaves warm skin in three ways: by **conduction** through whatever touches it, by **convection** as moving air or water carries heat away, and by **radiation**. Still air is a poor conductor of heat. It conducts several times less well than the fibres themselves, and about 25 times less well than water. Air left free to move, though, carries heat off by convection as fast as the skin can supply it."
+          "text": "Heat leaves warm skin in three ways: by **conduction** through whatever touches it, by **convection** as moving air or water carries heat away, and by **radiation**. Still air is a poor conductor of heat. It conducts several times less well than the fibres themselves, and about 25 times less well than water. Air left free to move, though, carries heat off by convection much faster."
         },
         {
           "type": "text",
-          "text": "Insulating clothing therefore works by holding a layer of air still. The fibres divide the air into tiny pockets too small for it to circulate, and they also block radiation. As a result, the warmth of a layer depends mostly on its thickness, which outdoor makers call its **loft**, and much less on what the fibres are made of. A centimetre of loft from down, polyester, wool or even dry grass gives roughly the same insulation."
+          "text": "Insulating clothing therefore works by holding a layer of air still. The fibres divide the air into tiny pockets too small for it to circulate, and they also absorb and re-emit the heat radiated by the skin, so less escapes straight out. As a result, the warmth of a layer depends mostly on its thickness, which outdoor makers call its **loft**, and much less on what the fibres are made of. Because a layer is mostly air, a centimetre of loft from down, polyester or wool gives roughly the same insulation."
         },
         {
           "type": "interactive_diagram",
           "id": "loft",
-          "caption": "Heat flowing from skin at 34 °C through a layer of insulation to the air outside, for a person sitting still. The layer conducts like still air.",
+          "caption": "Heat flowing from skin at 34 °C through a layer of insulation to the air outside. A seated person makes about 58 watts of heat per square metre of skin. The layer is taken to conduct heat about one and a half times as well as still air, allowing for its fibres.",
           "task": "Guess, then keep a seated person warm at −10 °C or colder",
           "goal": "warm"
         },
         {
           "type": "text",
-          "text": "Physiologists measure the insulation of clothing in a unit called the **clo**, defined in 1941 as the insulation needed to keep a seated person comfortable in a room at 21 °C, roughly that of a business suit with a shirt and underwear. A centimetre of loft gives about 1.6 clo. Since walking makes two or three times as much heat as sitting, people need much less insulation while moving than when they stop, which is why mountaineers carry a thick jacket to put on at rest stops."
+          "text": "Physiologists measure the insulation of clothing in a unit called the **clo**, defined in 1941 as the insulation needed to keep a seated person comfortable in a room at 21 °C, roughly that of a business suit with a shirt and underwear. A centimetre of loft gives about 1.6 clo, and the figure above uses the same rule. Since walking makes two or three times as much heat as sitting, people need much less insulation while moving than when they stop, which is why mountaineers carry a thick jacket to put on at rest stops."
         }
       ]
     },
@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "Polyester absorbs very little water, under 1 percent of its weight. In a base layer worn against the skin, sweat spreads along the surfaces of the fibres by capillary action, as water creeps up a paper towel, and reaches the outside of the cloth where it can evaporate. Makers call this **wicking**. Wool behaves differently. It can absorb about a third of its own weight of water vapour into the fibre without feeling wet to the touch, and as it absorbs moisture it releases a little heat. A damp wool jumper therefore still feels warm, which is one reason wool base layers are popular for long days outdoors."
+          "text": "Polyester absorbs very little water, under 1 percent of its weight. In a base layer worn against the skin, sweat spreads along the surfaces of the fibres by capillary action, as water creeps up a paper towel, and reaches the outside of the cloth where it can evaporate. Makers call this **wicking**. Wool behaves differently. It can absorb about a third of its own weight of water vapour into the fibre without feeling wet to the touch, and as it absorbs moisture it releases a little heat. The water is held inside the fibres rather than in the air spaces between them, so the still air remains. A damp wool jumper therefore still feels warm, which is one reason wool base layers are popular for long days outdoors."
         }
       ]
     },
