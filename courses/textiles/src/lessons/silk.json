@@ -13,11 +13,11 @@
         },
         {
           "type": "text",
-          "text": "Pliny's figure is often quoted as if it were a trade statistic, but it is better read as a moral complaint. Roman writers attacked silk as a symbol of decline: Seneca wrote that silk clothes hid nothing of the body, and Pliny blamed spending on women for draining the treasury. Nobody in Rome kept trade accounts of that kind, and Pliny gives no source. His book also shows how little Romans knew about silk itself. He describes the Seres combing a white down off the leaves of trees, the same belief the poet Virgil had repeated a century earlier."
+          "text": "Pliny's figure is often quoted as if it were a trade statistic, but it is better read as a moral complaint. Roman writers attacked silk as a symbol of decline: Seneca wrote that silk clothes hid nothing of the body, and Pliny blamed spending on women for draining the treasury. No Roman accounts of that kind survive, and Pliny gives no source. His book also shows how little Romans knew about Chinese silk. He knew of a silk moth on the Greek island of Kos, but for the silk of the Seres he describes the Seres combing a white down off the leaves of trees, the same belief the poet Virgil had repeated a century earlier."
         },
         {
           "type": "text",
-          "text": "Silk travelled more than 6,000 km, by land or by sea, to reach Rome, and Romans did not know that it came from a caterpillar. That is the origin of a popular story: China kept the silkworm a secret for thousands of years, and sent silk west along a single highway called the Silk Road. In this lesson we look at how silk is made, at how far that story holds, and at what silk did inside China, where it was money as well as cloth."
+          "text": "Silk travelled more than 6,000 km, by land or by sea, to reach Rome, and most Romans did not know that it came from a caterpillar. That is the origin of a popular story: China kept the silkworm a secret for thousands of years, and sent silk west along a single highway called the Silk Road. In this lesson we look at how silk is made, at how far that story holds, and at what silk did inside China, where it was money as well as cloth."
         }
       ]
     },
@@ -35,7 +35,7 @@
         },
         {
           "type": "text",
-          "text": "The eggs hatch in spring, when the mulberry leaves open. For about four weeks the caterpillars eat chopped leaves day and night, shedding their skin four times and growing to several thousand times their weight at hatching. The trays have to be kept warm, clean and dry, since the worms die easily of cold and disease. Then each caterpillar spins a cocoon in two or three days, laying down a single filament around itself, commonly between 600 and 1,500 metres long. If the moth were left to hatch, it would break the filament on its way out. So most cocoons are heated, by steaming, baking or putting them in the sun, to kill the pupa, and then soaked in hot water so the gum softens and the filament can be found and reeled. Only a few cocoons are kept to hatch and lay the next year's eggs."
+          "text": "The eggs hatch in spring, when the mulberry leaves open. For about four weeks the caterpillars eat chopped leaves day and night, shedding their skin four times and growing to several thousand times their weight at hatching. The trays have to be kept warm, clean and dry, since the worms die easily of cold and disease. Then each caterpillar spins a cocoon in two or three days, laying down a single filament around itself, often around a kilometre long. If the moth were left to hatch, it would break the filament on its way out. So most cocoons are heated, by steaming, baking or putting them in the sun, to kill the pupa, and then soaked in hot water so the gum softens and the filament can be found and reeled. Only a few cocoons are kept to hatch and lay the next year's eggs."
         },
         {
           "type": "text",
@@ -109,7 +109,7 @@
         },
         {
           "type": "text",
-          "text": "**Try it.** Find the care label on a silk scarf or tie, if you have one, and look at the cloth under a phone camera's zoom. You should see smooth, continuous filaments with no fibre ends sticking out, unlike cotton or wool. Each filament was unwound from a cocoon."
+          "text": "**Try it.** If you have a silk scarf or tie, pull one thread loose from a frayed edge and untwist it. Reeled silk opens into long, smooth filaments with no short ends, each unwound from a cocoon. If you find short fibres instead, it is spun silk, made from broken cocoons, which is how wild silk was usually used."
         }
       ]
     },
@@ -137,7 +137,7 @@
               {
                 "ask": "Silk fibres from about 2450 BC are found at Harappa, in the Indus valley. What does that show?",
                 "choices": [
-                  "People outside China were using silk from wild moths, long before Chinese silk reached them",
+                  "People in the Indus valley were using silk from wild moths of their own",
                   "China exported silkworms to India by 2450 BC",
                   "The Silk Road was already running",
                   "Silk was invented in India"
@@ -219,7 +219,7 @@
     "letters": {
       "kind": "digression",
       "title": "The Ancient Letters",
-      "text": "They are called the Ancient Letters, and are now in the British Library. The date of about 313 comes from the letter describing the sack of Luoyang, which happened in 311."
+      "text": "They are called the Ancient Letters, and are now in the British Library. They are dated to about 313 because one letter reports the sack of Luoyang in 311 as recent news."
     }
   }
 }

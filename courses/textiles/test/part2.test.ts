@@ -6,6 +6,7 @@ import { PERIODS } from '../src/figures/silk-routes';
 import { cropHeight, worldMap } from '../src/figures/world';
 import { click, context, setSlider } from './helpers';
 import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
+import { knotsFor } from '../src/figures/inca';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -40,5 +41,13 @@ describe('the pattern loom', () => {
     click(h.node, 'Bird');
     click(h.node, 'Drawloom');
     await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the khipu', () => {
+  it('ties 352 as three hundreds, five tens and a long knot of two', () => {
+    expect(knotsFor(352)).toEqual([{ place: 0, count: 2, kind: 'long' }, { place: 1, count: 5, kind: 'single' }, { place: 2, count: 3, kind: 'single' }]);
+    expect(knotsFor(41)[0].kind).toBe('eight');
+    expect(knotsFor(1203).map((k) => k.place)).toEqual([0, 2, 3]);
   });
 });

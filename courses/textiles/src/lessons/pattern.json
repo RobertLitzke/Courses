@@ -46,7 +46,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Laoguanshan looms solved the problem with a large number of **pattern shafts**, each a bar with loops of string that could lift its own set of warp threads, mounted alongside the ordinary shafts that made the ground weave. The reconstructions suggest that a mechanism on the loom chose the right pattern shaft for each pick, so that one weaver could work it. Once the shafts had been threaded, the design was stored in the loom itself: the weaver did not need to remember it, and the same pattern could be woven again and again until the loom was rethreaded for a new one."
+          "text": "The Laoguanshan looms solved the problem with a large number of **pattern shafts**, each a bar with loops of string that could lift its own set of warp threads, mounted alongside the ordinary shafts that made the ground weave. The reconstructions suggest that a mechanism on the loom chose the right pattern shaft for each pick, so that one weaver could work it, though how that mechanism worked is still argued over.[^laoguanshan] Once the shafts had been threaded, the design was stored in the loom itself: the weaver did not need to remember it, and the same pattern could be woven again and again until the loom was rethreaded for a new one."
         },
         {
           "type": "text",
@@ -75,7 +75,7 @@
         },
         {
           "type": "text",
-          "text": "**Where it went next.** In 1804 Joseph-Marie Jacquard in Lyon finished a device that replaced the drawboy with a chain of punched cards, one card per pick, each hole lifting one cord. Lesson 18 follows it. The cards were a pattern that could be stored, changed and swapped, and Charles Babbage borrowed the idea for the calculating engine he designed in the 1830s; in 1890 Herman Hollerith's punched cards counted the US census. The loom did not compute anything. What it had, and what the Han pattern shafts had already had in wood and string, was a replaceable, stored set of instructions kept separate from the machine that carried them out."
+          "text": "**Where it went next.** In 1804 Joseph-Marie Jacquard in Lyon finished a device that replaced the drawboy with a chain of punched cards, one card per pick, each hole lifting one cord. Lesson 18 follows it. The cards were a pattern that could be stored, changed and swapped, and Charles Babbage borrowed the idea for the calculating engine he designed in the 1830s; in 1890 Herman Hollerith's punched cards counted the US census. The loom did not compute anything. What the Han pattern shafts already had in wood and string, and what Jacquard's cards made easy to swap, was a stored set of instructions kept apart from the person carrying them out."
         }
       ]
     },
@@ -108,16 +108,16 @@
                 "why": "The drawboy pulled a lash for every pick. The limit moved from the number of shafts to labour and setup time."
               },
               {
-                "ask": "A Han brocade armguard has five colours of warp. Why does a warp-faced compound weave use so much warp yarn?",
+                "ask": "A Han brocade has warps of five colours. Why does a warp-faced compound weave use so much warp yarn?",
                 "choices": ["Every colour runs through the cloth all the time, hidden underneath except where the pattern brings it up", "Warp is thicker than weft", "The weft is left out", "Each colour is woven as a separate cloth and sewn on"],
                 "answer": 0,
                 "why": "In a *jin* each warp colour is present across the whole width. The loom chooses which one shows on each pick, so several layers of warp lie in every part of the cloth."
               },
               {
                 "ask": "Someone says weaving invented the computer. What is the more accurate claim?",
-                "choices": ["Pattern looms stored instructions that could be swapped, and punched cards carried that idea to Babbage and Hollerith", "Jacquard looms could do arithmetic", "Han looms used binary numbers", "Babbage was a weaver"],
+                "choices": ["Pattern looms stored a sequence of instructions apart from the weaver, and Jacquard's swappable cards carried that idea to Babbage and Hollerith", "Jacquard looms could do arithmetic", "Han looms used binary numbers", "Babbage was a weaver"],
                 "answer": 0,
-                "why": "Looms never calculated. What passed from looms to computing was the idea of a replaceable, stored sequence of instructions."
+                "why": "Looms never calculated. What passed from looms to computing was the idea of a stored sequence of instructions, which Jacquard's cards made easy to replace."
               }
             ]
           }

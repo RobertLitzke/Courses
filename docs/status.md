@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 0 | 0 | 42 | 0 |
-| [Fabric & Form](#textiles) | 0.1 beta | 10 | 17 | 5 | 10 | 10 | 0 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 11 | 16 | 2 | 11 | 11 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 42 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 17 lessons to write, 5 to read through, 10 to copy-edit, 10 to fact-check |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 16 lessons to write, 2 to read through, 11 to copy-edit, 11 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -605,12 +605,12 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 3 | How long did it take to spin a sail? (`spinning`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Drafting, the spindle and the wheel, yarn count, and why spinning was the slowest step and mostly women's work. |
 | 4 | Why do jeans hold their shape while T-shirts stretch? (`structure`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Woven and knitted cloth: warp and weft, plain, twill and satin weaves, the four-shaft loom, and why loops stretch. |
 | 5 | Why does colour wash out? (`dye`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Why most dyes fade, mordants and madder, indigo's vat chemistry, and printing with mordants and resists. |
-| 6 | Why was purple reserved for emperors? (`purple`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Tyrian purple and its cost, and sumptuary laws from Rome and Byzantium to Ming China, Edo Japan, the Ottomans and Tudor England. |
-| 7 | How long did China keep silk to itself? (`silk`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Sericulture; silk as Han and Tang currency and tribute; why the secret and the single road are myths; Sogdian merchants; land and sea routes. |
-| 8 | How did Han weavers store a pattern? (`pattern`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Pattern shafts as physical stored instructions; the Laoguanshan pattern looms; figured silk; drawlooms and the drawboy. |
-| 9 | Why are so many cloth words Arabic and Persian? (`words`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Cotton's spread across the Islamic world and the Mediterranean; tiraz workshops; Damascus, Mosul, Fustat and Bursa; Turkey red. |
+| 6 | Why was purple reserved for emperors? (`purple`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Tyrian purple and its cost, and sumptuary laws from Rome and Byzantium to Ming China, Edo Japan, the Ottomans and late medieval and Tudor England. |
+| 7 | How long did China keep silk to itself? (`silk`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Sericulture; silk as Han and Tang currency and tribute; why the secret and the single road are myths; Sogdian merchants; land and sea routes. |
+| 8 | How did Han weavers store a pattern? (`pattern`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Pattern shafts as physical stored instructions; the Laoguanshan pattern looms; figured silk; drawlooms and the drawboy. |
+| 9 | Why are so many cloth words Arabic and Persian? (`words`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Cotton's spread across the Islamic world and the Mediterranean; tiraz workshops; Damascus, Mosul, Fustat and Bursa; Turkey red. |
 | 10 | How did sheep pay for a war? (`wool`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | The medieval wool trade from England to Flanders and Florence; export duties and Edward III's wool scheme; the Calais staple; guilds; fulling mills and the debate over a medieval industrial revolution. |
-| 11 | How did the Inca run an empire on cloth? (`inca`) |  | planned, listed as coming |  | Cloth as state wealth, cumbi and awasqa, tribute and storehouses, the khipu, and the obrajes and cochineal after the conquest. |
+| 11 | How did the Inca run an empire on cloth? (`inca`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Cloth as Inca state wealth; fine cumbi and everyday awasqa; labour tribute and qullqa storehouses; ritual burning and military reward; the khipu; Paracas and Wari before the Inca; Spanish obrajes and cochineal. |
 | 12 | Why did England ban Indian cotton? (`calico`) |  | planned, listed as coming |  | India's lead in fine spinning and fast colour, cloth for spices, the monsoon trade, the calico craze and the Calico Acts. |
 | 13 | Why did African buyers decide what Manchester made? (`africa`) |  | planned, listed as coming |  | West African cloth industries, cloth currencies, exacting buyers, and cloth in the Atlantic slave trade. |
 | 14 | Why did a faster shuttle cause a yarn famine? (`bottleneck`) |  | planned, listed as coming |  | The flying shuttle, the spinning bottleneck, the machines that failed, and the jenny, water frame and mule. |
