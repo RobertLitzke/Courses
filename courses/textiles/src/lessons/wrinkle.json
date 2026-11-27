@@ -1,0 +1,144 @@
+{
+  "id": "wrinkle",
+  "n": 102,
+  "branch": "wardrobe",
+  "needs": ["fibres"],
+  "title": "Why does linen wrinkle and polyester spring back?",
+  "teaches": "Crease recovery; hydrogen bonds in cellulose and how an iron resets them; durable-press cross-linking; the glass transition of polyester and heat-set pleats; why steam takes creases out of wool",
+  "parts": [
+    {
+      "title": "A crumpled shirt",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A linen shirt is creased by the time its wearer has sat through a train journey, while a polyester one comes out of a suitcase looking much as it went in. Wool trousers hung in a steamy bathroom lose their creases overnight. In this lesson we look at what holds a fibre in shape, why some fibres hold a fold and others spring back, and what an iron, steam and a few industrial finishes do to the molecules."
+        }
+      ]
+    },
+    {
+      "title": "Measuring a wrinkle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Textile laboratories measure wrinkling with a simple test. A strip of cloth is folded in half, pressed under a weight for a few minutes, and released. The angle it opens back to is its **crease recovery angle**. A cloth that springs fully flat scores 180 degrees; one that stays folded scores close to 0."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "crease",
+          "caption": "A strip folded and pressed, then released. Round, typical crease recovery angles for dry cloth.",
+          "task": "Try every cloth",
+          "goal": "all"
+        },
+        {
+          "type": "text",
+          "text": "The two cellulose fibres, linen and cotton, recover least. Wool and polyester recover most, and a cotton given a resin finish comes close to them. To see why, we need to look at what holds the long chain molecules of a fibre in place."
+        }
+      ]
+    },
+    {
+      "title": "Hydrogen bonds and the iron",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Cellulose, as lesson 2 described, is a long chain of sugar units. Along each chain are many hydroxyl groups, an oxygen atom with a hydrogen attached, and these form weak **hydrogen bonds** with the chains beside them. Millions of these bonds hold the chains together in a fibre. When the fibre is bent, the chains on the outside of the bend are stretched and those on the inside are squeezed, and some hydrogen bonds break. They then re-form between chains in their new, bent positions, and the fibre stays bent."
+        },
+        {
+          "type": "text",
+          "text": "Water and heat make this easier. Water molecules slip between the chains and form hydrogen bonds of their own, so wet cellulose is much more easily bent and set. That is why a cotton shirt left crumpled in the washing machine comes out deeply creased, and why linen in a humid summer creases within minutes of putting it on. Linen creases worse than cotton because its chains are longer and more tightly packed, so they have less room to slide back."
+        },
+        {
+          "type": "text",
+          "text": "An iron uses the same chemistry in reverse. Heat and moisture, from steam or a damp cloth, break the hydrogen bonds, and the weight of the iron presses the fibres flat. As the cloth cools and dries, the bonds re-form with the chains lying straight, and the cloth stays smooth until it is bent again. A crease pressed into cotton trousers is set the same way, which is why it fades after a wash."
+        }
+      ]
+    },
+    {
+      "title": "Wash and wear",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the 1950s chemists found a way to make cotton behave more like wool. The cloth is soaked in a resin, usually a compound of formaldehyde and urea, and heated. The resin forms **cross-links**: strong chemical bonds that join neighbouring cellulose chains at intervals along their length. When the fibre is bent and released, these links pull the chains back to the positions they held when the finish was cured, much as a ladder's rungs keep its two sides in step."
+        },
+        {
+          "type": "text",
+          "text": "Much of this work was done at the US Department of Agriculture's research laboratory in New Orleans, where the chemist **Ruth Benerito** led research on cross-linking cotton. She was often credited with inventing wash-and-wear cotton, though she said that many people had worked on it. Shirts sold as non-iron, easy-care or durable-press use the same idea today. The finish has costs: the cross-links make the fibres stiffer and weaker, so treated cotton tears more easily, and early finishes released formaldehyde, which irritates skin and is now limited by law in many countries."
+        }
+      ]
+    },
+    {
+      "title": "Polyester and the glass transition",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Polyester has no hydroxyl groups along its chains to form hydrogen bonds with water, so water does not loosen it. Its chains are held instead by weaker forces between neighbouring molecules, and at room temperature they are frozen in place, like the molecules of glass. A fold bends the fibre the way a spring bends, and when released it straightens again."
+        },
+        {
+          "type": "text",
+          "text": "Above about 80 °C, the **glass transition temperature** of the polyester used in clothing, the chains loosen and can slide past each other. If the cloth is held in a new shape while hot and then cooled, the chains freeze in that shape. That is how pleats are made permanent: the pleated polyester is heated in a press and cooled under pressure. The same property means that polyester should be ironed on a cool setting. A hot iron sets any crease it presses in, and much hotter still, the fibre softens and melts."
+        }
+      ]
+    },
+    {
+      "title": "Wool and steam",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Wool is a protein, keratin, and its chains are coiled into spirals and tied to their neighbours by strong bonds between sulphur atoms, as well as by hydrogen bonds. The sulphur bonds survive a fold, so dry wool springs back from a crease as well as polyester does. Water and warmth loosen only the hydrogen bonds, and the sulphur bonds then pull the fibre back towards its natural shape. That is why steam relaxes the creases in a wool jacket, and why a hanging garment in a steamy bathroom loses its wrinkles."
+        },
+        {
+          "type": "text",
+          "text": "Permanent creases in wool trousers need the sulphur bonds themselves to be broken and remade. In 1957 researchers at CSIRO in Australia, the same agency that later developed superwash wool, introduced a process called Si-Ro-Set, which sprays the crease with a chemical that breaks some sulphur bonds before steam pressing, so that they re-form in the creased shape."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on creasing.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does a bent cotton fibre stay bent?",
+                "choices": ["Hydrogen bonds re-form between chains in the bent shape", "The fibre's scales lock it in place", "The fibre melts slightly at the fold", "Sulphur bonds break and cannot re-form"],
+                "answer": 0,
+                "why": "Bending breaks some hydrogen bonds between cellulose chains, and they re-form in the new positions."
+              },
+              {
+                "ask": "What does a steam iron do to cotton?",
+                "choices": ["It breaks hydrogen bonds, which re-form flat as the cloth cools", "It adds a resin coating to the fibres", "It melts the surface fibres together smoothly", "It shrinks the fibres back to length"],
+                "answer": 0,
+                "why": "Heat and moisture free the chains, the iron's weight flattens them, and the bonds re-form as the cloth dries."
+              },
+              {
+                "ask": "How does a durable-press finish stop cotton creasing?",
+                "choices": ["Cross-links join chains and pull them back after a bend", "It makes the fibres repel all water", "It replaces cellulose with polyester", "It removes hydrogen bonds from the fibre"],
+                "answer": 0,
+                "why": "Chemical cross-links between chains hold them in the positions set when the finish was cured."
+              },
+              {
+                "ask": "Why are pleats in a polyester skirt permanent?",
+                "choices": ["They were set above the glass transition and cooled", "Polyester absorbs water and swells into shape", "The pleats are glued along each fold", "Polyester chains are cross-linked by resin"],
+                "answer": 0,
+                "why": "Above about 80 °C the chains can move; cooled in the pleated shape, they freeze there."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Crease recovery is measurable.** A folded strip is pressed, released and the angle it opens to is measured.",
+    "**Cellulose holds a fold.** Hydrogen bonds between cotton and linen chains break and re-form in the bent shape.",
+    "**Water and heat make it worse.** Wet cotton creases deeply; an iron uses the same effect to set the cloth flat.",
+    "**Durable press cross-links cotton.** Resin bonds between chains pull them back, at the cost of weaker fibres.",
+    "**Polyester is a glass at room temperature.** Its chains spring back from a fold and move only above about 80 °C.",
+    "**Heat sets polyester.** Permanent pleats are pressed hot and cooled; a hot iron sets creases too.",
+    "**Wool's sulphur bonds spring it back.** Steam loosens hydrogen bonds and lets the sulphur bonds restore the shape."
+  ],
+  "footnotes": {}
+}

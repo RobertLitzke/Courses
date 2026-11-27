@@ -211,3 +211,11 @@ describe('the prickle figure', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+describe('the crease figure', () => {
+  it('is done once every cloth is tried', async () => {
+    const h = FIGURES.crease(context(), 'all');
+    for (const n of ['Cotton', 'Durable-press cotton', 'Wool', 'Polyester']) click(h.node, n);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
