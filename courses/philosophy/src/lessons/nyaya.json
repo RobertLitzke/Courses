@@ -1,0 +1,264 @@
+{
+ "id": "nyaya",
+ "n": 102,
+ "branch": "elsewhere",
+ "needs": [
+  "socrates"
+ ],
+ "title": "Who wrote the first rules for a fair debate?",
+ "teaches": "The Nyāya rules of argument and the Cārvāka sceptics of ancient India",
+ "parts": [
+  {
+   "title": "Urgent business elsewhere",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Suppose you are losing an argument in public. One way out is to remember, suddenly, that you have somewhere else to be. An Indian handbook of debate, the *Nyāya Sūtra*, compiled roughly 2,000 years ago, has a name for this move: *vikṣepa*, evasion, breaking off a debate on the pretext of other business. It is one of 22 \"points of defeat\" the book lists, moves that lose you a debate on the spot, whatever the truth of your case. Others include shifting your thesis when it is attacked, contradicting your own thesis, saying too little, saying too much, repeating yourself, speaking unintelligibly, failing to understand the objection, and having nothing to say in reply."
+    },
+    {
+     "type": "text",
+     "text": "Ancient India had a long tradition of public debate. Philosophers of rival schools, Hindu, Buddhist and Jain, argued before kings and audiences, sometimes for days, and the loser might be expected to become the winner's pupil or to change religion.[^debate] The **Nyāya** school, whose name means roughly \"method\" or \"rule\", set out to make such debates fair and to say exactly when an argument is good. Its founding text is traditionally credited to a sage called Akṣapāda Gautama; its dates are uncertain, but it took its present form in the early centuries AD, and commentators added to it for well over a thousand years."
+    }
+   ]
+  },
+  {
+   "title": "Three kinds of debate",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The *Nyāya Sūtra* distinguishes three kinds of debate. In **vāda**, honest discussion, both sides want to find the truth, each defends a position with good reasons, and either will accept being shown wrong. This is the kind of conversation Socrates, in lesson 1, said he wanted. In **jalpa**, wrangling, each side wants to win, and will use quibbles, misrepresentation and tricks to do it. In **vitaṇḍā**, cavilling, one side does not defend any position at all, but only attacks the other's."
+    },
+    {
+     "type": "text",
+     "text": "The Nyāya philosophers did not simply ban the second and third kinds. Their commentators said jalpa and vitaṇḍā can be used to protect the truth from people who argue in bad faith, as thorns and branches protect a young plant. But only vāda is aimed at knowledge."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Six moves you may have seen in modern arguments, online or in person. Sort each by the Nyāya kind of debate it belongs to.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Which kind of debate is this?",
+      "groups": [
+       {
+        "name": "Vāda: honest discussion",
+        "color": "vada"
+       },
+       {
+        "name": "Jalpa: wrangling to win",
+        "color": "jalpa"
+       },
+       {
+        "name": "Vitaṇḍā: only attacking",
+        "color": "vitanda"
+       }
+      ],
+      "items": [
+       {
+        "name": "Asking the other person what evidence would change their mind",
+        "group": "Vāda: honest discussion",
+        "why": "Both sides are looking for the truth and will accept it."
+       },
+       {
+        "name": "Restating the other side's view in its strongest form before replying",
+        "group": "Vāda: honest discussion",
+        "why": "A fair reply to a fair version of the view."
+       },
+       {
+        "name": "Quoting half of what the other person said, so it sounds foolish",
+        "group": "Jalpa: wrangling to win",
+        "why": "Misrepresentation, aimed at the audience rather than the truth."
+       },
+       {
+        "name": "Mocking a spelling mistake to score a point",
+        "group": "Jalpa: wrangling to win",
+        "why": "A quibble that has nothing to do with the question."
+       },
+       {
+        "name": "Picking holes in every point while refusing to say what you think",
+        "group": "Vitaṇḍā: only attacking",
+        "why": "No position is defended, so none can be refuted."
+       },
+       {
+        "name": "Answering every claim with \"but you can't prove that\", and nothing else",
+        "group": "Vitaṇḍā: only attacking",
+        "why": "Pure attack, which never risks a view of its own."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where there's smoke",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Nyāya held that there are four reliable sources of knowledge: perception, inference, comparison (learning what a word names from a description, such as recognising a wild ox because you were told it looks like a cow), and testimony from a trustworthy person. Its most studied contribution is inference. The standard example is a fire on a distant hill that you cannot see, only its smoke. A good inference, Nyāya said, has five steps, set out for an audience."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "The Nyāya five-step inference, with the standard example. The fourth step applies the general rule to the case, and the objection is the Cārvāka's.",
+     "options": {
+      "steps": [
+       {
+        "text": "The hill has fire. (The thesis.)"
+       },
+       {
+        "text": "Because it has smoke. (The reason.)"
+       },
+       {
+        "text": "Wherever there is smoke, there is fire, as in a kitchen hearth. (The general rule, with an example.)"
+       },
+       {
+        "text": "This hill has smoke, of the kind that always goes with fire. (The rule applied.)"
+       },
+       {
+        "text": "So the hill has fire.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "You have never seen all smoke, so you cannot know that wherever there is smoke there is fire. You have only seen that it has gone with fire so far.",
+        "kind": "objection",
+        "against": 3,
+        "who": "The Cārvāka"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The heart of the argument is the third step, the general rule, which Nyāya called **vyāpti**, \"pervasion\": smoke is pervaded by fire, so that smoke never occurs without it. Nyāya also listed the ways a reason can fail, its \"pseudo-reasons\". A reason can be too broad (the hill has fire because it is a hill), can prove the opposite of the thesis, can be false of the subject (the hill has no smoke at all), or can be cancelled by stronger evidence. Western logic, from Aristotle in lesson 4, worked mostly on the form of arguments; Nyāya worked as much on when a reason really supports a claim, and on how to present it to someone who doubts it."
+    }
+   ]
+  },
+  {
+   "title": "The Cārvāka sceptics",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The sharpest critics of the method were the **Cārvāka**, also called Lokāyata, \"those who go by the world\". They were materialists. Only perception is a reliable source of knowledge, they said, and perception shows only the four elements, earth, water, fire and air, and what is made from them. Consciousness comes from the body, as the power to intoxicate comes from mixing ingredients that do not intoxicate on their own. There is no soul that survives death, no rebirth and no reward for good deeds in another life. \"While life is yours, live joyously; none can escape death's searching eye. When once this frame of ours they burn, how shall it ever again return?\""
+    },
+    {
+     "type": "text",
+     "text": "Their attack on inference went straight to vyāpti. To know that all smoke goes with fire, you would have to have seen all smoke, past, present and future, which nobody has. Seeing many cases does not show that the next one will be the same. Inference can be useful in practice, they allowed, but it never gives certain knowledge. Readers of lesson 14 will recognise Hume's problem of induction, put about 1,500 years before Hume.[^hume]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The Cārvāka's challenge. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "smoke",
+      "ask": "You have seen smoke with fire thousands of times and never without it. Can you know that this distant smoke comes from a fire?",
+      "choices": [
+       "Yes: so many cases with no exception give real knowledge",
+       "No: you can only think it likely, since you have not seen all smoke",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the Nyāya answer. Later Nyāya philosophers added that you must also have looked for exceptions and found none.",
+       "You chose the Cārvāka answer, close to Hume's.",
+       "This is the question of lesson 14, and it is still open."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Almost everything we know of the Cārvāka comes from their opponents, who quoted them in order to refute them, most fully in a survey of Indian schools written in the 14th century. Their own books are lost, apart from one work by a radical sceptic of the 8th century, Jayarāśi, which attacks every source of knowledge, perception included.[^sources]"
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Nyāya logic is respected history and a growing subject in comparative philosophy, where its theory of inference and its account of testimony, of when we may believe what we are told, are set beside Western work on the same problems. Its later form, Navya-Nyāya, \"new Nyāya\", from the 14th century, built a technical language precise enough that it has been compared with modern formal logic. Its rules for honest debate are still quoted wherever people discuss how to argue well, and the Cārvāka's challenge to induction is, like Hume's, still without an agreed answer."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Nyāya and the Cārvāka",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What does the Nyāya Sūtra mean by vāda?",
+        "choices": [
+         "Honest discussion, in which both sides seek the truth and accept being shown wrong",
+         "Debate in which each side uses any trick to win",
+         "Attacking the other side's view without defending one of your own",
+         "A formal speech given to a king before a debate"
+        ],
+        "answer": 0,
+        "why": "Jalpa is wrangling to win, and vitaṇḍā is only attacking."
+       },
+       {
+        "ask": "In the five-step inference about the hill, which step carries the general rule?",
+        "choices": [
+         "Wherever there is smoke, there is fire, as in a kitchen hearth",
+         "The hill has fire",
+         "Because it has smoke",
+         "So the hill has fire"
+        ],
+        "answer": 0,
+        "why": "Nyāya called the general rule vyāpti, pervasion. It is the step the Cārvāka attacked."
+       },
+       {
+        "ask": "Why did the Cārvāka deny that inference gives certain knowledge?",
+        "choices": [
+         "Nobody has seen all cases, so the general rule behind an inference cannot be known",
+         "Inference requires belief in the gods",
+         "Only written testimony can give knowledge",
+         "Smoke can be seen without fire in kitchens"
+        ],
+        "answer": 0,
+        "why": "It is the problem of induction, put long before Hume."
+       },
+       {
+        "ask": "What is vikṣepa, one of the Nyāya points of defeat?",
+        "choices": [
+         "Breaking off a debate on the pretext of having other business",
+         "Contradicting the opponent's thesis",
+         "Giving an example that supports the general rule",
+         "Asking the judge to decide the debate"
+        ],
+        "answer": 0,
+        "why": "It loses you the debate on the spot, whatever the truth of your case."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Ancient Indian schools debated in public before kings and audiences.** The loser might become the winner's pupil.",
+  "**The Nyāya Sūtra lists 22 ways to lose a debate.** They include shifting your thesis and pleading other business.",
+  "**Vāda is honest discussion; jalpa is wrangling; vitaṇḍā is only attacking.** Only vāda aims at the truth.",
+  "**Nyāya inference has five steps, set out for an audience.** Its core is the general rule, vyāpti.",
+  "**The Cārvāka accepted only perception.** They were materialists who denied rebirth and an afterlife.",
+  "**They said nobody can know a general rule, since nobody has seen every case.** Hume's problem of induction, 1,500 years early."
+ ],
+ "footnotes": {
+  "debate": {
+   "kind": "digression",
+   "title": "The judge was his wife",
+   "text": "A well-known legend says the philosopher Śaṅkara, in the 8th century, debated the scholar Maṇḍana Miśra for many days, with Maṇḍana's wife, Ubhaya Bhāratī, as judge. She declared her husband beaten, and he became Śaṅkara's disciple. The story comes from much later biographies and is a legend, but it shows how such debates were imagined."
+  },
+  "hume": {
+   "kind": "technical",
+   "title": "Did Hume know?",
+   "text": "No. Hume had no access to Indian philosophy, and the Cārvāka texts were barely known in Europe until the 19th century. The two arrived at the same problem independently."
+  },
+  "sources": {
+   "kind": "technical",
+   "title": "Knowing a school through its enemies",
+   "text": "The fullest account of Cārvāka views is the first chapter of the Sarvadarśanasaṃgraha, a survey of sixteen schools attributed to Mādhava in the 14th century, which ranks them from worst to best and puts the Cārvāka first. Historians treat it with care, as they treat what Plato says about the sophists."
+  }
+ }
+}

@@ -47,6 +47,10 @@ export const COL = {
   /** Branch E1: Stoic and Daoist advice. */
   stoic: '#3f6f8f',
   daoist: '#4d7a5a',
+  /** Branch E2: the three kinds of debate in Nyaya. */
+  vada: '#3f8f5a',
+  jalpa: '#d4582a',
+  vitanda: '#7d5a9a',
 } as const;
 export type ColorKey = keyof typeof COL;
 
