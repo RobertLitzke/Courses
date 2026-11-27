@@ -21,6 +21,7 @@ import { heatLoss, MET } from '../src/figures/loft';
 import { threadCount } from '../src/figures/threads';
 import { maxShare } from '../src/figures/reshred';
 import { area } from '../src/figures/fulling';
+import { apply, travelled } from '../src/figures/bobbins';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -294,6 +295,20 @@ describe('the fulling figure', () => {
     click(h.node, 'Rub ten times');
     click(h.node, 'Hot soapy water');
     for (let i = 0; i < 3; i++) click(h.node, 'Rub ten times');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the bobbins figure', () => {
+  it('passes the left pair through the right in a cloth stitch', () => {
+    let p = [0, 1, 2, 3];
+    for (const m of ['cross', 'twist', 'cross'] as const) p = apply(p, m);
+    expect(travelled(p)).toBe(true);
+    expect(travelled(apply(apply([0, 1, 2, 3], 'cross'), 'twist'))).toBe(false);
+  });
+  it('is done after cross, twist, cross', async () => {
+    const h = FIGURES.bobbins(context(), 'cloth');
+    for (const m of ['Cross', 'Twist', 'Cross']) click(h.node, m);
     await expect(h.done).resolves.toBeUndefined();
   });
 });
