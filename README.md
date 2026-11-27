@@ -182,9 +182,13 @@ it opens like any other course, with its own save and review cards.
 `encyclopedia/` holds one encyclopedia for the whole site, a JSON file per
 course (`geology.json`): short entries on the ideas, people, places and
 things the lessons rest on, and the course's own page, its one-page glossary
-(key people, ideas, things and reference tables). Every course that turns it
-on (`encyclopedia` in its vite.config.ts and main.ts) bundles all of it, so an
-entry can send a reader to a lesson in any course. Lesson text links to an
+(key people, ideas, things and reference tables). Every course turns it on
+(`encyclopedia` in its vite.config.ts and main.ts) and bundles all of it, so an
+entry can send a reader to a lesson in any course. A course with no file yet
+still has a page: its course.json subtitle and summary, the entries from other
+courses that send readers to it, and its own terms (technical footnotes and
+glossary), which join the list as entries of kind "term". Writing a file for
+it replaces that page with a curated one. Lesson text links to an
 entry with `[[deep time]]` (by title or other name) or `[[words|@entry-id]]`.
 The format and the voice are in Didactics' README; catalog/test/encyclopedia.test.ts
 checks every link and that each entry is linked from some lesson. New prose

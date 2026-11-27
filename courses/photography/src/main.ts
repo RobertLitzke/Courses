@@ -2,6 +2,9 @@
 import { COURSE, LESSON_PIECES } from './course';
 import './app/styles/app.css';
 import { defineCourse } from 'didactics/app';
+import encyclopedia from 'virtual:didactics/encyclopedia';
+import { glossaryFromFile, type GlossaryFile } from 'didactics/glossary';
+import glossary from './data/glossary.json';
 import { el } from 'didactics/dom';
 import { SITE_URL } from './app/asset';
 import { CREDITS } from './app/credits';
@@ -48,6 +51,8 @@ defineCourse({
   menu: ['/home', '/reference', '/review', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
+  // The site's encyclopedia, with the reference page's glossary among this course's terms.
+  encyclopedia: { data: encyclopedia, course: 'photography', terms: glossaryFromFile(glossary as GlossaryFile) },
   offline: { noun: 'photos' },
   quiz: {
     deck: DECK,

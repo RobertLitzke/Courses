@@ -7,8 +7,13 @@
 // lesson's resume), another course under way, and the review cards waiting.
 // The bridges sit on a last shelf; the map and the full listing are at #map
 // (page.ts).
+//
+// Each book has a ribbon to keep it among the reader's favourites, and above the
+// shelves a filter shows all the books, only the favourites, or only those
+// under way (begun and not finished). Both are kept in this browser's storage,
+// beside the install hint.
 
-import { el } from 'didactics/dom';
+import { el, svg } from 'didactics/dom';
 import type { Bridge, CatalogEntry, CatalogMap, LessonInfo } from '../registry';
 import { installSlip } from './install';
 import { splitIcon } from './split';
@@ -157,38 +162,89 @@ function welcome(courses: readonly CatalogEntry[], pick: () => number): HTMLElem
 const WORDS = ['No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
 const spell = (n: number) => WORDS[n] ?? String(n);
 
-function cover(c: CatalogEntry, read: Read, under: boolean): HTMLElement {
+/** Begun on this device (a lesson finished or one open) and not all finished. */
+export function underWay(c: CatalogEntry, read: Read): boolean {
+  const { done, going } = progress(c, read);
+  return (done > 0 || going) && done < c.lessonCount;
+}
+
+/** Where the favourites and the filter are kept. */
+export const FAVORITES_KEY = 'catalog.favorites';
+export const FILTER_KEY = 'catalog.filter';
+export type ShelfFilter = 'all' | 'favorites' | 'under-way';
+const FILTERS: readonly { id: ShelfFilter; label: string }[] = [
+  { id: 'all', label: 'All' },
+  { id: 'favorites', label: 'Favorites' },
+  { id: 'under-way', label: 'Under way' },
+];
+
+/** The folders of the reader's favourite courses. */
+export function favorites(read: Read): Set<string> {
+  try {
+    const v = JSON.parse(read(FAVORITES_KEY) ?? '[]') as unknown;
+    return new Set(Array.isArray(v) ? v.filter((f): f is string => typeof f === 'string') : []);
+  } catch {
+    return new Set();
+  }
+}
+
+/** The ribbon that marks a favourite, as a bookmark hangs from the top of a book. */
+const ribbonIcon = () => svg('svg', { viewBox: '0 0 22 40', 'aria-hidden': 'true' }, svg('path', { d: 'M1.5 0V38L11 31L20.5 38V0' }));
+
+function cover(c: CatalogEntry, read: Read, fav: boolean, onMark: (on: boolean) => void): HTMLElement {
   const { done } = progress(c, read);
   const t = c.theme;
   const first = c.lessonList[0];
   const all = done >= c.lessonCount;
-  return el(
-    'a.cover',
-    {
-      href: `./${c.folder}/`,
-      // Custom properties need a style string: el() assigns style objects by property name.
-      style: t ? `--bg:${t.bg};--a:${t.accent};--t:${t.text};${t.display ? `--d:${t.display}` : ''}` : '',
-      title: c.release.stage === 'beta' ? `${c.summary}\n\nBeta, version ${c.release.version}: still being written and checked.` : c.summary,
+  const going = underWay(c, read);
+  const ribbon = el('button.fav', {
+    type: 'button',
+    'aria-pressed': String(fav),
+    'aria-label': `Favorite: ${c.title}`,
+    title: fav ? 'Remove from favorites' : 'Add to favorites',
+    onclick: () => {
+      const on = ribbon.getAttribute('aria-pressed') !== 'true';
+      ribbon.setAttribute('aria-pressed', String(on));
+      ribbon.title = on ? 'Remove from favorites' : 'Add to favorites';
+      book.classList.toggle('is-fav', on);
+      onMark(on);
     },
-    under ? el('span.ribbon', { 'aria-label': 'Under way' }) : null,
-    icon(c),
-    el('span.cover-text', {}, el('b', {}, c.title), c.subtitle ? el('i', {}, c.subtitle) : null, c.release.stage === 'beta' ? el('span.beta', {}, 'Beta') : null),
+  }, ribbonIcon());
+  const book = el(
+    `div.book${fav ? '.is-fav' : ''}`,
+    { 'data-folder': c.folder, 'data-going': String(going) },
     el(
-      'span.cover-foot',
-      {},
-      done
-        ? [el('span', {}, all ? '✓ Finished' : `${done} of ${lessonsLine(c.lessonCount)}`), el('span.bar', {}, el('i', { style: { width: `${Math.min(1, done / c.lessonCount) * 100}%` } }))]
-        : [first ? el('span.begins', {}, `Begins: “${first.title}”`) : null, el('span', {}, lessonsLine(c.lessonCount))],
+      'a.cover',
+      {
+        href: `./${c.folder}/`,
+        // Custom properties need a style string: el() assigns style objects by property name.
+        style: t ? `--bg:${t.bg};--a:${t.accent};--t:${t.text};${t.display ? `--d:${t.display}` : ''}` : '',
+        title: c.release.stage === 'beta' ? `${c.summary}\n\nBeta, version ${c.release.version}: still being written and checked.` : c.summary,
+      },
+      icon(c),
+      el('span.cover-text', {}, el('b', {}, c.title), c.subtitle ? el('i', {}, c.subtitle) : null, c.release.stage === 'beta' ? el('span.beta', {}, 'Beta') : null),
+      el(
+        'span.cover-foot',
+        {},
+        all && done
+          ? el('span', {}, '✓ Finished')
+          : going
+            ? [el('span', {}, el('b.going', {}, 'Under way'), ` · ${done} of ${lessonsLine(c.lessonCount)}`), el('span.bar', {}, el('i', { style: { width: `${Math.min(1, done / c.lessonCount) * 100}%` } }))]
+            : [first ? el('span.begins', {}, `Begins: “${first.title}”`) : null, el('span', {}, lessonsLine(c.lessonCount))],
+      ),
     ),
+    ribbon,
   );
+  if (t) book.setAttribute('style', `--a:${t.accent};--t:${t.text}`);
+  return book;
 }
 
-function bridgeCover(b: Bridge, byFolder: ReadonlyMap<string, CatalogEntry>): HTMLElement {
+function bridgeCover(b: Bridge, byFolder: ReadonlyMap<string, CatalogEntry>, read: Read): HTMLElement {
   const [a, z] = b.between.map((f) => byFolder.get(f)!);
   const own = b.folder ? byFolder.get(b.folder) : undefined;
   return el(
     own ? 'a.cover.bridge' : 'a.cover.bridge.coming',
-    { href: own ? `./${own.folder}/` : `#bridge-${b.id}`, title: b.promise },
+    { href: own ? `./${own.folder}/` : `#bridge-${b.id}`, title: b.promise, 'data-going': String(own ? underWay(own, read) : false) },
     splitIcon(a, z, !own),
     el('span.bridge-text', {}, el('b', {}, b.title), el('span.cover-foot', {}, own ? `${a.title} + ${z.title}` : `${a.title} + ${z.title} · being written`)),
   );
@@ -214,7 +270,10 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
   const due = dueEverywhere(courses, read);
   const back = begun(courses, read);
   const where = places(courses, read);
-  const underWay = new Set(where.filter((p) => p.part !== null).map((p) => p.course.folder));
+  const write = o.write ?? (() => undefined);
+  const favs = favorites(read);
+  const saved = read(FILTER_KEY);
+  let filter: ShelfFilter = FILTERS.some((f) => f.id === saved) ? (saved as ShelfFilter) : 'all';
 
   const desk = back
     ? el(
@@ -225,6 +284,67 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
         reviewCard(due),
       )
     : [welcome(shelves.flatMap((s) => s.courses), o.pick ?? Math.random), installSlip(read, o.write, o.installed)];
+
+  const counts = new Map<ShelfFilter, HTMLElement>(FILTERS.filter((f) => f.id !== 'all').map((f) => [f.id, el('span.n')]));
+  const buttons = FILTERS.map((f) =>
+    el('button', { type: 'button', 'data-filter': f.id, onclick: () => { filter = f.id; write(FILTER_KEY, f.id); apply(); } }, f.id === 'favorites' ? ribbonIcon() : null, f.label, counts.get(f.id) ?? null),
+  );
+  const filterBar = el('div.shelf-filter', { role: 'group', 'aria-label': 'Show' }, buttons);
+  const empty = el('p.shelf-empty', { hidden: true, role: 'status' });
+  const save = () => write(FAVORITES_KEY, JSON.stringify([...favs].sort()));
+  const shelfEls = shelves.map((s) =>
+    el(
+      'section.shelf',
+      { 'aria-label': s.title },
+      el('div.shelf-head', {}, el('h2', {}, s.title), s.note ? el('p', {}, s.note) : null),
+      el('div.shelf-row', {}, s.courses.map((c) => cover(c, read, favs.has(c.folder), (on) => {
+        if (on) favs.add(c.folder);
+        else favs.delete(c.folder);
+        save();
+        recount();
+      }))),
+    ),
+  );
+  const bridgeShelf = map.bridges.length
+    ? el(
+        'section.shelf.bridges',
+        { 'aria-label': 'Bridges' },
+        el('div.shelf-head', {}, el('h2', {}, 'Bridges'), el('p', {}, 'Short courses where two shelves meet')),
+        el('div.shelf-row', {}, map.bridges.filter((b) => b.between.every((f) => byFolder.has(f))).map((b) => bridgeCover(b, byFolder, read))),
+        el('p.shelf-more', {}, el('a', { href: '#map' }, 'See them all on the map →')),
+      )
+    : null;
+  const books = () => shelfEls.flatMap((s) => [...s.querySelectorAll<HTMLElement>('.book')]);
+  const recount = () => {
+    counts.get('favorites')!.textContent = String(books().filter((b) => favs.has(b.dataset.folder!)).length);
+    counts.get('under-way')!.textContent = String(books().filter((b) => b.dataset.going === 'true').length);
+  };
+  // A book unstarred under Favorites stays until the filter is picked again, so a slip of the finger can be undone.
+  const apply = () => {
+    for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.filter === filter));
+    const shows = (b: HTMLElement) => filter === 'all' || (filter === 'favorites' ? favs.has(b.dataset.folder ?? '') : b.dataset.going === 'true');
+    let any = false;
+    for (const s of shelfEls) {
+      let some = false;
+      for (const b of s.querySelectorAll<HTMLElement>('.book')) {
+        b.hidden = !shows(b);
+        some ||= !b.hidden;
+      }
+      s.hidden = !some;
+      any ||= some;
+    }
+    if (bridgeShelf) {
+      const bs = [...bridgeShelf.querySelectorAll<HTMLElement>('.cover')];
+      for (const b of bs) b.hidden = filter === 'favorites' || !shows(b);
+      bridgeShelf.hidden = filter !== 'all' && bs.every((b) => b.hidden);
+      bridgeShelf.querySelector<HTMLElement>('.shelf-more')!.hidden = filter !== 'all';
+      any ||= !bridgeShelf.hidden;
+    }
+    empty.hidden = any;
+    empty.textContent = filter === 'favorites' ? 'No favorites yet. Tap the ribbon on a course to keep it here.' : 'No course is under way yet. A course shows here once you start a lesson in it.';
+  };
+  recount();
+  apply();
 
   return el(
     'div.catalog.home',
@@ -237,23 +357,10 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       el('nav.home-tools', { 'aria-label': 'Other pages' }, el('a.btn.ghost', { href: '#map' }, 'Map'), el('a.btn.ghost', { href: '#review' }, due ? `Review · ${due}` : 'Review')),
     ),
     desk,
-    shelves.map((s) =>
-      el(
-        'section.shelf',
-        { 'aria-label': s.title },
-        el('div.shelf-head', {}, el('h2', {}, s.title), s.note ? el('p', {}, s.note) : null),
-        el('div.shelf-row', {}, s.courses.map((c) => cover(c, read, underWay.has(c.folder)))),
-      ),
-    ),
-    map.bridges.length
-      ? el(
-          'section.shelf.bridges',
-          { 'aria-label': 'Bridges' },
-          el('div.shelf-head', {}, el('h2', {}, 'Bridges'), el('p', {}, 'Short courses where two shelves meet')),
-          el('div.shelf-row', {}, map.bridges.filter((b) => b.between.every((f) => byFolder.has(f))).map((b) => bridgeCover(b, byFolder))),
-          el('p.shelf-more', {}, el('a', { href: '#map' }, 'See them all on the map →')),
-        )
-      : null,
+    filterBar,
+    empty,
+    shelfEls,
+    bridgeShelf,
     el(
       'footer.colophon',
       {},

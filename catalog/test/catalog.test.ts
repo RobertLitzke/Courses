@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { infoProblems, mapProblems, readCatalog, readMap, type CatalogEntry, type CatalogMap } from '../registry';
-import { begun, homePage, places } from '../src/home';
+import { begun, homePage, places, underWay } from '../src/home';
 import { mapPage as catalogPage, regionBox, standing } from '../src/page';
 
 const courses = resolve(__dirname, '../../courses');
@@ -201,8 +201,46 @@ describe('the shelves', () => {
     expect(main.textContent).toMatch(/part 5 of 6/);
     expect(page.querySelector('.desk-also')!.textContent).toMatch(/Under way: Water/);
     expect(page.querySelector('.welcome')).toBeNull();
-    // The book under way has a ribbon.
-    expect(page.querySelectorAll('.ribbon').length).toBe(2);
+    // Both books are under way, and say so in words.
+    expect([...page.querySelectorAll('.book .going')].length).toBe(2);
+    expect(page.querySelector('.book[data-folder="soil"] .cover-foot')!.textContent).toMatch(/Under way · 1 of 4 lessons/);
+  });
+
+  it('keeps favourites, and filters the shelves to favourites or the courses under way', () => {
+    const store: Record<string, string> = { 'e.save': JSON.stringify({ lessons: {}, resume: { volts: { part: 1 } } }) };
+    const read = (k: string) => store[k] ?? null;
+    const write = (k: string, v: string) => { store[k] = v; };
+    const page = homePage([entry(), electronics], read, map, { write, installed: true });
+    const shown = () => [...page.querySelectorAll<HTMLElement>('.book')].filter((b) => !b.hidden).map((b) => b.dataset.folder);
+    const pick = (f: string) => page.querySelector<HTMLButtonElement>(`.shelf-filter [data-filter="${f}"]`)!.click();
+    expect(shown()).toEqual(['electronics', 'soil']);
+
+    pick('under-way');
+    expect(shown()).toEqual(['electronics']);
+    expect(store['catalog.filter']).toBe('under-way');
+
+    pick('favorites');
+    expect(shown()).toEqual([]);
+    expect(page.querySelector<HTMLElement>('.shelf-empty')!.hidden).toBe(false);
+    expect(page.querySelector<HTMLElement>('.bridges')!.hidden).toBe(true);
+
+    pick('all');
+    const star = page.querySelector<HTMLButtonElement>('.book[data-folder="soil"] .fav')!;
+    expect(star.getAttribute('aria-pressed')).toBe('false');
+    star.click();
+    expect(star.getAttribute('aria-pressed')).toBe('true');
+    expect(JSON.parse(store['catalog.favorites'])).toEqual(['soil']);
+    expect(page.querySelector('[data-filter="favorites"] .n')!.textContent).toBe('1');
+    pick('favorites');
+    expect(shown()).toEqual(['soil']);
+
+    // The next visit opens on the same filter, with the star still on.
+    const again = homePage([entry(), electronics], read, map, { write, installed: true });
+    expect(again.querySelector('[data-filter="favorites"]')!.getAttribute('aria-pressed')).toBe('true');
+    expect(again.querySelector('.book[data-folder="soil"] .fav')!.getAttribute('aria-pressed')).toBe('true');
+    // A finished course is not under way.
+    store['soil.save'] = JSON.stringify({ lessons: { grit: { done: true }, water: { done: true }, worms: { done: true }, side: { done: true } } });
+    expect(underWay(entry(), read)).toBe(false);
   });
 
   it('offers the next trunk lesson when nothing is under way', () => {
