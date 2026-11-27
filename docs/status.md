@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 38 | 0 | 4 | 38 | 38 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 39 | 0 | 5 | 39 | 39 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 4 to read through, 38 to copy-edit, 38 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 to read through, 39 to copy-edit, 39 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -638,6 +638,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | K2 | Why did lace cost as much as silk? (`lace`) | Other structures | needs student read-through | Gemini (queued 2026-11-27); Fact check | Needle lace and bobbin lace and how each is made; the cross and twist of bobbin lace; why lace took so many hours; Venice, Flanders and Colbert's royal workshops; lace schools; Heathcoat's bobbinet machine and the Nottingham lace trade. |
 | K3 | Why is the Bayeux Tapestry not a tapestry? (`bayeux`) | Other structures | needs student read-through | Gemini (queued 2026-11-27); Fact check | Tapestry weaving against embroidery; how the Bayeux hanging was stitched, in what, by whom and for whom; stem stitch and laid and couched work; English embroidery as a luxury export; great woven tapestries of the later Middle Ages. |
 | K4 | Who built the first knitting machine? (`stocking-frame`) | Other structures | needs student read-through | Gemini (queued 2026-11-27); Fact check | Hand knitting of stockings in Tudor England; William Lee's stocking frame (1589 by tradition) and the bearded needle; how framework knitting spread to the East Midlands; Strutt's rib attachment; frame rents, cut-ups and the Luddites of 1811 to 1812. |
+| W1 | How is kente woven? (`kente`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | The West African narrow-strip loom and why cloth was woven in strips; Asante and Ewe kente, unravelled silk, pattern names and royal patterns; kente after independence; Yoruba adire indigo resist dyeing with starch paste and tying. |
 
 ## Not started
 

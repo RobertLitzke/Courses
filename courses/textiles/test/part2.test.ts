@@ -22,6 +22,7 @@ import { threadCount } from '../src/figures/threads';
 import { maxShare } from '../src/figures/reshred';
 import { area } from '../src/figures/fulling';
 import { apply, travelled } from '../src/figures/bobbins';
+import { checkered } from '../src/figures/strips';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -317,6 +318,16 @@ describe('the beard figure', () => {
   it('is done once every step is seen', async () => {
     const h = FIGURES.beard(context(), 'cycle');
     for (let i = 0; i < 5; i++) click(h.node, 'Next step');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the strips figure', () => {
+  it('is done when alternate strips are shifted one block', async () => {
+    expect(checkered(0)).toBe(false);
+    expect(checkered(0.5)).toBe(false);
+    const h = FIGURES.strips(context(), 'checker');
+    setSlider(h.node, 0, 1);
     await expect(h.done).resolves.toBeUndefined();
   });
 });

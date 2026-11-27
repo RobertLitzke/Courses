@@ -1,0 +1,118 @@
+{
+  "id": "kente",
+  "n": 301,
+  "branch": "traditions",
+  "needs": ["africa"],
+  "title": "How is kente woven?",
+  "teaches": "The West African narrow-strip loom and why cloth was woven in strips; Asante and Ewe kente, unravelled silk, pattern names and royal patterns; kente after independence; Yoruba adire indigo resist dyeing with starch paste and tying",
+  "parts": [
+    {
+      "title": "Cloth in strips",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At Ghana's independence ceremony in March 1957, Kwame Nkrumah and his ministers wore kente, a cloth of bright silk or rayon in gold, green, red and black, wrapped like a toga. Looked at closely, every kente is made of narrow strips, each about a hand wide, sewn together edge to edge. In this lesson we look at why West African weavers made cloth this way, how kente's patterns are built, and at a second West African cloth, the indigo-dyed adire of the Yoruba, whose patterns are made by keeping dye out."
+        }
+      ]
+    },
+    {
+      "title": "The narrow loom",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Across much of West Africa, from Senegal to Nigeria, men wove on a **narrow-strip loom**: a light treadle loom, with heddles worked by the feet as on the looms of lesson 4, that wove a strip usually 5 to 25 centimetres wide. The warp was stretched out far in front of the weaver, often weighted on a sledge that was dragged towards the loom as the cloth grew, so one warp could make a strip many metres long. The strip was then cut into lengths and sewn side by side into a cloth of any size. Pieces of cotton strip cloth found in caves in the Bandiagara cliffs of Mali, used for burials by the Tellem people, date from about the 11th century."
+        },
+        {
+          "type": "text",
+          "text": "A narrow loom has advantages. It is cheap and light, and it can be carried, set up outdoors and worked by one man. A narrow warp is easy to keep at an even tension. And because a cloth is assembled from strips, its size is not limited by the loom, and its pattern can be designed across the strips rather than within them."
+        }
+      ]
+    },
+    {
+      "title": "Kente",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Kente** is woven by the **Asante** of central Ghana, especially in the weaving town of Bonwire near the capital Kumasi, and by the **Ewe** of south-eastern Ghana and Togo. A kente strip alternates between stretches where the warp shows as fine stripes and blocks where a coloured weft covers the warp with bars and small motifs. The Asante loom has two sets of heddles, one for plain weave and one for the weft-faced blocks, so the weaver can switch between them with the feet."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "strips",
+          "caption": "Nine kente-style strips sewn edge to edge. Each strip alternates striped stretches and patterned blocks.",
+          "task": "Shift every other strip until the blocks make a checkerboard",
+          "goal": "checker"
+        },
+        {
+          "type": "text",
+          "text": "Asante weavers were using silk by the 18th century, although no silk was produced in the region. Imported silk cloth, bought through trade with Europeans on the coast and across the Sahara, was unpicked thread by thread and the silk rewoven into kente. Each pattern has a name, often drawn from a proverb, an event or a person, and the finest silk patterns were reserved for the **Asantehene**, the Asante king, who decided who else might wear them. Today most kente is woven in rayon or cotton, and printed copies are made by machine."
+        },
+        {
+          "type": "text",
+          "text": "Kente became a symbol of Ghana and, after independence, of African and African-American identity more widely. In the United States, stoles of kente or kente-pattern cloth are worn at graduations and in churches."
+        }
+      ]
+    },
+    {
+      "title": "Adire: keeping the dye out",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In south-western Nigeria, Yoruba women made patterned cloth by dyeing rather than weaving. **Adire** is cotton cloth dyed in indigo, the dye of lesson 5, with parts of the cloth protected so the dye cannot reach them, a method called **resist dyeing**. In **adire oniko**, the dyer ties small bunches of cloth tightly with raffia thread, so the tied parts stay pale and form circles. In **adire eleko**, she paints or stencils a paste of cassava starch onto the cloth, lets it dry, and then dips the cloth; the paste resists the dye, and once washed off it leaves a pale pattern on deep blue."
+        },
+        {
+          "type": "text",
+          "text": "Adire grew into a large trade in the early 20th century in the towns of Abeokuta and Ibadan, using cheap, smooth factory-woven cotton shirting imported from Britain, which took paste and dye well. In the 1920s adire was sold across West Africa. The dyeing stayed in the hands of women, while men often cut the zinc stencils for the paste. A design used again and again might be known by a name, such as *olokun*, after the goddess of the sea, or *ibadan dun*, \"Ibadan is sweet\"."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on strip weaving and adire.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "How is a large kente cloth made on a narrow loom?",
+                "choices": ["Narrow strips are cut and sewn edge to edge", "Several weavers share one very wide loom", "The strip is folded and felted into a sheet", "Coloured blocks are stitched onto a plain cloth"],
+                "answer": 0,
+                "why": "The loom weaves a long strip a hand wide, which is cut into lengths and sewn side by side."
+              },
+              {
+                "ask": "How do kente weavers get a checkerboard across the cloth?",
+                "choices": ["By shifting alternate strips so blocks meet stripes", "By dyeing the finished cloth in squares", "By weaving the whole design on one strip", "By painting starch onto the strips"],
+                "answer": 0,
+                "why": "Each strip alternates stripes and blocks; offset neighbours make the blocks alternate across the cloth."
+              },
+              {
+                "ask": "Where did the silk in early Asante kente come from?",
+                "choices": ["Imported silk cloth, unpicked and rewoven", "Silkworms raised in the Asante kingdom", "Wild silk moths of the Sahara", "Silk thread made in Bonwire from rayon"],
+                "answer": 0,
+                "why": "No silk was produced locally, so weavers unpicked imported silk cloth for thread."
+              },
+              {
+                "ask": "How does starch paste make a pattern in adire eleko?",
+                "choices": ["It stops indigo reaching the cloth beneath it", "It makes the dye darker where it is painted", "It glues coloured threads onto the cloth", "It bleaches the indigo after dyeing"],
+                "answer": 0,
+                "why": "The dried paste resists the dye; washed off, it leaves pale pattern on blue."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**West African weavers wove narrow strips.** A light treadle loom made strips a hand wide and many metres long.",
+    "**Strips are sewn into cloth.** The size of the cloth is not limited by the loom.",
+    "**Strip cloth is old.** Cotton strips from the Tellem burial caves in Mali date from about the 11th century.",
+    "**Kente alternates stripes and blocks.** Two sets of heddles switch between plain and weft-faced weave.",
+    "**The pattern lies across the strips.** Offset strips make the checkerboard.",
+    "**Asante silk was unpicked from imports.** Named patterns were reserved by the Asantehene.",
+    "**Adire is resist-dyed indigo.** Yoruba women tied cloth or painted cassava paste to keep dye out."
+  ],
+  "footnotes": {}
+}
