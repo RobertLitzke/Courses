@@ -312,3 +312,11 @@ describe('the bobbins figure', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+describe('the beard figure', () => {
+  it('is done once every step is seen', async () => {
+    const h = FIGURES.beard(context(), 'cycle');
+    for (let i = 0; i < 5; i++) click(h.node, 'Next step');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
