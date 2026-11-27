@@ -85,3 +85,19 @@ describe('the cave', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+import { evolve, mixOf, matchScore } from '../src/figures/dilemma';
+
+describe('the prisoner\'s dilemma figure', () => {
+  it('scores a one-off meeting by the payoffs', () => {
+    expect(matchScore('defect', 'coop', 1)).toBe(5);
+    expect(matchScore('tft', 'tft', 10)).toBe(3);
+    expect(matchScore('tft', 'defect', 10)).toBeCloseTo(0.9);
+  });
+  it('lets defectors take over when pairs meet once, and tit for tat when they meet often', () => {
+    const once = evolve(mixOf(30), 1).at(-1)!;
+    const often = evolve(mixOf(30), 10).at(-1)!;
+    expect(once.defect).toBeGreaterThan(0.9);
+    expect(often.tft).toBeGreaterThan(0.5);
+  });
+});

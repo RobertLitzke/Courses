@@ -29,6 +29,10 @@ export const COL = {
   rock: '#9a8f80',
   good: '#3f8f5a',
   bad: '#b4372f',
+  /** The prisoner's dilemma (lesson 11): always cooperate, always defect, tit for tat. */
+  coop: '#3f8f5a',
+  defect: '#b4372f',
+  tft: '#3f6f8f',
 } as const;
 export type ColorKey = keyof typeof COL;
 
