@@ -370,7 +370,7 @@
  {
   "lesson": "cut",
   "added": "2026-11-27",
-  "what": "New branch lesson F1; no student review yet",
+  "what": "New branch lesson F1; student read-through done and applied",
   "notes": [
    "Facts not yet checked: peplos and chiton construction; the toga's curved edge; sari length five to nine metres; Andean four-selvedge tunics; tunic gores and gussets; the 1330s to 1340s change and chroniclers' complaints; buttons rare before the 13th century; the pourpoint of Charles de Blois (Musée des Tissus, Lyon), mid-14th century; the armour theory; Juan de Alcega's Libro de geometría, práctica y traça (Madrid, 1580); Vionnet and the bias cut in the 1920s and 1930s.",
    "The layout figure's pieces are simplified shapes; its percentages (100, 100, 78, 42) follow from them, not from historical patterns."
@@ -379,7 +379,7 @@
  {
   "lesson": "denim",
   "added": "2026-11-27",
-  "what": "New branch lesson F2; no student review yet",
+  "what": "New branch lesson F2; student read-through done and applied",
   "notes": [
    "Facts not yet checked: jean from Genoa (Gênes) and denim from serge de Nîmes, and the historians' doubts; New England denim mills; ring dyeing by repeated quick dips; Jacob Davis in Reno, 1870, horse-blanket rivets, unable to afford the patent; US patent 139,121 of 20 May 1873; expiry in 1890; dude ranches in the 1930s; Brando (The Wild One, 1953) and Dean (Rebel Without a Cause, 1955); school bans; Soviet black market; more than a billion pairs a year; stonewashing in the 1980s; Turkey's sandblasting ban in 2009; laser finishing.",
    "The fade figure's ring and wear depths are illustrative."
@@ -388,7 +388,7 @@
  {
   "lesson": "wax-print",
   "added": "2026-11-27",
-  "what": "New branch lesson F3; no student review yet",
+  "what": "New branch lesson F3; student read-through done and applied",
   "notes": [
    "Facts not yet checked: canting and cap from the 1840s; Prévinaire in Haarlem in the 1850s and double-sided resin printing; Van Vlissingen in Helmond from 1846 (Vlisco); reasons for failure in Java; Gold Coast soldiers in the Dutch East Indies army (about 1831 to 1872, several thousand) and the debated origin story; Ebenezer Brown Fleming; sika wo ntaban for the swallows print; the Nana Benz of Lomé; post-independence factories and Vlisco stakes; Chinese copies since the 2000s; Yinka Shonibare.",
    "The waxprint still is schematic."
@@ -397,7 +397,7 @@
  {
   "lesson": "suit",
   "added": "2026-11-27",
-  "what": "New branch lesson F4; no student review yet",
+  "what": "New branch lesson F4; student read-through done and applied",
   "notes": [
    "Facts not yet checked: 1770s Versailles men's dress; Brummell's dates, background and dress (blue coat, buff or pale trousers, cravat); English riding coat origin; broadcloth fulling; moulding wool with heat (the tailor's goose); Savile Row's 19th century rise; Flügel, The Psychology of Clothes (1930); the lounge suit from the 1860s; Yorkshire and Scottish mills.",
    "No figure: nothing here turns on a cause and effect a reader can manipulate. A still of the 1770s and 1810s silhouettes could be added with photos of museum pieces (V&A, the Met) on Rob's PC."
@@ -406,7 +406,7 @@
  {
   "lesson": "corsets",
   "added": "2026-11-27",
-  "what": "New branch lesson F5; no student review yet",
+  "what": "New branch lesson F5; student read-through done and applied",
   "notes": [
    "Facts not yet checked: stays from the 16th century and baleen; coutil; metal eyelets patented in the 1820s (1828?); the split front busk (1840s to 1850s); steam or heated-form moulding (Izod, 1868); museum corset waists mostly 20 to 30 inches (Valerie Steele, The Corset); the cage crinoline patent of 1856; Fanny Longfellow's death in 1861; Rebecca Gibson's skeletal studies (St Bride's, London, and French collections) and their findings; no record of cosmetic rib removal; Amelia Bloomer and the Rational Dress Society (1881); First World War steel and the brassiere (US War Industries Board appeal, 1917).",
    "Photos of real corsets from museum collections on Commons would help; parked for Rob's PC if wanted."
@@ -415,7 +415,7 @@
  {
   "lesson": "utility",
   "added": "2026-11-27",
-  "what": "New branch lesson F6; no student review yet",
+  "what": "New branch lesson F6; student read-through done and applied",
   "notes": [
    "Facts not yet checked: rationing from 1 June 1941 and 66 coupons; coupon values (suit 26, woman's coat 14, dress 11, skirt 7, shoes 5, shirt 5, pyjamas 8, stockings 2; check against the Board of Trade list, as several of these vary by source and changed later); extra coupons for children; allowance cuts below 40; the Utility scheme (1941) and CC41 design; purchase tax exemption; the 1942 Making of Civilian Clothing (Restrictions) Orders and their specific limits; the 1942 ISLFD commission (Hartnell, Amies, Molyneux, Morton and others); Make Do and Mend in 1943; rationing ending 15 March 1949 and Utility in 1952; Dior's New Look in 1947 and British criticism.",
    "Rob's outline mentions hem lengths: the orders limited hem width and skirt fullness more than length; the text says so."
@@ -424,10 +424,18 @@
  {
   "lesson": "styles",
   "added": "2026-11-27",
-  "what": "New branch lesson F7; no student review yet",
+  "what": "New branch lesson F7; student read-through done and applied",
   "notes": [
    "Facts not yet checked: Veblen (1899) and his three terms; Simmel's Fashion (1904); Charles King's trickle-across (1963); bubble-up (Ted Polhemus); Laver's timeline (Taste and Fashion, 1937) and its exact wording; clothing prices falling against CPI from the 1990s (lesson 25's chart); thousands of new items a day for the largest online sellers.",
    "The trickle figure is a toy model, stated as such in its caption."
+  ]
+ },
+ {
+  "description": true,
+  "added": "2026-11-27",
+  "what": "Catalog description extended to cover the four branches (M, K, W, F) now written",
+  "notes": [
+   "The description is long; trimming the trunk half may suit better than adding."
   ]
  }
 ]

@@ -24,11 +24,11 @@
         },
         {
           "type": "text",
-          "text": "Other peoples shaped garments on the loom itself. Andean weavers, as lesson 11 described, wove each piece of a tunic to its finished size, with four finished edges, so that it never had to be cut. The Japanese kimono of branch lesson W2 is sewn from straight pieces of one bolt, and can be taken apart and remade."
+          "text": "Other peoples shaped garments on the loom itself. Andean weavers, as lesson 11 described, wove each piece of a tunic to its finished size, with four finished edges, so that it never had to be cut. The Japanese kimono of branch lesson W2 is sewn from straight pieces of one bolt, the roll of cloth as it comes from the loom, and can be taken apart and remade."
         },
         {
           "type": "text",
-          "text": "Keeping the rectangle has advantages. Nothing is wasted, the cloth keeps its strong woven edges, a garment can be adjusted by wrapping it differently, and the cloth can be reused for something else. In a world where cloth took hundreds of hours to make, these were strong reasons."
+          "text": "Keeping the rectangle has advantages. Nothing is wasted, the cloth keeps its selvedges, the strong finished edges made by the loom, a garment can be adjusted by wrapping it differently, and the cloth can be reused for something else. In a world where cloth took hundreds of hours to make, these were strong reasons."
         }
       ]
     },
@@ -37,12 +37,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In early medieval Europe both men and women wore the **tunic**, a T-shaped garment sewn from rectangles for the body and sleeves. To give room to walk or ride, tailors inserted **gores**, long triangles of cloth, into the sides of the skirt, and small square **gussets** under the arms. The triangles could be cut diagonally from a rectangle, so a tunic used nearly all the cloth. It hung loosely and was gathered at the waist with a belt."
+          "text": "In early medieval Europe both men and women wore the **tunic**, a T-shaped garment sewn from rectangles for the body and sleeves. To give room to walk or ride, tailors inserted **gores**, long triangles of cloth, into the sides of the skirt, and small square **gussets** under the arms. The strip left beside the body pieces was cut diagonally into triangles, so a tunic could use all of the cloth. It hung loosely and was gathered at the waist with a belt."
         },
         {
           "type": "interactive_diagram",
           "id": "layout",
-          "caption": "Pattern pieces for four garments laid on cloth 70 cm wide. The pieces are simplified.",
+          "caption": "Pattern pieces for four garments laid on cloth 70 cm wide. The pieces are simplified: the draped and gored garments use the whole length, a fitted gown about four fifths and a bias cut well under half.",
           "task": "Lay out all four garments",
           "goal": "all"
         }
@@ -53,19 +53,19 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From about the 1330s, men in France, Burgundy and England began wearing short, tight jackets that followed the chest and waist, closed down the front with many buttons, worn with close-fitting hose on the legs. Chroniclers complained that the new clothes were indecently short and tight. Women's gowns were fitted closely to the body too, laced or buttoned, with long sleeves cut to the shape of the arm. Within a generation fitted clothing was the fashion across western Europe."
+          "text": "From about the 1330s, men in France, Burgundy and England began wearing short, tight jackets that followed the chest and waist, closed down the front with many buttons, worn with hose, close-fitting cloth leggings. Chroniclers complained that the new clothes were indecently short and tight. Women's gowns were fitted closely to the body too, laced or buttoned, with long sleeves cut to the shape of the arm. Within a generation fitted clothing was the fashion across western Europe."
         },
         {
           "type": "text",
-          "text": "Fitting needed new techniques. Tailors cut the body into several shaped **panels** with curved seams, and set the sleeves into curved armholes instead of sewing them straight on. Buttons and buttonholes, rare before the 13th century, allowed a tight garment to be put on and taken off. A rare surviving example is the **pourpoint** of Charles de Blois, a padded silk jacket from the middle of the 14th century now in a museum in Lyon, cut from many shaped pieces and closed with dozens of buttons."
+          "text": "Fitting needed new techniques. Tailors cut the body into several shaped **panels** with curved seams, and set the sleeves into curved armholes instead of sewing them straight on. Buttons and buttonholes, rare before the 13th century, allowed a tight garment to be put on and taken off. A rare surviving example is the **pourpoint** of Charles de Blois, a padded silk jacket from the middle of the 14th century now in the Musée des Tissus in Lyon, cut from many shaped pieces and closed with a long row of buttons."
         },
         {
           "type": "text",
-          "text": "Historians still debate why the change happened. One theory points to armour: knights wore fitted padded jackets under the new plate armour, and the shape passed into ordinary dress. Others point to the skill of growing tailors' guilds in the cities, or to the wish of the rich to show off a cut that only a skilled tailor could make."
+          "text": "Historians still debate why the change happened. One theory points to armour: knights wore fitted padded jackets under the plates of steel armour that came into use in the 14th century, and the shape passed into ordinary dress. Others point to the skill of growing tailors' guilds in the cities, or to the wish of the rich to show off a cut that only a skilled tailor could make."
         },
         {
           "type": "text",
-          "text": "Fit had a price in cloth. Curved panels do not fit together without gaps, so the offcuts between them were wasted or saved for patching. Tailors guarded their methods of laying out patterns to waste as little as possible. The first printed tailoring book, by Juan de Alcega in Madrid in 1580, was largely a set of diagrams showing how to lay out the pieces of each garment on a length of cloth of a given width."
+          "text": "Fit had a price in cloth. A curved edge cannot sit flush against the straight edge of the cloth or against another curve bending the same way, so panels laid out side by side leave gaps, and the offcuts between them were wasted or saved for patching. Tailors guarded their methods of laying out patterns to waste as little as possible. The first known printed tailoring book, by Juan de Alcega in Madrid in 1580, was largely a set of diagrams showing how to lay out the pieces of each garment on a length of cloth of a given width."
         }
       ]
     },
@@ -74,7 +74,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 4 showed that woven cloth hardly stretches along its threads but gives on the diagonal, the **bias**. In the 1920s and 1930s the Paris designer **Madeleine Vionnet** cut whole dresses on the bias, so that the cloth stretched and draped closely over the body without darts or fastenings, and clung as the wearer moved. Bias cutting became the look of 1930s evening wear. It is also the most wasteful layout of all, since pieces turned at 45 degrees leave large triangles at the edges of the cloth, and only cheap industrial cloth made it practical for ordinary clothes."
+          "text": "Lesson 4 showed that woven cloth hardly stretches along its threads but gives on the diagonal, the **bias**. In the 1920s and 1930s the Paris designer **Madeleine Vionnet** cut whole dresses on the bias, so that the cloth stretched and draped closely over the body without darts or fastenings, and clung as the wearer moved. Bias cutting became the look of 1930s evening wear. It is also the most wasteful layout of all, since pieces turned at 45 degrees leave large triangles at the edges of the cloth, so it became common in ordinary clothes only once factory-made cloth was cheap enough for the waste not to matter."
         }
       ]
     },

@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Clothes wear out, so people need new ones, but that does not explain why the new ones should look different. A coat from ten years ago keeps a body just as warm, yet many people would feel out of date wearing it. Most societies in history changed their dress slowly; in Europe from about the 14th century, and across much of the world since the 19th, styles have changed every few years. In this lesson we look at the main explanations for why, and at what the speed of change has to do with the price of cloth."
+          "text": "Clothes wear out, so people need new ones, but that does not explain why the new ones should look different. A coat from ten years ago keeps a body just as warm, yet many people would feel out of date wearing it. Most societies in history changed their dress slowly; in Europe from about the 14th century, and across much of the world since the 19th, styles have changed every few years, and in recent decades faster still. In this lesson we look at the main explanations for why, and at what the speed of change has to do with the price of cloth."
         }
       ]
     },
@@ -20,7 +20,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "For centuries, rulers tried to fix dress to rank by law. **Sumptuary laws** in medieval and early modern Europe set out which classes could wear silk, fur, gold thread or certain colours, and similar laws in Edo Japan, described in branch lesson W2, kept merchants out of silk. Lesson 6 showed Roman emperors reserving purple. The laws were hard to enforce and frequently reissued, which suggests that people with money kept trying to dress above their rank. That pressure is the starting point of the best-known theory of fashion."
+          "text": "For centuries, rulers tried to fix dress to rank by law. **Sumptuary laws** in medieval and early modern Europe set out which classes could wear silk, fur, gold thread or certain colours, and similar laws in Edo Japan, described in branch lesson W2, kept merchants out of silk. Lesson 6 showed Roman emperors reserving purple. The laws were hard to enforce and frequently reissued, which suggests that people with money kept trying to dress above their rank. That pressure is the starting point of the most influential theory of fashion."
         }
       ]
     },
@@ -33,12 +33,12 @@
         },
         {
           "type": "text",
-          "text": "In 1904 the German sociologist **Georg Simmel** described the mechanism that keeps fashion moving. People want both to belong and to stand out. The elite adopt a new style to set themselves apart, the classes below copy it to share in its prestige, and once it becomes common the elite abandon it for something new. This is the **trickle-down** theory. It implies that the speed of fashion depends on how quickly copying can happen, and so on how cheap cloth and clothes are."
+          "text": "In 1904 the German sociologist **Georg Simmel** described the mechanism that keeps fashion moving. People want both to belong and to stand out. The elite adopt a new style to set themselves apart, the classes below copy it to share in its prestige, and once it becomes common the elite abandon it for something new. This is the **trickle-down** theory. It implies that the speed of fashion depends on how quickly copying can happen. Copying is quicker when more people can afford the new style, so it should also depend on how cheap cloth and clothes are."
         },
         {
           "type": "interactive_diagram",
           "id": "trickle",
-          "caption": "A toy model of trickle-down. Each shade is a style; the elite move on when half of everyone else has copied them.",
+          "caption": "A toy model of trickle-down, with its assumptions built in: copying is faster when clothes are cheaper, and the elite move on once half of everyone else has copied them. Each shade is a style.",
           "task": "Try clothes that are dear and clothes that are cheap",
           "goal": "pace"
         }
@@ -57,7 +57,7 @@
         },
         {
           "type": "text",
-          "text": "Fashion also cycles through its own past. In 1937 the British costume historian James Laver proposed a tongue-in-cheek timetable for how a style is seen: daring a year before its time, smart when it arrives, dowdy a year later, hideous after ten years, ridiculous after twenty, and charming, romantic and finally beautiful as decades pass. The revival of styles from twenty or thirty years earlier, often bought second-hand, follows something like this pattern."
+          "text": "Fashion also cycles through its own past. In 1937 the British costume historian James Laver proposed a tongue-in-cheek timetable for how a style is seen: daring a year before its time, smart when it arrives, dowdy a year later, hideous after ten years, ridiculous after twenty, and then charming after about 70 years, romantic after 100 and beautiful after 150. The revival of styles from twenty or thirty years earlier, often bought second-hand, follows something like this pattern."
         }
       ]
     },
@@ -70,7 +70,7 @@
         },
         {
           "type": "text",
-          "text": "Veblen and Simmel would not be surprised. When clothes are cheap, owning them no longer shows wealth, and a style spreads so fast that it stops setting anyone apart almost as soon as it appears. The answer has been ever faster change, paid for in the cloth, the labour and the waste traced through the rest of this course."
+          "text": "This fits Veblen's and Simmel's ideas, carried to an extreme. When clothes are cheap, owning them no longer shows wealth, and a style spreads so fast that it stops setting anyone apart almost as soon as it appears. The answer has been ever faster change, paid for in the cloth, the labour and the waste traced through the rest of this course."
         }
       ]
     },
@@ -104,7 +104,7 @@
               },
               {
                 "ask": "Why does fast turnover of styles depend on cheap cloth?",
-                "choices": ["Copying is quick only when clothes are cheap", "Cheap cloth is easier for designers to draw", "Cheap cloth comes in a wider range of colours", "Expensive cloth cannot be cut into new shapes"],
+                "choices": ["Copying is quickest when clothes are cheap", "Cheap cloth is easier for designers to draw", "Cheap cloth comes in a wider range of colours", "Expensive cloth cannot be cut into new shapes"],
                 "answer": 0,
                 "why": "When clothes cost little, people copy new styles fast, and the elite must keep moving."
               }
@@ -114,6 +114,6 @@
       ]
     }
   ],
-  "summary": ["**Sumptuary laws tried to fix dress to rank.** Constant reissuing shows people kept dressing up.", "**Veblen saw display in dress.** Conspicuous consumption, leisure and waste signal wealth.", "**Simmel described trickle-down.** The elite adopt, others copy, and the elite move on.", "**Mass media spread styles across classes.** Copies arrived within weeks for everyone.", "**Many styles trickle up.** Denim, punk and streetwear began below and were copied above.", "**Fashion recycles its past.** Laver's timetable runs from daring to dowdy to beautiful.", "**Fast change needs cheap cloth.** Falling prices sped the cycle to weeks."],
+  "summary": ["**Sumptuary laws tried to fix dress to rank.** Constant reissuing suggests people kept dressing up.", "**Veblen saw display in dress.** Conspicuous consumption, leisure and waste signal wealth.", "**Simmel described trickle-down.** The elite adopt, others copy, and the elite move on.", "**Mass media spread styles across classes.** Copies arrived within weeks for everyone.", "**Many styles trickle up.** Denim, punk and streetwear began below and were copied above.", "**Fashion recycles its past.** Laver's timetable runs from daring to dowdy to beautiful.", "**Fast change needs cheap cloth.** Falling prices sped the cycle to weeks."],
   "footnotes": {}
 }

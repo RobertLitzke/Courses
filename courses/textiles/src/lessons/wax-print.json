@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Across West and Central Africa, brightly patterned cotton cloth called wax print, or simply African print, is worn for weddings, funerals, church and everyday life, sewn into dresses, shirts and wrappers. Some of the most prized of it is made in the small Dutch town of Helmond, and its techniques were developed to imitate cloth from Indonesia. In this lesson we look at how a Dutch imitation of Javanese batik failed in Java and became a West African fashion, and at the West African buyers who made it their own."
+          "text": "Across West and Central Africa, brightly patterned cotton cloth called wax print, or simply African print, is worn for weddings, funerals, church and everyday life, sewn into dresses, shirts and wrappers, lengths of cloth wrapped around the body as a skirt. Some of the most prized of it is made in the small Dutch town of Helmond, and its techniques were developed to imitate cloth from Indonesia. In this lesson we look at how a Dutch imitation of batik, a wax-dyed cloth from the island of Java, failed in Java and became a West African fashion, and at the West African buyers who made it their own."
         }
       ]
     },
@@ -25,7 +25,7 @@
         {
           "type": "diagram",
           "id": "waxprint",
-          "caption": "The steps of a wax print. Batik uses hand-drawn wax; the Dutch factories printed resin onto both sides of the cloth with rollers."
+          "caption": "The steps of a wax print. Out of register means a colour printed slightly off the outline it belongs to. Batik uses hand-drawn wax; the Dutch factories printed resin onto both sides of the cloth with rollers."
         }
       ]
     },
@@ -34,7 +34,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Java was a Dutch colony, and in the mid-19th century Dutch textile makers set out to sell machine-made batik there. In the 1850s the Haarlem printer Jean Baptiste Prévinaire adapted a printing machine to press a resin resist onto both sides of the cloth at once, so that it matched the double-sided look of real batik. Other Dutch firms followed, among them P. F. van Vlissingen & Co of Helmond, founded in 1846, the company now known as Vlisco."
+          "text": "Java was a Dutch colony, and in the mid-19th century Dutch textile makers set out to sell machine-made batik there. In the 1850s the Haarlem printer Jean Baptiste Prévinaire adapted a roller printing machine to press a resin resist onto both sides of the cloth at once, so that it matched the double-sided look of real batik. Other Dutch firms followed, among them P. F. van Vlissingen & Co of Helmond, founded in 1846, the company now known as Vlisco."
         },
         {
           "type": "text",
@@ -47,7 +47,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "One route to West Africa may have run through the Dutch colonial army. Between the 1830s and the 1870s the Dutch recruited several thousand soldiers on the Gold Coast, now Ghana, to serve in the East Indies, and some returned home with batik. Whatever the start, by the end of the 19th century Dutch and British merchants, including the Glasgow trader Ebenezer Brown Fleming, were selling Dutch wax prints on the Gold Coast, and buyers there liked exactly what Javanese buyers had rejected. The crackle made every piece slightly different, which proved the cloth was a true wax print and not a cheaper roller print."
+          "text": "One route to West Africa may have run through the Dutch colonial army. Between the 1830s and the 1870s the Dutch recruited several thousand soldiers on the Gold Coast, now Ghana, to serve in the East Indies, and some returned home with batik. Whatever the start, by the end of the 19th century Dutch and British merchants, including the Glasgow trader Ebenezer Brown Fleming, were selling Dutch wax prints on the Gold Coast, and buyers there liked exactly what Javanese buyers had rejected. The name wax print stuck to the Dutch cloth, though it used resin. Its crackle made every piece slightly different, and it marked a resist-dyed cloth, as opposed to cheaper copies printed directly with dye, which could only imitate the veins."
         },
         {
           "type": "text",
@@ -60,7 +60,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "After independence, factories in Ghana, Nigeria, Côte d'Ivoire and elsewhere began making wax and imitation wax prints, some of them partly owned by Vlisco. Since the 2000s, much cheaper copies printed in China have taken most of the market, often reproducing Dutch and African designs, and many African textile factories have closed. The genuine Dutch cloth remains a luxury and a sign of status."
+          "text": "After independence, factories in Ghana, Nigeria, Côte d'Ivoire and elsewhere began making wax and imitation wax prints, some of them partly owned by Vlisco. Since the 2000s, much cheaper copies printed in China have taken a large share of the market, often reproducing Dutch and African designs, and many African textile factories have closed. The genuine Dutch cloth remains a luxury and a sign of status."
         },
         {
           "type": "text",
@@ -94,7 +94,7 @@
                 "ask": "Why did West African buyers value the crackle?",
                 "choices": ["It showed the cloth was a true wax print", "It made the cloth cooler to wear", "It meant the cloth had been made in Java", "It made the colours fade more slowly"],
                 "answer": 0,
-                "why": "Every piece cracked differently, which a cheaper roller print could not copy."
+                "why": "Each piece cracked differently, showing a true resist-dyed cloth rather than a printed copy."
               },
               {
                 "ask": "Who gave wax print designs their names?",
@@ -108,6 +108,6 @@
       ]
     }
   ],
-  "summary": ["**Batik is wax-resist dyeing.** Javanese makers drew or stamped wax onto cotton before each dye.", "**Dutch firms printed resin by machine.** Prévinaire and Vlisco tried to sell copies in Java.", "**Java rejected them.** The crackle looked like a flaw, and local stamped batik was cheap.", "**West Africa embraced them.** By 1900 Dutch wax prints sold well on the Gold Coast.", "**The crackle became a mark of quality.** No two pieces cracked the same way.", "**Market women shaped the cloth.** They chose designs and named them after proverbs and events.", "**Chinese copies now dominate.** Genuine Dutch wax remains a luxury.", "**Its meaning was made in Africa.** A European copy of an Asian cloth became an African fashion."],
+  "summary": ["**Batik is wax-resist dyeing.** Javanese makers drew or stamped wax onto cotton before each dye.", "**Dutch firms printed resin by machine.** Prévinaire and Vlisco tried to sell copies in Java.", "**Java rejected them.** The crackle looked like a flaw, and local stamped batik was cheap.", "**West Africa embraced them.** By 1900 Dutch wax prints sold well on the Gold Coast.", "**The crackle became a mark of quality.** Each piece cracked a little differently.", "**Market women shaped the cloth.** They chose designs and named them after proverbs and events.", "**Chinese copies now dominate.** Genuine Dutch wax remains a luxury.", "**Its meaning was made in Africa.** A European copy of an Asian cloth became an African fashion."],
   "footnotes": {}
 }

@@ -3,7 +3,7 @@
   "subtitle": "How cloth is made and how it shaped the world",
   "department": "History",
   "order": 16,
-  "summary": "A Viking sail took four women about a year of ten-hour days to spin and weave; a T-shirt now takes a few minutes of sewing. The course starts with the cloth itself: how twist turns loose fibre into yarn, why jeans have diagonal lines and T-shirts stretch, and why most dyes wash out. Then it follows cloth through history, from Roman purple and Han pattern looms through the calico craze, the African buyers who set what Manchester made, the bottleneck that produced the spinning machines, and the cotton gin's part in the spread of American slavery, to Gandhi's spinning wheel, nylon stockings, Rana Plaza and the cotton fields of today. Several figures let you run the machines: a weave grid, an indigo vat, a monsoon voyage, and a workshop of spinners and weavers where you add each invention and watch where the work piles up.",
+  "summary": "A Viking sail took four women about a year of ten-hour days to spin and weave; a T-shirt now takes a few minutes of sewing. The course starts with the cloth itself: how twist turns loose fibre into yarn, why jeans have diagonal lines and T-shirts stretch, and why most dyes wash out. Then it follows cloth through history, from Roman purple and Han pattern looms through the calico craze, the African buyers who set what Manchester made, the bottleneck that produced the spinning machines, and the cotton gin's part in the spread of American slavery, to Gandhi's spinning wheel, nylon stockings, Rana Plaza and the cotton fields of today. Several figures let you run the machines: a weave grid, an indigo vat, a monsoon voyage, and a workshop of spinners and weavers where you add each invention and watch where the work piles up. Four branches go further: everyday questions about your own clothes, from shrinking wool to waterproof jackets; felt, lace, embroidery and the first knitting machine; cloth traditions from kente to Kashmir shawls; and fashion itself, from the first fitted clothes to denim, corsets, wartime rationing and why styles change.",
   "lessons": "src/lessons",
   "icon": "public/icons/icon.svg",
   "save": "textiles.save",
@@ -17,10 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.1",
+    "version": "0.2",
     "stage": "beta",
     "date": "2026-11-27",
-    "note": "First numbered version: the plan of the course and its first lessons.",
-    "history": []
+    "note": "All 27 trunk lessons and four branches: your wardrobe, other structures, cloth traditions, and fashion and form, 23 lessons with their own figures.",
+    "history": [
+      {
+        "version": "0.1",
+        "stage": "beta",
+        "date": "2026-11-27",
+        "note": "First numbered version: the plan of the course and its first lessons."
+      }
+    ]
   }
 }
