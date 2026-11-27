@@ -1,0 +1,231 @@
+{
+ "id": "wittgenstein",
+ "n": 306,
+ "branch": "tools",
+ "needs": [
+  "hume"
+ ],
+ "title": "Can you have a private language?",
+ "teaches": "Wittgenstein, language games and the beetle in the box",
+ "parts": [
+  {
+   "title": "A fortune given away",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Ludwig Wittgenstein was born in Vienna in 1889, the youngest of eight children of one of the richest families in Europe; his father had made a fortune in steel. Brahms and Mahler played in the family's palace. Three of his four brothers took their own lives. Ludwig studied engineering, designed a propeller in Manchester, became gripped by the foundations of mathematics, and in 1911 turned up unannounced at Cambridge to study with Bertrand Russell, who soon thought him the most remarkable person he had met."
+    },
+    {
+     "type": "text",
+     "text": "In the First World War he volunteered for the Austrian army, asked for the most dangerous posts, was decorated for bravery, and wrote a short book in his notebooks at the front. He finished it as a prisoner of war in Italy. It was published in 1921 as the *Tractatus Logico-Philosophicus*. He believed it had solved, in essentials, all the problems of philosophy, so he gave up the subject."
+    },
+    {
+     "type": "text",
+     "text": "He also gave up his money. In 1919 he handed his share of the family fortune to his brothers and sisters, and trained as a primary school teacher. For six years he taught village children in the mountains of Lower Austria, intensely and sometimes harshly, until in 1926 he struck a boy who collapsed, and he left teaching.[^teacher] He worked as a gardener at a monastery and designed a house for his sister in Vienna, down to the door handles. In 1929 he returned to Cambridge, having decided the *Tractatus* was wrong."
+    }
+   ]
+  },
+  {
+   "title": "The picture theory and its ladder",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The *Tractatus* is a series of numbered sentences, many of them a single line. Its central idea is that a meaningful sentence is a **picture** of a possible fact: its parts stand for things, and their arrangement shows how the things are arranged, as a model car crash in a courtroom shows how the cars stood. A sentence is true if the fact it pictures exists. \"The limits of my language mean the limits of my world.\""
+    },
+    {
+     "type": "text",
+     "text": "This left no room for ethics, religion or the meaning of life, which picture no facts. Wittgenstein did not think they were unimportant; he thought they were the most important things, but could only be shown, not said. And it left no room for the *Tractatus* itself, whose sentences picture no facts either. He accepted this: the reader should use its sentences as a ladder, and then throw the ladder away. It ends: \"Whereof one cannot speak, thereof one must be silent.\"[^ladder] The Vienna Circle, in the science branch lesson, read the book as a manifesto for their view that metaphysics is nonsense, and were puzzled when they met its author, who read them poetry with his back to them."
+    }
+   ]
+  },
+  {
+   "title": "Language games",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Wittgenstein's later work, published after his death as *Philosophical Investigations* (1953), rejected the picture theory. Language, he now said, is not one thing with one job. It is a collection of activities, which he called **language games**: giving orders, describing objects, telling jokes, praying, thanking, guessing riddles. Words are like tools in a toolbox, with uses as different as a hammer's and a glue pot's. \"For a large class of cases, though not for all, the meaning of a word is its use in the language.\""
+    },
+    {
+     "type": "text",
+     "text": "He made the point with the word \"game\" itself. What do all games have in common? Board games, card games, ball games, the Olympic Games, patience, ring-a-ring-a-roses. Not winning and losing, since a child throwing a ball against a wall has neither. Not skill, not luck, not other players. \"Don't say: there must be something common, or they would not be called games, but look and see whether there is.\" What you find, he said, is a network of overlapping similarities, as members of a family share a nose with some relatives and a way of walking with others. He called this **family resemblance**."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Wittgenstein's challenge. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "games",
+      "ask": "Is there some feature that all games, and only games, have in common?",
+      "choices": [
+       "Yes, though it is hard to say exactly what it is",
+       "No: games are linked by overlapping similarities, not one shared feature",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the answer Wittgenstein argued against. In 1978 the philosopher Bernard Suits proposed one: a game is \"the voluntary attempt to overcome unnecessary obstacles\".",
+       "You chose Wittgenstein's answer.",
+       "Philosophers still argue over Suits's definition, so you are not alone."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "The beetle in the box",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The best-known argument in the *Investigations* is aimed at an old picture of the mind, one that runs through Descartes and the empiricists, including Hume in lesson 14. On that picture, each of us has private inner experiences, such as pain or the colour red as it looks to me, which only I can observe, and words for them get their meaning by naming those inner objects. My word \"pain\" means this, the feeling I am attending to now."
+    },
+    {
+     "type": "text",
+     "text": "Wittgenstein asked whether a language could work that way. Suppose I want to keep a diary of a recurring sensation, and write \"S\" in my calendar each day I have it. I have no way to define \"S\" except by concentrating on the feeling and saying \"this\". Next time, how do I know I am using \"S\" correctly? Only because it seems to me to be the same feeling. But then \"whatever is going to seem right to me is right. And that only means that here we can't talk about 'right'.\" A word needs a standard of correct use that is more than my impression, and a purely private word has none."
+    },
+    {
+     "type": "text",
+     "text": "He gave an image. Suppose everyone had a box with something in it, which they call a \"beetle\". No one can look into anyone else's box, and everyone says they know what a beetle is only by looking at their own. It could be that everyone has something different in their box, or that the thing keeps changing, or even that the box is empty. The word \"beetle\" would still be used, and used successfully. But the thing in the box would play no part in its meaning: it \"drops out of consideration as irrelevant\". Our word \"pain\", Wittgenstein suggested, gets its meaning from its public use, from groans, injuries, comfort and medicine, not from the private feeling it seems to name."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "The private language argument, in plain steps. The objection is the commonest reply.",
+     "options": {
+      "steps": [
+       {
+        "text": "A word has meaning only if there is a difference between using it correctly and only seeming to."
+       },
+       {
+        "text": "For a word defined only by a private inner sensation, nobody, including the speaker, can check correct use against anything but the speaker's impression."
+       },
+       {
+        "text": "So for such a word there is no difference between being right and seeming right."
+       },
+       {
+        "text": "So there cannot be a purely private language.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "Memory can be a standard: I can remember what S felt like, as I remember a face, without anyone else checking.",
+        "kind": "objection",
+        "against": 2,
+        "who": "Many critics"
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The private language. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "private-language",
+      "ask": "Could you invent a word for a sensation of yours that, in principle, only you could ever understand?",
+      "choices": [
+       "Yes: I can name a feeling to myself and remember what I meant",
+       "No: without some public check, there is nothing to get right",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the answer of Wittgenstein's critics.",
+       "You chose Wittgenstein's answer.",
+       "Many philosophers still argue over what the argument even says."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Wittgenstein is respected history and still argued over. The picture theory of the *Tractatus* is abandoned, by its author first. The private language argument is still debated, partly over how to read it, and has shaped philosophy of mind against the idea that sensations are private objects. Meaning as use and family resemblance are widely accepted in linguistics and psychology, where work on categories since the 1970s found that people sort things by resemblance to typical examples rather than by definitions. He was elected professor at Cambridge in 1939, spent part of the Second World War as a porter at Guy's Hospital in London, and died in 1951. His last words, to his doctor's wife, were \"Tell them I've had a wonderful life.\"[^poker]"
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Wittgenstein",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What was the picture theory of the Tractatus?",
+        "choices": [
+         "A meaningful sentence pictures a possible fact, its parts standing for things",
+         "Every word is a picture of an object in the mind",
+         "Language began as pictures drawn on cave walls",
+         "Only sentences about art are meaningful"
+        ],
+        "answer": 0,
+        "why": "It left ethics and the meaning of life to be shown, not said."
+       },
+       {
+        "ask": "What did the later Wittgenstein mean by family resemblance?",
+        "choices": [
+         "Things called by one word, like games, share overlapping similarities rather than one common feature",
+         "Words in the same language family sound alike",
+         "Children learn words by copying their families",
+         "Every concept has a definition shared by all its members"
+        ],
+        "answer": 0,
+        "why": "Look and see whether there is something common to all games."
+       },
+       {
+        "ask": "What is the beetle in the box meant to show?",
+        "choices": [
+         "The private thing a word seems to name plays no part in the word's meaning",
+         "Beetles have experiences we cannot share",
+         "Everyone sees colours differently",
+         "Language began with names for insects"
+        ],
+        "answer": 0,
+        "why": "The thing in the box drops out as irrelevant."
+       },
+       {
+        "ask": "What is the main point of the private language argument?",
+        "choices": [
+         "A word with no public standard of correct use has no difference between being right and seeming right",
+         "Nobody has private sensations",
+         "All languages are secretly the same language",
+         "People cannot keep diaries"
+        ],
+        "answer": 0,
+        "why": "\"Whatever is going to seem right to me is right\" means there is no right."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Wittgenstein gave away a fortune and taught village children.** He thought the Tractatus had solved philosophy.",
+  "**The Tractatus: a sentence pictures a possible fact.** What cannot be said must be passed over in silence.",
+  "**He returned to Cambridge in 1929, having decided it was wrong.** Philosophical Investigations appeared after his death.",
+  "**Meaning is use, in language games.** Words are tools with many jobs.",
+  "**Games share family resemblances, not one feature.** Look and see.",
+  "**A purely private language is impossible.** Without a public check, seeming right is all there is.",
+  "**The beetle in the box drops out.** Words for sensations get their meaning from public use."
+ ],
+ "footnotes": {
+  "teacher": {
+   "kind": "technical",
+   "title": "The Haidbauer incident",
+   "text": "In 1926, in the village of Otterthal, Wittgenstein hit an eleven-year-old pupil, Josef Haidbauer, on the head, and the boy collapsed. Wittgenstein was taken to court and cleared, but left teaching. Years later he went back to the village to apologise to the children he had hit."
+  },
+  "ladder": {
+   "kind": "technical",
+   "title": "Two translations",
+   "text": "\"Whereof one cannot speak, thereof one must be silent\" is from the first English translation, by C. K. Ogden, in 1922. David Pears and Brian McGuinness, in 1961, gave \"What we cannot speak about we must pass over in silence\"."
+  },
+  "poker": {
+   "kind": "digression",
+   "title": "The poker",
+   "text": "In 1946 Karl Popper read a paper at Cambridge with Wittgenstein in the room. By Popper's account, Wittgenstein, holding a poker from the fire, asked him to give an example of a moral rule, and Popper replied, \"Not to threaten visiting lecturers with pokers\", after which Wittgenstein left. Others present remembered it differently, and the dispute filled a book in 2001."
+  }
+ }
+}
