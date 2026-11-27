@@ -1,0 +1,141 @@
+{
+  "id": "felt",
+  "n": 201,
+  "branch": "structures",
+  "needs": ["structure"],
+  "title": "How is felt made without spinning or weaving?",
+  "teaches": "How wool felts under heat, water, soap and rubbing; Pazyryk felts and the felt tents of the steppe; fulling woven wool, from feet to water mills and waulking; felt hats and mercury; needle felting and modern non-wovens",
+  "parts": [
+    {
+      "title": "Cloth without thread",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every cloth in lessons 3 and 4 starts with yarn, spun from fibre and then woven or knitted. Felt skips both steps. Loose wool is laid out, wetted, warmed and rubbed, and the fibres lock into a dense sheet that holds together on its own. Branch lesson M1 described the same process as the disaster that shrinks a jumper. In this lesson we look at felting on purpose: how it is done, how the herders of the Asian steppe built their homes from it, how woven wool was felted to make it stronger, and how felt led hatters to poison themselves."
+        }
+      ]
+    },
+    {
+      "title": "Rubbing wool into felt",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Wool felts because of the scales on its fibres, which point towards the tip and catch when a fibre is pushed the other way. A felt maker cards the wool into a fluffy mat and lays it out in thin layers, each at right angles to the one below. The mat is sprinkled with hot, soapy water and rubbed or rolled. Heat and water soften the fibres and make them swell, soap lets them slide past one another, and each rub nudges every fibre a little further root-first. The fibres creep through the mat and around each other, the mat draws in on itself, and after enough rubbing it becomes a firm sheet that does not pull apart."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fulling",
+          "caption": "A square mat of carded wool, rubbed in three different baths. Round, illustrative rates.",
+          "task": "Rub a mat dry, then felt one to 70% of its area",
+          "goal": "felt"
+        },
+        {
+          "type": "text",
+          "text": "Felt shrinks a great deal as it forms, often to well under two thirds of the area of the loose wool, so felt makers lay out the wool larger than the piece they want. Only wool and other animal hairs with scales will felt in this way. Cotton, linen and synthetic fibres have no scales and cannot be felted by rubbing."
+        }
+      ]
+    },
+    {
+      "title": "Felt on the steppe",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Felt may be older than woven cloth, but wool rots in most soils and very little early felt survives. The best ancient examples come from burial mounds at **Pazyryk**, in the Altai mountains of southern Siberia, built in the 4th and 3rd centuries BC. Water seeped into the tombs and froze, and the ice preserved felt wall hangings, saddle covers decorated with cut felt animals, and a stuffed felt swan."
+        },
+        {
+          "type": "text",
+          "text": "For the herders of the steppe, felt was the main building material. The round tents of Mongolia, the **ger**, and of Kazakhs and Kyrgyz, the yurt, are covered in layers of felt over a folding wooden frame. Felt is warm, windproof, sheds rain when the wool still holds its grease, and can be made from the herders' own sheep with no loom, an advantage for people who move several times a year. Felt carpets such as the Kyrgyz **shyrdak**, built from cut and stitched pieces of coloured felt, are still made, and UNESCO lists the craft among the traditions in urgent need of protection."
+        },
+        {
+          "type": "text",
+          "text": "Making a large felt was a community task. In Central Asia the laid-out wool was rolled up tightly in a reed mat or an old felt, and the roll was pushed back and forth for hours by a line of people, or sometimes dragged behind a horse."
+        }
+      ]
+    },
+    {
+      "title": "Fulling woven wool",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Woven woollen cloth can be felted lightly too, a process called **fulling**. Fulling shrinks the cloth, closes the gaps between the threads, and makes it thicker, warmer, more windproof and harder to unravel. For centuries cloth was fulled by trampling it with bare feet in tubs of water mixed with stale urine, which helped remove grease, and **fuller's earth**, a clay that absorbs it. In the 12th and 13th centuries water-powered **fulling mills**, in which wooden hammers driven by a waterwheel pounded the cloth, spread across England and Europe, among the first uses of water power in the cloth trade."
+        },
+        {
+          "type": "text",
+          "text": "In the Scottish Hebrides, fulling the local tweed stayed a hand task into the 20th century. Women sat around a long board and pushed and thumped the wet cloth along it in rhythm, singing **waulking songs** to keep time. Fulled wool cloths such as melton, used for overcoats, and the green cloth on billiard tables are still made today."
+        }
+      ]
+    },
+    {
+      "title": "Hats and mercury",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From the 17th century the finest European hats were felted from the fur of beavers, and later from rabbit and hare fur. Fur felts less readily than sheep's wool, and in the 18th century hatters found that brushing the fur with a solution of mercury nitrate roughened the scales and made it felt well. The treated fur turned orange, and the process was called **carroting**. Hatters breathed mercury vapour all day while they worked the fur with heat and steam."
+        },
+        {
+          "type": "text",
+          "text": "Mercury poisoning damages the nervous system. Hatters developed trembling hands, known in Danbury, Connecticut, a centre of American hatmaking, as the Danbury shakes, together with shyness, irritability and memory loss. The phrase \"mad as a hatter\" was in use by the 1830s, before Lewis Carroll created his Hatter in 1865, and it may refer to this illness, although the link is debated. The United States banned mercury in its hat factories in 1941."
+        }
+      ]
+    },
+    {
+      "title": "Felt without water",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most felt made today is not wet felted. In **needle felting**, a mat of fibre is punched thousands of times by needles with small barbs along their shafts. Each stroke drags fibres down through the mat and tangles them, with no water, heat or scales needed, so it works on polyester and other synthetics. Needle-punched felts line cars, pad mattresses, filter air and water, and cover piano hammers. They are part of a wider family of **non-wovens**, sheets of fibre bonded by needles, heat, glue or water jets, which also includes cleaning wipes, tea bags and the filter layer of disposable face masks."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on felt.",
+          "task": "Answer all four",
+          "options": {
+            "items": [
+              {
+                "ask": "Why can wool be felted by rubbing while cotton cannot?",
+                "choices": ["Wool fibres have scales that let them creep one way", "Wool fibres are much longer than cotton fibres", "Cotton dissolves slowly in hot soapy water", "Cotton fibres are too thick to tangle"],
+                "answer": 0,
+                "why": "The scales catch when a fibre slides towards its tip, so rubbing ratchets wool fibres root-first. Cotton has no scales."
+              },
+              {
+                "ask": "Why did steppe herders cover their tents with felt?",
+                "choices": ["It was warm and windproof and needed no loom", "It was the only material that could be dyed", "It was lighter than any woven cloth", "It could be bought cheaply from cities"],
+                "answer": 0,
+                "why": "Felt could be made from their own sheep with no loom, and it kept out wind and cold."
+              },
+              {
+                "ask": "What does fulling do to woven woollen cloth?",
+                "choices": ["It felts it lightly, so it shrinks and thickens", "It bleaches it with clay and urine", "It adds a second layer of weft", "It stretches it to a standard width"],
+                "answer": 0,
+                "why": "Fulling locks the fibres together, closing gaps between threads and making the cloth denser."
+              },
+              {
+                "ask": "Why did many hatters suffer from trembling and irritability?",
+                "choices": ["They breathed mercury used to felt fur", "They worked long hours in cold, wet rooms", "They inhaled fine dust from the fur", "They used too much soap in hot water"],
+                "answer": 0,
+                "why": "Mercury nitrate roughened the fur so it felted, and its vapour damaged the nervous system."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Felt needs no yarn.** Loose wool locks into a sheet under heat, water, soap and rubbing.",
+    "**Scales do the locking.** Each rub carries fibres root-first, so the mat shrinks and thickens.",
+    "**Only scaled fibres wet-felt.** Cotton, linen and synthetics do not.",
+    "**Pazyryk's frozen tombs kept ancient felts.** Wall hangings, saddle covers and a felt swan survive.",
+    "**Steppe homes were felt.** Gers and yurts are covered with layers of felt made without a loom.",
+    "**Fulling felts woven wool.** Feet, then water-powered hammers, thickened cloth from the 12th century.",
+    "**Felt hats poisoned hatters.** Mercury used to treat fur damaged their nervous systems.",
+    "**Needle felting needs no water.** Barbed needles tangle any fibre into non-wovens."
+  ],
+  "footnotes": {}
+}

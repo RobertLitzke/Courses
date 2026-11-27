@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 34 | 0 | 7 | 34 | 34 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 35 | 0 | 8 | 35 | 35 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 7 to read through, 34 to copy-edit, 34 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 8 to read through, 35 to copy-edit, 35 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -634,6 +634,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | M5 | How does stretch fabric spring back? (`stretch`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Stretch from knitted loops against stretch from elastic fibre; how elastane is built and who made it; how much goes into jeans and swimwear; why stretch wears out; why blends are hard to recycle. |
 | M6 | How can a jacket be waterproof and breathable? (`rain`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Rubberised cloth from Macintosh (1823) and vulcanised rubber; gabardine and waxed cotton; water-repellent finishes and PFAS; coated nylon; Gore-Tex's microporous membrane (1976) and its limits; Stephanie Kwolek and Kevlar. |
 | M7 | What does recycled polyester fix? (`recycled`) | Your wardrobe | needs student read-through | Gemini (queued 2026-11-27); Fact check | Polyester from bottles and what it does and does not save; shoddy and Prato's recycled wool; why shredded fibre needs new fibre; chemical recycling; why blends, elastane and sorting keep clothes from becoming clothes. |
+| K1 | How is felt made without spinning or weaving? (`felt`) | Other structures | needs student read-through | Gemini (queued 2026-11-27); Fact check | How wool felts under heat, water, soap and rubbing; Pazyryk felts and the felt tents of the steppe; fulling woven wool, from feet to water mills and waulking; felt hats and mercury; needle felting and modern non-wovens. |
 
 ## Not started
 

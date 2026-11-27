@@ -20,6 +20,7 @@ import { comfort } from '../src/figures/prickle';
 import { heatLoss, MET } from '../src/figures/loft';
 import { threadCount } from '../src/figures/threads';
 import { maxShare } from '../src/figures/reshred';
+import { area } from '../src/figures/fulling';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -277,6 +278,22 @@ describe('the reshred figure', () => {
     const h = FIGURES.reshred(context(), 'blend');
     guess(h.node, 'About a quarter');
     setSlider(h.node, 0, 0.2);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the fulling figure', () => {
+  it('felts in hot soapy water and not dry', () => {
+    expect(area(0, 100)).toBe(1);
+    expect(area(2, 30)).toBeLessThan(0.7);
+    expect(area(1, 30)).toBeGreaterThan(0.85);
+  });
+  it('is done after dry rubbing and a felted mat', async () => {
+    const h = FIGURES.fulling(context(), 'felt');
+    click(h.node, 'Dry');
+    click(h.node, 'Rub ten times');
+    click(h.node, 'Hot soapy water');
+    for (let i = 0; i < 3; i++) click(h.node, 'Rub ten times');
     await expect(h.done).resolves.toBeUndefined();
   });
 });
