@@ -26,12 +26,12 @@
         },
         {
           "type": "text",
-          "text": "Allen's argument also explains why the inventions came in a series. The first jennies only just paid in Britain; it took years of further work to make them pay elsewhere, and by then British engineers had improved them further. Most inventions of the period came from practical people who made small improvements over years, and that kind of work happens where the payoff is."
+          "text": "Allen's argument also explains why the inventions came in a series. On his figures, early jennies paid well in Britain but barely in France; it took years of further work to make them pay elsewhere, and by then British engineers had improved them further. Most inventions of the period came from practical people who made small improvements over years, and that kind of work happens where the payoff is."
         },
         {
           "type": "interactive_diagram",
           "id": "jenny-pays",
-          "caption": "Whether a spinning jenny paid, with round, illustrative numbers. The presets move the wage in the direction each argument suggests; they are not the historians' own figures.",
+          "caption": "Whether a spinning jenny paid, with round, illustrative numbers. This tests the first two arguments, which turn on wages; the presets move the wage and price in the direction each suggests and are not the historians' own figures.",
           "task": "Compare all four presets",
           "goal": "compare"
         }
@@ -95,7 +95,7 @@
               },
               {
                 "ask": "What does Pomeranz mean by ghost acres?",
-                "choices": ["The land in the Americas and underground in coal that supplied Britain with what its own land could not", "Abandoned farms in England", "Land that cotton exhausted", "Common land enclosed by landlords"],
+                "choices": ["The land in the Americas, and the coal that replaced forests, that supplied Britain with what its own land could not", "Abandoned farms in England", "Land that cotton exhausted", "Common land enclosed by landlords"],
                 "answer": 0,
                 "why": "Coal replaced forests for fuel, and American plantations replaced fields for cotton and sugar. Both freed Britain from the land limit the Yangzi delta faced."
               },
