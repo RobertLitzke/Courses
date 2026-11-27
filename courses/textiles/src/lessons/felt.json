@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every cloth in lessons 3 and 4 starts with yarn, spun from fibre and then woven or knitted. Felt skips both steps. Loose wool is laid out, wetted, warmed and rubbed, and the fibres lock into a dense sheet that holds together on its own. Branch lesson M1 described the same process as the disaster that shrinks a jumper. In this lesson we look at felting on purpose: how it is done, how the herders of the Asian steppe built their homes from it, how woven wool was felted to make it stronger, and how felt led hatters to poison themselves."
+          "text": "Every cloth in lessons 3 and 4 starts with yarn, spun from fibre and then woven or knitted. Felt skips both steps. Loose wool is laid out, wetted, warmed and rubbed, and the fibres lock into a dense sheet that holds together on its own. Branch lesson M1 described the same process as the disaster that shrinks a jumper. In this lesson we look at felting on purpose: how it is done, how the herders of the Asian steppe built their homes from it, how woven wool was felted to make it denser and warmer, and how felt led hatters to poison themselves."
         }
       ]
     },
@@ -20,13 +20,13 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Wool felts because of the scales on its fibres, which point towards the tip and catch when a fibre is pushed the other way. A felt maker cards the wool into a fluffy mat and lays it out in thin layers, each at right angles to the one below. The mat is sprinkled with hot, soapy water and rubbed or rolled. Heat and water soften the fibres and make them swell, soap lets them slide past one another, and each rub nudges every fibre a little further root-first. The fibres creep through the mat and around each other, the mat draws in on itself, and after enough rubbing it becomes a firm sheet that does not pull apart."
+          "text": "Wool felts because of the scales on its fibres. Each fibre has a root end, which grew from the sheep's skin, and a tip, and the scales point towards the tip. A fibre pushed root-first slides easily; pushed tip-first, its scales catch. A felt maker cards the wool, combing it between two spiked boards, into a fluffy mat and lays it out in thin layers, each at right angles to the one below. The mat is sprinkled with hot, soapy water and rubbed or rolled. Dry fibres are stiff and their scales grip, so dry wool hardly moves. Heat and water soften the fibres and make them swell, soap lets them slide past one another, and each rub nudges every fibre a little further root-first. The fibres creep through the mat and around each other, the mat draws in on itself, and after enough rubbing it becomes a firm sheet that does not pull apart."
         },
         {
           "type": "interactive_diagram",
           "id": "fulling",
-          "caption": "A square mat of carded wool, rubbed in three different baths. Round, illustrative rates.",
-          "task": "Rub a mat dry, then felt one to 70% of its area",
+          "caption": "A square mat of carded wool, rubbed in three different baths. The rates are made up to show the pattern, not measured: dry wool does not felt, cold water felts slowly and hot soapy water fast.",
+          "task": "Rub a mat dry, then felt one in hot soapy water to 70% of its area",
           "goal": "felt"
         },
         {
@@ -40,11 +40,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Felt may be older than woven cloth, but wool rots in most soils and very little early felt survives. The best ancient examples come from burial mounds at **Pazyryk**, in the Altai mountains of southern Siberia, built in the 4th and 3rd centuries BC. Water seeped into the tombs and froze, and the ice preserved felt wall hangings, saddle covers decorated with cut felt animals, and a stuffed felt swan."
+          "text": "Felt may be older than woven cloth, but wool rots in most soils and very little early felt survives. The best ancient examples come from burial mounds at **Pazyryk**, in the Altai mountains of southern Siberia, built in about the 4th and 3rd centuries BC. Water seeped into the tombs and froze, and the ice preserved felt wall hangings, saddle covers decorated with cut felt animals, and a stuffed felt swan."
         },
         {
           "type": "text",
-          "text": "For the herders of the steppe, felt was the main building material. The round tents of Mongolia, the **ger**, and of Kazakhs and Kyrgyz, the yurt, are covered in layers of felt over a folding wooden frame. Felt is warm, windproof, sheds rain when the wool still holds its grease, and can be made from the herders' own sheep with no loom, an advantage for people who move several times a year. Felt carpets such as the Kyrgyz **shyrdak**, built from cut and stitched pieces of coloured felt, are still made, and UNESCO lists the craft among the traditions in urgent need of protection."
+          "text": "For the herders of the steppe, felt was the main building material. The round tents of Mongolia, the **ger**, and of Kazakhs and Kyrgyz, the yurt, are covered in layers of felt over a folding wooden frame. Felt is warm, windproof, sheds rain when the wool still holds some of its natural grease, lanolin, and can be made from the herders' own sheep with no loom, an advantage for people who move several times a year. Felt carpets such as the Kyrgyz **shyrdak**, built from cut and stitched pieces of coloured felt, are still made, and UNESCO added the craft in 2012 to its list of traditions in urgent need of protection."
         },
         {
           "type": "text",
@@ -57,7 +57,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Woven woollen cloth can be felted lightly too, a process called **fulling**. Fulling shrinks the cloth, closes the gaps between the threads, and makes it thicker, warmer, more windproof and harder to unravel. For centuries cloth was fulled by trampling it with bare feet in tubs of water mixed with stale urine, which helped remove grease, and **fuller's earth**, a clay that absorbs it. In the 12th and 13th centuries water-powered **fulling mills**, in which wooden hammers driven by a waterwheel pounded the cloth, spread across England and Europe, among the first uses of water power in the cloth trade."
+          "text": "Woven woollen cloth can be felted lightly too, a process called **fulling**. Fulling shrinks the cloth, closes the gaps between the threads, and makes it thicker, warmer, more windproof and harder to unravel. For centuries cloth was fulled by trampling it with bare feet in tubs of water mixed with stale urine, which helped remove grease, and **fuller's earth**, a clay that absorbs grease. In the 12th and 13th centuries water-powered **fulling mills**, in which wooden hammers driven by a waterwheel pounded the cloth, spread across England and Europe, among the first uses of water power in the cloth trade."
         },
         {
           "type": "text",
@@ -83,7 +83,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Most felt made today is not wet felted. In **needle felting**, a mat of fibre is punched thousands of times by needles with small barbs along their shafts. Each stroke drags fibres down through the mat and tangles them, with no water, heat or scales needed, so it works on polyester and other synthetics. Needle-punched felts line cars, pad mattresses, filter air and water, and cover piano hammers. They are part of a wider family of **non-wovens**, sheets of fibre bonded by needles, heat, glue or water jets, which also includes cleaning wipes, tea bags and the filter layer of disposable face masks."
+          "text": "Most felt made in factories today is not wet felted. In **needle felting**, a mat of fibre is punched thousands of times by needles with small barbs along their shafts. Each stroke drags fibres down through the mat and tangles them, with no water, heat or scales needed, so it works on polyester and other synthetics. Needle-punched felts line cars, pad mattresses, and filter air and water. They are part of a wider family of **non-wovens**, sheets of fibre bonded by needles, heat, glue or water jets, which also includes cleaning wipes, tea bags and the filter layer of disposable face masks."
         }
       ]
     },
@@ -117,7 +117,7 @@
               },
               {
                 "ask": "Why did many hatters suffer from trembling and irritability?",
-                "choices": ["They breathed mercury used to felt fur", "They worked long hours in cold, wet rooms", "They inhaled fine dust from the fur", "They used too much soap in hot water"],
+                "choices": ["They breathed mercury used to felt fur", "They worked long hours in cold, wet rooms", "They breathed smoke from coal fires", "They used too much soap in hot water"],
                 "answer": 0,
                 "why": "Mercury nitrate roughened the fur so it felted, and its vapour damaged the nervous system."
               }

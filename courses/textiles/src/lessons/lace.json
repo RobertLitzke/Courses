@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Portraits from around 1600 show rich men and women in wide white ruffs and collars of lace. Those collars were among the most expensive things the sitters owned, and in wills and inventories of the time a good lace collar could be valued as highly as jewellery or a year's income for a craftsman. In this lesson we look at what lace is, the two ways it was made by hand, why it took so long, and how machines made it cheap in the 19th century."
+          "text": "Portraits from the late 16th and 17th centuries show rich men and women in white ruffs and falling collars edged or made entirely of lace. Those collars were among the most expensive things the sitters owned, and in wills and inventories of the time a good lace collar could be valued as highly as jewellery or a year's income for a craftsman. In this lesson we look at what lace is, the two ways it was made by hand, why it took so long, and how machines made it cheap in the 19th century."
         }
       ]
     },
@@ -24,11 +24,11 @@
         },
         {
           "type": "text",
-          "text": "**Needle lace** is made with a single needle and thread. The design is drawn on parchment, and its outline is tacked down with a heavier thread. The lace maker then fills the shapes with rows of tiny looped stitches, each one worked into the loops of the row before, and finally cuts the tacking to free the lace from the parchment. Venetian lace makers called it *punto in aria*, stitches in the air. Venice was the leading centre of needle lace in the 16th and 17th centuries."
+          "text": "**Needle lace** is made with a single needle and thread. The design is drawn on parchment, and its outline is tacked down, held with temporary stitches, with a heavier thread. The lace maker then fills the shapes with rows of tiny looped stitches, each one worked into the loops of the row before, and finally cuts the tacking to free the lace from the parchment. Venetian lace makers called it *punto in aria*, stitches in the air. Venice was the leading centre of needle lace in the 16th and 17th centuries."
         },
         {
           "type": "text",
-          "text": "**Bobbin lace** is made with many threads at once, each wound on a small wooden or bone bobbin that keeps it tidy and gives it weight. The threads hang in pairs from pins stuck into a firm cushion, called a pillow, over a pricked paper pattern. The lace maker works by moving bobbins over one another and pins each finished stitch in place. Flanders, especially around Brussels, Mechelen and Bruges, was the great centre of bobbin lace."
+          "text": "**Bobbin lace** is made with many threads at once, each wound on a small wooden or bone bobbin that keeps it tidy and gives it weight. The threads hang in pairs from pins stuck into a firm cushion, called a pillow, over a paper pattern pricked with holes for the pins. The lace maker works by moving bobbins over one another and pins each finished stitch in place. Flanders, especially around Brussels, Mechelen and Bruges, was the great centre of bobbin lace."
         }
       ]
     },
@@ -37,7 +37,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "However complex a bobbin lace looks, every stitch in it is built from two moves on four bobbins. In a **cross**, the left middle bobbin passes over the right middle one. In a **twist**, the right bobbin of each pair passes over the left."
+          "text": "However complex a bobbin lace looks, every stitch in it is built by repeating just two kinds of move on four bobbins, numbered one to four from the left. In a **cross**, bobbin two, the left middle one, passes over bobbin three, the right middle one. In a **twist**, the right bobbin of each pair passes over the left."
         },
         {
           "type": "interactive_diagram",
@@ -61,7 +61,7 @@
         },
         {
           "type": "text",
-          "text": "Governments saw lace as a drain of money abroad. In 1665 Jean-Baptiste Colbert, chief minister to Louis XIV of France, set up royal lace workshops in Alençon and other towns and brought in Venetian lace makers to train French women. Their lace, called *point de France*, soon replaced imports from Venice at the French court. England banned imports of Flemish lace for long periods, and smuggling was common."
+          "text": "Governments saw lace as a drain of money abroad, and France spent heavily on Venetian lace. In 1665 Jean-Baptiste Colbert, chief minister to Louis XIV of France, set up royal lace workshops in Alençon and other towns and brought in Venetian lace makers to train French women. Their lace, called *point de France*, soon replaced imports from Venice at the French court. England banned imports of Flemish lace for long periods, and smuggling was common."
         },
         {
           "type": "text",
@@ -74,7 +74,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Machines first made the net that formed the background of much lace. In 1809 **John Heathcoat** patented a bobbinet machine that twisted threads around one another to make a fine net like the ground of bobbin lace. Luddites smashed his machines in Loughborough in 1816, and he moved his factory to Tiverton in Devon, where it still works today. A few years later John Levers adapted a machine that could make the patterns as well as the net. Nottingham became the centre of machine lace, and by the middle of the 19th century machine lace imitated most handmade styles at a small fraction of the price."
+          "text": "Machines first made the net that formed the background of much lace. In 1809 **John Heathcoat** patented a bobbinet machine that twisted threads around one another to make a fine net like the ground of bobbin lace. Luddites, the machine breakers of branch lesson K4, smashed his machines in Loughborough in 1816, and he moved his factory to Tiverton in Devon, where it still works today. A few years later John Levers, whose machine became known as the Leavers, adapted a machine that could make the patterns as well as the net. Nottingham became the centre of machine lace, and by the middle of the 19th century machine lace imitated most handmade styles at a small fraction of the price."
         },
         {
           "type": "text",
@@ -126,7 +126,7 @@
     "**Lace is cloth made of holes.** It grew from cutwork and drawn-thread embroidery in the 16th century.",
     "**Needle lace uses one needle.** Looped stitches fill a tacked outline; Venice led the trade.",
     "**Bobbin lace uses many threads.** Pairs of bobbins are crossed and twisted on a pillow; Flanders led.",
-    "**Two moves make every bobbin stitch.** Cross, twist, cross passes one pair through another like weaving.",
+    "**Two kinds of move make every bobbin stitch.** Cross, twist, cross passes one pair through another like weaving.",
     "**The hours made lace dear.** A few square centimetres a day, and costly fine linen thread.",
     "**States fought lace imports.** Colbert's workshops made point de France; England banned Flemish lace.",
     "**Women and children made it.** Piece rates at home, and lace schools for young girls.",
