@@ -1,0 +1,140 @@
+{
+  "id": "bottleneck",
+  "n": 14,
+  "title": "Why did a faster shuttle cause a yarn famine?",
+  "teaches": "Kay's flying shuttle and the spinning bottleneck; Paul and Wyatt's failure; Hargreaves's jenny, Arkwright's water frame and Crompton's mule, linked by drafting; the spinners' attacks on jennies",
+  "parts": [
+    {
+      "title": "Five or six spinners",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1823 Richard Guest, a Lancashire writer, published a history of the cotton industry he had grown up in. Describing the years before 1770, he wrote that a weaver often had to walk \"three or four miles in a morning, and call on five or six spinners, before he could collect weft to serve him for the remainder of the day\". Weavers sat idle, merchants could not fill their orders, and spinners could ask higher prices for yarn. Writers of the time called it a yarn famine."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 3 showed why: hand spinning took several times as long as weaving, so every loom needed several spinners. In the 18th century that balance was upset. In this lesson we follow the sequence of machines that first made the problem worse and then solved it. For each one we ask whose problem it solved, who paid for it, and what it did to the people whose work it changed. Lesson 16 asks why it all happened in Lancashire."
+        }
+      ]
+    },
+    {
+      "title": "The flying shuttle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1733 John Kay, a weaver's son from Bury in Lancashire, patented the **flying shuttle**. On a hand loom the weaver passed the shuttle from one hand to the other through the shed, so a cloth could be no wider than the weaver's reach, and broad cloth needed two weavers. Kay put the shuttle on wheels in a wooden race with a box at each end. The weaver jerked a cord with one hand, a picker in the box knocked the shuttle across, and the other hand stayed on the beater. One weaver could now weave wide cloth, and weave faster."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "workshop",
+          "caption": "A cotton district with 140 workers at three stages. The district makes as much cloth as its slowest stage allows. The speed-up for each machine is a rough figure for its early decades.",
+          "task": "Add machines until the district makes ten times its starting output",
+          "goal": "tenfold"
+        },
+        {
+          "type": "text",
+          "text": "The shuttle spread slowly. Weavers feared it would cut their piece rates, Kay's attempts to collect royalties led to lawsuits, and he left for France. In cotton it came into general use only in the 1750s and 1760s. When it did, it made the yarn shortage worse: each weaver could use more yarn than before, while spinning was still done one thread at a time on a wheel. In the figure, the shuttle leaves weavers idle for half the week and does not change the amount of cloth at all."
+        }
+      ]
+    },
+    {
+      "title": "Machines that draft",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The obvious fix was a machine that spun many threads at once. In 1761 the Society of Arts in London offered a prize for one that could spin six threads at the same time, worked by one person; it was never awarded. The hard part was not the twist, which a spindle supplies easily, but **drafting**, the step lesson 3 described: drawing the fibres out thin and even before the twist locks them. A spinner's fingers did that by feel. Every successful spinning machine was a mechanical way to draft."
+        },
+        {
+          "type": "text",
+          "text": "One way had been tried already. In 1738 Lewis Paul and John Wyatt patented **roller drafting**: the fibre passed between pairs of rollers, each pair turning faster than the one before, so the fibres were drawn out between them. They set up small mills in Birmingham and Northampton in the 1740s. The machines worked badly, the yarn was uneven, the partners ran out of money, and the mills closed. A good idea had failed for want of engineering and capital."
+        },
+        {
+          "type": "text",
+          "text": "The first machine to succeed used the other method. James Hargreaves, a weaver near Blackburn, built the **spinning jenny** in the mid 1760s. One wheel turned a row of spindles, at first eight, and the spinner drafted all the threads at once by sliding a clamp, which held the rovings, along a carriage away from the spindles, as a hand spinner draws the thread out from the wheel. The jenny was small and cheap enough for a cottage, and by the 1780s jennies with 80 or more spindles were common. Its yarn was soft and fairly weak, good for weft but not for warp, so English cotton cloth still needed a linen warp, the fustian of lessons 9 and 12."
+        },
+        {
+          "type": "text",
+          "text": "Richard Arkwright, a barber and wig-maker from Preston, solved the warp problem by making roller drafting work. His **water frame**, patented in 1769, drew the cotton through rollers and twisted it with a flyer, like a spinning wheel's, and it made yarn strong enough for warp. It was too heavy to turn by hand, so it was driven by horses and then by water wheels. Arkwright found partners with money, the hosiers Jedediah Strutt and Samuel Need, and in 1771 opened a water-powered mill at Cromford in Derbyshire, the subject of lesson 15. All-cotton cloth could now be made in Britain, and the Calico Act's ban was lifted in 1774."
+        },
+        {
+          "type": "text",
+          "text": "Samuel Crompton, a spinner near Bolton, combined the two. His **mule**, finished in 1779, drafted with rollers and then drew the yarn out further on a moving carriage, like a jenny. It made yarn both strong and very fine, fine enough for the muslins that only India's hand spinners had made before (lesson 12). Crompton could not afford a patent and sold the design for a small subscription; others made the money."
+        }
+      ]
+    },
+    {
+      "title": "Who gained and who lost",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The spinning machines solved the merchants' and weavers' problem. Yarn became plentiful and cheap: the price of fine cotton yarn fell by more than nine tenths between the 1780s and the 1830s, and Britain's imports of raw cotton rose from under 3 million pounds a year around 1760 to more than 50 million by 1800. For about a generation, handloom weavers had more work than ever and good wages, since yarn was cheap and looms were still worked by hand. In the figure, faster spinning makes weaving the bottleneck again, and once weaving is faster too, preparing the fibre by hand holds everything up."
+        },
+        {
+          "type": "text",
+          "text": "The people who paid were the hand spinners, most of them women working at home, who had earned part of their household's income from the wheel. A jenny did the work of many of them, and the water frame and mule moved spinning into mills. In 1768 a crowd broke into Hargreaves's house and smashed his jennies, and he moved to Nottingham. In 1779 crowds across Lancashire attacked larger jennies and destroyed Arkwright's mill at Birkacre near Chorley. The attackers were not against machines as such; small jennies in cottages were often left alone. They attacked the machines that took spinning out of their homes."
+        },
+        {
+          "type": "text",
+          "text": "Each fix moved the bottleneck. The shuttle moved it to spinning, the spinning machines moved it back to weaving, and carding engines, also developed by Arkwright in the 1770s, removed it from preparing fibre. In the figure, moving workers between stages stands for something that took decades in reality: spinners lost their trade, and their children went into mills or to the loom."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the yarn famine and the spinning machines.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A district's weavers adopt a loom twice as fast, but nothing else changes. How much more cloth does it make?",
+                "choices": ["About the same, because the spinners cannot supply more yarn", "Twice as much", "Half as much", "Four times as much"],
+                "answer": 0,
+                "why": "Output is set by the slowest stage. Faster weaving only leaves weavers waiting for yarn until spinning speeds up too."
+              },
+              {
+                "ask": "Why was a spinning machine harder to build than a spindle that turned faster?",
+                "choices": ["Drafting the fibres thin and even, which fingers did by feel, had to be done by machine", "Spindles could not be made of iron", "Twisting many threads at once was impossible", "Cotton could not be twisted by machine"],
+                "answer": 0,
+                "why": "Twist is easy; drafting is the skill. The jenny drafted with a moving clamp, the water frame with rollers, and the mule with both."
+              },
+              {
+                "ask": "Hargreaves's jenny spread fast, but English weavers still needed a linen warp. Why?",
+                "choices": ["Jenny yarn was soft and weak, good for weft but not strong enough for warp", "Linen was cheaper than cotton", "The Calico Acts banned cotton warps", "The jenny could only spin linen"],
+                "answer": 0,
+                "why": "The warp is held under tension and rubbed by the loom. The water frame's roller-drafted yarn was the first machine yarn strong enough."
+              },
+              {
+                "ask": "Paul and Wyatt patented roller drafting in 1738, but Arkwright made it pay 30 years later. What had changed?",
+                "choices": ["Arkwright had better engineering, water power and partners with capital", "Cotton had been invented", "Rollers had been banned until 1769", "Paul and Wyatt's idea was different"],
+                "answer": 0,
+                "why": "The same principle failed for want of reliable machinery and money. Arkwright combined it with a flyer, water power and investors."
+              },
+              {
+                "ask": "In 1779 crowds smashed large jennies and Arkwright's mill but often left small jennies alone. What does that suggest?",
+                "choices": ["They objected to machines that moved spinning out of homes, not to machines in general", "They liked small machines because they were old", "They could not reach the small jennies", "They were weavers protecting their looms"],
+                "answer": 0,
+                "why": "Small jennies kept spinning in the household. Large jennies and mills took the work, and the income, away from home spinners."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Hand spinning was the bottleneck.** Several spinners were needed for each weaver, and in the 18th century weavers often waited for yarn.",
+    "**The flying shuttle made it worse.** Kay's shuttle of 1733 let weavers work faster and wider, so they needed even more yarn.",
+    "**A machine had to draft.** Twisting is easy; drawing fibres out thin and even was the skill every spinning machine had to copy.",
+    "**Good ideas could fail.** Paul and Wyatt's roller drafting of 1738 failed for want of engineering and capital.",
+    "**The jenny spun weft at home.** Hargreaves's machine of the mid 1760s spun many threads at once but made weak yarn.",
+    "**The water frame spun warp in mills.** Arkwright's rollers made strong yarn, and water power moved spinning into Cromford's mill from 1771.",
+    "**The mule made fine yarn.** Crompton's machine of 1779 combined both methods and matched India's finest yarn.",
+    "**Each fix moved the bottleneck.** Spinning got faster, and weaving became the slow step again.",
+    "**Home spinners paid.** The machines took away their income, and some of them attacked the larger jennies and mills."
+  ],
+  "footnotes": {}
+}

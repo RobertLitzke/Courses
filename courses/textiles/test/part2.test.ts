@@ -9,6 +9,7 @@ import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
 import { knotsFor } from '../src/figures/inca';
 import { ROUTES, voyage } from '../src/figures/monsoon';
 import { hoursProblems } from '../src/figures/hours';
+import { STAGES, hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -76,5 +77,25 @@ describe('the hours bar', () => {
   it('checks its options', () => {
     expect(hoursProblems({ item: 'x', stages: [{ stage: 'Spinning', hours: 10, who: 'household' }] })).toEqual([]);
     expect(hoursProblems({ item: 'x', stages: [{ stage: 'Spinning', hours: 0, who: 'nobody' }] })).toHaveLength(1);
+  });
+});
+
+describe('the bottleneck workshop', () => {
+  const w = startWorkers();
+  it('starts in balance and the shuttle alone adds nothing', () => {
+    const base = output({ hours: hoursWith(new Set()), workers: w });
+    expect(output({ hours: hoursWith(new Set(['shuttle'])), workers: w })).toBeCloseTo(base);
+    expect(idle({ hours: hoursWith(new Set()), workers: w }, 'spin')).toBeLessThan(0.01);
+  });
+  it('makes weaving the bottleneck once spinning is fast', () => {
+    const shop = { hours: hoursWith(new Set(['jenny'])), workers: w };
+    expect(idle(shop, 'weave')).toBeLessThan(0.001);
+    expect(idle(shop, 'spin')).toBeGreaterThan(0.5);
+  });
+  it('is done at ten times the start', async () => {
+    const h = FIGURES.workshop(context(), 'tenfold');
+    guess(h.node, 'Weavers wait for yarn, and cloth output barely changes');
+    for (const b of ['Mule', 'Carding engine', 'Power loom', 'Move workers to keep pace']) click(h.node, b);
+    await expect(h.done).resolves.toBeUndefined();
   });
 });

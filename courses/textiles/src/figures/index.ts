@@ -25,6 +25,7 @@ import { incaMapStill, khipuStill } from './inca';
 import { monsoonFigure } from './monsoon';
 import { hoursFigure } from './hours';
 import { flowsStill } from './flows';
+import { workshopFigure } from './workshop';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -48,4 +49,5 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   monsoon: monsoonFigure,
   hours: hoursFigure,
   'trade-flows': flowsStill,
+  workshop: workshopFigure,
 };
