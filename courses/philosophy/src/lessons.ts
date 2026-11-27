@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('gibberish', 307, 'Why does some philosophy sound like gibberish?', 'The analytic and continental split, and Heidegger in plain words', { branch: 'tools', needs: ['sartre'] }),
   coming('future', 308, 'What do we owe people who don\'t exist yet?', 'Parfit\'s non-identity problem and duties to future generations', { branch: 'tools', needs: ['singer'] }),
 ];
 

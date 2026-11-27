@@ -68,6 +68,9 @@ export const COL = {
   /** Branch K5: claims that could or could not be refuted by observation. */
   testable: '#3f8f5a',
   untestable: '#7d7782',
+  /** Branch K7: the two traditions of 20th-century philosophy. */
+  analytic: '#3f6f8f',
+  continental: '#b0546a',
 } as const;
 export type ColorKey = keyof typeof COL;
 
