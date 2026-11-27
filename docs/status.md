@@ -20,8 +20,8 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 7 | 34 |
-| [Fabric & Form](#textiles) | 0.1 beta | 15 | 12 | 6 | 15 | 15 | 0 | 0 |
+| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 1 | 0 | 42 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 25 | 2 | 3 | 25 | 25 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -41,8 +41,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 12 lessons to write, 6 to read through, 15 to copy-edit, 15 to fact-check |
+| Philosophy | 0.2 beta | 2026-11-27 | no: 1 to copy-edit, 42 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 2 lessons to write, 3 to read through, 25 to copy-edit, 25 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -551,46 +551,46 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) |  | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
-| 2 | What if everything you see is shadows? (`cave`) |  | done |  | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
-| 3 | Would you be good if no one could see you? (`gyges`) |  | done |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
-| 4 | Can you practise being good? (`aristotle`) |  | done |  | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
-| 5 | How little do you need to be happy? (`epicurus`) |  | done |  | Epicurus's garden, pleasure as the absence of pain, sorting desires, "death is nothing to us", and Lucretius's symmetry argument. |
-| 6 | What is up to you? (`stoics`) |  | done |  | Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy. |
-| 7 | Can you think God into existence? (`god`) |  | done |  | The problem of evil, Augustine's free-will answer, and Anselm's ontological argument with Gaunilo's perfect island. |
-| 8 | Can reason overrule scripture? (`faith`) |  | done |  | Al-Ghazali's fire and cotton, Ibn Rushd's reply that truth cannot contradict truth, and Aristotle's road into Latin Europe. |
-| 9 | Who counts as fully human? (`valladolid`) |  | done |  | The Valladolid debate of 1550: Sepúlveda's use of Aristotle's "natural slaves", Las Casas's reply, and natural law. |
-| 10 | How do you know you're not dreaming? (`descartes`) |  | done |  | The method of doubt, "I think, therefore I am", Ibn Sina's floating man, and the problem of how a mind moves a body. |
-| 11 | Why obey anyone? (`hobbes`) |  | done |  | Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion. |
-| 12 | Could you have done otherwise? (`spinoza`) |  | done |  | Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show. |
-| 13 | Are you the person you were at ten? (`locke`) |  | done |  | Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter. |
-| 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | done |  | Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought. |
-| 15 | Can you lie to a murderer at the door? (`kant`) |  | done |  | Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume. |
-| 16 | Would you obey God if he told you to kill your son? (`leap`) |  | done |  | Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety. |
-| 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | done |  | Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine. |
-| 18 | Who killed God? (`nietzsche`) |  | done |  | The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how his sister's editing let the Nazis claim him. |
-| 19 | Are you condemned to be free? (`sartre`) |  | done |  | Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism. |
-| 20 | Is a woman born or made? (`beauvoir`) |  | done |  | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
-| 21 | Should we imagine Sisyphus happy? (`camus`) |  | done |  | The absurd, revolt, and the 1952 quarrel with Sartre. |
+| 1 | Why did Athens kill Socrates? (`socrates`) |  | awaiting Gemini review (queued 2026-11-27) | Photos (2 photos parked in pending-photos.json) | What philosophy is, the Socratic method, the Euthyphro dilemma and the examined life. |
+| 2 | What if everything you see is shadows? (`cave`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | Plato's Forms, the cave, why Plato distrusted the senses, and the branches of philosophy. |
+| 3 | Would you be good if no one could see you? (`gyges`) |  | awaiting photos/images (1 photo parked in pending-photos.json) |  | The ring of Gyges, Thrasymachus, whether morality is just opinion, and the Republic's ideal city. |
+| 4 | Can you practise being good? (`aristotle`) |  | awaiting photos/images (2 photos parked in pending-photos.json) |  | Virtue as habit, the mean, a life going well, Confucius on the same bet, and valid against sound. |
+| 5 | How little do you need to be happy? (`epicurus`) |  | awaiting photos/images (no photos chosen yet) |  | Epicurus's garden, pleasure as the absence of pain, sorting desires, "death is nothing to us", and Lucretius's symmetry argument. |
+| 6 | What is up to you? (`stoics`) |  | awaiting photos/images (no photos chosen yet) |  | Diogenes the Cynic, the Stoic dichotomy of control, emotions as judgements, and Stoicism in modern therapy. |
+| 7 | Can you think God into existence? (`god`) |  | awaiting photos/images (no photos chosen yet) |  | The problem of evil, Augustine's free-will answer, and Anselm's ontological argument with Gaunilo's perfect island. |
+| 8 | Can reason overrule scripture? (`faith`) |  | awaiting photos/images (no photos chosen yet) |  | Al-Ghazali's fire and cotton, Ibn Rushd's reply that truth cannot contradict truth, and Aristotle's road into Latin Europe. |
+| 9 | Who counts as fully human? (`valladolid`) |  | awaiting photos/images (no photos chosen yet) |  | The Valladolid debate of 1550: Sepúlveda's use of Aristotle's "natural slaves", Las Casas's reply, and natural law. |
+| 10 | How do you know you're not dreaming? (`descartes`) |  | awaiting photos/images (no photos chosen yet) |  | The method of doubt, "I think, therefore I am", Ibn Sina's floating man, and the problem of how a mind moves a body. |
+| 11 | Why obey anyone? (`hobbes`) |  | awaiting photos/images (no photos chosen yet) |  | Hobbes's state of nature and social contract, the prisoner's dilemma, and Locke on consent and rebellion. |
+| 12 | Could you have done otherwise? (`spinoza`) |  | awaiting photos/images (no photos chosen yet) |  | Spinoza's God or Nature and his determinism, freedom as understanding, compatibilism, and what Libet's experiment does and does not show. |
+| 13 | Are you the person you were at ten? (`locke`) |  | awaiting photos/images (no photos chosen yet) |  | Personal identity: the ship of Theseus, Locke's memory theory, Reid's brave officer, Nagasena's chariot, Hume's bundle and Parfit's teletransporter. |
+| 14 | Why do you expect the sun to rise tomorrow? (`hume`) |  | awaiting photos/images (no photos chosen yet) |  | Hume's empiricism, the problem of induction, cause as habit, and the gap between is and ought. |
+| 15 | Can you lie to a murderer at the door? (`kant`) |  | awaiting photos/images (no photos chosen yet) |  | Duty, the categorical imperative, Kant's exchange with Constant about lying, and Kant's answer to Hume. |
+| 16 | Would you obey God if he told you to kill your son? (`leap`) |  | awaiting photos/images (no photos chosen yet) |  | Faith without proof: Pascal's wager and the many-gods objection, Kierkegaard's Abraham, the knight of faith, and anxiety. |
+| 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | awaiting photos/images (no photos chosen yet) |  | Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine. |
+| 18 | Who killed God? (`nietzsche`) |  | awaiting photos/images (no photos chosen yet) |  | The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how his sister's editing let the Nazis claim him. |
+| 19 | Are you condemned to be free? (`sartre`) |  | awaiting photos/images (no photos chosen yet) |  | Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism. |
+| 20 | Is a woman born or made? (`beauvoir`) |  | awaiting photos/images (no photos chosen yet) |  | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
+| 21 | Should we imagine Sisyphus happy? (`camus`) |  | awaiting photos/images (no photos chosen yet) |  | The absurd, revolt, and the 1952 quarrel with Sartre. |
 | 22 | What rules would you pick before you knew who you'd be? (`rawls`) |  | awaiting photos/images (no photos chosen yet) |  | The veil of ignorance, the difference principle, Harsanyi and Nozick. |
 | 23 | Would you ruin your clothes to save a drowning child? (`singer`) |  | awaiting photos/images (no photos chosen yet) |  | Singer's drowning child, the trolley problem as Foot meant it, and effective altruism. |
-| 24 | What is it like to be a bat? (`bat`) |  | done |  | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
-| 25 | What do philosophers do now? (`gadfly`) |  | done |  | Philosophy today, what is still argued over and what was abandoned, and your verdicts read back. |
-| E1 | What happens if you stop forcing it? (`dao`) | Elsewhere | done |  | Laozi and Zhuangzi on acting without strain, beside the Stoics. |
+| 24 | What is it like to be a bat? (`bat`) |  | awaiting photos/images (no photos chosen yet) |  | Consciousness: Nagel's bat, the Chinese room, and whether a chatbot could feel pain. |
+| 25 | What do philosophers do now? (`gadfly`) |  | awaiting photos/images (no photos chosen yet) |  | Philosophy today, what is still argued over and what was abandoned, and your verdicts read back. |
+| E1 | What happens if you stop forcing it? (`dao`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | Laozi and Zhuangzi on acting without strain, beside the Stoics. |
 | E2 | Who wrote the first rules for a fair debate? (`nyaya`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | The Nyāya rules of argument and the Cārvāka sceptics of ancient India. |
-| E3 | How do you keep your footing on slippery earth? (`nahua`) | Elsewhere | done |  | The Nahua (Aztec) sages on a world always in motion, and how we know what they said. |
-| E4 | Are you a person through other people? (`ubuntu`) | Elsewhere | awaiting photos/images (1 photo parked in pending-photos.json) |  | Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission. |
-| P1 | Is it better to be feared than loved? (`machiavelli`) | Power | done |  | The Prince, read in its setting. |
-| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | done |  | Rousseau's social contract and the general will. |
-| P3 | Is philosophy supposed to change things? (`marx`) | Power | done |  | Alienation, and Marx's diagnosis set apart from his failed predictions. |
-| P4 | Should you hear out the other side? (`speech`) | Power | done |  | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
-| P5 | Can ordinary people do great evil? (`arendt`) | Power | done |  | Arendt at the Eichmann trial and the banality of evil. |
-| K1 | How to lose an argument (`fallacies`) | Tools and puzzles | done |  | Common fallacies, charity and steelmanning. |
-| K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | done |  | Zeno's paradoxes and what infinite sums settle. |
-| K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | done |  | The sorites paradox and vague words. |
+| E3 | How do you keep your footing on slippery earth? (`nahua`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | The Nahua (Aztec) sages on a world always in motion, and how we know what they said. |
+| E4 | Are you a person through other people? (`ubuntu`) | Elsewhere | awaiting photos/images (no photos chosen yet) |  | Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission. |
+| P1 | Is it better to be feared than loved? (`machiavelli`) | Power | awaiting photos/images (no photos chosen yet) |  | The Prince, read in its setting. |
+| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | awaiting photos/images (no photos chosen yet) |  | Rousseau's social contract and the general will. |
+| P3 | Is philosophy supposed to change things? (`marx`) | Power | awaiting photos/images (no photos chosen yet) |  | Alienation, and Marx's diagnosis set apart from his failed predictions. |
+| P4 | Should you hear out the other side? (`speech`) | Power | awaiting photos/images (no photos chosen yet) |  | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
+| P5 | Can ordinary people do great evil? (`arendt`) | Power | awaiting photos/images (no photos chosen yet) |  | Arendt at the Eichmann trial and the banality of evil. |
+| K1 | How to lose an argument (`fallacies`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Common fallacies, charity and steelmanning. |
+| K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Zeno's paradoxes and what infinite sums settle. |
+| K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | The sorites paradox and vague words. |
 | K4 | The three pages that broke knowledge (`gettier`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Justified true belief and Gettier's 1963 counterexamples. |
-| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | done |  | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
-| K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | done |  | Wittgenstein, language games and the beetle in the box. |
+| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
+| K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Wittgenstein, language games and the beetle in the box. |
 | K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | The analytic and continental split, and Heidegger in plain words. |
 | K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Parfit's non-identity problem and duties to future generations. |
 
@@ -609,22 +609,22 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 7 | How long did China keep silk to itself? (`silk`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Sericulture; silk as Han and Tang currency and tribute; why the secret and the single road are myths; Sogdian merchants; land and sea routes. |
 | 8 | How did Han weavers store a pattern? (`pattern`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Pattern shafts as physical stored instructions; the Laoguanshan pattern looms; figured silk; drawlooms and the drawboy. |
 | 9 | Why are so many cloth words Arabic and Persian? (`words`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Cotton's spread across the Islamic world and the Mediterranean; tiraz workshops; Damascus, Mosul, Fustat and Bursa; Turkey red. |
-| 10 | How did sheep pay for a war? (`wool`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | The medieval wool trade from England to Flanders and Florence; export duties and Edward III's wool scheme; the Calais staple; guilds; fulling mills and the debate over a medieval industrial revolution. |
-| 11 | How did the Inca run an empire on cloth? (`inca`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Cloth as Inca state wealth; fine cumbi and everyday awasqa; labour tribute and qullqa storehouses; ritual burning and military reward; the khipu; Paracas and Wari before the Inca; Spanish obrajes and cochineal. |
-| 12 | Why did England ban Indian cotton? (`calico`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | India's lead in fine spinning and fast printed cotton; Indian cloth as the currency of the spice trade; monsoon trade cycles; the East India Company; consumer demand and the industrious revolution; the Calico Acts of 1700 and 1721 and their loopholes. |
-| 13 | Why did African buyers decide what Manchester made? (`africa`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | West Africa's own textile industries; cloth currencies; buyers who made Gujarati and Manchester producers match local patterns; cloth as the largest good traded for enslaved people; the Atlantic markets behind British cotton. |
-| 14 | Why did a faster shuttle cause a yarn famine? (`bottleneck`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Kay's flying shuttle and the spinning bottleneck; Paul and Wyatt's failure; Hargreaves's jenny, Arkwright's water frame and Crompton's mule, linked by drafting; the spinners' attacks on jennies. |
-| 15 | What was a factory day like? (`mill`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Water power before steam; Lombe's silk mill and Arkwright's Cromford; shifts and locked gates; women and children as the early workforce; the power loom and the handloom weavers; the Luddites; the factory clock. |
-| 16 | Why did the machines come to Lancashire and not Bengal? (`why-britain`) |  | planned, listed as coming |  | Historians disagree: wages and coal, colonies, Indian competition, and a culture of useful knowledge. |
-| 17 | How did a machine to clean cotton expand slavery? (`gin`) |  | planned, listed as coming |  | Upland cotton and the saw gin, Indian Removal, the domestic slave trade, and the debate over slavery and industrial capitalism. |
-| 18 | How did a loom learn to read? (`jacquard`) |  | planned, listed as coming |  | Jacquard's punched cards, the Lyon silk weavers, and what Babbage, Lovelace and Hollerith took from them. |
-| 19 | Why didn't cotton save the Confederacy? (`king-cotton`) |  | planned, listed as coming |  | King Cotton diplomacy, the glut, the embargo and blockade, the Lancashire cotton famine, and cotton from India and Egypt. |
-| 20 | How did a failed malaria cure end natural dyes? (`mauve`) |  | planned, listed as coming |  | Perkin's mauve, coal-tar dyes, synthetic alizarin and indigo, and the end of madder fields and indigo plantations. |
-| 21 | Why did Gandhi spin every day? (`khadi`) |  | planned, listed as coming |  | India's mills and handlooms, the deindustrialisation debate, swadeshi, and homespun cloth as politics. |
-| 22 | How did a loom company become Toyota? (`toyoda`) |  | planned, listed as coming |  | Japan's silk exports, the Tomioka mill and its women workers, Osaka's cotton mills, and Toyoda's automatic loom. |
-| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | planned, listed as coming |  | Rayon from wood pulp, polymers, nylon and polyester, and why synthetic does not simply mean worse. |
-| 24 | When did clothes start coming in sizes? (`sizes`) |  | planned, listed as coming |  | The sewing machine, ready-to-wear, men's and women's sizes, garment districts and the Triangle fire. |
-| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | planned, listed as coming |  | Trade quotas and their end, Bangladesh's garment industry, short-cycle fashion, Rana Plaza, and who gets the price of a shirt. |
+| 10 | How did sheep pay for a war? (`wool`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | The medieval wool trade from England to Flanders and Florence; export duties and Edward III's wool scheme; the Calais staple; guilds; fulling mills and the debate over a medieval industrial revolution. |
+| 11 | How did the Inca run an empire on cloth? (`inca`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Cloth as Inca state wealth; fine cumbi and everyday awasqa; labour tribute and qullqa storehouses; ritual burning and military reward; the khipu; Paracas and Wari before the Inca; Spanish obrajes and cochineal. |
+| 12 | Why did England ban Indian cotton? (`calico`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | India's lead in fine spinning and fast printed cotton; Indian cloth as the currency of the spice trade; monsoon trade cycles; the East India Company; consumer demand and the industrious revolution; the Calico Acts of 1700 and 1721 and their loopholes. |
+| 13 | Why did African buyers decide what Manchester made? (`africa`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | West Africa's own textile industries; cloth currencies; buyers who made Gujarati and Manchester producers match local patterns; cloth as the largest good traded for enslaved people; the Atlantic markets behind British cotton. |
+| 14 | Why did a faster shuttle cause a yarn famine? (`bottleneck`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Kay's flying shuttle and the spinning bottleneck; Paul and Wyatt's failure; Hargreaves's jenny, Arkwright's water frame and Crompton's mule, linked by drafting; the spinners' attacks on jennies. |
+| 15 | What was a factory day like? (`mill`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Water power before steam; Lombe's silk mill and Arkwright's Cromford; shifts and locked gates; women and children as the early workforce; the power loom and the handloom weavers; the Luddites; the factory clock. |
+| 16 | Why did the machines come to Lancashire and not Bengal? (`why-britain`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Why Britain mechanised cotton first: Allen's high wages and cheap coal, Humphries and Schneider on spinners' earnings, Pomeranz on coal and colonies, Parthasarathi on Indian competition and the British state, Mokyr on useful knowledge. |
+| 17 | How did a machine to clean cotton expand slavery? (`gin`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Upland cotton's sticky seeds and Whitney's saw gin; Indian Removal and the domestic slave trade; climate as the limit and slavery as the labour system; the debate on slavery and industrial capitalism. |
+| 18 | How did a loom learn to read? (`jacquard`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | The drawloom's limits; Jacquard's punched-card attachment (shown 1801, completed 1804 to 1805) and its predecessors; how a Jacquard head works; the Lyon silk weavers' revolts of 1831 and 1834; what Babbage, Lovelace and Hollerith took from the cards, and why the loom stored control but did not compute. |
+| 19 | Why didn't cotton save the Confederacy? (`king-cotton`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | King Cotton diplomacy; the glut of 1860 and full Liverpool warehouses; the informal Southern embargo and the Union blockade; the Lancashire cotton famine and relief; historians disagree on Lancashire opinion; the shift to Indian, Egyptian and Brazilian cotton. |
+| 20 | How did a failed malaria cure end natural dyes? (`mauve`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Perkin's mauveine (1856) and coal-tar chemistry; the German dye industry; synthetic alizarin and the end of madder growing; the Bengal Indigo Revolt and BASF's synthetic indigo (1897); from dyes to Ehrlich's Salvarsan and Domagk's Prontosil. |
+| 21 | Why did Gandhi spin every day? (`khadi`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Bombay's Indian-owned mills and the survival of handloom weaving; historians disagree on how far India was deindustrialised; tariffs and the cotton excise; swadeshi (1905); the foreign-cloth bonfires of 1921; khadi as politics in a country with its own mill industry. |
+| 22 | How did a loom company become Toyota? (`toyoda`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Raw silk as Meiji Japan's export engine; the Tomioka silk mill (1872) and the young women who worked in Japan's mills; Osaka's cotton spinning; Japan overtaking Britain in cotton cloth exports in the 1930s; Sakichi Toyoda's automatic loom (1924), the 1929 sale of its patent rights to Platt Brothers, and how that money helped start Toyota. |
+| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Rayon (viscose) as regenerated cellulose; what a polymer is; Carothers and nylon at DuPont (1935, on sale 15 May 1940); nylon at war; polyester, acrylic and spandex; why synthetics are now about two thirds of the world's fibre and why that is not simply a loss. |
+| 24 | When did clothes start coming in sizes? (`sizes`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Sewing by hand; the sewing machine (Howe 1846, Singer 1851) and hire purchase; ready-made clothing; men's sizes from tailors' systems and uniforms; women's sizes and the 1939 to 1940 USDA survey; garment districts, sweatshops and the Triangle Shirtwaist fire of 1911. |
+| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | One T-shirt's journey from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price. |
 | 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | planned, listed as coming |  | The Aral Sea, Xinjiang, Bt cotton, subsidies and the Cotton-4, second-hand exports, microfibres, and which numbers to trust. |
 | 27 | What does the label in your shirt not say? (`label`) |  | planned, listed as coming |  | The whole course applied to a garment you own, a 1930s rayon dress and a wax-print shirt. |
 

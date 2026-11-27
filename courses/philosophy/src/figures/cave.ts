@@ -2,7 +2,7 @@
 // see only shadows to the one who comes back down. The reader steps through;
 // each step says what the freed prisoner sees and what Plato meant by it.
 
-import { svg } from 'didactics/dom';
+import { el, svg } from 'didactics/dom';
 import { label, line, redraw, small } from 'didactics/draw';
 import { COL, figure, frame, tint } from './kit';
 
@@ -90,7 +90,8 @@ export const caveFigure = figure(['out'], (_ctx, t) => {
   };
   const prev = svgButton('Back', () => { k = Math.max(0, k - 1); paint(); });
   const next = svgButton('Next', () => { k = Math.min(CAVE_STEPS.length - 1, k + 1); paint(); });
-  f.controls.append(prev, next);
+  // In a .row so Back and Next sit side by side; .fig-controls stacks its children.
+  f.controls.append(el('div.row', {}, prev, next));
   paint();
   return f.node;
 });

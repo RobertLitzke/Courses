@@ -12,7 +12,7 @@
 // seconds, and dips again for a deeper blue. In an unreduced vat the indigo
 // stays as blue specks that rinse off. Goal 'deep': four dips in a reduced vat.
 
-import { svg } from 'didactics/dom';
+import { el, svg } from 'didactics/dom';
 import { label, redraw } from 'didactics/draw';
 import { COL, animate, choices, figure, frame, slider } from './kit';
 
@@ -148,7 +148,8 @@ export const vatFigure = figure(['deep'], (ctx, t) => {
   reset.className = 'btn btn-small';
   reset.textContent = 'New cloth';
   reset.addEventListener('click', () => { dips = 0; ox = 1; wasted = false; paint(); });
-  f.controls.append(vatChoice.node, dip, reset);
+  // The two buttons share a .row, since .fig-controls stacks its children.
+  f.controls.append(vatChoice.node, el('div.row', {}, dip, reset));
   paint();
   return f.node;
 });

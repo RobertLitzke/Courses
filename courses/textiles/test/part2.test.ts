@@ -5,11 +5,17 @@ import { FIGURES } from '../src/figures';
 import { PERIODS } from '../src/figures/silk-routes';
 import { cropHeight, worldMap } from '../src/figures/world';
 import { click, context, guess, setSlider } from './helpers';
-import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
+import { MOTIFS, holesPunched, shaftsNeeded } from '../src/figures/pattern-loom';
 import { knotsFor } from '../src/figures/inca';
 import { ROUTES, voyage } from '../src/figures/monsoon';
 import { hoursProblems } from '../src/figures/hours';
 import { hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
+import { PRESETS, jennyReturn } from '../src/figures/jenny-pays';
+import { grows } from '../src/figures/cotton-belt';
+import { seriesProblems } from '../src/figures/series';
+import { load, output as loomOutput } from '../src/figures/looms';
+import { BAND, bodies } from '../src/figures/bodies';
+import { PRICE, priceWith } from '../src/figures/tshirt';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -43,6 +49,18 @@ describe('the pattern loom', () => {
     const h = FIGURES['pattern-loom'](context(), 'many');
     click(h.node, 'Bird');
     click(h.node, 'Drawloom');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+  it('punches one hole per raised thread on the Jacquard', () => {
+    expect(holesPunched(MOTIFS.Diamond)).toBe(MOTIFS.Diamond.flat().filter(Boolean).length);
+  });
+  it('is done once a square is changed on the Jacquard', async () => {
+    const h = FIGURES['pattern-loom'](context(), 'cards');
+    let finished = false;
+    h.done?.then(() => { finished = true; });
+    await Promise.resolve();
+    expect(finished).toBe(false);
+    (h.node.querySelector('[aria-label="Warp 1, pick 1"]') as SVGElement).dispatchEvent(new Event('click'));
     await expect(h.done).resolves.toBeUndefined();
   });
 });
@@ -104,6 +122,76 @@ describe('the workshop in lesson 15', () => {
   it('is done once the power loom leaves the weavers idle', async () => {
     const h = FIGURES.workshop(context(), 'loom');
     guess(h.node, 'They have far more weaving capacity than yarn, so work and piece rates fall');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('does a jenny pay', () => {
+  it('pays in Lancashire on Allen\'s wages and not in Bengal', () => {
+    expect(jennyReturn(6, 70)).toBeGreaterThan(0.3);
+    expect(jennyReturn(1, 70)).toBeLessThan(0);
+  });
+  it('is done once all presets are seen', async () => {
+    const h = FIGURES['jenny-pays'](context(), 'compare');
+    for (const p of PRESETS) click(h.node, p.name);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the cotton belt', () => {
+  it('grows cotton in Mississippi but not Kentucky or west Texas', () => {
+    expect(grows(-90, 33)).toBe(true);
+    expect(grows(-85, 37.5)).toBe(false);
+    expect(grows(-102, 33)).toBe(false);
+  });
+  it('is done once both overlays are seen', async () => {
+    const h = FIGURES['cotton-belt'](context(), 'overlay');
+    guess(h.node, 'To about the Tennessee and Kentucky border');
+    click(h.node, 'Add 1860');
+    click(h.node, 'Add today');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+  it('checks a series chart\'s options', () => {
+    expect(seriesProblems({ from: 1, to: 2, panels: [{ title: 'a', unit: 'b', lines: [{ name: 'c', color: 'gold', points: [[1, 1], [2, 2]] }] }] })).toEqual([]);
+    expect(seriesProblems({ from: 1, to: 2, panels: [{ title: 'a', unit: 'b', lines: [{ name: 'c', color: '#123', points: [[1, 1]] }] }] })).toHaveLength(1);
+  });
+});
+
+describe('the loom minder', () => {
+  it('lets one weaver keep about five plain looms or over twenty automatic ones', () => {
+    expect(load(5, 'plain')).toBeLessThanOrEqual(1);
+    expect(load(6, 'plain')).toBeGreaterThan(1);
+    expect(load(26, 'automatic')).toBeLessThanOrEqual(1);
+    expect(loomOutput(10, 'plain')).toBeCloseTo(loomOutput(5, 'plain'), 5);
+  });
+  it('is done with twenty automatic looms running', async () => {
+    const h = FIGURES.looms(context(), 'auto');
+    click(h.node, 'Automatic loom');
+    setSlider(h.node, 0, 24);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the body scatter', () => {
+  it('shows a wide spread of hips within one bust size', () => {
+    const hips = bodies().filter(([b]) => b >= BAND[0] && b <= BAND[1]).map(([, h]) => h);
+    expect(hips.length).toBeGreaterThan(10);
+    expect(Math.max(...hips) - Math.min(...hips)).toBeGreaterThan(15);
+  });
+});
+
+describe('the T-shirt price', () => {
+  it('rises by under 1% with fixed markups and a few percent with percentage markups when wages triple', () => {
+    expect(priceWith(1, 'percent')).toBeCloseTo(PRICE, 5);
+    expect(priceWith(3, 'fixed') / PRICE - 1).toBeLessThan(0.02);
+    const pct = priceWith(3, 'percent') / PRICE - 1;
+    expect(pct).toBeGreaterThan(0.04);
+    expect(pct).toBeLessThan(0.08);
+  });
+  it('is done once tripled wages are seen with both markups', async () => {
+    const h = FIGURES.tshirt(context(), 'triple');
+    setSlider(h.node, 0, 3);
+    click(h.node, 'Markup: same percentage');
     await expect(h.done).resolves.toBeUndefined();
   });
 });

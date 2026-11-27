@@ -1,0 +1,177 @@
+{
+  "id": "mauve",
+  "n": 20,
+  "title": "How did a failed malaria cure end natural dyes?",
+  "teaches": "Perkin's mauveine (1856) and coal-tar chemistry; the German dye industry; synthetic alizarin and the end of madder growing; the Bengal Indigo Revolt and BASF's synthetic indigo (1897); from dyes to Ehrlich's Salvarsan and Domagk's Prontosil",
+  "parts": [
+    {
+      "title": "An Easter experiment",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Over the Easter holiday of 1856, William Henry Perkin, a chemistry student aged 18, was working in a makeshift laboratory in his family's house in Shadwell, in east London. His professor at the Royal College of Chemistry, August Wilhelm Hofmann, had suggested that it might be possible to make **quinine** in the laboratory. Quinine was the only effective treatment for malaria, and it came from the bark of the cinchona tree, which grew in the Andes and was expensive and in short supply. Britain's soldiers and officials in India and Africa needed large quantities of it."
+        },
+        {
+          "type": "text",
+          "text": "Chemists then knew the formula of quinine, the number of atoms of each element in a molecule, but not how those atoms were arranged. Perkin tried to build quinine by oxidising, that is, reacting with an oxygen-rich chemical, a simpler compound with roughly the right atoms, and got a reddish-brown sludge. He tried again with aniline, a compound made from coal tar, and got a black solid. When he washed it with alcohol, it gave a deep purple solution that dyed silk and did not wash out. He had not made quinine. He had made the first synthetic dye to be produced on a large scale, which came to be called **mauve**, or mauveine."
+        }
+      ]
+    },
+    {
+      "title": "Colours from coal tar",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Coal tar** was the thick black waste left over when coal was heated to make gas for city street lighting. Gasworks produced it in huge amounts, and chemists had learned to separate it into simpler compounds such as benzene, toluene and naphthalene. Aniline could be made from benzene. Perkin's purple showed that this waste could be turned into colours worth more, weight for weight, than almost anything else a chemist could make."
+        },
+        {
+          "type": "text",
+          "text": "Perkin patented his process in August 1856, left the college against Hofmann's advice, and with his father and brother built a factory at Greenford, west of London, which began production in 1857. Purple had been the colour of emperors (lesson 6) because Tyrian purple was so costly. Now it became a fashion. The French Empress Eugénie wore it, Queen Victoria wore mauve to her daughter's wedding in 1858, and in 1859 the magazine *Punch* joked about an epidemic of \"mauve measles\" in London."
+        },
+        {
+          "type": "text",
+          "text": "Other synthetic dyes followed quickly. In 1858 and 1859 chemists in France made a bright red-violet from aniline, sold as fuchsine or **magenta**, named after a French victory over Austria at Magenta in 1859. Within ten years there were synthetic violets, blues, greens and blacks. Lesson 5 explained that most natural dyes need a mordant to bind to fibre and fade in light. Many of the early synthetic dyes faded too, but they were bright, cheap and new each season, and chemists kept improving them."
+        }
+      ]
+    },
+    {
+      "title": "Why Germany won",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Britain made the first synthetic dyes, but by the 1880s Germany dominated the industry. Hofmann himself went back to Germany in 1865. German firms founded in the 1860s, among them Bayer, Hoechst, BASF and Agfa, employed university-trained chemists in research laboratories whose job was to find new dyes and better ways to make them. German universities trained many more chemists than British ones, and a German patent law of 1877 protected processes in a way that rewarded firms for inventing new routes to the same dye. By 1913 German firms made the large majority of the world's synthetic dyes, often quoted as around 85 percent."
+        },
+        {
+          "type": "text",
+          "text": "This mattered beyond dyes. When the First World War began in 1914, Britain and France, and later the United States, found that they depended on German firms not only for dyes but for many chemicals and drugs made in the same plants. The shortages that followed, including dye for military uniforms, pushed all three governments to build up their own chemical industries."
+        }
+      ]
+    },
+    {
+      "title": "The end of madder",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first great natural dye to fall was madder, the root that gave the bright, fast red called Turkey red (lessons 5 and 9). Its colour comes mainly from a compound called **alizarin**. In 1868 the German chemists Carl Graebe and Carl Liebermann worked out alizarin's structure and showed that it could be made from anthracene, another compound in coal tar. In 1869 BASF and Perkin each patented practical ways to make it, with their patent applications filed in London a day apart. Synthetic alizarin was chemically the same as the natural compound, purer, and soon much cheaper."
+        },
+        {
+          "type": "text",
+          "text": "Madder was a large crop in southern France, the Netherlands and Turkey. Within about a decade of 1869 most of it was gone, and the land went to other crops. France had helped its madder growers since 1829 by dyeing its infantry's trousers with madder red. The army kept the red trousers until 1914, by which time they were dyed with synthetic alizarin, much of it made in Germany."
+        }
+      ]
+    },
+    {
+      "title": "The end of the indigo plantations",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Indigo, the blue of lesson 5, was harder. Much of the indigo used in Europe in the 19th century came from British-run plantations in Bengal and Bihar, in eastern India. European planters advanced money to farmers, called *ryots*, who were then bound to grow indigo on part of their land and sell it to the planter's factory at a fixed low price. Farmers who refused faced violence and the courts. In 1859 and 1860, in the **Indigo Revolt**, ryots across Bengal refused to sow indigo. A play about the planters' abuses, *Nil Darpan* by Dinabandhu Mitra (1860), was translated into English, and the missionary who published the translation, James Long, was jailed for libel. A government commission upheld many of the farmers' complaints, and indigo planting shifted from Bengal to Bihar, where the system continued."
+        },
+        {
+          "type": "text",
+          "text": "In 1880 the German chemist Adolf von Baeyer made indigo in the laboratory, and in 1883 he worked out its structure, but his methods were too expensive for industry. BASF spent about seventeen years and a large sum of money developing a commercial process, starting from naphthalene, and in 1897 it put synthetic indigo on the market. Its price fell steadily, and it was purer and more consistent than plantation indigo, so dyers could predict their results. The chart shows India's exports alongside Germany's output of the synthetic dye."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "India's exports of natural indigo and Germany's production of synthetic indigo, 1895 to 1914. Rough, rounded figures; synthetic indigo was sold as a paste, so the two are not in the same units.",
+          "options": {
+            "from": 1895,
+            "to": 1914,
+            "ticks": [1895, 1900, 1905, 1910, 1914],
+            "panels": [
+              {
+                "title": "India's natural indigo exports",
+                "unit": "thousand tonnes",
+                "max": 10,
+                "lines": [
+                  { "name": "natural", "color": "india", "points": [[1895, 9.4], [1897, 7.5], [1899, 5], [1901, 4], [1903, 2.5], [1905, 1.6], [1907, 1.3], [1909, 0.9], [1911, 0.8], [1913, 0.55], [1914, 0.5]] }
+                ]
+              },
+              {
+                "title": "German synthetic indigo, as 20 percent paste",
+                "unit": "thousand tonnes",
+                "max": 40,
+                "lines": [
+                  { "name": "synthetic", "color": "indigo", "points": [[1897, 0.6], [1899, 3], [1901, 9], [1903, 14], [1905, 18], [1907, 22], [1909, 26], [1911, 29], [1913, 33], [1914, 30]] }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Within fifteen years India's indigo trade had shrunk to a small fraction of its size, and the planters in Bihar tried to pass their losses on to their tenants. In 1917 tenants in Champaran, in Bihar, asked a lawyer recently returned from South Africa, Mohandas Gandhi, to investigate their treatment by indigo planters. His campaign there was his first in India, and lesson 21 follows where it led."
+        }
+      ]
+    },
+    {
+      "title": "Where it went next",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Dyes stick to some materials and not others, and in the 1870s and 1880s biologists found that they also stained some cells and bacteria and left others unmarked. The German physician Paul Ehrlich reasoned that if a dye could pick out a germ, a chemical might be found that attacked the germ and spared the patient, which he called a \"magic bullet\". Working with dye-related arsenic compounds, his laboratory, with the Japanese bacteriologist Sahachiro Hata, found **Salvarsan** in 1909, the first effective drug against syphilis, made and sold by Hoechst."
+        },
+        {
+          "type": "text",
+          "text": "In 1932 Gerhard Domagk, working for the German dye and chemical group IG Farben, which included Bayer, found that a red dye called **Prontosil** cured mice infected with streptococcus bacteria. It was the first of the sulfa drugs, the first widely used medicines that killed bacteria inside the body, and Domagk was awarded the Nobel Prize in 1939, though the Nazi government forced him to decline it; he received the medal in 1947. Quinine, the drug Perkin had set out to make, was finally synthesised in 1944, by the American chemists Robert Woodward and William Doering, though their route was never used to make it commercially."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on synthetic dyes.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "What was Perkin trying to make when he found mauve?",
+                "choices": ["Quinine, the malaria drug, from compounds with roughly the right atoms", "A purple dye to replace Tyrian purple", "Gas for street lighting", "A cheaper mordant"],
+                "answer": 0,
+                "why": "Chemists knew quinine's formula but not its structure. Perkin's attempt produced a purple compound instead, which he recognised as a dye."
+              },
+              {
+                "ask": "Why was coal tar useful to the first dye makers?",
+                "choices": ["It was a cheap waste from gasworks that could be separated into compounds such as benzene and aniline", "It was already a dye", "It came from madder roots", "It made colours fast without chemistry"],
+                "answer": 0,
+                "why": "Gasworks produced coal tar in bulk. Separated into simpler compounds, it became the raw material for synthetic dyes."
+              },
+              {
+                "ask": "Synthetic alizarin was patented in 1869. Why had madder growing almost disappeared within a decade?",
+                "choices": ["The synthetic dye was the same compound as madder's colour, purer and soon cheaper", "Madder plants caught a disease", "France banned madder", "Synthetic alizarin was a different colour that came into fashion"],
+                "answer": 0,
+                "why": "Dyers had no reason to pay more for a less pure version of the same molecule, so the crop lost its market within about a decade."
+              },
+              {
+                "ask": "Which best explains why the German dye industry overtook Britain's?",
+                "choices": ["Firms ran research laboratories staffed by many university-trained chemists, with patent law that rewarded new processes", "Germany had the only coal tar", "Britain banned synthetic dyes", "Perkin moved his factory to Germany"],
+                "answer": 0,
+                "why": "The industry depended on finding new dyes and routes to them. German universities and firms produced the chemists and research to do that."
+              },
+              {
+                "ask": "How did dyes lead to new medicines?",
+                "choices": ["Dyes that stained some cells and not others suggested chemicals that could attack germs and spare the patient", "Dyes were used to colour pills", "Quinine turned out to be a dye", "Dye factories were turned into hospitals"],
+                "answer": 0,
+                "why": "Ehrlich's idea of a selective chemical came from staining, and it led to Salvarsan; a red dye, Prontosil, became the first sulfa drug."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Mauve was an accident.** In 1856 Perkin, aged 18, tried to make quinine and made the first mass-produced synthetic dye.",
+    "**Coal tar became colour.** A waste of gasworks gave compounds such as aniline, from which chemists made dyes in many colours.",
+    "**Germany took over the industry.** Research laboratories, trained chemists and patent law gave German firms most of the world market by 1913.",
+    "**Synthetic alizarin ended madder.** The same molecule, made from coal tar from 1869, wiped out madder growing within about a decade.",
+    "**Synthetic indigo shrank the plantations.** BASF's indigo of 1897 cut India's indigo trade to a small fraction within fifteen years.",
+    "**Indigo planting had been coercive.** The Bengal Indigo Revolt of 1859 and 1860 and Champaran in 1917 were protests against it.",
+    "**Dyes led to drugs.** Staining inspired Ehrlich's Salvarsan, and a red dye, Prontosil, became the first sulfa drug."
+  ],
+  "footnotes": {}
+}

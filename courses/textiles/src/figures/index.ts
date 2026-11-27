@@ -18,6 +18,11 @@ import { knitFigure } from './knit';
 import { vatFigure, washFigure } from './dye';
 import { silkRoutesFigure } from './silk-routes';
 import { sericultureStill } from './sericulture';
+import { jacquardStill } from './jacquard';
+import { loomsFigure } from './looms';
+import { polymersStill } from './polymers';
+import { bodiesStill } from './bodies';
+import { tshirtFigure } from './tshirt';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -26,6 +31,9 @@ import { monsoonFigure } from './monsoon';
 import { hoursFigure } from './hours';
 import { flowsStill } from './flows';
 import { workshopFigure } from './workshop';
+import { jennyPaysFigure } from './jenny-pays';
+import { cottonBeltFigure } from './cotton-belt';
+import { seriesFigure } from './series';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -41,6 +49,11 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   vat: vatFigure,
   'silk-routes': silkRoutesFigure,
   sericulture: sericultureStill,
+  'jacquard-head': jacquardStill,
+  looms: loomsFigure,
+  polymers: polymersStill,
+  bodies: bodiesStill,
+  tshirt: tshirtFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,
@@ -50,4 +63,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   hours: hoursFigure,
   'trade-flows': flowsStill,
   workshop: workshopFigure,
+  'jenny-pays': jennyPaysFigure,
+  'cotton-belt': cottonBeltFigure,
+  series: seriesFigure,
 };

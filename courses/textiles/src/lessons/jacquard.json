@@ -1,0 +1,177 @@
+{
+  "id": "jacquard",
+  "n": 18,
+  "title": "How did a loom learn to read?",
+  "teaches": "The drawloom's limits; Jacquard's punched-card attachment (shown 1801, completed 1804 to 1805) and its predecessors; how a Jacquard head works; the Lyon silk weavers' revolts of 1831 and 1834; what Babbage, Lovelace and Hollerith took from the cards, and why the loom stored control but did not compute",
+  "parts": [
+    {
+      "title": "A portrait in silk",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1839 a Lyon silk firm, Didier, Petit et Cie, wove a portrait of Joseph-Marie Jacquard, who had died five years earlier. It shows him at his workbench with a pair of compasses, a model of his loom and a stack of punched cards, in shades of grey so fine that the picture looks like an engraving. It was woven in black and white silk on one of Jacquard's own looms, and the pattern was held on about 24,000 punched cards, one for each pick of weft.[^portrait]"
+        },
+        {
+          "type": "text",
+          "text": "The English mathematician Charles Babbage owned a copy and hung it in his house in London. According to a story told about it, he liked to ask his guests how they thought it had been made, and several took it for an engraving. Babbage had good reason to value it. He was designing a calculating machine that would take its instructions from punched cards, and he had taken the idea from Jacquard's loom. In this lesson we look at how the loom read its cards, what it did to the people who wove on it, and what the cards did and did not have in common with a computer."
+        }
+      ]
+    },
+    {
+      "title": "The drawloom's limits",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 8 showed how a drawloom stores a pattern: each warp thread, or group of threads that behave alike, hangs from a cord, and for every pick a second worker, the drawboy, pulls a prepared bundle of cords, a lash, to lift the threads the pattern needs. In 18th-century Lyon, the European centre of figured silk, this worker was often a girl or a boy, and the work was tiring, slow and easy to get wrong. A design for a large figured silk could need thousands of lashes, and tying them in order before weaving started, a job called *lisage*, could take a skilled worker weeks. Every change of pattern meant tying the lashes again."
+        },
+        {
+          "type": "text",
+          "text": "The drawloom had therefore moved the bottleneck from the number of shafts to two other places: the second worker on every pick, and the long setup for each new design. Several Lyon inventors tried to remove the drawboy in the 18th century. In 1725 Basile Bouchon used a roll of punched paper to choose which cords to pull, and in 1728 Jean-Baptiste Falcon replaced the roll with a chain of punched cards, but both devices still needed an assistant to press the cards against the cords. In 1745 Jacques de Vaucanson, better known for his mechanical automata, built a loom that read a punched cylinder without an assistant, but it was not taken up by the weavers.[^before]"
+        }
+      ]
+    },
+    {
+      "title": "The Jacquard head",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Jacquard, the son of a Lyon master weaver, combined these earlier ideas into a device that worked. He showed a first version at the industrial exhibition in Paris in 1801 and completed the improved attachment in 1804 and 1805. It sat on top of an ordinary loom, and it is known as a Jacquard **head** or attachment, not a separate kind of loom. It replaced both the extra shafts of the pattern shaft loom and the drawboy of the drawloom."
+        },
+        {
+          "type": "text",
+          "text": "In the head, each warp thread, or each group of threads that behave alike, hangs by a cord from its own **hook**. A row of horizontal **needles**, one for each hook, rests against a punched card. On each pick the card is pressed against the needles. Where the card has a hole, the needle passes through, and its hook stays in place over a lifting bar, the **griffe**. Where the card is blank, the card pushes the needle back, and the needle pushes its hook off the griffe. The griffe then rises and lifts only the hooks still over it, so the threads tied to them rise and the rest stay down. The weaver throws the shuttle through the gap, the **shed**, and the next card in the chain moves into place."
+        },
+        {
+          "type": "diagram",
+          "id": "jacquard-head",
+          "caption": "One pick in a simplified Jacquard head with six hooks. A real head had hundreds."
+        },
+        {
+          "type": "text",
+          "text": "The cards were laced edge to edge into a long chain, one card per pick, which the head turned through card by card as the weaver worked a treadle. The weaver no longer needed a second worker. A new design was made by drawing it on squared paper, each square a thread and a pick, and having a card cutter punch the cards row by row. In the figure below, each card matches one row of the motif on the grid."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "pattern-loom",
+          "caption": "The motif from lesson 8 on three looms. On the Jacquard, every warp thread has its own hook and every pick its own card.",
+          "task": "Change a square on the Jacquard and see which card changes",
+          "goal": "cards"
+        },
+        {
+          "type": "text",
+          "text": "The figure gives every warp thread its own hook. A change to one pick of the design changes only one card. The threading of the loom stays the same, so a weaver could take one deck off and put another on in a short time, and the same deck could be used again years later or copied for another loom. A pattern became an object that could be stored, edited, copied and sold separately from the loom. Real heads often tied several warp threads across the width of the cloth to the same hook, so that a design repeated across the cloth without needing more hooks."
+        },
+        {
+          "type": "text",
+          "text": "In 1805 Napoleon's government bought the rights to the attachment for the city of Lyon. Jacquard received a pension of 3,000 francs a year and a royalty of 50 francs for each loom built over the following six years. Lyon's weavers were slow to adopt it at first, and Jacquard later said that some had tried to destroy his machine and attacked him, a story that is hard to check. Within a decade, after other mechanics had improved its design, thousands of Jacquard heads were working in France, and by the mid 19th century they were used for figured silk, damask table linen, carpets and woven labels across Europe."
+        }
+      ]
+    },
+    {
+      "title": "The canuts rise",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lyon's silk weavers were called **canuts**. Most were master weavers who owned between two and six looms, set up in tall workshops with high ceilings to fit the Jacquard heads, many of them on the hill of the Croix-Rousse. They worked with journeymen, apprentices and family members on silk supplied by merchant-manufacturers, the *fabricants* or *soyeux*, who sold the cloth and paid the master weavers by the piece. The canuts owned their looms, but the merchants set the piece rates."
+        },
+        {
+          "type": "text",
+          "text": "In the late 1820s silk prices and piece rates fell. In October 1831 the prefect of the Rhône, the government's chief official in the department, arranged a meeting at which weavers' delegates and merchants agreed a minimum rate for each kind of cloth, called the *tarif*. Many merchants refused to pay it, and the government in Paris disowned the agreement. On 21 November 1831 thousands of weavers marched down from the Croix-Rousse under a black banner reading *Vivre en travaillant ou mourir en combattant*, \"Live working or die fighting\". After three days of fighting with the National Guard and the army, they held the city. The government sent an army of about 20,000 men under Marshal Soult, which retook Lyon in early December without a battle, and the tarif was annulled."
+        },
+        {
+          "type": "text",
+          "text": "In April 1834, after a new law restricted workers' associations and the leaders of a strike were put on trial, the weavers rose again. The army put the second revolt down in about a week of street fighting, later called the *sanglante semaine*, the bloody week, and several hundred people were killed. The canuts' revolts were about piece rates and the right to organise, not about the Jacquard head itself, which most of them worked by then. Their position was close to that of the handloom weavers in lesson 15: they owned their looms, but the merchants set what each piece paid."
+        }
+      ]
+    },
+    {
+      "title": "Cards that store, not compute",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From 1834 Babbage designed the **Analytical Engine**, a mechanical calculator that he planned to drive with two sets of punched cards taken from Jacquard's: operation cards, which told it whether to add, subtract, multiply or divide, and variable cards, which told it which numbers in its store to use. It was never built. In 1843 the mathematician Ada Lovelace published a translation of an article on the engine by the Italian engineer Luigi Menabrea, with her own notes, three times as long as the article, and in one of them she wrote that \"the Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves flowers and leaves.\""
+        },
+        {
+          "type": "text",
+          "text": "In 1890 the United States counted its population with punched cards. Herman Hollerith, a former census clerk, built machines that read a card for each person, with holes punched in positions for age, sex, birthplace and other answers. Pins pressed against the card dipped through each hole into a cup of mercury, closed an electric circuit and advanced a counter. The 1880 census had taken years to tabulate by hand; Hollerith's machines produced the first population totals of 1890 within weeks.[^hollerith] His company later became part of IBM."
+        },
+        {
+          "type": "text",
+          "text": "The connections are real, but they are easy to overstate. A Jacquard head does no arithmetic and makes no choices: it reads the next card in the chain, lifts the hooks the card allows, and repeats. What it had was **stored control**: instructions held outside the machine, in a form that could be replaced, copied and edited without rebuilding the machine. Babbage's design added what the loom lacked: a store to hold numbers and a mill to calculate with them (what we would now call memory and a processor), and the ability to choose which card to read next depending on a result. Hollerith's cards were different again, because they held data about people for a machine to count, not instructions. The Han pattern shafts of lesson 8 had already stored a pattern; Jacquard's achievement was to make the stored pattern cheap to swap."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the Jacquard head.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "What two jobs did the Jacquard head take over from the drawloom?",
+                "choices": ["The drawboy's pulling of cords on every pick, and the weeks of tying lashes for each new design", "Spinning the yarn and dyeing it", "Throwing the shuttle and beating the weft", "Selling the cloth and paying the weavers"],
+                "answer": 0,
+                "why": "Cards chose the threads on each pick, so no second worker was needed, and a new design meant punching cards instead of tying thousands of lashes."
+              },
+              {
+                "ask": "In a Jacquard head, a card has no hole at a particular needle. What happens to that needle's warp thread on this pick?",
+                "choices": ["The card pushes the needle and its hook off the griffe, so the thread stays down", "The thread rises with the griffe", "The thread is cut", "The weaver lifts it by hand"],
+                "answer": 0,
+                "why": "Only hooks left over the rising griffe are lifted. A blank pushes its hook aside, so the thread stays down."
+              },
+              {
+                "ask": "A weaver changes one pick of a Jacquard design. What has to be redone?",
+                "choices": ["Only the card for that pick", "The threading of the whole loom", "Every card in the deck", "The shafts for that thread"],
+                "answer": 0,
+                "why": "Each card holds one pick of the pattern, and the threading never changes, so a change to one pick means punching one new card."
+              },
+              {
+                "ask": "What did the Lyon weavers of 1831 rise over?",
+                "choices": ["Merchants refusing to pay an agreed minimum piece rate, the tarif", "The arrival of the Jacquard head", "A ban on silk imports", "Conscription into the army"],
+                "answer": 0,
+                "why": "The canuts already worked Jacquard looms. They rose when merchants and the government rejected the minimum rates agreed in October 1831."
+              },
+              {
+                "ask": "Which statement about the Jacquard loom and computers is accurate?",
+                "choices": ["Its cards were replaceable stored instructions, but the loom did no arithmetic and could not choose what to do next", "The Jacquard loom was the first computer", "Jacquard's cards counted the US census", "Babbage built the Analytical Engine from a Jacquard loom"],
+                "answer": 0,
+                "why": "The loom read its cards in order and lifted hooks. Babbage planned to add a store, arithmetic and choices; Hollerith's cards held data, not instructions."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**The drawloom had two costs.** A drawboy on every pick, and weeks of tying lashes for each new design.",
+    "**Jacquard's head replaced both.** Shown in 1801 and completed in 1804 and 1805, it used a chain of punched cards, one card per pick.",
+    "**A hole lifts a thread.** Where the card has a hole, the hook stays on the rising griffe; a blank pushes the hook off.",
+    "**A pattern became a deck.** Cards could be changed one pick at a time, swapped, stored and copied without rethreading the loom.",
+    "**The canuts rose over pay.** Lyon's silk weavers revolted in 1831 and 1834 over piece rates and the right to organise, and were put down by the army.",
+    "**Babbage borrowed the cards.** His Analytical Engine was to take operations and variables from punched cards, and Lovelace compared it to the loom.",
+    "**Hollerith's cards held data.** They counted the 1890 census electrically, which was a different use from the loom's.",
+    "**Stored control is not computing.** The loom read cards in order; it did no arithmetic and made no choices."
+  ],
+  "footnotes": {
+    "portrait": {
+      "kind": "technical",
+      "title": "The woven portrait",
+      "text": "The portrait was designed by Michel-Marie Carquillat after a painting by Claude Bonnefond, and copies were woven for sale and for exhibitions. The figure of about 24,000 cards is the one usually quoted; each card controlled the hooks for one pick across the width of the picture."
+    },
+    "before": {
+      "kind": "digression",
+      "title": "Jacquard's predecessors",
+      "text": "Vaucanson's loom was put away, and Jacquard is said to have studied it in the Conservatoire des Arts et Métiers in Paris while working out his own design. His head combined Falcon's chain of cards with Vaucanson's mechanism for pressing the punched pattern against the needles automatically, without an assistant."
+    },
+    "hollerith": {
+      "kind": "technical",
+      "title": "How fast was the 1890 count?",
+      "text": "The first totals were announced in about six weeks, though the full tabulation of all the census questions took a few years. Hollerith said the idea came from watching railway conductors punch tickets to record a passenger's description, not from the loom."
+    }
+  }
+}

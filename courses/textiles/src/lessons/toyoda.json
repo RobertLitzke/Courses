@@ -1,0 +1,175 @@
+{
+  "id": "toyoda",
+  "n": 22,
+  "title": "How did a loom company become Toyota?",
+  "teaches": "Raw silk as Meiji Japan's export engine; the Tomioka silk mill (1872) and the young women who worked in Japan's mills; Osaka's cotton spinning; Japan overtaking Britain in cotton cloth exports in the 1930s; Sakichi Toyoda's automatic loom (1924), the 1929 sale of its patent rights to Platt Brothers, and how that money helped start Toyota",
+  "parts": [
+    {
+      "title": "Recruits for Tomioka",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1872 the Japanese government opened a large silk-reeling mill at Tomioka, a town in the hills northwest of Tokyo. It was built of brick, with French machinery and a French manager, Paul Brunat, and it was meant to teach Japanese workers how to reel silk by machine to the standard that buyers in Lyon and London wanted. The government planned to train several hundred young women, who would then take the methods back to mills in their home districts."
+        },
+        {
+          "type": "text",
+          "text": "Recruiting them was hard. Few families wanted to send their daughters to work for foreigners, and rumours spread that the French drank blood, perhaps from seeing them drink red wine. Officials responded by asking families of former samurai, the old warrior class, to send their daughters first, beginning with the daughter of the mill's own Japanese director, so that mill work would look respectable.[^tomioka] One of the early recruits, Wada Ei, later wrote a memoir of her time there. In this lesson we follow how Japan used textiles to pay for industrialisation, and how a family that made looms came to make cars."
+        }
+      ]
+    },
+    {
+      "title": "Silk pays for everything",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Japan had been almost closed to foreign trade for two centuries when its ports were opened to Western merchants in 1859. Its first large export was **raw silk**, the reeled filament of lesson 7, which was in demand in Europe because a silkworm disease had devastated French and Italian silk farming in the 1850s and 1860s. After the Meiji Restoration of 1868 brought a new government determined to build a modern state and avoid colonisation, silk paid for much of what it needed: railways, ships, machinery and foreign experts. From the 1870s to the 1930s raw silk was usually Japan's largest single export, and in many years it earned a third or more of the country's export income. Much of the silk went to the United States, where it was made into stockings and other fine goods."
+        },
+        {
+          "type": "text",
+          "text": "The work was done largely by young women. Families in farming villages raised silkworms in their houses, and from the 1880s private reeling mills, many in the Suwa district of Nagano, recruited farm girls in their teens on contracts of a year or more. They lived in company dormitories, worked days of twelve hours or more, and sent most of their pay home. By the early 20th century women made up the large majority of Japan's textile workforce, and textiles employed most of Japan's factory workers. The hardships of mill life were described in books such as *Jokō aishi*, \"The sad history of female factory workers\" (1925), by Hosoi Wakizō, a former mill worker."
+        }
+      ]
+    },
+    {
+      "title": "Cotton in Osaka",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Japan's cotton mills followed. In 1883 the Osaka Spinning Company, organised by the businessman Shibusawa Eiichi, opened a mill with about 10,500 spindles, several times larger than earlier Japanese mills, and from 1886 it ran day and night in two shifts under electric light. Osaka became known as the Manchester of the East. Japanese mills used **ring spinning**, a newer method developed in the United States that spun continuously instead of in the mule's stop-and-start cycle (lesson 14), so it could be run by less skilled workers, and they bought raw cotton from India and the United States and mixed grades carefully to keep costs down."
+        },
+        {
+          "type": "text",
+          "text": "By the 1890s Japan spun most of the cotton yarn it used, and by the 1910s it was exporting yarn and cloth to China and Korea. During the First World War, when Lancashire's exports to Asia fell, Japanese mills took over many of its markets. In the 1930s, helped by low wages, efficient mills and a falling yen after 1931, Japan's cotton cloth exports passed Britain's for the first time."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "Cotton cloth exported by Britain and Japan, 1913 to 1938. Rounded figures; Japan's passed Britain's around 1933.",
+          "options": {
+            "from": 1913,
+            "to": 1938,
+            "ticks": [1913, 1920, 1925, 1930, 1938],
+            "panels": [
+              {
+                "title": "Cotton cloth exports",
+                "unit": "million square yards",
+                "max": 8000,
+                "lines": [
+                  { "name": "Britain", "color": "britain", "points": [[1913, 7080], [1920, 4440], [1925, 4640], [1929, 3670], [1930, 2410], [1932, 2200], [1933, 2020], [1935, 1950], [1937, 1920], [1938, 1390]], "at": [1919, 4800] },
+                  { "name": "Japan", "color": "japan", "points": [[1913, 410], [1920, 1000], [1925, 1300], [1929, 1790], [1930, 1570], [1932, 2030], [1933, 2090], [1935, 2730], [1937, 2640], [1938, 2180]], "at": [1936, 2750] }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Lancashire's mills, which had already lost much of the Indian market to Indian mills (lesson 21), now lost much of the rest of Asia and Africa to Japanese competition. The British government responded in 1934 with quotas on Japanese cloth in its colonies. Lancashire's cotton industry never regained its old size, and many of its mills closed over the following decades."
+        }
+      ]
+    },
+    {
+      "title": "A loom that changed its own shuttle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Sakichi Toyoda was born in 1867 in a farming village near Nagoya, the son of a carpenter, and his mother wove cloth at home on a hand loom. He spent most of his life improving looms. He patented a faster wooden hand loom in 1891 and built a wooden power loom in 1896, cheap enough for small Japanese weaving sheds that could not afford imported iron looms. Its most useful feature was a device that stopped the loom when a weft thread broke, so that a broken thread did not spoil a long length of cloth and the weaver did not have to watch each loom constantly."
+        },
+        {
+          "type": "text",
+          "text": "His most important invention was the **Type G automatic loom**, completed in 1924. On an ordinary power loom, the weft in the shuttle runs out every few minutes, and the weaver has to stop the loom and put in a fresh shuttle. Automatic looms, the first of them the American Northrop loom of the 1890s, replaced the weft without the weaver's help: the Northrop pushed a full bobbin into the shuttle. Toyoda's design swapped the whole shuttle while the loom kept running at full speed, and combined this with devices that stopped the loom when anything went wrong. With automatic looms, one weaver could mind many more looms than before."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "looms",
+          "caption": "Looms minded by one weaver, with round, illustrative numbers. Each loom needs some minutes of the weaver's attention every hour.",
+          "task": "Keep twenty or more looms running with one weaver",
+          "goal": "auto"
+        },
+        {
+          "type": "text",
+          "text": "In the figure, a weaver can keep only about five plain power looms running, because changing shuttles and mending threads take most of the hour; beyond that, extra looms just stand waiting. With automatic looms the limit rises to about twenty-five. In Lancashire in the early 1930s a weaver usually minded four plain looms. Employers tried to raise that to eight, with better yarn that broke less and helpers to do some of the tending, instead of buying automatic looms, and the attempt led to bitter strikes in 1931 and 1932."
+        }
+      ]
+    },
+    {
+      "title": "From looms to cars",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Toyoda founded Toyoda Automatic Loom Works in 1926 to make the Type G. In 1929 the company sold the rights to make the loom outside Japan, China and the United States to Platt Brothers of Oldham, then one of the largest textile machinery makers in Lancashire, for £100,000. Textile technology had flowed from Britain to Japan for fifty years; now a Lancashire firm was paying a Japanese inventor for a better loom."
+        },
+        {
+          "type": "text",
+          "text": "Sakichi Toyoda died in 1930. His son Kiichiro, an engineer at the loom works, had become interested in cars, and with the support of the family company he used money from the loom business, including the Platt Brothers payment, to set up an automobile department in 1933. It built its first passenger car in 1935 and became a separate company, Toyota Motor Corporation, in 1937. According to the company, the spelling changed from Toyoda to Toyota partly because the new name could be written in Japanese katakana with eight strokes, a lucky number."
+        },
+        {
+          "type": "text",
+          "text": "**Where it went next.** Toyota's production methods, studied by manufacturers around the world from the 1970s onwards, include a principle called *jidoka*: a machine should stop itself as soon as something goes wrong, so that a fault is fixed at once and defective work does not pile up. Toyota traces the idea to Sakichi Toyoda's looms that stopped when a thread broke."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Japan's textile industry.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "What role did raw silk play in Meiji Japan's economy?",
+                "choices": ["It was the largest export, earning much of the foreign money that paid for machinery, railways and ships", "It was used only at home for kimono", "It was imported from France", "It was a minor crop with little trade"],
+                "answer": 0,
+                "why": "Silk was usually Japan's largest export from the 1870s to the 1930s, so it financed imports of the things industrialisation needed."
+              },
+              {
+                "ask": "Why did officials recruit daughters of former samurai for the Tomioka mill?",
+                "choices": ["To make mill work look respectable, so that other families would send their daughters", "Because samurai daughters already knew how to reel silk by machine", "Because the law required it", "Because only samurai families lived nearby"],
+                "answer": 0,
+                "why": "Families distrusted the new mill and its French staff. Daughters of high-status families set an example for others."
+              },
+              {
+                "ask": "A weaver tends plain power looms that each need about 12 minutes of attention an hour. What happens when the weaver is given 10 looms instead of 5?",
+                "choices": ["Little more cloth is woven, because the extra looms stand waiting for the weaver", "Twice as much cloth is woven", "The looms run faster", "The looms need less attention"],
+                "answer": 0,
+                "why": "Ten looms would need 120 minutes of attention every hour. No one weaver can give that, so looms wait, and output stays about where it was with five."
+              },
+              {
+                "ask": "What made Toyoda's Type G loom different from an ordinary power loom?",
+                "choices": ["It replaced the empty shuttle without stopping, so one weaver could mind many more looms", "It was powered by steam", "It could weave only silk", "It used punched cards"],
+                "answer": 0,
+                "why": "Changing shuttles took most of a weaver's time on plain looms. Removing that task raised the number of looms each weaver could mind."
+              },
+              {
+                "ask": "Why is the 1929 sale to Platt Brothers of Oldham significant?",
+                "choices": ["A Lancashire firm paid a Japanese inventor for loom technology, and the money helped start Toyota's car business", "It moved Toyoda's company to England", "It ended Japanese weaving", "It was the first export of Japanese silk"],
+                "answer": 0,
+                "why": "The sale reversed the earlier flow of textile technology from Britain to Japan, and the payment helped fund Kiichiro Toyoda's automobile department."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Silk paid for Meiji industrialisation.** Raw silk was usually Japan's largest export from the 1870s to the 1930s.",
+    "**Tomioka set the standard.** The government's French-equipped mill of 1872 trained young women in machine reeling.",
+    "**Young women did the work.** Farm girls on contracts, living in dormitories, made up most of Japan's textile workforce.",
+    "**Osaka built cotton mills.** Large ring-spinning mills from the 1880s let Japan spin most of its own yarn by the 1890s, and then export it.",
+    "**Japan overtook Britain.** By around 1933 Japan exported more cotton cloth than Lancashire.",
+    "**Automatic looms raised output per weaver.** Changing its own shuttle, Toyoda's 1924 loom let one weaver mind many looms.",
+    "**Looms paid for cars.** The 1929 sale of loom rights to Platt Brothers helped fund Toyota's automobile business.",
+    "**A loom idea lives on.** Toyota's jidoka, machines that stop at a fault, comes from Toyoda's thread-break stop."
+  ],
+  "footnotes": {
+    "tomioka": {
+      "kind": "technical",
+      "title": "How sure is the story?",
+      "text": "The blood rumour and the recruitment of samurai daughters are told in histories of the mill and by the Tomioka Silk Mill museum. The mill is now a UNESCO World Heritage Site, listed in 2014."
+    }
+  }
+}
