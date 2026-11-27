@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 48 | 0 | 5 | 48 | 48 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 49 | 0 | 6 | 49 | 49 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 5 to read through, 48 to copy-edit, 48 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 6 to read through, 49 to copy-edit, 49 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -648,6 +648,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | F3 | How did Dutch wax prints become West African fashion? (`wax-print`) | Fashion and form | needs student read-through | Gemini (queued 2026-11-27); Fact check | Javanese batik and wax resist; Dutch attempts to machine-print batik for Java and why they failed there; the crackle; how the cloth reached the Gold Coast; West African women traders who chose and named the designs; wax print today, Chinese copies and questions of authenticity. |
 | F4 | Why did men give up silk for wool? (`suit`) | Fashion and form | needs student read-through | Gemini (queued 2026-11-27); Fact check | The silk and embroidery of 18th century men's court dress; Beau Brummell and the dark wool coat; why fulled wool suits tailoring; the French Revolution and plain dress; the Great Male Renunciation; the lounge suit and ready-made suits; quiet fit as a new kind of status. |
 | F5 | What do skeletons say about corsets? (`corsets`) | Fashion and form | needs student read-through | Gemini (queued 2026-11-27); Fact check | Stays and corsets as engineered garments: panels, boning, busk, eyelets and lacing; how much corsets reduced the waist; the crinoline cage and its fire risk; what skeletons show about rib shape and health; the rib-removal myth; dress reform. |
+| F6 | Why did the state set the length of a hem? (`utility`) | Fashion and form | needs student read-through | Gemini (queued 2026-11-27); Fact check | British clothes rationing from June 1941 and the coupon system; the Utility scheme and the CC41 mark; the austerity orders that limited pleats, pockets, buttons and trouser turn-ups; London designers' utility collections; Make Do and Mend; what rationing showed about cloth as a strategic resource. |
 
 ## Not started
 

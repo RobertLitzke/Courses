@@ -373,3 +373,14 @@ describe('the fade figure', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+describe('the coupons figure', () => {
+  it('is done once the coupons run out and a purchase is refused', async () => {
+    const h = FIGURES.coupons(context(), 'year');
+    for (let i = 0; i < 2; i++) click(h.node, "Man's suit · 26");
+    click(h.node, 'Dress · 11');
+    click(h.node, 'Pair of shoes · 5');
+    click(h.node, 'Pair of stockings · 2');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
