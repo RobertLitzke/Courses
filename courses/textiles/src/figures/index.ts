@@ -36,6 +36,7 @@ import { stitchedStill } from './stitched';
 import { beardFigure } from './beard';
 import { stripsFigure } from './strips';
 import { kimonoStill } from './kimono';
+import { knotsFigure } from './knots';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -81,6 +82,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   beard: beardFigure,
   strips: stripsFigure,
   kimono: kimonoStill,
+  knots: knotsFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,

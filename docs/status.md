@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 2 | 0 | 7 | 33 |
-| [Fabric & Form](#textiles) | 0.1 beta | 41 | 0 | 3 | 41 | 41 | 1 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 42 | 0 | 4 | 42 | 42 | 1 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 2 to copy-edit, 7 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 3 to read through, 41 to copy-edit, 41 to fact-check, 1 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 4 to read through, 42 to copy-edit, 42 to fact-check, 1 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -641,6 +641,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | W1 | How is kente woven? (`kente`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | The West African narrow-strip loom and why cloth was woven in strips; Asante and Ewe kente, unravelled silk, pattern names and royal patterns; kente after independence; Yoruba adire indigo resist dyeing with starch paste and tying. |
 | W2 | Why is Japanese indigo so deep? (`aizome`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | Aizome: Japanese indigo from the knotweed plant, sukumo composting in Tokushima and the fermentation vat; deep shades from many dips; cotton and indigo in Edo Japan under sumptuary rules; the kimono cut from one bolt; boro patching and sashiko stitching. |
 | W3 | How did Navajo weavers make the churro blanket? (`navajo`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | Diné (Navajo) weaving on the upright loom; churro sheep and their wool; chief's blankets and unravelled bayeta; the Long Walk; trading posts, Germantown yarn and the turn from blankets to rugs; livestock reduction and the revival of the churro. |
+| W4 | How is a Persian carpet knotted? (`carpets`) | Cloth traditions | needs student read-through | Gemini (queued 2026-11-27); Fact check | Knotted pile: how a knot is tied around warp threads and cut; symmetric and asymmetric knots; knot density as resolution and the hours it costs; the Pazyryk carpet; Safavid court workshops and the Ardabil carpet; nomadic, village and city rugs; child labour and labelling. |
 
 ## Not started
 

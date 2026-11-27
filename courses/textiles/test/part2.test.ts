@@ -23,6 +23,7 @@ import { maxShare } from '../src/figures/reshred';
 import { area } from '../src/figures/fulling';
 import { apply, travelled } from '../src/figures/bobbins';
 import { checkered } from '../src/figures/strips';
+import { days, knots } from '../src/figures/knots';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -328,6 +329,18 @@ describe('the strips figure', () => {
     expect(checkered(0.5)).toBe(false);
     const h = FIGURES.strips(context(), 'checker');
     setSlider(h.node, 0, 1);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the knots figure', () => {
+  it('counts knots and days', () => {
+    expect(knots(10)).toBe(600000);
+    expect(days(10)).toBe(60);
+  });
+  it('is done after a coarse and a fine density', async () => {
+    const h = FIGURES.knots(context(), 'fine');
+    setSlider(h.node, 0, 64);
     await expect(h.done).resolves.toBeUndefined();
   });
 });
