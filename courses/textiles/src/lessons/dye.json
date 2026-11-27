@@ -1,0 +1,196 @@
+{
+  "id": "dye",
+  "n": 5,
+  "title": "Why does colour wash out?",
+  "teaches": "Why most dyes fade, mordants and madder, indigo's vat chemistry, and printing with mordants and resists",
+  "parts": [
+    {
+      "title": "Blue cotton from a Peruvian mound",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Huaca Prieta is a mound of shells, ash and rubbish on the coast of northern Peru, built up by fishing people over thousands of years. Among the scraps excavated there in the 1940s were small pieces of cotton cloth. When the textile researcher Jeffrey Splitstoser and his colleagues tested them with modern chemical methods, they found indigo in several,[^huaca] and in 2016 they reported the cloth as about 6,000 years old. That made it the oldest indigo-dyed cloth then known anywhere, about 1,500 years older than the earliest indigo from Egypt."
+        },
+        {
+          "type": "text",
+          "text": "Indigo is one of the very few natural dyes that stays in cotton. Most coloured things in nature, berries, flowers, bark, will stain a cloth, and almost all of them wash out or fade in sunlight within weeks. In this lesson we look at why, and at the two chemical tricks that dyers in many parts of the world worked out to keep colour in cloth: the mordant and the indigo vat. Lesson 6 is about what people would pay for a colour that lasted."
+        }
+      ]
+    },
+    {
+      "title": "Why dyes wash out",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A dye is a coloured substance that dissolves in water and soaks into a fibre. That is also why it leaves again: whatever water carries in, water can carry out, unless something holds the dye in place. A dye that washes out or fades is called **fugitive**; one that stays is **fast**. Turmeric, onion skins and most berries are fugitive on their own."
+        },
+        {
+          "type": "text",
+          "text": "Protein fibres, wool and silk, have chemical groups along their length that hold many dyes reasonably well. Cellulose, in cotton and linen, has few places for a dye to attach, so plant fibres are much harder to dye fast. That difference shaped the ancient world's colours: bright reds and purples were most often on wool and silk, and linen was usually worn white or natural."
+        }
+      ]
+    },
+    {
+      "title": "The mordant",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **mordant**, from the French for biting, is a metal salt that binds both to the fibre and to the dye, so it works as a bridge between them. The fibre is soaked or simmered in the mordant first and then put into the dye bath. The most important mordant in history is **alum**, a salt of aluminium found as a mineral in a few places, which made alum mines a source of great wealth.[^alum] Iron salts are the other common mordant, and tannins from oak galls or bark help bind dye to cotton."
+        },
+        {
+          "type": "text",
+          "text": "The classic mordant dye is **madder**, the ground root of a Eurasian plant whose main colouring is a compound called alizarin. Madder alone gives a dull orange that washes out. On an alum mordant it gives a fast red; on iron, a fast purple-brown or near-black. The figure washes the same madder-dyed wool again and again."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "wash",
+          "caption": "Wool dyed in the same madder bath after three different mordants, washed up to ten times.",
+          "task": "Wash an unmordanted sample and a mordanted one five times or more",
+          "goal": "fast"
+        },
+        {
+          "type": "text",
+          "text": "The mordant also decides the colour, which made it a design tool. Paint alum on one part of a cloth and iron on another, put the whole cloth in one madder bath, and it comes out red where the alum was, dark where the iron was, and the colour washes out of the rest. That is **mordant printing**, and it is the method behind India's painted and printed cottons, the chintz and calico of lesson 12."
+        }
+      ]
+    },
+    {
+      "title": "The indigo vat",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Indigo works the other way round. It does not dissolve in water at all, so it cannot simply soak in. The blue compound, indigotin, comes from the leaves of several plants: *Indigofera* in India, Africa and the Americas, woad in Europe, and Japanese indigo in East Asia. The leaves are steeped and fermented, and the blue settles out as a paste or is dried into cakes."
+        },
+        {
+          "type": "text",
+          "text": "To dye with it, the dyer makes a **vat**: indigo in water that is strongly alkaline (with lime, wood ash or stale urine)[^urine] and stripped of oxygen, either by fermenting bran or plant matter in it or, today, by adding a chemical. In those conditions indigotin gains two hydrogen atoms and turns into a soluble form, pale yellow-green, sometimes called indigo white. Cloth dipped in the vat soaks it up. When the cloth is lifted out, oxygen in the air takes the hydrogen back, the dye turns into blue indigotin again, and because it cannot dissolve, it stays trapped among the fibres."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "vat",
+          "caption": "Cotton dipped in an indigo vat and lifted into the air. Watch the colour as it hangs.",
+          "task": "Dip the cloth four times in a reduced vat",
+          "goal": "deep"
+        },
+        {
+          "type": "text",
+          "text": "Each dip and airing adds a little more indigo, so deep blues take many dips. Indigo needs no mordant, works on cotton, linen, wool and silk alike, and holds well through washing, which is why it was the most widely used dye in the world for thousands of years. It does wear off: the indigo sits mostly in the outer layer of each yarn, so where cloth rubs, the undyed core shows through. That is why jeans fade white at the knees and the seams, which lesson 23 and branch lesson F2 return to."
+        },
+        {
+          "type": "text",
+          "text": "Indigo also allows **resist dyeing**. Anything that stops the vat reaching part of the cloth leaves that part pale: wax in Javanese batik, rice paste in Japanese katazome, cassava paste in Yoruba adire, thread tied tightly round bunched cloth in tie-dye. Combined with mordant printing in madder, resist dyeing let Indian dyers put several fast colours on one cotton cloth, which European dyers could not do until the 18th century."
+        }
+      ]
+    },
+    {
+      "title": "Colour as wealth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Dyes and mordants were valuable trade goods for most of history. Alum was traded across the Mediterranean in bulk, indigo cakes travelled from India to Europe and East Africa, and the red dye cochineal, made from insects in Mexico, became one of Spanish America's most valuable exports after silver. A dye that was fast, bright and hard to make carried social meaning, because only the rich could afford it, and lesson 6 begins with the most expensive one of all. Lesson 20 follows the chemists who, from 1856, made every one of these colours from coal tar and ended most of the trade."
+        },
+        {
+          "type": "text",
+          "text": "**Try it.** Simmer the papery skins of a few brown onions in water for half an hour and strain the liquid. Take two pieces of white wool or cotton; dissolve a teaspoon of alum (sold for pickling) in hot water and soak one piece in it for an hour first. Dye both in the onion water, rinse, and wash them a few times. The alum piece stays a strong yellow-orange; the other fades."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on dyes and mordants.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A dyer gets a pretty yellow from flower petals, but it is gone after three washes. What would most likely make it last?",
+                "choices": [
+                  "Mordanting the cloth with alum before dyeing",
+                  "Dyeing it for twice as long",
+                  "Using hotter water to wash it",
+                  "Spinning the yarn with more twist"
+                ],
+                "answer": 0,
+                "why": "The dye has nothing to hold it. A mordant such as alum binds to fibre and dye both, so the colour stays."
+              },
+              {
+                "ask": "One cloth is painted with alum in some places and iron in others, then dipped in one madder bath. What comes out?",
+                "choices": [
+                  "Red where the alum was, dark purple-brown where the iron was, and pale elsewhere after washing",
+                  "An even red all over",
+                  "An even purple, as the two mordants mix",
+                  "Nothing, because madder needs no mordant"
+                ],
+                "answer": 0,
+                "why": "The mordant fixes the dye and sets its colour, so the pattern of mordants becomes the pattern of colours. This is mordant printing."
+              },
+              {
+                "ask": "Cloth lifted out of an indigo vat is yellow-green, and turns blue in a minute or two. What is happening?",
+                "choices": [
+                  "Oxygen in the air turns the soluble form of the dye back into insoluble blue indigo inside the fibre",
+                  "The yellow dye evaporates and leaves the blue behind",
+                  "The cloth is drying, and wet indigo looks green",
+                  "Light bleaches the yellow part of the dye"
+                ],
+                "answer": 0,
+                "why": "In the vat, indigo is reduced to a soluble yellow-green form; in air it is oxidised back to blue, which cannot dissolve and so stays put."
+              },
+              {
+                "ask": "Why did ancient dyers find it much harder to get a fast red on linen than on wool?",
+                "choices": [
+                  "Cellulose has few places for dye to attach, while protein fibres hold dyes more readily",
+                  "Linen is always too dark to show red",
+                  "Red dyes dissolve linen",
+                  "Linen was never dyed at all"
+                ],
+                "answer": 0,
+                "why": "Protein fibres such as wool bond with many dyes; cellulose needs careful mordanting, which is why dyeing cotton well was a specialist skill."
+              },
+              {
+                "ask": "Why do jeans fade white where they rub, though indigo survives washing well?",
+                "choices": [
+                  "Indigo sits mostly in the outer layer of each yarn, so wear exposes the undyed core",
+                  "Indigo dissolves in sweat",
+                  "The white weft is pulled to the surface by friction",
+                  "Rubbing turns the indigo back into its yellow-green form"
+                ],
+                "answer": 0,
+                "why": "The dye locks in as solid particles near the surface of the yarn. Abrasion removes them along with fibre, revealing white beneath."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Dyes leave the way they came.** A dye that dissolves in water can wash out unless something holds it.",
+    "**Fugitive and fast.** Most plant colours fade; a fast dye survives washing and light.",
+    "**Protein dyes more easily.** Wool and silk hold dyes better than cotton and linen.",
+    "**Mordants bridge fibre and dye.** Alum and iron bind to both, fix the colour, and change its shade.",
+    "**Mordant printing.** Painting different mordants on one cloth gives several colours from one dye bath.",
+    "**Indigo needs a vat.** Reduced in an alkaline, oxygen-free vat it is yellow-green and soluble; in air it turns blue and stays trapped.",
+    "**Resists make patterns.** Wax, paste or tied thread keep the dye out of chosen areas.",
+    "**Colour was wealth.** Alum, indigo and cochineal were major trade goods until coal-tar dyes replaced them."
+  ],
+  "footnotes": {
+    "alum": {
+      "kind": "digression",
+      "title": "The pope's alum",
+      "text": "For centuries Europe bought most of its alum from mines in Anatolia. When large deposits were found at Tolfa, near Rome, in the 1460s, the papacy took the trade as a monopoly and used its income for, among other things, war against the Ottomans, whose alum it then tried to stop Christians buying."
+    },
+    "urine": {
+      "kind": "technical",
+      "title": "Stale urine",
+      "text": "Urine left to stand turns to ammonia, which is strongly alkaline, and its bacteria help remove oxygen, so for centuries it was a standard ingredient of the indigo vat in Europe and elsewhere. Dyers' neighbours complained."
+    },
+    "huaca": {
+      "kind": "technical",
+      "title": "How old indigo is found",
+      "text": "The dye in the Huaca Prieta cloth was invisible to the eye, faded to brown. It was found by dissolving tiny samples and identifying indigotin with liquid chromatography, which can detect a dye in quantities far too small to see."
+    }
+  }
+}

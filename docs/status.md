@@ -21,6 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 0 | 0 | 42 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 6 | 21 | 0 | 0 | 6 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -41,6 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 42 awaiting photos |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 21 lessons to write, 6 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -591,6 +593,40 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Wittgenstein, language games and the beetle in the box. |
 | K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | The analytic and continental split, and Heidegger in plain words. |
 | K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | awaiting photos/images (no photos chosen yet) |  | Parfit's non-identity problem and duties to future generations. |
+
+## Fabric & Form <a id="textiles"></a>
+
+`courses/textiles`, version 0.1 (beta, 2026-11-27)
+
+| Code | Lesson | Branch | Status | Also waiting on | What it covers |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Why did Neanderthals make string? (`string`) |  | awaiting fact check |  | The four layers of any cloth (fibre, yarn, structure, finish), why twist holds fibres together, S and Z twist, and plying. |
+| 2 | Why does wool itch and silk shine? (`fibres`) |  | awaiting fact check |  | Flax, wool, cotton and silk; plant against animal fibre; staple length, crimp and scales; preparing fibre; how each was domesticated. |
+| 3 | How long did it take to spin a sail? (`spinning`) |  | awaiting fact check |  | Drafting, the spindle and the wheel, yarn count, and why spinning was the slowest step and mostly women's work. |
+| 4 | Why do jeans hold their shape while T-shirts stretch? (`structure`) |  | awaiting fact check |  | Woven and knitted cloth: warp and weft, plain, twill and satin weaves, the four-shaft loom, and why loops stretch. |
+| 5 | Why does colour wash out? (`dye`) |  | awaiting fact check |  | Why most dyes fade, mordants and madder, indigo's vat chemistry, and printing with mordants and resists. |
+| 6 | Why was purple reserved for emperors? (`purple`) |  | awaiting fact check |  | Tyrian purple and its cost, and sumptuary laws from Rome and Byzantium to Ming China, Edo Japan, the Ottomans and Tudor England. |
+| 7 | How long did China keep silk to itself? (`silk`) |  | planned, listed as coming |  | Sericulture, silk as Han currency and tribute, the myths of the secret and the single road, and the land and sea routes. |
+| 8 | How did Han weavers store a pattern? (`pattern`) |  | planned, listed as coming |  | Pattern shafts as stored instructions, the Laoguanshan looms, figured silk, and the drawloom. |
+| 9 | Why are so many cloth words Arabic and Persian? (`words`) |  | planned, listed as coming |  | Cotton across the Islamic world, tiraz workshops, the cloth cities behind English words, and Turkey red. |
+| 10 | How did sheep pay for a war? (`wool`) |  | planned, listed as coming |  | The medieval wool trade from England to Flanders and Florence, Edward III's wool scheme, the Staple, guilds and fulling mills. |
+| 11 | How did the Inca run an empire on cloth? (`inca`) |  | planned, listed as coming |  | Cloth as state wealth, cumbi and awasqa, tribute and storehouses, the khipu, and the obrajes and cochineal after the conquest. |
+| 12 | Why did England ban Indian cotton? (`calico`) |  | planned, listed as coming |  | India's lead in fine spinning and fast colour, cloth for spices, the monsoon trade, the calico craze and the Calico Acts. |
+| 13 | Why did African buyers decide what Manchester made? (`africa`) |  | planned, listed as coming |  | West African cloth industries, cloth currencies, exacting buyers, and cloth in the Atlantic slave trade. |
+| 14 | Why did a faster shuttle cause a yarn famine? (`bottleneck`) |  | planned, listed as coming |  | The flying shuttle, the spinning bottleneck, the machines that failed, and the jenny, water frame and mule. |
+| 15 | What was a factory day like? (`mill`) |  | planned, listed as coming |  | Water-powered mills, shifts and locked gates, women and children at work, the power loom, and the Luddites. |
+| 16 | Why did the machines come to Lancashire and not Bengal? (`why-britain`) |  | planned, listed as coming |  | Historians disagree: wages and coal, colonies, Indian competition, and a culture of useful knowledge. |
+| 17 | How did a machine to clean cotton expand slavery? (`gin`) |  | planned, listed as coming |  | Upland cotton and the saw gin, Indian Removal, the domestic slave trade, and the debate over slavery and industrial capitalism. |
+| 18 | How did a loom learn to read? (`jacquard`) |  | planned, listed as coming |  | Jacquard's punched cards, the Lyon silk weavers, and what Babbage, Lovelace and Hollerith took from them. |
+| 19 | Why didn't cotton save the Confederacy? (`king-cotton`) |  | planned, listed as coming |  | King Cotton diplomacy, the glut, the embargo and blockade, the Lancashire cotton famine, and cotton from India and Egypt. |
+| 20 | How did a failed malaria cure end natural dyes? (`mauve`) |  | planned, listed as coming |  | Perkin's mauve, coal-tar dyes, synthetic alizarin and indigo, and the end of madder fields and indigo plantations. |
+| 21 | Why did Gandhi spin every day? (`khadi`) |  | planned, listed as coming |  | India's mills and handlooms, the deindustrialisation debate, swadeshi, and homespun cloth as politics. |
+| 22 | How did a loom company become Toyota? (`toyoda`) |  | planned, listed as coming |  | Japan's silk exports, the Tomioka mill and its women workers, Osaka's cotton mills, and Toyoda's automatic loom. |
+| 23 | Why did 40,000 people queue for stockings? (`synthetics`) |  | planned, listed as coming |  | Rayon from wood pulp, polymers, nylon and polyester, and why synthetic does not simply mean worse. |
+| 24 | When did clothes start coming in sizes? (`sizes`) |  | planned, listed as coming |  | The sewing machine, ready-to-wear, men's and women's sizes, garment districts and the Triangle fire. |
+| 25 | Why is a T-shirt cheaper than a sandwich? (`fast`) |  | planned, listed as coming |  | Trade quotas and their end, Bangladesh's garment industry, short-cycle fashion, Rana Plaza, and who gets the price of a shirt. |
+| 26 | Who decides where cotton is grown, and where clothes go to die? (`resources`) |  | planned, listed as coming |  | The Aral Sea, Xinjiang, Bt cotton, subsidies and the Cotton-4, second-hand exports, microfibres, and which numbers to trust. |
+| 27 | What does the label in your shirt not say? (`label`) |  | planned, listed as coming |  | The whole course applied to a garment you own, a 1930s rayon dress and a wax-print shirt. |
 
 ## Not started
 

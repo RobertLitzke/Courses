@@ -5,7 +5,8 @@
     "more-course-icons": { "file": "sources/more-course-icons.jpg", "note": "Gemini, 2026-11-03: Circuitry, People of the Salish Sea, Music Theory, Fungi, PNW Forests, Overall course (unused)" },
     "course-icons-2": { "file": "sources/course-icons-2.jpg", "note": "Gemini, 2026-11-03, revisions: Geology, Circuitry, Astronomy, Ecology, Music Theory are used; the others on it are not" },
     "more-course-icons-2": { "file": "sources/more-course-icons-2.jpg", "note": "Rob, 2026-11-07: Bats, Rivers & Sea, Water Life, The Home, Bicycles, Radio, Cities, Coming Soon (bats.png and rivers.png were the stand-ins before it)" },
-    "philosophy-icon": { "file": "sources/philosophy.jpg", "note": "Rob, 2026-11-27: Philosophy (replaces the drawn stand-in)" }
+    "philosophy-icon": { "file": "sources/philosophy.jpg", "note": "Rob, 2026-11-27: Philosophy (replaces the drawn stand-in)" },
+    "textiles-icon": { "file": "sources/textiles.jpg", "note": "Rob, 2026-11-27: Fabric & Form (textiles)" }
   },
   "icons": {
     "clouds": { "sheet": "course-icons", "box": [113, 350, 466, 466], "to": "courses/clouds" },
@@ -21,6 +22,7 @@
     "finance": { "file": "sources/finance.png", "to": "courses/finance" },
     "systems": { "file": "sources/systems.png", "to": "courses/systems" },
     "philosophy": { "sheet": "philosophy-icon", "box": [44, 107, 704, 704], "to": "courses/philosophy" },
+    "textiles": { "sheet": "textiles-icon", "box": [95, 161, 577, 607], "to": "courses/textiles" },
     "bats": { "sheet": "more-course-icons-2", "box": [111, 317, 483, 483], "to": "courses/bats" },
     "rivers": { "sheet": "more-course-icons-2", "box": [676, 317, 483, 483], "to": "courses/rivers" },
     "salish-sea": { "sheet": "more-course-icons", "box": [990, 289, 548, 548] },

@@ -1,0 +1,149 @@
+{
+  "id": "spinning",
+  "n": 3,
+  "title": "How long did it take to spin a sail?",
+  "teaches": "Drafting, the spindle and the wheel, yarn count, and why spinning was the slowest step and mostly women's work",
+  "parts": [
+    {
+      "title": "A sail of 120 square metres",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Viking Ship Museum in Roskilde, Denmark, builds full-size copies of the ships found sunk in the fjord nearby, and sails them. Its reconstructions raised a question nobody had needed to ask: how much work went into a sail. A large Viking ship carried a square sail of woven wool of around 100 square metres or more. The textile archaeologist Eva Andersson Strand worked through every step, from sorting the fleece to weaving, using what experimental spinners and weavers could actually do with Viking Age tools. Her estimate for a sail of about 120 square metres was four women working ten-hour days for about a year: something like 12,000 to 15,000 hours of work."
+        },
+        {
+          "type": "text",
+          "text": "Most of those hours went into spinning. In this lesson we look at how hand spinning works, do the arithmetic that explains why it took so long, and see who did it. The numbers matter for the rest of the course. Until the 18th century, cloth was the most labour-intensive thing most households made, and the slowest step in making it was turning fibre into yarn."
+        }
+      ]
+    },
+    {
+      "title": "Drafting and twisting",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 1 showed what twist does. Spinning has a second operation, just as important: **drafting**, drawing the prepared fibres out thin before the twist reaches them. A carded roll of cotton or wool is a loose mass of fibres. The spinner pulls a few of them out of it with one hand, letting them slide past each other until the strand is the thickness she wants, while the twist runs up into it from below and locks the fibres where they are. Draft too little and the yarn is thick and lumpy; draft too much and it thins to nothing and breaks. Every spinning machine of the 18th century, in lesson 14, is a way of drafting and twisting without hands."
+        },
+        {
+          "type": "text",
+          "text": "The **spindle** supplies the twist. It is a stick, usually 20 to 30 cm long, with a weight called a **whorl** near one end. The spinner sets it spinning with a flick of the fingers or a roll along the thigh and lets it hang from the yarn (a drop spindle) or rest its tip in a bowl or on the ground (a supported spindle). The whorl works as a flywheel, keeping the spindle turning for several seconds. When a length of yarn has been drafted and twisted, the spinner winds it onto the spindle's shaft and starts again. A heavy whorl spins thick yarn; a light one spins fine yarn, and archaeologists use the weights of whorls found on a site to work out what kind of cloth was made there. Spinners in India made the finest cotton yarns in the world on small supported spindles turned in a dish."
+        },
+        {
+          "type": "text",
+          "text": "A spindle is cheap, portable and silent, and it can be worked while walking, watching animals or minding children. Its disadvantage is speed. Each stretch of yarn has to be twisted, stopped and wound on by hand, and an experienced spinner makes somewhere around 30 to 100 metres of yarn an hour, depending on how fine it is."
+        }
+      ]
+    },
+    {
+      "title": "The arithmetic of cloth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A woven cloth is two sets of yarn crossing each other. A square metre with 20 threads per centimetre each way contains 2,000 lengthwise threads a metre long and 2,000 crosswise threads a metre long: 4,000 metres of yarn. At 60 metres an hour, that is about 67 hours of spinning for one square metre, before anyone has woven anything. Weaving is faster per metre of yarn, because one pass of the shuttle lays down a whole width of thread. The figure makes the same estimate for three pieces of cloth."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "spin-hours",
+          "caption": "An estimate from the arithmetic above, with round numbers: a hand weaver makes about 150 passes of the weft an hour, and preparing the fibre, which can take as long again, is left out.",
+          "task": "Estimate the spinning in a Viking sail",
+          "goal": "sail"
+        },
+        {
+          "type": "text",
+          "text": "Three things follow from this arithmetic. First, cloth was expensive: in most of the world before 1800, a set of clothes represented weeks or months of someone's labour, and clothes were mended, remade, handed down, pawned and stolen. Second, finer cloth cost far more, because doubling the threads per centimetre doubles the yarn, and fine yarn is also spun more slowly. Third, one weaver needed several spinners to keep a loom busy. The exact number depended on the cloth and the tools, but every estimate puts it well above one, and that imbalance is where lesson 14 begins."
+        }
+      ]
+    },
+    {
+      "title": "The wheel",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The **spinning wheel** turns the spindle with a belt from a large hand-turned wheel, so the spindle runs continuously and fast. Where it was invented is disputed: China, India and the Islamic world all have claims. The first clear picture of one is in a manuscript painted in Baghdad in 1237, and wheels appear in Europe by about 1280. The early European wheel, later called the great wheel, still made yarn in two separate steps: the spinner drafted and twisted a length while turning the wheel, then changed the angle of the yarn and wound it on. In the late 15th century a device called the **flyer** let the wheel twist and wind at the same time, and in the 16th century a foot treadle freed both of the spinner's hands for drafting."
+        },
+        {
+          "type": "text",
+          "text": "The wheel was faster than the spindle, perhaps two or three times faster for ordinary yarn, but it did not replace it quickly. Wheels cost money and stood in one place. Early wheel-spun yarn was also thought weaker, and some European guilds at first allowed it only for weft, the crosswise thread that is under less strain. Spindles stayed in use across Europe for centuries after the wheel arrived, and in parts of the Andes and South Asia they are still in use."
+        }
+      ]
+    },
+    {
+      "title": "Who spun",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In almost every society that has left records, spinning was women's work, and so was much of the weaving. Elizabeth Wayland Barber has pointed out why: spinning can be picked up and put down at any moment, is not dangerous, and can be done while looking after small children, which other essential work such as hunting or ploughing could not. English keeps the traces. An unmarried woman was a **spinster**, because spinning was what unmarried women in a household did, and the mother's side of a family was the **distaff side**, after the stick that held the unspun fibre."
+        },
+        {
+          "type": "text",
+          "text": "Because spinning filled every free hour, it was almost invisible in accounts of the economy. It was done at home, between other tasks, often for no wage at all, and the yarn went into the family's own cloth or was sold in small amounts to a clothier. That invisibility matters later. When machines took over spinning in the 18th century, the work that disappeared first was the income of millions of women in their homes."
+        },
+        {
+          "type": "text",
+          "text": "Yarn has a measure of fineness, called its **count**. In the English system for cotton, the count is the number of hanks of 840 yards that weigh one pound, so higher counts are finer. Ordinary cloth uses counts of 10 to 40. Bengal's hand spinners made yarn far finer than that for the muslins of Dhaka, finer than any European spinner or machine could manage until the 1780s, which is part of the story of lesson 12.[^count]"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on spinning.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A spinner's yarn keeps coming out thick and lumpy in places. Which part of spinning is going wrong?",
+                "choices": ["Drafting: too few fibres are being drawn out before the twist locks them", "Plying: the yarn has not been doubled", "The whorl is too light to turn", "The fibre was not retted"],
+                "answer": 0,
+                "why": "Drafting sets the thickness. Where the spinner lets too many fibres through before the twist runs in, the yarn is thick, and the twist then fixes it that way."
+              },
+              {
+                "ask": "An archaeologist finds many very light spindle whorls at a site. What does that suggest?",
+                "choices": ["Fine yarn was being spun there", "Thick rope was being made there", "The site had spinning wheels", "The spinners were children"],
+                "answer": 0,
+                "why": "A light whorl turns fast with little momentum and suits fine yarn; a heavy whorl keeps a thick yarn turning. Whorl weights are evidence of what was spun."
+              },
+              {
+                "ask": "A cloth has twice as many threads per centimetre in each direction as another. Roughly how does the spinning compare?",
+                "choices": ["About twice the yarn, and more than twice the hours, since finer yarn spins slower", "The same, since the cloth is the same size", "Four times less, since finer yarn is lighter", "Half, because each thread is thinner"],
+                "answer": 0,
+                "why": "Yarn length rises in proportion to thread density, and finer yarn is also spun more slowly, so fine cloth cost far more spinning."
+              },
+              {
+                "ask": "Why did one weaver need several spinners?",
+                "choices": ["A pass of the shuttle lays down a whole width of yarn, while spinning makes it a few metres at a time", "Weavers worked longer days than spinners", "Spinners had to make yarn for the loom's frame as well", "Each weaver used several looms at once"],
+                "answer": 0,
+                "why": "Weaving uses yarn much faster than hand spinning produces it, so before machines, several spinners fed every loom."
+              },
+              {
+                "ask": "Why did spinning wheels not replace spindles quickly in Europe?",
+                "choices": ["Wheels cost money and stood still, spindles could be used anywhere, and early wheel yarn was thought weaker", "Wheels were banned by the Church", "Wheels could spin only cotton, which Europe did not grow", "Spindles were faster for every kind of yarn"],
+                "answer": 0,
+                "why": "The wheel was faster, but the spindle was cheap and portable, and some guilds at first allowed wheel-spun yarn only for weft."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Spinning is drafting plus twist.** The spinner draws fibres out thin, and twist locks them at that thickness.",
+    "**The spindle.** A stick with a whorl as its flywheel; cheap, portable, and slow, at roughly 30 to 100 m of yarn an hour.",
+    "**Cloth is mostly yarn.** A square metre of ordinary cloth holds thousands of metres of thread, so spinning took most of the hours.",
+    "**One weaver, several spinners.** Weaving uses yarn far faster than a hand spinner makes it, an imbalance the machines of lesson 14 attacked.",
+    "**The wheel.** Pictured in Baghdad in 1237 and in Europe by about 1280; faster, but it took centuries to displace the spindle.",
+    "**Women's work.** Spinning fitted around childcare and other tasks, so it was women's work almost everywhere, unpaid and unrecorded.",
+    "**Count measures fineness.** Higher counts are finer yarns; India's hand spinners made the finest cotton yarn in the world."
+  ],
+  "footnotes": {
+    "count": {
+      "kind": "technical",
+      "title": "Why the count goes up as yarn gets finer",
+      "text": "The count fixes the weight and measures the length: a pound of count 20 cotton is 20 hanks, or 16,800 yards; a pound of count 100 is five times as long and so five times as thin by weight. Wool, linen and silk each have their own older systems, and modern yarn is often measured in tex, the weight in grams of 1,000 metres, where a higher number means a thicker yarn."
+    }
+  }
+}

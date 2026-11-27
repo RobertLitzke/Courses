@@ -1,0 +1,38 @@
+/* Design tokens, from the course icon: a deep blue-green ground, lessons on
+   pale paper, and the icon's rose and coral bands, its cream needle and its
+   orange spool as accents. */
+
+:root {
+  --bg: #1f3442; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #2b4556;
+  --panel: #f3ece0;
+  --panel-2: #ddd3c3;
+  --ink: #26211d;
+  --ink-soft: #625a52;
+  --text: #f4ead8;
+  --muted: #b5c0c6;
+  --sun: #e07a6a;
+  --sun-deep: #c25b4c;
+  --rose: #c0697b;
+  --teal: #4d8fa3;
+  --violet: #8a74b8; /* branch colours */
+  --leaf: #8a9a5b;
+  --ice: #9bb7c9;
+  --ember: #d98a3c;
+  --title: #f2c9a8;
+  --hero-text: #f8ecd8; /* the title over the home page's banner (banner.ts), and its hard shadow */
+  --hero-shadow: #0f1c24;
+  --paper: #fbf8f2;
+  --good: #3f8f5a;
+  --bad: #b4372f;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }
+
+/* The subtitle is long for the top bar: let it wrap on a phone, so the menu keeps its room. */
+@media (max-width: 640px) {
+  .wordmark span { white-space: normal; max-width: 15em; }
+}
