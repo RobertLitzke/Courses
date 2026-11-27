@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 42 | 0 | 0 | 42 | 42 | 42 | 0 |
+| [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 42 | 42 | 42 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 42 to copy-edit, 42 to fact-check, 42 awaiting photos |
+| Philosophy | 0.2 beta | 2026-11-27 | no: 42 to copy-edit, 42 to fact-check, 42 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -545,7 +545,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Philosophy <a id="philosophy"></a>
 
-`courses/philosophy`, version 0.1 (beta, 2026-11-27). Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) after a philosopher, teacher, explainer and student review and three outside reviews: project files philosophy/outline.md. Lessons 1 to 4 written 27 Nov 2026 with a student read-through; the rest are coming(...) in lessons.ts. Photos are parked in tools/pending-photos.json with unverified search hints. PhilPapers 2020 survey shares were written from memory and wait for the fact check. Its catalog description waits for Gemini (queued 2026-11-27).
+`courses/philosophy`, version 0.2 (beta, 2026-11-27). Philosophy: What was Plato's Gig? Outline v3 (27 Nov 2026) after a philosopher, teacher, explainer and student review and three outside reviews: project files philosophy/outline.md. Lessons 1 to 4 written 27 Nov 2026 with a student read-through; the rest are coming(...) in lessons.ts. Photos are parked in tools/pending-photos.json with unverified search hints. PhilPapers 2020 survey shares were written from memory and wait for the fact check. Its catalog description waits for Gemini (queued 2026-11-27).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |

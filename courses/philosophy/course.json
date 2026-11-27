@@ -17,10 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.1",
+    "version": "0.2",
     "stage": "beta",
     "date": "2026-11-27",
-    "note": "First numbered version: the plan of the course, and its first lessons.",
-    "history": []
+    "note": "All 25 lessons and 17 branch lessons are now written, with live figures for the prisoner's dilemma, the veil of ignorance and the heap, and a last lesson that reads back your verdicts. Quotes, dates and photos are still being checked.",
+    "history": [
+      {
+        "version": "0.1",
+        "stage": "beta",
+        "date": "2026-11-27",
+        "note": "First numbered version: the plan of the course, and its first lessons."
+      }
+    ]
   }
 }
