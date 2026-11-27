@@ -23,11 +23,6 @@ import { skyView } from './app/views/sky';
 import type { CourseRelease } from 'didactics/release';
 import course from '../course.json';
 
-/** A little peach cloud with an up arrow, for the update banner: drawn inline so it shows offline. */
-const CLOUD =
-  '<svg viewBox="0 0 44 44"><path d="M13 31a7 7 0 0 1-.6-14 9.5 9.5 0 0 1 18.3 1.6A6.3 6.3 0 0 1 31 31Z" fill="#f6b98e" stroke="#2a2547" stroke-width="2" stroke-linejoin="round"/>' +
-  '<path d="M22 28v-9m-4 4 4-4 4 4" fill="none" stroke="#2a2547" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
 // The app is Didactics' (didactics/app): the top bar and its menu, the lesson
 // player, the quiz, Credits, Settings, the update banner. What is Clouds' own
 // is passed in: the home page, the sky lab, the seeding game and the field guide.
@@ -38,7 +33,7 @@ defineCourse({
   subtitle: 'What are they up to?',
   site: SITE_URL,
   splash: { src: asset('poster.webp'), alt: 'Clouds: What are they up to?' },
-  update: { title: 'New forecast in', text: 'A fresh version of Clouds is ready.', icon: CLOUD },
+  update: { title: 'New forecast in', text: 'A fresh version of Clouds is ready.' },
 
   lessons: LESSONS,
   figures: FIGURES,

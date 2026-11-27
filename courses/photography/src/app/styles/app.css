@@ -9,7 +9,6 @@
 
 .btn:hover:not(.right):not(.wrong):not(:disabled) { background: #f0b85f; }
 .fig-task { background: #efe7d8; }
-.update-icon { background: linear-gradient(160deg, var(--good), #2f5a2a); }
 
 /* ---- Home: the ridges through the aperture (scene/banner.ts) with the title over its
    upper half, in the heading face with a hard shadow like the buttons. */
