@@ -63,6 +63,9 @@ export const COL = {
   unitB: '#a86b9c',
   /** Regenerated cellulose (rayon, viscose) in charts. */
   wood: '#8a6d4f',
+  china: '#7d5ba6',
+  brazil: '#3a8fb7',
+  uzbekistan: '#a0785a',
 } as const;
 export type ColorKey = keyof typeof COL;
 
