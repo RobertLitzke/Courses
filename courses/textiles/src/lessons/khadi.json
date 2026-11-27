@@ -1,0 +1,159 @@
+{
+  "id": "khadi",
+  "n": 21,
+  "title": "Why did Gandhi spin every day?",
+  "teaches": "Bombay's Indian-owned mills and the survival of handloom weaving; historians disagree on how far India was deindustrialised; tariffs and the cotton excise; swadeshi (1905); the foreign-cloth bonfires of 1921; khadi as politics in a country with its own mill industry",
+  "parts": [
+    {
+      "title": "Gandhi in Darwen",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On 26 September 1931 Mohandas Gandhi visited Darwen, a cotton town in Lancashire, during a trip to London for talks on India's future. Gandhi had led a boycott of British cloth in India for years, and Lancashire's mills had lost much of their largest export market. Many people in the cotton towns blamed him for their unemployment. Yet the mill workers who met him in Darwen cheered him, and photographs show him surrounded by women weavers. He is reported to have told them that while Britain had three million unemployed, India had hundreds of millions who were without work for half of every year."
+        },
+        {
+          "type": "text",
+          "text": "Gandhi spun cotton yarn on a small wheel, the *charkha*, for about an hour every day, wore only cloth hand-spun and hand-woven in India, called **khadi**, and asked every supporter of Indian independence to do the same. At first sight this looks like a rejection of the machines of lessons 14 and 15. But by the 1920s India had a large modern mill industry of its own, owned mostly by Indians. In this lesson we look at what had happened to Indian cloth under British rule, and why a lawyer chose spinning as a political act."
+        }
+      ]
+    },
+    {
+      "title": "What happened to Indian cloth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 16 ended with the trade reversed: by the 1820s British machine-made yarn and cloth were cheaper than Indian hand-made, and they entered India paying low duties under the East India Company, and after 1858 under the British crown. Indian exports of cloth collapsed. Hand spinning, which had employed millions of women part time, suffered most, because machine yarn was so much cheaper. Handloom weavers did better than spinners, because many of them switched to weaving cheap imported or, later, Indian machine-made yarn, and some kinds of cloth, such as fine saris and heavy coarse cloth, were hard for mills to match."
+        },
+        {
+          "type": "text",
+          "text": "India's own mill industry began in 1854, when Cowasjee Nanabhoy Davar, a Parsi merchant, opened the Bombay Spinning and Weaving Company with machinery from Lancashire. Bombay and then Ahmedabad became mill cities, built mostly with capital from Parsi, Gujarati and other Indian merchant families, many of whom had grown rich in the raw cotton boom of the American Civil War (lesson 19). By 1914 India had more than 250 cotton mills, which spun mostly coarse yarn and wove plain cloth, much of it sold in India and some exported to China and East Africa."
+        },
+        {
+          "type": "text",
+          "text": "British policy favoured Lancashire. In 1882 the government of India removed its import duties on cotton goods. When it needed revenue and reintroduced them in 1894, Lancashire's manufacturers protested, and from 1896 Indian mill cloth paid an **excise**, a tax on goods made at home, of 3.5 percent, set to match the import duty on British cloth. Indian nationalists treated the cotton excise as proof that India's economy was run for Britain's benefit. It was suspended in 1925 and abolished the following year."
+        }
+      ]
+    },
+    {
+      "title": "Historians disagree: was India deindustrialised?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first Indian economic historians, Dadabhai Naoroji in *Poverty and Un-British Rule in India* (1901) and Romesh Chunder Dutt in his *Economic History of India* (1902 and 1904), argued that British rule had drained India's wealth and destroyed its manufacturing to make room for British goods. In 1976 the economist Amiya Kumar Bagchi used census and survey figures for Gangetic Bihar to estimate that the share of its population working in industry, mostly spinning and weaving, fell from about 18.6 percent around 1810 to 8.5 percent in 1901."
+        },
+        {
+          "type": "text",
+          "text": "Later work has questioned the causes and the scale. The economists David Clingingsmith and Jeffrey Williamson (2008) agreed that India deindustrialised, but argued that much of the decline came from the weakening of the Mughal state in the 18th century and from the world prices of the 19th, which made farming pay better than weaving relative to before, not only from British policy. The historian Tirthankar Roy has stressed how much survived: handloom weavers adapted to machine yarn, specialised in cloth the mills could not make, and still produced a large share of India's cloth in the 1930s. Most historians accept that hand spinning was nearly wiped out, and that British rule kept tariffs low when protection might have helped Indian industry. They disagree over how much of India's broader decline that explains."
+        }
+      ]
+    },
+    {
+      "title": "Swadeshi and the bonfires",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1905 the British viceroy, Lord Curzon, divided the province of Bengal in two, a move that nationalists saw as an attempt to split Bengal's Hindus and Muslims. In protest, the **swadeshi** movement (the word means \"of one's own country\") called on Indians to boycott British goods, above all cloth, and to buy Indian-made goods instead. Students picketed shops and burned imported cloth. Indian mills, especially in Bombay and Ahmedabad, sold more as a result, and the boycott showed nationalists that cloth was a weapon within their reach."
+        },
+        {
+          "type": "text",
+          "text": "Gandhi took the idea further. In *Hind Swaraj* (1909) he had criticised modern machinery and the way of life built around it. After he returned to India in 1915, he looked for a working spinning wheel, which had become hard to find, and from about 1918 he made hand spinning the centre of his programme. During the non-cooperation campaign against British rule in 1920 to 1922, Congress supporters collected foreign cloth from homes and burned it in public. On 31 July 1921, at a mill compound in Bombay, Gandhi lit a bonfire of a huge pile of foreign clothes in front of a large crowd. In 1924 the Indian National Congress, the main nationalist party, briefly required its members to spin a quota of yarn every month in place of a membership fee."
+        },
+        {
+          "type": "diagram",
+          "id": "series",
+          "caption": "Cotton cloth imported into India and woven in Indian mills, 1900 to 1940, with a rough estimate for handlooms. Rounded figures. Most imports were British until Japan's share grew in the 1930s.",
+          "options": {
+            "from": 1900,
+            "to": 1940,
+            "ticks": [1900, 1910, 1920, 1930, 1940],
+            "panels": [
+              {
+                "title": "Cotton cloth in India",
+                "unit": "million yards a year",
+                "max": 4000,
+                "lines": [
+                  { "name": "Imported", "color": "britain", "points": [[1900, 2000], [1905, 2400], [1910, 2600], [1913, 3200], [1916, 1900], [1920, 1500], [1925, 1800], [1929, 1900], [1931, 900], [1935, 950], [1940, 580]], "at": [1913, 3200] },
+                  { "name": "Indian mills", "color": "india", "points": [[1900, 420], [1905, 650], [1910, 1040], [1913, 1160], [1916, 1580], [1920, 1640], [1925, 1970], [1929, 2420], [1931, 2560], [1935, 3570], [1940, 4000]] },
+                  { "name": "Handlooms (rough)", "color": "soft", "dashed": true, "points": [[1900, 1000], [1910, 1100], [1920, 1100], [1930, 1300], [1940, 1500]], "at": [1940, 750] }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The chart shows that the boycotts coincided with large falls in imports, especially in 1930 and 1931, when Gandhi's civil disobedience campaign, which began with the Salt March, revived the boycott. Indian mill output rose throughout, helped by the First World War, which cut imports, and by import duties that India's government was allowed to raise from the 1920s. Lancashire's exports to India never recovered."
+        }
+      ]
+    },
+    {
+      "title": "Why spin?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Khadi was a small part of India's cloth supply. Most of the cloth that replaced British imports came from Indian mills, and mill owners such as the Ahmedabad industrialist Ambalal Sarabhai gained from the boycotts. Gandhi knew this, and he still asked people to spin. He gave several reasons. Spinning gave work and a small income to farmers who had little to do between harvests, the people he spoke of in Darwen. It was something every Indian, rich or poor, could do every day, so it turned support for independence into a daily practice. And wearing khadi made that support visible. The white khadi cap became the sign of a Congress member, and the flag the Congress adopted in 1931 had a spinning wheel at its centre."
+        },
+        {
+          "type": "text",
+          "text": "Not every nationalist agreed. The poet Rabindranath Tagore argued in the 1920s that asking millions of people to spin was a narrow and mechanical programme, and others, including Jawaharlal Nehru, who became India's first prime minister, wanted India to industrialise. When India became independent in 1947, its national flag replaced the spinning wheel with the Ashoka wheel, an ancient emblem. The government still supports khadi production through a public commission, and politicians still wear it."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on khadi and Indian cloth.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Which part of India's cloth industry suffered most from British machine-made imports in the 19th century?",
+                "choices": ["Hand spinning, because machine yarn was far cheaper", "Handloom weaving of fine saris", "The Bombay mills", "Cotton growing"],
+                "answer": 0,
+                "why": "Spinning took the most hours, so machines cut its cost the most. Many handloom weavers survived by weaving machine yarn."
+              },
+              {
+                "ask": "Why did Indian nationalists object to the cotton excise of 1896?",
+                "choices": ["It taxed Indian mill cloth to match the duty on British cloth, which protected Lancashire", "It taxed raw cotton exports", "It banned handlooms", "It funded Indian mills"],
+                "answer": 0,
+                "why": "The excise removed the advantage Indian mills would have had from the import duty, at Lancashire's request."
+              },
+              {
+                "ask": "Clingingsmith and Williamson accept that India deindustrialised. How do they differ from Dutt and Naoroji?",
+                "choices": ["They give more weight to Mughal decline and world prices, and less to British policy alone", "They deny any decline in Indian industry", "They blame Indian mill owners", "They say the decline began after 1947"],
+                "answer": 0,
+                "why": "The debate is about causes and scale. They point to forces that would have hurt Indian weaving even without British policy."
+              },
+              {
+                "ask": "During the boycotts of the 1920s and 1930s, where did most of the cloth that replaced British imports come from?",
+                "choices": ["Indian mills in Bombay, Ahmedabad and elsewhere", "Hand-spun khadi", "Japan only", "Lancashire mills in India"],
+                "answer": 0,
+                "why": "Indian mill output grew throughout, as the chart shows. Khadi was a small share of supply but a large political symbol."
+              },
+              {
+                "ask": "Which reason did Gandhi give for asking everyone to spin?",
+                "choices": ["It gave work to farmers idle between harvests and turned support for independence into a daily, visible practice", "Hand-spun yarn was stronger than mill yarn", "Indian mills could not make cloth", "It was cheaper than buying mill cloth"],
+                "answer": 0,
+                "why": "Gandhi saw spinning as both rural employment and political discipline. Khadi made the wearer's loyalty visible."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Machines first ruined India's hand spinners.** Cheap British yarn and cloth entered India at low duties from the early 19th century.",
+    "**Handloom weavers adapted.** Many switched to machine yarn and kinds of cloth the mills could not make.",
+    "**India built its own mills.** From 1854, Indian merchants opened mills in Bombay and Ahmedabad, over 250 by 1914.",
+    "**Policy favoured Lancashire.** Low tariffs and the cotton excise of 1896 kept Indian mills from an advantage at home.",
+    "**Historians disagree on deindustrialisation.** Naoroji, Dutt and Bagchi blame British rule; Clingingsmith, Williamson and Roy weigh other causes and the survivals.",
+    "**Cloth became politics.** The swadeshi boycott of 1905 and the bonfires of 1921 targeted British cloth.",
+    "**Imports fell and Indian mills grew.** By the 1930s Indian mills wove several times as much cloth as India imported.",
+    "**Khadi was a symbol.** Gandhi's spinning offered work to idle farmers and made support for independence a visible daily practice."
+  ],
+  "footnotes": {}
+}
