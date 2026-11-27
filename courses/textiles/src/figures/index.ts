@@ -22,6 +22,8 @@ import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
 import { incaMapStill, khipuStill } from './inca';
+import { monsoonFigure } from './monsoon';
+import { hoursFigure } from './hours';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -42,4 +44,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'wool-map': woolMapStill,
   'inca-map': incaMapStill,
   khipu: khipuStill,
+  monsoon: monsoonFigure,
+  hours: hoursFigure,
 };

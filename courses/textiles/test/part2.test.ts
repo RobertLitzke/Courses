@@ -4,9 +4,11 @@ import { describe, expect, it } from 'vitest';
 import { FIGURES } from '../src/figures';
 import { PERIODS } from '../src/figures/silk-routes';
 import { cropHeight, worldMap } from '../src/figures/world';
-import { click, context, setSlider } from './helpers';
+import { click, context, guess, setSlider } from './helpers';
 import { MOTIFS, shaftsNeeded } from '../src/figures/pattern-loom';
 import { knotsFor } from '../src/figures/inca';
+import { ROUTES, voyage } from '../src/figures/monsoon';
+import { hoursProblems } from '../src/figures/hours';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -49,5 +51,30 @@ describe('the khipu', () => {
     expect(knotsFor(352)).toEqual([{ place: 0, count: 2, kind: 'long' }, { place: 1, count: 5, kind: 'single' }, { place: 2, count: 3, kind: 'single' }]);
     expect(knotsFor(41)[0].kind).toBe('eight');
     expect(knotsFor(1203).map((k) => k.place)).toEqual([0, 2, 3]);
+  });
+});
+
+describe('the monsoon', () => {
+  it('brings a January ship home from the Red Sea in 8 months, an April one in 17', () => {
+    expect(voyage(ROUTES.red, 1)).toHaveLength(8);
+    expect(voyage(ROUTES.red, 4)).toHaveLength(17);
+  });
+  it('makes January the best of the guess options', () => {
+    const len = (m: number) => voyage(ROUTES.red, m).length;
+    expect(Math.min(len(1), len(4), len(7), len(10))).toBe(len(1));
+  });
+  it('is done once both routes are tried and the Red Sea run is quick', async () => {
+    const h = FIGURES.monsoon(context(), 'quick');
+    guess(h.node, 'January');
+    setSlider(h.node, 0, 2);
+    click(h.node, 'Malacca');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the hours bar', () => {
+  it('checks its options', () => {
+    expect(hoursProblems({ item: 'x', stages: [{ stage: 'Spinning', hours: 10, who: 'household' }] })).toEqual([]);
+    expect(hoursProblems({ item: 'x', stages: [{ stage: 'Spinning', hours: 0, who: 'nobody' }] })).toHaveLength(1);
   });
 });
