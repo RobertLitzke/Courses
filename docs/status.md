@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 30 | 12 | 26 | 30 | 30 | 30 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 31 | 11 | 27 | 31 | 31 | 31 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 12 lessons to write, 26 to read through, 30 to copy-edit, 30 to fact-check, 30 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 11 lessons to write, 27 to read through, 31 to copy-edit, 31 to fact-check, 31 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -579,7 +579,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | E3 | How do you keep your footing on slippery earth? (`nahua`) | Elsewhere | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The Nahua (Aztec) sages on a world always in motion, and how we know what they said. |
 | E4 | Are you a person through other people? (`ubuntu`) | Elsewhere | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Ubuntu ethics and its use in South Africa's Truth and Reconciliation Commission. |
 | P1 | Is it better to be feared than loved? (`machiavelli`) | Power | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The Prince, read in its setting. |
-| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | planned, listed as coming |  | Rousseau's social contract and the general will. |
+| P2 | Does the general will ever get it wrong? (`rousseau`) | Power | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Rousseau's social contract and the general will. |
 | P3 | Is philosophy supposed to change things? (`marx`) | Power | planned, listed as coming |  | Alienation, and Marx's diagnosis set apart from his failed predictions. |
 | P4 | Should you hear out the other side? (`speech`) | Power | planned, listed as coming |  | Mill on free speech, tested on echo chambers, experts and epistemic injustice. |
 | P5 | Can ordinary people do great evil? (`arendt`) | Power | planned, listed as coming |  | Arendt at the Eichmann trial and the banality of evil. |

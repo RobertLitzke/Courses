@@ -1,0 +1,230 @@
+{
+ "id": "rousseau",
+ "n": 202,
+ "branch": "power",
+ "needs": [
+  "hobbes"
+ ],
+ "title": "Does the general will ever get it wrong?",
+ "teaches": "Rousseau's social contract and the general will",
+ "parts": [
+  {
+   "title": "The road to Vincennes",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "One hot afternoon in the summer of 1749, a 37-year-old music copyist called Jean-Jacques Rousseau was walking the six miles from Paris to the castle of Vincennes, where his friend Denis Diderot was being held in prison for his writings. To rest, he sat down under a tree and looked through a magazine he had brought. In it was the question for a prize essay set by the Academy of Dijon: had the revival of the sciences and arts helped to purify morals?"
+    },
+    {
+     "type": "text",
+     "text": "Rousseau later described what happened next as a sudden illumination. Ideas flooded in so fast that he felt dizzy, and when he came to himself, half an hour later, the front of his coat was wet with tears he had not noticed shedding. He saw at once, he wrote, that human beings are naturally good, and that it is society and its institutions that make them bad.[^vincennes] He answered the Academy's question with a firm no, won the prize in 1750, and became famous overnight."
+    }
+   ]
+  },
+  {
+   "title": "Born free",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Hobbes, in lesson 11, had said that people without government would be at war, and their lives \"solitary, poor, nasty, brutish, and short\". Rousseau thought Hobbes had made a mistake: he had taken the greed, vanity and fear of people in 17th-century society and projected them back onto people in a state of nature. In his *Discourse on Inequality* (1755), Rousseau imagined natural human beings as solitary, healthy and peaceful, with simple needs, a natural care for themselves and a natural pity for others' suffering."
+    },
+    {
+     "type": "text",
+     "text": "What went wrong was society, and above all property. \"The first man who, having enclosed a plot of land, took it into his head to say *this is mine*, and found people simple enough to believe him, was the true founder of civil society.\" With property came inequality, and with living in groups came a new kind of self-love, the need to be thought better than others, which Rousseau saw as the root of envy, vanity and competition."
+    },
+    {
+     "type": "text",
+     "text": "Rousseau did not think we could go back. His later book *The Social Contract* (1762) opens: \"Man is born free, and everywhere he is in chains.\" The question was not how to escape society, but whether any society could be legitimate: whether there was a way of living together under laws that left people as free as before."
+    }
+   ]
+  },
+  {
+   "title": "The general will",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Rousseau's answer was a contract unlike Hobbes's. Each person gives themselves, and all their rights, not to a ruler but to the whole community, of which they are an equal member. Since everyone gives the same, nobody has an interest in making the terms burdensome for others. And since each person is part of the body that makes the laws, in obeying the laws each person \"obeys only himself, and remains as free as before\"."
+    },
+    {
+     "type": "text",
+     "text": "The laws are to be made by the **general will**. Rousseau distinguished this carefully from the **will of all**. The will of all is the sum of what each person wants for themselves. The general will is what each person wants when they ask, as a citizen, what is good for the community as a whole. A citizen voting on a law should not ask \"what suits me?\" but \"is this in the common interest?\" The result of such a vote shows the general will."
+    },
+    {
+     "type": "text",
+     "text": "This leads to Rousseau's most notorious sentence. If someone refuses to obey the general will, the whole community will compel them to obey, \"which means nothing else than that he will be forced to be free\". The idea is that your true will, as a citizen, is for the common good, and that obeying a law made by the general will is obeying your own deeper will, even when your private interest says otherwise."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Rousseau's claim. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "forced-free",
+      "ask": "Can a person ever be forced to be free?",
+      "choices": [
+       "Yes: making someone keep to rules they chose with everyone else can protect their freedom",
+       "No: being forced is the opposite of being free",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Rousseau's answer. A milder example often given is a law that stops you selling yourself into slavery.",
+       "You chose the answer of Isaiah Berlin and most liberals, who saw the sentence as a step towards tyranny.",
+       "Rousseau's own readers have been arguing about this sentence since 1762."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Can the general will be wrong?",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Rousseau said the general will \"is always right and always tends to the public good\", but that it does not follow that the people's decisions are always right. People can be deceived, and the vote can be captured by **factions**, groups that vote together for their own interests. When that happens, the vote shows the will of a faction, not the general will. So Rousseau wanted citizens to vote with no communication between them beforehand, each judging for themselves, and wanted no parties or associations within the state, or, if there had to be some, as many as possible so that none dominated."
+    },
+    {
+     "type": "text",
+     "text": "A mathematician later gave a reason to take this seriously. In 1785 the Marquis de Condorcet proved what is now called the **jury theorem**: if each voter is more likely than not to be right about a yes-or-no question, and voters judge independently, then the larger the group, the more likely the majority is to be right, approaching certainty. But if voters copy each other, or follow a faction, they are no longer independent, and the guarantee disappears."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Rousseau's case for trusting a vote, with Condorcet's theorem as support. The objection is the one most later critics made.",
+     "options": {
+      "steps": [
+       {
+        "text": "Each citizen, voting on the common good rather than their own, is more likely than not to judge correctly."
+       },
+       {
+        "text": "Citizens vote independently, without factions that tell them how to vote."
+       },
+       {
+        "text": "With many independent voters, each more likely right than wrong, the majority is very likely to be right (Condorcet, 1785)."
+       },
+       {
+        "text": "So a majority vote under these conditions reveals the general will, and a citizen in the minority was mistaken about it.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "Real voters follow parties, newspapers and each other, and often vote on their interests, so the conditions almost never hold.",
+        "kind": "objection",
+        "against": 2,
+        "who": "Rousseau's critics, and Rousseau himself"
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The minority voter. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "minority",
+      "ask": "A vote on a law is held fairly, everyone votes for what they think is the common good, and you are in the minority. Should you conclude you were probably wrong?",
+      "choices": [
+       "Yes: if the vote was fair, the majority is more likely right than I am",
+       "No: a majority can be wrong, and my judgement is still mine",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Rousseau's answer, and Condorcet's.",
+       "You chose the more common answer today, and Mill's in the free speech lesson.",
+       "Rousseau would say it depends on whether the vote was really free of factions."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Rousseau is respected history and much argued over. His idea that laws are legitimate only if citizens make them for themselves runs through modern democracy, and his worry about factions and his hope for citizens who vote on the common good are alive in the study of **deliberative democracy**, which asks how public discussion can make decisions better. Condorcet's theorem is still used in political science and in work on the wisdom of crowds."
+    },
+    {
+     "type": "text",
+     "text": "Critics in the 20th century, after Stalin and Hitler, read the general will and \"forced to be free\" as a recipe for a state that claims to know what citizens really want better than they do. Robespierre, during the Terror of 1793 and 1794, had admired Rousseau and quoted him. Defenders reply that Rousseau insisted on equal citizens making general laws, and that a dictator's will is exactly what he called a private will.[^cake] Rousseau's own life was not a model: he placed all five of his children with the Paris foundling hospital, where most children died young, and later wrote a treatise on education, *Émile*, which Wollstonecraft answered in lesson 20."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Rousseau",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "How did Rousseau disagree with Hobbes about the state of nature?",
+        "choices": [
+         "Hobbes had projected the vices of society onto natural human beings, who were in fact peaceful and simple",
+         "Rousseau thought the state of nature was even more violent than Hobbes did",
+         "Rousseau thought there had never been any human beings without government",
+         "Rousseau agreed with Hobbes but thought the sovereign should be a king"
+        ],
+        "answer": 0,
+        "why": "For Rousseau, property and society made people envious and competitive."
+       },
+       {
+        "ask": "What is the difference between the general will and the will of all?",
+        "choices": [
+         "The will of all adds up private interests; the general will is what citizens want for the common good",
+         "The general will is decided by the king; the will of all by the people",
+         "The will of all is unanimous; the general will is a majority",
+         "There is no difference; they are two names for the same thing"
+        ],
+        "answer": 0,
+        "why": "A citizen voting for the general will asks what is good for the community, not for themselves."
+       },
+       {
+        "ask": "Why did Rousseau want no factions in the state?",
+        "choices": [
+         "A faction makes its members vote together for its own interest, so the vote no longer shows the general will",
+         "Factions are always led by foreign powers",
+         "Factions make votes take too long",
+         "He thought only one person should govern"
+        ],
+        "answer": 0,
+        "why": "Condorcet's theorem gives a reason: the majority is reliable only if voters judge independently."
+       },
+       {
+        "ask": "What does Condorcet's jury theorem say?",
+        "choices": [
+         "If voters are each more likely right than wrong and judge independently, a larger group's majority is more likely to be right",
+         "A jury should always have twelve members",
+         "Majorities are usually wrong about difficult questions",
+         "Only experts should vote on laws"
+        ],
+        "answer": 0,
+        "why": "Lose independence, and the guarantee goes."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Rousseau had his illumination on the road to Vincennes in 1749.** People are naturally good; society makes them bad.",
+  "**Property and the need to be thought better than others brought inequality.** The first enclosed field founded civil society.",
+  "**Man is born free, and everywhere he is in chains.** The Social Contract asks what could make society legitimate.",
+  "**Each gives everything to the community, and obeys only himself.** Citizens make the laws they live under.",
+  "**The general will aims at the common good; the will of all adds up private interests.** Only the first makes law.",
+  "**Factions corrupt the general will.** Condorcet's theorem shows why independent voters matter.",
+  "**\"Forced to be free\" is Rousseau's most argued-over phrase.** Critics read it as a recipe for tyranny."
+ ],
+ "footnotes": {
+  "vincennes": {
+   "kind": "technical",
+   "title": "Two accounts",
+   "text": "Rousseau described the moment in a letter of 1762 and again in his Confessions, written in the late 1760s. Diderot later claimed that it was he who suggested Rousseau answer no. The accounts cannot be checked."
+  },
+  "cake": {
+   "kind": "digression",
+   "title": "Let them eat cake",
+   "text": "The line is from Rousseau's Confessions, where he says that a great princess, told the peasants had no bread, replied \"then let them eat brioche\". He wrote it around 1765, when Marie Antoinette was a child in Austria. It was attached to her only later."
+  }
+ }
+}
