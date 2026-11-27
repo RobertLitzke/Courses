@@ -13,6 +13,7 @@ import { hoursWith, idle, output, startWorkers } from '../src/figures/workshop';
 import { PRESETS, jennyReturn } from '../src/figures/jenny-pays';
 import { grows } from '../src/figures/cotton-belt';
 import { seriesProblems } from '../src/figures/series';
+import { load, output as loomOutput } from '../src/figures/looms';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -151,5 +152,20 @@ describe('the cotton belt', () => {
   it('checks a series chart\'s options', () => {
     expect(seriesProblems({ from: 1, to: 2, panels: [{ title: 'a', unit: 'b', lines: [{ name: 'c', color: 'gold', points: [[1, 1], [2, 2]] }] }] })).toEqual([]);
     expect(seriesProblems({ from: 1, to: 2, panels: [{ title: 'a', unit: 'b', lines: [{ name: 'c', color: '#123', points: [[1, 1]] }] }] })).toHaveLength(1);
+  });
+});
+
+describe('the loom minder', () => {
+  it('lets one weaver keep about six plain looms or over twenty automatic ones', () => {
+    expect(load(6, 'plain')).toBeLessThanOrEqual(1);
+    expect(load(7, 'plain')).toBeGreaterThan(1);
+    expect(load(26, 'automatic')).toBeLessThanOrEqual(1);
+    expect(loomOutput(12, 'plain')).toBeCloseTo(loomOutput(7, 'plain'), 5);
+  });
+  it('is done with twenty automatic looms running', async () => {
+    const h = FIGURES.looms(context(), 'auto');
+    click(h.node, 'Automatic loom');
+    setSlider(h.node, 0, 24);
+    await expect(h.done).resolves.toBeUndefined();
   });
 });

@@ -19,6 +19,7 @@ import { vatFigure, washFigure } from './dye';
 import { silkRoutesFigure } from './silk-routes';
 import { sericultureStill } from './sericulture';
 import { jacquardStill } from './jacquard';
+import { loomsFigure } from './looms';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -46,6 +47,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'silk-routes': silkRoutesFigure,
   sericulture: sericultureStill,
   'jacquard-head': jacquardStill,
+  looms: loomsFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,
