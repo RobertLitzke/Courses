@@ -22,6 +22,8 @@ describe('the courses on the site', () => {
       expect(c.lessonList.length, c.folder).toBeGreaterThan(0);
       expect(c.lessonList[0].n, c.folder).toBe(1);
       expect(c.lessonList.every((l) => l.id && l.title && l.parts > 0)).toBe(true);
+      // Each lesson's estimate, for the desk: a minutes figure for every part.
+      expect(c.lessonList.every((l) => l.effort && l.effort.parts.length === l.parts && l.effort.parts.reduce((a, b) => a + b, 0) > 2), c.folder).toBe(true);
       expect(c.icon).toMatch(/^data:image\//);
     }
   });
@@ -66,7 +68,7 @@ describe('the courses on the site', () => {
 
 const entry = (over: Partial<CatalogEntry> = {}): CatalogEntry => ({
   folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: 'data:image/svg+xml,%3Csvg%2F%3E', release: BETA,
-  lessonList: [{ id: 'grit', n: 1, title: 'Grit', parts: 3 }, { id: 'water', n: 2, title: 'Water', parts: 5 }, { id: 'worms', n: 3, title: 'Worms', parts: 4 }, { id: 'side', n: 101, title: 'Side trip', parts: 2 }],
+  lessonList: [{ id: 'grit', n: 1, title: 'Grit', parts: 3 }, { id: 'water', n: 2, title: 'Water', parts: 5, effort: { parts: [2, 2, 3, 3, 2], labs: 2 } }, { id: 'worms', n: 3, title: 'Worms', parts: 4, effort: { parts: [3, 3, 3, 3.4], labs: 1 } }, { id: 'side', n: 101, title: 'Side trip', parts: 2 }],
   ...over,
 });
 
@@ -153,7 +155,7 @@ describe('the map', () => {
 });
 
 describe('the shelves', () => {
-  const electronics = entry({ folder: 'electronics', title: 'Electronics', save: 'e.save', lessonList: [{ id: 'volts', n: 1, title: 'Volts', parts: 6 }] });
+  const electronics = entry({ folder: 'electronics', title: 'Electronics', save: 'e.save', lessonList: [{ id: 'volts', n: 1, title: 'Volts', parts: 6, effort: { parts: [3, 3, 3, 3, 3, 3], labs: 4 } }] });
   const map: CatalogMap = {
     courses: { soil: [100, 100], electronics: [800, 400] },
     bridges: [{ id: 'mud', title: 'Muddy circuits', promise: 'Soil sensors.', between: ['soil', 'electronics'] }],
@@ -199,6 +201,8 @@ describe('the shelves', () => {
     expect(main.querySelector('a.btn')!.getAttribute('href')).toBe('./electronics/#/lesson/volts');
     expect(main.textContent).toMatch(/Where you left off · yesterday/);
     expect(main.textContent).toMatch(/part 5 of 6/);
+    expect(main.querySelector('.effort')!.textContent).toBe('~6 min left');
+    expect(page.querySelector('.desk-also .effort')!.textContent).toBe('~8 min left');
     expect(page.querySelector('.desk-also')!.textContent).toMatch(/Under way: Water/);
     expect(page.querySelector('.welcome')).toBeNull();
     // Both books are under way, and say so in words.
@@ -247,6 +251,8 @@ describe('the shelves', () => {
     const read = saves({ 'soil.save': { lessons: { grit: { done: true }, water: { done: true } } } });
     const [p] = places([entry()], read);
     expect([p.lesson.id, p.part]).toEqual(['worms', null]);
-    expect(homePage([entry()], read, map).querySelector('.desk-main a.btn')!.textContent).toBe('Start');
+    const page = homePage([entry()], read, map);
+    expect(page.querySelector('.desk-main a.btn')!.textContent).toBe('Start');
+    expect(page.querySelector('.desk-main .effort')!.textContent).toBe('~12 min · 1 lab');
   });
 });

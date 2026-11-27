@@ -264,6 +264,8 @@ html { overflow-x: clip; }
 .desk-card h3 a { color: var(--ink); text-decoration: none; }
 .desk-main .desk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 .desk-meta { margin: 4px 0 0; font: 0.82rem/1.35 var(--sans); color: var(--soft); }
+.desk-meta .effort { display: inline-block; padding: 1px 8px; border-radius: 999px; background: #eadbbf; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.desk-also .desk-meta .effort { display: block; width: fit-content; margin-top: 4px; }
 .ticks { display: inline-flex; gap: 3px; }
 .ticks i { width: 14px; height: 6px; border-radius: 3px; background: #e3d3b8; }
 .ticks i.d { background: var(--head); }

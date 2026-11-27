@@ -7,6 +7,7 @@ import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
 import { doneLine, lessonGo, lessonStatus, markToggle, progressLine } from 'didactics/status';
 import { nextLesson, treeView, type TreeNode } from 'didactics/tree';
+import { effortBadge } from 'didactics/effort-badge';
 import { makeBanner } from '../scene/banner';
 import { getSave, updateSave } from '../store';
 import { releaseSlip, type CourseRelease } from 'didactics/release';
@@ -34,7 +35,7 @@ export const homeView: View = (root, nav) => {
             : before.length ? `Better after ${names(before)}`
               : null;
     return el('div.lesson-card', { className: `lesson-card stand-${standing}${state === 'next' ? ' next' : ''}` },
-      el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), status ? el('p.score', {}, status) : null),
+      el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), state === 'done' || 'coming' in s ? null : effortBadge(save, s), status ? el('p.score', {}, status) : null),
       state !== 'coming' ? el('div.lesson-actions', {},
         lessonGo(`#/lesson/${s.id}`, standing),
         markToggle(save, s.id, updateSave, () => nav.replace('/home')),

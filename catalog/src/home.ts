@@ -14,6 +14,7 @@
 // beside the install hint.
 
 import { el, svg } from 'didactics/dom';
+import { effortLine } from 'didactics/effort';
 import type { Bridge, CatalogEntry, CatalogMap, LessonInfo } from '../registry';
 import { installSlip } from './install';
 import { splitIcon } from './split';
@@ -84,6 +85,9 @@ const lessonHref = (c: CatalogEntry, l: LessonInfo) => `./${c.folder}/#/lesson/$
 const lessonsLine = (n: number) => `${n} ${n === 1 ? 'lesson' : 'lessons'}`;
 const lessonNo = (l: LessonInfo) => (l.n > 0 && l.n < 100 ? `lesson ${l.n}` : 'a branch lesson');
 const icon = (c: CatalogEntry) => el('img.ico', { src: c.icon, alt: '' });
+/** "~14 min · 3 labs" for a lesson to start, "~6 min left" from the part a reader is on. */
+const effortTag = (p: Place) =>
+  p.lesson.effort ? el('span.effort', { title: 'Estimated time to read and work the figures, and how many live figures (labs) it has' }, effortLine(p.lesson.effort, p.part ?? undefined)) : null;
 
 /** The parts of a lesson as a row of ticks: those before done, the open one marked. */
 function partTicks(of: number, at: number): HTMLElement {
@@ -114,6 +118,7 @@ function continueCard(p: Place, now: number): HTMLElement {
         'p.desk-meta',
         {},
         p.part === null ? `${c.title} · ${lessonNo(p.lesson)}` : [partTicks(p.lesson.parts, p.part), el('span', {}, `${c.title} · part ${p.part + 1} of ${p.lesson.parts}`)],
+        effortTag(p),
       ),
     ),
     el('a.btn', { href: lessonHref(c, p.lesson) }, p.part === null ? 'Start' : 'Continue'),
@@ -126,7 +131,7 @@ function alsoCard(p: Place): HTMLElement {
     'article.desk-card.desk-also',
     {},
     icon(c),
-    el('div.desk-text', {}, el('h3', {}, el('a', { href: `./${c.folder}/` }, c.title)), el('p.desk-meta', {}, `${p.part === null ? 'Next' : 'Under way'}: ${p.lesson.title}`)),
+    el('div.desk-text', {}, el('h3', {}, el('a', { href: `./${c.folder}/` }, c.title)), el('p.desk-meta', {}, `${p.part === null ? 'Next' : 'Under way'}: ${p.lesson.title}`, effortTag(p))),
     el('a.btn.ghost', { href: lessonHref(c, p.lesson) }, 'Open'),
   );
 }
