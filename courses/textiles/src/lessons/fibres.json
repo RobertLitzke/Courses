@@ -1,0 +1,191 @@
+{
+  "id": "fibres",
+  "n": 2,
+  "title": "Why does wool itch and silk shine?",
+  "teaches": "Flax, wool, cotton and silk; plant against animal fibre; staple length, crimp and scales; preparing fibre; how each was domesticated",
+  "parts": [
+    {
+      "title": "A shirt from before the pharaohs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1913 the Egyptologist Flinders Petrie excavated a cemetery at Tarkhan, about 50 km south of Cairo, and shipped home a heap of dirty linen from one of its tombs. It sat in storage in London for more than sixty years. In 1977, when conservators at the Victoria and Albert Museum were sorting the bundle for the Petrie Museum, one crumpled piece turned out to be a shirt: a V-necked bodice with fine knife pleats and long sleeves, worn creases still at the elbows and armpits. In 2016 a radiocarbon date put the linen between 3482 and 3102 BC. Museums call it the **Tarkhan dress**, since it may once have reached further down the body; it is the oldest woven garment known."
+        },
+        {
+          "type": "text",
+          "text": "It is made of linen, which is cloth woven from the fibres of the flax plant. Flax was one of four fibres that clothed most of the ancient world, together with wool, cotton and silk. Each behaves differently because each comes from a different plant part or animal, and in this lesson we look at what each one is, why it feels the way it does, and how much work it took to get it ready for spinning."
+        }
+      ]
+    },
+    {
+      "title": "Plant or animal",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Plant fibres are made of **cellulose**, the long sugar chains that make up the walls of plant cells. Cotton, linen, hemp and jute are cellulose, and so is rayon, which is wood pulp dissolved and pushed out through fine holes. Animal fibres are made of **protein**: wool, cashmere and mohair are hair, made of keratin like your own, and silk is a protein the silkworm spins. Polyester and nylon are a third kind, plastics made from oil, which lesson 23 covers."
+        },
+        {
+          "type": "text",
+          "text": "The two natural families behave differently in ways that matter all through history. Cellulose takes heat and strong alkali (a hot wash with soda or lye) and is damaged by acid. Protein is the reverse: hot, strong alkali and bleach harm wool and silk, and mild acid does not. A warm, mild alkaline bath is tolerated, which matters for the indigo vat in lesson 5. Protein fibres take dyes far more readily than cellulose, which is one reason the brightest ancient colours were on wool and silk, and why dyeing cotton well, covered in lesson 5, was a skill that India led for centuries. The quick test is to burn a thread: cellulose burns like paper and leaves a soft grey ash, protein shrinks away from the flame, smells of burnt hair and leaves a crushable black bead, and plastic melts into a hard bead."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "groups",
+          "caption": "Sort each fibre by what it is made of.",
+          "task": "Sort all nine",
+          "goal": "sorted",
+          "options": {
+            "ask": "What is it made of?",
+            "groups": [
+              { "name": "Plant: cellulose", "color": "fibre" },
+              { "name": "Animal: protein", "color": "yarn" },
+              { "name": "Plastic made from oil", "color": "cloth" }
+            ],
+            "items": [
+              { "name": "Linen", "group": 0, "why": "Linen is woven from flax, whose fibres come from the plant's stem." },
+              { "name": "Cashmere", "group": 1, "why": "Cashmere is the fine undercoat of the cashmere goat, a protein hair like wool." },
+              { "name": "Cotton", "group": 0, "why": "A cotton fibre is a single cell growing from the coat of a cotton seed." },
+              { "name": "Polyester", "group": 2, "why": "Polyester is a plastic, the same material as many drinks bottles." },
+              { "name": "Silk", "group": 1, "why": "Silk is a protein the silkworm makes in two glands and spins into its cocoon." },
+              { "name": "Rayon (viscose)", "group": 0, "why": "Rayon is cellulose from wood pulp, dissolved and squeezed out as a filament. It is plant fibre remade, not oil." },
+              { "name": "Hemp", "group": 0, "why": "Hemp, like flax, is a fibre from the stem of a plant." },
+              { "name": "Nylon", "group": 2, "why": "Nylon is a plastic, first made at DuPont in 1935." },
+              { "name": "Mohair", "group": 1, "why": "Mohair is the hair of the Angora goat." }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Four fibres up close",
+      "blocks": [
+        {
+          "type": "diagram",
+          "id": "fibres",
+          "caption": "The four old fibres as a microscope shows them, each along its length and in cross-section, not to scale with each other."
+        },
+        {
+          "type": "text",
+          "text": "**Cotton** is a seed hair. Each fibre is a single cell that grows out of the coat of a cotton seed inside the boll, a capsule the size of a walnut. While it grows the cell is a hollow tube; when the boll opens it dries, the tube collapses into a flat ribbon, and the ribbon twists over on itself every millimetre or so. Those twists help neighbouring fibres catch on each other when they are spun. A cotton fibre is short, about 2 to 4 cm, and that length, the **staple**, is the main measure of its quality: long-staple cottons spin finer, smoother and stronger yarn."
+        },
+        {
+          "type": "text",
+          "text": "**Flax** fibres come from the stem. Bundles of long cells run from the root to the top of the plant to hold it up, and once freed they are 25 cm to more than a metre long. Linen is strong, cool and absorbent, and it stays creased once folded, because cellulose bends and stays bent. The Tarkhan dress still has creases at its elbows from the body that wore it."
+        },
+        {
+          "type": "text",
+          "text": "**Wool** is hair. A wool fibre is covered in overlapping scales like roof tiles, and it is crimped, meaning it grows in small waves. The crimp keeps fibres from packing tightly, so wool yarn is springy and full of trapped air, which is why it is warm. The scales let fibres slide one way past each other but not the other, so in hot soapy water, rubbed, they ratchet together and lock: that is felting, and the reason a wool jumper shrinks in a hot wash. The itch has a different cause. It comes from the thickest fibres. A fibre more than about 30 microns (thousandths of a millimetre) thick is too stiff to bend when its end presses against the skin, so it pokes the nerve endings there. Fine wools such as merino have few fibres that thick and do not prickle.[^micron]"
+        },
+        {
+          "type": "text",
+          "text": "**Silk** is spun by the caterpillar of the silk moth, *Bombyx mori*, from two glands that release a protein called fibroin, coated in a gum called sericin. The caterpillar winds itself into a cocoon of one continuous filament, several hundred metres long. Silk is the only natural fibre used in quantity that does not need to be spun from short pieces: filaments from several cocoons are unwound together and twisted lightly into thread. Its shine comes from its shape. The filament is smooth, with no scales or twists to scatter light, and its cross-section is a rounded triangle, and its flat faces reflect light like tiny mirrors, so a smooth silk surface sends back light in a few bright directions instead of scattering it."
+        }
+      ]
+    },
+    {
+      "title": "From plant or fleece to clean fibre",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "None of these fibres comes ready to spin, and preparing them took as long as some of the later steps. Flax had to be pulled up by the root, then **retted**: soaked in a pond or spread on wet grass for weeks until bacteria rotted the gum that held the fibres to the woody core of the stem. The dried stems were broken with a wooden brake, the woody bits beaten off (scutching), and the fibres combed through rows of spikes (hackling) to separate the long, fine fibres from the short, tangled ones, called tow. Fine linen used only the long fibres."
+        },
+        {
+          "type": "text",
+          "text": "Cotton had to be cleaned of its seeds, which cling to the fibres. Removing them is called **ginning**, and it mattered so much to cotton's history that lesson 17 is about one machine that did it. The fibres were then fluffed and opened, often by plucking them with the string of a bow, and **carded**: brushed between two boards set with fine wire teeth until the fibres lay loosely parallel in a soft roll. Wool was **scoured**, washed to remove the grease called lanolin and the dirt held in it, which can be a large share of a raw fleece's weight, and then carded for soft, airy yarn or **combed** for smooth, strong yarn. Silk cocoons were dropped into hot water, which killed the pupa (the developing moth) inside and softened the gum, so the filaments could be found and unwound, a step called reeling."
+        }
+      ]
+    },
+    {
+      "title": "Wild to domestic",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Each fibre had to be bred into something worth spinning. Wild sheep, such as the mouflon, have a coat of coarse hair over a short woolly undercoat that falls out each spring. Woolly sheep, whose fleece is mostly fine wool and keeps growing, were bred from them in the Near East, and they spread widely in the fourth millennium BC. Before that, sheep were kept for meat and milk, and cloth was mostly linen. Cotton was domesticated not once but four times, from four wild species: twice in the Americas, one of them in Mexico and Central America (upland cotton, now about nine tenths of the world's crop) and one in South America, and twice in the Old World: once in South Asia, and once somewhere in Africa or Arabia, where the exact place is still unknown. The silk moth was bred in China from a wild relative until it could no longer fly and depended entirely on people."
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "Some early dates for each fibre. Most are first finds rather than first uses, since fibre rarely survives.",
+          "options": {
+            "spacing": "even",
+            "events": [
+              { "at": -30000, "when": "over 30,000 years ago", "label": "Wild flax fibres at Dzudzuana, Georgia (disputed)", "color": "fibre" },
+              { "at": -7000, "when": "by 9,000 years ago", "label": "Flax grown as a crop in the Near East", "color": "fibre" },
+              { "at": -6000, "when": "about 6000 BC", "label": "Cotton threads in a copper bead at Mehrgarh, Pakistan", "color": "fibre" },
+              { "at": -4000, "when": "about 4000 BC", "label": "Cotton cloth dyed with indigo at Huaca Prieta, Peru", "color": "fibre" },
+              { "at": -3600, "when": "about 3600 BC", "label": "Silk fragments in Henan, China", "color": "yarn" },
+              { "at": -3400, "when": "4th millennium BC", "label": "Woolly sheep spread from the Near East", "color": "yarn" },
+              { "at": -3300, "when": "3482 to 3102 BC", "label": "The Tarkhan dress, linen, Egypt", "color": "fibre" }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The fibres also decided where cloth could be made. Flax grows in cool, damp places and wears out soil. Cotton needs a long frost-free season, a constraint that lesson 17 maps. Sheep can graze land too poor to plough, one reason medieval England and Spain, with plenty of such land, became great wool producers. Silk needs mulberry trees and enormous amounts of careful labour. Much of the trade in this course follows from those limits: people who could not grow a fibre bought the cloth made from it."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the four fibres.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A thread burns with a smell of burnt hair and leaves a black bead that crumbles between the fingers. What is it most likely to be?",
+                "choices": ["Wool or silk, a protein fibre", "Cotton or linen, a cellulose fibre", "Polyester, a plastic", "Rayon, a remade plant fibre"],
+                "answer": 0,
+                "why": "Protein fibres smell of burnt hair and leave a crushable bead. Cellulose burns like paper to a soft ash, and plastic melts into a hard bead."
+              },
+              {
+                "ask": "Why does a wool jumper shrink in a hot wash, when a cotton T-shirt washed the same way barely changes?",
+                "choices": ["Wool's scales ratchet the fibres together under heat, soap and rubbing, and lock them: felting", "Wool absorbs water and swells permanently", "The lanolin in wool melts and glues the fibres", "Cotton is stronger, so it resists being pulled smaller"],
+                "answer": 0,
+                "why": "The scales let wool fibres creep one way past each other but not back, so agitation packs them tighter. Cotton has no scales."
+              },
+              {
+                "ask": "A cloth merchant prefers one cotton over another because its fibres are longer. What will the longer staple give them?",
+                "choices": ["Finer, smoother and stronger yarn", "A brighter colour when dyed", "Warmer cloth, because longer fibres trap more air", "Cloth that does not crease"],
+                "answer": 0,
+                "why": "Longer fibres overlap more, so a thinner yarn can hold together and fewer fibre ends stick out. Staple length is cotton's main measure of quality."
+              },
+              {
+                "ask": "Why does silk shine when wool, made of protein too, does not?",
+                "choices": ["Silk is a smooth filament with a triangular section that reflects light, while wool's scales scatter it", "Silk is a heavier fibre than wool", "Silk is dyed brighter colours", "Wool is always spun more tightly"],
+                "answer": 0,
+                "why": "Shine is about shape. Silk's filament is smooth and its flat-faced section reflects like tiny mirrors; wool's surface of overlapping scales breaks up the light."
+              },
+              {
+                "ask": "What is retting, and which fibre needs it?",
+                "choices": ["Rotting flax stems in water or dew so the fibres come free of the woody core", "Removing the seeds from cotton", "Washing the grease out of a fleece", "Boiling silk cocoons to loosen the filament"],
+                "answer": 0,
+                "why": "Flax fibres are glued to the stem; weeks of controlled rotting loosen them before they are broken, scutched and hackled. The others are ginning, scouring and reeling."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Plant or animal.** Cotton, linen and rayon are cellulose; wool and silk are protein; polyester and nylon are plastic.",
+    "**They behave differently.** Protein dyes easily and dislikes hot alkali; cellulose takes heat and alkali but dyes poorly.",
+    "**Cotton is a seed hair.** One cell, 2 to 4 cm long, a twisted ribbon; the longer the staple, the finer the yarn.",
+    "**Linen comes from the stem.** Long, strong and cool; it creases because cellulose stays bent.",
+    "**Wool has scales and crimp.** Crimp traps air and keeps it warm; scales make it felt; thick fibres make it itch.",
+    "**Silk is a filament.** Hundreds of metres from one cocoon, reeled rather than spun, and shiny because it is smooth and triangular.",
+    "**Fibre needs preparing.** Flax is retted and hackled, cotton ginned and carded, wool scoured and carded or combed, silk reeled.",
+    "**Bred by people.** Woolly sheep, four domestic cottons and a flightless silk moth were all made by selective breeding."
+  ],
+  "footnotes": {
+    "micron": {
+      "kind": "technical",
+      "title": "Fibre diameter",
+      "text": "Wool is graded by the average diameter of its fibres in microns, thousandths of a millimetre. Fine merino averages under about 20 microns and carpet wool over 35. Prickle depends on how many fibres in a yarn are thicker than about 30 microns; a few per cent is enough for most people to feel it."
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "id": "pattern",
+  "n": 8,
+  "title": "How did Han weavers store a pattern?",
+  "teaches": "Pattern shafts as physical stored instructions; the Laoguanshan pattern looms; figured silk; drawlooms and the drawboy",
+  "parts": [
+    {
+      "title": "Four looms in a tomb",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 2012 and 2013, archaeologists excavating ahead of a railway line at Laoguanshan, in the city of Chengdu in Sichuan province, opened a set of tombs from the Western Han dynasty, dated to the 2nd century BC. One held four wooden models of looms, each about half a metre long, together with fifteen painted wooden figures of weavers and other workers. The models were detailed enough to show how the looms worked, and the researchers who studied them, led by Zhao Feng of the China National Silk Museum, concluded that they were **pattern looms**: looms built to weave a picture into the cloth, not only a plain or twilled surface.[^laoguanshan]"
+        },
+        {
+          "type": "text",
+          "text": "Chengdu was the centre of a famous silk industry, and its brocade, *Shu jin*, was sold all over the Han empire. Using the models as a guide, the silk museum's team built a full-size working loom and in 2017 wove a copy of a Han silk found in 1995 at Niya, in the Taklamakan desert: a brightly coloured armguard with birds, animals and the characters *Five stars rising in the east benefit China*. In this lesson we look at what makes a pattern loom different, how it stores a design, and why the answer still matters to anyone who uses a computer."
+        }
+      ]
+    },
+    {
+      "title": "A pattern is a list of lifts",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 4 showed that a weave is decided by which warp threads rise for each pick. A plain four-shaft loom stores that information in two places. The **threading** says which shaft each warp thread passes through, and it is fixed when the loom is set up. The order in which the weaver lifts the shafts, pick after pick, is the second part, and the weaver carries it in memory or follows a written sequence. With four shafts there are only four kinds of warp thread, so the cloth can only show small repeating patterns such as twills and diamonds."
+        },
+        {
+          "type": "text",
+          "text": "A picture needs more. A bird or a written character has outlines that run across many warp threads, and in any one pick some threads must be up and others down in an irregular order. Every warp thread that behaves differently from the rest needs some way of being lifted on its own. A loom that can do that has stored the picture, in wood and string, as a long list of instructions: lift these threads, then these, then these."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "pattern-loom",
+          "caption": "A motif 16 warp threads wide and 12 picks tall. A shaft loom needs one shaft for each different kind of warp thread; a drawloom stores one bundle of cords per pick instead.",
+          "task": "Find a motif that needs ten or more shafts, and see it on both looms",
+          "goal": "many"
+        },
+        {
+          "type": "text",
+          "text": "In the figure, the diamond is symmetric, so warp threads on its left and right halves behave in the same way and share shafts. The bird is lopsided and needs a shaft for almost every thread. Real Han patterns were several hundred warp threads wide and repeated across the cloth, so the number of kinds of thread ran into the dozens or more."
+        }
+      ]
+    },
+    {
+      "title": "The Han answer: many shafts",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Laoguanshan looms solved the problem with a large number of **pattern shafts**, each a bar with loops of string that could lift its own set of warp threads, mounted alongside the ordinary shafts that made the ground weave. The reconstructions suggest that a mechanism on the loom chose the right pattern shaft for each pick, so that one weaver could work it, though how that mechanism worked is still argued over.[^laoguanshan] Once the shafts had been threaded, the design was stored in the loom itself: the weaver did not need to remember it, and the same pattern could be woven again and again until the loom was rethreaded for a new one."
+        },
+        {
+          "type": "text",
+          "text": "The cloth these looms made was a **warp-faced compound weave**, called *jin* in Chinese. It had warps of several colours, often five, and on each pick the loom brought the colour needed for the pattern to the surface and hid the others underneath. That is why Han brocades are so densely coloured, and why they took so much warp: each square centimetre held several layers of thread. The Han court used such silks as gifts to rulers on its borders, which is one way pieces reached the Taklamakan and beyond, along the routes in lesson 7."
+        },
+        {
+          "type": "text",
+          "text": "Han weavers were also very skilled at plain weaves. A robe found at Mawangdui, the tomb of a noblewoman buried in about 168 BC in Changsha, is made of silk gauze so fine that the whole garment, 1.28 metres long with sleeves 1.9 metres across, weighs 49 grams."
+        }
+      ]
+    },
+    {
+      "title": "The drawloom and the drawboy",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A pattern shaft loom can only hold as many shafts as fit on its frame. The **drawloom** removes that limit. Each warp thread, or each small group of threads that behave alike, hangs from its own cord, and the cords are gathered at the top of the loom, where a second worker sits. For every pick, this worker pulls a prepared bundle of cords, called a **lash**, which lifts exactly the threads the pattern needs. The lashes are tied in order before weaving starts, one per pick, so the pattern is stored as a sequence of bundles of string. The second worker was usually a boy, the **drawboy**, who pulled while the weaver threw the shuttle and beat the weft."
+        },
+        {
+          "type": "text",
+          "text": "Where the drawloom was first built is debated: Chinese, Persian and Syrian weavers all made patterned silks on drawlooms by the second half of the first millennium AD, and the evidence is too thin to say which came first. A Chinese technical encyclopedia of 1637, the *Tiangong Kaiwu* by Song Yingxing, shows one with the drawboy perched on a tower above the warp. Drawlooms spread to Byzantium and Muslim Spain, and to Italy and later France, where Lyon became the European centre of figured silk."
+        },
+        {
+          "type": "text",
+          "text": "The drawloom moved the bottleneck. A pattern no longer had to fit a fixed number of shafts, but every pick needed two people, and setting up the lashes for a large design could take weeks. The drawboy's work was tiring and slow, and an error in pulling the wrong lash spoiled the cloth."
+        },
+        {
+          "type": "text",
+          "text": "**Where it went next.** In 1804 Joseph-Marie Jacquard in Lyon finished a device that replaced the drawboy with a chain of punched cards, one card per pick, each hole lifting one cord. Lesson 18 follows it. The cards were a pattern that could be stored, changed and swapped, and Charles Babbage borrowed the idea for the calculating engine he designed in the 1830s; in 1890 Herman Hollerith's punched cards counted the US census. The loom did not compute anything. What the Han pattern shafts already had in wood and string, and what Jacquard's cards made easy to swap, was a stored set of instructions kept apart from the person carrying them out."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on pattern looms.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A weaver wants a pattern of a deer facing left, 40 warp threads wide, on a shaft loom. Why is that harder than a diamond of the same width?",
+                "choices": ["A lopsided figure has few warp threads that behave alike, so it needs many more shafts", "Deer patterns need more colours", "The diamond uses less yarn", "Shaft looms cannot weave curves"],
+                "answer": 0,
+                "why": "Each different kind of warp thread needs its own shaft. A symmetric diamond reuses each column on both sides; an animal facing one way does not."
+              },
+              {
+                "ask": "On a drawloom, where is the pattern kept while the cloth is being woven?",
+                "choices": ["In the lashes: bundles of cords prepared in advance, one for each pick", "In the weaver's memory", "On a drawing pinned above the loom", "In the threading of four shafts"],
+                "answer": 0,
+                "why": "The lashes are tied before weaving begins. The drawboy pulls them in order, so the pattern is stored in string and can be woven again."
+              },
+              {
+                "ask": "A drawloom can weave almost any motif. What does it cost compared with a shaft loom?",
+                "choices": ["A second worker on every pick, and a long setup tying the lashes", "Nothing; it is simply better", "It can only weave plain silk", "It needs water power"],
+                "answer": 0,
+                "why": "The drawboy pulled a lash for every pick. The limit moved from the number of shafts to labour and setup time."
+              },
+              {
+                "ask": "A Han brocade has warps of five colours. Why does a warp-faced compound weave use so much warp yarn?",
+                "choices": ["Every colour runs through the cloth all the time, hidden underneath except where the pattern brings it up", "Warp is thicker than weft", "The weft is left out", "Each colour is woven as a separate cloth and sewn on"],
+                "answer": 0,
+                "why": "In a *jin* each warp colour is present across the whole width. The loom chooses which one shows on each pick, so several layers of warp lie in every part of the cloth."
+              },
+              {
+                "ask": "Someone says weaving invented the computer. What is the more accurate claim?",
+                "choices": ["Pattern looms stored a sequence of instructions apart from the weaver, and Jacquard's swappable cards carried that idea to Babbage and Hollerith", "Jacquard looms could do arithmetic", "Han looms used binary numbers", "Babbage was a weaver"],
+                "answer": 0,
+                "why": "Looms never calculated. What passed from looms to computing was the idea of a stored sequence of instructions, which Jacquard's cards made easy to replace."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A pattern is a list of lifts.** For each pick, some warp threads rise and others stay down; a loom that weaves a picture must store that list.",
+    "**A shaft loom stores it in shafts.** Each different kind of warp thread needs a shaft of its own, so lopsided pictures need many shafts and symmetric ones fewer.",
+    "**Han looms had many pattern shafts.** Models from the Laoguanshan tombs in Chengdu, 2nd century BC, show pattern looms that one weaver could probably run.",
+    "**Han brocade was warp-faced.** In *jin*, warps of several colours ran through the whole cloth, and the loom brought up the colour each part of the pattern needed.",
+    "**The drawloom stores the pattern in cords.** A drawboy pulls one prepared lash per pick, so any motif fits, at the cost of a second worker.",
+    "**Every fix moved the limit.** Shafts were limited by the frame; the drawloom by labour and setup time.",
+    "**The idea outlived the loom.** Jacquard's punched cards replaced the drawboy in 1804, and the idea of stored, swappable instructions passed to Babbage and Hollerith."
+  ],
+  "footnotes": {
+    "laoguanshan": {
+      "kind": "digression",
+      "title": "The Laoguanshan looms",
+      "text": "The tombs are numbered M1 to M4, and the loom models came from M2. Not every detail of how the models worked is agreed: the reconstructions differ in how pattern shafts were selected, and some scholars use the term multi-shaft pattern loom to avoid calling them drawlooms, which they were not."
+    }
+  }
+}

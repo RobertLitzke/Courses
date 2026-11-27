@@ -1,0 +1,225 @@
+{
+  "id": "silk",
+  "n": 7,
+  "title": "How long did China keep silk to itself?",
+  "teaches": "Sericulture; silk as Han and Tang currency and tribute; why the secret and the single road are myths; Sogdian merchants; land and sea routes",
+  "parts": [
+    {
+      "title": "A senator's complaint",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the 70s AD the Roman writer Pliny the Elder, an admiral and a member of the governing class, finished his *Natural History*, an encyclopedia in 37 books. In the book on trees and spices he added up what Rome sent east: \"By the lowest reckoning, India, the Seres and the Arabian peninsula take from our empire 100 million sesterces every year. That is what our luxuries and our women cost us.\"[^pliny] The Seres were the silk people, the Romans' name for the Chinese, whom almost no Roman had met."
+        },
+        {
+          "type": "text",
+          "text": "Pliny's figure is often quoted as if it were a trade statistic, but it is better read as a moral complaint. Roman writers attacked silk as a symbol of decline: Seneca wrote that silk clothes hid nothing of the body, and Pliny blamed spending on women for draining the treasury. No Roman accounts of that kind survive, and Pliny gives no source. His book also shows how little Romans knew about Chinese silk. He knew of a silk moth on the Greek island of Kos, but for the silk of the Seres he describes the Seres combing a white down off the leaves of trees, the same belief the poet Virgil had repeated a century earlier."
+        },
+        {
+          "type": "text",
+          "text": "Silk travelled more than 6,000 km, by land or by sea, to reach Rome, and most Romans did not know that it came from a caterpillar. That is the origin of a popular story: China kept the silkworm a secret for thousands of years, and sent silk west along a single highway called the Silk Road. In this lesson we look at how silk is made, at how far that story holds, and at what silk did inside China, where it was money as well as cloth."
+        }
+      ]
+    },
+    {
+      "title": "Raising silkworms",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 2 described the fibre: a continuous filament of protein, spun by the caterpillar of the domestic silk moth, *Bombyx mori*. Raising the caterpillars for silk is called **sericulture**. It needs two things that are hard to move from place to place: mulberry trees, whose leaves are almost the only food the caterpillars eat, and a great deal of skilled, careful work."
+        },
+        {
+          "type": "diagram",
+          "id": "sericulture",
+          "caption": "The silk farmer's year. The worms eat mulberry leaves for about four weeks before they spin."
+        },
+        {
+          "type": "text",
+          "text": "The eggs hatch in spring, when the mulberry leaves open. For about four weeks the caterpillars eat chopped leaves day and night, shedding their skin four times and growing to several thousand times their weight at hatching. The trays have to be kept warm, clean and dry, since the worms die easily of cold and disease. Then each caterpillar spins a cocoon in two or three days, laying down a single filament around itself, often around a kilometre long. If the moth were left to hatch, it would break the filament on its way out. So most cocoons are heated, by steaming, baking or putting them in the sun, to kill the pupa, and then soaked in hot water so the gum softens and the filament can be found and reeled. Only a few cocoons are kept to hatch and lay the next year's eggs."
+        },
+        {
+          "type": "text",
+          "text": "Several thousand cocoons give a kilogram of raw silk, so a single robe could take the work of a household for most of a season. In China this was the work of women. The saying \"men plough, women weave\" described the ideal farming family, and for most of Chinese history households paid part of their taxes in cloth, so the silk a family produced went partly to the state."
+        }
+      ]
+    },
+    {
+      "title": "An older and wider story",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "China does have the oldest evidence of silk. Fragments of woven silk from Qingtaicun, in Henan province, date to about 3600 BC, and chemical traces of silk protein have been reported from tombs at Jiahu that are about 8,500 years old.[^jiahu] But silk was never only Chinese. Several wild moths in India, the Mediterranean and elsewhere spin cocoons that can be used. Silk fibres from wild moths have been found in two cities of the Indus civilisation, Harappa and Chanhu-daro, in what is now Pakistan, dated to between about 2450 and 2000 BC.[^harappa] Greek writers knew a wild silk from the island of Kos. These wild silks are coarser, the cocoons are usually broken by the moth, and they cannot be farmed in the same way, so the domestic silkworm still mattered."
+        },
+        {
+          "type": "text",
+          "text": "The silkworm itself left China earlier than the story allows. Sericulture was practised in Korea and Japan by the early centuries AD; a Chinese history records Japanese envoys bringing silk as a gift in the 3rd century. The oasis kingdom of Khotan, on the southern edge of the Taklamakan desert, was raising silkworms by about the 5th century. Its own legend, recorded by the Chinese monk Xuanzang in the 7th century, said a Chinese princess married to the king of Khotan had smuggled eggs out in her headdress. A painted wooden panel found in a Khotanese shrine appears to show the princess and the headdress."
+        },
+        {
+          "type": "text",
+          "text": "The Byzantine historian Procopius told a similar story about his own empire. In about 552 some monks who had lived in a country north of India came to the emperor Justinian and offered to bring silkworm eggs back with them; they did, and the eggs hatched in Constantinople.[^procopius] Byzantium and Persia had woven imported silk thread for centuries already. What they had lacked was the worm. Within a few generations the Byzantine empire had its own silk industry, and by the 10th century it protected that industry with the rules on purple cloth that Liudprand met in lesson 6."
+        },
+        {
+          "type": "text",
+          "text": "The silkworm stayed mostly in Asia for a long time because sericulture was hard to copy without mulberry trees and people who knew the work, not because a border guard stopped every egg. Stories of a guarded secret come mostly from the people outside China who did not know how silk was made. For centuries China's real advantage was the scale and skill of its weaving, the subject of lesson 8."
+        }
+      ]
+    },
+    {
+      "title": "Silk as money",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Inside China, silk did a job that gold and silver coins did elsewhere. The Han dynasty (206 BC to AD 220) bought peace from the Xiongnu, the horse-riding confederation on its northern border, with marriage alliances and regular gifts of silk, and in some years the gifts ran to tens of thousands of bolts. A bolt was a standard length of plain silk, and it worked as a unit of value. Taxes were paid in it, soldiers and officials were paid in it, and prices were quoted in it."
+        },
+        {
+          "type": "text",
+          "text": "The Tang dynasty (618 to 907) did the same on a larger scale. Its garrisons in the far northwest, in the oases around Turfan and Dunhuang, were paid in bolts of silk sent from the central provinces, and documents recovered from Turfan show soldiers and local people using those bolts to buy grain, horses and land. The historian Valerie Hansen argues that this government spending, more than private trade, put silk into circulation along the routes through Central Asia. When the An Lushan rebellion broke out in 755, the Tang state stopped sending silk west, and the oasis economies shrank with it."
+        },
+        {
+          "type": "text",
+          "text": "That gives a different picture of the trade. Silk moved west partly because the Chinese state was spending it, and the merchants who carried it west were often trading silk they had earned locally, from soldiers and officials."
+        }
+      ]
+    },
+    {
+      "title": "Many routes, many goods",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The name Silk Road is modern. The German geographer Ferdinand von Richthofen coined *Seidenstraße* in 1877, while planning a railway across China. Historians now speak of silk routes, plural: a network of tracks between oases and cities, with many branches, crossing deserts and mountain passes. Few people travelled the whole way. Most goods were passed from merchant to merchant over short stages, and most trade along the routes was local, between neighbouring towns. Silk was one cargo among many: horses, jade, glass, silver, spices, paper, slaves, and religions, since Buddhism reached China along the same routes."
+        },
+        {
+          "type": "text",
+          "text": "Much of the long-distance trade from the 4th to the 8th century was run by the **Sogdians**, merchants from the cities around Samarkand and Bukhara in what is now Uzbekistan, who formed communities in towns all the way to the Chinese capital. A bundle of their letters, written in about 313 and never delivered, was found in 1907 by the archaeologist Aurel Stein in a ruined watchtower west of Dunhuang.[^letters] One is from a woman named Miwnay, stranded in Dunhuang by a husband who had left her, asking her mother for help. Another reports the sack of the Chinese capital Luoyang. The goods they mention include musk, linen, silver, pepper and silk."
+        },
+        {
+          "type": "text",
+          "text": "A large part of the trade also went by sea. By the 1st century AD, Greek and Roman merchants sailed from Egyptian ports on the Red Sea to India, using the monsoon winds that lesson 12 explains, and bought Chinese silk there that had come overland or by sea. After about 750, ships from the Persian Gulf sailed all the way to Guangzhou. A ship of Arab or Persian build that sank off the Indonesian island of Belitung in about 830 was found in 1998 with about 60,000 pieces of Tang pottery on board. Ships could carry far more than camels, and over the centuries the sea routes carried a growing share of the trade."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "silk-routes",
+          "caption": "Silk routes over 3,800 years. Gold marks places where silk moths were used by then; the main routes are drawn, not every track.",
+          "task": "Step through to about 1300",
+          "goal": "mongol"
+        },
+        {
+          "type": "text",
+          "text": "The routes were busiest when one power kept them safe: the Han and the Parthians in the 1st century, the Tang in the 7th and early 8th, and the Mongol empire in the 13th and 14th, when the Venetian Marco Polo made his journey. By then silk was raised and woven from Japan to Italy, and Chinese silk had to compete with Persian, Byzantine and Italian silk in western markets."
+        },
+        {
+          "type": "text",
+          "text": "**Try it.** If you have a silk scarf or tie, pull one thread loose from a frayed edge and untwist it. Reeled silk opens into long, smooth filaments with no short ends, each unwound from a cocoon. If you find short fibres instead, it is spun silk, made from broken cocoons, which is how wild silk was usually used."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on silk and its routes.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A silk farmer lets every cocoon hatch into a moth. What goes wrong?",
+                "choices": [
+                  "The moths break the filaments on the way out, so the cocoons cannot be reeled into long thread",
+                  "The moths eat the silk",
+                  "Nothing: the empty cocoons reel more easily",
+                  "The silk turns yellow"
+                ],
+                "answer": 0,
+                "why": "A hatching moth cuts through its cocoon, leaving short pieces of filament. That is why most cocoons are heated to kill the pupa first."
+              },
+              {
+                "ask": "Silk fibres from about 2450 BC are found at Harappa, in the Indus valley. What does that show?",
+                "choices": [
+                  "People in the Indus valley were using silk from wild moths of their own",
+                  "China exported silkworms to India by 2450 BC",
+                  "The Silk Road was already running",
+                  "Silk was invented in India"
+                ],
+                "answer": 0,
+                "why": "The Harappan fibres come from wild moths native to South Asia. Several peoples used wild silk; China's advantage was the domestic silkworm."
+              },
+              {
+                "ask": "A historian finds a Tang document from Turfan recording a horse bought for bolts of silk. Why were bolts in use so far west?",
+                "choices": [
+                  "The Tang state paid its garrisons there in silk, and the silk circulated as money",
+                  "Silk was grown in the Turfan desert",
+                  "Merchants from Rome had brought it back",
+                  "Horses would only eat mulberry leaves"
+                ],
+                "answer": 0,
+                "why": "Silk was a standard unit of value in China, and government payments to soldiers in the northwest put large amounts of it into local use."
+              },
+              {
+                "ask": "Why do historians say silk routes rather than the Silk Road?",
+                "choices": [
+                  "There were many tracks and sea lanes, few travellers went the whole way, and silk was one cargo among many",
+                  "The road was rebuilt several times",
+                  "The name was invented by Pliny",
+                  "Silk was carried only by sea"
+                ],
+                "answer": 0,
+                "why": "The single road is a 19th-century name. Goods moved in short stages over a network, and the trade included horses, paper, glass, silver and religions."
+              },
+              {
+                "ask": "Pliny wrote that the East took 100 million sesterces a year from Rome. What is the best way to use that figure?",
+                "choices": [
+                  "As evidence of what Roman moralists believed about luxury, not as a measured trade total",
+                  "As the true size of Rome's trade deficit",
+                  "As proof that Rome bought mostly silk",
+                  "As the price of silk in Rome"
+                ],
+                "answer": 0,
+                "why": "Pliny gives no source and wrote to attack luxury and spending by women. The number shows Roman attitudes; it is not an account book."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Sericulture is farming.** Silkworms eat mulberry leaves for about four weeks, spin a cocoon of one long filament, and are killed before hatching so the filament can be reeled.",
+    "**It is slow, skilled work.** Several thousand cocoons give a kilogram of raw silk, and in China the work belonged to women in farming households.",
+    "**China has the oldest silk, not the only silk.** Woven silk from about 3600 BC comes from Henan, but wild silk was used in the Indus cities by about 2450 BC.",
+    "**The secret leaked early.** Silkworms were raised in Korea and Japan by the early centuries AD, in Khotan by about the 5th century, and in Byzantium from about 552.",
+    "**Silk was money in China.** Han and Tang governments paid tribute, taxes, soldiers and officials in bolts of silk.",
+    "**State spending moved silk west.** Pay for Tang garrisons put silk into circulation in Central Asia, and the trade there shrank when it stopped after 755.",
+    "**There were silk routes, not one road.** The name is from 1877; goods moved in short stages, and Sogdian merchants ran much of the long-distance trade.",
+    "**The sea carried more over time.** Ships linked the Red Sea, the Persian Gulf, India and China, and carried far more than caravans.",
+    "**Roman complaints are not statistics.** Pliny's 100 million sesterces tells us what moralists believed about luxury."
+  ],
+  "footnotes": {
+    "pliny": {
+      "kind": "digression",
+      "title": "What Pliny wrote",
+      "text": "Pliny, *Natural History* 12.84. In 6.101 he gives a separate figure of 50 million sesterces a year for India alone. A sestertius was a small coin; a Roman legionary was paid about 900 a year in Pliny's time."
+    },
+    "jiahu": {
+      "kind": "technical",
+      "title": "The Jiahu traces",
+      "text": "The Jiahu result, published in 2016, rests on chemical tests of soil from graves, not on surviving cloth, and other scholars treat it with caution."
+    },
+    "harappa": {
+      "kind": "technical",
+      "title": "The Harappan silk",
+      "text": "Irene Good, Jonathan Mark Kenoyer and Richard Meadow reported the fibres in 2009, from moths of the genera *Antheraea* and *Philosamia*. They argued that some of the silk had been reeled from unbroken cocoons, not spun from broken ones."
+    },
+    "procopius": {
+      "kind": "digression",
+      "title": "Two versions of the story",
+      "text": "Procopius, *History of the Wars* 8.17. A later Byzantine writer, Theophanes of Byzantium, says the eggs were carried in a hollow cane and credits a single Persian. Where the monks came from is uncertain; Sogdiana and Khotan have both been proposed."
+    },
+    "letters": {
+      "kind": "digression",
+      "title": "The Ancient Letters",
+      "text": "They are called the Ancient Letters, and are now in the British Library. They are dated to about 313 because one letter reports the sack of Luoyang in 311 as recent news."
+    }
+  }
+}

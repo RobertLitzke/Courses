@@ -11,5 +11,5 @@ import { emptyProgress } from 'didactics/progress';
 import { FIGURES } from '../src/figures';
 import { WRITTEN } from '../src/lessons';
 
-const save = emptyProgress(location.search.includes('metric') ? 'metric' : 'imperial', { radio: false });
+const save = emptyProgress(location.search.includes('metric') ? 'metric' : 'imperial');
 document.getElementById('app')!.append(galleryPage({ figures: FIGURES, lessons: WRITTEN, save }).node);

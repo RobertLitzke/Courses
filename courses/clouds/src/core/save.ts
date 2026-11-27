@@ -14,7 +14,7 @@ export interface SaveData extends Progress {
 
 export function emptySave(): SaveData {
   // Metric by default; feet are a setting away.
-  return { ...emptyProgress('metric', { radio: false }), orders: [] };
+  return { ...emptyProgress('metric'), orders: [] };
 }
 
 /** Repair whatever was stored into a valid save, keeping all that can be kept. */

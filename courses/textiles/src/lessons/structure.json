@@ -1,0 +1,187 @@
+{
+  "id": "structure",
+  "n": 4,
+  "title": "Why do jeans hold their shape while T-shirts stretch?",
+  "teaches": "Woven and knitted cloth: warp and weft, plain, twill and satin weaves, the four-shaft loom, and why loops stretch",
+  "parts": [
+    {
+      "title": "Two shirts under a phone camera",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Put the macro setting of a phone camera, or a magnifying glass, against the leg of a pair of jeans and then against a cotton T-shirt. Both are cotton, often from the same fields and spun on the same kind of machine. Under magnification they look like two different materials. The denim is a grid: blue threads running down the leg, white threads running across, the blue ones crossing over three white ones at a time in steps that make diagonal lines. The T-shirt has no grid at all. It is made of columns of small V shapes, each a loop of yarn pulled through the loop below it."
+        },
+        {
+          "type": "text",
+          "text": "That difference in **structure**, the third of the four layers in lesson 1, is why one holds its shape and the other stretches. In this lesson we look at how a loom builds a woven cloth, why three common weaves look and behave so differently, and what knitting does instead."
+        }
+      ]
+    },
+    {
+      "title": "The loom",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A woven cloth has two sets of threads at right angles. The **warp** runs the length of the cloth and is fixed to the loom first, stretched under tension between two beams. The **weft** is passed across it, one row at a time, over some warp threads and under others. Each crossing of the weft is called a **pick**. Every loom in history, from a backstrap loom tied to a weaver's waist to an air-jet loom in a factory, repeats the same three moves: open a gap between the warp threads, pass the weft through it, and press the new row firmly against the cloth already made."
+        },
+        {
+          "type": "text",
+          "text": "The gap is the **shed**. Lifting warp threads one by one would be impossibly slow, so each warp thread passes through a loop or an eye in a **heddle**, and the heddles are mounted on bars called **shafts**. Lifting a shaft lifts every warp thread on it at once. On a four-shaft loom, warp threads 1, 5, 9 and so on are threaded on shaft 1, threads 2, 6 and 10 on shaft 2, and so on. After each pick a comb-like **reed**, through which all the warp threads pass, beats the weft into place."
+        },
+        {
+          "type": "text",
+          "text": "Warp and weft need different yarn. The warp hangs under tension for the whole time the cloth is on the loom, rubbed by the heddles and reed at every pick, so it has to be strong and smooth: it is spun with more twist, and often stiffened with a starch paste called **size**.[^size] The weft is under little strain and can be soft and loosely twisted. This difference becomes important in lesson 14, because the first English cotton yarns were too weak for warp."
+        }
+      ]
+    },
+    {
+      "title": "Plain, twill and satin",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Which shafts rise for each pick decides the weave. In the figure, choose the first pick's lift by tapping the shafts, then choose how the lift changes from each pick to the next: repeat the same lift, shift the lifted threads one place right or left, or swap the lifted and lowered threads. The cloth builds from the bottom of the drawing upward, one pick per row."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "weave",
+          "caption": "A four-shaft loom. Indigo threads are warp; pale threads are weft. Wherever a warp thread is lifted, it shows on the face of the cloth.",
+          "task": "Make denim's weave",
+          "goal": "denim"
+        },
+        {
+          "type": "text",
+          "text": "**Plain weave** takes every thread over one and under one, and on the next pick the threads that went over go under, and the other way round. It has the most crossings possible, so it is firm and hard-wearing and does not slip, but it is also stiff. Calico, muslin, canvas and shirting are plain weaves. **Twill** takes each thread over two or more and shifts the pattern one thread along each pick, so the floats line up into diagonal lines. Each thread crosses less often, so it bends less, and the threads can pack closer together and slide slightly against each other, so a twill is thicker, drapes better and hides dirt. Denim is a 3/1 twill: each warp thread goes over three weft threads and under one, so the face is mostly blue warp and the back mostly white weft. Gabardine, tweed and chino are twills too."
+        },
+        {
+          "type": "text",
+          "text": "**Satin** carries the idea further: each warp thread floats over four or more weft threads, and the crossings are scattered so they never line up. The face is almost all long floating threads, which reflect light evenly and give satin its gloss. The price is that floats snag. A true satin cannot be woven on four shafts, because scattering the crossings needs at least five. This is the general limit of a shaft loom: the number of shafts sets how complicated a repeat can be. Four shafts give plain weave, twills and simple patterns. A pattern that repeats only every few hundred threads, such as a flower or a dragon, needs some other way of choosing which threads to lift, and lesson 8 is about how Chinese weavers solved that 2,000 years ago."
+        }
+      ]
+    },
+    {
+      "title": "Knitting: one thread in loops",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Knitted cloth has no warp and weft. It is a single yarn formed into rows of loops, each loop pulled through a loop of the row before. The rows across are called **courses** and the columns of loops are called **wales**. The plain knit of a T-shirt is called **jersey**, after the Channel Island where knitted fishermen's sweaters were made.[^jersey]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "knit",
+          "caption": "The same pull on a woven cloth and a knitted one.",
+          "task": "Pull each one hard",
+          "goal": "both"
+        },
+        {
+          "type": "text",
+          "text": "A knit stretches because the loops change shape, not because the yarn does. Pulled across, each loop bends wider and shorter; let go, the bent yarn springs back, as long as it is springy enough. A woven cloth has almost nothing to give in the direction of its threads, because the threads already run straight. That is why jeans keep their shape and why tailored jackets, shirts and sheets are woven, while underwear, socks, T-shirts and sportswear are knitted. Woven cloth does stretch along the diagonal, called the **bias**, where the square grid can shear into diamonds, and dressmakers cut on the bias when they want a woven cloth to cling."
+        },
+        {
+          "type": "text",
+          "text": "Knitting came late. Looped fabrics made with a single needle, a technique called nålebinding,[^nalbinding] are thousands of years old, but true knitting with two or more needles appears in the surviving record only around the 11th century, in cotton socks from Egypt with patterns worked in blue and white. By the 16th century knitted stockings were a large industry in Europe, and the first knitting machine was built in England, traditionally dated to 1589. Machine knitting is fast, and from the 20th century cheap knitted cotton made the T-shirt one of the most common garments in the world."
+        },
+        {
+          "type": "text",
+          "text": "**Try it.** Look at your own clothes with a phone's macro mode or a magnifier. A plain grid is a plain weave; diagonal lines mean a twill (check the inside of a pair of jeans, which is mostly white weft); columns of small V shapes mean a jersey knit. A towel's loops standing up from a woven base are pile, covered in branch lesson M4."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on woven and knitted structure.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "A weaver lifts the same warp threads for every pick. What comes off the loom?",
+                "choices": [
+                  "No cloth: the weft never interlaces, so it pulls straight out",
+                  "A very firm plain weave",
+                  "A twill with steep diagonals",
+                  "A satin with long floats"
+                ],
+                "answer": 0,
+                "why": "Cloth holds together only because the weft goes over and under different warp threads on different picks. If the lift never changes, nothing interlaces."
+              },
+              {
+                "ask": "Why is warp yarn usually spun with more twist than weft, and often starched?",
+                "choices": [
+                  "The warp is held under tension and rubbed at every pick for the whole weaving",
+                  "The warp shows on the face, so it must be shinier",
+                  "Weft is woven first and needs to be soft to hold the warp",
+                  "Starch makes the warp take dye better"
+                ],
+                "answer": 0,
+                "why": "The warp hangs under strain on the loom for days or weeks and is chafed by heddles and reed, so it has to be strong and smooth; the weft is under little load."
+              },
+              {
+                "ask": "The back of a pair of jeans is mostly white. Why?",
+                "choices": [
+                  "In a 3/1 twill each warp thread floats over three weft threads, so the blue warp is on the face and the white weft on the back",
+                  "The denim is bleached on the inside",
+                  "The inside is a separate layer of white cloth",
+                  "Indigo only stays on the side exposed to air"
+                ],
+                "answer": 0,
+                "why": "Denim is warp-faced: three warp floats for every one weft float on the face, and the reverse on the back."
+              },
+              {
+                "ask": "A weaver with a four-shaft loom wants a satin. What is the problem?",
+                "choices": [
+                  "Satin's scattered crossings need at least five shafts",
+                  "Satin can only be woven from silk",
+                  "Satin needs a weft that is stronger than its warp",
+                  "Four shafts can only make plain weave"
+                ],
+                "answer": 0,
+                "why": "In a satin each crossing must be kept apart from its neighbours so no diagonal forms, which needs at least five shafts. Four shafts can make plain weave and twills."
+              },
+              {
+                "ask": "A knitted sleeve stretches a long way when pulled across, then springs back. Where does the stretch come from?",
+                "choices": [
+                  "The loops bend wider and shorter, and the springy yarn returns them",
+                  "The yarn fibres themselves stretch by more than half their length",
+                  "The threads slide through each other and are pulled back by friction",
+                  "Knits are woven very loosely"
+                ],
+                "answer": 0,
+                "why": "In a knit the yarn's path changes shape. Stretch yarns such as elastane (also sold as spandex or Lycra) add more, but even plain cotton jersey stretches because of its loops."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Warp and weft.** The warp is stretched on the loom; the weft crosses it one pick at a time.",
+    "**Three moves.** Every loom opens a shed, passes the weft, and beats it in with the reed.",
+    "**Shafts lift many threads at once.** Heddles on shafts decide which warp threads rise for each pick.",
+    "**Warp needs strength.** Warp yarn is harder twisted and sized; weft can be soft.",
+    "**Plain, twill, satin.** Over one under one is firm; stepped floats make a twill's diagonal; scattered long floats make satin shine.",
+    "**Denim is a 3/1 twill.** Blue warp on the face, white weft on the back.",
+    "**Shafts limit patterns.** Four shafts give plain and twills; satin needs five, and large figures need another method.",
+    "**Knits stretch because loops bend.** One yarn in rows of loops (courses) and columns (wales) gives and recovers."
+  ],
+  "footnotes": {
+    "jersey": {
+      "kind": "digression",
+      "title": "Jersey and guernsey",
+      "text": "Both Channel Islands gave their names to knitted fishermen's sweaters. Jersey came to mean the fine plain knit itself, and guernsey, in Britain and Australia, a thick knitted sweater."
+    },
+    "nalbinding": {
+      "kind": "technical",
+      "title": "Nålebinding",
+      "text": "Nålebinding builds a fabric of loops with one short needle and short lengths of yarn, each loop passed through earlier ones. It looks like knitting but is made differently: a pulled thread does not unravel it. Socks made this way survive from Roman Egypt."
+    },
+    "size": {
+      "kind": "technical",
+      "title": "Why warp is sized",
+      "text": "Size, a paste of starch or gum, glues stray fibre ends down onto the yarn so the warp slides through heddles and reed without fraying. It is washed out of the finished cloth, which is why new jeans and calico feel stiff until washed."
+    }
+  }
+}

@@ -4,6 +4,7 @@
     "photography": [130, 110],
     "electronics": [130, 380],
     "synthesizers": [130, 650],
+    "textiles": [320, 640],
     "finance": [130, 890],
     "philosophy": [350, 890],
     "systems": [330, 380],
@@ -11,16 +12,16 @@
     "astronomy": [870, 110],
     "geology": [670, 330],
     "rivers": [870, 330],
-    "botany": [470, 600],
-    "soil": [670, 600],
-    "bats": [870, 600],
-    "fungi": [570, 830],
-    "ecology": [770, 830]
+    "botany": [530, 600],
+    "soil": [730, 600],
+    "bats": [930, 600],
+    "fungi": [630, 830],
+    "ecology": [830, 830]
   },
   "shelves": [
     { "title": "Sky and Earth", "note": "Weather, water, rock and the stars", "courses": ["clouds", "astronomy", "geology", "rivers"] },
     { "title": "Living things", "note": "Plants, fungi, bats and the ground under them", "courses": ["botany", "soil", "bats", "fungi", "ecology"] },
-    { "title": "Making things", "note": "Machines to understand and use well", "courses": ["photography", "electronics", "systems", "synthesizers"] },
+    { "title": "Making things", "note": "Machines to understand and use well, and how cloth is made", "courses": ["photography", "electronics", "systems", "synthesizers", "textiles"] },
     { "title": "Money", "note": "Making savings last", "courses": ["finance"] },
     { "title": "Ideas", "note": "Arguing about how to live and what to believe", "courses": ["philosophy"] }
   ],

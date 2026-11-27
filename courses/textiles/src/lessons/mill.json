@@ -1,0 +1,144 @@
+{
+  "id": "mill",
+  "n": 15,
+  "title": "What was a factory day like?",
+  "teaches": "Water power before steam; Lombe's silk mill and Arkwright's Cromford; shifts and locked gates; women and children as the early workforce; the power loom and the handloom weavers; the Luddites; the factory clock",
+  "parts": [
+    {
+      "title": "The gates at Cromford",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In December 1771 Richard Arkwright advertised in the *Derby Mercury* for workers for his new cotton mill at Cromford, in a narrow Derbyshire valley with a fast stream. He wanted clockmakers and smiths to build and mend the machines, and families: weavers to work at home on the yarn, with children \"of seven years of age and upwards\" to work in the mill. The mill ran day and night in two shifts of about twelve hours, changing at six in the morning and six in the evening. According to later accounts, the gate was locked at the start of each shift, and a worker who arrived late lost the day's pay."
+        },
+        {
+          "type": "text",
+          "text": "Cromford was not the first factory, but it became the model for hundreds of cotton mills in the next thirty years. In this lesson we look at what a mill was, who worked in it and on what terms, what the power loom did to the handloom weavers of lesson 14, and how people resisted. It is the second Bottleneck and Fix lesson, and its fix had costs that fell on particular people."
+        }
+      ]
+    },
+    {
+      "title": "Water before steam",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first textile factories ran on water. In 1721 the brothers John and Thomas Lombe opened a silk mill on an island in the River Derwent at Derby, using machines for throwing silk (twisting reeled silk into thread) copied from mills in Piedmont, in northern Italy, where John Lombe had worked. The mill had several hundred workers and one large water wheel driving every machine through shafts and gears. It is often called the first factory in England, half a century before Cromford."
+        },
+        {
+          "type": "text",
+          "text": "Arkwright's water frame, unlike the jenny, needed more power than a person could supply, so it went where the water was: Pennine and Derbyshire valleys, and later Scottish rivers such as the Clyde at New Lanark. Steam engines were first used to drive cotton machinery in the 1780s, but water stayed the main source of power for cotton spinning until the 1820s and 1830s. Steam mattered because it freed mills from rivers. They could then be built in towns such as Manchester, close to workers, coal, canals and buyers, and run all year without drought or frozen streams."
+        }
+      ]
+    },
+    {
+      "title": "Who worked in the mills",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The early mills did not replace skilled men. The machines were tended by people the owners could pay least: women, girls and children. Children pieced together broken threads, swept under the machines while they ran, and carried bobbins. Remote water mills that could not find enough local workers took **pauper apprentices**, orphans and poor children sent by parish authorities in cities, who lived in apprentice houses and worked until they were 21. Skilled adult men were a minority: mule spinners, who ran the larger machines with child helpers, and the mechanics who kept everything working. In the 1830s about half of all cotton mill workers in Britain were women and girls, and a large share of the rest were boys under 18."
+        },
+        {
+          "type": "text",
+          "text": "The day was long and regular. Shifts of twelve hours or more, six days a week, were normal; meals were short; and the pace was set by the machines and the overseers. Fines were charged for lateness, for talking, for leaving a window open. Mills were hot and humid, since cotton breaks less in damp air, and the air was full of fibre dust. Accidents with unguarded machinery were common. Parliament passed its first Factory Act in 1802, for apprentices, and in 1833 banned children under 9 from textile mills, limited children aged 9 to 13 to nine hours a day, and appointed inspectors to enforce it."
+        },
+        {
+          "type": "text",
+          "text": "**Where it went next.** Before factories, most work followed tasks and seasons: a weaver might work little early in the week and through the night before the cloth was due. A mill could not run unless everyone was there at once, so the factory taught a new discipline of the clock: bells, gates, fines and fixed hours. The historian E. P. Thompson argued in 1967 that this was one of the deepest changes of industrialisation. The fixed working day, the weekend and the time clock all descend from it."
+        }
+      ]
+    },
+    {
+      "title": "The power loom",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Once spinning was mechanised, weaving was the bottleneck again, and for about thirty years that was good news for weavers. Yarn was cheap and plentiful, demand for cloth grew, and the number of handloom weavers in cotton rose to something like a quarter of a million by the 1820s. Many were former spinners, farm workers and their children, working at home on looms they owned or rented."
+        },
+        {
+          "type": "text",
+          "text": "Edmund Cartwright, a clergyman, patented a **power loom** in 1785 and had a working version by about 1787. Early power looms were unreliable, broke threads often and needed the warp dressed (stiffened with starch) by hand, so they spread slowly. After improvements in the 1800s and 1810s, and especially Richard Roberts's iron loom of 1822, they spread quickly: Britain had only a few thousand in 1813 and roughly 100,000 by the early 1830s. One worker, often a young woman, could mind two or more power looms."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "workshop",
+          "caption": "The same district around 1810: spinning and carding by machine, most of the workers now weaving by hand. Add the power loom.",
+          "task": "Bring in the power loom and see what happens to the weavers",
+          "goal": "loom"
+        },
+        {
+          "type": "text",
+          "text": "Handloom weavers could not compete. Their piece rates, the pay for each length of cloth, had already been falling as so many people entered the trade, and the power loom pushed them down further. By the 1830s a handloom weaver of plain cotton earned a fraction of what the same work had paid around 1800, and many families lived close to starvation. Parliament held inquiries into their distress in the 1830s, and the numbers fell over the next two decades as weavers' children went into the mills. In the figure, the power loom turns most of the district's weaving capacity into idle hours."
+        }
+      ]
+    },
+    {
+      "title": "The Luddites",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Between 1811 and 1816, groups of workers in the English Midlands and North broke machines at night, signing threatening letters in the name of \"General Ludd\". The **Luddites** are now remembered as people who hated technology, but most of them were neither cotton spinners nor against machines in general. In Nottinghamshire they were framework knitters, who made stockings on hand-operated knitting frames and smashed the frames of employers who cut rates or made cheap, badly made goods. In Yorkshire they were croppers, skilled men who finished woollen cloth with huge hand shears, attacking the shearing frames that replaced them. In Lancashire, handloom weavers attacked mills with power looms, and in 1812 a power-loom mill at Westhoughton was burned."
+        },
+        {
+          "type": "text",
+          "text": "The historian Eric Hobsbawm called this kind of protest \"collective bargaining by riot\": breaking an employer's machines was a way to force him to keep wages and standards in a trade with no legal unions. The government's answer was force. Machine breaking was made a capital crime in 1812, thousands of soldiers were sent into the disturbed counties, and in January 1813 fourteen men were hanged at York after trials for Luddite attacks. Machine breaking died out, and workers turned instead to trade unions, strikes and campaigns for shorter hours."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the factory.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Why were early cotton mills built in remote valleys rather than in towns?",
+                "choices": ["The water frame needed water power, so mills went where the rivers were fast", "Towns had banned factories", "Workers preferred the countryside", "Cotton grew in the valleys"],
+                "answer": 0,
+                "why": "Before steam engines were adopted for cotton, a mill needed a fast stream. Steam later let mills move to towns."
+              },
+              {
+                "ask": "Who did most of the work in an early cotton spinning mill?",
+                "choices": ["Women, girls and children, with a few skilled men", "Skilled adult men who had been hand spinners", "Engineers", "Handloom weavers"],
+                "answer": 0,
+                "why": "The machines needed tending, not strength or craft skill, and women and children could be paid least. Mule spinners and mechanics were the skilled minority."
+              },
+              {
+                "ask": "Handloom weavers did well around 1800 and badly by the 1830s. What changed?",
+                "choices": ["Too many people had entered the trade, and power looms then cut piece rates further", "Yarn became scarce", "Weaving was banned", "Cloth went out of fashion"],
+                "answer": 0,
+                "why": "Cheap machine yarn first created work for weavers. Overcrowding of the trade and then the power loom drove their piece rates down."
+              },
+              {
+                "ask": "A croppers' group in Yorkshire in 1812 smashes a shearing frame. What were they most likely trying to do?",
+                "choices": ["Protect their wages and trade from a machine that replaced them, by pressuring employers", "Stop all use of machines everywhere", "Steal the frames to use themselves", "Protest against cotton imports"],
+                "answer": 0,
+                "why": "Luddite attacks were targeted. Hobsbawm called them collective bargaining by riot, in trades with no legal unions."
+              },
+              {
+                "ask": "Why did mill owners fine workers for arriving late and lock the gates?",
+                "choices": ["Every machine had to be staffed at once, so the mill needed everyone at the same fixed time", "To keep the cotton dry", "To stop theft of yarn", "The law required it"],
+                "answer": 0,
+                "why": "Hand workers could set their own hours. Machines driven by one water wheel or engine needed all their workers together, which brought in the discipline of the clock."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Factories began with water.** Lombe's silk mill of 1721 and Arkwright's Cromford of 1771 ran every machine from one water wheel.",
+    "**Steam moved mills to towns.** Water stayed the main power for cotton spinning until the 1820s and 1830s; steam freed mills from rivers.",
+    "**The early workforce was women and children.** Machines needed tending, not craft, and pauper apprentices filled remote mills.",
+    "**The day ran by the clock.** Twelve-hour shifts, locked gates and fines taught a new time discipline.",
+    "**The law came slowly.** Factory Acts of 1802 and 1833 began to limit child labour and appointed inspectors.",
+    "**Cheap yarn first helped weavers.** Their numbers rose to around a quarter of a million by the 1820s.",
+    "**The power loom ruined them.** Cartwright's loom of 1785 spread after the 1820s, and handloom piece rates collapsed.",
+    "**The Luddites were specific.** Framework knitters, croppers and handloom weavers broke particular machines to defend their trades, and were put down by force."
+  ],
+  "footnotes": {}
+}

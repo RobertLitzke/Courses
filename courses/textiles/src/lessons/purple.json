@@ -1,0 +1,158 @@
+{
+  "id": "purple",
+  "n": 6,
+  "title": "Why was purple reserved for emperors?",
+  "teaches": "Tyrian purple and its cost, and sumptuary laws from Rome and Byzantium to Ming China, Edo Japan, the Ottomans and late medieval and Tudor England",
+  "parts": [
+    {
+      "title": "Searched at the border",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 968 Liudprand, bishop of Cremona, came to Constantinople as ambassador of the German emperor Otto I, to negotiate a marriage. The mission went badly, and he wrote a furious account of it. One of his grievances came at the end. As he prepared to leave, Byzantine officials searched his baggage and took away the purple silks he had bought in the city, because such cloth was reserved for the emperor's court and forbidden to foreigners. Liudprand protested that he had been promised he could buy whatever he liked; the officials replied that these cloths were not for sale to anyone outside the empire."
+        },
+        {
+          "type": "text",
+          "text": "The Byzantine court was enforcing a rule whose roots ran back to Rome, almost a thousand years earlier. Purple cloth meant power in the Mediterranean world because its dye was the most expensive colour there was. In this lesson we look at where the dye came from and why it cost so much, and then at a kind of law that appears in almost every society with a market in cloth: the **sumptuary law**, a law saying who may wear what."
+        }
+      ]
+    },
+    {
+      "title": "Thousands of snails a gram",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Tyrian purple** came from sea snails of the Murex family, collected along the coasts of the eastern Mediterranean. Tyre and Sidon, Phoenician cities in what is now Lebanon, were famous for it, and the word Phoenician may itself come from a Greek word for the colour. Each snail has a small gland that holds a colourless liquid. Exposed to air and light, the liquid turns yellow, then green, then purple. Dyers crushed the snails or cut out the glands, left them to steep for days in salted vats, and heated the mixture slowly. The heaps of broken shells they left behind still survive near ancient dye works, and the vats were notorious for their stench."
+        },
+        {
+          "type": "text",
+          "text": "Chemically the dye is a close relative of indigo, from lesson 5: indigo with two bromine atoms added, which the snails take from seawater. It is applied the same way, in a vat that turns it soluble, and it turns purple on the cloth in the air. Like indigo it is very fast, and unlike most ancient reds and purples it did not fade in sunlight; it was said to grow brighter."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "scale-guess",
+          "caption": "Based on the chemist Paul Friedländer's experiment of 1909, in which he extracted pure dye from Murex snails himself.",
+          "task": "Guess the snails in a gram of dye",
+          "goal": "guess",
+          "options": {
+            "title": "Snails",
+            "unit": "snails",
+            "log": true,
+            "items": [
+              { "label": "A full bucket of snails", "value": 300, "color": "soft" },
+              { "label": "Snails for 1 g of pure purple dye", "value": 9000, "color": "purple", "says": "about 9,000 snails for a single gram" }
+            ],
+            "guess": { "item": 1, "ask": "A bucket holds about 300 snails. How many snails does it take to make one gram of pure purple dye?", "options": [100, 900, 9000] }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Friedländer used 12,000 snails to make 1.4 g of pure dye, so about 9,000 snails a gram. A gram of dye does not colour much cloth, so a deeply dyed garment needed tens of thousands of snails, and the best purples were dyed twice. The price shows it. In 301 the emperor Diocletian issued an edict fixing maximum prices for goods across the Roman Empire, in an attempt to stop inflation. A copy carved in stone at Aphrodisias, in Turkey, lists a pound of silk dyed with the finest purple at 150,000 denarii, against 72,000 denarii (the Roman silver coin of account) for a pound of gold. By weight, the best purple cloth cost about twice as much as gold."
+        }
+      ]
+    },
+    {
+      "title": "Stripes, borders and the whole robe",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Rome used purple to mark rank by degrees. A senator wore a tunic with a broad purple stripe, a knight (a member of the wealthy class below the senators) a narrow one. Magistrates and freeborn boys wore a toga with a purple border. A general celebrating a triumph, the victory parade the Senate granted after a great win, wore a toga that was purple all over, for that day only. Under the emperors, all-purple robes became an imperial privilege, and several emperors restricted the finest grades of dye to their own household, although writers complained that rich private citizens kept wearing it anyway."
+        },
+        {
+          "type": "text",
+          "text": "Byzantium, the eastern Roman Empire, made purple the emperor's colour by law. The finest dye works and silk workshops belonged to the state, and the most valuable cloths, which Byzantine sources call the forbidden ones, could not be sold abroad. These were the silks taken from Liudprand's bags. An emperor's child born during his reign was called *porphyrogennetos*, \"born in the purple\", after a palace room lined with purple stone where empresses gave birth, and the phrase is still used in English for someone born into privilege."
+        }
+      ]
+    },
+    {
+      "title": "Laws about clothes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Clothing works as a **signal**: it tells other people something about the wearer that they cannot see directly, such as wealth, rank, office, religion or marital status. A signal is believable only if it is costly to fake. For most of history, cloth was costly enough to do that by itself, as lesson 3 showed. The trouble came when people outside the old elite became rich. A merchant could afford what a lord wore, and when he bought it the signal stopped meaning what the lord wanted it to mean. Sumptuary laws tried to keep the signal scarce by law when money alone no longer could."
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "Some sumptuary rules about cloth. Many were repeated again and again, which suggests that people kept breaking them.",
+          "options": {
+            "spacing": "even",
+            "events": [
+              { "at": -100, "when": "Roman Republic", "label": "Purple stripes and borders mark senators, knights and magistrates", "color": "purple" },
+              { "at": 301, "when": "301", "label": "Diocletian's price edict values purple silk above gold", "color": "purple" },
+              { "at": 968, "when": "10th century", "label": "Byzantium forbids the export of the finest purple silks", "color": "purple" },
+              { "at": 1400, "when": "Ming China, from 1368", "label": "Dragon robes and certain colours reserved for the emperor and court ranks", "color": "gold" },
+              { "at": 1533, "when": "1533", "label": "England's Act of Apparel: purple silk only for the king and his close family", "color": "purple" },
+              { "at": 1600, "when": "Ottoman Empire, 16th to 18th centuries", "label": "Rules on colours and headgear for officials and for non-Muslims", "color": "gold" },
+              { "at": 1683, "when": "Edo Japan, 1683", "label": "Merchants forbidden luxury silks; they line plain robes with silk instead", "color": "gold" }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Sumptuary laws were almost universal, and the way they were reissued again and again suggests they were widely broken. England passed acts of apparel through the 14th, 15th and 16th centuries, each listing in detail which ranks could wear velvet, sable, cloth of gold or purple silk; the frequency of new acts is the best evidence that the old ones were ignored. Ming China reserved dragon motifs and certain colours for the emperor and graded official robes by rank, and late Ming writers complained that rich commoners dressed like officials. In Edo Japan, the shogunate repeatedly forbade the merchant class to wear expensive silks, and wealthy merchants answered by wearing plain cotton or sober silk on the outside and spending their money on linings and underrobes that only intimates saw. The Ottoman Empire used dress rules to distinguish officials by rank and Muslims from Christians and Jews, through the colours of turbans and shoes."
+        },
+        {
+          "type": "text",
+          "text": "Two things ended most sumptuary laws. Rulers found that taxing luxury was more profitable than banning it, and from the 18th century cheaper cloth, much of it the printed cotton of lesson 12, made fashion available to so many people that no law could police it. The idea itself survives in school uniforms, military insignia, judges' robes and dress codes, and in a fashion branch lesson on wartime clothing, where a 20th-century government set the length of hems by law for a different reason: rationing."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on purple and sumptuary laws.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Why did purple become the colour of Roman and Byzantine emperors?",
+                "choices": ["Its dye came from thousands of sea snails a gram, so it was the costliest colour there was", "Purple was the only colour that could be woven into silk", "Emperors were descended from the Phoenicians of Tyre", "Purple dye was made from gold"],
+                "answer": 0,
+                "why": "Rarity and cost made purple a believable signal of power, and its fastness made it a durable one."
+              },
+              {
+                "ask": "Tyrian purple and indigo are dyed the same way. Why?",
+                "choices": ["They are chemically close relatives, and both must be made soluble in a vat and turn coloured in air", "Both come from sea snails", "Both need an alum mordant", "Both are made from the leaves of the same plant"],
+                "answer": 0,
+                "why": "Tyrian purple is indigo with two bromine atoms added; like indigo, it is insoluble until reduced in a vat."
+              },
+              {
+                "ask": "A country passes a law forbidding merchants to wear silk, then passes the same law again ten years later, and again ten years after that. What does the repetition most likely show?",
+                "choices": ["The law was widely broken, as rich people outside the old elite kept buying what they could afford", "Silk became more expensive each decade", "The merchants had asked for the law", "The first law had been forgotten by the government"],
+                "answer": 0,
+                "why": "Historians read repeated sumptuary laws as evidence that they failed; money kept letting new people buy the old signals."
+              },
+              {
+                "ask": "In Edo Japan, rich merchants wore plain outer robes lined with expensive silk. What were they doing?",
+                "choices": ["Obeying the sumptuary laws on the surface while still spending on luxury, seen only by intimates", "Keeping warm in winter", "Hiding silk to sell abroad", "Following a religious rule against bright colours"],
+                "answer": 0,
+                "why": "The laws restricted what merchants could show; the lining moved the signal to a smaller audience, who would know what it cost."
+              },
+              {
+                "ask": "Which explains why sumptuary laws appear when they do in a society's history?",
+                "choices": ["When new wealth lets people outside the elite afford elite clothing, the signal stops working unless law restricts it", "When cloth becomes so cheap that everyone dresses alike", "When a ruler first learns to dye purple", "When a society first starts weaving"],
+                "answer": 0,
+                "why": "A signal is believable only while it is costly to fake. Sumptuary laws try to restore that cost by law once money can buy it."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Purple came from sea snails.** About 9,000 Murex snails gave one gram of pure dye.",
+    "**It is a cousin of indigo.** Indigo with bromine added, vatted the same way, and very fast.",
+    "**Purple silk cost more than gold.** Diocletian's edict of 301 priced a pound of the finest purple silk at about twice a pound of gold.",
+    "**Rome graded rank by purple.** Stripes for senators and knights, borders for magistrates, the whole robe for a triumph and later the emperor.",
+    "**Byzantium made it law.** The finest purple silks were the emperor's, forbidden to foreigners, as Liudprand found in 968.",
+    "**Clothes are signals.** They tell others about rank and wealth, and a signal is believable only if it is costly to fake.",
+    "**Sumptuary laws.** Rules on who may wear what, from Rome to Ming China, Edo Japan, the Ottomans and England, repeated because they were broken.",
+    "**Cheap cloth ended them.** Taxing luxury paid better than banning it, and printed cotton made fashion too common to police."
+  ],
+  "footnotes": {}
+}
