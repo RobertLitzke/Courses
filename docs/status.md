@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 38 | 4 | 34 | 38 | 38 | 38 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 39 | 3 | 35 | 39 | 39 | 39 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 4 lessons to write, 34 to read through, 38 to copy-edit, 38 to fact-check, 38 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 3 lessons to write, 35 to read through, 39 to copy-edit, 39 to fact-check, 39 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -587,7 +587,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | K2 | Can Achilles catch the tortoise? (`zeno`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Zeno's paradoxes and what infinite sums settle. |
 | K3 | When does a heap stop being a heap? (`heap`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The sorites paradox and vague words. |
 | K4 | The three pages that broke knowledge (`gettier`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Justified true belief and Gettier's 1963 counterexamples. |
-| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | planned, listed as coming |  | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
+| K5 | How does science know it's wrong? (`science`) | Tools and puzzles | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts. |
 | K6 | Can you have a private language? (`wittgenstein`) | Tools and puzzles | planned, listed as coming |  | Wittgenstein, language games and the beetle in the box. |
 | K7 | Why does some philosophy sound like gibberish? (`gibberish`) | Tools and puzzles | planned, listed as coming |  | The analytic and continental split, and Heidegger in plain words. |
 | K8 | What do we owe people who don't exist yet? (`future`) | Tools and puzzles | planned, listed as coming |  | Parfit's non-identity problem and duties to future generations. |

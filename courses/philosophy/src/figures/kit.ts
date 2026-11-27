@@ -65,6 +65,9 @@ export const COL = {
   epistemic: '#7d5a9a',
   /** Branch K4: a true belief that is right by luck. */
   lucky: '#e0a33a',
+  /** Branch K5: claims that could or could not be refuted by observation. */
+  testable: '#3f8f5a',
+  untestable: '#7d7782',
 } as const;
 export type ColorKey = keyof typeof COL;
 

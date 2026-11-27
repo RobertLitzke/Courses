@@ -1,0 +1,274 @@
+{
+ "id": "science",
+ "n": 305,
+ "branch": "tools",
+ "needs": [
+  "hume"
+ ],
+ "title": "How does science know it's wrong?",
+ "teaches": "Popper's falsification, the Vienna Circle, and Kuhn's paradigm shifts",
+ "parts": [
+  {
+   "title": "Vienna, 1919",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1919 Karl Popper was a 17-year-old in Vienna, interested in everything. Three theories were the talk of the city: Marx's theory of history, Freud's psychoanalysis, and the individual psychology of Alfred Adler, for whom Popper did volunteer social work with children. Their admirers were impressed by how much they explained. Whatever happened, the theory could account for it."
+    },
+    {
+     "type": "text",
+     "text": "Popper once described a child's case to Adler, who analysed it at once in terms of his theory of inferiority feelings, without having seen the child. Popper asked how he could be so sure. \"Because of my thousandfold experience\", Adler said. \"And with this new case, I suppose,\" Popper replied, \"your experience has become thousand-and-one-fold.\""
+    },
+    {
+     "type": "text",
+     "text": "The same year, the British astronomer Arthur Eddington photographed stars near the Sun during a total eclipse to test Einstein's new theory of gravity, which predicted that the Sun's gravity would bend their light by a definite amount. If the stars had appeared in the wrong places, the theory would have been refuted. They appeared about where Einstein said.[^eclipse] Popper saw the difference. Einstein's theory had taken a risk, and survived. Adler's could not lose, and that, he decided, was not a strength but a weakness."
+    }
+   ]
+  },
+  {
+   "title": "Falsification",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Popper set out his answer in *The Logic of Scientific Discovery* (1934). It was also an answer to Hume's problem of induction from lesson 14. Hume had shown that no number of observations proves a general law. Seeing a thousand white swans does not prove that all swans are white, as Europeans found when Dutch sailors reached Western Australia in 1697 and saw black ones. But one black swan is enough to prove that not all swans are white. Proof and disproof are not symmetrical."
+    },
+    {
+     "type": "text",
+     "text": "So, Popper said, science does not work by induction at all. Scientists make bold guesses, **conjectures**, and then try as hard as they can to refute them. A theory that survives many serious attempts at refutation is not proved; it is **corroborated**, and we are entitled to use it until it fails. What makes a theory scientific is that it is **falsifiable**: it says something definite enough about the world that some possible observation would show it false. A theory compatible with every possible observation tells us nothing."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Six claims. Sort each by whether some possible observation could show it to be false.",
+     "task": "Sort all six",
+     "goal": "sorted",
+     "options": {
+      "ask": "Could an observation refute this?",
+      "groups": [
+       {
+        "name": "Falsifiable",
+        "color": "testable"
+       },
+       {
+        "name": "Not falsifiable",
+        "color": "untestable"
+       }
+      ],
+      "items": [
+       {
+        "name": "Water at sea level boils at 100 degrees Celsius",
+        "group": "Falsifiable",
+        "why": "Boil some water at sea level and measure."
+       },
+       {
+        "name": "All swans are white",
+        "group": "Falsifiable",
+        "why": "One black swan refutes it, and did."
+       },
+       {
+        "name": "Light passing the Sun is bent by 1.75 arcseconds",
+        "group": "Falsifiable",
+        "why": "Einstein's risky prediction, tested in 1919."
+       },
+       {
+        "name": "Everything happens for a reason",
+        "group": "Not falsifiable",
+        "why": "Any event at all can be said to have had a reason."
+       },
+       {
+        "name": "You will meet someone important to you, sooner or later",
+        "group": "Not falsifiable",
+        "why": "With no time limit, no observation could show it false."
+       },
+       {
+        "name": "Every action is selfish, even ones that look generous",
+        "group": "Not falsifiable",
+        "why": "As usually defended, any generous act is reinterpreted as secretly selfish."
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Popper's test. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "falsifiable",
+      "ask": "If no possible observation could show a theory to be false, is that a reason to think it is not science?",
+      "choices": [
+       "Yes: a theory that cannot fail tells us nothing about the world",
+       "No: some sciences study things that cannot be tested directly",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Popper's answer.",
+       "You chose the answer of many critics, who point to parts of cosmology and evolutionary history that are hard to test by observation.",
+       "Philosophers of science are divided on how strict the test should be."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "The rule that refuted itself",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Popper's ideas formed partly in argument with a group of philosophers and scientists who met in Vienna in the 1920s and 1930s, the **Vienna Circle**, led by Moritz Schlick and including Rudolf Carnap and Otto Neurath. They admired science and wanted to clear philosophy of what they saw as nonsense. Their tool was the **verification principle**: a statement means something only if it is true by definition, as in mathematics and logic, or can be checked by observation. Everything else, including most of metaphysics, theology and ethics, was literally meaningless, not false but empty noise."
+    },
+    {
+     "type": "text",
+     "text": "The principle had a famous flaw. It is not true by definition, and no observation could verify it. So, by its own test, it is meaningless. The movement's best-known English voice, A. J. Ayer, whose *Language, Truth and Logic* (1936) made the ideas famous at the age of 25, was asked in a 1978 television interview what its main defects had been. \"Well, I suppose the most important of the defects was that nearly all of it was false.\"[^schlick]"
+    },
+    {
+     "type": "text",
+     "text": "Popper had never accepted verification as a test of meaning. Falsifiability, for him, was a test of what counts as science, not of what makes sense: metaphysics could be meaningful and even important, just not scientific.[^popper]"
+    }
+   ]
+  },
+  {
+   "title": "Neptune and Vulcan",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Falsification ran into trouble with the history of science. In the 1840s, the planet Uranus was not following the orbit Newton's laws predicted. On Popper's account, astronomers should have considered Newton refuted. Instead, the French mathematician Urbain Le Verrier assumed Newton was right and calculated where an unknown planet would have to be to pull Uranus off course. In September 1846, astronomers in Berlin pointed a telescope at the spot and found Neptune."
+    },
+    {
+     "type": "text",
+     "text": "Le Verrier tried the same thing with Mercury, whose orbit also did not quite fit, and predicted another planet, Vulcan, close to the Sun. Astronomers searched for it for decades and some claimed to have seen it, but it does not exist. Mercury's orbit was explained only in 1915, by Einstein's theory. The same move, defending a theory by adding an assumption, led to a great discovery once and to a dead end the next time."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Uranus in the 1840s. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "neptune",
+      "ask": "A well-tested theory makes a prediction that fails. Should scientists give up the theory, or look for something else that might explain the failure?",
+      "choices": [
+       "Give it up: a failed prediction is a refutation",
+       "Look for something else first, such as an unseen planet",
+       "It depends on how well the theory has done before",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the strict falsificationist answer. In the 1840s it would have meant giving up Newton before Neptune was found.",
+       "You chose Le Verrier's answer, which found Neptune and then failed to find Vulcan.",
+       "You chose the answer most philosophers of science give now, following Kuhn and Lakatos.",
+       "This is the problem Popper's critics pressed hardest."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The French physicist Pierre Duhem had already noticed the problem in 1906: a prediction always depends on a theory together with other assumptions, about instruments, conditions and the rest, so a failed prediction shows only that something in the bundle is wrong, not which part. Popper accepted this, and said scientists must decide in advance which assumptions they will not rescue. His critics replied that real scientists do not and should not work that way."
+    }
+   ]
+  },
+  {
+   "title": "Paradigm shifts",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1962 the American physicist turned historian Thomas Kuhn published *The Structure of Scientific Revolutions*, which became one of the most cited books of the century. Kuhn said that most science is **normal science**: work within a **paradigm**, an accepted framework of theory, methods and model examples, such as Newtonian mechanics. Normal scientists do not try to refute their paradigm; they solve puzzles within it, and when a result does not fit, they assume they have made a mistake, as Le Verrier did."
+    },
+    {
+     "type": "text",
+     "text": "Over time, results that will not fit, **anomalies**, pile up. When enough accumulate, the field enters a crisis, and eventually a new paradigm replaces the old one, as Einstein's physics replaced Newton's and Lavoisier's chemistry replaced the theory of phlogiston. Kuhn called this a **scientific revolution**, and compared it to a gestalt switch, in which a drawing that looked like a duck suddenly looks like a rabbit. He argued that rival paradigms are partly **incommensurable**: their words mean different things, so there is no neutral way to compare them, and scientists switch partly for reasons that are not strictly logical. His phrase \"paradigm shift\" escaped into management books and advertising, which Kuhn disliked."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The verification principle is abandoned. Popper's falsifiability is respected history in philosophy of science, which no longer accepts it as a full account of how science works, but it is still widely used by scientists as a rule of thumb, and in courts: in the United States, the Supreme Court's Daubert ruling of 1993 lists testability among the marks of scientific evidence. Kuhn's picture of normal science and revolutions is still argued over; most philosophers accept that science has paradigms and revolutions, and reject the stronger claims about incommensurability. The question of how scientists should respond to failed predictions remains open, and is now studied with the tools of probability."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on science",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What made a theory scientific, according to Popper?",
+        "choices": [
+         "Some possible observation could show it to be false",
+         "It has been confirmed by many observations",
+         "It is accepted by most scientists",
+         "It explains every possible observation"
+        ],
+        "answer": 0,
+        "why": "A theory that explains everything, as Adler's seemed to, tells us nothing."
+       },
+       {
+        "ask": "Why did the Vienna Circle's verification principle refute itself?",
+        "choices": [
+         "It is neither true by definition nor checkable by observation, so by its own test it is meaningless",
+         "It was proved false by Einstein's theory",
+         "It applies only to mathematics",
+         "Its authors abandoned it after one week"
+        ],
+        "answer": 0,
+        "why": "Ayer later said nearly all of it was false."
+       },
+       {
+        "ask": "What does the discovery of Neptune show about falsification?",
+        "choices": [
+         "Scientists sometimes rightly defend a theory against a failed prediction by adding an assumption",
+         "A failed prediction always refutes a theory",
+         "Newton's laws were wrong",
+         "Telescopes cannot be trusted"
+        ],
+        "answer": 0,
+        "why": "The same move led to Neptune and to the non-existent Vulcan."
+       },
+       {
+        "ask": "What did Kuhn mean by normal science?",
+        "choices": [
+         "Puzzle-solving within an accepted framework, without trying to overthrow it",
+         "Science done by ordinary people rather than experts",
+         "Science that follows Popper's method of trying to refute theories",
+         "Science that has no theories at all"
+        ],
+        "answer": 0,
+        "why": "Revolutions come when anomalies pile up."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Popper contrasted Einstein's risky prediction with Adler's theory that could not lose.** In Vienna, in 1919.",
+  "**No number of white swans proves all swans are white; one black swan disproves it.** Popper's answer to Hume.",
+  "**Science is bold conjecture and attempted refutation.** A scientific theory must be falsifiable.",
+  "**The Vienna Circle said unverifiable statements are meaningless.** The principle failed its own test.",
+  "**A failed prediction refutes a bundle of assumptions, not one theory.** Neptune and Vulcan.",
+  "**Kuhn: normal science works within paradigms until anomalies force a revolution.** The Structure of Scientific Revolutions, 1962.",
+  "**Falsifiability survives as a rule of thumb.** Verificationism is abandoned."
+ ],
+ "footnotes": {
+  "eclipse": {
+   "kind": "technical",
+   "title": "How clean was 1919?",
+   "text": "Eddington's measurements were difficult and some of his photographs gave results closer to Newton's prediction, which he set aside for reasons he gave at the time. Later reanalysis has generally supported his choices, and many later tests have confirmed Einstein's figure."
+  },
+  "schlick": {
+   "kind": "digression",
+   "title": "The end of the Circle",
+   "text": "In 1936 Moritz Schlick was shot dead on the steps of the University of Vienna by a former student. After Austria was annexed by Germany in 1938, most members of the Circle, many of them Jewish or socialist, emigrated, and the ideas spread to Britain and America."
+  },
+  "popper": {
+   "kind": "digression",
+   "title": "Popper's poker",
+   "text": "Popper met Wittgenstein only once, in Cambridge in 1946, at a meeting where, by Popper's account, Wittgenstein waved a poker at him while they argued. The story is in the Wittgenstein branch lesson."
+  }
+ }
+}
