@@ -70,13 +70,17 @@ const BOX = 150;
 const GAP = 30;
 const X = (i: number) => 15 + i * (BOX + GAP);
 
-export const workshopFigure = figure(['tenfold'], (_ctx, t) => {
+export const workshopFigure = figure(['tenfold', 'loom'], (_ctx, t) => {
   const f = frame(W, H, 3);
   const g = svg('g');
   f.svg.append(g);
-  const used = new Set<string>();
-  let workers = startWorkers();
-  const base = output({ hours: hoursWith(new Set()), workers });
+  // Lesson 15 starts in the 1800s: spinning and carding in mills, weaving still by hand, workers already moved.
+  const loomGoal = t.goal === 'loom';
+  const START = loomGoal ? ['mule', 'carding'] : [];
+  const used = new Set<string>(START);
+  const base = output({ hours: hoursWith(new Set()), workers: startWorkers() });
+  const startShop = () => (loomGoal ? rebalance({ hours: hoursWith(new Set(START)), workers: startWorkers() }) : startWorkers());
+  let workers = startShop();
   let guessed = false;
 
   const paint = () => {
@@ -115,7 +119,7 @@ export const workshopFigure = figure(['tenfold'], (_ctx, t) => {
     f.readout.textContent = used.size === 0
       ? 'Hand work: about five spinners for every weaver, and only the fibre preparers wait for part of the week. Add an invention to see where the work piles up.'
       : `${neck.name} is the bottleneck. ${idleOnes.length ? `${idleOnes.map((s) => s.name.toLowerCase()).join(' and ')} ${idleOnes.length > 1 ? 'stand' : 'stands'} idle part of the week, waiting.` : 'No stage is waiting.'} Moving workers to the bottleneck would raise output, but in reality it took years for people to change trades.`;
-    if (out >= base * 10) t.done();
+    if (loomGoal ? used.has('loom') && idle(shop, 'weave') > 0.5 : out >= base * 10) t.done();
   };
 
   const buttons = new Map<string, HTMLButtonElement>();
@@ -127,10 +131,17 @@ export const workshopFigure = figure(['tenfold'], (_ctx, t) => {
     row.append(b);
   }
   const shift = el('button.chip', { type: 'button', onclick: () => { workers = rebalance({ hours: hoursWith(used), workers }); paint(); } }, 'Move workers to keep pace') as HTMLButtonElement;
-  const reset = el('button.chip', { type: 'button', onclick: () => { used.clear(); workers = startWorkers(); paint(); } }, 'Start again') as HTMLButtonElement;
+  const reset = el('button.chip', { type: 'button', onclick: () => { used.clear(); for (const id of START) used.add(id); workers = startShop(); paint(); } }, 'Start again') as HTMLButtonElement;
   const row2 = el('div.chips', {}, shift, reset);
   f.controls.append(row, row2);
-  guessFirst(t, f, {
+  guessFirst(t, f, loomGoal ? {
+    ask: 'Around 1810, spinning and carding are done in mills and weaving by hand, and many more people now weave. A power loom weaves about eight times as fast as a hand weaver. What happens to the handloom weavers?',
+    options: ['They get more work, since cloth gets cheaper', 'They have far more weaving capacity than yarn, so work and piece rates fall', 'Nothing changes for them'],
+    answer: 1,
+    sliders: [],
+    hidden: [row, row2],
+    after: () => { guessed = true; used.add('loom'); paint(); },
+  } : {
     ask: "In 1733 John Kay's flying shuttle lets a weaver weave about twice as fast. Spinning is still done by hand. What happens first?",
     options: ['Cloth output doubles', 'Weavers wait for yarn, and cloth output barely changes', 'Spinners lose their work'],
     answer: 1,

@@ -99,3 +99,11 @@ describe('the bottleneck workshop', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+describe('the workshop in lesson 15', () => {
+  it('is done once the power loom leaves the weavers idle', async () => {
+    const h = FIGURES.workshop(context(), 'loom');
+    guess(h.node, 'They have far more weaving capacity than yarn, so work and piece rates fall');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});

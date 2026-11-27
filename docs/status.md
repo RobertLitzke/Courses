@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 0 | 0 | 42 | 0 |
-| [Fabric & Form](#textiles) | 0.1 beta | 14 | 13 | 5 | 14 | 14 | 0 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 15 | 12 | 6 | 15 | 15 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 42 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 13 lessons to write, 5 to read through, 14 to copy-edit, 14 to fact-check |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 12 lessons to write, 6 to read through, 15 to copy-edit, 15 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -614,7 +614,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 12 | Why did England ban Indian cotton? (`calico`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | India's lead in fine spinning and fast printed cotton; Indian cloth as the currency of the spice trade; monsoon trade cycles; the East India Company; consumer demand and the industrious revolution; the Calico Acts of 1700 and 1721 and their loopholes. |
 | 13 | Why did African buyers decide what Manchester made? (`africa`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | West Africa's own textile industries; cloth currencies; buyers who made Gujarati and Manchester producers match local patterns; cloth as the largest good traded for enslaved people; the Atlantic markets behind British cotton. |
 | 14 | Why did a faster shuttle cause a yarn famine? (`bottleneck`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Kay's flying shuttle and the spinning bottleneck; Paul and Wyatt's failure; Hargreaves's jenny, Arkwright's water frame and Crompton's mule, linked by drafting; the spinners' attacks on jennies. |
-| 15 | What was a factory day like? (`mill`) |  | planned, listed as coming |  | Water-powered mills, shifts and locked gates, women and children at work, the power loom, and the Luddites. |
+| 15 | What was a factory day like? (`mill`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Water power before steam; Lombe's silk mill and Arkwright's Cromford; shifts and locked gates; women and children as the early workforce; the power loom and the handloom weavers; the Luddites; the factory clock. |
 | 16 | Why did the machines come to Lancashire and not Bengal? (`why-britain`) |  | planned, listed as coming |  | Historians disagree: wages and coal, colonies, Indian competition, and a culture of useful knowledge. |
 | 17 | How did a machine to clean cotton expand slavery? (`gin`) |  | planned, listed as coming |  | Upland cotton and the saw gin, Indian Removal, the domestic slave trade, and the debate over slavery and industrial capitalism. |
 | 18 | How did a loom learn to read? (`jacquard`) |  | planned, listed as coming |  | Jacquard's punched cards, the Lyon silk weavers, and what Babbage, Lovelace and Hollerith took from them. |
