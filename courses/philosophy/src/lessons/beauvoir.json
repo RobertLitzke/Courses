@@ -1,0 +1,316 @@
+{
+ "id": "beauvoir",
+ "n": 20,
+ "title": "Is a woman born or made?",
+ "teaches": "The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her",
+ "parts": [
+  {
+   "title": "A best seller on the Index",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In June 1949 the Paris publisher Gallimard brought out the first volume of a long book by Simone de Beauvoir called *The Second Sex*. It reportedly sold 22,000 copies in its first week. The second volume came out in November and caused a scandal. The novelist François Mauriac wrote to a contributor to *Les Temps Modernes*, the magazine Beauvoir helped edit, that he now knew everything about his employer's vagina, and the letter was passed around Paris. Strangers sent her abusive letters, and in cafés people pointed and laughed. In 1956 the Catholic Church put the book on its Index of Forbidden Books."
+    },
+    {
+     "type": "text",
+     "text": "Beauvoir was 41. She had studied philosophy at the Sorbonne, where in 1929 she came second in the national teaching examination, the agrégation, behind Sartre, and at 21 was the youngest person to have passed it up to then.[^agreg] She and Sartre met that year and stayed partners for the rest of his life, without marrying or living together. She is often treated as Sartre's follower. In this lesson we will look at the point where she disagreed with him, which most philosophers now think she got right, and at two women who asked her question long before her."
+    }
+   ]
+  },
+  {
+   "title": "One is not born a woman",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The second volume opens with the most quoted sentence of 20th-century feminism: \"One is not born, but rather becomes, a woman.\" Beauvoir was applying lesson 19's slogan, existence before essence, to sex. There is no female nature that fixes in advance what a woman is and does. What society calls feminine, such as being gentle, passive, vain, emotional or devoted to others, is not given at birth. Girls are taught it, from the dolls they are handed to the way they are told to sit."
+    },
+    {
+     "type": "text",
+     "text": "She did not deny biology. Most of the first volume goes through what biology, psychoanalysis and history say about women, and she accepts that female bodies differ from male ones in strength, in menstruation and in pregnancy. Her point is that a bodily fact does not tell you what it means. Lower average strength matters a great deal in a society of farmers with ploughs and very little in one of office workers. \"The body is not a thing, it is a situation.\""
+    },
+    {
+     "type": "text",
+     "text": "Her deeper claim is in the introduction. Throughout history, she wrote, men have defined humanity in their own image and women in relation to men. \"He is the Subject, he is the Absolute; she is the **Other**.\" A man does not begin a book by saying he is a man; it goes without saying that a man is simply a person. A woman is described as what a man is not: the second sex. And because women were scattered among men, in their households, rather than living together as a group, they had rarely been able to say \"we\" in the way workers or colonised peoples had."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "Beauvoir's argument, in plain steps. The objection is the one most often made against her.",
+     "options": {
+      "steps": [
+       {
+        "text": "Women's bodies differ from men's in some ways, such as average strength and pregnancy."
+       },
+       {
+        "text": "What a bodily difference means depends on the society it is lived in: the body is a situation, not a fixed fate."
+       },
+       {
+        "text": "Societies have made men the standard human being and defined women as the Other, in relation to men."
+       },
+       {
+        "text": "Girls are brought up from childhood to fit that role, and most come to see it as their nature."
+       },
+       {
+        "text": "So one is not born, but rather becomes, a woman.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "Biology does more than Beauvoir allowed: hormones and evolution shape average differences in behaviour, not only in bodies.",
+        "kind": "objection",
+        "against": 2,
+        "who": "Evolutionary psychologists"
+       }
+      ]
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Beauvoir's question, put as philosophers put it now. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "gender",
+      "ask": "Are the differences that society calls masculine and feminine mostly made by upbringing and society, or mostly set by biology?",
+      "choices": [
+       "Mostly made by upbringing and society",
+       "Mostly set by biology",
+       "Both, in roughly equal measure",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Beauvoir's view, and the most common one among philosophers in 2020.",
+       "You chose the view of many evolutionary psychologists. Beauvoir would ask how you could tell, in a world where every child is raised as a boy or a girl.",
+       "You chose the view most scientists who study sex differences would give, though they argue hard about the proportions.",
+       "Many people who study the question are unsure too."
+      ],
+      "poll": {
+       "shares": [
+        63,
+        26,
+        null,
+        null
+       ],
+       "source": "PhilPapers Survey 2020, \"Gender: biological, psychological, social or unreal?\", share accepting or leaning towards social and biological. Respondents could pick more than one."
+      }
+     }
+    }
+   ]
+  },
+  {
+   "title": "The woman in the harem",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "This is where Beauvoir parted from Sartre. In her memoirs she describes long arguments with him in the spring of 1940, in which he held that a person is always free to choose how to take their situation. She asked what freedom a woman shut up in a harem could have. Sartre answered that even such a life could be lived in different ways: she could accept it, resent it, or make something of it inside its walls. Beauvoir wrote that she held to her view only half-heartedly then, but she kept coming back to it."
+    },
+    {
+     "type": "text",
+     "text": "In *The Ethics of Ambiguity* (1947) and in *The Second Sex* she worked out her answer. Every person is free in Sartre's sense, but how much that freedom can do depends on their situation. A woman who has never been taught to read, has no money of her own and can be beaten by her husband is not in bad faith when she fails to start a new life. Her freedom has been cut down by other people. And this means freedom is not a private matter. \"To will oneself free is also to will others free.\" If my freedom depends on the openness of my situation, and other people shape that situation, then I cannot want freedom for myself without wanting it for them."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Sartre and Beauvoir in 1940. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "harem",
+      "ask": "Is a woman shut up in a harem, with no way out, as free as anyone else?",
+      "choices": [
+       "Yes: she is still free to choose how she takes her situation",
+       "No: her situation leaves her much less real freedom",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Sartre's answer in 1940. He moved towards Beauvoir's view later in life.",
+       "You chose Beauvoir's answer.",
+       "Beauvoir said she was not sure at first either."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Sor Juana, 1691",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Beauvoir was not the first to ask why women were kept from thinking. In Mexico City, then the capital of New Spain, a nun called Juana Inés de la Cruz had asked it 250 years earlier. As a girl of about seven she had begged her mother to let her dress as a boy so that she could attend the university, which admitted only men. She taught herself Latin, cutting off a few inches of her hair as she started a lesson and cutting it again if she had not learned it by the time the hair grew back, since it did not seem right, she wrote, that a head so bare of knowledge should be dressed with hair. She became a nun, she said, because it was the only life that would leave her time to study. Her rooms in the convent were said to hold several thousand books."
+    },
+    {
+     "type": "text",
+     "text": "In 1690 she wrote a critique of a famous sermon by a Portuguese Jesuit. The Bishop of Puebla published it without her permission, with a preface signed by an invented nun, \"Sor Filotea\", that praised her mind and told her to give up worldly learning for religious study. Her reply of 1691, the *Respuesta a Sor Filotea*, is a defence of women's right to learn. She listed learned women from the Bible and history, argued that study of science and philosophy was needed to understand theology at all, and said that women could think about the world anywhere, even in the kitchen, watching an egg set in hot butter. \"Had Aristotle cooked, he would have written much more.\""
+    },
+    {
+     "type": "text",
+     "text": "A few years later, under pressure from the Church, she gave up her books and scientific instruments, which were sold for charity, and signed a renewal of her vows. She died in 1695 while nursing other nuns in an epidemic.[^juana]"
+    }
+   ]
+  },
+  {
+   "title": "Wollstonecraft, 1792",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A century later, in London, Mary Wollstonecraft answered one of the most admired books of her time. In *Émile* (1762), Jean-Jacques Rousseau had described the ideal education of a boy, and in its last part the education of the girl, Sophie, who would be his wife. \"The whole education of women ought to be relative to men\", Rousseau wrote: to please them, be useful to them, be loved by them and make their lives agreeable. Women were weaker and more emotional by nature, so they should be trained to charm, not to reason."
+    },
+    {
+     "type": "text",
+     "text": "Wollstonecraft's *A Vindication of the Rights of Woman* (1792) turned this round. Women seem weak, vain and silly, she argued, because they are brought up to be: taught to care about their looks and to win a husband, and kept from any serious study. Nobody can know what women are by nature until they have been given the same education as men. She wanted girls and boys taught together, and women able to earn their own living. \"I do not wish them to have power over men; but over themselves.\" Beauvoir's point that one becomes a woman is already here, in a less general form.[^mary]"
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "Four answers to the same question, with Mill from lesson 17, who argued it in 1869.",
+     "options": {
+      "title": "Women and reason",
+      "spacing": "even",
+      "events": [
+       {
+        "at": 1691,
+        "label": "Sor Juana's Respuesta, Mexico City",
+        "when": "1691"
+       },
+       {
+        "at": 1762,
+        "label": "Rousseau's Émile: girls trained to please",
+        "when": "1762"
+       },
+       {
+        "at": 1792,
+        "label": "Wollstonecraft's Vindication, London",
+        "when": "1792"
+       },
+       {
+        "at": 1869,
+        "label": "Mill's The Subjection of Women",
+        "when": "1869"
+       },
+       {
+        "at": 1944,
+        "label": "French women get the vote",
+        "when": "1944"
+       },
+       {
+        "at": 1949,
+        "label": "Beauvoir's The Second Sex, Paris",
+        "when": "1949"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "*The Second Sex* is a founding text of feminist philosophy and is still argued over. Its distinction between the body and what a society makes of it became, in the 1970s, the distinction between sex and gender that most philosophers and social scientists now use, though some, such as Judith Butler in 1990, argued that sex is shaped by society too. The first English translation, of 1953, was made by a retired zoology professor who cut about a tenth of the book and mistranslated many of its philosophical terms; a full translation appeared only in 2009.[^parshley]"
+    },
+    {
+     "type": "text",
+     "text": "Wollstonecraft's main claim, that girls should be educated as boys are, is now so widely accepted that it is hard to see how radical it was. Her book and Sor Juana's reply are read as respected history and as forerunners of Beauvoir. Sor Juana is a national figure in Mexico, and her face has been on its banknotes. Some of Beauvoir's own judgements are abandoned: she wrote of motherhood mainly as a burden, which later feminists criticised, and in 1977 she and Sartre signed a petition against France's age-of-consent laws that is now widely condemned."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Beauvoir",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What did Beauvoir mean by \"one is not born, but rather becomes, a woman\"?",
+        "choices": [
+         "What society calls feminine is taught, not fixed by a female nature",
+         "Women only become adults later than men do",
+         "Biology plays no part at all in the differences between the sexes",
+         "A girl chooses freely, as an adult, whether to become a woman"
+        ],
+        "answer": 0,
+        "why": "She applied existence before essence to sex. She did not deny bodily differences, only that they fix what a woman is."
+       },
+       {
+        "ask": "What did Beauvoir mean by calling woman \"the Other\"?",
+        "choices": [
+         "Men have treated themselves as the standard human being and defined women in relation to men",
+         "Women are biologically more different from each other than men are",
+         "Women are outsiders who should form their own separate society",
+         "Each woman experiences other women as strangers"
+        ],
+        "answer": 0,
+        "why": "\"He is the Subject, he is the Absolute; she is the Other.\""
+       },
+       {
+        "ask": "Where did Beauvoir disagree with Sartre about freedom?",
+        "choices": [
+         "She held that a person's situation can greatly limit how much their freedom can do",
+         "She held that people are not free at all, only determined",
+         "She held that only women are truly free",
+         "She held that freedom comes from God, not from choice"
+        ],
+        "answer": 0,
+        "why": "Her example was a woman shut up in a harem. Sartre said she was still free to choose her attitude; Beauvoir thought that missed the point."
+       },
+       {
+        "ask": "What did Sor Juana argue in her reply to \"Sor Filotea\" in 1691?",
+        "choices": [
+         "That women have a right to learn, and that science and philosophy are needed to understand theology",
+         "That nuns should give up all study except prayer",
+         "That women should be allowed to become priests",
+         "That theology should be replaced by the natural sciences"
+        ],
+        "answer": 0,
+        "why": "She listed learned women and said women could study the world anywhere, even in the kitchen."
+       },
+       {
+        "ask": "How did Wollstonecraft answer Rousseau's view of women in Émile?",
+        "choices": [
+         "Women seem weak and silly because of how they are educated, and nobody knows their nature until they are educated like men",
+         "Women are weaker by nature, but should still be allowed to vote",
+         "Women should be educated to please men, but also to manage money",
+         "Rousseau was right about Sophie but wrong about Émile"
+        ],
+        "answer": 0,
+        "why": "Rousseau said women's education should be relative to men. Wollstonecraft said the faults he blamed on nature came from that education."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**The Second Sex (1949) was a best seller and a scandal.** The Catholic Church put it on the Index in 1956.",
+  "**One is not born, but rather becomes, a woman.** What society calls feminine is taught, not fixed by nature.",
+  "**The body is a situation, not a fate.** Bodily differences are real, but what they mean depends on the society.",
+  "**Men made themselves the standard and women the Other.** Woman was defined in relation to man.",
+  "**Situation limits freedom.** Beauvoir's answer to Sartre, using the example of a woman in a harem.",
+  "**To will oneself free is to will others free.** My freedom depends on a situation other people shape.",
+  "**Sor Juana defended women's learning in 1691.** \"Had Aristotle cooked, he would have written much more.\"",
+  "**Wollstonecraft answered Rousseau in 1792.** Women seem weak because of how they are taught, so educate them as men are."
+ ],
+ "footnotes": {
+  "agreg": {
+   "kind": "digression",
+   "title": "First and second",
+   "text": "Sartre had failed the agrégation the year before, on his first attempt. Some of the examiners said afterwards that they had argued over whether Beauvoir, not Sartre, should be placed first."
+  },
+  "juana": {
+   "kind": "technical",
+   "title": "Why did she give up her books?",
+   "text": "Historians disagree. The older view is that the Archbishop of Mexico and her confessor forced her into silence. Others argue she chose a stricter religious life after a famine, riots and floods in the city."
+  },
+  "mary": {
+   "kind": "digression",
+   "title": "Two Marys",
+   "text": "Wollstonecraft died in 1797, eleven days after giving birth to her second daughter, Mary, who as Mary Shelley wrote Frankenstein. Her husband William Godwin's frank memoir of her love affairs, published the next year, damaged her reputation for most of a century."
+  },
+  "parshley": {
+   "kind": "technical",
+   "title": "Lost in translation",
+   "text": "H. M. Parshley, an American zoologist, rendered Beauvoir's pour-soi, Sartre's term for consciousness, as \"her true nature in itself\", which means nearly the opposite. Readers in English met a less philosophical book than the French one for over 50 years."
+  }
+ }
+}

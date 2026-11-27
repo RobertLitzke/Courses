@@ -20,7 +20,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Rivers and the Salish Sea](#rivers) | 0.2 beta | 22 | 0 | 0 | 0 | 22 | 13 | 0 |
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
-| [Philosophy](#philosophy) | 0.1 beta | 19 | 23 | 15 | 19 | 19 | 19 | 0 |
+| [Philosophy](#philosophy) | 0.1 beta | 20 | 22 | 16 | 20 | 20 | 20 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -40,7 +40,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Rivers and the Salish Sea | 0.2 beta | 2026-11-08 | no: 22 to fact-check, 13 awaiting photos |
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
-| Philosophy | 0.1 beta | 2026-11-27 | no: 23 lessons to write, 15 to read through, 19 to copy-edit, 19 to fact-check, 19 awaiting photos |
+| Philosophy | 0.1 beta | 2026-11-27 | no: 22 lessons to write, 16 to read through, 20 to copy-edit, 20 to fact-check, 20 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -568,7 +568,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 17 | Is it better to be Socrates dissatisfied than a pig satisfied? (`mill`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Bentham's utilitarianism, Mill's higher pleasures, the harm principle, and Nozick's experience machine. |
 | 18 | Who killed God? (`nietzsche`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The death of God, nihilism, master and slave morality, eternal recurrence, the Übermensch, and how Nietzsche's sister made him a Nazi mascot. |
 | 19 | Are you condemned to be free? (`sartre`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | Existence before essence, the student's dilemma, anguish, bad faith and the café waiter, and why existentialism is not nihilism. |
-| 20 | Is a woman born or made? (`beauvoir`) |  | planned, listed as coming |  | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
+| 20 | Is a woman born or made? (`beauvoir`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check; Photos (no photos chosen yet) | The Second Sex, the Other, freedom in a situation, and Sor Juana and Wollstonecraft before her. |
 | 21 | Should we imagine Sisyphus happy? (`camus`) |  | planned, listed as coming |  | The absurd, revolt, and the 1952 quarrel with Sartre. |
 | 22 | What rules would you pick before you knew who you'd be? (`rawls`) |  | planned, listed as coming |  | The veil of ignorance, the difference principle, Harsanyi and Nozick. |
 | 23 | Would you ruin your clothes to save a drowning child? (`singer`) |  | planned, listed as coming |  | Singer's drowning child, the trolley problem as Foot meant it, and effective altruism. |
