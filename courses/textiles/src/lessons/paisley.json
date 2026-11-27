@@ -103,19 +103,19 @@
             "items": [
               {
                 "ask": "Where did pashm, the fibre of Kashmir shawls, come from?",
-                "choices": ["The winter undercoat of goats on the Tibetan plateau", "Sheep bred in the valley of Kashmir", "The cocoons of wild silk moths", "The fine hair of Tibetan antelope"],
+                "choices": ["The winter undercoat of plateau goats", "Sheep bred in the valley of Kashmir", "The cocoons of wild silk moths", "The fine hair of Tibetan antelope"],
                 "answer": 0,
                 "why": "Goats on the high plateau grew it against the cold; it was combed out and carried to Kashmir."
               },
               {
                 "ask": "Why did a kani shawl take so long to weave?",
-                "choices": ["Each colour was woven only across its own patch, by hand spool", "The pashm had to be spun three times over", "The loom could weave only a few centimetres wide", "Every thread had to be dyed after weaving"],
+                "choices": ["Each colour was woven by hand from its own spool", "The pashm had to be spun three separate times", "The loom could weave only a few centimetres wide", "Every thread had to be dyed again after weaving"],
                 "answer": 0,
                 "why": "A row might need dozens or hundreds of small spools, each passed by hand."
               },
               {
                 "ask": "How could Paisley weave a shawl so much faster?",
-                "choices": ["Each weft ran full width and its back floats were cut away", "Weavers used pashm imported from Kashmir", "The pattern was printed on after weaving", "Weavers used hundreds of spools at once"],
+                "choices": ["Wefts ran full width; back floats were cut off", "Weavers used pashm imported from Kashmir", "The pattern was printed on after weaving", "Weavers used hundreds of small spools at once"],
                 "answer": 0,
                 "why": "Carrying each weft right across let a drawloom or Jacquard loom weave a full row at once."
               },
@@ -131,15 +131,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Pashm is a goat's winter undercoat.** It came from Ladakh and Tibet and is now sold as cashmere.",
-    "**Kani shawls were twill tapestry.** Each colour was woven by hand from its own small spool.",
-    "**A fine shawl took a team a year or more.** Thousands of hours went into one piece.",
-    "**The buta became the teardrop.** A Mughal flower spray grew more stylised over two centuries.",
-    "**Europe craved shawls around 1800.** Light muslin dresses needed warmth; Kashmir shawls cost a fortune.",
-    "**Paisley copied them on drawlooms and Jacquards.** Cut floats replaced spools, and the motif took the town's name.",
-    "**Fashion and war ended the craze.** Kashmir's weavers were left without work by the 1870s.",
-    "**Pashmina returned; shahtoosh was banned.** The Tibetan antelope had to be killed for its wool."
-  ],
+  "summary": ["**Pashm is a goat's winter undercoat.** It came from Ladakh and Tibet and is now sold as cashmere.", "**Kani shawls were twill tapestry.** Each colour was woven by hand from its own small spool.", "**A fine shawl took a team a year or more.** Thousands of hours went into one piece.", "**The buta became the teardrop.** A Mughal flower spray grew more stylised over two centuries.", "**Europe craved shawls around 1800.** Light muslin dresses needed warmth; Kashmir shawls cost a fortune.", "**Paisley copied them on drawlooms and Jacquards.** Cut floats replaced spools, and the motif took the town's name.", "**Fashion and war ended the craze.** Kashmir's weavers were left without work by the 1870s.", "**Pashmina returned; shahtoosh was banned.** The Tibetan antelope had to be killed for its wool."],
   "footnotes": {}
 }

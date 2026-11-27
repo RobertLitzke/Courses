@@ -96,7 +96,7 @@
               },
               {
                 "ask": "How does a microporous membrane keep rain out but let sweat out?",
-                "choices": ["Its pores block liquid drops but pass single vapour molecules", "It absorbs rain and releases it as vapour", "It heats the rain until it evaporates", "Its pores open in dry air and close in rain"],
+                "choices": ["Its pores stop drops but pass vapour", "It absorbs rain and releases it as vapour", "It heats the rain until it evaporates", "Its pores open in dry air and close in rain"],
                 "answer": 0,
                 "why": "Water-repellent pores are far too small for liquid water to be forced in, but vapour molecules pass easily."
               },
@@ -118,14 +118,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Macintosh rubberised cloth in 1823.** Rubber between two cottons kept rain out and sweat in.",
-    "**Vulcanisation made rubber stable.** Sulphur and heat stopped it turning sticky or stiff.",
-    "**Gabardine and waxed cotton compromised.** A tight, treated weave or a coat of wax shed rain; gabardine also let vapour out.",
-    "**Repellent finishes bead water.** The best were fluorinated PFAS, now being phased out.",
-    "**A membrane has pores of a useful size.** Too small for liquid drops, far bigger than vapour molecules.",
-    "**Breathability has limits.** Hard work makes more sweat than a membrane can let out.",
-    "**Kwolek made Kevlar.** Aligned stiff chains gave a fibre five times as strong as steel for its weight."
-  ],
+  "summary": ["**Macintosh rubberised cloth in 1823.** Rubber between two cottons kept rain out and sweat in.", "**Vulcanisation made rubber stable.** Sulphur and heat stopped it turning sticky or stiff.", "**Gabardine and waxed cotton compromised.** A tight, treated weave or a coat of wax shed rain; gabardine also let vapour out.", "**Repellent finishes bead water.** The best were fluorinated PFAS, now being phased out.", "**A membrane has pores of a useful size.** Too small for liquid drops, far bigger than vapour molecules.", "**Breathability has limits.** Hard work makes more sweat than a membrane can let out.", "**Kwolek made Kevlar.** Aligned stiff chains gave a fibre five times as strong as steel for its weight."],
   "footnotes": {}
 }

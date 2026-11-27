@@ -96,7 +96,7 @@
               },
               {
                 "ask": "Why did a tunic with gores waste almost no cloth?",
-                "choices": ["Its gores were triangles cut diagonally from a rectangle", "It was knitted to shape on the needles", "Its offcuts were used as padding inside", "It was woven in one piece on a wide loom"],
+                "choices": ["Its gores were cut diagonally from a rectangle", "It was knitted to shape on the needles", "Its offcuts were sewn inside as padding", "It was woven in one piece on a wide loom"],
                 "answer": 0,
                 "why": "Rectangles for body and sleeves, and the leftover strip split into triangles, used the whole length."
               },
@@ -118,15 +118,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Looms make rectangles.** For most of history people wore them nearly uncut.",
-    "**Draped clothes waste nothing.** The peplos, toga, sari and dhoti are wrapped, pinned or pleated.",
-    "**Some cloth was woven to shape.** Andean tunics left the loom finished on all four edges.",
-    "**Medieval tunics used gores.** Triangles cut from a rectangle widened the skirt with almost no waste.",
-    "**Fitted clothing arrived in the 14th century.** Shaped panels, set-in sleeves and buttons followed the body.",
-    "**Why is debated.** Armour, tailors' guilds and display have all been suggested.",
-    "**Fit costs cloth.** Curved pieces leave offcuts; Alcega's 1580 book showed how to lay them out.",
-    "**The bias drapes but wastes.** Vionnet's 1930s dresses clung to the body at a high cost in cloth."
-  ],
+  "summary": ["**Looms make rectangles.** For most of history people wore them nearly uncut.", "**Draped clothes waste nothing.** The peplos, toga, sari and dhoti are wrapped, pinned or pleated.", "**Some cloth was woven to shape.** Andean tunics left the loom finished on all four edges.", "**Medieval tunics used gores.** Triangles cut from a rectangle widened the skirt with almost no waste.", "**Fitted clothing arrived in the 14th century.** Shaped panels, set-in sleeves and buttons followed the body.", "**Why is debated.** Armour, tailors' guilds and display have all been suggested.", "**Fit costs cloth.** Curved pieces leave offcuts; Alcega's 1580 book showed how to lay them out.", "**The bias drapes but wastes.** Vionnet's 1930s dresses clung to the body at a high cost in cloth."],
   "footnotes": {}
 }

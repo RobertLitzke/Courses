@@ -85,13 +85,13 @@
               },
               {
                 "ask": "Why could tailors shape wool to the body better than silk?",
-                "choices": ["Heat and steam let wool be stretched and set in a new shape", "Wool is thinner and lighter than silk", "Wool cannot be cut, so it must be draped", "Wool stretches like elastane without any heat"],
+                "choices": ["Heat and steam let wool be moulded and set", "Wool is much thinner and lighter than silk", "Wool cannot be cut, so it must be draped", "Wool stretches like elastane without heat"],
                 "answer": 0,
                 "why": "Steam loosens the bonds in wool fibres, and a hot iron can mould the cloth before it sets."
               },
               {
                 "ask": "Why did plain dress suit the new wealthy men of the early 19th century?",
-                "choices": ["It suggested seriousness and work rather than idle privilege", "Silk had become cheaper than wool", "Laws banned silk for men in Britain", "Wool was the only cloth available after the wars"],
+                "choices": ["It suggested work rather than idle privilege", "Silk had become cheaper than wool by then", "Laws banned silk for men across Britain", "Wool was the only cloth left after the wars"],
                 "answer": 0,
                 "why": "After the French Revolution, plain dark wool signalled respectability, not aristocratic luxury."
               },
@@ -107,14 +107,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Court men once wore silk and embroidery.** Versailles in the 1770s was colourful and ornate.",
-    "**Brummell made plain dark wool elegant.** Fit, clean linen and fine cloth replaced ornament.",
-    "**Fulled wool can be moulded.** Heat and steam let tailors shape broadcloth to the body.",
-    "**Skill replaced display.** A plain coat showed its quality only to those who knew.",
-    "**Revolution and new wealth favoured sobriety.** Plain dress signalled work and respectability.",
-    "**Flügel named the Great Male Renunciation.** Display moved into cut, cloth and accessories.",
-    "**The lounge suit became the business suit.** Ready-made sizes spread it to clerks and workers."
-  ],
+  "summary": ["**Court men once wore silk and embroidery.** Versailles in the 1770s was colourful and ornate.", "**Brummell made plain dark wool elegant.** Fit, clean linen and fine cloth replaced ornament.", "**Fulled wool can be moulded.** Heat and steam let tailors shape broadcloth to the body.", "**Skill replaced display.** A plain coat showed its quality only to those who knew.", "**Revolution and new wealth favoured sobriety.** Plain dress signalled work and respectability.", "**Flügel named the Great Male Renunciation.** Display moved into cut, cloth and accessories.", "**The lounge suit became the business suit.** Ready-made sizes spread it to clerks and workers."],
   "footnotes": {}
 }

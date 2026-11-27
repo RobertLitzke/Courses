@@ -86,7 +86,7 @@
               },
               {
                 "ask": "Why did Dutch machine batik sell poorly in Java?",
-                "choices": ["Buyers saw the crackle as a flaw, and local batik was cheap", "The Dutch government banned its sale there", "The cloth was too heavy for the climate", "Javanese buyers preferred plain white cloth"],
+                "choices": ["Buyers disliked the crackle; local batik was cheap", "The Dutch government banned its sale in the colony", "The cloth was far too heavy for the hot climate", "Javanese buyers preferred plain white cotton cloth"],
                 "answer": 0,
                 "why": "The resin cracked and let dye into veins, and Javanese stamped batik competed on price."
               },
@@ -98,7 +98,7 @@
               },
               {
                 "ask": "Who gave wax print designs their names?",
-                "choices": ["West African traders and the women who wore them", "Dutch designers in the Helmond factory", "Colonial officials on the Gold Coast", "Javanese batik makers"],
+                "choices": ["West African traders and their customers", "Dutch designers in the Helmond factory", "Colonial officials on the Gold Coast", "Javanese batik makers working for Vlisco"],
                 "answer": 0,
                 "why": "Market women and their customers named designs after proverbs and events, and used them to send messages."
               }
@@ -108,15 +108,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Batik is wax-resist dyeing.** Javanese makers drew or stamped wax onto cotton before each dye.",
-    "**Dutch firms printed resin by machine.** Prévinaire and Vlisco tried to sell copies in Java.",
-    "**Java rejected them.** The crackle looked like a flaw, and local stamped batik was cheap.",
-    "**West Africa embraced them.** By 1900 Dutch wax prints sold well on the Gold Coast.",
-    "**The crackle became a mark of quality.** No two pieces cracked the same way.",
-    "**Market women shaped the cloth.** They chose designs and named them after proverbs and events.",
-    "**Chinese copies now dominate.** Genuine Dutch wax remains a luxury.",
-    "**Its meaning was made in Africa.** A European copy of an Asian cloth became an African fashion."
-  ],
+  "summary": ["**Batik is wax-resist dyeing.** Javanese makers drew or stamped wax onto cotton before each dye.", "**Dutch firms printed resin by machine.** Prévinaire and Vlisco tried to sell copies in Java.", "**Java rejected them.** The crackle looked like a flaw, and local stamped batik was cheap.", "**West Africa embraced them.** By 1900 Dutch wax prints sold well on the Gold Coast.", "**The crackle became a mark of quality.** No two pieces cracked the same way.", "**Market women shaped the cloth.** They chose designs and named them after proverbs and events.", "**Chinese copies now dominate.** Genuine Dutch wax remains a luxury.", "**Its meaning was made in Africa.** A European copy of an Asian cloth became an African fashion."],
   "footnotes": {}
 }

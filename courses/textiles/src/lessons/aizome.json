@@ -84,7 +84,7 @@
             "items": [
               {
                 "ask": "What is sukumo?",
-                "choices": ["Composted indigo leaves, the form indigo was traded in", "A deep blue shade used by samurai", "A starch paste used to resist dye", "The bolt of cloth used for a kimono"],
+                "choices": ["Composted indigo leaves, shipped for dyeing", "A deep blue shade worn by samurai", "A starch paste used to resist dye", "The bolt of cloth used for one kimono"],
                 "answer": 0,
                 "why": "Dried knotweed leaves were composted for about three months into sukumo, which kept and could be shipped."
               },
@@ -96,13 +96,13 @@
               },
               {
                 "ask": "Why did indigo cotton become the cloth of ordinary people in Edo Japan?",
-                "choices": ["Laws barred them from silk, and indigo cotton was allowed", "Silk was too expensive to import", "Cotton was cheaper than any other fibre everywhere", "The government gave free cloth to farmers"],
+                "choices": ["Laws barred them from silk; indigo cotton was allowed", "Silk had become too expensive to import", "Cotton was cheaper than any other fibre everywhere", "The government handed out free cloth to farmers"],
                 "answer": 0,
                 "why": "Sumptuary laws kept commoners out of silk and some colours; indigo cotton was cheap, tough and permitted."
               },
               {
                 "ask": "Why was boro patched in so many layers?",
-                "choices": ["Cotton did not grow in the cold north, so every scrap was kept", "Thick cloth was the fashion at court", "Laws required families to mend old clothes", "The patches made a pattern for festivals"],
+                "choices": ["Cotton did not grow in the cold north", "Thick layered cloth was the fashion at court", "Laws required families to mend their old clothes", "The patches made patterns for local festivals"],
                 "answer": 0,
                 "why": "Cotton did not grow there, so worn cloth was patched and stitched together over generations."
               }
@@ -112,14 +112,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Japanese indigo came from a knotweed.** Tade-ai holds the same dye molecule as Indian indigo.",
-    "**Sukumo was composted indigo.** Awa province (Tokushima) made and shipped it across Japan.",
-    "**The vat was fermented.** Bacteria fed on bran and turned the indigo soluble.",
-    "**Depth came from many dips.** The darkest blue took twenty or more.",
-    "**Indigo cotton dressed commoners.** Sumptuary laws barred silk; indigo cotton was tough, cheap and allowed.",
-    "**A kimono uses a whole bolt.** Straight pieces, almost no waste, and it can be resized.",
-    "**Boro is generations of patching.** In the north, scarce cotton was layered and held with sashiko stitching."
-  ],
+  "summary": ["**Japanese indigo came from a knotweed.** Tade-ai holds the same dye molecule as Indian indigo.", "**Sukumo was composted indigo.** Awa province (Tokushima) made and shipped it across Japan.", "**The vat was fermented.** Bacteria fed on bran and turned the indigo soluble.", "**Depth came from many dips.** The darkest blue took twenty or more.", "**Indigo cotton dressed commoners.** Sumptuary laws barred silk; indigo cotton was tough, cheap and allowed.", "**A kimono uses a whole bolt.** Straight pieces, almost no waste, and it can be resized.", "**Boro is generations of patching.** In the north, scarce cotton was layered and held with sashiko stitching."],
   "footnotes": {}
 }

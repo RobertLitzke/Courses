@@ -103,19 +103,19 @@
             "items": [
               {
                 "ask": "Why does a bent cotton fibre stay bent?",
-                "choices": ["Hydrogen bonds re-form between chains in the bent shape", "The fibre's scales lock it in place", "The fibre melts slightly at the fold", "Sulphur bonds break and cannot re-form"],
+                "choices": ["Hydrogen bonds re-form in the bent shape", "The fibre's scales lock it into the fold", "The fibre melts slightly along the fold", "Sulphur bonds break and cannot re-form"],
                 "answer": 0,
                 "why": "Bending breaks some hydrogen bonds between cellulose chains, and they re-form in the new positions."
               },
               {
                 "ask": "What does a steam iron do to cotton?",
-                "choices": ["It breaks hydrogen bonds, which re-form flat as the cloth cools", "It adds a resin coating to the fibres", "It melts the surface fibres together smoothly", "It shrinks the fibres back to length"],
+                "choices": ["It frees hydrogen bonds to re-form flat", "It adds a resin coating to the fibres", "It melts the surface fibres smooth", "It shrinks the fibres back to length"],
                 "answer": 0,
                 "why": "Heat and moisture free the chains, the iron's weight flattens them, and the bonds re-form as the cloth dries."
               },
               {
                 "ask": "How does a durable-press finish stop cotton creasing?",
-                "choices": ["Cross-links join chains and pull them back after a bend", "It makes the fibres repel all water", "It replaces cellulose with polyester", "It removes hydrogen bonds from the fibre"],
+                "choices": ["Cross-links pull the chains back after a bend", "It makes the fibres repel every drop of water", "It replaces the cellulose with polyester", "It removes all the hydrogen bonds from the fibre"],
                 "answer": 0,
                 "why": "Chemical cross-links between chains hold them in the positions set when the finish was cured."
               },
@@ -131,14 +131,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Crease recovery is measurable.** A folded strip is pressed, released and the angle it opens to is measured.",
-    "**Cellulose holds a fold.** Hydrogen bonds between cotton and linen chains break and re-form in the bent shape.",
-    "**Water and heat make it worse.** Wet cotton creases deeply; an iron uses the same effect to set the cloth flat.",
-    "**Durable press cross-links cotton.** Resin bonds between chains pull them back, at the cost of weaker fibres.",
-    "**Polyester is a glass at room temperature.** Its chains spring back from a fold and move only above about 80 °C.",
-    "**Heat sets polyester.** Permanent pleats are pressed hot and cooled; a hot iron sets creases too.",
-    "**Wool's sulphur bonds spring it back.** Steam loosens hydrogen bonds and lets the sulphur bonds restore the shape."
-  ],
+  "summary": ["**Crease recovery is measurable.** A folded strip is pressed, released and the angle it opens to is measured.", "**Cellulose holds a fold.** Hydrogen bonds between cotton and linen chains break and re-form in the bent shape.", "**Water and heat make it worse.** Wet cotton creases deeply; an iron uses the same effect to set the cloth flat.", "**Durable press cross-links cotton.** Resin bonds between chains pull them back, at the cost of weaker fibres.", "**Polyester is a glass at room temperature.** Its chains spring back from a fold and move only above about 80 °C.", "**Heat sets polyester.** Permanent pleats are pressed hot and cooled; a hot iron sets creases too.", "**Wool's sulphur bonds spring it back.** Steam loosens hydrogen bonds and lets the sulphur bonds restore the shape."],
   "footnotes": {}
 }

@@ -83,7 +83,7 @@
               },
               {
                 "ask": "Why can an old cotton jersey keep a bulge at the knee?",
-                "choices": ["Cotton has little elastic recovery to pull the loops back", "Washing has shrunk the rest of the trousers", "The loops have been cut by the knee", "Cotton fibres grow longer when warm"],
+                "choices": ["Cotton cannot pull its loops back into shape", "Washing has shrunk the rest of the trousers", "The loops have been cut through at the knee", "Cotton fibres grow longer when they are warm"],
                 "answer": 0,
                 "why": "The loops are pulled out of shape, and nothing in plain cotton pulls them back."
               },
@@ -105,15 +105,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Woven cloth barely stretches along its threads.** The straight warp and weft take the pull directly; the bias gives more.",
-    "**Knits stretch by reshaping loops.** A cotton jersey stretches by a third with little force.",
-    "**Cotton recovers poorly.** A hard stretch leaves a baggy knee.",
-    "**Elastane springs back.** Coiled soft segments recoil while hard segments hold the chains in place.",
-    "**DuPont made it in 1958.** Joseph Shivers' fibre was sold from 1962 as Lycra.",
-    "**A little goes a long way.** Jeans use 1 to 3 percent; swimwear 15 to 30.",
-    "**Heat and chlorine wear it out.** Damaged elastane lets clothes grow slack.",
-    "**Blends are hard to recycle.** Elastane mixed through the yarn cannot easily be separated."
-  ],
+  "summary": ["**Woven cloth barely stretches along its threads.** The straight warp and weft take the pull directly; the bias gives more.", "**Knits stretch by reshaping loops.** A cotton jersey stretches by a third with little force.", "**Cotton recovers poorly.** A hard stretch leaves a baggy knee.", "**Elastane springs back.** Coiled soft segments recoil while hard segments hold the chains in place.", "**DuPont made it in 1958.** Joseph Shivers' fibre was sold from 1962 as Lycra.", "**A little goes a long way.** Jeans use 1 to 3 percent; swimwear 15 to 30.", "**Heat and chlorine wear it out.** Damaged elastane lets clothes grow slack.", "**Blends are hard to recycle.** Elastane mixed through the yarn cannot easily be separated."],
   "footnotes": {}
 }

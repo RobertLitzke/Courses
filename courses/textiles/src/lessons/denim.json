@@ -86,25 +86,25 @@
             "items": [
               {
                 "ask": "Why is the front of denim blue and the back pale?",
-                "choices": ["The blue warp floats over three wefts for every one it passes under", "The back of the cloth is bleached after weaving", "Only one side of the cloth is dipped in indigo", "The weft is dyed a paler blue than the warp"],
+                "choices": ["The blue warp floats over three wefts at a time", "The back of the cloth is bleached after weaving", "Only one side of the cloth is dipped in indigo", "The weft is dyed a much paler blue than the warp"],
                 "answer": 0,
                 "why": "In a 3/1 twill the warp covers three quarters of the face; the white weft shows mostly on the back."
               },
               {
                 "ask": "What is ring dyeing?",
-                "choices": ["Indigo builds up at the surface and leaves a white core", "Yarn is dyed in rings of different colours", "The dye is printed in circles on the cloth", "Cloth is twisted into rings before dyeing"],
+                "choices": ["Indigo sits at the surface around a white core", "Yarn is dyed in rings of several different colours", "The dye is printed in small circles on the cloth", "Cloth is twisted into tight rings before dyeing"],
                 "answer": 0,
                 "why": "Indigo barely penetrates the yarn, so repeated quick dips build a blue ring around a white core."
               },
               {
                 "ask": "What did Jacob Davis add to work trousers?",
-                "choices": ["Copper rivets at the corners of the pockets", "A zip fly in place of buttons", "A double layer of cloth at the knees", "Elastane to let the cloth stretch"],
+                "choices": ["Copper rivets at the pocket corners", "A zip fly in place of buttons", "A double layer of cloth at the knees", "Elastane to let the cloth stretch"],
                 "answer": 0,
                 "why": "Rivets stopped pockets tearing away; he patented the idea with Levi Strauss in 1873."
               },
               {
                 "ask": "Why was sandblasting jeans banned in Turkey?",
-                "choices": ["Silica dust gave workers the lung disease silicosis", "It used too much water to dye the cloth", "It wore through the cloth and caused returns", "It faded the indigo unevenly"],
+                "choices": ["Silica dust gave workers silicosis", "It used far too much water in dyeing", "It wore holes and caused many returns", "It faded the indigo in uneven patches"],
                 "answer": 0,
                 "why": "Spraying sand under pressure filled the air with silica dust, which damages the lungs."
               }
@@ -114,14 +114,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Jean and denim are named after towns.** Genoa and Nîmes, though the old cloths may differ from today's.",
-    "**Denim is a 3/1 twill.** The blue warp covers about three quarters of the face.",
-    "**Indigo ring-dyes the warp.** The colour sits in a ring around a white core.",
-    "**Wear exposes the core.** Knees and creases fade first as the ring wears away.",
-    "**Davis and Strauss patented the rivet in 1873.** Riveted pockets made tough work trousers.",
-    "**Jeans moved from work to youth.** Dude ranches, servicemen and 1950s films spread them.",
-    "**Factory fades replaced wear.** Stonewashing, bleach and lasers; sandblasting caused silicosis."
-  ],
+  "summary": ["**Jean and denim are named after towns.** Genoa and Nîmes, though the old cloths may differ from today's.", "**Denim is a 3/1 twill.** The blue warp covers about three quarters of the face.", "**Indigo ring-dyes the warp.** The colour sits in a ring around a white core.", "**Wear exposes the core.** Knees and creases fade first as the ring wears away.", "**Davis and Strauss patented the rivet in 1873.** Riveted pockets made tough work trousers.", "**Jeans moved from work to youth.** Dude ranches, servicemen and 1950s films spread them.", "**Factory fades replaced wear.** Stonewashing, bleach and lasers; sandblasting caused silicosis."],
   "footnotes": {}
 }

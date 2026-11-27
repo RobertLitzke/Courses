@@ -100,7 +100,7 @@
               },
               {
                 "ask": "What does a cloth stitch in bobbin lace do?",
-                "choices": ["Passes one pair through another, like weft through warp", "Ties four threads into a single knot", "Twists every thread around its neighbour once", "Joins two finished pieces of lace together"],
+                "choices": ["Passes one pair through another, like weaving", "Ties all four threads into a single knot", "Twists every thread around its neighbour once", "Joins two finished pieces of lace together"],
                 "answer": 0,
                 "why": "Cross, twist, cross carries the travelling pair over and under the hanging pair."
               },
@@ -122,15 +122,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Lace is cloth made of holes.** It grew from cutwork and drawn-thread embroidery in the 16th century.",
-    "**Needle lace uses one needle.** Looped stitches fill a tacked outline; Venice led the trade.",
-    "**Bobbin lace uses many threads.** Pairs of bobbins are crossed and twisted on a pillow; Flanders led.",
-    "**Two kinds of move make every bobbin stitch.** Cross, twist, cross passes one pair through another like weaving.",
-    "**The hours made lace dear.** A few square centimetres a day, and costly fine linen thread.",
-    "**States fought lace imports.** Colbert's workshops made point de France; England banned Flemish lace.",
-    "**Women and children made it.** Piece rates at home, and lace schools for young girls.",
-    "**Machines made lace cheap.** Heathcoat's net from 1809, then patterned machine lace in Nottingham."
-  ],
+  "summary": ["**Lace is cloth made of holes.** It grew from cutwork and drawn-thread embroidery in the 16th century.", "**Needle lace uses one needle.** Looped stitches fill a tacked outline; Venice led the trade.", "**Bobbin lace uses many threads.** Pairs of bobbins are crossed and twisted on a pillow; Flanders led.", "**Two kinds of move make every bobbin stitch.** Cross, twist, cross passes one pair through another like weaving.", "**The hours made lace dear.** A few square centimetres a day, and costly fine linen thread.", "**States fought lace imports.** Colbert's workshops made point de France; England banned Flemish lace.", "**Women and children made it.** Piece rates at home, and lace schools for young girls.", "**Machines made lace cheap.** Heathcoat's net from 1809, then patterned machine lace in Nottingham."],
   "footnotes": {}
 }

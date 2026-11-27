@@ -102,7 +102,7 @@
               },
               {
                 "ask": "Who most likely had the Bayeux hanging made?",
-                "choices": ["Bishop Odo, William the Conqueror's half-brother", "King Harold, before the Battle of Hastings", "The Pope, as a gift to William", "Louis XIV, to decorate a French palace"],
+                "choices": ["Bishop Odo, William's half-brother", "King Harold, before the Battle of Hastings", "The Pope, as a gift to the new king William", "Louis XIV, to decorate a French palace"],
                 "answer": 0,
                 "why": "Odo appears prominently and may have wanted it for his new cathedral at Bayeux."
               }
@@ -112,15 +112,6 @@
       ]
     }
   ],
-  "summary": [
-    "**A tapestry is woven; the Bayeux hanging is stitched.** Its wool picture is embroidered on plain linen.",
-    "**Tapestry wefts turn back at each colour.** Packed down, they hide the warp and make the picture.",
-    "**Two stitches made the Bayeux hanging.** Stem stitch for outlines and laid and couched work for filling.",
-    "**Laid work saves yarn.** Almost all the wool lies on the front.",
-    "**About ten colours came from three dyes.** Woad, madder and weld, mixed for greens.",
-    "**It was probably English work of the 1070s.** Made in Canterbury, most likely for Bishop Odo.",
-    "**English embroidery was a luxury export.** Opus anglicanum in silk and gold reached popes and kings.",
-    "**Woven tapestries were the costlier art.** The Angers Apocalypse and Henry VIII's 2,000 hangings."
-  ],
+  "summary": ["**A tapestry is woven; the Bayeux hanging is stitched.** Its wool picture is embroidered on plain linen.", "**Tapestry wefts turn back at each colour.** Packed down, they hide the warp and make the picture.", "**Two stitches made the Bayeux hanging.** Stem stitch for outlines and laid and couched work for filling.", "**Laid work saves yarn.** Almost all the wool lies on the front.", "**About ten colours came from three dyes.** Woad, madder and weld, mixed for greens.", "**It was probably English work of the 1070s.** Made in Canterbury, most likely for Bishop Odo.", "**English embroidery was a luxury export.** Opus anglicanum in silk and gold reached popes and kings.", "**Woven tapestries were the costlier art.** The Angers Apocalypse and Henry VIII's 2,000 hangings."],
   "footnotes": {}
 }

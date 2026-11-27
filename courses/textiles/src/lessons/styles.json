@@ -66,7 +66,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Whichever way styles move, rapid change needs cheap clothes. When a coat took a family months of spinning and weaving, as in lessons 3 and 13, it was worn for years, remade and handed down, and its style changed slowly. Mechanised spinning and weaving, the sewing machine and ready-made sizes, lessons 14 to 24, made clothes cheaper decade by decade. Lesson 25 showed that from the 1990s clothing prices in rich countries fell while other prices rose, and retailers learned to put new designs in shops every few weeks, and some online sellers now list thousands of new items a day."
+          "text": "Whichever way styles move, rapid change needs cheap clothes. When a coat took a family months of spinning and weaving, as lesson 3 showed, it was worn for years, remade and handed down, and its style changed slowly. Mechanised spinning and weaving, the sewing machine and ready-made sizes, lessons 14 to 24, made clothes cheaper decade by decade. Lesson 25 showed that from the 1990s clothing prices in rich countries fell while other prices rose, and retailers learned to put new designs in shops every few weeks, and some online sellers now list thousands of new items a day."
         },
         {
           "type": "text",
@@ -92,7 +92,7 @@
               },
               {
                 "ask": "In Simmel's trickle-down theory, why does the elite abandon a style?",
-                "choices": ["Once others copy it, it no longer sets them apart", "It wears out faster than other styles", "Sumptuary laws forbid them to keep it", "Designers stop making it in their sizes"],
+                "choices": ["Once others copy it, it no longer stands out", "It wears out faster than other styles do", "Sumptuary laws forbid them to keep wearing it", "Designers stop making it in their sizes"],
                 "answer": 0,
                 "why": "The elite adopt styles to stand out; when the style becomes common, they move on."
               },
@@ -104,7 +104,7 @@
               },
               {
                 "ask": "Why does fast turnover of styles depend on cheap cloth?",
-                "choices": ["Copying and discarding are quick only when clothes are cheap", "Cheap cloth is easier for designers to draw", "Cheap cloth comes in more colours", "Expensive cloth cannot be cut into new shapes"],
+                "choices": ["Copying is quick only when clothes are cheap", "Cheap cloth is easier for designers to draw", "Cheap cloth comes in a wider range of colours", "Expensive cloth cannot be cut into new shapes"],
                 "answer": 0,
                 "why": "When clothes cost little, people copy new styles fast, and the elite must keep moving."
               }
@@ -114,14 +114,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Sumptuary laws tried to fix dress to rank.** Constant reissuing shows people kept dressing up.",
-    "**Veblen saw display in dress.** Conspicuous consumption, leisure and waste signal wealth.",
-    "**Simmel described trickle-down.** The elite adopt, others copy, and the elite move on.",
-    "**Mass media spread styles across classes.** Copies arrived within weeks for everyone.",
-    "**Many styles trickle up.** Denim, punk and streetwear began below and were copied above.",
-    "**Fashion recycles its past.** Laver's timetable runs from daring to dowdy to beautiful.",
-    "**Fast change needs cheap cloth.** Falling prices sped the cycle to weeks."
-  ],
+  "summary": ["**Sumptuary laws tried to fix dress to rank.** Constant reissuing shows people kept dressing up.", "**Veblen saw display in dress.** Conspicuous consumption, leisure and waste signal wealth.", "**Simmel described trickle-down.** The elite adopt, others copy, and the elite move on.", "**Mass media spread styles across classes.** Copies arrived within weeks for everyone.", "**Many styles trickle up.** Denim, punk and streetwear began below and were copied above.", "**Fashion recycles its past.** Laver's timetable runs from daring to dowdy to beautiful.", "**Fast change needs cheap cloth.** Falling prices sped the cycle to weeks."],
   "footnotes": {}
 }

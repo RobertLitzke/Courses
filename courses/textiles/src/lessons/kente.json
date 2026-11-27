@@ -83,7 +83,7 @@
               },
               {
                 "ask": "How do kente weavers get a checkerboard across the cloth?",
-                "choices": ["By shifting alternate strips so blocks meet stripes", "By dyeing the finished cloth in squares", "By weaving the whole design on one strip", "By painting starch onto the strips"],
+                "choices": ["Alternate strips are shifted by one block", "The finished cloth is dyed in squares", "The whole design is woven on one strip", "Starch paste is painted onto the strips"],
                 "answer": 0,
                 "why": "Each strip alternates stripes and blocks; offset neighbours make the blocks alternate across the cloth."
               },
@@ -105,14 +105,6 @@
       ]
     }
   ],
-  "summary": [
-    "**West African weavers wove narrow strips.** A light treadle loom made strips a hand wide and many metres long.",
-    "**Strips are sewn into cloth.** The size of the cloth is not limited by the loom.",
-    "**Strip cloth is old.** Cotton strips from the Tellem burial caves in Mali date from about the 11th century.",
-    "**Kente alternates stripes and blocks.** Two sets of heddles switch between plain and weft-faced weave.",
-    "**The pattern lies across the strips.** Offset strips make the checkerboard.",
-    "**Asante silk was unpicked from imports.** Named patterns were reserved by the Asantehene.",
-    "**Adire is resist-dyed indigo.** Yoruba women tied cloth or painted cassava paste to keep dye out."
-  ],
+  "summary": ["**West African weavers wove narrow strips.** A light treadle loom made strips a hand wide and many metres long.", "**Strips are sewn into cloth.** The size of the cloth is not limited by the loom.", "**Strip cloth is old.** Cotton strips from the Tellem burial caves in Mali date from about the 11th century.", "**Kente alternates stripes and blocks.** Two sets of heddles switch between plain and weft-faced weave.", "**The pattern lies across the strips.** Offset strips make the checkerboard.", "**Asante silk was unpicked from imports.** Named patterns were reserved by the Asantehene.", "**Adire is resist-dyed indigo.** Yoruba women tied cloth or painted cassava paste to keep dye out."],
   "footnotes": {}
 }

@@ -84,7 +84,7 @@
             "items": [
               {
                 "ask": "What let 19th century corsets be laced much tighter than earlier stays?",
-                "choices": ["Metal eyelets that did not tear the cloth", "Panels knitted from stretch yarn", "A thinner, softer cotton", "Removing the bones from the front"],
+                "choices": ["Metal eyelets that did not tear", "Panels knitted from stretchy yarn", "A thinner and softer cotton cloth", "Taking the bones out of the front"],
                 "answer": 0,
                 "why": "Metal eyelets, patented in the 1820s, took the strain of tight lacing."
               },
@@ -96,13 +96,13 @@
               },
               {
                 "ask": "What do skeletons of corset-wearing women show?",
-                "choices": ["Inward-curved ribs, often in women who lived long lives", "Missing lower ribs removed by surgery", "No changes to the bones at all", "Early death in almost every case"],
+                "choices": ["Inward-curved ribs, often in long lives", "Missing lower ribs removed by surgery", "No changes to the bones at all", "Early death in almost every case"],
                 "answer": 0,
                 "why": "The ribs were deformed, but many of the women lived to middle or old age and bore children."
               },
               {
                 "ask": "Why is the story of cosmetic rib removal doubtful?",
-                "choices": ["Chest surgery then was very likely to kill, and no record exists", "Ribs cannot be removed even with modern surgery", "Corsets were banned before surgery was invented", "Doctors were not allowed to operate on women"],
+                "choices": ["Chest surgery then usually killed, and no record exists", "Ribs cannot be removed even by modern surgery", "Corsets were banned before surgery was invented", "Doctors were not allowed to operate on women"],
                 "answer": 0,
                 "why": "Before antiseptic surgery, opening the chest usually caused fatal infection, and no case is recorded."
               }
@@ -112,15 +112,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Corsets were engineered.** Shaped panels, bones, a busk and lacing spread the pull over the body.",
-    "**Three inventions made them cheap.** Metal eyelets, the front busk and steel bones.",
-    "**Most lacing was moderate.** A few inches off the waist; extreme tight-lacing was rarer than legend says.",
-    "**The cage crinoline replaced petticoats.** Light steel hoops, but a deadly fire risk.",
-    "**Skeletons show real deformity.** Ribs curved inward in women corseted from childhood.",
-    "**But not clearly early death.** Many of those women lived long and bore children.",
-    "**Rib removal is a myth.** No record exists, and chest surgery was then deadly.",
-    "**Reform and war ended the corset.** Looser fashion and steel shortages brought in the brassiere."
-  ],
+  "summary": ["**Corsets were engineered.** Shaped panels, bones, a busk and lacing spread the pull over the body.", "**Three inventions made them cheap.** Metal eyelets, the front busk and steel bones.", "**Most lacing was moderate.** A few inches off the waist; extreme tight-lacing was rarer than legend says.", "**The cage crinoline replaced petticoats.** Light steel hoops, but a deadly fire risk.", "**Skeletons show real deformity.** Ribs curved inward in women corseted from childhood.", "**But not clearly early death.** Many of those women lived long and bore children.", "**Rib removal is a myth.** No record exists, and chest surgery was then deadly.", "**Reform and war ended the corset.** Looser fashion and steel shortages brought in the brassiere."],
   "footnotes": {}
 }

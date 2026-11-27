@@ -86,13 +86,13 @@
             "items": [
               {
                 "ask": "Why can a drinks bottle become a fleece?",
-                "choices": ["Bottles and polyester fibre are the same plastic, PET", "Bottles are made from cotton cellulose", "The fleece is a thin film cut into strips", "Bottle plastic is woven straight into cloth"],
+                "choices": ["Bottles and polyester are both PET", "Bottles are made from cotton cellulose", "The fleece is a thin film cut into strips", "Bottle plastic is woven straight into cloth"],
                 "answer": 0,
                 "why": "Bottle PET is melted and spun through a spinneret just as new polyester is."
               },
               {
                 "ask": "Why does shredded cotton need new cotton blended in?",
-                "choices": ["Shredding shortens fibres, and short fibres make weak yarn", "Shredded cotton has lost all its colour", "Old cotton fibres are too thick to spin", "New cotton is needed to absorb the dyes"],
+                "choices": ["Shredding shortens fibres, weakening yarn", "Shredded cotton has lost all its colour", "Old cotton fibres are too thick to spin", "New cotton is needed to absorb the dyes"],
                 "answer": 0,
                 "why": "Short fibres overlap less and slip past each other, so long new fibres have to carry them."
               },
@@ -104,7 +104,7 @@
               },
               {
                 "ask": "What is a limit of making clothes from bottles?",
-                "choices": ["The fleece usually leaves the loop when it wears out", "Recycled polyester is weaker than cotton", "Bottle fibre is too short to spin", "It uses more oil than new polyester"],
+                "choices": ["A worn-out fleece is rarely recycled again", "Recycled polyester is weaker than cotton", "Bottle fibre is too short to spin into yarn", "It uses more oil than making new polyester"],
                 "answer": 0,
                 "why": "A bottle can become a bottle again, but a worn-out fleece is rarely made into anything else."
               }
@@ -114,15 +114,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Bottles and polyester are the same plastic.** PET from bottles is melted and spun into fibre.",
-    "**Recycled polyester is mostly bottles.** About an eighth of polyester, nearly all from bottles, not clothes.",
-    "**It saves energy but leaves the loop.** A fleece from bottles is rarely recycled again.",
-    "**Shredding old cloth is old.** Yorkshire shoddy and Prato's wool date from the 19th century.",
-    "**Shredding shortens fibres.** Recycled cotton needs long new fibre blended in to spin well.",
-    "**Chemical recycling rebuilds the molecule.** It makes fibre as good as new, but costs more.",
-    "**Blends and trims block recycling.** Mixed fibres, elastane, dyes and zips need separating.",
-    "**Under 1 percent of clothing material comes from old clothes.** Wearing clothes longer still saves the most."
-  ],
+  "summary": ["**Bottles and polyester are the same plastic.** PET from bottles is melted and spun into fibre.", "**Recycled polyester is mostly bottles.** About an eighth of polyester, nearly all from bottles, not clothes.", "**It saves energy but leaves the loop.** A fleece from bottles is rarely recycled again.", "**Shredding old cloth is old.** Yorkshire shoddy and Prato's wool date from the 19th century.", "**Shredding shortens fibres.** Recycled cotton needs long new fibre blended in to spin well.", "**Chemical recycling rebuilds the molecule.** It makes fibre as good as new, but costs more.", "**Blends and trims block recycling.** Mixed fibres, elastane, dyes and zips need separating.", "**Under 1 percent of clothing material comes from old clothes.** Wearing clothes longer still saves the most."],
   "footnotes": {}
 }

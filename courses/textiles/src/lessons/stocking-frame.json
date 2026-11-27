@@ -98,7 +98,7 @@
               },
               {
                 "ask": "Who paid frame rent, and to whom?",
-                "choices": ["Framework knitters, to the hosiers who owned the frames", "Hosiers, to the Crown for the patent", "Lee's heirs, to the London company", "Mill owners, to Jedediah Strutt"],
+                "choices": ["Knitters, to the hosiers who owned the frames", "Hosiers, to the Crown for Lee's old patent", "Lee's heirs, to the London livery company", "Mill owners, to Jedediah Strutt for his rib"],
                 "answer": 0,
                 "why": "Most knitters rented their frames from hosiers and paid each week, with or without work."
               },
@@ -114,15 +114,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Hand knitting made one loop at a time.** Stockings took days of work in the 16th century.",
-    "**Lee's frame made a row at once.** By tradition built in 1589, with one needle per loop.",
-    "**The bearded needle closed its own hook.** The old loop slid over it and off, onto the new loop.",
-    "**Elizabeth I refused a patent.** Lee took his frames to France; the trade grew in London.",
-    "**Framework knitting moved to the East Midlands.** Strutt's rib attachment helped fund Arkwright.",
-    "**Knitters rented their frames.** Hosiers charged frame rent and paid by the piece.",
-    "**Luddites broke chosen frames.** In 1811 they targeted low payers and makers of cut-ups.",
-    "**Frame breaking became a capital crime.** Byron spoke against the 1812 bill, but it passed."
-  ],
+  "summary": ["**Hand knitting made one loop at a time.** Stockings took days of work in the 16th century.", "**Lee's frame made a row at once.** By tradition built in 1589, with one needle per loop.", "**The bearded needle closed its own hook.** The old loop slid over it and off, onto the new loop.", "**Elizabeth I refused a patent.** Lee took his frames to France; the trade grew in London.", "**Framework knitting moved to the East Midlands.** Strutt's rib attachment helped fund Arkwright.", "**Knitters rented their frames.** Hosiers charged frame rent and paid by the piece.", "**Luddites broke chosen frames.** In 1811 they targeted low payers and makers of cut-ups.", "**Frame breaking became a capital crime.** Byron spoke against the 1812 bill, but it passed."],
   "footnotes": {}
 }

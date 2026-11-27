@@ -88,7 +88,7 @@
               },
               {
                 "ask": "What did the CC41 mark show?",
-                "choices": ["A Utility garment made to government standards", "A garment made for the armed forces", "A garment imported from the United States", "A garment exempt from coupons"],
+                "choices": ["A Utility garment made to set standards", "A garment made for the armed forces", "A garment imported from the United States", "A garment that needed no coupons at all"],
                 "answer": 0,
                 "why": "CC41, Civilian Clothing 1941, marked Utility cloth and clothing sold at controlled prices."
               },
@@ -100,7 +100,7 @@
               },
               {
                 "ask": "Why did the Board of Trade hire London fashion designers?",
-                "choices": ["So that Utility clothes would look good and be accepted", "To design new uniforms for the army", "To sell British fashion abroad for dollars", "To train factory workers in tailoring"],
+                "choices": ["So Utility clothes would look good", "To design new uniforms for the army", "To sell British fashion abroad for dollars", "To train factory workers in tailoring"],
                 "answer": 0,
                 "why": "Designers like Hartnell and Amies made stylish ranges within the rules, sold at Utility prices."
               }
@@ -110,14 +110,6 @@
       ]
     }
   ],
-  "summary": [
-    "**War made cloth strategic.** Uniforms, shipping losses and war work squeezed civilian supply.",
-    "**Coupons rationed clothes from June 1941.** Each adult had 66 a year at first; a suit cost 26.",
-    "**Utility set the standard.** Specified cloth, controlled prices and the CC41 mark.",
-    "**Austerity orders set the shape.** Limits on pleats, hems, pockets and buttons; no turn-ups.",
-    "**Designers worked within the rules.** Hartnell, Amies and others made Utility fashionable.",
-    "**Make Do and Mend extended clothes' lives.** Darning, patching and remaking were taught nationally.",
-    "**Rationing ended in 1949.** Dior's New Look showed the appetite for cloth after austerity."
-  ],
+  "summary": ["**War made cloth strategic.** Uniforms, shipping losses and war work squeezed civilian supply.", "**Coupons rationed clothes from June 1941.** Each adult had 66 a year at first; a suit cost 26.", "**Utility set the standard.** Specified cloth, controlled prices and the CC41 mark.", "**Austerity orders set the shape.** Limits on pleats, hems, pockets and buttons; no turn-ups.", "**Designers worked within the rules.** Hartnell, Amies and others made Utility fashionable.", "**Make Do and Mend extended clothes' lives.** Darning, patching and remaking were taught nationally.", "**Rationing ended in 1949.** Dior's New Look showed the appetite for cloth after austerity."],
   "footnotes": {}
 }

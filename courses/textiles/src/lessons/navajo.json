@@ -124,7 +124,7 @@
             "items": [
               {
                 "ask": "Why was churro wool well suited to hand spinning?",
-                "choices": ["Long fibres with little grease could be spun after light combing", "It was the finest wool of any breed of sheep", "It was already dyed red on the sheep", "It felted easily into a ready-made sheet"],
+                "choices": ["Long, low-grease fibres needed no carding", "It was the finest wool of any breed of sheep", "It was already a deep red colour on the sheep", "It felted easily into a ready-made sheet"],
                 "answer": 0,
                 "why": "Low grease meant little washing, and long fibres needed no carding."
               },
@@ -142,7 +142,7 @@
               },
               {
                 "ask": "Why were pure churro sheep nearly lost by the 1970s?",
-                "choices": ["Forced livestock reduction and crossbreeding for market wool", "A disease spread by the railroad", "Weavers switched entirely to cotton", "The treaty of 1868 banned keeping sheep"],
+                "choices": ["Forced herd cuts and crossbreeding", "A disease spread along the railroad", "Weavers switched entirely to cotton", "The treaty of 1868 banned keeping sheep"],
                 "answer": 0,
                 "why": "The government cut the flocks from 1933 and pushed other breeds."
               }
@@ -152,15 +152,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Navajo blankets were prized trade goods.** A fine one could be exchanged on the Plains for horses.",
-    "**Churro sheep came with the Spanish.** Long, low-grease wool was easy to spin by hand.",
-    "**Navajo weaving is tapestry on an upright loom.** Packed wefts hide the warp and each colour fills its own area.",
-    "**Red came from unravelled bayeta.** Imported red cloth was unpicked for its yarn.",
-    "**The Long Walk broke the old economy.** Forced removal in 1864 and return in 1868.",
-    "**Trading posts turned blankets into rugs.** Hubbell and others sold heavy rugs to the East.",
-    "**Bought yarn cut the hours.** Germantown yarn removed spinning and dyeing, but rugs were often paid by weight.",
-    "**Livestock reduction nearly ended the churro.** Breeders and Navajo families revived it from 1977."
-  ],
+  "summary": ["**Navajo blankets were prized trade goods.** A fine one could be exchanged on the Plains for horses.", "**Churro sheep came with the Spanish.** Long, low-grease wool was easy to spin by hand.", "**Navajo weaving is tapestry on an upright loom.** Packed wefts hide the warp and each colour fills its own area.", "**Red came from unravelled bayeta.** Imported red cloth was unpicked for its yarn.", "**The Long Walk broke the old economy.** Forced removal in 1864 and return in 1868.", "**Trading posts turned blankets into rugs.** Hubbell and others sold heavy rugs to the East.", "**Bought yarn cut the hours.** Germantown yarn removed spinning and dyeing, but rugs were often paid by weight.", "**Livestock reduction nearly ended the churro.** Breeders and Navajo families revived it from 1977."],
   "footnotes": {}
 }

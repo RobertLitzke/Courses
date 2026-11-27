@@ -99,7 +99,7 @@
               },
               {
                 "ask": "What does a windproof shell add over a fleece?",
-                "choices": ["It stops wind replacing the still air inside", "It adds a thick layer of extra loft", "It absorbs sweat from the skin", "It reflects sunlight onto the wearer"],
+                "choices": ["It stops wind replacing the still air", "It adds a thick layer of extra loft", "It absorbs sweat directly from the skin", "It reflects sunlight back onto the wearer"],
                 "answer": 0,
                 "why": "Wind blows through open layers and carries off the warm air they hold. A shell keeps that air still."
               }
@@ -109,15 +109,6 @@
       ]
     }
   ],
-  "summary": [
-    "**Still air insulates.** Air conducts heat poorly, but only when it cannot move.",
-    "**Fibres hold the air still.** Warmth depends mostly on the thickness of the layer, its loft.",
-    "**About 2 cm keeps you warm sitting at 0 °C.** Moving makes more heat, so less insulation is needed.",
-    "**Down is light loft.** Fill power measures how much space an ounce fills.",
-    "**Fleece is brushed polyester.** It dries fast and keeps some warmth when damp.",
-    "**Wind strips the warm air.** A windproof shell keeps the insulation's air still.",
-    "**Water conducts heat away.** Wet cotton and wet down stop insulating.",
-    "**Wicking and wool help.** Polyester moves sweat outwards; wool absorbs vapour without feeling wet."
-  ],
+  "summary": ["**Still air insulates.** Air conducts heat poorly, but only when it cannot move.", "**Fibres hold the air still.** Warmth depends mostly on the thickness of the layer, its loft.", "**About 2 cm keeps you warm sitting at 0 °C.** Moving makes more heat, so less insulation is needed.", "**Down is light loft.** Fill power measures how much space an ounce fills.", "**Fleece is brushed polyester.** It dries fast and keeps some warmth when damp.", "**Wind strips the warm air.** A windproof shell keeps the insulation's air still.", "**Water conducts heat away.** Wet cotton and wet down stop insulating.", "**Wicking and wool help.** Polyester moves sweat outwards; wool absorbs vapour without feeling wet."],
   "footnotes": {}
 }
