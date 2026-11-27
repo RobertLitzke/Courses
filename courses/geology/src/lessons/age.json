@@ -140,7 +140,8 @@
           "options": {
             "photo": "zircon-crystal",
             "aspect": 0.61
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",

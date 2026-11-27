@@ -83,7 +83,8 @@
           "caption": "An iron meteorite, etched to show its crystals. The inner core is thought to be a solid alloy of iron and nickel, much like this.",
           "options": {
             "photo": "iron-meteorite"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",

@@ -26,7 +26,8 @@
           "caption": "Anorthosite, a rock made almost entirely of plagioclase feldspar.",
           "options": {
             "photo": "anorthosite"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",

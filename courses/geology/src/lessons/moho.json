@@ -66,7 +66,8 @@
           "caption": "A lump of mantle peridotite, green with olivine, carried up from the mantle inside basalt lava.",
           "options": {
             "photo": "peridotite"
-          }
+          },
+          "guide": true
         },
         {
           "type": "key_ideas",

@@ -88,7 +88,8 @@
           "caption": "A polished slice of petrified wood. The growth rings and the outline of the bark survive in quartz.",
           "options": {
             "photo": "petrified-section"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",

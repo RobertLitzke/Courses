@@ -55,6 +55,8 @@ defineCourse({
     { path: '/seed', view: seedView },
     { path: '/guide', label: 'Field guide', view: guideView },
     { path: '/guide/:tab', view: guideView },
+    // Every other course's field guide is at /field-guide; here it is the guide's Lessons tab.
+    { path: '/field-guide', view: (_root, nav) => nav.replace('/guide/lessons') },
     // Addresses from before 2026-11: lessons were "shifts", the guide the journal.
     { path: '/shift/:id', view: (_root, nav) => nav.replace(`/lesson/${nav.params.id}`) },
     { path: '/journal', view: journalRedirect },
@@ -65,6 +67,8 @@ defineCourse({
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
   encyclopedia: { data: encyclopedia, course: 'clouds' },
+  // The field guide is a tab of Clouds' own (views/guide.ts), not a page of its own.
+  fieldGuide: false,
 
   quiz: {
     // The same wrong answers every time a card comes up, so a card is a card.

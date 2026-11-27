@@ -203,3 +203,8 @@
 }
 .sky-overlays button.on { background: var(--sun); color: var(--ink); }
 .sky-hint { margin: 0; font-size: 0.76rem; color: var(--muted); text-align: center; }
+
+/* The Lessons tab prints as Didactics' field guide does, without the tabs. */
+@media print {
+  .guide:has(.field-guide) .guide-tabs { display: none; }
+}

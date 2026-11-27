@@ -75,7 +75,8 @@
           "caption": "Marble: limestone recrystallised into interlocking grains of calcite.",
           "options": {
             "photo": "marble"
-          }
+          },
+          "guide": true
         },
         {
           "type": "diagram",
@@ -132,7 +133,8 @@
           "caption": "Gneiss, with pale and dark minerals sorted into bands. A little hotter, and the pale bands would start to melt.",
           "options": {
             "photo": "gneiss"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",
@@ -171,7 +173,8 @@
         {
           "type": "diagram",
           "id": "igneous-grid",
-          "caption": "The common igneous rocks, by how fast they cooled (down) and what the melt was made of (across). Each pair in a column is the same melt."
+          "caption": "The common igneous rocks, by how fast they cooled (down) and what the melt was made of (across). Each pair in a column is the same melt.",
+          "guide": true
         },
         {
           "type": "diagram",
@@ -179,7 +182,8 @@
           "caption": "Granite: the coarse, slowly cooled form of a silica-rich melt. Erupted, the same melt makes rhyolite, pumice or obsidian.",
           "options": {
             "photo": "granite"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",
