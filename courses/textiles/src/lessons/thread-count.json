@@ -24,7 +24,7 @@
         },
         {
           "type": "text",
-          "text": "How many threads fit into an inch depends on how thick they are. In a plain weave, as lesson 4 showed, every weft thread passes over one warp thread and under the next, so the threads cannot be packed much closer than their own width. To fit more threads, the yarn has to be spun finer, and fine yarn needs fibres long enough to hold together when only a few lie side by side. The length of a fibre is called its **staple**, so high thread counts go with long-staple cottons such as Egyptian and Pima, and why the fibre matters as much as the count for how a sheet feels and lasts."
+          "text": "How many threads fit into an inch depends on how thick they are. In a plain weave, as lesson 4 showed, every weft thread passes over one warp thread and under the next, so the threads cannot be packed much closer than their own width. To fit more threads, the yarn has to be spun finer, and fine yarn needs fibres long enough to hold together when only a few lie side by side. The length of a fibre is called its **staple**, so high thread counts go with long-staple cottons such as Egyptian and Pima, which is why the fibre matters as much as the count for how a sheet feels and lasts."
         },
         {
           "type": "interactive_diagram",
@@ -48,7 +48,7 @@
         },
         {
           "type": "text",
-          "text": "The weave matters too. **Percale** is a close plain weave, crisp and matt. **Sateen** uses a satin weave, in which each weft thread passes over four warp threads and under one. A length of thread lying on the surface over several others is called a **float**, so the surface of sateen is mostly long floats of weft. It feels smoother and has a sheen, but the long floats snag and wear more easily."
+          "text": "The weave matters too. **Percale** is a close plain weave, crisp and matt. **Sateen** uses a satin weave, in which each thread of one set passes over four threads of the other and under one. A length of thread lying on the surface over several others is called a **float**, so the surface of sateen is mostly long floats. It feels smoother and has a sheen, but the long floats snag and wear more easily."
         }
       ]
     },
@@ -119,7 +119,7 @@
     "**Finer yarn fits more threads.** High counts need fine yarn, and fine yarn needs long-staple fibre.",
     "**About 600 is a practical ceiling.** Single yarns rarely fit more than about 300 each way.",
     "**Counting plies inflates the number.** A 900 sheet of three-ply yarn is as dense as an honest 300.",
-    "**Fibre and weave matter as much as the count.** Percale is crisp plain weave; sateen floats weft for sheen.",
+    "**Fibre and weave matter as much as the count.** Percale is crisp plain weave; sateen's long floats give it a sheen.",
     "**Pile cloths add a third set of threads.** It stands up from the surface as loops or cut tufts.",
     "**Towelling has loops; velvet is cut.** Velvet is often woven as two cloths face to face and sliced apart."
   ],
