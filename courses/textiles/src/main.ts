@@ -2,6 +2,7 @@ import 'didactics/styles/kit.css';
 import './styles/tokens.css';
 import { courseFiles } from 'didactics/course';
 import { defineCourse } from 'didactics/app';
+import encyclopedia from 'virtual:didactics/encyclopedia';
 import { el } from 'didactics/dom';
 import { SITE_URL } from './asset';
 import { FIGURES } from './figures';
@@ -39,6 +40,7 @@ defineCourse({
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who made the pictures.'),
   },
   catalog: { href: '../' },
+  encyclopedia: { data: encyclopedia, course: 'textiles' },
   offline: { noun: 'photos' },
   text: {
     files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),

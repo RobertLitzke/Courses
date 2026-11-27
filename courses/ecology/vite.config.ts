@@ -15,6 +15,8 @@ export default defineConfig(
     // One of several courses on the site, in its folder: the site's build
     // (tools/build-site.mjs at the repo's root) writes the one service worker.
     inSite: true,
+    // The site's encyclopedia, shared by every course (didactics/encyclopedia).
+    encyclopedia: { dir: '../../encyclopedia', courses: '..' },
     oneFile: 'ecology.html',
     precache: ['photos/*.webp'],
     manifest: {

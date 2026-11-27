@@ -2,6 +2,9 @@
 import { COURSE } from './course';
 import './app/styles/app.css';
 import { defineCourse } from 'didactics/app';
+import encyclopedia from 'virtual:didactics/encyclopedia';
+import { glossaryFromFile, type GlossaryFile } from 'didactics/glossary';
+import glossary from './data/glossary.json';
 import { el } from 'didactics/dom';
 import { SITE_URL } from './app/asset';
 import { DECK } from './app/deck';
@@ -50,6 +53,8 @@ defineCourse({
   menu: ['/home', '/reference', '/review', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
+  // The site's encyclopedia, with the reference page's glossary among this course's terms.
+  encyclopedia: { data: encyclopedia, course: 'electronics', terms: glossaryFromFile(glossary as GlossaryFile) },
   quiz: {
     deck: DECK,
     blurb: 'Flash cards on the ideas in the lessons. Cards you get right come back after longer and longer gaps; cards you miss come back soon.',

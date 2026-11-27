@@ -2,6 +2,7 @@ import 'didactics/styles/kit.css';
 import './styles/tokens.css';
 import { courseFiles } from 'didactics/course';
 import { defineCourse } from 'didactics/app';
+import encyclopedia from 'virtual:didactics/encyclopedia';
 import { el } from 'didactics/dom';
 import { SITE_URL } from './asset';
 import { RULES_YEAR } from './engine/rules';
@@ -34,6 +35,7 @@ defineCourse({
   prose,
   lesson: { intro: adviceNote, of: () => 14 },
   catalog: { href: '../' },
+  encyclopedia: { data: encyclopedia, course: 'finance' },
   text: {
     files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),
     code: () => import('virtual:didactics/code-text').then((m) => m.default),
