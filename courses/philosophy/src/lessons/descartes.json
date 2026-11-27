@@ -1,0 +1,321 @@
+{
+ "id": "descartes",
+ "n": 10,
+ "title": "How do you know you're not dreaming?",
+ "teaches": "The method of doubt, \"I think, therefore I am\", Ibn Sina's floating man, and the problem of how a mind moves a body",
+ "parts": [
+  {
+   "title": "Three dreams in a warm room",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In the winter of 1619 a 23-year-old French gentleman serving as a volunteer in the army of the Duke of Bavaria found himself in winter quarters near Ulm, in southern Germany, with nothing to do. He spent his days, he wrote later, \"shut up alone in a stove-heated room\", thinking. On the night of 10 November, after a day of intense excitement over an idea, he had three vivid dreams, which he wrote up and interpreted as a sign that he had been called to rebuild all of knowledge on new foundations.[^dreams]"
+    },
+    {
+     "type": "text",
+     "text": "René Descartes had been educated by the Jesuits at La Flèche, one of the best schools in France, and had left it convinced that most of what he had been taught was uncertain. Mathematics was the exception: its proofs were certain, and everything else, he thought, should be made as solid. Eighteen years later he published his plan in the *Discourse on the Method* (1637), and in 1641 carried it out in six short *Meditations on First Philosophy*."
+    },
+    {
+     "type": "text",
+     "text": "In this lesson we follow the Meditations. Descartes tries to doubt everything that can be doubted, to see whether anything survives. Something does, and what he builds on it gave modern philosophy two of its main problems: how we know there is a world outside our minds at all, and how a mind is connected to a body."
+    }
+   ]
+  },
+  {
+   "title": "Doubting everything",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Descartes did not think everything was doubtful. His **method of doubt** was a test: treat any belief that could possibly be false as if it were false, and see what is left. He did not go through his beliefs one by one, which would take forever, but attacked their foundations, in three steps that each go further than the last."
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "The three waves of doubt in the first Meditation. Each reaches beliefs the one before it could not.",
+     "options": {
+      "steps": [
+       {
+        "text": "The senses sometimes deceive us, about small or distant things, so they cannot be trusted completely."
+       },
+       {
+        "text": "But I am sitting by the fire in a dressing gown; surely that is certain. Yet I have often dreamed exactly this, and there are no sure signs to tell waking from sleep."
+       },
+       {
+        "text": "Even in dreams, two and three make five and a square has four sides. Yet a powerful, malicious demon could be deceiving me even about those."
+       },
+       {
+        "text": "So nothing I believe about the world, my body or even arithmetic is beyond doubt.",
+        "kind": "conclusion"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The dream argument is the step most people remember. Descartes's point was not that he might be dreaming at this moment so much as that nothing in his experience could prove he was not. A dream can feel as real as waking life, and the test you would use to check, pinching yourself, say, could itself be dreamed. The evil demon, which he called a *malin génie*, goes further. Even beliefs that are true in dreams and in waking life alike, such as that a square has four sides, could be the work of a deceiver who makes you go wrong every time you add."
+    },
+    {
+     "type": "text",
+     "text": "Descartes was not the first to wonder about dreams. About 1,900 years earlier the Chinese philosopher Zhuangzi told how he once dreamed he was a butterfly, flitting about happily, with no idea he was Zhuangzi. Then he woke up and was Zhuangzi again. \"But he did not know if he was Zhuangzi who had dreamed he was a butterfly, or a butterfly dreaming he was Zhuangzi.\" Zhuangzi's conclusion was different from Descartes's. He did not want certainty; he called this \"the transformation of things\" and took it as a reason to hold every fixed identity lightly. The Elsewhere branch returns to him."
+    },
+    {
+     "type": "text",
+     "text": "The modern version of the demon is a brain in a vat: a brain kept alive in a laboratory and fed electrical signals by a computer that produce exactly the experiences you are having now. The American philosopher Hilary Putnam used it in 1981, and the film *The Matrix* made it famous. Nothing in your experience could tell you that you are not such a brain."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Descartes's dream, now. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "dream",
+      "ask": "Can you be completely certain, right now, that you are not dreaming or a brain in a vat?",
+      "choices": [
+       "Yes: I know I am awake and in a real world",
+       "No, but it is still reasonable to believe I am",
+       "No, so I cannot really know anything about the world",
+       "Not sure"
+      ],
+      "who": [
+       "You chose G. E. Moore's answer, given below. Most philosophers agree that you know it, though they disagree about how.",
+       "You chose the most common answer. Certainty may be impossible, but knowledge does not require it.",
+       "You chose scepticism about the external world. Only about 5 percent of philosophers in the 2020 survey accepted or leaned towards it.",
+       "Descartes began his second Meditation unsure in the same way, and looked for one thing he could not doubt."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "I think, therefore I am",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "At the bottom of his doubt Descartes found one thing the demon could not touch. However much the demon deceives me, he wrote, it can never make me nothing while I think I am something. To be deceived, I must exist. \"So after considering everything very thoroughly, I must finally conclude that this proposition, *I am, I exist*, is necessarily true whenever it is put forward by me or conceived in my mind.\" In the *Discourse* he had put it in a shorter form, in French: *je pense, donc je suis*, I think, therefore I am. In Latin, in a later book, it became the famous *cogito, ergo sum*."
+    },
+    {
+     "type": "text",
+     "text": "What he knew to exist was a thinking thing: something that doubts, understands, affirms, denies, wills and imagines. He did not yet know he had a body, since the body was among the things he could doubt. From this foundation Descartes rebuilt the world. He argued that God exists, using a version of Anselm's argument from lesson 7 and one of his own, and that God, being good, would not let him be deceived about what he perceives clearly and distinctly. So the world exists after all, and mathematics and physics can be trusted."
+    },
+    {
+     "type": "text",
+     "text": "Most readers have found the rebuilding much weaker than the demolition. Descartes used his clear and distinct perceptions to prove God, and then used God to show that clear and distinct perceptions can be trusted. Antoine Arnauld pointed out the circle in 1641, in objections printed with the *Meditations* themselves,[^circle] and it has been called the **Cartesian circle** ever since."
+    }
+   ]
+  },
+  {
+   "title": "Mind and body",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Descartes concluded that a person is two different things joined together. The mind is a thinking thing, with no size, shape or location. The body is an extended thing, a machine of matter in space that works by the same laws as any other machine. Since he could doubt that he had a body but not that he had a mind, he argued, they must be distinct. This view, that mind and body are two different kinds of substance, is called **substance dualism**, or Cartesian dualism."
+    },
+    {
+     "type": "text",
+     "text": "Six hundred years earlier the Persian philosopher Ibn Sina, whom lesson 8 met as the philosopher al-Ghazali attacked, had argued for something similar with a thought experiment of his own. Suppose a man were created all at once and fully grown, floating in the air with his eyes covered, his limbs held apart so that they touch nothing, in air so still he cannot feel it. He would have no sensation of his body at all. Yet he would still know that he exists. So, Ibn Sina concluded, the self he knows is not the body. Scholars call this the **floating man**, and it was read in Latin Europe for centuries before Descartes.[^avicenna]"
+    },
+    {
+     "type": "text",
+     "text": "Dualism has an obvious problem, and it was put most sharply by a 24-year-old princess. Elisabeth of Bohemia, exiled in the Netherlands, had read the *Meditations* and wrote to Descartes in May 1643. If the mind has no size, shape or location and cannot touch anything, how can it make the body move? Everything we know about motion involves one body pushing another."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "dialogue",
+     "caption": "Elisabeth and Descartes, 1643, shortened from their letters. At each turn pick what Descartes replies. His real answers are among the choices.",
+     "task": "Read the exchange to the end",
+     "goal": "end",
+     "options": {
+      "a": "Elisabeth",
+      "b": "Descartes",
+      "open": "Tell me how the soul of a human being, being only a thinking substance, can move the body to perform voluntary actions.",
+      "turns": [
+       {
+        "replies": [
+         {
+          "say": "The union of soul and body is a basic idea of its own, known through ordinary life rather than through philosophy. Think of how people once imagined weight pulling a stone down.",
+          "answer": "I confess I cannot follow the comparison. Weight was wrongly imagined as something without a body that moves bodies, and you have given up that idea yourself."
+         },
+         {
+          "say": "The soul acts on the body through a small gland in the middle of the brain, which it tilts this way and that.",
+          "answer": "But the gland is still a body. My question is how something with no extension can tilt anything at all."
+         }
+        ],
+        "then": "I find it would be easier for me to grant that the soul has matter and extension than to grant that an immaterial thing can move a body."
+       },
+       {
+        "replies": [
+         {
+          "say": "Then grant it. Imagine the soul as having matter, if that helps; you will still find it is distinct from the body.",
+          "answer": "You advise me to imagine what you yourself say is false. I would rather understand."
+         },
+         {
+          "say": "The best thing is to spend little time on such questions. Most of life should go to the senses and a few hours a year to metaphysics.",
+          "answer": "That is kind advice for my health, but it does not answer the question."
+         }
+        ]
+       }
+      ],
+      "end": "The correspondence continued until Descartes's death in 1650, mostly on the passions and how to live well. He never answered Elisabeth's question to her satisfaction, and philosophers since have not done much better."
+     }
+    },
+    {
+     "type": "text",
+     "text": "Descartes's own attempt to locate the meeting point was the pineal gland, a small structure in the middle of the brain, which he chose because it is single while most parts of the brain come in pairs. In 1649 Queen Christina of Sweden persuaded him to come to Stockholm to teach her philosophy, at five in the morning. He caught pneumonia that winter and died in February 1650.[^christina]"
+    }
+   ]
+  },
+  {
+   "title": "Here is one hand",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Philosophers have spent nearly four centuries trying to answer the sceptic Descartes created and then dismissed. One of the most direct replies came in 1939, when the English philosopher G. E. Moore gave a lecture to the British Academy. He held up his hands and said, in effect: here is one hand, and here is another, so there are at least two external objects, so an external world exists. Moore admitted he could not prove the premise. But he argued that he was more certain that he had hands than he could ever be of any premise in the sceptic's argument, so it was more reasonable to reject the sceptic's premise than to give up his hands."
+    },
+    {
+     "type": "text",
+     "text": "Moore's reply sounds like a joke and is not. It turns the sceptic's argument around. The sceptic says: if you cannot rule out the dream, you do not know you have hands. Moore says: I do know I have hands, so I must be able to rule out the dream, whether or not I can say how. Which way to run the argument depends on which premise you are more sure of. Many philosophers since have argued that knowledge does not require certainty, which lets them grant Descartes his doubts and still claim to know a great deal."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The survey's question about the mind. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "mind",
+      "ask": "Is the mind ultimately something physical, a working of the brain?",
+      "choices": [
+       "Yes",
+       "No: it is something more",
+       "Not sure"
+      ],
+      "who": [
+       "You are with about half of professional philosophers, who accept or lean towards physicalism.",
+       "You are with about a third, which includes dualists and those who think the mind is physical in some respects and not others. Lesson 24 takes up the strongest arguments on this side.",
+       "Many philosophers who specialise in the mind are unsure too, which is why lesson 24 is open-ended."
+      ],
+      "poll": {
+       "shares": [
+        52,
+        32,
+        null
+       ],
+       "source": "PhilPapers Survey 2020, \"Mind: physicalism or non-physicalism?\", share accepting or leaning towards each."
+      }
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Sceptical arguments are still argued over, though few philosophers accept their conclusion: in the 2020 survey only about 5 percent accepted or leaned towards scepticism about the external world. The puzzles are alive, in debates about what knowledge requires, and in a newer form: the Swedish philosopher Nick Bostrom argued in 2003 that if civilisations can run detailed simulations of minds, we are more likely than not to be living in one. The mind and body problem is also very much alive, as lesson 24 shows."
+    },
+    {
+     "type": "text",
+     "text": "Substance dualism in Descartes's form is respected history with a small minority of defenders. The phrase \"the ghost in the machine\", which Gilbert Ryle coined in 1949 to mock it, is better known than any defence. Some of Descartes's views are abandoned outright: the pineal gland as the seat of the soul, and his claim that animals are machines without feelings, which led some of his followers to cut up live dogs without concern for their cries. Descartes's \"I think, therefore I am\" itself survives almost everywhere as a starting point, though philosophers still argue about what exactly it proves: that thinking is going on is certain, but whether there is an *I* doing it is a further question that lesson 13 takes up."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Descartes",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What is the purpose of Descartes's method of doubt?",
+        "choices": [
+         "To find what survives when every belief that could be false is set aside",
+         "To show that nothing at all can be known, by anyone, ever",
+         "To prove that the senses are always wrong about the world",
+         "To replace philosophy with mathematics as the only reliable subject"
+        ],
+        "answer": 0,
+        "why": "Doubt was a test. Descartes wanted foundations that no possible doubt could shake, then to rebuild on them."
+       },
+       {
+        "ask": "What does the evil demon add that the dream argument does not?",
+        "choices": [
+         "Doubt about things true even in dreams, such as arithmetic",
+         "Doubt about whether you have a body",
+         "Doubt about whether other people have minds",
+         "Doubt about things you see from far away"
+        ],
+        "answer": 0,
+        "why": "Two and three make five in dreams too. Only a deceiver who corrupts your reasoning reaches that far."
+       },
+       {
+        "ask": "Why can the demon not deceive Descartes about his own existence?",
+        "choices": [
+         "To be deceived, he must exist and be thinking",
+         "He perceives his own body clearly and distinctly",
+         "God guarantees that he exists",
+         "He remembers existing yesterday"
+        ],
+        "answer": 0,
+        "why": "Any deception needs someone to deceive. So \"I am, I exist\" is certain whenever he thinks it."
+       },
+       {
+        "ask": "What was Elisabeth's objection to Descartes's dualism?",
+        "choices": [
+         "Something with no size or location could not make a body move",
+         "The mind could not exist without the brain to support it",
+         "The soul cannot be known by the senses, so it cannot be proved",
+         "The pineal gland is found in animals as well as humans"
+        ],
+        "answer": 0,
+        "why": "Every known case of motion is one body pushing another. A mind with no extension has nothing to push with."
+       },
+       {
+        "ask": "How does G. E. Moore answer the sceptic?",
+        "choices": [
+         "He is surer he has hands than of any sceptical premise, so he rejects the premise",
+         "He proves by experiment that he is not dreaming",
+         "He shows that dreams are always less vivid than waking life",
+         "He argues that God would not allow him to be deceived"
+        ],
+        "answer": 0,
+        "why": "Moore turns the argument round. Which premise you give up depends on which you are more certain of."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Descartes doubted everything that could be doubted.** The method was a test to find what survives, not a belief that everything is false.",
+  "**Doubt came in three waves.** The senses deceive, dreams cannot be told from waking, and a demon could corrupt even arithmetic.",
+  "**Zhuangzi's butterfly asked the dream question 1,900 years earlier.** He took it as a lesson about change, not as a search for certainty.",
+  "**\"I am, I exist\" survives the demon.** To be deceived at all, one must exist and think.",
+  "**Descartes's rebuilding is weaker than his doubt.** Proving God with clear ideas and then trusting clear ideas because of God is the Cartesian circle.",
+  "**Dualism splits a person into a thinking thing and an extended thing.** Ibn Sina's floating man made a similar case 600 years before.",
+  "**Elisabeth asked how a mind with no extension moves a body.** Descartes never answered her to anyone's satisfaction.",
+  "**Moore answered the sceptic with his hands.** He was surer of them than of any premise in the sceptic's argument."
+ ],
+ "footnotes": {
+  "dreams": {
+   "kind": "technical",
+   "title": "How we know about the dreams",
+   "text": "Descartes's notebook from 1619 is lost. The dreams are known from Adrien Baillet's biography of 1691, which paraphrased it. In the first Descartes is blown by a whirlwind towards a college chapel; in the second he hears a thunderclap and sees sparks in his room; in the third he finds a book of poems opened at a line by Ausonius, \"What path in life shall I follow?\""
+  },
+  "avicenna": {
+   "kind": "technical",
+   "title": "Did Descartes know Ibn Sina?",
+   "text": "There is no direct evidence that Descartes read the floating man, though it was discussed by Latin scholastics he could have known. The two arguments also differ. Ibn Sina asks what a person with no sensation would know; Descartes asks what a person can doubt."
+  },
+  "circle": {
+   "kind": "digression",
+   "title": "Objections and replies",
+   "text": "Descartes sent the Meditations to other thinkers before publishing and printed their objections, with his replies, in the same volume. The objectors included Thomas Hobbes, of lesson 11, Pierre Gassendi and the theologian Antoine Arnauld, who raised the circle."
+  },
+  "christina": {
+   "kind": "digression",
+   "title": "A fatal job",
+   "text": "Some historians have argued that Descartes was poisoned by a Catholic priest who feared he would stop Christina's conversion, but the evidence is thin, and pneumonia in a Swedish winter is the usual explanation. Christina did convert to Catholicism, in 1654, and gave up her throne."
+  }
+ }
+}
