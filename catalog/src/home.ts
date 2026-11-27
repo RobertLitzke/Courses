@@ -118,10 +118,9 @@ function continueCard(p: Place, now: number): HTMLElement {
         'p.desk-meta',
         {},
         p.part === null ? `${c.title} · ${lessonNo(p.lesson)}` : [partTicks(p.lesson.parts, p.part), el('span', {}, `${c.title} · part ${p.part + 1} of ${p.lesson.parts}`)],
-        effortTag(p),
       ),
     ),
-    el('a.btn', { href: lessonHref(c, p.lesson) }, p.part === null ? 'Start' : 'Continue'),
+    el('div.desk-side', {}, el('a.btn', { href: lessonHref(c, p.lesson) }, p.part === null ? 'Start' : 'Continue'), effortTag(p)),
   );
 }
 
@@ -131,8 +130,8 @@ function alsoCard(p: Place): HTMLElement {
     'article.desk-card.desk-also',
     {},
     icon(c),
-    el('div.desk-text', {}, el('h3', {}, el('a', { href: `./${c.folder}/` }, c.title)), el('p.desk-meta', {}, `${p.part === null ? 'Next' : 'Under way'}: ${p.lesson.title}`, effortTag(p))),
-    el('a.btn.ghost', { href: lessonHref(c, p.lesson) }, 'Open'),
+    el('div.desk-text', {}, el('h3', {}, el('a', { href: `./${c.folder}/` }, c.title)), el('p.desk-meta', {}, `${p.part === null ? 'Next' : 'Under way'}: ${p.lesson.title}`)),
+    el('div.desk-side', {}, el('a.btn.ghost', { href: lessonHref(c, p.lesson) }, 'Open'), effortTag(p)),
   );
 }
 
