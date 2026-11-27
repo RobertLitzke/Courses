@@ -59,6 +59,10 @@ export const COL = {
   personal: '#b0546a',
   falsechoice: '#7d5a9a',
   circular: '#3f6f8f',
+  /** Branch K3: three theories of vague words. */
+  fuzzy: '#d4582a',
+  superval: '#3f6f8f',
+  epistemic: '#7d5a9a',
 } as const;
 export type ColorKey = keyof typeof COL;
 

@@ -144,3 +144,22 @@ describe('the ledger in the last lesson', () => {
     expect(h.node.textContent).toContain('would pull the switch but not push');
   });
 });
+
+import { degree } from '../src/figures/heap';
+import { guess, setSlider } from './helpers';
+
+describe('the heap', () => {
+  it('rises smoothly from false to true', () => {
+    expect(degree(1)).toBeLessThan(0.05);
+    expect(degree(10000)).toBeGreaterThan(0.95);
+    expect(degree(50)).toBeLessThan(degree(100));
+  });
+  it('is done once every theory is seen in the borderline zone', async () => {
+    const h = FIGURES.heap(context(), 'borderline');
+    await Promise.resolve();
+    guess(h.node, 'There is no exact point');
+    setSlider(h.node, 0, 9); // 100 grains
+    for (const name of ['Degrees of truth', 'Supervaluation', 'Epistemicism']) click(h.node, name);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});

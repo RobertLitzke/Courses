@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('heap', 303, 'When does a heap stop being a heap?', 'The sorites paradox and vague words', { branch: 'tools', needs: ['socrates'] }),
   coming('gettier', 304, 'The three pages that broke knowledge', 'Justified true belief and Gettier\'s 1963 counterexamples', { branch: 'tools', needs: ['hume'] }),
   coming('science', 305, 'How does science know it\'s wrong?', 'Popper\'s falsification, the Vienna Circle, and Kuhn\'s paradigm shifts', { branch: 'tools', needs: ['hume'] }),
   coming('wittgenstein', 306, 'Can you have a private language?', 'Wittgenstein, language games and the beetle in the box', { branch: 'tools', needs: ['hume'] }),

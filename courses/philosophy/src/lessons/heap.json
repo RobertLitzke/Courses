@@ -1,0 +1,197 @@
+{
+ "id": "heap",
+ "n": 303,
+ "branch": "tools",
+ "needs": [
+  "socrates"
+ ],
+ "title": "When does a heap stop being a heap?",
+ "teaches": "The sorites paradox and vague words",
+ "parts": [
+  {
+   "title": "One grain at a time",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Take a heap of sand, 10,000 grains. Take away one grain. It is still a heap: one grain cannot make the difference between a heap and not a heap. Take away another, and the same is true. But keep going, one grain at a time, and you eventually have a single grain, or none, which is certainly not a heap. Somewhere along the way, it stopped being one. Where?"
+    },
+    {
+     "type": "text",
+     "text": "The puzzle is credited to **Eubulides of Miletus**, a Greek philosopher of the 4th century BC and a rival of Aristotle, who also invented the liar paradox (\"this sentence is false\"). It is called the **sorites**, from the Greek *sōros*, a heap. Eubulides told a version about baldness too: pulling out one hair never makes a man bald, yet pull them one at a time and he ends up bald.[^eubulides]"
+    },
+    {
+     "type": "diagram",
+     "id": "argument",
+     "caption": "The sorites as an argument. Each premise seems true, the reasoning is valid, and the conclusion is false.",
+     "options": {
+      "steps": [
+       {
+        "text": "10,000 grains of sand make a heap."
+       },
+       {
+        "text": "If a number of grains makes a heap, then one grain fewer still makes a heap."
+       },
+       {
+        "text": "So, applying the second premise 9,999 times, one grain makes a heap.",
+        "kind": "conclusion"
+       },
+       {
+        "text": "One grain plainly does not make a heap, so one of the premises must be false, and the second is the only candidate.",
+        "kind": "objection",
+        "against": 2
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Vague words",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The problem is not about sand. It arises for any **vague** word: a word that has clear cases, clear non-cases, and borderline cases in between, with no sharp boundary. Tall, bald, rich, old, red, child, crowd, heap. Most of the words we use are vague, and they work perfectly well in ordinary life. The trouble starts when a law or a rule needs a line."
+    },
+    {
+     "type": "text",
+     "text": "The law usually draws one by decision. A person becomes an adult for voting at 18, not because anything changes on the birthday, but because some line is needed. A driver in England is over the limit at 80 milligrams of alcohol per 100 millilitres of blood, though 79 is not safe and 81 is not dangerous in any sharp sense. These lines are useful precisely because they are sharp, and arbitrary for the same reason. The philosophical question is whether the words themselves, before any law, have sharp lines."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "heap",
+     "caption": "A shrinking heap, and what three theories of vague words say about the sentence \"this is a heap\". The borderline zone, from 20 to 200 grains, is only for the drawing; where the real one lies is part of the question.",
+     "task": "Guess first, then see what each theory says in the borderline zone",
+     "goal": "borderline"
+    }
+   ]
+  },
+  {
+   "title": "Three answers",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Degrees of truth.** Some philosophers say truth comes in degrees, like tallness. \"10,000 grains is a heap\" is fully true, \"one grain is a heap\" is fully false, and in between the truth slides smoothly down. The second premise of the paradox is then nearly true for each step but not quite, and thousands of tiny losses add up to the whole. The mathematics comes from the **fuzzy logic** of the engineer Lotfi Zadeh, introduced in 1965[^fuzzy] and now used in washing machines and camera autofocus. Critics object that it gives exact numbers, such as 0.62 true, to things that are not exact either."
+    },
+    {
+     "type": "text",
+     "text": "**Supervaluation.** Others, following Kit Fine in 1975, say a vague word could be made sharp in many acceptable ways: draw the line at 50 grains, or 60, or 100. A sentence is true if it is true on every acceptable way of drawing the line, false if false on all of them, and borderline otherwise. \"75 grains is a heap\" is borderline. But \"there is a last heap\" comes out true, since it holds on every way of drawing the line, even though there is no particular number of which it is true. Critics find that strange."
+    },
+    {
+     "type": "text",
+     "text": "**Epistemicism.** The boldest answer, defended by Timothy Williamson in 1994, is that there really is a sharp line. Somewhere there is a number of grains that makes a heap, while one fewer does not. We cannot know where it is, because our use of the word does not settle it in a way we can detect; but it is there. This keeps ordinary logic intact, at the cost of a fact that nobody could ever discover."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "The paradox's question. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "last-grain",
+      "ask": "Is there a single grain whose removal turns a heap into something that is not a heap?",
+      "choices": [
+       "Yes, though nobody can know which grain",
+       "No: the change happens gradually, with no single point",
+       "The question has no true answer either way",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Williamson's epistemicism.",
+       "You chose the answer of degree theorists, and of most people asked for the first time.",
+       "You chose an answer close to supervaluation, on which each particular grain is borderline.",
+       "Philosophers who work on vagueness are divided too."
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Each answer has a further problem, called **higher-order vagueness**. If there are borderline cases, where exactly do they begin? The boundary between clear heaps and borderline heaps seems as vague as the boundary between heaps and non-heaps."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The sorites is still argued over, and there is no agreed answer. All three theories have serious defenders. The puzzle matters outside philosophy wherever a gradual change has to meet a sharp rule: when a fetus becomes a person, when a patient's brain injury counts as death, when a collection of cells is an embryo, or when a pay gap counts as unfair. Arguments of the form \"one more cannot make a difference\" are sorites arguments, and recognising them is useful whichever theory is right."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on the heap",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What makes a word vague, in the philosophers' sense?",
+        "choices": [
+         "It has clear cases, clear non-cases and borderline cases in between, with no sharp boundary",
+         "It has two or more unrelated meanings",
+         "It is used without any definite meaning at all",
+         "It refers to something that does not exist"
+        ],
+        "answer": 0,
+        "why": "Tall, bald, heap, red and child are all vague."
+       },
+       {
+        "ask": "What does epistemicism say about the heap?",
+        "choices": [
+         "There is a sharp line between heap and non-heap, but nobody can know where it is",
+         "Truth comes in degrees, so no single grain matters",
+         "A sentence is true only if it is true on every way of drawing the line",
+         "Heaps do not really exist"
+        ],
+        "answer": 0,
+        "why": "Williamson defended it in 1994. It keeps ordinary logic at the cost of an unknowable fact."
+       },
+       {
+        "ask": "How does the degrees-of-truth theory answer the paradox?",
+        "choices": [
+         "Each step loses a tiny amount of truth, so the second premise is nearly true but not quite, and the losses add up",
+         "It denies that 10,000 grains is a heap",
+         "It says the argument is valid and one grain is a heap",
+         "It says only legal definitions can settle the question"
+        ],
+        "answer": 0,
+        "why": "Its mathematics is Zadeh's fuzzy logic."
+       },
+       {
+        "ask": "What is higher-order vagueness?",
+        "choices": [
+         "The boundary between clear cases and borderline cases is itself vague",
+         "Some words are more vague than others",
+         "A vague word becomes precise when the law defines it",
+         "Vagueness exists only in very old languages"
+        ],
+        "answer": 0,
+        "why": "Every theory that admits borderline cases has to face it."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Removing one grain never seems to make a heap stop being a heap.** Yet one grain is not a heap.",
+  "**Eubulides posed the sorites in the 4th century BC.** He also invented the liar paradox.",
+  "**Vague words have borderline cases and no sharp line.** Tall, bald, rich, child, heap.",
+  "**Laws draw sharp lines by decision.** Useful for being sharp, and arbitrary for the same reason.",
+  "**Degrees of truth: each grain loses a little truth.** The maths is fuzzy logic.",
+  "**Supervaluation: true on every way of drawing the line.** \"There is a last heap\" comes out true.",
+  "**Epistemicism: there is a sharp line nobody can know.** Williamson's answer, from 1994."
+ ],
+ "footnotes": {
+  "eubulides": {
+   "kind": "digression",
+   "title": "Eubulides' other puzzles",
+   "text": "He is also credited with the hooded man (you know your father; you do not know the hooded man; the hooded man is your father) and the horned man (what you have not lost you still have; you have not lost horns; so you have horns). Ancient writers found him infuriating."
+  },
+  "fuzzy": {
+   "kind": "technical",
+   "title": "Fuzzy logic in machines",
+   "text": "Fuzzy controllers let machines respond smoothly to vague inputs such as \"quite dirty\" or \"a bit dark\". Sendai's subway in Japan, opened in 1987, used one to control braking and acceleration."
+  }
+ }
+}
