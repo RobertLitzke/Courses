@@ -9,11 +9,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Huaca Prieta is a mound of shells, ash and rubbish on the coast of northern Peru, built up by fishing people over thousands of years. Among the scraps excavated there in the 1940s were small pieces of cotton cloth. When the textile researcher Jeffrey Splitstoser and his colleagues tested them with modern chemical methods, they found indigo in several,[^huaca] and in 2016 they reported the cloth as about 6,000 years old. That made it the oldest indigo-dyed cloth then known anywhere, about 1,500 years older than the earliest indigo from Egypt."
+          "text": "Huaca Prieta is a mound of shells, ash and rubbish on the coast of northern Peru, built up by fishing people over thousands of years. Among the scraps excavated there in the 1940s were small pieces of cotton cloth. When the textile researcher Jeffrey Splitstoser and his colleagues tested them with modern chemical methods, they found indigo in several,[^huaca] and in 2016 they reported the cloth as about 6,000 years old. That made it the oldest indigo-dyed cloth then known anywhere, about 1,500 years older, the team reported, than the earliest indigo from Egypt."
         },
         {
           "type": "text",
-          "text": "Indigo is one of the very few natural dyes that stays in cotton. Most coloured things in nature, berries, flowers, bark, will stain a cloth, and almost all of them wash out or fade in sunlight within weeks. In this lesson we look at why, and at the two chemical tricks that dyers in many parts of the world worked out to keep colour in cloth: the mordant and the indigo vat. Lesson 6 is about what people would pay for a colour that lasted."
+          "text": "Indigo is one of the very few natural dyes that stays in cotton. Most coloured things in nature, berries, flowers, bark, will stain a cloth, and most of them wash out or fade in sunlight within weeks unless the dyer does something more. In this lesson we look at why, and at the two chemical tricks that dyers in many parts of the world worked out to keep colour in cloth: the mordant and the indigo vat. Lesson 6 is about what people would pay for a colour that lasted."
         }
       ]
     },
@@ -22,7 +22,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A dye is a coloured substance that dissolves in water and soaks into a fibre. That is also why it leaves again: whatever water carries in, water can carry out, unless something holds the dye in place. A dye that washes out or fades is called **fugitive**; one that stays is **fast**. Turmeric, onion skins and most berries are fugitive on their own."
+          "text": "Most dyes are coloured substances that dissolve in water and soak into a fibre (indigo, below, is the great exception). That is also why it leaves again: whatever water carries in, water can carry out, unless something holds the dye in place. A dye that washes out or fades is called **fugitive**; one that stays is **fast**. Turmeric, onion skins and most berries are fugitive on their own."
         },
         {
           "type": "text",
@@ -35,7 +35,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **mordant**, from the French for biting, is a metal salt that binds both to the fibre and to the dye, so it works as a bridge between them. The fibre is soaked or simmered in the mordant first and then put into the dye bath. The most important mordant in history is **alum**, a salt of aluminium found as a mineral in a few places, which made alum mines a source of great wealth.[^alum] Iron salts are the other common mordant, and tannins from oak galls or bark help bind dye to cotton."
+          "text": "A **mordant**, from the French for biting, is a substance, usually a metal salt, that binds both to the fibre and to the dye, so it works as a bridge between them. The fibre is soaked or simmered in the mordant first and then put into the dye bath. The most important mordant in history is **alum**, a salt of aluminium found as a mineral in a few places, which made alum mines a source of great wealth.[^alum] Iron salts are the other common mordant, and **tannins**, the bitter plant compounds that make strong tea dry the mouth, taken from oak galls or bark, help bind dye to cotton."
         },
         {
           "type": "text",
@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "The mordant also decides the colour, which made it a design tool. Paint alum on one part of a cloth and iron on another, put the whole cloth in one madder bath, and it comes out red where the alum was, dark where the iron was, and the colour washes out of the rest. That is **mordant printing**, and it is the method behind India's painted and printed cottons, the chintz and calico of lesson 12."
+          "text": "The mordant also decides the colour, which made it a design tool. Paint alum on one part of a cloth and iron on another, put the whole cloth in one madder bath, and it comes out red where the alum was, dark where the iron was, and the colour washes out of the rest. That is **mordant printing**, and it is the method behind India's painted and printed cottons, the painted and printed cottons, such as chintz, of lesson 12."
         }
       ]
     },
@@ -63,7 +63,7 @@
         },
         {
           "type": "text",
-          "text": "To dye with it, the dyer makes a **vat**: indigo in water that is strongly alkaline (with lime, wood ash or stale urine)[^urine] and stripped of oxygen, either by fermenting bran or plant matter in it or, today, by adding a chemical. In those conditions indigotin gains two hydrogen atoms and turns into a soluble form, pale yellow-green, sometimes called indigo white. Cloth dipped in the vat soaks it up. When the cloth is lifted out, oxygen in the air takes the hydrogen back, the dye turns into blue indigotin again, and because it cannot dissolve, it stays trapped among the fibres."
+          "text": "To dye with it, the dyer makes a **vat**: indigo in water that is strongly alkaline (with lime, wood ash or stale urine)[^urine] and stripped of oxygen, either by fermenting bran or plant matter in it or, today, by adding a chemical. In those conditions indigotin is **reduced**: it gains two hydrogen atoms and becomes a form that dissolves, pale yellow-green, sometimes called indigo white. Cloth dipped in the vat soaks it up. When the cloth is lifted out, the dye is **oxidised**: oxygen in the air removes those hydrogen atoms, the molecule returns to blue indigotin, and because that form cannot dissolve, it stays trapped among the fibres. In the open air this takes a minute or so; the figure speeds it up. The figure can also try plain water with indigo stirred in, to show what happens without reduction. The vat is alkaline, which protein fibres dislike (lesson 2), but a vat kept warm rather than hot, and not too strong, dyes wool and silk without much harm."
         },
         {
           "type": "interactive_diagram",
@@ -78,7 +78,7 @@
         },
         {
           "type": "text",
-          "text": "Indigo also allows **resist dyeing**. Anything that stops the vat reaching part of the cloth leaves that part pale: wax in Javanese batik, rice paste in Japanese katazome, cassava paste in Yoruba adire, thread tied tightly round bunched cloth in tie-dye. Combined with mordant printing in madder, resist dyeing let Indian dyers put several fast colours on one cotton cloth, which European dyers could not do until the 18th century."
+          "text": "Indigo also allows **resist dyeing**. Anything that stops the vat reaching part of the cloth leaves that part pale: wax in Javanese batik, rice paste in Japanese katazome, cassava paste in Yoruba adire, thread tied tightly round bunched cloth in tie-dye. Combined with mordant printing in madder, resist dyeing let Indian dyers put several fast colours on one cotton cloth, which European dyers learned to do only in the 18th century, by copying Indian methods."
         }
       ]
     },
@@ -87,7 +87,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Dyes and mordants were valuable trade goods for most of history. Alum was traded across the Mediterranean in bulk, indigo cakes travelled from India to Europe and East Africa, and the red dye cochineal, made from insects in Mexico, became one of Spanish America's most valuable exports after silver. A dye that was fast, bright and hard to make carried social meaning, because only the rich could afford it, and lesson 6 begins with the most expensive one of all. Lesson 20 follows the chemists who, from 1856, made every one of these colours from coal tar and ended most of the trade."
+          "text": "Dyes and mordants were valuable trade goods for most of history. Alum was traded across the Mediterranean in bulk, indigo cakes travelled from India to Europe and East Africa, and the red dye cochineal, made from insects in Mexico, became one of Spanish America's most valuable exports after silver. A dye that was fast, bright and hard to make carried social meaning, because only the rich could afford it, and lesson 6 begins with the most expensive one of all. Lesson 20 follows the chemists who, from 1856, made synthetic versions of these dyes from coal tar and ended most of the trade."
         },
         {
           "type": "text",
@@ -128,7 +128,7 @@
                 "why": "The mordant fixes the dye and sets its colour, so the pattern of mordants becomes the pattern of colours. This is mordant printing."
               },
               {
-                "ask": "Cloth lifted out of an indigo vat is yellow-green, and turns blue in a minute or two. What is happening?",
+                "ask": "Cloth lifted out of an indigo vat is yellow-green, and turns blue over the next minute or so. What is happening?",
                 "choices": [
                   "Oxygen in the air turns the soluble form of the dye back into insoluble blue indigo inside the fibre",
                   "The yellow dye evaporates and leaves the blue behind",

@@ -5,15 +5,15 @@
   "teaches": "Flax, wool, cotton and silk; plant against animal fibre; staple length, crimp and scales; preparing fibre; how each was domesticated",
   "parts": [
     {
-      "title": "A shirt from the first dynasty",
+      "title": "A shirt from before the pharaohs",
       "blocks": [
         {
           "type": "text",
-          "text": "In 1913 the Egyptologist Flinders Petrie excavated a cemetery at Tarkhan, about 50 km south of Cairo, and shipped home a heap of dirty linen from one of its tombs. It sat in storage in London for more than sixty years. In 1977, when conservators at the Victoria and Albert Museum were sorting the bundle for the Petrie Museum, one crumpled piece turned out to be a shirt: a V-necked bodice with fine knife pleats and long sleeves, worn creases still at the elbows and armpits. In 2016 a radiocarbon date put the linen between 3482 and 3102 BC. The **Tarkhan dress** is the oldest woven garment known."
+          "text": "In 1913 the Egyptologist Flinders Petrie excavated a cemetery at Tarkhan, about 50 km south of Cairo, and shipped home a heap of dirty linen from one of its tombs. It sat in storage in London for more than sixty years. In 1977, when conservators at the Victoria and Albert Museum were sorting the bundle for the Petrie Museum, one crumpled piece turned out to be a shirt: a V-necked bodice with fine knife pleats and long sleeves, worn creases still at the elbows and armpits. In 2016 a radiocarbon date put the linen between 3482 and 3102 BC. Museums call it the **Tarkhan dress**, since it may once have reached further down the body; it is the oldest woven garment known."
         },
         {
           "type": "text",
-          "text": "It is made of linen, which is cloth woven from the fibres of the flax plant. Flax was one of four fibres that clothed most of the ancient world, together with wool, cotton and silk. Each behaves differently because each comes from a different part of a living thing, and in this lesson we look at what each one is, why it feels the way it does, and how much work it took to get it ready for spinning."
+          "text": "It is made of linen, which is cloth woven from the fibres of the flax plant. Flax was one of four fibres that clothed most of the ancient world, together with wool, cotton and silk. Each behaves differently because each comes from a different plant part or animal, and in this lesson we look at what each one is, why it feels the way it does, and how much work it took to get it ready for spinning."
         }
       ]
     },
@@ -26,7 +26,7 @@
         },
         {
           "type": "text",
-          "text": "The two natural families behave differently in ways that matter all through history. Cellulose takes heat and strong alkali (a hot wash with soda or lye) and is damaged by acid. Protein is the reverse: hot alkali and bleach harm wool and silk, and mild acid does not. Protein fibres take dyes far more readily than cellulose, which is one reason the brightest ancient colours were on wool and silk, and why dyeing cotton well, covered in lesson 5, was a skill that India led for centuries. The quick test is to burn a thread: cellulose burns like paper and leaves a soft grey ash, protein shrinks away from the flame, smells of burnt hair and leaves a crushable black bead, and plastic melts into a hard bead."
+          "text": "The two natural families behave differently in ways that matter all through history. Cellulose takes heat and strong alkali (a hot wash with soda or lye) and is damaged by acid. Protein is the reverse: hot, strong alkali and bleach harm wool and silk, and mild acid does not. A warm, mild alkaline bath is tolerated, which matters for the indigo vat in lesson 5. Protein fibres take dyes far more readily than cellulose, which is one reason the brightest ancient colours were on wool and silk, and why dyeing cotton well, covered in lesson 5, was a skill that India led for centuries. The quick test is to burn a thread: cellulose burns like paper and leaves a soft grey ash, protein shrinks away from the flame, smells of burnt hair and leaves a crushable black bead, and plastic melts into a hard bead."
         },
         {
           "type": "interactive_diagram",
@@ -74,11 +74,11 @@
         },
         {
           "type": "text",
-          "text": "**Wool** is hair. A wool fibre is covered in overlapping scales like roof tiles, and it is crimped, meaning it grows in small waves. The crimp keeps fibres from packing tightly, so wool yarn is springy and full of trapped air, which is why it is warm. The scales let fibres slide one way past each other but not the other, so in hot soapy water, rubbed, they ratchet together and lock: that is felting, and the reason a wool jumper shrinks in a hot wash. The itch has a different cause. It comes from the thickest fibres. A fibre more than about 30 thousandths of a millimetre thick is too stiff to bend when its end presses against the skin, so it pokes the nerve endings there. Fine wools such as merino have few fibres that thick and do not prickle.[^micron]"
+          "text": "**Wool** is hair. A wool fibre is covered in overlapping scales like roof tiles, and it is crimped, meaning it grows in small waves. The crimp keeps fibres from packing tightly, so wool yarn is springy and full of trapped air, which is why it is warm. The scales let fibres slide one way past each other but not the other, so in hot soapy water, rubbed, they ratchet together and lock: that is felting, and the reason a wool jumper shrinks in a hot wash. The itch has a different cause. It comes from the thickest fibres. A fibre more than about 30 microns (thousandths of a millimetre) thick is too stiff to bend when its end presses against the skin, so it pokes the nerve endings there. Fine wools such as merino have few fibres that thick and do not prickle.[^micron]"
         },
         {
           "type": "text",
-          "text": "**Silk** is spun by the caterpillar of the silk moth, *Bombyx mori*, from two glands that release a protein called fibroin, coated in a gum called sericin. The caterpillar winds itself into a cocoon of one continuous filament, several hundred metres long. Silk is the only natural fibre used in quantity that does not need to be spun from short pieces: filaments from several cocoons are unwound together and twisted lightly into thread. Its shine comes from its shape. The filament is smooth, with no scales or twists to scatter light, and its cross-section is a rounded triangle, so each filament reflects light back like a small prism."
+          "text": "**Silk** is spun by the caterpillar of the silk moth, *Bombyx mori*, from two glands that release a protein called fibroin, coated in a gum called sericin. The caterpillar winds itself into a cocoon of one continuous filament, several hundred metres long. Silk is the only natural fibre used in quantity that does not need to be spun from short pieces: filaments from several cocoons are unwound together and twisted lightly into thread. Its shine comes from its shape. The filament is smooth, with no scales or twists to scatter light, and its cross-section is a rounded triangle, and its flat faces reflect light like tiny mirrors, so a smooth silk surface sends back light in a few bright directions instead of scattering it."
         }
       ]
     },
@@ -91,7 +91,7 @@
         },
         {
           "type": "text",
-          "text": "Cotton had to be cleaned of its seeds, which cling to the fibres. Removing them is called **ginning**, and it mattered so much to cotton's history that lesson 17 is about one machine that did it. The fibres were then fluffed and opened, often by plucking them with the string of a bow, and **carded**: brushed between two boards set with fine wire teeth until the fibres lay loosely parallel in a soft roll. Wool was **scoured**, washed to remove the grease called lanolin and the dirt held in it, which can be a third or more of a fleece's weight, and then carded for soft, airy yarn or **combed** for smooth, strong yarn. Silk cocoons were dropped into hot water, which killed the pupa inside and softened the gum, so the filaments could be found and unwound, a step called reeling."
+          "text": "Cotton had to be cleaned of its seeds, which cling to the fibres. Removing them is called **ginning**, and it mattered so much to cotton's history that lesson 17 is about one machine that did it. The fibres were then fluffed and opened, often by plucking them with the string of a bow, and **carded**: brushed between two boards set with fine wire teeth until the fibres lay loosely parallel in a soft roll. Wool was **scoured**, washed to remove the grease called lanolin and the dirt held in it, which can be a large share of a raw fleece's weight, and then carded for soft, airy yarn or **combed** for smooth, strong yarn. Silk cocoons were dropped into hot water, which killed the pupa (the developing moth) inside and softened the gum, so the filaments could be found and unwound, a step called reeling."
         }
       ]
     },
@@ -100,7 +100,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Each fibre had to be bred into something worth spinning. Wild sheep, such as the mouflon, have a coat of coarse hair over a short woolly undercoat that falls out each spring. Woolly sheep, whose fleece is mostly fine wool and keeps growing, were bred from them in the Near East, and they spread widely in the fourth millennium BC. Before that, sheep were kept for meat and milk, and cloth was mostly linen. Cotton was domesticated not once but four times, from four wild species: twice in the Americas, one of them in Mexico and Central America (upland cotton, now about nine tenths of the world's crop) and one in South America, and twice in the Old World, in South Asia and in Africa or Arabia. The silk moth was bred in China from a wild relative until it could no longer fly and depended entirely on people."
+          "text": "Each fibre had to be bred into something worth spinning. Wild sheep, such as the mouflon, have a coat of coarse hair over a short woolly undercoat that falls out each spring. Woolly sheep, whose fleece is mostly fine wool and keeps growing, were bred from them in the Near East, and they spread widely in the fourth millennium BC. Before that, sheep were kept for meat and milk, and cloth was mostly linen. Cotton was domesticated not once but four times, from four wild species: twice in the Americas, one of them in Mexico and Central America (upland cotton, now about nine tenths of the world's crop) and one in South America, and twice in the Old World: once in South Asia, and once somewhere in Africa or Arabia, where the exact place is still unknown. The silk moth was bred in China from a wild relative until it could no longer fly and depended entirely on people."
         },
         {
           "type": "diagram",
@@ -121,7 +121,7 @@
         },
         {
           "type": "text",
-          "text": "The fibres also decided where cloth could be made. Flax grows in cool, damp places and wears out soil. Cotton needs a long frost-free season, a constraint that lesson 17 maps. Sheep graze land too poor to plough, which is why medieval England and Spain became wool countries. Silk needs mulberry trees and enormous amounts of careful labour. Much of the trade in this course follows from those limits: people who could not grow a fibre bought the cloth made from it."
+          "text": "The fibres also decided where cloth could be made. Flax grows in cool, damp places and wears out soil. Cotton needs a long frost-free season, a constraint that lesson 17 maps. Sheep can graze land too poor to plough, one reason medieval England and Spain, with plenty of such land, became great wool producers. Silk needs mulberry trees and enormous amounts of careful labour. Much of the trade in this course follows from those limits: people who could not grow a fibre bought the cloth made from it."
         }
       ]
     },
@@ -155,9 +155,9 @@
               },
               {
                 "ask": "Why does silk shine when wool, made of protein too, does not?",
-                "choices": ["Silk is a smooth filament with a triangular section that reflects light, while wool's scales scatter it", "Silk contains a natural oil that wool lacks", "Silk is dyed brighter colours", "Wool is always spun more tightly"],
+                "choices": ["Silk is a smooth filament with a triangular section that reflects light, while wool's scales scatter it", "Silk is a heavier fibre than wool", "Silk is dyed brighter colours", "Wool is always spun more tightly"],
                 "answer": 0,
-                "why": "Shine is about shape. Silk's filament is smooth and its section reflects like a prism; wool's surface of overlapping scales breaks up the light."
+                "why": "Shine is about shape. Silk's filament is smooth and its flat-faced section reflects like tiny mirrors; wool's surface of overlapping scales breaks up the light."
               },
               {
                 "ask": "What is retting, and which fibre needs it?",

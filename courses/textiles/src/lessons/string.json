@@ -9,11 +9,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Abri du Maras is a rock shelter above the Ardèche valley in southern France. Neanderthals camped there on and off for tens of thousands of years, and left behind thousands of flaked stone tools. In 2020 a team led by the archaeologist Bruce Hardy published a close look at one of them, a pointed flake from a layer dated between 41,000 and 52,000 years ago. Stuck to its surface, under the microscope, was a scrap of cord about 6 mm long and half a millimetre thick."
+          "text": "Abri du Maras is a rock shelter above the Ardèche valley in southern France. Neanderthals camped there on and off for tens of thousands of years, and left behind thousands of flaked stone tools. In 2020 a team led by the archaeologist Bruce Hardy published a close look at one of them, a pointed flake (a sharp chip struck from a larger stone) from a layer dated between 41,000 and 52,000 years ago. Stuck to its surface, under the microscope, was a scrap of cord about 6 mm long and half a millimetre thick."
         },
         {
           "type": "text",
-          "text": "The cord was made of fibres from the inner bark of a tree, probably a conifer. The fibres had been gathered into three bundles, each bundle twisted in one direction, and then the three bundles twisted together in the opposite direction. That is the same construction as a modern three-strand rope. Whoever made it, about 10,000 years before the first modern humans reached that valley, had worked out the two operations that every thread and rope since has depended on: twisting fibres into a yarn, and twisting yarns together into a stronger cord.[^maras]"
+          "text": "The cord was made of fibres from the inner bark of a tree, probably a conifer (a cone-bearing tree such as a pine). The fibres had been gathered into three bundles, each bundle twisted in one direction, and then the three bundles twisted together in the opposite direction. That is the same construction as a modern three-strand rope. The layer it came from dates to a time when only Neanderthals lived in the region, so they are the likely makers. Whoever made it had worked out the two operations that every thread and rope since has depended on: twisting fibres into a yarn, and twisting yarns together into a stronger cord.[^maras]"
         },
         {
           "type": "text",
@@ -98,7 +98,7 @@
         },
         {
           "type": "text",
-          "text": "Many fabric names belong to one layer only. Satin is a structure, a weave in which long threads float across the surface; it can be woven from silk, polyester or cotton. Jersey is a knit. Denim is a cotton twill weave with a dyed warp. Fleece is usually a polyester knit brushed on one side, which is a fibre, a structure and a finish together. When a label says \"100% cotton\" it is describing only the first layer."
+          "text": "Many fabric names belong to one layer only. Satin is a structure, a weave in which long threads float across the surface; it can be woven from silk, polyester or cotton. Jersey is a knit. Denim is cotton woven in a diagonal pattern called twill, with only the lengthwise threads dyed blue (lesson 4 explains both terms). Fleece is usually a polyester knit brushed on one side to raise a soft surface of loose fibre ends, which is a fibre, a structure and a finish together. When a label says \"100% cotton\" it is describing only the first layer."
         }
       ]
     },
@@ -111,7 +111,7 @@
         },
         {
           "type": "text",
-          "text": "Twist turns each fibre into a spiral around the yarn's centre. When the yarn is pulled, every spiralling fibre is pulled straight, and a spiral that is pulled straight tightens inward, in the same way a rope wound round a post grips the post harder as the load on it increases. The fibres press against their neighbours, and friction between them resists sliding. The harder the yarn is pulled, the harder the fibres press together, which is why a well twisted yarn breaks its fibres before it lets them slip."
+          "text": "Twist turns each fibre into a spiral around the yarn's centre. When the yarn is pulled, every spiralling fibre is pulled straight, and a spiral that is pulled straight tightens inward, in the same way a rope wound round a post grips the post harder as the load on it increases. Each fibre squeezes the fibres inside it, and the fibres press against their neighbours, and friction between them resists sliding. The harder the yarn is pulled, the harder the fibres press together, which is why a well twisted yarn breaks its fibres before it lets them slip."
         },
         {
           "type": "interactive_diagram",
@@ -183,7 +183,7 @@
                   "Twist makes each fibre spiral, so a pull presses the fibres together and friction stops them sliding",
                   "Twist melts the fibres' waxy coating so that they stick together",
                   "Twist makes the fibres longer, so they overlap more",
-                  "Twist aligns the fibres so that they all point the same way along the yarn"
+                  "Twist glues the fibres together with their own natural oils"
                 ],
                 "answer": 0,
                 "why": "Short fibres hold only by friction. A spiral pulled straight tightens inward, so the harder the yarn is pulled, the harder the fibres press against each other."
@@ -219,7 +219,7 @@
                   "Archaeologists only began looking for cord in 2020"
                 ],
                 "answer": 0,
-                "why": "Cord was probably common, but fibre decays fast. The Abri du Maras scrap survived because it was stuck to a stone tool, and most early evidence is indirect: carvings, clay impressions and tools."
+                "why": "Fibre decays fast, so even common objects rarely survive. The Abri du Maras scrap survived because it was stuck to a stone tool, and most early evidence is indirect: carvings, clay impressions and tools."
               }
             ]
           }
@@ -234,7 +234,7 @@
     "**There is a best twist.** Too little and fibres slip; too much and the yarn weakens and snarls when slack.",
     "**S and Z.** Twist goes one of two ways, named by the slant of the letters, and traditions keep to one, which helps date and place a cloth.",
     "**Plying balances.** Singles twisted together the opposite way cancel each other's strain, as in rope, sewing thread and the Abri du Maras cord.",
-    "**String is very old.** Neanderthals made three-ply cord at least 41,000 years ago, long before farming or pottery."
+    "**String is very old.** Cord at least 41,000 years old, most likely made by Neanderthals, used the same three-ply construction as modern rope."
   ],
   "footnotes": {
     "maras": {

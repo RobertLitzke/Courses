@@ -39,7 +39,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Which shafts rise for each pick decides the weave. In the figure, choose the first pick's lift by tapping the shafts, then choose how the lift changes from each pick to the next, and the cloth builds from the bottom up."
+          "text": "Which shafts rise for each pick decides the weave. In the figure, choose the first pick's lift by tapping the shafts, then choose how the lift changes from each pick to the next: repeat the same lift, shift the lifted threads one place right or left, or swap the lifted and lowered threads. The cloth builds from the bottom of the drawing upward, one pick per row."
         },
         {
           "type": "interactive_diagram",
@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "**Plain weave** takes every thread over one and under one, and reverses on the next pick. It has the most crossings possible, so it is firm and hard-wearing and does not slip, but it is also stiff. Calico, muslin, canvas and shirting are plain weaves. **Twill** takes each thread over two or more and shifts the pattern one thread along each pick, so the floats line up into the diagonal lines called wales. With fewer crossings the threads can pack closer and move more, so a twill is thicker, drapes better and hides dirt. Denim is a 3/1 twill: each warp thread goes over three weft threads and under one, so the face is mostly blue warp and the back mostly white weft. Gabardine, tweed and chino are twills too."
+          "text": "**Plain weave** takes every thread over one and under one, and on the next pick the threads that went over go under, and the other way round. It has the most crossings possible, so it is firm and hard-wearing and does not slip, but it is also stiff. Calico, muslin, canvas and shirting are plain weaves. **Twill** takes each thread over two or more and shifts the pattern one thread along each pick, so the floats line up into diagonal lines. Each thread crosses less often, so it bends less, and the threads can pack closer together and slide slightly against each other, so a twill is thicker, drapes better and hides dirt. Denim is a 3/1 twill: each warp thread goes over three weft threads and under one, so the face is mostly blue warp and the back mostly white weft. Gabardine, tweed and chino are twills too."
         },
         {
           "type": "text",
@@ -78,7 +78,7 @@
         },
         {
           "type": "text",
-          "text": "Knitting came late. Looped fabrics made with a single needle, a technique called nålebinding,[^nalbinding] are thousands of years old, but true knitting with two or more needles appears in the surviving record only around the 11th century, in cotton socks from Egypt with patterns worked in blue and white. By the 16th century knitted stockings were a large industry in Europe, and the first knitting machine, built in England in 1589 by tradition, is the subject of branch lesson K4. Machine knitting is fast, and from the 20th century cheap knitted cotton made the T-shirt the most common garment in the world."
+          "text": "Knitting came late. Looped fabrics made with a single needle, a technique called nålebinding,[^nalbinding] are thousands of years old, but true knitting with two or more needles appears in the surviving record only around the 11th century, in cotton socks from Egypt with patterns worked in blue and white. By the 16th century knitted stockings were a large industry in Europe, and the first knitting machine was built in England, traditionally dated to 1589. Machine knitting is fast, and from the 20th century cheap knitted cotton made the T-shirt one of the most common garments in the world."
         },
         {
           "type": "text",
@@ -99,7 +99,7 @@
               {
                 "ask": "A weaver lifts the same warp threads for every pick. What comes off the loom?",
                 "choices": [
-                  "No cloth: the weft just lies across the same threads and falls away",
+                  "No cloth: the weft never interlaces, so it pulls straight out",
                   "A very firm plain weave",
                   "A twill with steep diagonals",
                   "A satin with long floats"
@@ -144,12 +144,12 @@
                 "ask": "A knitted sleeve stretches a long way when pulled across, then springs back. Where does the stretch come from?",
                 "choices": [
                   "The loops bend wider and shorter, and the springy yarn returns them",
-                  "The yarn itself is elastic, like a rubber band",
+                  "The yarn fibres themselves stretch by more than half their length",
                   "The threads slide through each other and are pulled back by friction",
                   "Knits are woven very loosely"
                 ],
                 "answer": 0,
-                "why": "In a knit the yarn's path changes shape. Elastic yarns such as elastane add more, but even plain cotton jersey stretches because of its loops."
+                "why": "In a knit the yarn's path changes shape. Stretch yarns such as elastane (also sold as spandex or Lycra) add more, but even plain cotton jersey stretches because of its loops."
               }
             ]
           }

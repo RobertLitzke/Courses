@@ -21,7 +21,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Bats](#bats) | 0.2 beta | 15 | 0 | 0 | 0 | 15 | 6 | 0 |
 | [Systems at Scale](#systems) | 0.2 beta | 41 | 0 | 10 | 0 | 35 | 0 | 6 |
 | [Philosophy](#philosophy) | 0.2 beta | 42 | 0 | 0 | 0 | 0 | 42 | 0 |
-| [Fabric & Form](#textiles) | 0.1 beta | 6 | 21 | 0 | 0 | 6 | 0 | 0 |
+| [Fabric & Form](#textiles) | 0.1 beta | 6 | 21 | 1 | 6 | 6 | 0 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -42,7 +42,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Bats | 0.2 beta | 2026-11-08 | no: 15 to fact-check, 6 awaiting photos |
 | Systems at Scale | 0.2 beta | 2026-11-17 | no: 10 to read through, 35 to fact-check |
 | Philosophy | 0.2 beta | 2026-11-27 | no: 42 awaiting photos |
-| Fabric & Form | 0.1 beta | 2026-11-27 | no: 21 lessons to write, 6 to fact-check |
+| Fabric & Form | 0.1 beta | 2026-11-27 | no: 21 lessons to write, 1 to read through, 6 to copy-edit, 6 to fact-check |
 
 ## Clouds <a id="clouds"></a>
 
@@ -600,12 +600,12 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why did Neanderthals make string? (`string`) |  | awaiting fact check |  | The four layers of any cloth (fibre, yarn, structure, finish), why twist holds fibres together, S and Z twist, and plying. |
-| 2 | Why does wool itch and silk shine? (`fibres`) |  | awaiting fact check |  | Flax, wool, cotton and silk; plant against animal fibre; staple length, crimp and scales; preparing fibre; how each was domesticated. |
-| 3 | How long did it take to spin a sail? (`spinning`) |  | awaiting fact check |  | Drafting, the spindle and the wheel, yarn count, and why spinning was the slowest step and mostly women's work. |
-| 4 | Why do jeans hold their shape while T-shirts stretch? (`structure`) |  | awaiting fact check |  | Woven and knitted cloth: warp and weft, plain, twill and satin weaves, the four-shaft loom, and why loops stretch. |
-| 5 | Why does colour wash out? (`dye`) |  | awaiting fact check |  | Why most dyes fade, mordants and madder, indigo's vat chemistry, and printing with mordants and resists. |
-| 6 | Why was purple reserved for emperors? (`purple`) |  | awaiting fact check |  | Tyrian purple and its cost, and sumptuary laws from Rome and Byzantium to Ming China, Edo Japan, the Ottomans and Tudor England. |
+| 1 | Why did Neanderthals make string? (`string`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | The four layers of any cloth (fibre, yarn, structure, finish), why twist holds fibres together, S and Z twist, and plying. |
+| 2 | Why does wool itch and silk shine? (`fibres`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Flax, wool, cotton and silk; plant against animal fibre; staple length, crimp and scales; preparing fibre; how each was domesticated. |
+| 3 | How long did it take to spin a sail? (`spinning`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Drafting, the spindle and the wheel, yarn count, and why spinning was the slowest step and mostly women's work. |
+| 4 | Why do jeans hold their shape while T-shirts stretch? (`structure`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Woven and knitted cloth: warp and weft, plain, twill and satin weaves, the four-shaft loom, and why loops stretch. |
+| 5 | Why does colour wash out? (`dye`) |  | awaiting Gemini review (queued 2026-11-27) | Fact check | Why most dyes fade, mordants and madder, indigo's vat chemistry, and printing with mordants and resists. |
+| 6 | Why was purple reserved for emperors? (`purple`) |  | needs student read-through | Gemini (queued 2026-11-27); Fact check | Tyrian purple and its cost, and sumptuary laws from Rome and Byzantium to Ming China, Edo Japan, the Ottomans and Tudor England. |
 | 7 | How long did China keep silk to itself? (`silk`) |  | planned, listed as coming |  | Sericulture, silk as Han currency and tribute, the myths of the secret and the single road, and the land and sea routes. |
 | 8 | How did Han weavers store a pattern? (`pattern`) |  | planned, listed as coming |  | Pattern shafts as stored instructions, the Laoguanshan looms, figured silk, and the drawloom. |
 | 9 | Why are so many cloth words Arabic and Persian? (`words`) |  | planned, listed as coming |  | Cotton across the Islamic world, tiraz workshops, the cloth cities behind English words, and Turkey red. |
