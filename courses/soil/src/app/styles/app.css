@@ -11,7 +11,6 @@
 .wordmark-words span { color: var(--sun); }
 .navmenu nav a.here { color: var(--ink); background: var(--sun); }
 .fig-task { background: #eef0d6; }
-.update-icon { background: linear-gradient(160deg, var(--good), #2f5a2a); }
 
 /* ---- Home: the soil profile (scene/banner.ts) with the title over its
    upper half, in the heading face with a hard shadow like the buttons. */

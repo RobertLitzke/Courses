@@ -10,7 +10,6 @@
 .btn:hover:not(.right):not(.wrong):not(:disabled) { background: #f4c25f; }
 .navmenu nav a.here { color: var(--ink); background: var(--sun); }
 .fig-task { background: #fbf0d4; }
-.update-icon { background: linear-gradient(160deg, #1f5a43, #0f2a22); }
 
 /* ---- Home: the board banner (scene/banner.ts) with the title over its
    upper half, in the heading face with a hard shadow like the buttons. */

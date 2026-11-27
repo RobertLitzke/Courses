@@ -18,12 +18,6 @@ import { referenceView } from './app/views/reference';
 import type { CourseRelease } from 'didactics/release';
 import course from '../course.json';
 
-/** A sprout with an up arrow, for the update banner: drawn inline so it shows offline. */
-const SPROUT =
-  '<svg viewBox="0 0 44 44"><path d="M8 34h28" stroke="#5a3f28" stroke-width="4" stroke-linecap="round"/>' +
-  '<path d="M22 33V20" stroke="#efe6cf" stroke-width="2.4" stroke-linecap="round"/>' +
-  '<path d="M22 22c-1-6-6-9-12-8 0 6 5 9 12 8Z" fill="#b9d36c"/><path d="M22 19c1-6 6-9 12-8 0 6-5 9-12 8Z" fill="#b9d36c"/></svg>';
-
 // The whole app (Didactics' app.ts): the save is "dirt.save", the course's
 // edited text "dirt.course", and the files dirt-save.json, dirt-course.json
 // and dirt.html.
@@ -79,7 +73,7 @@ defineCourse({
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photos, and under what licence.'),
   },
   site: SITE_URL,
-  update: { title: 'Fresh growth', text: 'A new version of Dirt is ready.', icon: SPROUT },
+  update: { title: 'Fresh growth', text: 'A new version of Dirt is ready.' },
   // Earlier versions kept each photo once seen, in a cache of their own; the
   // service worker now downloads them all, so that cache goes once it has.
   offline: { noun: 'photos', retire: ['photos'] },

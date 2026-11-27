@@ -16,12 +16,6 @@ import { LESSONS } from './core/lessons';
 import type { CourseRelease } from 'didactics/release';
 import course from '../course.json';
 
-/** A lit LED on a board, for the update banner: drawn inline so it shows offline. */
-const LED =
-  '<svg viewBox="0 0 44 44"><path d="M6 34h32" stroke="#c8793a" stroke-width="4" stroke-linecap="round"/>' +
-  '<path d="M17 34V24M27 34V24" stroke="#b9bec4" stroke-width="2.4"/>' +
-  '<path d="M13 25V17a9 9 0 0 1 18 0v8Z" fill="#ffb21c"/><circle cx="18" cy="15" r="2.5" fill="#fff4cf"/></svg>';
-
 // The whole app (Didactics' app.ts): the top bar and its menu, the lesson
 // player, the quiz, Settings, the update banner. The save is "circuitry.save",
 // the course's edited text "circuitry.course", and the files
@@ -34,7 +28,7 @@ defineCourse({
   title: 'Circuitry',
   subtitle: 'A circuits workbook',
   site: SITE_URL,
-  update: { title: 'New revision', text: 'A new version of Circuitry is ready.', icon: LED },
+  update: { title: 'New revision', text: 'A new version of Circuitry is ready.' },
 
   lessons: LESSONS,
   figures: FIGURES,

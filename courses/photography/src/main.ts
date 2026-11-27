@@ -16,11 +16,6 @@ import { LESSONS } from './core/lessons';
 import type { CourseRelease } from 'didactics/release';
 import course from '../course.json';
 
-/** A shutter button with an up arrow, for the update banner: inline, so it shows offline. */
-const SHUTTER =
-  '<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14" fill="none" stroke="#e8a33d" stroke-width="3"/>' +
-  '<path d="M22 29v-14m-5 5 5-5 5 5" fill="none" stroke="#f2efe9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
 // The whole app (Didactics' app.ts). The save stays under "outofauto.save"
 // (store.ts) and the edited text under "out-of-auto.course" (course.ts), as
 // before the course joined the site; the files are out-of-auto-save.json,
@@ -33,7 +28,7 @@ defineCourse({
   // The course's icon (catalog/icons, `npm run icons` at the root) as the header's logo mark.
   mark: el('img', { src: 'icons/icon.svg', alt: '' }),
   site: SITE_URL,
-  update: { title: 'New version', text: 'A fresh version of Photography: Out of Auto is ready.', icon: SHUTTER },
+  update: { title: 'New version', text: 'A fresh version of Photography: Out of Auto is ready.' },
 
   lessons: LESSONS,
   figures: FIGURES,
