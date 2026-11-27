@@ -16,6 +16,15 @@
           "text": "In February 1513, in Florence, a former government official called Niccolò Machiavelli was arrested. His name had been found on a list kept by two young men plotting against the Medici family, who had just retaken the city. He was tortured with the *strappado*: his wrists were tied behind his back and he was hoisted up by them and dropped, six times. He confessed nothing, and probably knew nothing. A few weeks later a Medici was elected pope, and in the celebrations Machiavelli was freed in a general amnesty.[^strappado]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Machiavelli as Santi di Tito painted him in the later 16th century, decades after his death.",
+          "options": {
+            "photo": "machiavelli-portrait",
+            "aspect": 0.78
+          }
+        },
+        {
           "type": "text",
           "text": "He retired, ruined, to his small farm outside the city. On 10 December 1513 he described his days there in a letter to a friend. In the mornings he went to his wood and argued with the woodcutters. In the afternoons he went to the inn and played cards and backgammon with the butcher, the miller and two brickmakers, quarrelling loudly over pennies. \"When evening comes, I return home and go into my study. On the threshold I strip off my muddy, sweaty, everyday clothes, and put on the robes of court and palace\", and then he entered, he wrote, the courts of the ancients, asked them the reasons for their actions, and they answered him. From these conversations he had written \"a little work\", *On Principalities*. We know it as *The Prince*."
         }

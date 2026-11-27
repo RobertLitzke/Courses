@@ -60,6 +60,15 @@
         {
           "type": "text",
           "text": "Zhuangzi's most famous story appeared in lesson 10. He dreamed he was a butterfly, flitting about happily, with no idea he was Zhuangzi. Then he woke, and was Zhuangzi. But he did not know whether he was Zhuangzi who had dreamed he was a butterfly, or a butterfly dreaming he was Zhuangzi. Descartes used dreams to find one thing he could be certain of. Zhuangzi used the same doubt to loosen his grip on any one fixed point of view."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Zhuangzi dreaming of a butterfly, painted by the Ming artist Lu Zhi in the 16th century.",
+          "options": {
+            "photo": "zhuangzi-butterfly",
+            "aspect": 1
+          }
         }
       ]
     },

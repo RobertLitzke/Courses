@@ -12,6 +12,15 @@
           "text": "In 1662, a few days after the death of Blaise Pascal at the age of 39, a servant going through his clothes felt something stiff in the lining of his coat. Sewn inside was a folded piece of parchment, and inside that a sheet of paper in Pascal's hand. Pascal had evidently unpicked and resewn it each time he changed coats, for eight years. It began with a date: \"The year of grace 1654. Monday 23 November... From about half past ten in the evening until about half past twelve.\" Then one word on a line by itself: \"FIRE.\""
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Blaise Pascal, in a copy at Versailles of a portrait painted by François Quesnel in 1691, almost thirty years after his death.",
+          "options": {
+            "photo": "pascal-portrait",
+            "aspect": 0.84
+          }
+        },
+        {
           "type": "text",
           "text": "What followed was a record of a religious experience: \"God of Abraham, God of Isaac, God of Jacob, not of the philosophers and scholars. Certainty, certainty, feeling, joy, peace.\" Pascal was one of the best mathematicians in Europe. At nineteen he had built one of the first mechanical calculators, to help his father, a tax official, with his sums, and that same summer of 1654 he had worked out with Pierre de Fermat, in an exchange of letters, the foundations of probability theory. From that night on he gave most of his remaining strength to a defence of Christianity, left unfinished at his death and published as the *Pensées*, \"thoughts\"."
         },
@@ -98,6 +107,15 @@
         {
           "type": "text",
           "text": "In September 1840 Søren Kierkegaard, the 27-year-old son of a rich Copenhagen wool merchant, proposed to Regine Olsen, who was eighteen, and was accepted. Almost at once he regretted it. He believed he was unfit for marriage, for reasons he never fully explained, perhaps his family's melancholy, perhaps his sense that he had a religious task, and in August 1841 he sent back her ring. When she begged him not to leave her, he tried to make her break it off herself by behaving like a cad, so that she would not be humiliated. Copenhagen gossiped. He left for Berlin, and for the rest of his life he wrote about choice, faith and the impossibility of explaining either.[^regine]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "An unfinished sketch of Søren Kierkegaard by his cousin Niels Christian Kierkegaard, about 1840, the year of his engagement.",
+          "options": {
+            "photo": "kierkegaard-sketch",
+            "aspect": 0.71
+          }
         },
         {
           "type": "text",

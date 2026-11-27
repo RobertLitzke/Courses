@@ -139,6 +139,15 @@
           "text": "Beauvoir was not the first to ask why women were kept from thinking. In Mexico City, then the capital of New Spain, a nun called Juana Inés de la Cruz had asked it more than 250 years earlier. As a girl of about seven she had begged her mother to let her dress as a boy so that she could attend the university, which admitted only men. She taught herself Latin, cutting off a few inches of her hair as she started a lesson and cutting it again if she had not learned it by the time the hair grew back, since it did not seem right, she wrote, that a head so bare of knowledge should be dressed with hair. She became a nun, she said, because it was the only life that would leave her time to study. Her rooms in the convent were said to hold several thousand books."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Sor Juana Inés de la Cruz at her desk, painted by Miguel Cabrera about 1750, more than fifty years after her death.",
+          "options": {
+            "photo": "sor-juana",
+            "aspect": 0.72
+          }
+        },
+        {
           "type": "text",
           "text": "In 1690 she wrote a critique of a famous sermon by a Portuguese Jesuit. The Bishop of Puebla published it without her permission, with a preface signed by an invented nun, \"Sor Filotea\", that praised her mind and told her to give up worldly learning for religious study. Her reply of 1691, the *Respuesta a Sor Filotea*, is a defence of women's right to learn. She listed learned women from the Bible and history, argued that study of science and philosophy was needed to understand theology at all, and said that women could think about the world anywhere, even in the kitchen, watching an egg set in hot butter. \"Had Aristotle cooked, he would have written much more.\""
         },

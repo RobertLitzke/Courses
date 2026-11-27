@@ -16,6 +16,15 @@
           "text": "In May 1960, Israeli agents seized a man on a quiet street in a suburb of Buenos Aires, where he had lived for ten years as Ricardo Klement, a worker at a car factory. He was Adolf Eichmann, the SS officer who had organised the transport of millions of Jews from across Europe to the ghettos and death camps of the Holocaust. He was flown secretly to Israel. His trial opened in Jerusalem in April 1961, and he sat through it in a booth of bulletproof glass."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Eichmann stands in his glass booth to hear the court sentence him to death in December 1961.",
+          "options": {
+            "photo": "eichmann-sentence",
+            "aspect": 1.19
+          }
+        },
+        {
           "type": "text",
           "text": "Among the reporters was Hannah Arendt, a German Jewish philosopher who had studied under Martin Heidegger[^scholem] and fled the Nazis herself. She had been arrested by the Gestapo in 1933, escaped to France, been held in an internment camp there in 1940, escaped again, and reached New York in 1941. Her book *The Origins of Totalitarianism* (1951) had made her famous. She went to Jerusalem for *The New Yorker*. There, the prosecution set out to show the court a monster."
         }

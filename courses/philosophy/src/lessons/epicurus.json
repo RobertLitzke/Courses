@@ -12,6 +12,15 @@
           "text": "Some time after 306 BC a man in Athens wrote to a friend asking for a present. \"Send me a little pot of cheese,\" he wrote, \"so that I may have a feast whenever I like.\" The writer was Epicurus, whose name now means a lover of fine food and wine. In English an *epicure* is a gourmet. The man himself lived mostly on bread and water, and thought a pot of cheese was a luxury.[^sources]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Epicurus in a Roman marble copy of a Greek portrait, now in the Palazzo Massimo in Rome.",
+          "options": {
+            "photo": "epicurus-bust",
+            "aspect": 0.7
+          }
+        },
+        {
           "type": "text",
           "text": "Epicurus was born in 341 BC on the island of Samos, to Athenian parents, six years after Plato's death. He taught in Asia Minor and then moved to Athens, where he bought a house with a garden outside the city walls. The school he ran there was known simply as the Garden. Unusually for a Greek school, it took women and slaves as members, and they lived together, ate simply and talked. According to the Roman writer Seneca, a sign over the gate read: \"Stranger, here you will do well to stay; here our highest good is pleasure.\""
         },

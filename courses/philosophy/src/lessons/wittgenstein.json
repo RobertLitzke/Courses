@@ -16,6 +16,15 @@
           "text": "Ludwig Wittgenstein was born in Vienna in 1889, the youngest of eight children of one of the richest families in Europe; his father had made a fortune in steel. Brahms and Mahler gave concerts in the family's palace. Three of his four brothers took their own lives. Ludwig studied engineering, designed a propeller in Manchester, became gripped by the foundations of mathematics, and in 1911 turned up unannounced at Cambridge to study with Bertrand Russell, who soon thought him a genius."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Ludwig Wittgenstein photographed by Moritz Nähr, a Viennese photographer who often worked for his family.",
+          "options": {
+            "photo": "wittgenstein-nahr",
+            "aspect": 0.75
+          }
+        },
+        {
           "type": "text",
           "text": "In the First World War he volunteered for the Austrian army, asked for the most dangerous posts, was decorated for bravery, and wrote a short book in his notebooks at the front. He finished it on leave in 1918, and carried it with him as a prisoner of war in Italy. It was published in 1921 as the *Tractatus Logico-Philosophicus*. He believed it had solved, in essentials, all the problems of philosophy, so he gave up the subject."
         },

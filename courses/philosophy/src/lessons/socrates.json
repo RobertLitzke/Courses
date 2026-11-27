@@ -52,6 +52,15 @@
           "text": "Socrates was born in Athens around 470 BC, is said to have been the son of a stonemason and a midwife, and fought as a foot soldier in three campaigns of the Peloponnesian War, the 27-year war between Athens and Sparta. He wrote no philosophy. What we know of him comes from three people who did write: Plato, the soldier and historian Xenophon, and the comic playwright Aristophanes, whose play *The Clouds* (423 BC) shows a Socrates who runs a school of nonsense from a basket hung in the air."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Socrates as later sculptors imagined him: snub-nosed and bearded. This head is a Roman copy of a Greek portrait made after his death.",
+          "options": {
+            "photo": "socrates-bust",
+            "aspect": 0.8
+          }
+        },
+        {
           "type": "text",
           "text": "Athens had professional teachers called [[Sophists|other]], who travelled from city to city and charged high fees to teach young men how to speak well in the assembly and the law courts. Socrates charged nothing and claimed to know nothing. In the *Apology* he explains how this started. His friend Chaerephon went to the oracle of Apollo at Delphi and asked whether anyone was wiser than Socrates, and the priestess answered that no one was. Socrates, sure he knew nothing important, set out to prove the god wrong by finding someone wiser. He questioned politicians, poets and craftsmen, and found that each believed he knew things he did not. He concluded that he was wiser than they were in one small way: they thought they knew things they did not, and he was aware of his ignorance.[^nothing]"
         },
@@ -246,6 +255,15 @@
         {
           "type": "text",
           "text": "Before the sentence was carried out his old friend Crito, a wealthy Athenian of his own age, arranged an escape. Socrates refused it: he had lived seventy years under the laws of Athens and would not break them now that they had turned against him. In Plato's *Phaedo* he spends his last day arguing about whether the soul survives death, then drinks a cup of poison hemlock, walks about until his legs grow heavy, and lies down.[^hemlock] His last words, Plato says, were a reminder to Crito that they owed a cockerel to Asclepius, the god of healing. A sick person who recovered sacrificed a cockerel to Asclepius, and many readers take the line to mean that death was a cure."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Jacques-Louis David's The Death of Socrates (1787). David shows Socrates still talking as he reaches for the cup, with Plato, who was in fact not there, sitting at the foot of the bed.",
+          "options": {
+            "photo": "death-of-socrates",
+            "aspect": 1.5
+          }
         },
         {
           "type": "interactive_diagram",

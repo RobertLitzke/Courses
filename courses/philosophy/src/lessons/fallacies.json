@@ -16,6 +16,15 @@
           "text": "Around 1830 the German philosopher Arthur Schopenhauer wrote a short, sour handbook called *The Art of Being Right*. It was not about being right, he admitted, but about seeming to be: 38 tricks, which he called stratagems, for winning an argument whether or not you had the truth on your side. Exaggerate your opponent's claim until it is easy to attack. Get them to agree to several small points, then announce a conclusion that does not follow, as though it did. If you are losing, change the subject. And the last, stratagem 38, for when all else fails: become personal, insulting and rude.[^schopenhauer]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Arthur Schopenhauer in a daguerreotype of 1852, when he was 64.",
+          "options": {
+            "photo": "schopenhauer-1852",
+            "aspect": 0.79
+          }
+        },
+        {
           "type": "text",
           "text": "Schopenhauer said the point was to let honest people recognise the tricks when they were used against them. He never published it; it appeared after his death. But his list overlaps with a much older one. In *Sophistical Refutations*, Aristotle set out thirteen ways an argument can look valid when it is not, which logicians have called **fallacies** ever since."
         }

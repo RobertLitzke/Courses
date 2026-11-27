@@ -12,7 +12,7 @@
   },
   {
     "id": "plato-bust",
-    "title": "File:Plato Silanion Musei Capitolini MC1377.jpg",
+    "title": "File:Plato Silanion Musei Capitolini MC1377.png",
     "about": "Portrait head of Plato, a Roman copy of a Greek original by Silanion, Capitoline Museums"
   },
   {
@@ -23,7 +23,7 @@
   },
   {
     "id": "syracuse-theatre",
-    "title": "File:Siracusa-teatro greco01.jpg",
+    "title": "File:Teatro greco di Siracusa.JPG",
     "about": "The Greek theatre of Syracuse, Sicily"
   },
   {
@@ -36,5 +36,192 @@
     "title": "File:Konfuzius-1770.jpg",
     "about": "Confucius in a European engraving of 1770",
     "kind": "illustration"
+  },
+  {
+    "id": "epicurus-bust",
+    "title": "File:Epicurus Massimo Inv197306.jpg",
+    "about": "Portrait head of Epicurus, Roman copy, Palazzo Massimo"
+  },
+  {
+    "id": "marcus-aurelius-statue",
+    "title": "File:Rome Capitoline Marcus Aurelius statue original.jpg",
+    "about": "Equestrian bronze of Marcus Aurelius, Capitoline Museums"
+  },
+  {
+    "id": "augustine-botticelli",
+    "title": "File:Sandro Botticelli 050.jpg",
+    "about": "Botticelli, Saint Augustine in his Study, Ognissanti",
+    "kind": "painting"
+  },
+  {
+    "id": "averroes-statue",
+    "title": "File:Averroes. Córdoba. España eue-1.jpg",
+    "about": "Statue of Averroes, Córdoba"
+  },
+  {
+    "id": "las-casas",
+    "title": "File:Bartolomé de las Casas (1886).jpg",
+    "about": "Virgilio Mattoni, portrait of Bartolomé de las Casas, 1886",
+    "kind": "painting"
+  },
+  {
+    "id": "descartes-hals",
+    "title": "File:Frans Hals - Portret van René Descartes.jpg",
+    "about": "Portrait of Descartes after Frans Hals, Louvre",
+    "kind": "painting"
+  },
+  {
+    "id": "leviathan-title",
+    "title": "File:Leviathan frontispiece.jpg",
+    "about": "Frontispiece of Leviathan, 1651",
+    "kind": "illustration"
+  },
+  {
+    "id": "spinoza-portrait",
+    "title": "File:Baruch Spinoza portrait HAB original.jpg",
+    "about": "Portrait of Spinoza, c. 1665, Herzog August Bibliothek",
+    "kind": "painting"
+  },
+  {
+    "id": "locke-kneller",
+    "title": "File:'John Locke' by Godfrey Kneller, 1697, Hermitage.JPG",
+    "about": "Godfrey Kneller, John Locke, 1697, Hermitage",
+    "kind": "painting"
+  },
+  {
+    "id": "hume-ramsay",
+    "title": "File:Allan Ramsay - David Hume, 1711 - 1776. Historian and philosopher - Google Art Project.jpg",
+    "about": "Allan Ramsay, David Hume, 1766",
+    "kind": "painting"
+  },
+  {
+    "id": "kant-portrait",
+    "title": "File:Immanuel Kant by Johann Christoph Frisch.jpg",
+    "about": "Kant, Frisch after Becker",
+    "kind": "painting"
+  },
+  {
+    "id": "frank-bookcase",
+    "title": "File:Bookcase Anne Frank House 01.jpg",
+    "about": "Bookcase, Anne Frank House"
+  },
+  {
+    "id": "pascal-portrait",
+    "title": "File:Blaise Pascal Versailles.JPG",
+    "about": "Portrait of Pascal, Versailles",
+    "kind": "painting"
+  },
+  {
+    "id": "kierkegaard-sketch",
+    "title": "File:Søren Kierkegaard (1813-1855) - (cropped).jpg",
+    "about": "Sketch of Kierkegaard by N. C. Kierkegaard, c. 1840",
+    "kind": "illustration"
+  },
+  {
+    "id": "bentham-autoicon",
+    "title": "File:Jeremy Bentham Auto-Icon 2020.jpg",
+    "about": "Bentham's auto-icon, UCL Student Centre"
+  },
+  {
+    "id": "nietzsche-1882",
+    "title": "File:Nietzsche1882.jpg",
+    "about": "Nietzsche, 1882, photograph by Gustav Schultze"
+  },
+  {
+    "id": "cafe-de-flore",
+    "title": "File:Cafe de Flore, Paris 4 June 2015.jpg",
+    "about": "Café de Flore, Paris"
+  },
+  {
+    "id": "sor-juana",
+    "title": "File:Retrato de Sor Juana Inés de la Cruz - c.1750 - Miguel Cabrera - Museo Nacional de Historia - Castillo Chapultepec.jpg",
+    "about": "Miguel Cabrera, Sor Juana Inés de la Cruz, c. 1750",
+    "kind": "painting"
+  },
+  {
+    "id": "sisyphus-titian",
+    "title": "File:Titian - Sisyphus - Madrid - Prado.jpg",
+    "about": "Titian, Sisyphus, Prado",
+    "kind": "painting"
+  },
+  {
+    "id": "townsend-bat",
+    "title": "File:Townsends big-eared bat (Corynorhinus townsendii) (14232301225).jpg",
+    "about": "Townsend's big-eared bat, Joshua Tree"
+  },
+  {
+    "id": "academy-mosaic",
+    "title": "File:MANNapoli 124545 plato's academy mosaic (cropped).jpg",
+    "about": "Plato's Academy mosaic, Naples"
+  },
+  {
+    "id": "zhuangzi-butterfly",
+    "title": "File:Dschuang-Dsi-Schmetterlingstraum-Zhuangzi-Butterfly-Dream.jpg",
+    "about": "Lu Zhi, Zhuangzi's butterfly dream",
+    "kind": "painting"
+  },
+  {
+    "id": "florentine-codex",
+    "title": "File:General History of the Things of New Spain by Fray Bernardino de Sahagún- The Florentine Codex. Book VI- Rhetoric and Moral Philosophy WDL10617.jpg",
+    "about": "Florentine Codex, Book VI",
+    "kind": "scan"
+  },
+  {
+    "id": "tutu-1999",
+    "title": "File:Desmond Tutu (47327456801) (cropped and adjusted).jpg",
+    "about": "Desmond Tutu, 1999"
+  },
+  {
+    "id": "machiavelli-portrait",
+    "title": "File:Portrait of Niccolò Machiavelli by Santi di Tito.jpg",
+    "about": "Santi di Tito, Niccolò Machiavelli",
+    "kind": "painting"
+  },
+  {
+    "id": "rousseau-ramsay",
+    "title": "File:Allan Ramsay - Jean-Jacques Rousseau (1712 - 1778) - Google Art Project (cropped).jpg",
+    "about": "Allan Ramsay, Jean-Jacques Rousseau, 1766",
+    "kind": "painting"
+  },
+  {
+    "id": "marx-1875",
+    "title": "File:Karl Marx by John Jabez Edwin Mayall 1875 - Restored.png",
+    "about": "Karl Marx, 1875, by John Mayall"
+  },
+  {
+    "id": "speakers-corner",
+    "title": "File:Speakers' Corner, Hyde Park - geograph.org.uk - 7615441.jpg",
+    "about": "Speakers' Corner, Hyde Park"
+  },
+  {
+    "id": "eichmann-sentence",
+    "title": "File:Adolf Eichmann is sentenced to death at the conclusion of the Eichmann Trial USHMM 65289.jpg",
+    "about": "Eichmann sentenced, 1961"
+  },
+  {
+    "id": "schopenhauer-1852",
+    "title": "File:Schopenhauer 1852.jpg",
+    "about": "Schopenhauer, 1852 daguerreotype"
+  },
+  {
+    "id": "zeno-fresco",
+    "title": "File:Zeno of Elea Tibaldi or Carducci Escorial.jpg",
+    "about": "Zeno of Elea, fresco, El Escorial",
+    "kind": "painting"
+  },
+  {
+    "id": "sand-heap",
+    "title": "File:Winter sunset behind a heap of sand on Furilden, Gotland.jpg",
+    "about": "Heap of sand, Furilden, Gotland"
+  },
+  {
+    "id": "eclipse-1919",
+    "title": "File:1919 eclipse negative.jpg",
+    "about": "1919 eclipse negative, Dyson, Eddington and Davidson"
+  },
+  {
+    "id": "wittgenstein-nahr",
+    "title": "File:Ludwig Wittgenstein (3x4 cropped).jpg",
+    "about": "Wittgenstein, by Moritz Nähr"
   }
 ]

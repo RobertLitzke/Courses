@@ -18,6 +18,15 @@
         {
           "type": "text",
           "text": "The argument is one of about forty paradoxes credited to **Zeno of Elea**, a Greek philosopher of the 5th century BC, of which about nine survive, mostly in Aristotle's summaries. Plato describes Zeno visiting Athens with his teacher Parmenides when Socrates was a young man.[^visit] Parmenides had argued that change and motion are illusions and that reality is one, unchanging whole. Zeno's paradoxes were meant to defend him by showing that the common-sense belief in motion leads to absurdities.[^diogenes]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Zeno of Elea shows young men the doors to truth and to falsehood, in a fresco of the late 16th century in the library of El Escorial, near Madrid.",
+          "options": {
+            "photo": "zeno-fresco",
+            "aspect": 3.07
+          }
         }
       ]
     },

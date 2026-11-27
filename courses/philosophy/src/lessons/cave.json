@@ -37,8 +37,26 @@
           "text": "Plato was born in Athens about 428 BC into one of its richest and best-connected families. He meant to go into politics, according to a letter that may be his own, until he watched the Thirty and then the restored democracy at work, and saw the democracy put Socrates to death.[^letter] After the execution he left Athens for some years. When he came back, about 387 BC, he bought land beside a grove called the Akademeia, a little way outside the city walls, and taught there. The place gave its name to the Academy, and through it to every academy since."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Plato, in a Roman copy of a portrait made in his lifetime or soon after, by the sculptor Silanion.",
+          "options": {
+            "photo": "plato-bust",
+            "aspect": 0.8
+          }
+        },
+        {
           "type": "text",
           "text": "The Academy was not a university with fees and degrees. It was closer to a research community: older members taught and argued with younger ones, and mathematics was studied hard, because Plato thought it trained the mind to think about things that cannot be seen. Plato taught there for about forty years, until his death in about 347 BC, and wrote some thirty dialogues, most with Socrates as the main speaker. All of them survive, which is true of almost no other ancient author."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Raphael's The School of Athens (1509 to 1511). In the centre Plato points up, to the Forms, and his student Aristotle holds his hand out flat, towards the world we see. Most of the other figures cannot be named with any certainty.",
+          "options": {
+            "photo": "school-of-athens",
+            "aspect": 1.9
+          }
         }
       ]
     },
@@ -61,7 +79,7 @@
           "goal": "answer",
           "options": {
             "key": "forms",
-            "ask": "Do numbers and perfect circles exist in their own right, apart from minds and the physical world?",
+            "ask": "Leave aside everyday things like beds and tables. Do numbers and perfect circles exist in their own right, apart from minds and the physical world?",
             "choices": [
               "Yes: they are there to be discovered",
               "No: they are useful fictions or ways we talk",
@@ -79,7 +97,8 @@
                 null
               ],
               "source": "PhilPapers Survey 2020, \"Abstract objects: Platonism or nominalism?\", share accepting or leaning towards each."
-            }
+            },
+            "then": "Plato went further and gave a Form to everyday kinds of thing too, such as beds, as this lesson shows later. Platonists today mostly mean numbers, sets and other abstract objects, not a Form of the bed."
           }
         },
         {

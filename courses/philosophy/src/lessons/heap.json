@@ -16,6 +16,15 @@
           "text": "Take a heap of sand, 10,000 grains. Take away one grain. It is still a heap: one grain cannot make the difference between a heap and not a heap. Take away another, and the same is true. But keep going, one grain at a time, and you eventually have a single grain, or none, which is certainly not a heap. Somewhere along the way, it stopped being one. Where?"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A heap of sand in an old limestone quarry on the Swedish island of Gotland. Nobody can say how many grains it could lose and still be a heap.",
+          "options": {
+            "photo": "sand-heap",
+            "aspect": 1.47
+          }
+        },
+        {
           "type": "text",
           "text": "The puzzle is credited to **Eubulides of Miletus**, a Greek philosopher of the 4th century BC and a rival of Aristotle. Eubulides is also credited with the liar paradox (a man says he is lying: is what he says true or false?). It is called the **sorites**, from the Greek *sōros*, a heap. Eubulides told a version about baldness too: pulling out one hair never makes a man bald, yet pull them one at a time and he ends up bald.[^eubulides]"
         },

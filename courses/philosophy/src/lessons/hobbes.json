@@ -18,6 +18,15 @@
         {
           "type": "text",
           "text": "In 1640, as England slid towards civil war, Hobbes fled to Paris, fearing that his writings in defence of the king's power had made him a target. The war that followed killed perhaps one in twenty-five people in England, and the king was beheaded in 1649. In 1651 Hobbes published his answer to the question the war had made urgent: why anyone should obey a government at all. The book was *Leviathan*."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The title page of Leviathan (1651), engraved by Abraham Bosse. The sovereign's body is made of hundreds of tiny people, all facing him.",
+          "options": {
+            "photo": "leviathan-title",
+            "aspect": 0.75
+          }
         }
       ]
     },

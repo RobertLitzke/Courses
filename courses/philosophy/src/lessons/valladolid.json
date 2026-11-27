@@ -16,6 +16,15 @@
           "text": "For the conquest spoke Juan Ginés de Sepúlveda, the emperor's official historian and one of the finest scholars of Greek in Spain, who had translated Aristotle's *Politics* into Latin. Against it spoke Bartolomé de las Casas, a 66-year-old Dominican friar and bishop who had spent most of his life in the Americas. Sepúlveda spoke for three hours. Las Casas answered by reading aloud from a Latin treatise of his own, and took five days.[^sessions]"
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Bartolomé de las Casas as the Spanish painter Virgilio Mattoni imagined him in 1886. No portrait made in his lifetime is known.",
+          "options": {
+            "photo": "las-casas",
+            "aspect": 0.73
+          }
+        },
+        {
           "type": "text",
           "text": "Lesson 4 left one part of Aristotle unexamined. Nineteen centuries after Aristotle wrote it, that argument was used to decide the fate of millions of people."
         }

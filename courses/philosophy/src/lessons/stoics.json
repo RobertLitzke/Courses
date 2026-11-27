@@ -88,6 +88,15 @@
           "text": "Stoicism reached its widest audience in Rome, through three men who could hardly have been more different. Epictetus (about AD 50 to 135) was born a slave, freed, and taught in Rome until the emperor Domitian expelled the philosophers from the city about AD 93; he spent the rest of his life teaching in Nicopolis in western Greece. Seneca (about 4 BC to AD 65) was a millionaire playwright and the tutor and adviser of the emperor Nero. Marcus Aurelius (AD 121 to 180) was emperor himself, and wrote the notebook we call his *Meditations*, in Greek,[^meditations] partly in army camps on the Danube frontier."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The bronze statue of Marcus Aurelius on horseback, made in his reign and now in the Capitoline Museums in Rome. It survived the Middle Ages because people took it for Constantine, the first Christian emperor.",
+          "options": {
+            "photo": "marcus-aurelius-statue",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "Epictetus wrote nothing himself. His student Arrian took down his lectures as the *Discourses* and boiled them down into the short *Handbook*, which begins: \"Some things are up to us and some are not up to us. Up to us are opinion, impulse, desire, aversion, and in a word whatever is our own doing. Not up to us are body, property, reputation, office, and in a word whatever is not our own doing.\" Modern writers call this the **dichotomy of control**, a division into two parts. The Stoic claim is that a good life depends only on the first list. Your body can be hurt, your property taken and your reputation ruined, and none of that touches what makes you good or bad."
         },

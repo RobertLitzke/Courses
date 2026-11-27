@@ -14,6 +14,15 @@
         {
           "type": "text",
           "text": "Jean-Paul Sartre had spent part of the war as a prisoner in a German camp[^prisoner] and the rest in occupied Paris, writing in cafés. His novel *Nausea* (1938)[^nausea] and his long philosophical book *Being and Nothingness* (1943) had made his name, and the word existentialism, which he had at first refused, had become a fashion: the newspapers wrote about existentialist cafés, existentialist haircuts and existentialist jazz clubs. That evening he set out to explain, in plain terms, what it actually meant, and to answer critics on both the Catholic right and the Communist left who said it was a philosophy of despair. The lecture was published the next year as *Existentialism Is a Humanism*, and became the most widely read short introduction to the movement."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Café de Flore on the boulevard Saint-Germain in Paris, where Sartre and Beauvoir spent much of the war writing, partly because it was heated.",
+          "options": {
+            "photo": "cafe-de-flore",
+            "aspect": 1.5
+          }
         }
       ]
     },

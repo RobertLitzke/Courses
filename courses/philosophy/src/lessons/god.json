@@ -16,6 +16,15 @@
           "text": "The professor was Augustine, later bishop of Hippo in North Africa and the most influential Christian thinker of the next thousand years. He told the garden story in his *Confessions*, written about ten years later, which is often called the first autobiography.[^confessions] Lust was not the only thing holding him back. He also had a philosophical problem he could not solve, and it is still the most discussed argument against the existence of God."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Augustine in his study, painted by Sandro Botticelli around 1480 for the church of Ognissanti in Florence.",
+          "options": {
+            "photo": "augustine-botticelli",
+            "aspect": 0.65
+          }
+        },
+        {
           "type": "text",
           "text": "This lesson pairs Augustine's answer to the problem of evil with a medieval proof of God's existence so short and strange that philosophers have argued about it for 900 years. Lesson 1 met the God of the Euthyphro; here the question is whether there is one at all."
         }

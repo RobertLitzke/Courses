@@ -69,6 +69,15 @@
           "text": "John Locke, whom lesson 11 met as a political philosopher, gave the first modern answer in 1694, in a chapter he added to the second edition of his *Essay Concerning Human Understanding*. A person, he wrote, is \"a thinking intelligent being, that has reason and reflection, and can consider itself as itself, the same thinking thing, in different times and places\". What makes a person the same over time is not the same body, nor even the same soul, but the same **consciousness**: \"as far as this consciousness can be extended backwards to any past action or thought, so far reaches the identity of that person.\" In practice this means memory. You are the person who did the things you can remember doing."
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "John Locke in 1697, painted by Godfrey Kneller. The portrait is now in the Hermitage in St Petersburg.",
+          "options": {
+            "photo": "locke-kneller",
+            "aspect": 0.77
+          }
+        },
+        {
           "type": "text",
           "text": "Locke tested his view with a story. Suppose the soul of a prince, with all his memories, entered the body of a cobbler, whose own soul had left it. Everyone around would see the cobbler. But the person in the cobbler's body would remember being the prince, and would be the prince, Locke said: \"the same person with the prince, accountable only for the prince's actions\". Locke cared about this because of punishment and reward. It would be unjust to punish someone for a crime they had no consciousness of having committed, and Locke thought God would not do it on the Day of Judgement."
         },

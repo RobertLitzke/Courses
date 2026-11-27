@@ -16,6 +16,15 @@
           "text": "In 1859, a few months after the death of his wife, Harriet Taylor, with whom he had planned it,[^harriet] John Stuart Mill published *On Liberty*. Its second chapter is still the most quoted defence of free speech in English.[^voltaire] It contains a famous sentence: \"If all mankind minus one were of one opinion, and only one person were of the contrary opinion, mankind would be no more justified in silencing that one person, than he, if he had the power, would be justified in silencing mankind.\""
         },
         {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Speakers' Corner, at the north-east corner of Hyde Park in London. Since the 1870s anyone may come here and speak to whoever will listen, and on Sunday mornings many still do.",
+          "options": {
+            "photo": "speakers-corner",
+            "aspect": 1.5
+          }
+        },
+        {
           "type": "text",
           "text": "In lesson 17 we met Mill's harm principle: the only reason to interfere with someone's liberty against their will is to prevent harm to others. This lesson looks at his argument for free speech, and then tests it on three problems Mill did not face: recommendation feeds, trusting experts, and people whose words are not believed."
         }

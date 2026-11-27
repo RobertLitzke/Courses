@@ -22,6 +22,15 @@
         {
           "type": "text",
           "text": "The same year, the British astronomer Arthur Eddington photographed stars near the Sun during a total eclipse to test Einstein's new theory of gravity, which predicted that the Sun's gravity would bend their light by a definite amount. If the stars had appeared in the wrong places, the theory would have been refuted. They appeared about where Einstein said.[^eclipse] Popper saw the difference. Einstein's theory had taken a risk, and survived. Adler's could not lose, and that, he decided, was not a strength but a weakness."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A negative of the 1919 eclipse, from the expedition's report. Eddington's team measured the positions of faint stars near the darkened Sun on plates like this one.",
+          "options": {
+            "photo": "eclipse-1919",
+            "aspect": 0.78
+          }
         }
       ]
     },
