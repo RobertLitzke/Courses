@@ -15,7 +15,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const COMING: PhilosophyLesson[] = [
-  coming('nahua', 103, 'How do you keep your footing on slippery earth?', 'The Nahua (Aztec) sages on a world always in motion, and how we know what they said', { branch: 'elsewhere', needs: ['stoics'] }),
   coming('ubuntu', 104, 'Are you a person through other people?', 'Ubuntu ethics and its use in South Africa\'s Truth and Reconciliation Commission', { branch: 'elsewhere', needs: ['aristotle'] }),
   coming('machiavelli', 201, 'Is it better to be feared than loved?', 'The Prince, read in its setting', { branch: 'power', needs: ['hobbes'] }),
   coming('rousseau', 202, 'Does the general will ever get it wrong?', 'Rousseau\'s social contract and the general will', { branch: 'power', needs: ['hobbes'] }),

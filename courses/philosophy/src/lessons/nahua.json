@@ -1,0 +1,226 @@
+{
+ "id": "nahua",
+ "n": 103,
+ "branch": "elsewhere",
+ "needs": [
+  "stoics"
+ ],
+ "title": "How do you keep your footing on slippery earth?",
+ "teaches": "The Nahua (Aztec) sages on a world always in motion, and how we know what they said",
+ "parts": [
+  {
+   "title": "A mother's advice",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In the 16th century, in Mexico, a Spanish friar and a team of Nahua scholars wrote down the speeches that Aztec parents gave their children when they came of age. In one, a noblewoman tells her daughter what life on earth is like:"
+    },
+    {
+     "type": "text",
+     "text": "\"On earth we live, we travel along a mountain peak. Over here is an abyss, over there is an abyss. Wherever you go, wherever you stray, there is an abyss.\" The earth, the elders said, is slippery, slick. Everyone slips on it sooner or later. The aim of a good life is not to escape the danger, which cannot be done, but to keep your footing as well as you can, and to get up when you fall."
+    },
+    {
+     "type": "text",
+     "text": "The Nahua were the Nahuatl-speaking peoples of central Mexico, of whom the Mexica of Tenochtitlan, usually called the Aztecs, were the most powerful when the Spanish arrived in 1519. Their wise men and women were called *tlamatinime*, \"those who know things\". In this lesson we will look at what they thought, and at the hard question of how we can know it."
+    }
+   ]
+  },
+  {
+   "title": "How we know what they said",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Almost nothing the Nahua sages wrote survives in its original form. The Nahua kept painted books, of images and glyphs, which were read aloud by trained speakers who had learned the words that went with them. Many were destroyed: some by an Aztec ruler, Itzcoatl, who around 1430 ordered older histories burned so that his people's past could be retold; far more by Spanish clergy after the conquest of 1521, who saw them as works of the devil."
+    },
+    {
+     "type": "text",
+     "text": "What we have was mostly written down after the conquest, in Nahuatl spelled with the Latin alphabet, by Nahua scholars trained by Franciscan friars at a college in Tlatelolco. The largest source is the *Florentine Codex*, an encyclopedia of Nahua life in twelve books, compiled from about 1545 to 1577 under the friar Bernardino de Sahagún, from interviews with elders who remembered the world before the conquest. Another is a collection of songs, the *Cantares Mexicanos*. Both were made for Spanish purposes, partly so that missionaries could understand the religion they meant to replace, and both passed through Christian hands."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "How Nahua thought reached us, and how it was read. Most of what survives was written down within two generations of the conquest.",
+     "options": {
+      "title": "Sources",
+      "spacing": "even",
+      "events": [
+       {
+        "at": 1430,
+        "label": "Itzcoatl orders older painted histories burned",
+        "when": "about 1430"
+       },
+       {
+        "at": 1519,
+        "label": "Cortés lands on the Gulf coast",
+        "when": "1519"
+       },
+       {
+        "at": 1521,
+        "label": "Fall of Tenochtitlan",
+        "when": "1521"
+       },
+       {
+        "at": 1536,
+        "label": "College of Santa Cruz opens at Tlatelolco",
+        "when": "1536"
+       },
+       {
+        "at": 1577,
+        "label": "Florentine Codex completed under Sahagún",
+        "when": "1577"
+       },
+       {
+        "at": 1956,
+        "label": "León-Portilla, La filosofía náhuatl",
+        "when": "1956"
+       },
+       {
+        "at": 2014,
+        "label": "Maffie, Aztec Philosophy",
+        "when": "2014"
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "In 1956 the Mexican historian Miguel León-Portilla published *La filosofía náhuatl*, arguing that the tlamatinime were philosophers in the full sense, asking questions about truth, death and the meaning of life as Greek philosophers had. Critics said he had made them sound too much like Greeks and too much like Christians. More recent scholars, above all James Maffie in *Aztec Philosophy* (2014) and Sebastian Purcell, have tried to read the sources on their own terms.[^word]"
+    }
+   ]
+  },
+  {
+   "title": "A world in motion",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On Maffie's reading, the Nahua saw the world not as a collection of things but as a single process, always moving and always changing, which they called *teotl*. Teotl is often translated \"god\", but Maffie argues it is closer to a sacred energy that makes itself and everything else, continually. Like a weaver at a loom, it keeps bringing order and disorder, life and death, day and night into being from each other. Nothing in it stays still, and nothing is permanent."
+    },
+    {
+     "type": "text",
+     "text": "A poem in the *Cantares Mexicanos*, traditionally attributed to Nezahualcoyotl, poet-king of the city of Texcoco in the 15th century, puts it this way: \"Not forever on earth, only a little while here. Though it be jade, it will be broken; though it be gold, it is crushed; though it be quetzal plumage, it is torn apart. Not forever on earth, only a little while here.\"[^nezahualcoyotl]"
+    },
+    {
+     "type": "text",
+     "text": "This sounds at first like the Stoic physics of lesson 6, where the world is fire, burning up and starting again. But the Stoics thought the cosmos was ordered by reason, and that a wise person could understand that order and be at peace with it. The Nahua picture has no such fixed order to understand. The world is unstable all the way down, and a person must keep adjusting to it, as you adjust your feet on a slippery path."
+    }
+   ]
+  },
+  {
+   "title": "Rooted, with a face and a heart",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Purcell reads Nahua ethics as an ethics of **rootedness**. The Nahuatl word for truth, *neltiliztli*, comes from a root meaning \"well-rooted\", and a true or good thing was one that was firmly planted. A good life was one rooted in four ways: in your body, through discipline in eating, sleeping and work; in your mind, by balancing your heart; in your community, through the roles and duties of family and city; and in teotl, through ritual."
+    },
+    {
+     "type": "text",
+     "text": "A well-formed person, the elders said, has \"a face and a heart\": a face meaning a settled character that others could recognise, and a heart meaning a will that was steady and directed. Children were trained for this in schools from a young age, by moderation rather than by extremes. The elders warned against too much as well as too little, in food, sleep, pleasure and grief, which has led some scholars to compare their ethics with Aristotle's mean in lesson 4."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Two pictures of the good life. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "footing",
+      "ask": "Which is closer to what a good life is?",
+      "choices": [
+       "A calm that nothing outside you can disturb, as the Stoics aimed for",
+       "Keeping your balance on ground that is always moving, and getting up when you slip",
+       "Not sure"
+      ],
+      "who": [
+       "You chose the Stoic picture of lesson 6.",
+       "You chose the Nahua picture, as Purcell and Maffie read it.",
+       "The two may be less far apart than they look: the Stoics also expected to fail and start again."
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Nahua philosophy is a small but growing field. It is still argued over in two ways: what the sources really say, given how they were made, and whether \"philosophy\" is the right word for thought that was spoken, sung and painted rather than written in arguments. León-Portilla's work is respected history, and Maffie's and Purcell's readings are now the main ones in English. The Nahuatl language is still spoken by more than a million and a half people in Mexico."
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on Nahua thought",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "Why is it hard to know what the Nahua sages thought?",
+        "choices": [
+         "Most of the evidence was written down after the conquest, for Spanish purposes, by people trained by friars",
+         "The Nahua never discussed questions about how to live",
+         "All Nahua writings were in a script nobody can read",
+         "The sages forbade anyone to write down their teachings"
+        ],
+        "answer": 0,
+        "why": "The Florentine Codex and the Cantares Mexicanos were made after 1521 and passed through Christian hands."
+       },
+       {
+        "ask": "What does the image of slippery earth say about a good life?",
+        "choices": [
+         "Everyone slips sometimes; the aim is to keep your footing as well as you can",
+         "The earth is a place of punishment to be escaped",
+         "Only priests can walk safely through life",
+         "A good person never makes a mistake"
+        ],
+        "answer": 0,
+        "why": "The mother's advice: an abyss on each side, wherever you go."
+       },
+       {
+        "ask": "How does Maffie describe teotl?",
+        "choices": [
+         "A single sacred process, always moving, that makes itself and everything else",
+         "A council of gods who rule the world from a fixed heaven",
+         "The Nahua word for the human soul",
+         "An unchanging order that reason can understand"
+        ],
+        "answer": 0,
+        "why": "Like a weaver at a loom, it keeps bringing order and disorder out of each other."
+       },
+       {
+        "ask": "What did the Nahua mean by a person with a face and a heart?",
+        "choices": [
+         "A settled character others can recognise, and a steady, directed will",
+         "Someone born into a noble family",
+         "A person who has been sacrificed to the gods",
+         "Someone who shows their emotions openly"
+        ],
+        "answer": 0,
+        "why": "It was the goal of Nahua education."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**The Nahua elders called the earth slippery.** Everyone slips; a good life keeps its footing and gets up again.",
+  "**Most sources were written after the conquest of 1521.** The Florentine Codex and the Cantares Mexicanos passed through Christian hands.",
+  "**León-Portilla called the tlamatinime philosophers in 1956.** Maffie and Purcell now read them on their own terms.",
+  "**Teotl is a world always in motion.** Nothing in it is fixed or permanent.",
+  "**Truth meant being well rooted.** In your body, your mind, your community and teotl.",
+  "**A good person has a face and a heart.** A settled character and a steady will, trained by moderation."
+ ],
+ "footnotes": {
+  "word": {
+   "kind": "technical",
+   "title": "Aztec or Nahua?",
+   "text": "\"Aztec\" was popularised in the 19th century. Historians now usually say Mexica for the people of Tenochtitlan and Nahua for all the Nahuatl-speaking peoples of central Mexico, who shared much of the same thought."
+  },
+  "nezahualcoyotl": {
+   "kind": "technical",
+   "title": "Did Nezahualcoyotl write it?",
+   "text": "The Cantares were written down in the late 16th century, about a century after Nezahualcoyotl died in 1472. Several poems are attributed to him, but scholars disagree about how many he composed. This one is quoted here in León-Portilla's version, put into English."
+  }
+ }
+}
