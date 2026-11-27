@@ -1,0 +1,158 @@
+{
+  "id": "wool",
+  "n": 10,
+  "title": "How did sheep pay for a war?",
+  "teaches": "The medieval wool trade from England to Flanders and Florence; export duties and Edward III's wool scheme; the Calais staple; guilds; fulling mills and the debate over a medieval industrial revolution",
+  "parts": [
+    {
+      "title": "Wool at Dordrecht",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1337 Edward III of England was preparing for war with France, the war later called the Hundred Years' War. He needed money for an army and, above all, for allies in the Low Countries and Germany, who expected to be paid. His council made a deal with a group of English merchants led by William de la Pole of Hull. The merchants were given a monopoly on exporting wool: they would buy up to 30,000 sacks in England, sell it abroad at a high price, and lend the king a large share of the proceeds.[^scheme]"
+        },
+        {
+          "type": "text",
+          "text": "The merchants shipped about 10,000 sacks to Dordrecht, in Holland, in 1337 and 1338. When Edward arrived there in 1338 and found that the sales were going slowly and his allies were waiting, he took the wool from the merchants and sold it himself. In return he gave them bonds, promises to repay from future customs revenue, which became known as the Dordrecht bonds. Many of them were repaid only years later, at a discount, or not at all. The episode shows what English wool was in the 14th century: the country's largest export, the crown's main source of cash, and something a king could seize, pledge and spend like money."
+        },
+        {
+          "type": "text",
+          "text": "In this lesson we look at why English wool was worth so much, where it went, how the crown taxed it and used it as a weapon, and how the trade gradually changed from raw wool to finished cloth."
+        }
+      ]
+    },
+    {
+      "title": "The best wool in Europe",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 2 explained that a fine, long fleece makes better yarn. Medieval England had a lot of it. Sheep were kept by peasants and by great landlords, including monasteries such as the Cistercian abbeys of Yorkshire, some of which ran flocks of thousands. The wool of the Cotswolds, Lincolnshire and the Welsh border counties was considered the finest in northern Europe, and Italian merchants kept price lists that ranked English wool by the monastery or district it came from."
+        },
+        {
+          "type": "text",
+          "text": "Wool was traded in **sacks** of 26 stone, about 165 kg, which held the fleeces of roughly 200 to 250 sheep. Around 1300, England exported in some years more than 40,000 sacks, the wool of something like eight to ten million sheep.[^sacks] Most of it was not woven in England. It was shipped across the North Sea to the cloth towns of Flanders, such as Ghent, Bruges and Ypres, and some went much further, to Florence."
+        },
+        {
+          "type": "diagram",
+          "id": "wool-map",
+          "caption": "Where English wool went in the 14th century. Most crossed the North Sea to Flanders; the finest went on to Florence, overland or by Italian galley."
+        },
+        {
+          "type": "text",
+          "text": "Flanders had the largest concentration of cloth workers in northern Europe. Its towns lived on making fine woollen cloth, much of it from English wool, and selling it across Europe and the Mediterranean. Florence's wool guild, the *Arte della Lana*, was the largest guild in the city and employed a large share of its working people. Florentine merchants bought wool directly from English monasteries, sometimes years in advance. The letters of Francesco Datini, a merchant of Prato whose archive of about 150,000 letters survives, include orders for Cotswold wool."
+        }
+      ]
+    },
+    {
+      "title": "Taxing the bottleneck",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Because Flemish and Florentine weavers depended on English wool, the English crown could tax it heavily without losing the trade. From 1275 every sack exported paid a customs duty of 6 shillings and 8 pence. Under Edward III an extra **subsidy** was added, usually 40 shillings a sack or more, and foreign merchants paid more than English ones. Together these took something like a quarter to a third of the wool's value at the port. In many years of the 14th century the wool duties were the crown's largest single source of revenue, and Parliament's right to approve the subsidy became one of its main sources of power over the king."
+        },
+        {
+          "type": "text",
+          "text": "Wool was also a diplomatic weapon. In 1336 Edward stopped all wool exports to Flanders, whose count supported the king of France. The Flemish cloth towns soon ran short, weavers were thrown out of work, and in Ghent a merchant named Jacob van Artevelde led the town into an agreement with England. In 1340 Edward was proclaimed king of France in Ghent's market square, with the Flemish towns on his side. Their weavers needed his wool more than their count needed the French king."
+        },
+        {
+          "type": "text",
+          "text": "To make the duties easier to collect and to control the trade, the crown required wool exports to pass through a single official market, the **staple**. Its location moved several times, until in 1363 it was fixed at Calais, which England had captured in 1347. A company of English merchants, the Merchants of the Staple, held a monopoly on exporting wool through Calais, collected the duties there, and in return lent money to the crown and paid for the Calais garrison. Calais remained English until 1558. In the House of Lords, the presiding officer still sits on the Woolsack, a large cushion stuffed with wool, said to have been placed there in Edward III's time as a reminder of where England's wealth came from."
+        }
+      ]
+    },
+    {
+      "title": "From wool to cloth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The high duty on raw wool had a side effect. Cloth exported from England paid far less duty than the wool in it would have, so English weavers could buy wool more cheaply than their Flemish competitors, who paid for the export duty in the price. Over the next two centuries, English exports shifted from raw wool to finished cloth. Wool exports fell to under 10,000 sacks a year by the mid 15th century, while cloth exports rose from a few thousand pieces a year in the 1350s to more than 100,000 by the 1540s.[^cloths] Many Flemish weavers moved to England, encouraged by Edward III, who offered them protection."
+        },
+        {
+          "type": "text",
+          "text": "Making woollen cloth involved more steps than weaving. After weaving, the cloth was **fulled**: soaked in water with fuller's earth, a clay that absorbs grease, and beaten until the fibres felted together, as lesson 2 described, so that the cloth shrank, thickened and became windproof. It was then raised with teasels to lift a nap, sheared smooth, and often dyed. Fulling had been done by trampling the cloth underfoot, which is why the English surname Walker means a fuller, like Fuller and Tucker."
+        },
+        {
+          "type": "text",
+          "text": "From the late 12th century, English fulling was increasingly done by **fulling mills**: water wheels that lifted and dropped heavy wooden hammers on the cloth. A mill needed a fast stream, so cloth making spread from old towns such as York and Lincoln to the hills of the Cotswolds, the Lake District and the West Riding of Yorkshire. In 1941 the historian Eleanora Carus-Wilson called this \"an industrial revolution of the thirteenth century\". Later historians have questioned the phrase: fulling mills spread slowly, the towns declined for other reasons as well, and every other step of cloth making stayed by hand. The debate is a useful warning. A new machine can move an industry without transforming it, and lesson 15 returns to what made the later Industrial Revolution different."
+        },
+        {
+          "type": "text",
+          "text": "Inside the cloth towns, the trades were organised into **guilds**, associations that set rules, prices and training for a craft. The richer guilds of merchants and finishers controlled the poorer workers who did the early stages. In Florence in 1378, the wool carders and combers, who had no guild of their own, rose in the Ciompi revolt, took over the city government for a few weeks and demanded the right to organise. They were defeated within a few years."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the wool trade.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "Why could Edward III tax wool exports at a quarter or more of their value without losing the trade?",
+                "choices": ["Flemish and Florentine weavers depended on English wool and had few good substitutes", "Wool was cheap to produce", "The tax was paid by English shepherds", "Other countries had no sheep"],
+                "answer": 0,
+                "why": "A tax on a product buyers cannot easily replace mostly raises the price instead of cutting sales. English wool was the best on offer, so foreign weavers paid."
+              },
+              {
+                "ask": "In 1336 Edward stopped wool exports to Flanders. Why did that bring the Flemish towns to his side?",
+                "choices": ["Their weavers ran out of wool and work, so the towns had more to lose from the embargo than from defying their count", "Flanders was already part of England", "The Flemish preferred French wool", "The embargo lowered Flemish taxes"],
+                "answer": 0,
+                "why": "Cloth was the towns' livelihood and English wool their main input. Control of that supply gave England leverage over Flemish politics."
+              },
+              {
+                "ask": "Why did the crown want all wool to pass through a single staple town?",
+                "choices": ["One market made the duties easier to collect and the trade easier to control", "Calais had the best sheep", "Ships could not reach other ports", "Wool had to be woven there"],
+                "answer": 0,
+                "why": "A single compulsory market meant one place to collect duties and one company of merchants who could lend against them."
+              },
+              {
+                "ask": "England's raw wool exports fell between 1350 and 1550 while its cloth exports grew. What explains this best?",
+                "choices": ["Duties on raw wool were far higher than on cloth, so weaving in England became cheaper than weaving abroad", "English sheep stopped growing wool", "Flanders banned English wool", "Cloth was easier to carry than wool"],
+                "answer": 0,
+                "why": "The export duty raised the cost of English wool to foreign weavers but not to English ones, so the work moved to England."
+              },
+              {
+                "ask": "Carus-Wilson called fulling mills a 13th-century industrial revolution. What is the main objection?",
+                "choices": ["They mechanised one step only and spread slowly, while spinning and weaving stayed by hand", "Fulling mills never existed", "They were powered by steam", "They were used only for linen"],
+                "answer": 0,
+                "why": "Fulling mills moved cloth making towards streams but did not change most of the work. That is the difference from the 18th-century changes in lessons 14 and 15."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**English wool was the best in northern Europe.** Fleeces from the Cotswolds, Lincolnshire and the Welsh border were in demand from Flanders to Florence.",
+    "**Most of it was exported raw.** Around 1300, England shipped over 40,000 sacks in some years, each holding the fleeces of about 200 to 250 sheep.",
+    "**Dependence made it taxable.** Customs and subsidies took a quarter to a third of the wool's value and were often the crown's largest revenue.",
+    "**Wool paid for the war.** Edward III's 1337 scheme and the Dordrecht seizure of 1338 turned wool into credit for the start of the Hundred Years' War.",
+    "**Wool was a weapon.** The 1336 embargo brought the Flemish towns to England's side.",
+    "**The staple concentrated control.** From 1363 wool exports passed through Calais, where the Merchants of the Staple collected duties and lent to the crown.",
+    "**Duties moved weaving to England.** Cloth paid much less duty than wool, so by the 1540s England exported over 100,000 cloths a year.",
+    "**Fulling mills moved the industry, not the work.** Water-powered fulling took cloth making to the hills, but the other steps stayed by hand.",
+    "**Guilds ran the trade.** Wool workers without a guild, like Florence's Ciompi in 1378, had little say."
+  ],
+  "footnotes": {
+    "scheme": {
+      "kind": "digression",
+      "title": "The wool scheme",
+      "text": "The scheme of 1337 was meant to raise a loan of £200,000. It failed partly because the merchants could not buy and sell as much wool as quickly as planned, and partly because Edward's allies had been promised more than the wool could raise. De la Pole later became the first merchant to be made a baron in England."
+    },
+    "sacks": {
+      "kind": "technical",
+      "title": "Counting sacks",
+      "text": "The customs accounts record sacks exported, which is why medieval wool exports are known better than most medieval trade. The number of sheep is an estimate from fleece weights, which were much lighter than modern ones: about 1.5 pounds, not the 8 to 10 pounds of a modern fleece."
+    },
+    "cloths": {
+      "kind": "technical",
+      "title": "Counting cloths",
+      "text": "A customs cloth was a standard broadcloth about 24 yards long. The figures come from Eleanora Carus-Wilson and Olive Coleman's *England's Export Trade, 1275 to 1547* (1963), compiled from the customs accounts."
+    }
+  }
+}

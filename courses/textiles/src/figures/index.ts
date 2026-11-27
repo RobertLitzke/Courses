@@ -20,6 +20,7 @@ import { silkRoutesFigure } from './silk-routes';
 import { sericultureStill } from './sericulture';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
+import { woolMapStill } from './wool-map';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -37,4 +38,5 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   sericulture: sericultureStill,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
+  'wool-map': woolMapStill,
 };
