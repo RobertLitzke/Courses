@@ -17,6 +17,7 @@ import { load, output as loomOutput } from '../src/figures/looms';
 import { BAND, bodies } from '../src/figures/bodies';
 import { PRICE, priceWith } from '../src/figures/tshirt';
 import { comfort } from '../src/figures/prickle';
+import { heatLoss, MET } from '../src/figures/loft';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -216,6 +217,20 @@ describe('the crease figure', () => {
   it('is done once every cloth is tried', async () => {
     const h = FIGURES.crease(context(), 'all');
     for (const n of ['Cotton', 'Durable-press cotton', 'Wool', 'Polyester']) click(h.node, n);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the loft figure', () => {
+  it('needs about 2 cm at 0 °C sitting still', () => {
+    expect(heatLoss(10, 0)).toBeGreaterThan(MET);
+    expect(heatLoss(20, 0)).toBeLessThan(MET);
+  });
+  it('is done after a guess and a warm layer at -10 °C', async () => {
+    const h = FIGURES.loft(context(), 'warm');
+    guess(h.node, 'About 2 cm');
+    setSlider(h.node, 1, -15);
+    setSlider(h.node, 0, 35);
     await expect(h.done).resolves.toBeUndefined();
   });
 });
