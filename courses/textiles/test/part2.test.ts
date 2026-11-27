@@ -14,6 +14,7 @@ import { PRESETS, jennyReturn } from '../src/figures/jenny-pays';
 import { grows } from '../src/figures/cotton-belt';
 import { seriesProblems } from '../src/figures/series';
 import { load, output as loomOutput } from '../src/figures/looms';
+import { BAND, bodies } from '../src/figures/bodies';
 
 describe('the world map', () => {
   it('puts the crop corners at the drawing corners', () => {
@@ -156,16 +157,24 @@ describe('the cotton belt', () => {
 });
 
 describe('the loom minder', () => {
-  it('lets one weaver keep about six plain looms or over twenty automatic ones', () => {
-    expect(load(6, 'plain')).toBeLessThanOrEqual(1);
-    expect(load(7, 'plain')).toBeGreaterThan(1);
+  it('lets one weaver keep about five plain looms or over twenty automatic ones', () => {
+    expect(load(5, 'plain')).toBeLessThanOrEqual(1);
+    expect(load(6, 'plain')).toBeGreaterThan(1);
     expect(load(26, 'automatic')).toBeLessThanOrEqual(1);
-    expect(loomOutput(12, 'plain')).toBeCloseTo(loomOutput(7, 'plain'), 5);
+    expect(loomOutput(10, 'plain')).toBeCloseTo(loomOutput(5, 'plain'), 5);
   });
   it('is done with twenty automatic looms running', async () => {
     const h = FIGURES.looms(context(), 'auto');
     click(h.node, 'Automatic loom');
     setSlider(h.node, 0, 24);
     await expect(h.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the body scatter', () => {
+  it('shows a wide spread of hips within one bust size', () => {
+    const hips = bodies().filter(([b]) => b >= BAND[0] && b <= BAND[1]).map(([, h]) => h);
+    expect(hips.length).toBeGreaterThan(10);
+    expect(Math.max(...hips) - Math.min(...hips)).toBeGreaterThan(15);
   });
 });

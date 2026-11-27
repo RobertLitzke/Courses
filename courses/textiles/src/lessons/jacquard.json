@@ -48,7 +48,7 @@
         },
         {
           "type": "text",
-          "text": "The cards were laced edge to edge into a long chain, one card per pick, which the head turned through card by card as the weaver worked a treadle. The weaver no longer needed a second worker. A new design was made by drawing it on squared paper, each square a thread and a pick, and having a card cutter punch the cards row by row. In the figure below, each card mirrors one row of the motif you paint."
+          "text": "The cards were laced edge to edge into a long chain, one card per pick, which the head turned through card by card as the weaver worked a treadle. The weaver no longer needed a second worker. A new design was made by drawing it on squared paper, each square a thread and a pick, and having a card cutter punch the cards row by row. In the figure below, each card matches one row of the motif on the grid."
         },
         {
           "type": "interactive_diagram",
@@ -59,11 +59,11 @@
         },
         {
           "type": "text",
-          "text": "A change to one pick of the design changes only one card. The threading of the loom stays the same, so a weaver could take one deck off and put another on in a short time, and the same deck could be used again years later or copied for another loom. A pattern became an object that could be stored, edited, copied and sold separately from the loom. Real heads often tied several warp threads across the width of the cloth to the same hook, so that a design repeated across the cloth without needing more hooks."
+          "text": "The figure gives every warp thread its own hook. A change to one pick of the design changes only one card. The threading of the loom stays the same, so a weaver could take one deck off and put another on in a short time, and the same deck could be used again years later or copied for another loom. A pattern became an object that could be stored, edited, copied and sold separately from the loom. Real heads often tied several warp threads across the width of the cloth to the same hook, so that a design repeated across the cloth without needing more hooks."
         },
         {
           "type": "text",
-          "text": "In 1805 Napoleon's government bought the rights to the attachment for the city of Lyon. Jacquard received a pension of 3,000 francs a year and a royalty of 50 francs for each loom built over the following six years. Lyon's weavers were slow to adopt it at first, and Jacquard later said that some had tried to destroy his machine and attacked him, a story that is hard to check. Within a decade, after mechanics improved it, thousands of Jacquard heads were working in France, and by the mid 19th century they were used for figured silk, damask table linen, carpets and woven labels across Europe."
+          "text": "In 1805 Napoleon's government bought the rights to the attachment for the city of Lyon. Jacquard received a pension of 3,000 francs a year and a royalty of 50 francs for each loom built over the following six years. Lyon's weavers were slow to adopt it at first, and Jacquard later said that some had tried to destroy his machine and attacked him, a story that is hard to check. Within a decade, after other mechanics had improved its design, thousands of Jacquard heads were working in France, and by the mid 19th century they were used for figured silk, damask table linen, carpets and woven labels across Europe."
         }
       ]
     },
@@ -76,7 +76,7 @@
         },
         {
           "type": "text",
-          "text": "In the late 1820s silk prices and piece rates fell. In October 1831 the prefect of the Rhône arranged a meeting at which weavers' delegates and merchants agreed a minimum rate for each kind of cloth, called the *tarif*. Many merchants refused to pay it, and the government in Paris disowned the agreement. On 21 November 1831 thousands of weavers marched down from the Croix-Rousse under a black banner reading *Vivre en travaillant ou mourir en combattant*, \"Live working or die fighting\". After three days of fighting with the National Guard and the army, they held the city. The government sent an army of about 20,000 men under Marshal Soult, which retook Lyon in early December without a battle, and the tarif was annulled."
+          "text": "In the late 1820s silk prices and piece rates fell. In October 1831 the prefect of the Rhône, the government's chief official in the department, arranged a meeting at which weavers' delegates and merchants agreed a minimum rate for each kind of cloth, called the *tarif*. Many merchants refused to pay it, and the government in Paris disowned the agreement. On 21 November 1831 thousands of weavers marched down from the Croix-Rousse under a black banner reading *Vivre en travaillant ou mourir en combattant*, \"Live working or die fighting\". After three days of fighting with the National Guard and the army, they held the city. The government sent an army of about 20,000 men under Marshal Soult, which retook Lyon in early December without a battle, and the tarif was annulled."
         },
         {
           "type": "text",
@@ -89,7 +89,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From 1834 Babbage designed the **Analytical Engine**, a mechanical calculator that he planned to drive with two sets of punched cards taken from Jacquard's: operation cards, which told it whether to add, subtract, multiply or divide, and variable cards, which told it which numbers in its store to use. It was never built. In 1843 the mathematician Ada Lovelace published a translation of an Italian engineer's article on the engine, with her own notes, three times as long as the article, and in one of them she wrote that \"the Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves flowers and leaves.\""
+          "text": "From 1834 Babbage designed the **Analytical Engine**, a mechanical calculator that he planned to drive with two sets of punched cards taken from Jacquard's: operation cards, which told it whether to add, subtract, multiply or divide, and variable cards, which told it which numbers in its store to use. It was never built. In 1843 the mathematician Ada Lovelace published a translation of an article on the engine by the Italian engineer Luigi Menabrea, with her own notes, three times as long as the article, and in one of them she wrote that \"the Analytical Engine weaves algebraical patterns just as the Jacquard-loom weaves flowers and leaves.\""
         },
         {
           "type": "text",
@@ -97,7 +97,7 @@
         },
         {
           "type": "text",
-          "text": "The connections are real, but they are easy to overstate. A Jacquard head does no arithmetic and makes no choices: it reads the next card in the chain, lifts the hooks the card allows, and repeats. What it had was **stored control**: instructions held outside the machine, in a form that could be replaced, copied and edited without rebuilding the machine. Babbage's design added what the loom lacked: a store to hold numbers, a mill to calculate with them, and the ability to choose which card to read next depending on a result. Hollerith's cards were different again, because they held data about people for a machine to count, not instructions. The Han pattern shafts of lesson 8 had already stored a pattern; Jacquard's achievement was to make the stored pattern cheap to swap."
+          "text": "The connections are real, but they are easy to overstate. A Jacquard head does no arithmetic and makes no choices: it reads the next card in the chain, lifts the hooks the card allows, and repeats. What it had was **stored control**: instructions held outside the machine, in a form that could be replaced, copied and edited without rebuilding the machine. Babbage's design added what the loom lacked: a store to hold numbers and a mill to calculate with them (what we would now call memory and a processor), and the ability to choose which card to read next depending on a result. Hollerith's cards were different again, because they held data about people for a machine to count, not instructions. The Han pattern shafts of lesson 8 had already stored a pattern; Jacquard's achievement was to make the stored pattern cheap to swap."
         }
       ]
     },
@@ -149,7 +149,7 @@
   ],
   "summary": [
     "**The drawloom had two costs.** A drawboy on every pick, and weeks of tying lashes for each new design.",
-    "**Jacquard's head replaced both.** From 1804 to 1805, a chain of punched cards chose the threads, one card per pick.",
+    "**Jacquard's head replaced both.** Shown in 1801 and completed in 1804 and 1805, it used a chain of punched cards, one card per pick.",
     "**A hole lifts a thread.** Where the card has a hole, the hook stays on the rising griffe; a blank pushes the hook off.",
     "**A pattern became a deck.** Cards could be changed one pick at a time, swapped, stored and copied without rethreading the loom.",
     "**The canuts rose over pay.** Lyon's silk weavers revolted in 1831 and 1834 over piece rates and the right to organise, and were put down by the army.",
@@ -166,7 +166,7 @@
     "before": {
       "kind": "digression",
       "title": "Jacquard's predecessors",
-      "text": "Vaucanson's loom was put away, and Jacquard is said to have studied it in the Conservatoire des Arts et Métiers in Paris while working out his own design. His head combined Falcon's chain of cards with Vaucanson's way of pressing them against the needles automatically."
+      "text": "Vaucanson's loom was put away, and Jacquard is said to have studied it in the Conservatoire des Arts et Métiers in Paris while working out his own design. His head combined Falcon's chain of cards with Vaucanson's mechanism for pressing the punched pattern against the needles automatically, without an assistant."
     },
     "hollerith": {
       "kind": "technical",

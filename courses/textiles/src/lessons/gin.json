@@ -13,7 +13,7 @@
         },
         {
           "type": "text",
-          "text": "Most Bottleneck and Fix stories end with the work getting easier for the people who did it. This one does the opposite. In 1790 the United States had about 700,000 enslaved people and grew very little cotton. In 1860 it had almost four million enslaved people, most of them in the cotton states, and grew about two thirds of the world's cotton. In this lesson we look at the problem the gin solved, and at why a machine that saved labour at one step led to a vast increase in forced labour at another."
+          "text": "In most of the inventions in this course, a machine made the work easier for the people who did it. The cotton gin did the opposite. In 1790 the United States had about 700,000 enslaved people and grew very little cotton. In 1860 it had almost four million enslaved people, most of them in the cotton states, and grew about two thirds of the world's cotton. In this lesson we look at the problem the gin solved, and at why a machine that saved labour at one step led to a vast increase in forced labour at another."
         }
       ]
     },
@@ -22,15 +22,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 2 described ginning: separating cotton fibre from the seeds it grows on. Indian cotton growers had long used a **roller gin**, the *charkha*, in which the cotton was fed between two rollers turning against each other; the fibre passed through and the smooth seeds were pushed back. The roller gin worked for the long-staple Sea Island cotton grown on the coast of Georgia and South Carolina, whose black seeds come away cleanly. But Sea Island cotton needs a mild, damp coastal climate and grows only in a narrow strip."
+          "text": "Lesson 2 described ginning: separating cotton fibre from the seeds it grows on. Indian cotton growers had long used a **roller gin**, the *charkhi* (not to be confused with the *charkha*, the spinning wheel of lesson 21), in which the cotton was fed between two rollers turning against each other; the fibre passed through and the smooth seeds were pushed back. The roller gin worked for the long-staple Sea Island cotton grown on the coast of Georgia and South Carolina, whose black seeds come away cleanly. But Sea Island cotton needs a mild, damp coastal climate and grows only in a narrow strip."
         },
         {
           "type": "text",
-          "text": "Inland, planters could grow **upland** cotton, a different variety with short fibres and green, fuzzy seeds that the fibre clings to. Roller gins crushed the seeds or let them through, and a person cleaning upland cotton by hand could do about a pound a day. With British mills from lesson 14 buying all the cotton they could get, the cleaning step stopped upland cotton from becoming a cash crop."
+          "text": "Inland, planters could grow **upland** cotton, a different variety with fibres shorter than Sea Island's and green, fuzzy seeds that the fibre clings to. Roller gins crushed these seeds or let them through, so upland cotton had to be cleaned by hand, and one person could clean only about a pound of fibre a day. British mills (lesson 14) would buy all the cotton they could get, but no farm could clean enough upland cotton to sell it in quantity, so the slow cleaning step kept it from becoming a large cash crop."
         },
         {
           "type": "text",
-          "text": "Whitney's **saw gin** pulled the fibre off instead of squeezing it through. A cylinder set with rows of wire teeth, later replaced by toothed saw blades, turned against a grid of bars spaced too narrowly for seeds to pass. The teeth caught the fibre and pulled it through the gaps; the seeds stayed behind, and a brush cleared the teeth. It was simple enough to be copied by any blacksmith, and it was. Whitney and his partner spent years in court and made little money from it."
+          "text": "Whitney's **saw gin** pulled the fibre off instead of squeezing it through. A cylinder set with rows of wire teeth, later replaced by toothed saw blades, turned against a grid of bars spaced too narrowly for seeds to pass. The teeth caught the fibre and pulled it through the gaps; the seeds stayed behind, and a brush cleared the teeth. It was simple enough for local blacksmiths and carpenters to copy, and many did. Whitney and his business partner, Phineas Miller, spent years suing copiers and made little money from it."
         }
       ]
     },
@@ -50,11 +50,11 @@
         },
         {
           "type": "text",
-          "text": "Much of the best cotton land in 1800 belonged to Native nations: the Cherokee, Muscogee (Creek), Choctaw, Chickasaw and Seminole. Through wars, forced treaties and, after the **Indian Removal Act** of 1830, deportation, the federal government took that land and moved its peoples west of the Mississippi. Thousands died on the forced marches of the 1830s, which the Cherokee remember as the Trail of Tears. The land, tens of millions of acres in Alabama, Mississippi, Georgia and beyond, was surveyed and sold, much of it to planters for cotton."
+          "text": "Much of the best cotton land in 1800 belonged to Native nations: the Cherokee, Muscogee (Creek), Choctaw, Chickasaw and Seminole. Through wars, forced treaties and, after the **Indian Removal Act** of 1830, deportation, the federal government took that land and moved its peoples west of the Mississippi. Several thousand Cherokee died on the forced march of 1838 and 1839, and thousands more from other nations on similar marches, which the Cherokee remember as the Trail of Tears. The land, tens of millions of acres in Alabama, Mississippi, Georgia and beyond, was surveyed and sold, much of it to planters for cotton."
         },
         {
           "type": "text",
-          "text": "The labour came from slavery. Congress banned the import of enslaved Africans from 1808, so planters in the new cotton states bought people from the older slave states of Virginia and Maryland, where tobacco farming needed fewer workers. Between 1790 and 1860 about a million enslaved people were moved from the upper South to the lower South, many of them sold away from their families and marched overland in chained lines called coffles. Slave prices rose and fell with the price of cotton."
+          "text": "The labour came from slavery. Congress banned the import of enslaved Africans from 1808, so planters in the new cotton states bought people from the older slave states of Virginia and Maryland, where tobacco farming needed fewer workers. Between 1790 and 1860 about a million enslaved people were moved from the upper South (Virginia, Maryland, Kentucky and their neighbours) to the lower South (from Georgia west to Louisiana and Texas), many of them sold away from their families and marched overland in chained lines called coffles. Slave prices rose and fell with the price of cotton."
         },
         {
           "type": "diagram",
@@ -116,7 +116,7 @@
                 "why": "A machine at one step removed a bottleneck. Output grew until the hand steps, picking above all, needed many more workers."
               },
               {
-                "ask": "In the figure, cotton could be grown in 1860 in places it was not grown in 1800. What decided who got that land?",
+                "ask": "Cotton spread across a huge area of the South between 1800 and 1860. What decided who got that land?",
                 "choices": ["Federal wars, treaties and the removal of Native nations, then sales to planters", "The climate alone", "Cotton companies in Britain", "A lottery among enslaved people"],
                 "answer": 0,
                 "why": "Climate made the land suitable; law and force decided who owned it and who worked it."
@@ -148,7 +148,7 @@
     "**A domestic slave trade moved people south.** About a million were taken from the upper South to the cotton states.",
     "**The fix multiplied forced labour.** The gin sped one step, and the hand steps, picking above all, needed far more people.",
     "**Historians disagree on how much slavery built industry.** Williams, Engerman and O'Brien, Inikori, Beckert, Baptist, and Olmstead and Rhode weigh profits, markets and productivity differently.",
-    "**The American South supplied Lancashire.** By the 1850s about three quarters of British mills' cotton came from it."
+    "**The American South supplied Britain's mills.** By the 1850s about three quarters of the cotton spun in Lancashire came from it."
   ],
   "footnotes": {}
 }

@@ -12,7 +12,7 @@ import { label, redraw } from 'didactics/draw';
 import { COL, choices, figure, frame, slider } from './kit';
 
 /** Minutes of the weaver's attention each loom needs per hour of running. */
-export const ATTENTION = { plain: 9, automatic: 2.25 } as const;
+export const ATTENTION = { plain: 12, automatic: 2.25 } as const;
 export type LoomKind = keyof typeof ATTENTION;
 
 /** How busy the weaver would need to be: 1 means every minute of the hour. */

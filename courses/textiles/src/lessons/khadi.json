@@ -43,7 +43,7 @@
         },
         {
           "type": "text",
-          "text": "Later work has questioned the causes and the scale. The economists David Clingingsmith and Jeffrey Williamson (2008) agreed that India deindustrialised, but argued that much of the decline came from the weakening of the Mughal state in the 18th century and from the world prices of the 19th, which made farming pay better than weaving relative to before, not only from British policy. The historian Tirthankar Roy has stressed how much survived: handloom weavers adapted to machine yarn, specialised in cloth the mills could not make, and still produced a large share of India's cloth in the 1930s. Most historians accept that hand spinning was nearly wiped out, and that British rule kept tariffs low when protection might have helped Indian industry. They disagree over how much of India's broader decline that explains."
+          "text": "Later work has questioned the causes and the scale. The economists David Clingingsmith and Jeffrey Williamson (2008) agreed that India deindustrialised, but argued that much of the decline came from the weakening of the Mughal state in the 18th century and from the world prices of the 19th, which raised the prices of farm goods compared with cloth, so farming paid better than weaving, not only from British policy. The historian Tirthankar Roy has stressed how much survived: handloom weavers adapted to machine yarn, specialised in cloth the mills could not make, and still produced a large share of India's cloth in the 1930s. Most historians accept that hand spinning was nearly wiped out, and that British rule kept tariffs low when protection might have helped Indian industry. They disagree over how much of India's broader decline that explains."
         }
       ]
     },
@@ -82,7 +82,7 @@
         },
         {
           "type": "text",
-          "text": "The chart shows that the boycotts coincided with large falls in imports, especially in 1930 and 1931, when Gandhi's civil disobedience campaign, which began with the Salt March, revived the boycott. Indian mill output rose throughout, helped by the First World War, which cut imports, and by import duties that India's government was allowed to raise from the 1920s. Lancashire's exports to India never recovered."
+          "text": "The chart shows that the boycotts coincided with large falls in imports, especially between 1929 and 1931, when the Depression was also cutting incomes, and when Gandhi's civil disobedience campaign, which began with the Salt March, revived the boycott. Indian mill output rose throughout, helped by the First World War, which cut imports, and by import duties that India's government was allowed to raise from the 1920s. Lancashire's exports to India never recovered."
         }
       ]
     },
@@ -91,11 +91,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Khadi was a small part of India's cloth supply. Most of the cloth that replaced British imports came from Indian mills, and mill owners such as the Ahmedabad industrialist Ambalal Sarabhai gained from the boycotts. Gandhi knew this, and he still asked people to spin. He gave several reasons. Spinning gave work and a small income to farmers who had little to do between harvests, the people he spoke of in Darwen. It was something every Indian, rich or poor, could do every day, so it turned support for independence into a daily practice. And wearing khadi made that support visible. The white khadi cap became the sign of a Congress member, and the flag the Congress adopted in 1931 had a spinning wheel at its centre."
+          "text": "Khadi was a small part of India's cloth supply, a few percent at most. Over the 1920s and 1930s, most of the cloth that took the place of British imports came from Indian mills, and mill owners such as the Ahmedabad industrialist Ambalal Sarabhai gained from the boycotts. Gandhi knew this, and he still asked people to spin. He gave several reasons. Spinning gave work and a small income to farmers who had little to do between harvests, the people he spoke of in Darwen. It was something every Indian, rich or poor, could do every day, so it turned support for independence into a daily practice. And wearing khadi made that support visible. The white khadi cap became the sign of a Congress member, and the flag the Congress adopted in 1931 had a spinning wheel at its centre."
         },
         {
           "type": "text",
-          "text": "Not every nationalist agreed. The poet Rabindranath Tagore argued in the 1920s that asking millions of people to spin was a narrow and mechanical programme, and others, including Jawaharlal Nehru, who became India's first prime minister, wanted India to industrialise. When India became independent in 1947, its national flag replaced the spinning wheel with the Ashoka wheel, an ancient emblem. The government still supports khadi production through a public commission, and politicians still wear it."
+          "text": "Not every nationalist agreed. The poet Rabindranath Tagore argued in the 1920s that asking millions of people to spin was a narrow and mechanical programme, and others, including Jawaharlal Nehru, who became India's first prime minister, wanted India to industrialise. When India became independent in 1947, its national flag replaced the spinning wheel with the Ashoka wheel, a wheel carved on the pillars of the emperor Ashoka in the 3rd century BC. The government still supports khadi production through the Khadi and Village Industries Commission, and politicians still wear it."
         }
       ]
     },
@@ -113,11 +113,11 @@
                 "ask": "Which part of India's cloth industry suffered most from British machine-made imports in the 19th century?",
                 "choices": ["Hand spinning, because machine yarn was far cheaper", "Handloom weaving of fine saris", "The Bombay mills", "Cotton growing"],
                 "answer": 0,
-                "why": "Spinning took the most hours, so machines cut its cost the most. Many handloom weavers survived by weaving machine yarn."
+                "why": "Spinning took the most hours of any step (lesson 3), so machines cut its cost the most. Many handloom weavers survived by weaving machine yarn."
               },
               {
                 "ask": "Why did Indian nationalists object to the cotton excise of 1896?",
-                "choices": ["It taxed Indian mill cloth to match the duty on British cloth, which protected Lancashire", "It taxed raw cotton exports", "It banned handlooms", "It funded Indian mills"],
+                "choices": ["It taxed Indian mill cloth at the same rate as the import duty on British cloth, so Indian mills gained no advantage at home", "It taxed raw cotton exports", "It banned handlooms", "It funded Indian mills"],
                 "answer": 0,
                 "why": "The excise removed the advantage Indian mills would have had from the import duty, at Lancashire's request."
               },
@@ -150,7 +150,7 @@
     "**Handloom weavers adapted.** Many switched to machine yarn and kinds of cloth the mills could not make.",
     "**India built its own mills.** From 1854, Indian merchants opened mills in Bombay and Ahmedabad, over 250 by 1914.",
     "**Policy favoured Lancashire.** Low tariffs and the cotton excise of 1896 kept Indian mills from an advantage at home.",
-    "**Historians disagree on deindustrialisation.** Naoroji, Dutt and Bagchi blame British rule; Clingingsmith, Williamson and Roy weigh other causes and the survivals.",
+    "**Historians disagree on deindustrialisation.** Naoroji and Dutt blame British rule and Bagchi measured the decline; Clingingsmith, Williamson and Roy weigh other causes and what survived.",
     "**Cloth became politics.** The swadeshi boycott of 1905 and the bonfires of 1921 targeted British cloth.",
     "**Imports fell and Indian mills grew.** By the 1930s Indian mills wove several times as much cloth as India imported.",
     "**Khadi was a symbol.** Gandhi's spinning offered work to idle farmers and made support for independence a visible daily practice."

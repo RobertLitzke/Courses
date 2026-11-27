@@ -1,0 +1,185 @@
+{
+  "id": "sizes",
+  "n": 24,
+  "title": "When did clothes start coming in sizes?",
+  "teaches": "Sewing by hand; the sewing machine (Howe 1846, Singer 1851) and hire purchase; ready-made clothing; men's sizes from tailors' systems and uniforms; women's sizes and the 1939 to 1940 USDA survey; garment districts, sweatshops and the Triangle Shirtwaist fire of 1911",
+  "parts": [
+    {
+      "title": "Fifteen thousand women",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1939 and 1940, field workers paid by a New Deal work programme measured about 15,000 women in eight American states, taking dozens of measurements from each: height, weight, bust, waist, hips, the length of the back, the girth of the upper arm and many more.[^survey] The survey was run by Ruth O'Brien of the US Department of Agriculture's Bureau of Home Economics, with the statistician Meyer Girshick. Its purpose was practical. Women who bought ready-made dresses and patterns found that a garment sold by a single bust measurement rarely fitted, and manufacturers lost money on returns and alterations."
+        },
+        {
+          "type": "text",
+          "text": "The results showed why. Women with the same bust measurement differed widely in hip, waist and height, so no single number could describe a body. O'Brien and Girshick proposed a system of sizes based on several measurements together. Before we see what came of it, we need to see how clothes came to be sold in sizes at all, which for most of history they were not."
+        },
+        {
+          "type": "diagram",
+          "id": "bodies",
+          "caption": "Bust and hip girth of adult women. Illustrative points with a realistic spread, not the survey's own data."
+        }
+      ]
+    },
+    {
+      "title": "A shirt by hand",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Until the middle of the 19th century, almost every garment was sewn by hand, stitch by stitch, with a needle and thread. Clothes were made to fit one person: by a tailor or dressmaker for those who could pay, and by the women of the household for everyone else. Hand sewing took a lot of time. A man's shirt took around fourteen hours. Lessons 14 and 15 showed spinning and weaving mechanised by 1830, so a family could buy cloth far more cheaply than before, but turning it into clothes still took as long as ever."
+        },
+        {
+          "type": "text",
+          "text": "Some clothes were sold ready-made, but they were cheap, loose garments: shirts and trousers for sailors and labourers, and clothing for enslaved people on plantations. They were made by poorly paid seamstresses working at home for merchants, paid by the piece. In 1843 the English poet Thomas Hood published \"The Song of the Shirt\" in *Punch*, about a London seamstress sewing \"in poverty, hunger, and dirt\" late into the night, and it was reprinted across Britain."
+        }
+      ]
+    },
+    {
+      "title": "The sewing machine",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Many inventors tried to make a sewing machine. The design that worked was the **lockstitch**: a needle with its eye near the point carries the upper thread through the cloth, and a shuttle or hook below passes a second thread through the loop, locking the two together. Elias Howe, a Boston machinist, patented a lockstitch machine in 1846. In 1851 Isaac Singer patented a machine with a needle that moved straight up and down, a presser foot that held the cloth flat, and a treadle that left both hands free. Howe sued Singer and other makers for infringing his patent, and in 1856 the main makers formed a patent pool, sharing their patents and paying Howe a royalty on every machine."
+        },
+        {
+          "type": "text",
+          "text": "Singer's company sold machines to clothing workshops and also to households, which could rarely afford one outright. From 1856 it offered **hire purchase**, a small payment down and instalments every month, one of the first consumer products sold that way. By the 1880s Singer was selling machines across the world from factories in the United States and Scotland. The hours bars below compare a shirt sewn by hand with one sewn on a machine."
+        },
+        {
+          "type": "diagram",
+          "id": "hours",
+          "caption": "Rough hours in a man's cotton shirt about 1860, sewn by hand. Spinning and weaving were by then done in mills.",
+          "options": {
+            "item": "A man's shirt, about 1860, sewn by hand",
+            "stages": [
+              { "stage": "Spinning, by mill", "hours": 0.5, "who": "waged" },
+              { "stage": "Weaving, by mill", "hours": 0.5, "who": "waged" },
+              { "stage": "Cutting out", "hours": 0.75, "who": "household" },
+              { "stage": "Sewing by hand", "hours": 14, "who": "household" }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "hours",
+          "caption": "The same shirt sewn on a treadle machine.",
+          "options": {
+            "item": "The same shirt, sewn by machine",
+            "stages": [
+              { "stage": "Spinning, by mill", "hours": 0.5, "who": "waged" },
+              { "stage": "Weaving, by mill", "hours": 0.5, "who": "waged" },
+              { "stage": "Cutting out", "hours": 0.75, "who": "household" },
+              { "stage": "Sewing by machine", "hours": 1.25, "who": "household" }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Sewing had become the largest step in making clothes, and the machine cut it by about a factor of ten.[^shirt] The bottleneck then moved again, to cutting. Clothing makers began to cut many layers of cloth at once with long knives, and from the 1870s with powered cutting machines, which only made sense if many garments were cut to the same pattern. Ready-made clothing needed standard sizes."
+        }
+      ]
+    },
+    {
+      "title": "Sizes for men, then women",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Men's clothes were standardised first. Tailors had long used drafting systems that worked out the shape of a coat from a few measurements, chiefly the chest, assuming that other proportions followed from it. Makers of military uniforms needed the same kind of system on a large scale, and during the American Civil War the Union army bought hundreds of thousands of ready-made uniforms in a range of standard sizes. After the war, ready-made suits sized by chest and waist, and shirts sized by collar and sleeve, spread through department stores and mail-order catalogues. Men's bodies vary too, but loose tailoring and the use of separate measurements for jacket and trousers made the fit acceptable."
+        },
+        {
+          "type": "text",
+          "text": "Women's clothes were closely fitted, fashions changed every season, and most women's dresses were made at home or by dressmakers until the early 20th century. When ready-made dresses spread in the 1920s and 1930s, manufacturers sized them by bust alone, sometimes by age, and each firm used its own system. That is the problem the 1939 to 1940 survey set out to solve. Its data became the basis of a voluntary American standard for women's sizes published in 1958, numbered from 8 to 38 with variants for tall, short and full-hipped figures."
+        },
+        {
+          "type": "text",
+          "text": "The survey had its own limits. Women volunteered to be measured, few were over 50, and almost all were white, so the standard fitted many American women poorly from the start. Manufacturers also began to label garments smaller than the standard to flatter their customers, a practice called **vanity sizing**. The standard was withdrawn in 1983, and women's sizes today differ from one brand to another."
+        }
+      ]
+    },
+    {
+      "title": "The garment district",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Ready-made clothing was made in cities, where it could draw on large numbers of workers paid by the piece. In New York, the largest centre in the United States, much of the work around 1900 was done by Jewish and Italian immigrants in small workshops and crowded tenement rooms on the Lower East Side, run by contractors who took cut pieces from manufacturers and paid workers as little as they could. Reformers called these workshops **sweatshops**. In 1909 thousands of young women who made shirtwaists, the fitted blouses then in fashion, went on strike for higher pay and shorter hours in what became known as the Uprising of the 20,000."
+        },
+        {
+          "type": "text",
+          "text": "On 25 March 1911, a fire broke out on the eighth floor of the Asch Building near Washington Square, where the Triangle Waist Company employed about 500 workers on its top three floors. The fire spread quickly through bins of cotton scraps. One of the exit doors on the ninth floor was locked, which managers did to prevent theft and unauthorised breaks; the single fire escape collapsed; and the fire brigade's ladders reached only to the sixth floor. **146 people died**, most of them young Jewish and Italian immigrant women, many by jumping from the windows. The owners were tried for manslaughter and acquitted."
+        },
+        {
+          "type": "text",
+          "text": "The fire led New York State to set up a Factory Investigating Commission, whose work produced dozens of new laws on fire safety, sanitation and working hours. Frances Perkins, who watched the fire from the street, later became US Secretary of Labor and helped write the national labour laws of the 1930s. Lesson 25 follows the garment industry as it moved from New York and London to Asia, and a later disaster in a building full of garment workers."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on sewing and sizes.",
+          "task": "Answer all five",
+          "options": {
+            "items": [
+              {
+                "ask": "By 1850, spinning and weaving were mechanised but clothes were still mostly made to measure. Why?",
+                "choices": ["Sewing was still done by hand and took far more hours than the cloth itself", "There were no tailors", "Cloth was still too expensive to buy", "Ready-made clothes were illegal"],
+                "answer": 0,
+                "why": "A hand-sewn shirt took around fourteen hours. Until sewing was mechanised, making clothes in quantity was not much cheaper than making them one at a time."
+              },
+              {
+                "ask": "How did Singer get sewing machines into homes that could not afford them?",
+                "choices": ["By selling them on hire purchase, with a small payment down and monthly instalments", "By giving them away", "By renting them by the hour", "By selling only to tailors"],
+                "answer": 0,
+                "why": "Instalment selling spread the cost over months, so households could buy a machine they could not pay for outright."
+              },
+              {
+                "ask": "Once sewing was mechanised, why did ready-made clothing need standard sizes?",
+                "choices": ["Cutting many layers of cloth at once only paid if many garments shared the same pattern", "Sewing machines could only sew one size", "Customers stopped caring about fit", "Laws required sizes"],
+                "answer": 0,
+                "why": "The savings came from making many identical garments. That meant fixing a set of patterns in advance."
+              },
+              {
+                "ask": "What did the 1939 to 1940 survey of American women find about sizing by bust alone?",
+                "choices": ["Women with the same bust differed widely in hips, waist and height, so one number could not fit a body", "Bust size predicted every other measurement", "Women's bodies were all the same shape", "Most women were taller than expected"],
+                "answer": 0,
+                "why": "Bodies do not scale in proportion. A system based on one measurement leaves the rest of the fit to chance."
+              },
+              {
+                "ask": "What made the Triangle fire of 1911 so deadly?",
+                "choices": ["A locked exit door, a fire escape that collapsed and ladders that could not reach the top floors", "The building had no windows", "The fire started at night when workers slept there", "The workers refused to leave"],
+                "answer": 0,
+                "why": "Workers on the upper floors had few ways out. The deaths led to new fire safety and factory laws in New York."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Clothes were made to fit one person.** Before the 1850s almost all garments were sewn by hand, by tailors, dressmakers or the household.",
+    "**Sewing was the slowest step.** Once cloth was made by machine, a hand-sewn shirt took about fourteen hours.",
+    "**The sewing machine cut that tenfold.** Howe's 1846 lockstitch and Singer's 1851 machine, sold on hire purchase, spread worldwide.",
+    "**Mass production needed sizes.** Cutting many garments at once only paid if they shared standard patterns.",
+    "**Men's sizes came first.** Tailors' drafting systems and Civil War uniforms gave chest and waist sizes.",
+    "**Women's bodies did not fit one number.** The 1939 to 1940 survey showed bust alone could not predict the rest of a body.",
+    "**Standards faded.** The 1958 women's standard was voluntary, skewed by its sample, and withdrawn in 1983.",
+    "**Garment work was dangerous.** The Triangle fire of 1911 killed 146 workers, mostly young immigrant women, and led to new factory laws."
+  ],
+  "footnotes": {
+    "survey": {
+      "kind": "technical",
+      "title": "The 1939 to 1940 survey",
+      "text": "The survey was published in 1941 as Women's Measurements for Garment and Pattern Construction. Most of the measuring was done by staff employed through the Works Progress Administration. Figures for the number of women and measurements vary a little between accounts; about 15,000 women and 59 measurements are those usually quoted."
+    },
+    "shirt": {
+      "kind": "technical",
+      "title": "How long did a shirt take?",
+      "text": "Figures of about 14 hours by hand and a little over an hour by machine come from comparisons published by sewing machine makers and reformers in the 1860s. They are rough, and the time depended on the shirt and the sewer."
+    }
+  }
+}
