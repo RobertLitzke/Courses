@@ -1,16 +1,16 @@
-/* Design tokens: a red-figure pot. The page is the black-brown of the glaze,
-   lessons are on pale paper, and the accents are the fired clay's orange,
-   an olive leaf, the blue of an Aegean shutter and the wine of a symposium. */
+/* Design tokens, from the course icon: a navy night sky, lessons on pale
+   paper, and the icon's warm bands (rose, mustard, burnt orange) as accents,
+   with an olive leaf and an Aegean blue for the branches. */
 
 :root {
-  --bg: #2a1e1a; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #3b2c26;
+  --bg: #1a1f45; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #262c5a;
   --panel: #f2ece2;
   --panel-2: #ddd4c4;
   --ink: #26211d;
   --ink-soft: #625a52;
-  --text: #f0e8dc;
-  --muted: #b5a99a;
+  --text: #f3ecdc;
+  --muted: #b3b0c4;
   --sun: #d9824a;
   --sun-deep: #b8612f;
   --rose: #b0546a;
@@ -19,7 +19,9 @@
   --leaf: #8a9a5b;
   --ice: #9bb7c9;
   --ember: #a8492c;
-  --title: #f3c9a0;
+  --title: #f0c46a;
+  --hero-text: #f6ead0; /* the title over the home page's banner (banner.ts), and its hard shadow */
+  --hero-shadow: #0c0f26;
   --paper: #fbf8f2;
   --good: #3f8f5a;
   --bad: #b4372f;

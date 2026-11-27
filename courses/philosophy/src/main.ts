@@ -8,6 +8,7 @@ import { FIGURES } from './figures';
 import { prose } from './figures/kit';
 import { BRANCHES, LESSONS, TRUNK } from './lessons';
 import { PHOTOS } from './photos';
+import { makeBanner } from './banner';
 import { emptySave, store } from './store';
 import { verdictsView } from './verdicts-page';
 import type { CourseRelease } from 'didactics/release';
@@ -22,9 +23,10 @@ defineCourse({
   site: SITE_URL,
   lessons: LESSONS,
   branches: BRANCHES,
+  hero: makeBanner,
   welcome: el('div', {},
-    el('p', {}, 'In 399 BC Socrates told the Athenian jury that his job was to be the city\'s gadfly, and Athens put him to death for it. The lessons follow the questions he started, in the order people asked them, from Plato\'s cave to whether a chatbot could feel pain. Each lesson opens on a real scene and asks for your verdict before it gives the argument, then the strongest objection, and often where the idea stands among philosophers today.'),
-    el('p', {}, 'Your verdicts are kept on the Verdicts page, beside how professional philosophers answered the same questions in 2020, with any of your answers that pull against each other. Branches go outside Europe, into politics, and into the puzzles and tools of the trade.')),
+    el('p', {}, 'In 399 BC Athens put Socrates to death for asking questions. The lessons follow the questions he started, in the order people asked them, from Plato\'s cave to whether a chatbot could feel pain. Each lesson opens on a real scene, and branches go outside Europe, into politics, and into the puzzles and tools of the trade.'),
+    el('p', {}, 'Along the way you give verdicts: short multiple-choice questions, such as whether you would use an invisibility ring, answered before the argument comes. Your answer is saved, and often you then see how professional philosophers answered in a 2020 survey. The Verdicts page in the menu lists every answer, lets you change any of them, and points out pairs that contradict each other.')),
   figures: FIGURES,
   prose,
   // "Lesson 3 of 25": the trunk's whole plan.
