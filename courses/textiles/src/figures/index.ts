@@ -28,6 +28,7 @@ import { creaseFigure } from './crease';
 import { loftFigure } from './loft';
 import { pileStill, threadsFigure } from './threads';
 import { stretchFigure } from './stretch';
+import { rainFigure } from './rain';
 import { patternFigure } from './pattern-loom';
 import { wordsStill } from './words';
 import { woolMapStill } from './wool-map';
@@ -65,6 +66,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   threads: threadsFigure,
   pile: pileStill,
   stretch: stretchFigure,
+  rain: rainFigure,
   'pattern-loom': patternFigure,
   'cloth-words': wordsStill,
   'wool-map': woolMapStill,

@@ -257,3 +257,11 @@ describe('the stretch figure', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+describe('the rain figure', () => {
+  it('is done when the membrane keeps up and then falls behind', async () => {
+    const h = FIGURES.rain(context(), 'limits');
+    click(h.node, 'Climbing a hill');
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});
