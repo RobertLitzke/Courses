@@ -1,0 +1,295 @@
+{
+ "id": "gadfly",
+ "n": 25,
+ "title": "What do philosophers do now?",
+ "teaches": "Philosophy today, what is still argued over and what was abandoned, and your verdicts read back",
+ "parts": [
+  {
+   "title": "Free meals",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "At his trial in 399 BC, after the jury had found him guilty, Socrates was asked to propose a penalty, as Athenian law allowed. The prosecution had asked for death. A defendant was expected to suggest something milder that the jury might accept, such as exile or a large fine. Socrates proposed instead that he be given free meals for life in the Prytaneum, the town hall, an honour Athens gave to winners at the Olympic Games. He had done the city more good than any athlete, he said: they made Athenians feel happy, and he made them actually happy. Then, at his friends' urging, he offered a modest fine. The jury voted for death by a larger margin than had found him guilty.[^fine]"
+    },
+    {
+     "type": "text",
+     "text": "In lesson 1 we met him as the gadfly, his own word for himself: an insect sent to sting a large, lazy horse, Athens, into waking up. In this last lesson we will look at what philosophers do now, which of the ideas in this course are still argued over and which have been left behind, and what your own verdicts show."
+    }
+   ]
+  },
+  {
+   "title": "Philosophy now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most philosophers today teach in universities, as Plato did when he founded the Academy around 387 BC. But the subject has spread into some unexpected places."
+    },
+    {
+     "type": "text",
+     "text": "**Hospitals.** Most large hospitals in the United States and many in Britain and Europe have a clinical ethics committee, or an ethicist on call, to help with cases where doctors, patients and families disagree. A typical case: an elderly patient is unconscious after a stroke, the doctors think further treatment will only prolong dying, and the family insists that everything be done. The ethicist does not decide. Their job is to set out what each side's view rests on, such as the patient's own past wishes, what counts as a benefit, and who has the right to decide, so that the people involved can reach a decision they can defend. Lesson 15's respect for persons and lesson 17's weighing of outcomes meet here every week."
+    },
+    {
+     "type": "text",
+     "text": "**Laboratories that build artificial intelligence.** Several AI companies employ philosophers to work on how their systems should behave, what values they should follow when instructions conflict, and the questions of lesson 24 about whether such systems could have experiences. The old questions about what a person is, what understanding is and what makes an action right turn out to need answers in software."
+    },
+    {
+     "type": "text",
+     "text": "**Experiments.** Since about 2000, some philosophers have run surveys and experiments on how ordinary people answer philosophical questions, a movement called **experimental philosophy**. Its best-known result came from Joshua Knobe in 2003. He told people about a company chairman who starts a new programme knowing it will harm the environment, and says he does not care, he only wants profit. Asked whether the chairman harmed the environment intentionally, 82 per cent said yes. When the story was changed so that the programme would *help* the environment, and the chairman still did not care, only 23 per cent said he helped it intentionally. Whether we call a side effect intentional seems to depend on whether it was good or bad, which is not what most theories of intention predicted.[^knobe]"
+    },
+    {
+     "type": "text",
+     "text": "**Surveys of philosophers themselves.** The numbers you have seen after many of your verdicts come from the PhilPapers Survey, run by David Bourget and David Chalmers in 2009 and again in 2020, when nearly 2,000 professional philosophers answered about 100 questions. It is the nearest thing philosophy has to a census of opinion, and it shows how few questions are settled: on most, no answer had the support of two thirds of philosophers."
+    }
+   ]
+  },
+  {
+   "title": "Still argued, history, or abandoned",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most lessons in this course ended with where their ideas stand now. Ideas in philosophy fall roughly into three kinds. Some are **still argued over**: philosophers defend and attack them in journals today. Some are **respected history**: they are taught because they shaped later thought, but almost nobody now holds them in their original form. And some are **abandoned**: rejected as false, or as resting on false science or prejudice."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "groups",
+     "caption": "Twelve ideas from the course. Sort each by where it stands among philosophers now, not by whether you agree with it.",
+     "task": "Sort all twelve",
+     "goal": "sorted",
+     "options": {
+      "ask": "Where does this idea stand now?",
+      "groups": [
+       {
+        "name": "Still argued over",
+        "color": "argued"
+       },
+       {
+        "name": "Respected history",
+        "color": "history"
+       },
+       {
+        "name": "Abandoned",
+        "color": "abandoned"
+       }
+      ],
+      "items": [
+       {
+        "name": "The Euthyphro dilemma against divine command ethics (lesson 1)",
+        "group": "Still argued over",
+        "why": "It is still the standard objection to the view that morality is whatever God commands."
+       },
+       {
+        "name": "Virtue ethics: ask what a good person would do (lesson 4)",
+        "group": "Still argued over",
+        "why": "The largest of the three main camps in ethics in the 2020 survey."
+       },
+       {
+        "name": "Hume's problem of induction (lesson 14)",
+        "group": "Still argued over",
+        "why": "There is still no agreed answer to why past regularities justify predictions."
+       },
+       {
+        "name": "The hard problem of consciousness (lesson 24)",
+        "group": "Still argued over",
+        "why": "Whether there is one at all is itself argued over."
+       },
+       {
+        "name": "Plato's Forms, as Plato held them (lesson 2)",
+        "group": "Respected history",
+        "why": "Platonism about numbers is alive, but almost nobody holds that a perfect Form of Justice exists apart from the world."
+       },
+       {
+        "name": "Anselm's ontological argument in its first form (lesson 7)",
+        "group": "Respected history",
+        "why": "Taught everywhere; most philosophers think this version fails, though modern versions are still argued over."
+       },
+       {
+        "name": "Kant's absolute ban on lying, even to a murderer (lesson 15)",
+        "group": "Respected history",
+        "why": "Most Kantians now reject it while keeping the rest of his ethics."
+       },
+       {
+        "name": "Existentialism as a movement (lesson 19)",
+        "group": "Respected history",
+        "why": "Widely read, but few philosophers now call themselves existentialists."
+       },
+       {
+        "name": "Aristotle's \"natural slaves\" (lessons 4 and 9)",
+        "group": "Abandoned",
+        "why": "Rejected as false and as a justification for cruelty."
+       },
+       {
+        "name": "The pineal gland as the seat of the soul (lesson 10)",
+        "group": "Abandoned",
+        "why": "Descartes's guess about where mind and body meet; the gland makes melatonin."
+       },
+       {
+        "name": "The Stoic world of fire, burning up and starting again (lesson 6)",
+        "group": "Abandoned",
+        "why": "Stoic physics is gone, though Stoic ethics is practised."
+       },
+       {
+        "name": "Behaviourism: having a mind is only behaving in certain ways (lesson 24)",
+        "group": "Abandoned",
+        "why": "It could not explain pain that does not show in behaviour."
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The sorting has a pattern. Ideas about the physical world, such as the world of fire or the pineal gland, were abandoned once science took over their questions. Physics, biology and psychology were all once part of philosophy, and left it when they found methods that settled their questions. What remains in philosophy is, almost by definition, the set of questions nobody has found such a method for. That is one reason philosophy seems to make little progress: its successes leave and become other subjects.[^progress]"
+    }
+   ]
+  },
+  {
+   "title": "Your verdicts, read back",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Over the course you have been asked for your verdict before each argument. Below is what your answers show. The pairs that pull against each other are not marks against you. Professional philosophers hold some of the same pairs, and the tension between two answers you find hard to give up is where most of the arguments in this course came from. Socrates would say this is the useful part: finding out which of your beliefs do not fit together is the first step to having better ones."
+    },
+    {
+     "type": "diagram",
+     "id": "ledger",
+     "caption": "Your verdicts from the whole course, read from your save on this device. The Verdicts page in the menu lists every answer and lets you change them."
+    },
+    {
+     "type": "text",
+     "text": "If you have skipped lessons, or answered quickly, the Verdicts page lets you go back and answer again. You can also clear all your answers there and take the course a second time."
+    }
+   ]
+  },
+  {
+   "title": "Where it stands now",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Philosophy is taught in more universities to more students than at any time in its history, though philosophy departments in Britain and the United States have been cut in some places since the 2010s as universities move money towards subjects that lead to jobs. Its methods have spread: ethicists sit on hospital committees and government advisory boards, philosophers of mind work with neuroscientists, and logicians' work is the basis of computer science."
+    },
+    {
+     "type": "text",
+     "text": "The course's subtitle asked what Plato's gig was. His job, as far as we can reconstruct it, was the one this course has tried to do in a small way: to take Socrates' questions, write them down so that people who never met him could argue with them, and set up a place where that could go on after he died. The Academy lasted about 300 years. The questions it argued about are still in the PhilPapers Survey.[^academy]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "verdict",
+     "caption": "Socrates' claim at his trial, as a last verdict. Your answer is saved on the Verdicts page.",
+     "task": "Give your verdict",
+     "goal": "answer",
+     "options": {
+      "key": "unexamined",
+      "ask": "Socrates told the jury that the unexamined life is not worth living for a human being. Was he right?",
+      "choices": [
+       "Yes",
+       "No: an unexamined life can be a good one",
+       "He was right about himself, but not about everyone",
+       "Not sure"
+      ],
+      "who": [
+       "You chose Socrates' answer. He chose death over giving it up.",
+       "You chose the answer of most of his critics since, who point to happy, kind people who never asked these questions.",
+       "You chose a common modern answer: examination suits some people, and others live well without it.",
+       "Socrates would say that being unsure is a good start."
+      ]
+     }
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on philosophy now",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What penalty did Socrates first propose for himself after he was found guilty?",
+        "choices": [
+         "Free meals for life at the town hall, the honour given to Olympic winners",
+         "Exile from Athens for the rest of his life",
+         "A period in prison, followed by a public apology",
+         "A fine large enough to ruin him"
+        ],
+        "answer": 0,
+        "why": "He said he had done the city more good than any athlete. The jury then voted for death by a larger margin."
+       },
+       {
+        "ask": "What does a clinical ethicist in a hospital usually do?",
+        "choices": [
+         "Sets out what each side's view rests on, so the people involved can reach a decision they can defend",
+         "Makes the final decision about a patient's treatment",
+         "Reviews the hospital's finances for waste",
+         "Teaches medical students the history of philosophy"
+        ],
+        "answer": 0,
+        "why": "The ethicist helps the patient, family and doctors reason it through; they do not decide."
+       },
+       {
+        "ask": "What did Knobe's chairman experiment find?",
+        "choices": [
+         "People called a harmful side effect intentional far more often than a helpful one",
+         "People always judge intention by what the agent wanted",
+         "Most people think business leaders never act intentionally",
+         "People blame companies more than individuals"
+        ],
+        "answer": 0,
+        "why": "82 per cent said the harm was intentional; 23 per cent said the help was."
+       },
+       {
+        "ask": "Which of these ideas from the course is now abandoned rather than still argued over?",
+        "choices": [
+         "Behaviourism about the mind",
+         "Virtue ethics",
+         "The problem of induction",
+         "The hard problem of consciousness"
+        ],
+        "answer": 0,
+        "why": "Behaviourism could not explain pain that does not show in behaviour. The others are all still debated."
+       },
+       {
+        "ask": "Why does philosophy seem to make little progress, according to one common explanation?",
+        "choices": [
+         "When a question finds a method that settles it, it leaves philosophy and becomes another subject",
+         "Philosophers refuse to agree with each other on principle",
+         "Philosophy has no clear questions to answer",
+         "Most philosophy is written in languages few people read"
+        ],
+        "answer": 0,
+        "why": "Physics, biology and psychology all began in philosophy and left it."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Socrates proposed free meals as his penalty.** The jury then sentenced him to death.",
+  "**Philosophers now work in hospitals, AI laboratories and experiments as well as universities.** Clinical ethicists help people reason through hard cases.",
+  "**Experimental philosophy tests how ordinary people answer philosophical questions.** Knobe found harm judged intentional far more than help.",
+  "**The PhilPapers Survey shows how little is settled.** On most questions no answer had two thirds of philosophers.",
+  "**Ideas are still argued over, respected history, or abandoned.** Ideas about the physical world were mostly abandoned when science took over.",
+  "**Philosophy's successes tend to leave it.** Physics, biology and psychology all began as philosophy.",
+  "**Tensions between your verdicts are where arguments start.** Finding beliefs that do not fit together is Socrates' first step."
+ ],
+ "footnotes": {
+  "fine": {
+   "kind": "technical",
+   "title": "The two votes",
+   "text": "Plato's Apology gives the first vote as about 280 to 220 for guilty. Ancient sources say more jurors voted for death than had voted for guilt, which means some who thought him innocent were provoked by his proposal into voting for the death penalty."
+  },
+  "knobe": {
+   "kind": "technical",
+   "title": "The Knobe effect",
+   "text": "The result has been repeated in many languages and countries, and with young children. Philosophers still argue over whether it shows that moral judgement is built into our idea of intention, or that people's judgements of intention are biased by blame."
+  },
+  "progress": {
+   "kind": "digression",
+   "title": "Is there progress?",
+   "text": "Chalmers, in a 2015 paper, argued that philosophy has made progress, but much less than the sciences, in the sense that philosophers have not converged on answers to the big questions. Others reply that philosophy's progress is in finding which answers are possible and what each costs, rather than in agreement."
+  },
+  "academy": {
+   "kind": "digression",
+   "title": "The end of the Academy",
+   "text": "Plato's Academy as an institution ended when the Roman general Sulla's army destroyed its grove during the siege of Athens in 86 BC. A Neoplatonist school in Athens claimed its name until AD 529, when the emperor Justinian stopped pagans from teaching."
+  }
+ }
+}

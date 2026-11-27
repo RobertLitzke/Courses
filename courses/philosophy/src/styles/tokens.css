@@ -51,6 +51,11 @@
 .ledger .entry .lesson { font-size: 0.78rem; color: var(--ink-soft); }
 .ledger .entry .changed { font-size: 0.85rem; color: var(--ember); }
 .ledger .tension { border-left: 4px solid var(--sun); }
+.ledger-fig { padding: 10px 14px; color: var(--ink); line-height: 1.45; }
+.ledger-fig h4 { margin: 14px 0 6px; font-size: 0.9rem; }
+.ledger-row { display: grid; gap: 2px; padding: 8px 10px; margin: 6px 0; border-radius: 8px; background: var(--panel-2); font-size: 0.92rem; }
+.ledger-lesson { font-size: 0.76rem; color: var(--ink-soft); }
+.ledger-tension { border-left: 4px solid var(--sun); }
 .fig-choices.verdict-row.frozen .chip.on::before { content: 'Your answer: '; }
 
 /* Argument maps (figures/argument.ts): claims in the claim colour, objections in the objection colour. */

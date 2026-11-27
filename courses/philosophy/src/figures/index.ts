@@ -17,6 +17,7 @@ import { caveFigure } from './cave';
 import { argumentFigure } from './argument';
 import { dilemmaFigure } from './dilemma';
 import { veilFigure } from './veil';
+import { ledgerFigure } from './ledger';
 
 // The verdict and the dialogue are drawn from their options, so the gallery shows each block that uses them.
 const each = (f: FigureFactory): FigureFactory => Object.assign(f, { each: true as const });
@@ -32,4 +33,5 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   argument: argumentFigure,
   dilemma: dilemmaFigure,
   veil: veilFigure,
+  ledger: ledgerFigure,
 };

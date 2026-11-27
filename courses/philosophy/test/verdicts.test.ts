@@ -119,3 +119,28 @@ describe('the veil of ignorance', () => {
     await expect(h.done).resolves.toBeUndefined();
   });
 });
+
+import { readLedger } from '../src/figures/ledger';
+
+describe('the ledger in the last lesson', () => {
+  beforeEach(() => store.set(emptySave()));
+  it('says so when there are no verdicts yet', () => {
+    const h = FIGURES.ledger(context());
+    expect(h.node.textContent).toContain('not given any verdicts yet');
+  });
+  it('counts answers with the majority, changes of mind and tensions', () => {
+    const verdicts = {
+      theism: { before: 0, at: 1 },
+      switch: { before: 0, at: 1 },
+      footbridge: { before: 1, at: 1 },
+      mind: { before: 0, after: 1, at: 1 },
+    };
+    store.update((s) => ({ ...s, verdicts }));
+    const r = readLedger(verdicts);
+    expect(r.answered).toBe(5);
+    expect(r.changed).toHaveLength(1);
+    const h = FIGURES.ledger(context());
+    expect(h.node.textContent).toContain('Where you changed your mind');
+    expect(h.node.textContent).toContain('would pull the switch but not push');
+  });
+});

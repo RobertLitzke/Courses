@@ -40,6 +40,10 @@ export const COL = {
   /** Lesson 22: Rawls's rule (the best worst-off) and Harsanyi's (the best average). */
   rawls: '#3f6f8f',
   harsanyi: '#b0546a',
+  /** Where an idea stands now (lesson 25): still argued over, respected history, abandoned. */
+  argued: '#3f8f5a',
+  history: '#b08a3e',
+  abandoned: '#7d7782',
 } as const;
 export type ColorKey = keyof typeof COL;
 
