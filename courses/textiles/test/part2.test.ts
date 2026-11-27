@@ -1,0 +1,30 @@
+// @vitest-environment happy-dom
+// Part II's figures: each goal reachable, and the maps' data sane.
+import { describe, expect, it } from 'vitest';
+import { FIGURES } from '../src/figures';
+import { PERIODS } from '../src/figures/silk-routes';
+import { cropHeight, worldMap } from '../src/figures/world';
+import { context, setSlider } from './helpers';
+
+describe('the world map', () => {
+  it('puts the crop corners at the drawing corners', () => {
+    const m = worldMap({ lon: [-10, 145], lat: [-12, 55] }, 560);
+    expect(m.xy([-10, 55])).toEqual([0, 0]);
+    const [x, y] = m.xy([145, -12]);
+    expect(x).toBeCloseTo(560);
+    expect(y).toBeCloseTo(m.h);
+    expect(cropHeight({ lon: [0, 90], lat: [0, 45] }, 400)).toBeGreaterThan(200);
+  });
+});
+
+describe('the silk routes', () => {
+  it('runs in order of time', () => {
+    expect(PERIODS[0].name).toMatch(/BC/);
+    expect(PERIODS.at(-1)!.name).toMatch(/1300/);
+  });
+  it('is done at the last period', async () => {
+    const h = FIGURES['silk-routes'](context(), 'mongol');
+    setSlider(h.node, 0, PERIODS.length - 1);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+});

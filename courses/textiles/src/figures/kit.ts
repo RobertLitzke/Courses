@@ -41,6 +41,15 @@ export const COL = {
   waged: '#d98a3c',
   enslaved: '#6b3a26',
   overseas: '#4d8fa3',
+  /** Maps: sea, land and coastline. */
+  sea: '#dfe8ea',
+  land: '#f1ead9',
+  coast: '#b9ad94',
+  /** Trade routes over land and by sea. */
+  overland: '#9a6324',
+  bysea: '#1f6f8f',
+  /** Where silkworms are raised. */
+  silk: '#c9a13a',
 } as const;
 export type ColorKey = keyof typeof COL;
 

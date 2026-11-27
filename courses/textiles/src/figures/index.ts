@@ -16,6 +16,8 @@ import { spinHoursFigure } from './spin-hours';
 import { weaveFigure } from './weave';
 import { knitFigure } from './knit';
 import { vatFigure, washFigure } from './dye';
+import { silkRoutesFigure } from './silk-routes';
+import { sericultureStill } from './sericulture';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -29,4 +31,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   knit: knitFigure,
   wash: washFigure,
   vat: vatFigure,
+  'silk-routes': silkRoutesFigure,
+  sericulture: sericultureStill,
 };
