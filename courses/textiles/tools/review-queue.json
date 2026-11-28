@@ -1,13 +1,5 @@
 [
   {
-    "lesson": "string",
-    "added": "2026-11-27",
-    "what": "New lesson 1; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: Abri du Maras date range and Hardy 2020 details; Dzudzuana 2009 and the dispute; Lespugue string skirt."
-    ]
-  },
-  {
     "lesson": "fibres",
     "added": "2026-11-27",
     "what": "New lesson 2; student read-through done and applied",
@@ -45,14 +37,6 @@
     "what": "New lesson 6; student read-through done and applied",
     "notes": [
       "Facts not yet checked: Liudprand 968; Diocletian's edict prices for purple silk; snails per gram; Ming, Edo 1683 and Ottoman sumptuary details."
-    ]
-  },
-  {
-    "lesson": "silk",
-    "added": "2026-11-27",
-    "what": "New lesson 7; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: Pliny NH 12.84 quote and 6.101; Seneca on silk; Qingtaicun date; Jiahu 2016; Harappa and Chanhu-daro wild silk (Good et al. 2009); Japan's 3rd-century silk gifts; Khotan by about the 5th century and the Dandan Oilik panel; Procopius 552; Han silk to the Xiongnu; Turfan documents (Hansen); Ancient Letters 313 and Miwnay; Belitung wreck 1998 and about 60,000 pieces; cocoons per kilogram."
     ]
   },
   {
@@ -96,14 +80,6 @@
     ]
   },
   {
-    "lesson": "africa",
-    "added": "2026-11-27",
-    "what": "New lesson 13; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: the 1756 Windward Coast abstract (£2,418, 250 people, niccanees and Manchester niccanees); 12.5 and 10.7 million and the 36,000 voyages; strip widths; Barth on Kano cloth; cloth currencies; textiles often over half a cargo's value; merikani in Zanzibar; Inikori's argument as stated."
-    ]
-  },
-  {
     "lesson": "bottleneck",
     "added": "2026-11-27",
     "what": "New lesson 14; student read-through done and applied",
@@ -142,15 +118,6 @@
     "notes": [
       "Facts not yet checked: the 1839 portrait (Didier, Petit et Cie; Carquillat after Bonnefond; about 24,000 cards); Babbage's copy and the engraving story; Bouchon 1725, Falcon 1728, Vaucanson 1745 and Jacquard studying Vaucanson's loom; shown at the 1801 Paris exhibition, completed 1804 to 1805; 1805 pension of 3,000 francs and royalty of 50 francs per loom for six years; the story of attacks on Jacquard; canut workshops of two to six looms; the tarif of October 1831, the 21 November rising, the banner wording, Soult's army of about 20,000; April 1834 and the bloody week, several hundred dead; Analytical Engine from 1834, operation and variable cards; Lovelace's 1843 quote; Hollerith's mercury cups, first totals in about six weeks, the conductor's-ticket origin, IBM.",
       "The pattern loom figure gains a Jacquard mode (goal 'cards') shared with lesson 8; the Jacquard head still is simplified to six hooks."
-    ]
-  },
-  {
-    "lesson": "king-cotton",
-    "added": "2026-11-27",
-    "what": "New lesson 19; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: Hammond's 4 March 1858 speech and both quotes; about half a million Lancashire cotton workers; record 1859 and 1860 crops and stocks; informal embargo and burning of cotton in 1862; blockade declared April 1861; about a quarter of a million out of work by the end of 1862; the George Griswold in early 1863; Stalybridge riots March 1863; Public Works Act 1863; the Manchester address of 31 December 1862 and Lincoln's 19 January 1863 reply and quotes; Mary Ellison 1972 and the towns named; Blackett's Divided Hearts 2001; the Cabinet's autumn 1862 mediation debate; Bombay share collapse 1865; Egypt's exports more than tripled, Said and Ismail, occupation 1882; Beckert's 'first global raw materials crisis'.",
-      "The chart's import and price series are rounded from memory of 19th-century trade returns (Ellison, The Cotton Trade of Great Britain, 1886) and need checking against a source. Rob's outline asked for Lancashire mill employment on the chart; the price of cotton is shown instead until a sourced employment series is found."
     ]
   },
   {
@@ -199,24 +166,6 @@
     ]
   },
   {
-    "lesson": "fast",
-    "added": "2026-11-27",
-    "what": "New lesson 25; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: Rivoli's shirt ($5.99, Florida drugstore, parrot print, Lubbock farm, Shanghai factory, printed in the US, Tanzanian second-hand market) and her 2005 book; the Multi Fibre Arrangement 1974, the 1995 WTO agreement and the end on 1 January 2005; Chinese safeguards in 2005; Desh and Daewoo in 1978 (outline marks unchecked), 130 trainees in Busan; Bangladesh second after China, over four fifths of exports, about four million workers; Inditex's short cycle; Shein's thousands of designs a day; Ellen MacArthur Foundation: production doubled 2000 to 2014, wear fell about a third (36 percent); Rana Plaza (cracks on 23 April, collapse on 24 April before 9 am, 1,134 dead, about 2,500 injured, five factories, illegal floors); the Accord (over 200 signatories) and the Alliance.",
-      "The CPI chart is rounded from memory of BLS series (all items and apparel, rebased to 1990) and needs checking. The T-shirt figure uses a rounded version of the Clean Clothes Campaign style breakdown of a €29 shirt; the hours bar is a rough estimate."
-    ]
-  },
-  {
-    "lesson": "resources",
-    "added": "2026-11-27",
-    "what": "New lesson 26; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: Aral Sea 1960 area and rank, Muynak, NASA images of August 2014 and the eastern basin dry, Muynak's distance from the water; unlined canals; Uzbek quota system, Cotton Campaign from 2011 and over 300 brand pledges, ILO 2021 finding, boycott lifted 2022; Xinjiang about a fifth of world cotton, the UN human rights office report, UFLPA passed 2021 and in force June 2022; isotope testing; Bt cotton approved 2002, over 90 percent of area, output roughly doubled; Kranthi and Stone; pink bollworm resistance; the suicide studies; US subsidies over $3 billion a year in the early 2000s; Brazil's WTO case (2002, rulings 2004 and 2005, $300 million settlement 2014); Cotton-4 in 2003; Gezira 1925; Mozambique forced cotton from 1938; Kantamanto's millions of garments a week; the EAC 2016 proposal and Rwanda losing AGOA apparel access in 2018; France's filter rule from 2025; 2 to 8 percent emissions (UNEP); the untraced 10 percent claim; 2,700 litres per shirt.",
-      "Aral area and producer series are rounded from memory and need checking. Two NASA Aral images (2000 and 2014) are parked in tools/pending-photos.json for Rob's PC."
-    ]
-  },
-  {
     "lesson": "label",
     "added": "2026-11-27",
     "what": "New lesson 27 (capstone); student read-through done and applied",
@@ -248,24 +197,6 @@
     "notes": [
       "Facts not yet checked: still air conducting several times less well than fibres and about 25 times less than water; loft mattering more than fibre type; the clo defined in 1941 (Gagge, Burton and Bazett) and about 1.6 clo per centimetre; fill power 550 and 800; polar fleece from Malden Mills with Patagonia in 1979 and recycled bottles from the 1990s; polyester absorbing under 1 percent; wool absorbing about a third of its weight in vapour and releasing heat.",
       "The loft figure uses skin at 34 °C, an effective conductivity of 0.04 W/mK, an outer air film of 0.12 m²K/W and 58 W/m² sitting still; the guess answer (about 2 cm at 0 °C) follows from these."
-    ]
-  },
-  {
-    "lesson": "thread-count",
-    "added": "2026-11-27",
-    "what": "New branch lesson M4; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: thread count as warp plus weft per square inch and mostly a US measure; single yarns fitting about 250 to 300 per inch each way and true counts much above 600 being rare; the FTC's 2005 advice on plied yarn (opinion letter to the National Textile Association) and ASTM D3775; sateen as four over, one under; the terry loop mechanism; velvet woven face to face and cut, and earlier over rods; silk velvet in Venice and Genoa; corduroy as a weft pile.",
-      "The threads figure packs threads at 1.15 times their diameter; its honest counts run from about 150 to 550."
-    ]
-  },
-  {
-    "lesson": "stretch",
-    "added": "2026-11-27",
-    "what": "New branch lesson M5; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: rubber thread before elastane; Joseph Shivers at DuPont in 1958 and Lycra from 1962; the soft and hard segment structure and stretch to five or six times length; elastane shares of 1 to 3 percent in jeans, about 5 in stretch knits, 15 to 30 in swimwear; heat, chlorine, sunlight and oils as causes of breakdown; elastane as a recycling contaminant.",
-      "The stretch figure's numbers are round and illustrative, not measured."
     ]
   },
   {
@@ -302,24 +233,6 @@
     "notes": [
       "Facts not yet checked: lace collars valued like jewellery around 1600; lace growing from cutwork and drawn-thread work in the 16th century; punto in aria and Venice; Brussels, Mechelen and Bruges; cross and twist conventions (left middle over right middle; right over left in each pair); hundreds of bobbins; a few square centimetres a day for fine lace; damp-cellar spinning of fine Flemish linen thread; Colbert's 1665 workshops at Alençon and point de France; English bans on Flemish lace; lace schools for children of five in Devon and the East Midlands; Heathcoat's 1809 bobbinet patent, Loughborough in 1816 and Tiverton; John Levers and Nottingham.",
       "The opening says a lace collar could be valued like jewellery or a craftsman's year of income: needs a sourced example or softening."
-    ]
-  },
-  {
-    "lesson": "bayeux",
-    "added": "2026-11-27",
-    "what": "New branch lesson K3; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: about 70 m by 50 cm (68.38 m is often given); nine linen panels; about ten colours from woad, madder and weld; Canterbury and the 1070s; Odo as patron and the cathedral consecrated in 1077; English women as embroiderers; the lost end; opus anglicanum and the 1295 papal inventory; the Angers Apocalypse woven in Paris in the 1370s and 1380s, originally about 140 m; Arras, Tournai, Brussels; Henry VIII owning more than 2,000 tapestries.",
-      "The lesson leaves out the planned 2026 to 2027 loan to the British Museum; add it if Rob wants a current note."
-    ]
-  },
-  {
-    "lesson": "stocking-frame",
-    "added": "2026-11-27",
-    "what": "New branch lesson K4; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: Lee of Calverton and the 1589 tradition, the knitting-woman story; Elizabeth I's refusal and her reasons (traditional account); Rouen and Henri IV, Lee's death about 1614; the 1657 charter of the Framework Knitters' Company; the move to the East Midlands; Strutt's Derby rib patent of 1759; tens of thousands of frames by 1800; the latch needle patent in 1849 (Matthew Townsend); frame rents, cut-ups and colts; Luddism from March 1811 in Nottinghamshire; the Frame Breaking Act 1812 and Byron's maiden speech (27 February 1812); numbers hanged and transported.",
-      "The beard figure shows the cycle as six steps on three needles; real frames had more motions (the sinkers and the jack, the slur cock)."
     ]
   },
   {
@@ -365,15 +278,6 @@
     "notes": [
       "Facts not yet checked: pashm from Changthangi goats in Ladakh and western Tibet, about 15 microns; women cleaning and spinning in Kashmir; kani twill tapestry with tojis (spools) and the talim coded pattern read by a master; a year or more per large shawl; pieced shawls; buta evolving from Mughal sprays; East India Company officers and the muslin dress fashion; Josephine's hundreds of shawls; 'cost as much as a house'; Norwich from the 1780s, Edinburgh, Paisley from about 1805, Jacquard from the 1840s; cut floats on European shawls; amli embroidered shawls; the bustle and the Franco-Prussian War; the 1877 to 1879 Kashmir famine; shahtoosh, the chiru and the CITES ban (1979).",
       "Both hours bars are rough estimates; sourced figures would help."
-    ]
-  },
-  {
-    "lesson": "cut",
-    "added": "2026-11-27",
-    "what": "New branch lesson F1; student read-through done and applied",
-    "notes": [
-      "Facts not yet checked: peplos and chiton construction; the toga's curved edge; sari length five to nine metres; Andean four-selvedge tunics; tunic gores and gussets; the 1330s to 1340s change and chroniclers' complaints; buttons rare before the 13th century; the pourpoint of Charles de Blois (Musée des Tissus, Lyon), mid-14th century; the armour theory; Juan de Alcega's Libro de geometría, práctica y traça (Madrid, 1580); Vionnet and the bias cut in the 1920s and 1930s.",
-      "The layout figure's pieces are simplified shapes; its percentages (100, 100, 78, 42) follow from them, not from historical patterns."
     ]
   },
   {

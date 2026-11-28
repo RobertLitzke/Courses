@@ -54,7 +54,7 @@
         },
         {
           "type": "text",
-          "text": "Proving where cotton came from is difficult, because fibre from many farms and countries is mixed at spinning mills. Brands and border agencies now use supply-chain records and laboratory tests of the fibre's isotopes, forms of the same element that differ slightly in weight and whose mix varies with the soil, water and climate where the plant grew, to trace cotton back to its region."
+          "text": "Proving where cotton came from is difficult, because fibre from many farms and countries is mixed at spinning mills. Brands and border agencies now use supply-chain records and laboratory tests of the fibre's isotopes[^isotopes] to trace cotton back to its region."
         }
       ]
     },
@@ -112,7 +112,7 @@
         },
         {
           "type": "text",
-          "text": "The trade provides cheap clothing and work for traders, tailors and repairers, but it also undercuts local clothing makers, and a growing share of what arrives is fast fashion too poor in quality to resell, which ends up in dumps, on beaches or burned. In 2016 the countries of the East African Community proposed to phase out imports of used clothing. The United States, whose exporters would lose the trade, threatened to remove their duty-free access to US markets under its African Growth and Opportunity Act, and most of the countries backed down. Rwanda kept its higher tariffs on used clothing, and in 2018 the United States suspended Rwanda's duty-free access for its clothing exports."
+          "text": "The trade provides cheap clothing and work for traders, tailors and repairers, but it also undercuts local clothing makers. A growing share of what arrives is fast fashion too poor in quality to resell, which ends up dumped, washed onto beaches or burned. In 2016 the countries of the East African Community proposed to phase out imports of used clothing. The United States, whose exporters would lose the trade, threatened to remove their duty-free access to US markets under its African Growth and Opportunity Act, and most of the countries backed down. Rwanda kept its higher tariffs on used clothing, and in 2018 the United States suspended Rwanda's duty-free access for its clothing exports."
         },
         {
           "type": "text",
@@ -129,7 +129,7 @@
         },
         {
           "type": "text",
-          "text": "The often-quoted 2,700 litres of water for a cotton T-shirt has a real source: a global average for the water used to grow the cotton in one shirt. But most of it is rain that falls on the fields anyway, and the amount drawn from rivers and aquifers varies enormously, from almost nothing in rain-fed fields to a great deal in Central Asia, where it came from the Aral Sea's rivers. When you meet a figure about clothing and the environment, it is worth asking three questions: who calculated it and from what data, what stages of a garment's life it includes, and what it is being compared with."
+          "text": "The often-quoted 2,700 litres of water for a cotton T-shirt has a real source: a global average for the water used to grow the cotton in one shirt. But most of it is rain that falls on the fields anyway, and the amount drawn from rivers and aquifers varies enormously, from almost nothing in rain-fed fields to a great deal in Central Asia, where it came from the Aral Sea's rivers. When you meet a figure about clothing and the environment, it is worth asking three questions: who calculated it and from what data, which stages of a garment's life it includes, and what it is being compared with."
         }
       ]
     },
@@ -180,5 +180,11 @@
     }
   ],
   "summary": ["**Cotton irrigation drained the Aral Sea.** Soviet irrigation from the 1960s diverted its rivers, and by 2014 most of the sea was dry.", "**States have forced people to pick cotton.** Uzbekistan's quota system did so until about 2021, and a US law of 2022 stops Xinjiang goods unless importers prove they are free of forced labour.", "**Subsidies move the world price.** US payments to American growers lowered the price for all growers, and Brazil won a WTO case against them.", "**Donated clothes are often sold abroad.** There they support traders but undercut local makers.", "**Fashion's emissions share is often overstated.** It is about 2 to 8 percent of emissions, and the common 10 percent claim has no clear source."],
-  "footnotes": {}
+  "footnotes": {
+    "isotopes": {
+      "kind": "technical",
+      "title": "Isotopes",
+      "text": "Isotopes are forms of the same chemical element that differ slightly in weight. Because the mix of isotopes in a plant's cellulose reflects the local soil, water and climate, laboratory tests can match cotton fibre to the region where it grew."
+    }
+  }
 }

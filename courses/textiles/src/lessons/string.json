@@ -13,11 +13,11 @@
         },
         {
           "type": "text",
-          "text": "The cord was made of fibres from the inner bark of a tree, probably a conifer (a cone-bearing tree such as a pine). The fibres had been gathered into three bundles, each bundle twisted in one direction, and then the three bundles twisted together in the opposite direction. That is the same construction as a modern three-strand rope. Neanderthals used the shelter, and the stone tools in the layer are of the kind they made, so they are the likely makers. Whoever made it had worked out the two operations that every thread and rope since has depended on: twisting fibres into a yarn, and twisting yarns together into a stronger cord.[^maras]"
+          "text": "The cord was made of fibres from the inner bark of a tree, probably a conifer (a cone-bearing tree such as a pine). The fibres had been gathered into three bundles, each bundle twisted in one direction, and then the three bundles twisted together in the opposite direction. That is the same construction as a modern three-strand rope. Neanderthals used the shelter, and the stone tools in the layer are of the kind they made, so they are the likely makers. Whoever made it had worked out the two operations that rope and plied thread still depend on: twisting fibres into a yarn, and twisting yarns together into a stronger cord.[^maras]"
         },
         {
           "type": "text",
-          "text": "Twisted fibre is older than farming, pottery or metal, and almost everything in this course is built from it. In this lesson we look at what twist does and why it works. Lesson 3 follows how people produced it in quantity, and the rest of the course follows what happened when they learned to produce it faster."
+          "text": "Twisted fibre is older than farming, pottery or metal, and almost everything in this course is built from it."
         }
       ]
     },
@@ -26,7 +26,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every cloth can be described in four layers, and most confusion about fabric comes from mixing them up. The **fibre** is the raw material: cotton, wool, linen, silk, polyester. The **yarn** is fibre twisted into a continuous thread, and it can be thick or thin, tightly or loosely twisted, single or plied. The **structure** is how the yarn is put together into a flat sheet: woven (two sets of threads crossing at right angles), knitted (one thread pulled through itself in loops) or felted (fibres matted without spinning at all). The **finish** is everything done afterwards: dyeing, printing, brushing the surface into a nap, or coating it."
+          "text": "Every cloth can be described in four layers, and most confusion about fabric comes from mixing them up. The **fibre** is the raw material: cotton, wool, linen, silk, polyester. The **yarn** is fibre twisted into a continuous thread, and it can be thick or thin, tightly or loosely twisted, single or plied. The **structure** is how the yarn (or, for felt, unspun fibre) is put together into a flat sheet: woven (two sets of threads crossing at right angles), knitted (one thread pulled through itself in loops) or felted (fibres matted without spinning at all). The **finish** is everything done after the sheet is made: dyeing, printing, brushing the surface into a nap, or coating it."
         },
         {
           "type": "diagram",
@@ -98,7 +98,7 @@
         },
         {
           "type": "text",
-          "text": "Many fabric names belong to one layer only. Satin is a structure, a weave in which long threads float across the surface; it can be woven from silk, polyester or cotton. Jersey is a knit. Denim is cotton woven in a diagonal pattern called twill, with only the lengthwise threads dyed blue (lesson 4 explains both terms). Fleece is usually a polyester knit brushed on one or both sides to raise a soft surface of loose fibre ends, which is a fibre, a structure and a finish together. When a label says \"100% cotton\" it is describing only the first layer."
+          "text": "Many fabric names belong to one layer only. Satin is a structure, a weave in which long threads float across the surface; it can be woven from silk, polyester or cotton. Jersey is a knit. Denim is cotton woven in a diagonal pattern called twill, with only the lengthwise threads dyed blue (lesson 4 explains both terms). Fleece is usually a polyester knit brushed on one or both sides to raise a soft surface of loose fibre ends, so the name specifies a fibre, a structure and a finish together. When a label says \"100% cotton\" it is describing only the first layer."
         }
       ]
     },
@@ -111,7 +111,7 @@
         },
         {
           "type": "text",
-          "text": "Twist turns each fibre into a spiral around the yarn's centre. When the yarn is pulled, every spiralling fibre is pulled straight, and a spiral that is pulled straight tightens inward, in the same way a rope wound round a post grips the post harder as the load on it increases. Each fibre squeezes the fibres inside it, and the fibres press against their neighbours, and friction between them resists sliding. The harder the yarn is pulled, the harder the fibres press together, which is why a well twisted yarn breaks its fibres before it lets them slip."
+          "text": "Twist turns each fibre into a spiral around the yarn's centre. When the yarn is pulled, every spiralling fibre is pulled straight, and a spiral that is pulled straight tightens inward, in the same way a rope wound round a post grips the post harder as the load on it increases. Each fibre squeezes the fibres inside it, pressing them against their neighbours so friction resists sliding. The harder the yarn is pulled, the harder the fibres press together, which is why a well-twisted yarn breaks its fibres before it lets them slip."
         },
         {
           "type": "interactive_diagram",
@@ -135,7 +135,7 @@
         },
         {
           "type": "text",
-          "text": "Two or more yarns twisted together make a **plied** yarn. The ply is put in the opposite direction to the singles: two Z singles are plied S. Each single is trying to untwist, and plying them the other way twists them back, so the two strains cancel and the plied yarn lies still. This is called a balanced yarn. Sewing thread, knitting wool and rope are all plied, and the Abri du Maras cord, with its three twisted bundles twisted together the other way, is a three-ply cord. In the figure above, switch to two plied singles at a high twist and the snarl disappears."
+          "text": "Two or more yarns twisted together make a **plied** yarn. The ply is put in the opposite direction to the singles: two Z singles are plied S. Each single is trying to untwist, and plying them the other way turns the pair against that pull, so the two strains cancel and the plied yarn lies still. This is called a balanced yarn. Sewing thread, knitting wool and rope are all plied, and the Abri du Maras cord, with its three twisted bundles twisted together the other way, is a three-ply cord. In the figure above, switch to two plied singles at a high twist and the snarl disappears."
         }
       ]
     },
@@ -148,7 +148,7 @@
         },
         {
           "type": "text",
-          "text": "So archaeologists piece the story together from indirect evidence. Small carved figures from Ice Age Europe, about 25,000 years old, show women wearing skirts made of hanging strings, carved in enough detail to show the twist; the best known is the Venus of Lespugue, from southwest France.[^lespugue] Pressed clay at Dolní Věstonice in the Czech Republic, of about the same age, carries the impressions of cords and of what may be woven or netted fabric. In Dzudzuana Cave in Georgia, a team reported in 2009 flax fibres more than 30,000 years old, some twisted and some apparently coloured, although other researchers have argued that the evidence is not enough to show the fibres are flax.[^lice]"
+          "text": "So archaeologists piece the story together from indirect evidence. Small carved figures from Ice Age Europe, about 25,000 years old, show women wearing skirts made of hanging strings, carved in enough detail to show the twist; the best known is the Venus of Lespugue, from southwest France.[^lespugue] Pressed clay at Dolní Věstonice in the Czech Republic, of about the same age, carries the impressions of cords and of what may be woven or netted fabric. In Dzudzuana Cave in Georgia, a team in 2009 reported flax fibres more than 30,000 years old, some twisted and some apparently coloured, although other researchers have argued that the evidence is not enough to show the fibres are flax.[^lice]"
         },
         {
           "type": "text",
@@ -202,7 +202,7 @@
       ]
     }
   ],
-  "summary": ["**Every cloth has four layers.** Fibre is twisted into yarn, built into a woven, knitted or felted structure and finished, and \"100% cotton\" names only the fibre.", "**Twist holds fibres by friction.** Pulled yarn presses its spiralling fibres together, so short fibres make an endless thread, though too little twist slips and too much snarls.", "**Plying balances twist.** Singles twisted together the opposite way cancel each other's strain, as in rope and sewing thread.", "**String is at least 41,000 years old.** Cord from Abri du Maras, most likely made by Neanderthals, used the same three-ply construction as modern rope."],
+  "summary": ["**Every cloth has four layers.** Fibre is spun into yarn and built into a woven or knitted structure (or matted directly into felt), then finished; \"100% cotton\" names only the fibre.", "**Twist holds fibres by friction.** Pulled yarn presses its spiralling fibres together, so short fibres make an endless thread, though too little twist slips and too much snarls.", "**Plying balances twist.** Singles twisted together the opposite way cancel each other's strain, as in rope and sewing thread.", "**String is at least 41,000 years old.** Cord from Abri du Maras, most likely made by Neanderthals, used the same three-ply construction as modern rope."],
   "footnotes": {
     "maras": {
       "kind": "digression",

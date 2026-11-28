@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A loom makes rectangles. For most of history, in most places, people wore those rectangles almost as they came off the loom, wrapped, folded, pinned or belted around the body. Clothes cut into curved pieces and sewn to follow the shape of the chest, waist and arms became the normal dress of Europe only in the 14th century. In this lesson we look at clothes that respect the loom, at the change to cut and fitted clothing, and at what fit costs in cloth."
+          "text": "A loom makes rectangles. For most of history, in most places, people wore those rectangles almost as they came off the loom, wrapped, folded, pinned or belted around the body. Clothes cut into curved pieces and sewn to follow the shape of the chest, waist and arms became the normal dress of Europe only in the 14th century."
         }
       ]
     },
@@ -28,7 +28,7 @@
         },
         {
           "type": "text",
-          "text": "Keeping the rectangle has advantages. Nothing is wasted, the cloth keeps its selvedges, the strong finished edges made by the loom, a garment can be adjusted by wrapping it differently, and the cloth can be reused for something else. In a world where cloth took hundreds of hours to make, these were strong reasons."
+          "text": "Keeping the rectangle has advantages. Nothing is wasted, the cloth keeps its selvedges, the strong finished edges made by the loom, a garment can be adjusted by wrapping it differently, and the cloth can later be reused for something else. In a world where cloth took hundreds of hours to make, these were strong reasons."
         }
       ]
     },
@@ -37,12 +37,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In early medieval Europe both men and women wore the **tunic**, a T-shaped garment sewn from rectangles for the body and sleeves. To give room to walk or ride, tailors inserted **gores**, long triangles of cloth, into the sides of the skirt, and small square **gussets** under the arms. The strip left beside the body pieces was cut diagonally into triangles, so a tunic could use all of the cloth. It hung loosely and was gathered at the waist with a belt."
+          "text": "In early medieval Europe both men and women wore the **tunic**, a T-shaped garment sewn from rectangles for the body and sleeves. To give room to walk or ride, long triangles of cloth called **gores** were sewn into the sides of the skirt, and small square **gussets** under the arms. The strip left beside the body pieces was cut diagonally into triangles, so a tunic could use all of the cloth. It hung loosely and was gathered at the waist with a belt."
         },
         {
           "type": "interactive_diagram",
           "id": "layout",
-          "caption": "Pattern pieces for four garments laid on cloth 70 cm wide. The pieces are simplified: the draped and gored garments use the whole length, a fitted gown about four fifths and a bias cut well under half.",
+          "caption": "Pattern pieces for four garments laid on cloth 70 cm wide. The pieces are simplified: the draped and gored garments use the whole length, a fitted gown about four fifths, and a bias cut well under half.",
           "task": "Lay out all four garments",
           "goal": "all"
         }
@@ -53,11 +53,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From about the 1330s, men in France, Burgundy and England began wearing short, tight jackets that followed the chest and waist, closed down the front with many buttons, worn with hose, close-fitting cloth leggings. Chroniclers complained that the new clothes were indecently short and tight. Women's gowns were fitted closely to the body too, laced or buttoned, with long sleeves cut to the shape of the arm. Within a generation fitted clothing was the fashion across western Europe."
+          "text": "From about the 1330s, men in France, Burgundy and England began wearing short, tight jackets that followed the chest and waist and fastened down the front with many buttons, paired with close-fitting cloth leggings called hose. Chroniclers complained that the new clothes were indecently short and tight. Women's gowns were fitted closely to the body too, laced or buttoned, with long sleeves cut to the shape of the arm. Within a generation fitted clothing was the fashion across western Europe."
         },
         {
           "type": "text",
-          "text": "Fitting needed new techniques. Tailors cut the body into several shaped **panels** with curved seams, and set the sleeves into curved armholes instead of sewing them straight on. Buttons and buttonholes, rare before the 13th century, allowed a tight garment to be put on and taken off. A rare surviving example is the **pourpoint** of Charles de Blois, a padded silk jacket from the middle of the 14th century now in the Musée des Tissus in Lyon, cut from many shaped pieces and closed with a long row of buttons."
+          "text": "Fitting needed new techniques. Tailors cut the body into several shaped **panels** with curved seams, and set the sleeves into curved armholes instead of sewing them straight on. Buttons and buttonholes, rare before the 13th century, allowed a tight garment to be put on and taken off. A rare surviving example is the **pourpoint** of Charles de Blois[^charles-de-blois], a padded silk jacket from the middle of the 14th century now in the Musée des Tissus in Lyon, cut from many shaped pieces and closed with a long row of buttons."
         },
         {
           "type": "text",
@@ -65,7 +65,7 @@
         },
         {
           "type": "text",
-          "text": "Fit had a price in cloth. A curved edge cannot sit flush against the straight edge of the cloth or against another curve bending the same way, so panels laid out side by side leave gaps, and the offcuts between them were wasted or saved for patching. Tailors guarded their methods of laying out patterns to waste as little as possible. The first known printed tailoring book, by Juan de Alcega in Madrid in 1580, was largely a set of diagrams showing how to lay out the pieces of each garment on a length of cloth of a given width."
+          "text": "Fit had a price in cloth. A curved edge cannot sit flush against the straight edge of the cloth or against another curve bending the same way, so panels laid out side by side leave gaps, and the offcuts between them were wasted or saved for patching. Tailors guarded their methods of laying out patterns to waste as little as possible. The first known printed tailoring book, by Juan de Alcega in Madrid in 1580[^alcega-book], was largely a set of diagrams showing how to lay out the pieces of each garment on a length of cloth of a given width."
         }
       ]
     },
@@ -74,7 +74,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 4 showed that woven cloth hardly stretches along its threads but gives on the diagonal, the **bias**. In the 1920s and 1930s the Paris designer **Madeleine Vionnet** cut whole dresses on the bias, so that the cloth stretched and draped closely over the body without darts or fastenings, and clung as the wearer moved. Bias cutting became the look of 1930s evening wear. It is also the most wasteful layout of all, since pieces turned at 45 degrees leave large triangles at the edges of the cloth, so it became common in ordinary clothes only once factory-made cloth was cheap enough for the waste not to matter."
+          "text": "Lesson 4 showed that woven cloth hardly stretches along its threads but gives on the diagonal, the **bias**. In the 1920s and 1930s the Paris designer **Madeleine Vionnet**[^vionnet-mannequin] cut whole dresses on the bias, so that the cloth stretched and draped closely over the body without darts or fastenings, and clung as the wearer moved. Bias cutting became the look of 1930s evening wear. It is also the most wasteful layout of all, since pieces turned at 45 degrees leave large triangles at the edges of the cloth, so it became common in ordinary clothes only once factory-made cloth was cheap enough for the waste not to matter."
         }
       ]
     },
@@ -119,5 +119,21 @@
     }
   ],
   "summary": ["**Early clothing used the loom's rectangles uncut.** The peplos, toga and sari were wrapped, pinned or pleated, and medieval tunics added triangular gores with almost no waste.", "**Fitted clothing arrived in the 14th century.** Shaped panels, set-in sleeves and buttons followed the body, for reasons still debated, from armour to tailors' guilds and display.", "**Fit costs cloth.** Curved pieces leave offcuts, so tailors planned their layouts, as Alcega's pattern book of 1580 showed.", "**A bias cut drapes but wastes cloth.** Cloth cut on the diagonal clings to the body, as in Vionnet's 1930s dresses, but uses far more cloth."],
-  "footnotes": {}
+  "footnotes": {
+    "charles-de-blois": {
+      "kind": "digression",
+      "title": "The pourpoint of Charles de Blois",
+      "text": "Charles de Blois was killed at the Battle of Auray in 1364 during the Breton War of Succession. His silk-and-cotton pourpoint survived because it was preserved as a relic, and it shows how complex 14th-century tailoring had already become: each sleeve is cut to curve smoothly into a deep, rounded armhole, and dozens of small fabric-covered buttons fasten the front and forearms."
+    },
+    "alcega-book": {
+      "kind": "digression",
+      "title": "Alcega's pattern book",
+      "text": "Alcega's *Libro de geometría, práctica y traça* (*Book of Geometry, Practice and Patterning*) gave diagrams for cutting cloaks, doublets, gowns and clerical robes from standard widths of wool and silk, so a tailor could work out how much cloth a customer needed to buy."
+    },
+    "vionnet-mannequin": {
+      "kind": "digression",
+      "title": "Draping on a wooden doll",
+      "text": "Vionnet rarely sketched on paper. Instead she pinned and draped fabric directly on an 80 cm wooden mannequin to see how the bias grain would hang and twist, and she had silk mills weave extra-wide cloth so she could cut full-length dresses in one piece."
+    }
+  }
 }

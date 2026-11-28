@@ -2,18 +2,18 @@
   "id": "fast",
   "n": 25,
   "title": "Why is a T-shirt cheaper than a sandwich?",
-  "teaches": "One T-shirt's journey from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price",
+  "teaches": "The travels of one T-shirt from Texas to China to Tanzania; trade quotas under the Multi Fibre Arrangement (1974 to 2004) and their end in 2005; Bangladesh's garment industry; fast fashion and short production cycles; Rana Plaza (2013); why sewing wages are a tiny part of a garment's price",
   "parts": [
     {
       "title": "One T-shirt",
       "blocks": [
         {
           "type": "text",
-          "text": "In the late 1990s the economist Pietra Rivoli bought a white cotton T-shirt with a printed parrot for $5.99 from a bin in a Florida drugstore, and set out to find where it had come from. Her book, *The Travels of a T-Shirt in the Global Economy* (2005), followed it backwards and forwards around the world. Its cotton was grown on a family farm near Lubbock, Texas, on land worked with tractors, chemicals and government subsidies. The cotton was shipped to China, where it was spun into yarn, knitted into fabric and sewn into a shirt in a factory in Shanghai, by young women who had moved from the countryside. The shirt then went back across the Pacific to be printed and sold in Florida. When someone in the United States gave away a shirt like it, it was likely to be sold in a bale of used clothing to a trader in East Africa, where it was sold again in the second-hand markets of Tanzania."
+          "text": "In the late 1990s the economist Pietra Rivoli bought a white cotton T-shirt with a printed parrot for $5.99 from a bin in a Florida drugstore, and set out to find where it had come from. Her book, *The Travels of a T-Shirt in the Global Economy* (2005), followed it backwards and forwards around the world. Its cotton was grown on a family farm near Lubbock, Texas, on land worked with tractors, chemicals and government subsidies. The cotton was shipped to China, where it was spun into yarn, knitted into fabric and sewn into a shirt in a factory in Shanghai, by young women who had moved from the countryside. The shirt then went back across the Pacific to be printed and sold in Florida. When someone in the United States gave away a shirt like it, it was likely to be sold in a bale of used clothing to a trader in East Africa, where it was sold again in the second-hand markets of Tanzania.[^mitumba]"
         },
         {
           "type": "text",
-          "text": "In 1800 a shirt was an expensive possession. Today a basic T-shirt can cost less than a sandwich, and the average person in a rich country buys dozens of new garments a year. In this lesson we look at how clothing became so cheap, the trade rules that decided where it was made, and who bears the costs that the price does not show."
+          "text": "In 1800 a shirt was an expensive possession. Today a basic T-shirt can cost less than a sandwich, and the average person in a rich country buys dozens of new garments a year. Making clothing this cheap depended on new machines, on trade rules that decided where it was made, and on costs that the shop price does not show."
         }
       ]
     },
@@ -22,7 +22,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lessons 3 and 12 used the hours bar to show where the work went in a sail and a length of chintz. The same arithmetic for a modern T-shirt shows how far the machines of this course have taken it: about a quarter of an hour of work in all, against roughly a year for the chintz. Orange marks paid work in the United States, blue paid work overseas."
+          "text": "Lessons 3 and 12 used the hours bar to show where the work went in a sail and a length of chintz. The same arithmetic for a modern T-shirt shows what mechanisation has done: about a quarter of an hour of work in all, against roughly a year for the chintz. Orange marks paid work in the United States, blue paid work overseas."
         },
         {
           "type": "diagram",
@@ -41,7 +41,7 @@
         },
         {
           "type": "text",
-          "text": "Where cotton is grown with machines, as in Texas, every step except one is now done by machines that one worker tends in large numbers: cotton pickers, spinning frames, knitting machines and dye ranges. The exception is sewing. A sewing machine runs fast, but a person still has to guide every seam, because limp cloth is hard for machines to handle. That is why sewing is the largest share of the work in the bar, and why the garment industry has tended to move towards cheap sewing labour, from the immigrant workshops of New York in lesson 24 to Hong Kong, China and Bangladesh."
+          "text": "Where cotton is grown with machines, as in Texas, every step except one is now done by machines that one worker tends in large numbers: cotton pickers, spinning frames, knitting machines and dye ranges. The exception is sewing. A sewing machine runs fast, but a person still has to guide every seam, because limp cloth is hard for machines to handle.[^limp-cloth] That is why sewing is the largest share of the work in the bar, and why the garment industry has tended to move towards cheap sewing labour, from the immigrant workshops of New York in lesson 24 to Hong Kong, China and Bangladesh."
         }
       ]
     },
@@ -50,7 +50,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From the 1950s, rich countries tried to protect their own textile and clothing industries from imports from Japan, Hong Kong, Taiwan and South Korea. In 1974 these arrangements were brought together in the **Multi Fibre Arrangement**, an international agreement under which importing countries such as the United States and the members of the European Community, the forerunner of the European Union, set **quotas**, fixed limits on how much of each kind of clothing each exporting country could send them every year."
+          "text": "From the 1950s, rich countries tried to protect their own textile and clothing industries from imports from Japan, Hong Kong, Taiwan and South Korea. In 1974 these arrangements were brought together in the **Multi Fibre Arrangement**. Under this international agreement, importing countries such as the United States and the members of the European Community (the forerunner of the European Union) set **quotas**: fixed limits on how much of each kind of clothing each exporting country could send them every year."
         },
         {
           "type": "text",
@@ -58,7 +58,7 @@
         },
         {
           "type": "text",
-          "text": "Under a World Trade Organization agreement of 1995 the quotas were phased out over ten years, and the last ended on **1 January 2005**. Buyers could now order from wherever was cheapest, and China's exports of clothing to the United States and Europe rose so fast in 2005 that both imposed temporary limits again. Bangladesh, with even lower wages, kept growing. It is now the world's second largest exporter of clothing after China. Garments make up more than four fifths of its exports, and its factories employ about four million people, most of them women."
+          "text": "Under a World Trade Organization agreement of 1995 the quotas were phased out over ten years, and the last ended on **1 January 2005**. Buyers could now order from wherever was cheapest, and China's exports of clothing to the United States and Europe rose so fast in 2005 that both imposed temporary limits again. Bangladesh, with even lower wages, kept growing. It is now the world's second-largest exporter of clothing after China. Garments make up more than four-fifths of its exports, and its factories employ about four million people, most of them women."
         }
       ]
     },
@@ -101,7 +101,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On 23 April 2013, large cracks appeared in the walls of Rana Plaza, an eight-storey building in Savar, on the edge of Dhaka. It held shops and a bank on its lower floors and five garment factories above. The shops and the bank closed. The next morning, factory managers ordered their workers back inside, and some were told they would lose their pay if they refused. Shortly before 9 am on **24 April**, when the power failed and the factories' generators started, the building collapsed. 1,134 people were killed and about 2,500 were injured, most of them garment workers. The upper floors had been added without permission, and the building had not been designed for heavy machinery."
+          "text": "On 23 April 2013, large cracks appeared in the walls of Rana Plaza, an eight-storey building in Savar, on the edge of Dhaka. It held shops and a bank on its lower floors and five garment factories above. The shops and the bank closed. The next morning, factory managers ordered their workers back inside, and some were told they would lose their pay if they refused. Shortly before 9 am on **24 April**, when the power failed and the factories' generators started, the building collapsed. In all, 1,134 people were killed and about 2,500 were injured, most of them garment workers. The upper floors had been added without permission, and the building had not been designed for heavy machinery."
         },
         {
           "type": "text",
@@ -125,7 +125,7 @@
         },
         {
           "type": "text",
-          "text": "In the figure, tripling the wages of the people who sew the shirt raises its shop price by about 1 percent if the extra cost is passed on as it is, and about 6 percent if each firm along the way adds its usual percentage on top. This calculation is why campaigners argue that higher pay is affordable. It leaves out several things. Factories compete fiercely for orders, so one that raises its wages alone may lose its customers to another factory or another country, and buyers often push for lower prices each season. Higher wages could also speed up the replacement of sewers by machines, which is starting in some factories. Whether a pay rise sticks therefore depends on whether brands, governments and unions apply it across a whole industry, as the Accord did for building safety."
+          "text": "In the figure, tripling the wages of the people who sew the shirt raises its shop price by about 1 percent if the extra cost is passed on directly, and about 6 percent if each firm along the way adds its usual percentage on top. This calculation is why campaigners argue that higher pay is affordable. It leaves out several things. Factories compete fiercely for orders, so one that raises its wages alone may lose its customers to another factory or another country, and buyers often push for lower prices each season. Higher wages could also speed up the replacement of sewers by machines, which is starting in some factories. Whether a pay rise sticks therefore depends on whether brands, governments and unions apply it across a whole industry, as the Accord did for building safety."
         }
       ]
     },
@@ -175,6 +175,17 @@
       ]
     }
   ],
-  "summary": ["**Trade quotas spread garment making worldwide.** The Multi Fibre Arrangement capped each country's exports from 1974 to 2004, and its end moved orders to the cheapest producers, above all China and Bangladesh.", "**Fast fashion shortened the cycle.** Small batches, sales data and quick restocking put new designs in shops every few weeks.", "**Sewers get a tiny share of the price.** Wages are often under 1 percent of a garment's price, yet competition makes a raise hard for any one factory to give.", "**Rana Plaza led to a binding safety accord.** The 2013 collapse of the factory building near Dhaka killed 1,134 people, and brands and unions then signed a binding safety agreement."],
-  "footnotes": {}
+  "summary": ["**Trade quotas spread garment making worldwide.** The Multi Fibre Arrangement capped each country's exports from 1974 to 2004, and its end moved orders to the cheapest producers, above all China and Bangladesh.", "**Fast fashion shortened the cycle.** Small batches, sales data and quick restocking put new designs in shops every few weeks.", "**Sewers get a tiny share of the price.** Wages are often under 1 percent of a garment's price, yet competition makes a pay rise hard for any one factory to give.", "**Rana Plaza led to a binding safety accord.** In 2013, the collapse of the factory building near Dhaka killed 1,134 people, and brands and unions then signed a binding safety agreement."],
+  "footnotes": {
+    "mitumba": {
+      "kind": "digression",
+      "title": "Mitumba",
+      "text": "In East Africa, imported second-hand clothes are known as mitumba, the Swahili word for the plastic-wrapped bales in which they arrive. Charities in rich countries sell most donated garments to commercial sorters, who grade them by fabric and condition and export them by weight. Several East African governments have tried to restrict mitumba imports to protect local textile mills, though traders and shoppers who rely on cheap clothing have often pushed back."
+    },
+    "limp-cloth": {
+      "kind": "technical",
+      "title": "Why machines struggle to sew",
+      "text": "Knitted cotton stretches, curls and shifts when pulled, unlike the rigid metal or plastic parts that factory robots handle easily. Automated sewing machines have long managed flat, straight operations such as hemming a sleeve, but aligning two curved pieces of fabric into a collar or an armhole still defeats most mechanical grippers."
+    }
+  }
 }

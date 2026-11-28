@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In the 1580s, stockings in England were knitted by hand, one loop at a time on a set of needles, often by poor families in their spare hours. A good pair of worsted stockings for a gentleman took days of work. According to a story told in the 17th century, a clergyman named **William Lee** of Calverton, near Nottingham, watched a woman knitting and set out to build a machine that would make a whole row of loops at once. In this lesson we look at his stocking frame, how it worked, and how two centuries later the men who worked such frames became the first Luddites."
+          "text": "In the 1580s, stockings in England were knitted by hand, one loop at a time on a set of needles, often by poor families in their spare hours. A good pair of worsted stockings for a gentleman took days of work. According to a story told in the 17th century, a clergyman named **William Lee** of Calverton, near Nottingham, watched a woman knitting and set out to build a machine that would make a whole row of loops at once."
         }
       ]
     },
@@ -20,7 +20,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 4 showed that knitted cloth is built from rows of loops, each pulled through a loop of the row before. A hand knitter makes these one at a time. Lee's frame, built by tradition in 1589, held a row of fine needles side by side, one for every loop in the row. Each was a **bearded needle**: a hook whose long, springy tip, the beard, could be pressed into a groove in the shank, the straight stem of the needle, to close the hook. With the hook closed, the old loop could slide forward over it and off the needle, onto the new loop caught inside."
+          "text": "Lesson 4 showed that knitted cloth is built from rows of loops, each pulled through a loop of the row before. A hand knitter makes these one at a time. Lee's frame, built by tradition in 1589, held a row of fine needles side by side, one for every loop in the row. Each was a **bearded needle**: a hook with a long, springy tip (the beard) that could be pressed into a groove in the straight stem, or shank, to close the hook. With the hook closed, the old loop could slide forward over it and off the needle, onto the new loop caught inside."
         },
         {
           "type": "interactive_diagram",
@@ -40,7 +40,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lee's first frame made coarse woollen stockings. By the traditional account he showed it to Elizabeth I, who refused him a patent, worried that a machine would take work from hand knitters, and perhaps unimpressed that it made wool rather than silk. Lee improved the frame to knit fine silk, but still found no support in England. He took his frames and workers to Rouen in France, with the encouragement of Henri IV, and died in France about 1614. Some of his workers returned to London, and framework knitting grew there. In 1657 the framework knitters received a charter as a London livery company, a guild that regulated a trade in the City."
+          "text": "Lee's first frame made coarse woollen stockings. By the traditional account he showed it to Elizabeth I, who refused him a patent, worried that a machine would take work from hand knitters, and perhaps unimpressed that it made wool rather than silk. Lee improved the frame to knit fine silk, but still found no support in England. He took his frames and workers to Rouen in France, with the encouragement of Henri IV, and died in France about 1614. Some of his workers returned to London, and framework knitting grew there. In 1657 the framework knitters received a charter as a London guild that regulated the trade in the City."
         },
         {
           "type": "text",
@@ -66,7 +66,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In March 1811, framework knitters in villages around Nottingham began breaking into workshops at night and smashing frames. They sent letters signed by \"General Ned Ludd\", an imaginary leader, and they became known as **Luddites**. They did not attack every frame. They chose the frames of hosiers who paid below the agreed rates or made cut-ups, and left others alone. In 1812 the frame breaking spread to the wool districts of Yorkshire and the cotton districts of Lancashire, where croppers, the skilled men who sheared the nap of woollen cloth, attacked shearing frames, and weavers attacked power looms."
+          "text": "In March 1811, framework knitters in villages around Nottingham began breaking into workshops at night and smashing frames. They sent letters signed by \"General Ned Ludd\"[^ned-ludd], an imaginary leader, and they became known as **Luddites**. They did not attack every frame. They chose the frames of hosiers who paid below the agreed rates or made cut-ups, and left others alone. In 1812 the frame breaking spread to the wool districts of Yorkshire and the cotton districts of Lancashire, where croppers, the skilled men who sheared the nap of woollen cloth, attacked shearing frames, and weavers attacked power looms."
         },
         {
           "type": "text",
@@ -115,5 +115,11 @@
     }
   ],
   "summary": ["**Lee's frame knitted a whole row at once.** Hand knitting made one loop at a time, but the frame, by tradition built in 1589, had one needle per loop.", "**The bearded needle closed its own hook.** The old loop slid over the closed hook and off, onto the new loop.", "**Framework knitters rented their frames.** Hosiers charged frame rent and paid by the piece, mostly in the East Midlands, where the trade settled in the 18th century.", "**Luddites broke chosen frames.** In 1811 they targeted low payers and makers of cut-ups, and in 1812 Parliament made frame breaking a capital crime."],
-  "footnotes": {}
+  "footnotes": {
+    "ned-ludd": {
+      "kind": "digression",
+      "title": "Who was Ned Ludd?",
+      "text": "According to a story told in the Midlands, Ned Ludd (or Ludlam) was a young apprentice in Anstey, near Leicester, who in 1779 smashed two stocking frames with a hammer in a fit of anger. Whenever a frame was broken in the years that followed, workers joked that Ned Ludd had done it."
+    }
+  }
 }

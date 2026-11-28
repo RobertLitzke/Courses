@@ -9,11 +9,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Among the papers of English slave traders in the 1750s are lists of the goods a ship carried to the West African coast. One, for a voyage to the Windward Coast in 1756, lists goods worth £2,418 to buy 250 people, about £10 in goods for each person.[^cargo] Much of it is cloth. Some of it is Indian, cottons with names such as *niccanees*, a striped cloth from Gujarat. Some of it is English, made in Manchester and named to match: Manchester niccanees, made to imitate the Indian ones."
+          "text": "Among the papers of English slave traders in the 1750s are lists of the goods a ship carried to the West African coast. One, for a voyage to the Windward Coast in 1756, lists goods worth £2,418 to buy 250 people, about £10 in goods for each person.[^cargo] Much of that cargo is cloth. Some of it is Indian: cottons with names such as *niccanees*, a striped cloth from Gujarat. Some of it is English, made in Manchester and named to match: Manchester niccanees, woven to imitate the Indian ones."
         },
         {
           "type": "text",
-          "text": "Lists like this are records of the Atlantic slave trade, in which about 12.5 million Africans were forced onto ships between the 16th and 19th centuries and about 10.7 million survived the crossing to the Americas.[^voyages] They also show something about how that trade worked. The African merchants and rulers who sold captives to European ships would accept only certain goods, and among those goods cloth came first. In this lesson we look at why: what West Africa already made, what its buyers wanted, and how their demands shaped the British cotton industry."
+          "text": "Lists like this are records of the Atlantic slave trade, in which about 12.5 million Africans were forced onto ships between the 16th and 19th centuries and about 10.7 million survived the crossing to the Americas.[^voyages] They also show something about how that trade worked. The African merchants and rulers who sold captives to European ships would accept only certain goods, and among those goods cloth came first."
         }
       ]
     },
@@ -26,7 +26,7 @@
         },
         {
           "type": "text",
-          "text": "In several regions cloth worked as money. Standard strips or pieces of cotton were used to pay taxes, set prices and settle debts, from the Senegal valley to the Lake Chad basin. A people with their own cloth and their own cloth money were not buyers who would take anything offered. Imported cloth had to compete with local cloth, and it sold only if it offered something local weavers did not: a colour, a pattern, a fineness, or simply a large quantity quickly."
+          "text": "In several regions cloth worked as money. Standard strips or pieces of cotton were used to pay taxes, set prices and settle debts, from the Senegal valley to the Lake Chad basin. People who already wove their own cloth and used it as money would not take just anything offered. Imported cloth had to compete with local cloth, and it sold only if it offered something local weavers did not: a colour, a pattern, a fineness, or simply a large quantity quickly."
         }
       ]
     },
@@ -35,7 +35,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "European traders on the coast complained constantly in their letters that African buyers were particular. A stripe had to be the right width and colour; a check had to have the right number of threads; a piece had to be the right length; a cloth that had sold well one year might be refused the next because tastes had changed. Different stretches of the coast wanted different cloths. Goods that did not match came back unsold, and a ship that could not sell its cargo stayed on the coast longer, losing money and losing crew and captives to disease."
+          "text": "European traders on the coast complained constantly in their letters that African buyers were particular. A stripe had to be the right width and colour, a check needed the right number of threads, and a piece had to be the right length. Even a cloth that had sold well one year might be refused the next if tastes had changed. Different stretches of the coast wanted different cloths. Goods that did not match came back unsold, and a ship that could not sell its cargo stayed on the coast longer, losing money and losing crew and captives to disease."
         },
         {
           "type": "text",
@@ -48,7 +48,7 @@
         },
         {
           "type": "text",
-          "text": "The same was true on the other side of Africa. On the East African coast, Gujarati merchants sold Indian cloth for ivory, gold and later cloves, and they adapted designs to local taste. In the 19th century, buyers in Zanzibar and the interior preferred a heavy unbleached American cotton sheeting, which they called *merikani*, to the British cloth that was cheaper. Here too, the buyer decided."
+          "text": "The same was true on the other side of Africa. On the East African coast, Gujarati merchants sold Indian cloth for ivory, gold and later cloves, adapting designs to local taste. In the 19th century, buyers in Zanzibar and the interior preferred a heavy unbleached American cotton sheeting, which they called *merikani*[^merikani], over cheaper British cloth."
         }
       ]
     },
@@ -57,11 +57,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Indian cloth was not always available. Wars in Europe interrupted shipping, the East India Company's supplies varied from year to year, and from 1701 printed Indian cloth could not be worn in England at all, only re-exported. Cloth made in Britain for export was not covered by the ban. Manchester and the towns around it began to make cloths for the African trade, at first of linen and cotton, imitating Indian checks and stripes and giving them the Indian names. Traders sent samples from the coast back to Manchester so that the copies would match what African buyers accepted. When a war cut off Indian supply, Manchester's share of the trade jumped."
+          "text": "Indian cloth was not always available. Wars in Europe interrupted shipping, the East India Company's supplies varied from year to year, and from 1701 printed Indian cloth could not be worn in England at all, only re-exported.[^calico-acts] Cloth made in Britain for export was not covered by the ban. Manchester and the towns around it began to make cloths for the African trade, at first of linen and cotton, imitating Indian checks and stripes and giving them the Indian names. Traders sent samples from the coast back to Manchester so that the copies would match what African buyers accepted. When a war cut off Indian supply, Manchester's share of the trade jumped."
         },
         {
           "type": "text",
-          "text": "The economic historian Joseph Inikori has argued that these Atlantic markets, in Africa and in the plantation colonies of the Americas, were essential to the growth of the British cotton industry: they were large, they grew fast, and they demanded cheap cloth of consistent quality in large quantities, which favoured machine production. Other historians give more weight to the home market and to technical change in Britain. Lesson 17 returns to the wider debate about slavery and British industry."
+          "text": "The economic historian Joseph Inikori has argued that these Atlantic markets, in Africa and in the plantation colonies of the Americas, were essential to the growth of the British cotton industry because they grew fast and demanded large quantities of cheap, uniform cloth, which favoured machine production. Other historians give more weight to the home market and to technical change in Britain. Lesson 17 returns to the wider debate about slavery and British industry."
         },
         {
           "type": "text",
@@ -126,6 +126,16 @@
       "kind": "technical",
       "title": "Where the numbers come from",
       "text": "The figures are estimates from the Trans-Atlantic Slave Trade Database (slavevoyages.org), built from records of about 36,000 voyages, for the years 1501 to 1866."
+    },
+    "merikani": {
+      "kind": "technical",
+      "title": "Why buyers preferred merikani",
+      "text": "Named after America, *merikani* was woven in New England mills and shipped out of Salem, Massachusetts. Cheap British sheeting was often weighted with starch and china clay that washed out in the first wash, whereas *merikani* was sturdy, unsized cotton."
+    },
+    "calico-acts": {
+      "kind": "technical",
+      "title": "The Calico Acts",
+      "text": "To protect English wool and silk weavers, Parliament passed the Calico Act of 1700 (effective 1701), banning the wearing of imported dyed or printed Indian cottons while allowing re-export. A second act in 1721 banned most printed cottons from being sold at home, though exports and linen-cotton mixtures were exempt."
     }
   }
 }

@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Bayeux Tapestry is a strip of linen about 70 metres long and 50 centimetres high that tells the story of the Norman conquest of England, from 1064 to the Battle of Hastings in 1066. It has been kept in the Norman town of Bayeux for most of the last 900 years. It is also, strictly, not a tapestry. In this lesson we look at the difference between a tapestry and an embroidery, how the Bayeux hanging was made, and what it shows about medieval needlework."
+          "text": "The Bayeux Tapestry is a strip of linen about 70 metres long and 50 centimetres high that tells the story of the Norman conquest of England, from 1064 to the Battle of Hastings in 1066. It has been kept in the Norman town of Bayeux for most of the last 900 years.[^bayeux-survival] It is also, strictly, not a tapestry."
         }
       ]
     },
@@ -42,11 +42,11 @@
         },
         {
           "type": "text",
-          "text": "The wool was dyed in about ten colours, from a small set of plant dyes: woad for blues and blue-greens, madder for reds, and weld for yellows, with greens made by dyeing in both blue and yellow, the dyes of lesson 5. The colours were chosen for pattern rather than realism, so horses can be blue or red-brown."
+          "text": "The wool was dyed in about ten colours, from a small set of plant dyes from lesson 5: woad for blues and blue-greens, madder for reds, and weld for yellows, with greens made by dyeing in both blue and yellow. The colours were chosen for pattern rather than realism, so horses can be blue or red-brown."
         },
         {
           "type": "text",
-          "text": "The hanging is made of nine linen panels sewn together, and the joins are so neatly matched that several teams were probably stitching the panels at once from a single design. Most historians think it was designed and made in England, probably in Canterbury, in the 1070s, soon after the conquest. The most likely patron was **Odo**, Bishop of Bayeux and half-brother of William the Conqueror, who appears prominently in the story and may have had it made for his new cathedral, consecrated in 1077. The embroiderers were most likely English women; English needlework was already famous across Europe, as the next section shows. The end of the hanging is lost, and the story now breaks off as the English flee from Hastings."
+          "text": "The hanging is made of nine linen panels sewn together, and the joins are so neatly matched that several teams were probably stitching the panels at once from a single design. Most historians think it was designed and made in England, probably in Canterbury, in the 1070s, soon after the conquest. The most likely patron was **Odo**, Bishop of Bayeux and half-brother of William the Conqueror, who appears prominently in the story and may have had it made for his new cathedral, consecrated in 1077. The embroiderers were most likely English women; English needlework was already famous across Europe. The end of the hanging is lost, and the story now breaks off as the English flee from Hastings."
         }
       ]
     },
@@ -55,7 +55,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "English embroidery was a luxury export for centuries after the conquest. From the 12th to the 14th century, London workshops produced **opus anglicanum**, English work, in silk and gold thread for church vestments. Popes and kings across Europe bought it, and an inventory of the papal treasure in 1295 lists more pieces of English work than of any other kind. Silver-gilt thread, silver coated with a thin layer of gold, was laid on the surface and couched, tied down with small stitches, the same method as the Bayeux wool, so that almost none of the costly metal was hidden on the back."
+          "text": "English embroidery was a luxury export for centuries after the conquest. From the 12th to the 14th century, London workshops produced **opus anglicanum**, English work, in silk and gold thread for church vestments. Popes and kings across Europe bought it, and an inventory of the papal treasure in 1295 lists more pieces of English work than of any other kind. Silver-gilt thread (silver coated with a thin layer of gold) was laid on the surface and couched, tied down with small stitches. As with the Bayeux wool, this kept almost all of the costly metal on the front rather than hidden on the back."
         }
       ]
     },
@@ -64,7 +64,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From the 14th century, great woven tapestries became the costliest furnishings in the courts of Europe. The **Apocalypse Tapestry** of Angers, woven in Paris in the 1370s and 1380s for the Duke of Anjou, was originally about 140 metres long. Workshops in Arras, Tournai and later Brussels wove sets of hangings for kings, which were rolled up and carried from palace to palace, both to keep stone rooms warmer and to show wealth. A large tapestry could take several weavers years to finish, and Henry VIII of England owned more than 2,000."
+          "text": "From the 14th century, great woven tapestries became the costliest furnishings in the courts of Europe. The **Apocalypse Tapestry** of Angers, woven in Paris in the 1370s and 1380s for the Duke of Anjou, was originally about 140 metres long. Workshops in Arras, Tournai and later Brussels wove sets of hangings for kings, which were rolled up and carried from palace to palace, both to keep stone rooms warmer and to show wealth. A large tapestry could take several weavers years to finish, and Henry VIII of England owned more than 2,000 tapestries."
         },
         {
           "type": "text",
@@ -112,6 +112,12 @@
       ]
     }
   ],
-  "summary": ["**The Bayeux Tapestry is embroidery, not tapestry.** Its wool picture is stitched onto plain linen, in stem stitch for outlines and laid and couched work for filling.", "**Tapestry builds its picture from the weft.** Each colour's weft turns back at the edge of its area and is packed down to hide the warp.", "**The hanging was probably made in England.** It was most likely worked in Canterbury in the 1070s for Bishop Odo, when English embroidery was a luxury export.", "**Woven tapestry was the costlier art.** A large woven hanging such as the Angers Apocalypse could take several weavers years, and Henry VIII owned more than 2,000."],
-  "footnotes": {}
+  "summary": ["**The Bayeux Tapestry is embroidery, not tapestry.** Its wool picture is stitched onto plain linen, in stem stitch for outlines and laid and couched work for filling.", "**Tapestry builds its picture from the weft.** Each colour's weft turns back at the edge of its area and is packed down to hide the warp.", "**The hanging was probably made in England.** It was most likely worked in Canterbury in the 1070s for Bishop Odo, when English embroidery was a luxury export.", "**Woven tapestry was the costlier art.** A large woven hanging such as the Angers Apocalypse could take several weavers years, and Henry VIII owned more than 2,000 tapestries."],
+  "footnotes": {
+    "bayeux-survival": {
+      "kind": "digression",
+      "title": "Surviving the Revolution",
+      "text": "The hanging is first recorded in an inventory of Bayeux Cathedral in 1476. During the French Revolution in 1792, local officials requisitioned it to cover military wagons, and a local lawyer rescued and hid it until the danger passed."
+    }
+  }
 }

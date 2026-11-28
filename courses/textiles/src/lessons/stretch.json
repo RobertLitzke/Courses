@@ -11,7 +11,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Leggings stretch over a bent knee and lie flat again when the wearer stands up. An old tracksuit of cotton jersey, a common knitted cloth, stretches just as easily but keeps a bulge at the knee. Modern jeans have some give that older jeans lacked, and after a few years that give can go slack. In this lesson we look at how woven and knitted cloth stretch, at the fibre that makes it spring back, and at what wears that fibre out."
+          "text": "Leggings stretch over a bent knee and lie flat again when the wearer stands up. An old tracksuit of cotton jersey, a common knitted cloth, stretches just as easily but keeps a bulge at the knee. Modern jeans have some give that older jeans lacked, and after a few years that give can go slack."
         }
       ]
     },
@@ -24,7 +24,7 @@
         },
         {
           "type": "text",
-          "text": "Stretching is only half of the story. When a knitted cotton is let go, the loops have to be pulled back into shape, and cotton fibres have little elastic recovery. After a gentle stretch the jersey recovers, but after a hard one, such as a knee bent for an hour, part of the stretch stays. Wool recovers better, which is one reason knitted wool keeps its shape longer than knitted cotton."
+          "text": "When knitted cotton is let go, the loops have to be pulled back into shape, and cotton fibres have little elastic recovery. After a gentle stretch the jersey recovers, but after a hard one, such as a knee bent for an hour, part of the stretch stays. Wool recovers better, which is one reason knitted wool keeps its shape longer than knitted cotton."
         },
         {
           "type": "interactive_diagram",
@@ -40,15 +40,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Before the 1960s, the only fibre that could stretch to several times its length and spring back was rubber. Thread of rubber wrapped in cotton or silk was used in corsets, girdles and the tops of socks, but it was heavy, perished with age and sweat, and could not be dyed. In 1958 the chemist **Joseph Shivers** at the American chemical company DuPont produced a synthetic fibre that stretched like rubber but was lighter and stronger. DuPont sold it from 1962 under the trade name **Lycra**. The fibre is called **spandex** in North America and **elastane** elsewhere."
+          "text": "Before the 1960s, the only fibre that could stretch to several times its length and spring back was rubber. Thread of rubber wrapped in cotton or silk was used in corsets, girdles and the tops of socks, but it was heavy, perished with age and sweat, and could not be dyed. In 1958 the chemist **Joseph Shivers** at the American chemical company DuPont produced a synthetic fibre that stretched like rubber but was lighter and stronger. DuPont sold it from 1962 under the trade name **Lycra**. The fibre is called **spandex**[^spandex-name] in North America and **elastane** elsewhere."
         },
         {
           "type": "text",
-          "text": "Elastane is a polyurethane made of long chains with two kinds of segments in turn. The **soft segments** are flexible and lie coiled, like loose springs. The **hard segments** cling to the hard segments of neighbouring chains, forming fixed points that hold the chains together. When the fibre is pulled, the soft segments uncoil and the fibre can stretch to five or six times its length. When it is let go, the soft segments coil up again, and because the hard segments have held the chains in place, the fibre returns to its starting length."
+          "text": "Elastane is a polyurethane made of long chains with two kinds of segments alternating along the chain. The **soft segments** are flexible and lie coiled, like loose springs. The **hard segments** cling to the hard segments of neighbouring chains, forming fixed points that hold the chains together. When the fibre is pulled, the soft segments uncoil and the fibre can stretch to five or six times its length. When it is let go, the soft segments coil up again, and because the hard segments have held the chains in place, the fibre returns to its starting length."
         },
         {
           "type": "text",
-          "text": "A little elastane goes a long way. Stretch jeans usually contain 1 to 3 percent, enough to let a woven denim give a little at the knee and hip. A T-shirt or a pair of trousers with 5 percent knitted in recovers its shape after every stretch. Swimwear, leggings and cycling shorts use 15 to 30 percent, enough to hold the cloth tight against the body. The elastane is usually hidden inside the yarn, with the main fibre wrapped around it, so the cloth feels like cotton or nylon rather than like elastane."
+          "text": "A small share of elastane changes how a cloth behaves. Stretch jeans usually contain 1 to 3 percent, enough to let a woven denim give a little at the knee and hip. A T-shirt or a pair of trousers with 5 percent knitted in recovers its shape after every stretch. Swimwear, leggings and cycling shorts use 15 to 30 percent, enough to hold the cloth tight against the body. The elastane is usually hidden inside the yarn, with the main fibre wrapped around it[^core-spun], so the cloth feels like cotton or nylon rather than like elastane."
         }
       ]
     },
@@ -105,6 +105,17 @@
       ]
     }
   ],
-  "summary": ["**Cotton knits stretch easily but recover poorly.** A cotton jersey stretches by a third with little force, but a hard stretch leaves a baggy knee.", "**Elastane springs back.** Its coiled soft segments recoil, while hard segments hold the chains in place.", "**A little elastane goes a long way.** Jeans use 1 to 3 percent and swimwear 15 to 30 percent.", "**Heat and chlorine wear elastane out.** Damaged elastane lets clothes grow slack."],
-  "footnotes": {}
+  "summary": ["**Cotton knits stretch easily but recover poorly.** A cotton jersey stretches by a third with little force, but a hard stretch leaves a baggy knee.", "**Elastane springs back.** Its coiled soft segments recoil, while hard segments hold the chains in place.", "**A small share of elastane is enough.** Jeans use 1 to 3 percent and swimwear 15 to 30 percent.", "**Heat and chlorine wear elastane out.** Damaged elastane lets clothes grow slack."],
+  "footnotes": {
+    "spandex-name": {
+      "kind": "digression",
+      "title": "Fibre K and spandex",
+      "text": "DuPont originally called the fibre Fibre K during development. The generic American name \"spandex\" is an anagram of \"expands\"."
+    },
+    "core-spun": {
+      "kind": "technical",
+      "title": "Core-spun yarn",
+      "text": "In a **core-spun yarn**, a continuous filament of elastane is fed through the spinning frame under tension while staple fibres such as cotton are twisted around it. When the tension is released, the elastane contracts slightly, leaving the cotton on the outside."
+    }
+  }
 }
