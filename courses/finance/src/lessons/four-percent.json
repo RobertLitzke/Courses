@@ -78,13 +78,10 @@
     }
   ],
   "summary": [
-    "**Bengen tested history, not averages.** He played out a retirement from every starting year and found the highest starting withdrawal that always lasted 30 years.",
-    "**The rule is a starting rate raised with inflation.** Take 4 percent of the first balance, then the same real amount every year, whatever markets do.",
-    "**On this course's data, 4 percent from 60/40 fails only for 1965 to 1969 starts.** The worst start, 1966, supports about 3.6 percent.",
-    "**The worst era was the late 1960s, not 1929.** Rising prices and flat shares hurt more than a crash followed by deflation.",
-    "**Success rates count overlapping periods.** There are only about five separate thirty-year stretches since 1871.",
-    "**Most starts ended richer.** At 4 percent the median start finished above its starting balance after inflation.",
-    "**The rule leaves things out.** It assumes 30 years, no fees, no taxes, no flexibility and US history."
+    "**The 4 percent rule comes from history.** Bengen played out a retirement from every starting year and found the highest starting withdrawal, raised with inflation, that always lasted 30 years.",
+    "**The worst era was the late 1960s.** Rising prices and flat shares hurt more than 1929's crash and deflation, and a 60/40 start in 1966 supported about 3.6 percent.",
+    "**Success rates count overlapping periods.** The 123 starts since 1871 hold only about five separate thirty-year stretches, so the failures are one bad era, not independent chances.",
+    "**The rule leaves out much of real life.** It assumes 30 years, no fees, no taxes, no flexibility and the record of the US alone."
   ],
   "footnotes": {
     "bengen": { "kind": "digression", "title": "SAFEMAX", "text": "Bengen called the highest rate that survived every start the SAFEMAX, and the phrase \"4 percent rule\" came later, from others. His 1994 figure was about 4.15 percent, from 1966. In later papers he added small-company shares to the portfolio, which raised the figure to about 4.5 percent." },

@@ -276,13 +276,10 @@
     }
   ],
   "summary": [
-    "**An arpeggiator plays held notes one at a time**, in an order, at a steady rate.",
-    "**Up, Down, Order and Random** decide the order; Order follows the keys as they went down.",
-    "**Octaves repeats the pattern higher**, so a small chord becomes a wide sweep.",
-    "**The rate is counted against the tempo**, so an arpeggio is always in time.",
-    "**Swing delays every second step** so a pattern lopes instead of ticking.",
-    "**Hold keeps the last chord playing** after you let go, leaving both hands free for the knobs.",
-    "**A stream of notes from one key** on a strange synth usually means the arpeggiator is on."
+    "**An arpeggiator plays held notes in turn.** It plays them one at a time at a steady rate, in an order such as up, down, as played or random.",
+    "**The octave range widens the pattern.** Repeating the pattern in higher octaves turns a small chord into a wide sweep.",
+    "**Arpeggio rate is counted against the tempo.** Set in notes of the beat, the arpeggio stays in time, and swing delays every second step so the pattern lopes.",
+    "**Hold keeps the last chord playing.** The pattern carries on after the keys are released, leaving both hands free for the knobs."
   ],
   "footnotes": {
     "harp": {

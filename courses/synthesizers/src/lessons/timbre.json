@@ -373,13 +373,10 @@
     }
   ],
   "summary": [
-    "**A note is a stack of pure tones**, at one, two, three and more times its pitch: the harmonic series.",
-    "**Timbre is the mix**: how loud each harmonic is. On a steady held note, that is what tells two instruments apart.",
-    "**Helmholtz (1863) heard the harmonics** with tuned brass resonators, each ringing for one harmonic.",
-    "**Fourier: any repeating wave is a sum of sines** at whole-number multiples of its rate.",
-    "**Saw: every harmonic. Square: the odd ones. Triangle: odd, fading fast. Sine: one.**",
-    "**A clarinet's closed tube favours odd harmonics**, which is why a square sounds like one.",
-    "**Pulse width thins a square into a nasal pulse**, and does nothing to the other waves."
+    "**A note is a stack of harmonics.** Its pure tones sit at one, two, three and more times its pitch, and Fourier showed any repeating wave is such a sum of sines.",
+    "**Timbre is the mix of harmonics.** On a steady held note, how loud each harmonic is tells two instruments apart, as Helmholtz heard with tuned brass resonators.",
+    "**A wave's shape decides its harmonics.** A saw has every harmonic, a square only the odd ones, a triangle odd ones fading fast, and a sine only one.",
+    "**A clarinet's closed tube favours odd harmonics.** That is why a square wave sounds like a clarinet."
   ],
   "footnotes": {
     "resonators": {

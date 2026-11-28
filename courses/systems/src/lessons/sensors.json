@@ -286,16 +286,11 @@
     }
   ],
   "summary": [
-    "**Calculate bandwidth before choosing a network link.** A fleet of 1,000 vehicles recording 1 TB an hour generates 8 PB a day, which would take over ten weeks to upload over a single 10 Gb/s link.",
-    "**Filter data at the source.** Using an onboard ring buffer and event triggers reduces the load on every downstream network link and storage tier by the same factor.",
-    "**Use two transport pipes based on urgency.** Send small, urgent telemetry and fault logs over cellular links within minutes, and move the bulk recordings via depot networks or shipped drives over hours or days.",
-    "**Design machines so the live link is optional.** Budget end-to-end latency under 250 ms, transmit over two cellular carriers simultaneously, and ensure the vehicle transitions to a safe state autonomously when the link drops.",
-    "**Upload files in content-addressed chunks.** Naming 4 MB chunks by their SHA-256 hash ensures a dropped link wastes at most one chunk, and chunks the store already holds are never uploaded again.",
-    "**Separate metadata from raw sensor bytes.** Keep the object store's chunk index and the segment catalogue in fast databases, reading the bulk storage disks only when an engineer fetches specific recordings.",
-    "**Tier storage by age and access frequency.** Keep recent recordings hot in three-way replicated storage, migrate data older than 30 days to erasure-coded cold storage, and enforce automated deletion policies for privacy compliance.",
-    "**Populate a searchable catalogue at ingest.** Indexing segments by timestamp, map cell, and scene tag turns petabyte-scale log scans into millisecond index lookups, enabling reproducible training datasets and map change detection.",
-    "**State the search target, and build two indexes for it.** A tag index answers the questions someone planned for; an embedding index finds scenes described in words; recall against a hand-labelled sample shows what both miss.",
-    "**Triggers choose tomorrow's training data.** Search results go to labelling and evaluation, and a uniform random sample keeps a record of ordinary driving beside the triggered cases."
+    "**Filtering at the source shrinks every later stage.** A fleet records far more than its links can carry, so an onboard ring buffer and event triggers keep only the triggered segments.",
+    "**Urgent and bulk data travel separately.** Telemetry and fault logs go over cellular within minutes, while bulk recordings move through depot networks or shipped drives over hours or days.",
+    "**Vehicles must not depend on the live link.** It must reach a safe state on its own when the link drops, and remote links use two cellular carriers within a 250 ms budget.",
+    "**Upload in content-addressed chunks.** Naming each chunk by its hash means a dropped link wastes at most one chunk, and chunks the store already holds are never sent again.",
+    "**A catalogue built at ingest makes recordings searchable.** Indexing segments by time, map cell and scene tag turns petabyte scans into index lookups, with the raw bytes read only when fetched."
   ],
   "footnotes": {
     "wagon": {

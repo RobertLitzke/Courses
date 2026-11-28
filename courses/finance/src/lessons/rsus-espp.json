@@ -56,11 +56,10 @@
     }
   ],
   "summary": [
-    "**RSUs are wages at vest.** Their value that day is taxed like salary and becomes the basis.",
-    "**Holding them is a new purchase.** Keeping vested shares equals buying the employer's stock with a bonus.",
-    "**22 percent withheld is often too little.** Above the 22 percent bracket, top up withholding or pay estimated tax.",
-    "**An ESPP discount is a quick, high return.** 15 percent off is 17.6 percent, locked in by selling at purchase.",
-    "**Holding ESPP shares saves little.** A qualifying sale moves some income to gains rates, at the cost of single-stock risk."
+    "**RSUs are taxed as wages at vest.** Their value that day is taxed like salary and becomes the shares' basis.",
+    "**Keeping vested shares is a new purchase.** Holding them equals buying the employer's stock with a cash bonus.",
+    "**The 22 percent withheld is often too little.** Above the 22 percent bracket, top up withholding or pay estimated tax.",
+    "**An ESPP discount is a quick, high return.** 15 percent off is 17.6 percent, locked in by selling at purchase, while holding for a qualifying sale saves little."
   ],
   "footnotes": {
     "concentration": { "kind": "digression", "title": "One company", "text": "Single shares are far riskier than the market they belong to: over long periods most individual US shares have returned less than Treasury bills, while a few huge winners carried the index. An employee also has their job tied to the same company, so a bad year can take both at once." },

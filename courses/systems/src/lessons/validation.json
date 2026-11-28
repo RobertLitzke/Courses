@@ -249,13 +249,9 @@
   ],
   "summary": [
     "**Bad data fails silently.** A dataset with a region missing or a unit misread looks normal to every reader, so it must be checked before it is published.",
-    "**Write a data contract at every handoff.** Schema, meaning and units, freshness, volume and an owner, checked by the producer before it sends anything.",
-    "**Send a control total with every delivery.** A count and checksum compared on arrival catches lost records that every other check misses.",
-    "**Invariants on records and on the whole version, statistics per region.** Judge statistical checks by the size of a change, against recent history and a fixed reference, and let owners declare expected changes.",
-    "**Write, audit, publish.** Build where nobody can read, check, and move the pointer only on a pass; a failed audit leaves consumers on the last good version.",
-    "**Quarantine, don't drop.** Rejected records are kept, counted and visible, and the count itself is checked.",
-    "**Name the trade-offs.** A blocked publish leaves consumers on data that is right but a day old, so freshness has an objective and an owner who can override on the record; partial publishing mixes versions.",
-    "**Measure data like a service.** Freshness, completeness and correctness get objectives, budgets and alerts."
+    "**Contracts and control totals guard every handoff.** A contract states schema, meaning, units, freshness, volume and owner, and a count and checksum compared on arrival catch lost records.",
+    "**Publish only after the audit passes.** Data is built where nobody reads it and checked before the pointer moves, so a failed audit leaves consumers on the last good version.",
+    "**Statistical checks judge the size of a change.** Each region is compared with recent history and a fixed reference, and owners can declare the changes they expect."
   ],
   "footnotes": {
     "xls": {

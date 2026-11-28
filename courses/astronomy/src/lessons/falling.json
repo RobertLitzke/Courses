@@ -61,12 +61,10 @@
     }
   ],
   "summary": [
-    "**The pull that drops an apple holds the Moon.** The Moon falls toward the Earth about 1.4 mm each second while moving sideways about 1 km.",
+    "**One gravity drops apples and holds the Moon.** Each second the Moon falls about 1.4 mm toward the Earth while moving about 1 km sideways.",
     "**Gravity weakens as the square of the distance.** The Moon is 60 times farther from the Earth’s centre than the apple and falls 3,600 times less.",
-    "**An orbit is a fall that keeps missing.** Move sideways fast enough and the ground curves away as fast as you fall: about 7.7 km/s from 400 km up.",
-    "**Faster still gives an ellipse, then escape.** From 400 km up, about 10.9 km/s leaves the Earth for good.",
-    "**One law explains Kepler’s three rules.** A pull toward the Sun that weakens as the square of the distance gives ellipses, equal areas and the period rule; other laws give orbits that do not close.",
-    "**Everything pulls everything else.** So the planets nudge one another’s orbits too."
+    "**An orbit is a fall that keeps missing.** At about 7.7 km/s sideways from 400 km up, the ground curves away as fast as you fall, and about 10.9 km/s escapes for good.",
+    "**Inverse-square gravity explains Kepler’s rules.** A pull toward the Sun that weakens as the square of the distance gives ellipses, equal areas and the period rule."
   ],
   "journal": [],
   "footnotes": {"fishes":{"kind":"digression","title":"The book of fishes","text":"The Royal Society had agreed to publish the *Principia* but had spent its printing money on Francis Willughby's *History of Fishes*, which sold badly. Halley, who was not rich, paid for it himself, and was later offered part of his salary as the Society's clerk in unsold copies of the fish book."},"hooke":{"kind":"digression","title":"Hooke's claim","text":"Hooke had suggested in letters to Newton in 1679 and 1680 that the planets were pulled by a force falling off as the square of the distance, and he wanted credit for it. Newton, furious, struck most mentions of Hooke from the *Principia*, and the two stayed enemies until Hooke's death in 1703."}}

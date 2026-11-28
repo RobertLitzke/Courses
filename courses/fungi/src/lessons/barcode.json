@@ -8,11 +8,9 @@
   "title": "Names written in DNA",
   "teaches": "Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen",
   "summary": [
-    "**A barcode is a short stretch of DNA that differs between species.** For fungi it is the ITS region, a spacer between genes, a few hundred letters long.",
-    "**The spacer changes fast and the genes beside it slowly.** The slow genes let one recipe copy the barcode from almost any fungus.",
-    "**A barcode is matched against named specimens.** Reference collections link sequences to dried specimens kept in herbaria.",
-    "**Soil can be sequenced without seeing a fungus.** A spoonful yields tens of thousands of reads, grouped into kinds by how alike they are.",
-    "**The grouping rule changes the count.** About 97 per cent alike is the usual rule of thumb; stricter or looser rules split or lump.",
+    "**A short stretch of DNA identifies a fungus.** The ITS region, a few hundred letters long, differs between species, and the slow genes beside it let one recipe copy it from almost any fungus.",
+    "**Barcodes are matched against named specimens.** Reference collections link each sequence to a dried specimen kept in a herbarium.",
+    "**Soil can be sequenced without seeing a fungus.** A spoonful yields tens of thousands of reads, grouped into kinds by how alike they are, and the cut-off, usually 97 per cent, changes the count.",
     "**Most kinds found in soil have no name.** One whole class of soil fungi was known only from its DNA until 2011, when a culture kept for years was recognised as one of them."
   ],
   "parts": [

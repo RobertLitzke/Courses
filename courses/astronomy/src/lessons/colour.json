@@ -63,12 +63,10 @@
     }
   ],
   "summary": [
-    "**A glowing body’s colour depends on its temperature.** It turns red, orange, white, then blue as it gets hotter, and the colour depends hardly at all on what it is made of.",
-    "**Hotter bodies glow bluer and shine much brighter.** Double the temperature and each square metre gives sixteen times the light.",
-    "**There are no green stars.** A heat glow is so broad that when green is strong, red and blue are strong too and the mix looks white, like the Sun.",
-    "**Colour is a star’s thermometer.** Betelgeuse is about 3,600 K, the Sun 5,772 K, Rigel about 12,000 K.",
-    "**Colour and brightness together give size.** Stars of one temperature give the same light per square metre, so a much brighter one must be much bigger.",
-    "**Explaining the glow began quantum physics.** Planck’s 1900 formula for it introduced the quantum."
+    "**A glowing body’s colour depends on its temperature.** It turns red, orange, white, then blue as it heats, almost whatever it is made of, so colour is a star’s thermometer.",
+    "**Hotter bodies glow bluer and much brighter.** Double the temperature and each square metre gives sixteen times the light.",
+    "**No star looks green.** A heat glow is so broad that when green is strong, red and blue are strong too, and the mix looks white.",
+    "**Colour and brightness together give a star’s size.** Stars of one temperature give the same light per square metre, so a much brighter one must be much bigger."
   ],
   "journal": [],
   "footnotes": {"kelvin":{"kind":"technical","title":"Kelvin","text":"The scale is named after William Thomson, Lord Kelvin, who proposed an absolute temperature scale in 1848; he comes back in *What makes the Sun shine?*, trying to work out the age of the Sun. Temperatures on it are said in kelvin, not degrees kelvin."},"wien":{"kind":"technical","title":"Wien's law","text":"Found by Wilhelm Wien in 1893: the peak wavelength times the temperature is always the same, about 2.9 millimetre-kelvins. At 5,800 K the peak is near 500 nanometres; at 3,000 K, the temperature of a lamp filament, it is near 1,000, in the infrared, which is why old filament bulbs gave off far more heat than light."},"zubeneschemali":{"kind":"digression","title":"Green stars in the eye","text":"Stargazers sometimes report seeing a green tint in Beta Librae (Zubeneschamali), or in the fainter companion of the orange star Antares. In Beta Librae, which is really blue-white, it seems to be a quirk of how different eyes judge a dim bluish point against the night sky. Next to Antares it is a trick of contrast: the eye, flooded with orange light, shifts a neighbouring white or bluish star toward green."}}

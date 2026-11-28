@@ -343,12 +343,10 @@
     }
   ],
   "summary": [
-    "**A synth is a chain: oscillator, filter, then pedals**, each working on what the one before handed on.",
-    "**Drive before the filter is thick but tidy; after it, clipping puts back what the filter removed.**",
-    "**Drive after the echo clips the echoes too**, smearing them up to the note's level.",
-    "**Filters, echoes and volume are linear**: scaled, delayed copies added up. While no knob moves, they can go in any order.",
-    "**Clipping is non-linear**, so where it sits changes the sound.",
-    "**Linear waves pass through each other unchanged**; push them hard enough and new frequencies appear."
+    "**Linear stages can go in any order.** Filters, echoes and volume only scale, delay and add copies, so while no knob moves they can be swapped.",
+    "**Clipping is non-linear, so its place matters.** Drive before the filter sounds thick but tidy, while after it the clipping puts back what the filter removed.",
+    "**Drive after an echo clips the echoes too.** It smears the repeats up to the level of the note.",
+    "**Linear waves pass through each other unchanged.** Pushed hard enough into a non-linear stage, they produce new frequencies."
   ],
   "footnotes": {
     "linear": {

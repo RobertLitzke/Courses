@@ -147,7 +147,7 @@
       ]
     }
   ],
-  "summary": ["**The drawloom had two costs.** A drawboy on every pick, and weeks of tying lashes for each new design.", "**Jacquard's head replaced both.** Shown in 1801 and completed in 1804 and 1805, it used a chain of punched cards, one card per pick.", "**A hole lifts a thread.** Where the card has a hole, the hook stays on the rising griffe; a blank pushes the hook off.", "**A pattern became a deck.** Cards could be changed one pick at a time, swapped, stored and copied without rethreading the loom.", "**The canuts rose over pay.** Lyon's silk weavers revolted in 1831 and 1834 over piece rates and the right to organise, and were put down by the army.", "**Babbage borrowed the cards.** His Analytical Engine was to take operations and variables from punched cards, and Lovelace compared it to the loom.", "**Hollerith's cards held data.** They counted the 1890 census electrically, which was a different use from the loom's.", "**Stored control is not computing.** The loom read cards in order; it did no arithmetic and made no choices."],
+  "summary": ["**Punched cards replaced the drawboy.** Jacquard's head, completed in 1804 and 1805, used a chain of cards, one per pick, and ended weeks of tying lashes for each design.", "**A hole in the card lifts a thread.** Where the card has a hole, the hook stays on the rising griffe, and a blank pushes the hook off.", "**A pattern became a swappable deck.** Cards could be changed one pick at a time, swapped, stored and copied without rethreading the loom.", "**Stored control is not computing.** The loom read its cards in order and did no arithmetic, though Babbage borrowed punched cards for his Analytical Engine."],
   "footnotes": {
     "portrait": {
       "kind": "technical",

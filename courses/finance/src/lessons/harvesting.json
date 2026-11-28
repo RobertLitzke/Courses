@@ -63,12 +63,10 @@
     }
   ],
   "summary": [
-    "**Harvesting changes the basis, not the portfolio.** Sell and replace with the same or a close substitute, so the holdings barely change.",
-    "**A loss is a loan from the future.** It lowers basis, so its worth is the rate saved now minus the rate paid later.",
-    "**Losses offset gains, then $3,000 of income.** The rest carries forward without limit.",
-    "**Watch the wash-sale rule.** 30 days either side, IRAs included; switch to a fund on a different index.",
-    "**Choose the lots.** Selling high-basis, long-term lots keeps the gain smallest.",
-    "**Harvest gains in 0 percent years.** Sell and rebuy at once to raise the basis tax-free."
+    "**Harvesting changes the basis, not the portfolio.** The replacement should track a different index, since the wash-sale rule blocks a loss bought back within 30 days either side, IRAs included.",
+    "**A harvested loss borrows from the future.** It lowers the basis, so its worth is the rate saved now minus the rate paid later.",
+    "**Losses offset gains, then $3,000 of income.** Whatever is left carries forward without limit.",
+    "**Gains can be harvested in 0 percent years.** Selling and rebuying at once raises the basis tax-free, and selling high-basis long-term lots keeps any taxed gain small."
   ],
   "footnotes": {
     "order": { "kind": "technical", "title": "The netting order", "text": "Short-term losses first offset short-term gains and long-term losses long-term gains; then any net loss of one kind offsets the other. A carried-forward loss keeps its character, short or long. Short-term losses are the more valuable, since short-term gains are taxed at ordinary rates." },

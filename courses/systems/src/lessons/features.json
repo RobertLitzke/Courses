@@ -245,14 +245,10 @@
     }
   ],
   "summary": [
-    "**Skew is any difference between training and serving inputs.** It comes from two implementations, different defaults, or values the service could not have known in time.",
-    "**Define each feature once.** One definition, defaults included, computes values for both training and serving.",
-    "**Join on what was known, when.** A point-in-time join gives each example the feature values available to serving at its moment, never later ones.",
-    "**Availability time, not event time.** A value describing 12:30 that is ready at 12:38 was not available at 12:30; joining on event time trains the model on fresher data than it will get.",
-    "**Two stores, one definition.** Columnar history for training scans, a key-value store of latest values for millisecond lookups, both fed by the same batch and streaming jobs.",
-    "**Keep a request's feature reads few and close.** Batching saves round trips; replicas, hedged requests or a local in-memory copy deal with fan-out.",
-    "**Log or backfill, and compare.** Logged values have no skew but no history; backfills give history at once; comparing them finds skew before the model ships.",
-    "**Version features with models.** The store holds old and new versions while models move across, serving each model the version it was trained on."
+    "**Skew is any difference between training and serving.** It comes from two implementations, different defaults or values serving could not have known in time, so each feature is defined once for both.",
+    "**Join on availability time, not event time.** A value describing 12:30 that is ready at 12:38 was unknown at 12:30, and joining on event time trains on fresher data than serving gets.",
+    "**One definition feeds two stores.** Columnar history serves training scans and a key-value store of latest values serves millisecond lookups, both filled by the same batch and streaming jobs.",
+    "**Comparing logged and backfilled values finds skew.** Logged values have no skew but no history, backfills give history at once, and comparing the two catches skew before a model ships."
   ],
   "footnotes": {
     "rules": {

@@ -4,15 +4,10 @@
   "title": "The same storm, twice the flood",
   "teaches": "Discharge, the river gauge and its hydrograph, rain on snow, and what a \"100-year flood\" means",
   "summary": [
-    "**Discharge is the volume of water passing a point each second.** It is width times depth times average speed, in cubic metres or cubic feet a second.",
-    "**Depth and speed rise together in a flood.** Three times as deep and two and a half times as fast is seven and a half times the water, before the river even widens.",
-    "**A gauge measures height, not flow.** Hydrographers measure the flow by hand at many heights and draw a rating curve, which turns every reading of stage into a discharge.",
-    "**A hydrograph is discharge against time.** It rises after the rain, peaks hours later, and falls back slowly as the ground drains.",
-    "**The same rain makes very different floods.** Soaked soil, a high freezing level and fresh snow on the ground all add to the peak; dry soil and a low freezing level hold it back.",
-    "**Rain on snow makes western Washington's largest floods.** A warm storm rains over the whole basin at once, melts the low snow, and passes straight through a pack already full of water.",
-    "**Pavement brings the peak sooner and higher.** Rain on roofs and roads reaches a creek in hours instead of soaking in.",
-    "**A 100-year flood has a 1 in 100 chance every year.** Each year's chance is the same, whatever happened the year before.",
-    "**Over a 30-year mortgage the chance of at least one is about 26 percent.** Two at one gauge in a decade is rare, about 1 in 230, but across 200 gauges it happens at one of them more often than not."
+    "**Depth and speed multiply in a flood.** Discharge is width times depth times average speed, so a river three times as deep and 2.5 times as fast carries 7.5 times the water.",
+    "**Wet ground and snow enlarge a flood.** The same storm floods far higher on soaked soil under a high freezing level, and warm rain on snow makes western Washington's largest floods.",
+    "**Pavement brings the peak sooner and higher.** Rain on roofs and roads reaches a creek in hours instead of soaking in, so the hydrograph rises faster and peaks higher.",
+    "**A 100-year flood has a 1% yearly chance.** The chance is the same whatever happened the year before, so over a 30-year mortgage the chance of at least one is about 26 percent."
   ],
   "parts": [
     {

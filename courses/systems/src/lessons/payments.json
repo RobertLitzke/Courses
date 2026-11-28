@@ -259,15 +259,10 @@
     }
   ],
   "summary": [
-    "**Silence is not failure.** A request that gets no reply may have completed its work, and no network protocol can guarantee certainty for both sides, as the two generals problem demonstrates.",
-    "**Write the invariant first.** \"Each order is charged at most once and every charge is recorded\" is the requirement that every component in a payment system is built to maintain.",
-    "**An idempotency key makes a retry safe.** The client generates one unique key per logical operation and reuses it on every retry; the server stores each key's result and returns the saved response instead of repeating the operation.",
-    "**The server's key table needs a fingerprint and a lock.** A request with a different body under a known key is rejected with an error, and a retry that arrives while the first request is still executing is instructed to back off and wait.",
-    "**Split the work at outside calls.** Each phase executes as a single database transaction that commits a recovery point, allowing a retry to resume where the previous attempt stopped.",
-    "**A ledger is append-only and sums to zero.** Double-entry bookkeeping records every money movement as balanced entries, calculates account balances as the sum of those entries, and corrects mistakes by appending reversing entries.",
-    "**The outbox eliminates dual writes.** The application writes the event to an outbox table in the same database transaction as the order, and a background relay publishes the event at least once while consumers deduplicate repeats by event ID.",
-    "**Reconcile against external systems.** Matching the bank's daily settlement files line by line against the internal ledger catches discrepancies across network boundaries that internal checks cannot see.",
-    "**Sagas replace distributed transactions across services.** Each step commits locally and defines a compensating transaction to undo its work on failure, trading strict isolation for availability without holding long-lived locks."
+    "**An idempotency key makes a retry safe.** A request with no reply may have succeeded, so the client reuses one key per operation and the server returns the saved result instead of repeating it.",
+    "**A ledger is append-only and sums to zero.** Double-entry bookkeeping records every money movement as balanced entries, derives balances by summing them and corrects mistakes with reversing entries.",
+    "**The outbox replaces dual writes.** Writing the event to an outbox table in the order's transaction means a crash cannot separate them, and a relay publishes it at least once.",
+    "**Reconciliation catches what internal checks cannot.** Matching the bank's daily settlement files line by line against the ledger finds discrepancies across network boundaries."
   ],
   "footnotes": {
     "generals": {

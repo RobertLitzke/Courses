@@ -266,16 +266,10 @@
     }
   ],
   "summary": [
-    "**You cannot fix what you cannot measure.** One of the first things HealthCare.gov's rescuers did was install monitoring and put its metrics on a screen where everyone could see them.",
-    "**An SLI is the ratio of good events to valid events.** State latency as the share of requests faster than a threshold, measured as close to users as possible.",
-    "**Data products have SLIs of their own.** Freshness, completeness and correctness measure whether published data is recent, whole and right, which a pipeline that runs on time can still fail.",
-    "**An SLO is a target over a time window, and never 100%.** By a common rule of thumb, each extra nine costs about ten times as much as the last, for a difference users may not notice.",
-    "**The error budget is the unreliability the SLO allows.** A 99.9% target over 30 days gives 43 minutes of total outage; spend that budget on shipping changes, and freeze feature releases when it runs out.",
-    "**Alert on burn rate.** Page an engineer when the budget burns fast, open a ticket when it burns slowly, and keep underlying causes such as CPU utilisation on dashboards.",
-    "**Watch the four golden signals.** Track latency, traffic, errors and saturation for every request-serving system.",
-    "**Percentiles cannot be averaged.** Record latencies into histogram buckets, whose counts can be summed across servers and time windows.",
-    "**Cardinality drives the cost of a metric.** Every distinct combination of label values creates a time series, so unbounded labels such as user IDs belong in logs, not metrics.",
-    "**Gorilla compresses a data point to about 1.37 bytes.** Delta-of-delta timestamps and XOR-encoded values represent an unchanged interval or value in a single bit."
+    "**An SLI is good events over valid events.** Latency is stated as the share of requests faster than a threshold, measured as close to users as possible.",
+    "**An SLO below 100% leaves an error budget.** A 99.9% target over 30 days allows 43 minutes of outage, spent on shipping changes, and feature releases freeze when it runs out.",
+    "**Alert on burn rate, not on causes.** Page when the budget burns fast, open a ticket when it burns slowly, and chart causes such as CPU utilisation beside latency, traffic, errors and saturation.",
+    "**Label cardinality sets the cost of a metric.** Each distinct label combination is a time series, so user IDs belong in logs, and latencies go in histograms because percentiles cannot be averaged."
   ],
   "footnotes": {
     "usds": {

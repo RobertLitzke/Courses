@@ -207,12 +207,10 @@
     }
   ],
   "summary": [
-    "**A JPEG is the camera's finished picture.** 256 levels per colour, its choices baked in, everything past white cut off.",
-    "**A RAW file is the counts.** More levels, and about a stop of room above the JPEG's white; the P950 saves it as NRW.",
-    "**Clipped is gone.** A blown JPEG highlight darkens to flat grey; a RAW file can often bring it back, within limits.",
-    "**Edit in order.** White balance, exposure, highlights and shadows, crop, then gentle noise reduction before sharpening.",
-    "**Crop to compose as well as to enlarge.** Leave room, more on the side the subject faces, and mind the pixels left.",
-    "**Keep the sharpest.** Cull bursts soon, zoomed in on the eye; keeping a handful from an outing is normal."
+    "**A JPEG bakes in the camera's choices.** It keeps 256 levels per colour and cuts off everything brighter than its white.",
+    "**A RAW file keeps the sensor's counts.** It holds more levels and about a stop of room above the JPEG's white, and the P950 saves it as NRW.",
+    "**A clipped JPEG highlight cannot be recovered.** Darkening it gives only flat grey, while a RAW file can often bring the detail back, within limits.",
+    "**Edit in a fixed order.** Set white balance, exposure, then highlights and shadows, crop, and apply gentle noise reduction before sharpening."
   ],
   "journal": [],
   "footnotes": {

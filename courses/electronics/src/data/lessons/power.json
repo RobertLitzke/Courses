@@ -229,12 +229,10 @@
     }
   ],
   "summary": [
-    "**Power is P = V × I = I² × R = V² / R.** Double the current through a resistance and it makes four times the heat.",
-    "**Keep parts well under their power ratings.** Cool parts last; parts near their limit fail.",
-    "**Watts are a rate, watt-hours an amount.** Watt-hours = volts × amp-hours, and running time = watt-hours ÷ watts.",
-    "**Every cable wastes power.** It drops I × R volts and turns I² × R into heat, so long, high-current runs need thick wire or a higher voltage.",
-    "**A fuse protects the wire.** Size it above the load’s normal current and no higher than the cable can carry, and rated for DC on DC systems.",
-    "**Bad joints get hot.** A loose or corroded connection has resistance, dropping voltage and heating where current flows.",
+    "**Power is P = V × I = I² × R = V² / R.** Doubling the current through a resistance makes four times the heat, so keep parts well under their power ratings.",
+    "**Watts are a rate, watt-hours an amount.** Watt-hours equal volts × amp-hours, and running time is watt-hours ÷ watts.",
+    "**Every cable and joint wastes power as heat.** A wire drops I × R volts and heats by I² × R, so long high-current runs need thick wire, and loose or corroded joints get hot.",
+    "**A fuse protects the wire.** Size it above the load’s normal current but no higher than the cable can carry, and use a DC-rated fuse on DC systems.",
     "**Batteries can deliver enormous currents.** Remove rings and watches and use insulated tools near the terminals."
   ],
   "journal": [],

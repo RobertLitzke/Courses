@@ -263,12 +263,10 @@
     }
   ],
   "summary": [
-    "**Physical modelling makes a sound by simulating what makes it**, instead of shaping a wave.",
-    "**Karplus and Strong (1983)**: noise in a delay line one period long, fed back, becomes a note.",
-    "**Averaging on every trip takes the high harmonics first**, so the note darkens and fades as a string does.",
-    "**The engine’s knobs**: how hard it is plucked, how damped it is, and how long it rings.",
-    "**Low notes ring longer by themselves**, because each trip round a longer line takes longer.",
-    "**Modal engines strike a set of sharp resonances** to model bars, bells and glass."
+    "**Physical modelling simulates what makes a sound.** It imitates the vibrating object instead of shaping a wave.",
+    "**A fed-back delay line becomes a plucked string.** Karplus and Strong showed that noise circulating in a delay line one period long turns into a note.",
+    "**Averaging on each trip darkens the note.** It removes the high harmonics first, so the note darkens as it fades, and low notes, with longer trips, ring longer.",
+    "**Modal models strike a set of sharp resonances.** Tuned to the right set, they model bars, bells and glass."
   ],
   "footnotes": {
     "model": {

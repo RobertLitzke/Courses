@@ -64,12 +64,10 @@
     }
   ],
   "summary": [
-    "**Washington runs its own marketplace.** One application leads to Apple Health, federal credits with state help, or full price.",
-    "**Apple Health has no asset test before 65.** Below 138 percent of the poverty line, about $29,000 for a couple, there is no premium and care costs little or nothing.",
-    "**Low MAGI can be planned.** Spending basis, Roth contributions or cash adds nothing; dividends, gains and conversions do.",
-    "**It trades against conversions.** A year on Apple Health is a year with no room to convert.",
-    "**Recovery is limited to long-term care.** Ordinary medical cover before 65 isn't reclaimed from the estate.",
-    "**The cliff is still the cliff.** State help ends by 250 percent; the federal credit ends at 400."
+    "**Apple Health has no asset test before 65.** Below 138 percent of the poverty line there is no premium, and care costs little or nothing.",
+    "**Apple Health years leave no room to convert.** It needs a low MAGI, which spending basis, Roth contributions or cash allows but conversions, dividends and gains do not.",
+    "**Estate recovery is limited to long-term care.** Ordinary medical cover before 65 isn't reclaimed from the estate.",
+    "**Cascade Care Savings ends at 250 percent.** Above that share of the poverty line only the federal credit remains, and it still ends at 400 percent."
   ],
   "footnotes": {
     "monthly": { "kind": "technical", "title": "Monthly income", "text": "Apple Health checks current monthly income at application and when circumstances change, and the marketplace credit uses the year's total. Someone whose income rises above the line after a mid-year sale, and reports it, is moved to the marketplace from the next month, without repaying the months already covered." },

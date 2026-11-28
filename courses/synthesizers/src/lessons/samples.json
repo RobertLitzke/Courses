@@ -259,13 +259,10 @@
     }
   ],
   "summary": [
-    "**A sampler plays back a stored sound**, the sample, instead of making a wave.",
-    "**Played higher, a simple sampler plays faster**: pitch, vowels and speed all rise together, like a sped-up tape.",
-    "**A sample is a list of measurements**; how many a second is the sample rate (44,100 on a CD).",
-    "**Start point and length cut a slice** out of the sample.",
-    "**A recording holds only tones below half its sample rate**, the Nyquist frequency.",
-    "**Tones above it fold back down as aliases**, as film makes wagon wheels turn backwards.",
-    "**Coarse sampling on purpose** gives the grit of early samplers."
+    "**A simple sampler plays higher by playing faster.** Pitch, vowels and speed all rise together, as on a sped-up tape.",
+    "**A sample is a list of measurements.** The number taken each second is the sample rate, 44,100 on a CD.",
+    "**Only tones below half the sample rate survive.** Above this Nyquist frequency, tones fold back down as aliases, as film makes wagon wheels turn backwards.",
+    "**Coarse sampling gives a gritty sound.** Early samplers had little memory and sampled coarsely, and producers kept the grit on purpose once memory was cheap."
   ],
   "footnotes": {
     "chipmunk": {

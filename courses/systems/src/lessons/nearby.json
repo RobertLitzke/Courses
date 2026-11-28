@@ -233,14 +233,10 @@
     }
   ],
   "summary": [
-    "**Calculate the load before choosing a database.** One million drivers sending updates every 4 seconds generates 250,000 updates a second of data that expires within seconds, so you should hold the current state in memory and append a copy to a log.",
-    "**Separate indexes on latitude and longitude perform poorly.** A latitude range selects a band around the entire planet, and high-frequency updates constantly rewrite the on-disk indexes.",
-    "**Spatial cells convert a two-dimensional coordinate into a one-dimensional key.** Geohash interleaves the bits of longitude and latitude so that points within the same cell share a string prefix.",
-    "**Query every cell that intersects the search radius.** Nearby points on opposite sides of a cell boundary can have completely different cell prefixes.",
-    "**A quadtree adapts cell size to point density, while hexagons provide equidistant neighbours.** Subdivide cells finely in cities and coarsely in rural areas, and use hexagonal grids when smoothing demand counts across a map.",
-    "**S2 numbers cells along a Hilbert curve.** Any geographic region maps to a covering of a few cells, which translates into a few range scans in a sorted key-value store.",
-    "**Shard by cell and subdivide hot cells.** Because update traffic follows driver density, split busy city cells at a finer resolution to spread their load across more servers.",
-    "**Batch matching outperforms greedy nearest-neighbour dispatch.** Collecting requests for a couple of seconds and solving the assignment problem across the batch reduces total driving time."
+    "**Live locations belong in memory.** Updates from a million drivers every 4 seconds expire within seconds, so current positions are held in memory and a copy is appended to a log.",
+    "**Cells turn two coordinates into one key.** Geohash interleaves longitude and latitude bits so a cell's points share a prefix, and a query checks every cell within its radius, because neighbours can straddle a boundary.",
+    "**S2 turns a region into range scans.** It numbers cells along a Hilbert curve, so a few cells cover any region and each becomes a range scan in a sorted key-value store.",
+    "**Shard by cell and split the hot cells.** Update traffic follows driver density, so busy city cells are subdivided more finely, as in a quadtree, to spread their load across more servers."
   ],
   "footnotes": {
     "geohash": {

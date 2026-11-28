@@ -4,14 +4,10 @@
   "title": "The item that came back",
   "teaches": "Versions and vector clocks, merging conflicting writes, CRDTs and collaborative editing, consistency models, and CAP and PACELC",
   "summary": [
-    "**Concurrent writes need a merge rule.** A store that accepts writes on two replicas at once will hold two versions of a key, and its engineers must specify how to reconcile them.",
-    "**Last writer wins loses writes.** It keeps the version with the later timestamp, silently discards the other, and relies on physical clocks that can drift.",
-    "**Vector clocks tell newer from concurrent.** Each version carries one counter per replica, compared entry by entry: if every entry is at least as large and one is larger, the version is newer, and if each clock has a larger entry somewhere, they are concurrent.",
-    "**A merge must keep removes as well as adds.** Dynamo's cart merged by union, so a deleted item could reappear; an observed-remove set tracks both additions and removals.",
-    "**CRDTs merge without coordination.** Replicated data structures for counters, sets, maps and text guarantee that replicas converge to the same state regardless of message order, at the cost of extra metadata.",
-    "**Shared editing requires position transformation or immutable IDs.** Operational transformation rewrites each edit's index against concurrent edits, whereas a text CRDT assigns every character a fixed identifier.",
-    "**Name the consistency you offer.** Linearizable, causal, read-your-writes and eventual consistency provide different guarantees, and engineers select the weakest model that preserves correctness for a given feature.",
-    "**CAP applies during partitions.** While replicas cannot reach each other, an isolated replica must either reject requests or answer without consulting the others; PACELC adds that during normal operation the trade-off is between latency and consistency."
+    "**Concurrent writes need a merge rule.** Last writer wins keeps the version with the later timestamp, silently discards the other and trusts physical clocks that can drift.",
+    "**Vector clocks tell newer from concurrent.** Each version carries one counter per replica, and a version is newer only if every entry is at least as large and one is larger.",
+    "**CRDTs converge in any message order.** Replicated counters, sets, maps and text merge without coordination at the cost of extra metadata, and an observed-remove set tracks removals so deleted items stay deleted.",
+    "**CAP forces a choice only during a partition.** An isolated replica must either reject requests or answer alone, and PACELC adds that without a partition the trade is latency against consistency."
   ],
   "parts": [
     {

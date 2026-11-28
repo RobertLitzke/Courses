@@ -578,12 +578,10 @@
     }
   ],
   "summary": [
-    "**Storms are lows a thousand kilometres across.** Each carries a warm front, a warm sector and a cold front, and drifts east at about 30 km/h (20 mph).",
-    "**The barometer weighs the air overhead.** A steady fall means a low is coming; a sharp rise means its cold front has passed.",
-    "**Warm fronts soak, cold fronts squall.** A gentle ramp makes broad cloud and hours of steady rain; a steep nose makes a narrow line of towers and short, heavy downpours.",
-    "**The wind turns as a low goes by.** Southeast ahead of the warm front, southwest in the mild warm sector, northwest and colder behind the cold front.",
-    "**With your back to the wind, low pressure is on your left.** If high clouds cross from your left to your right the weather is getting worse; from right to left, better.",
-    "**Radar sees rain, not cloud.** A broad green shield is a warm front’s steady rain, a thin red line a cold front’s squalls, magenta a hailstorm, and a bright band the melting level."
+    "**Storms are lows about 1,000 km across.** Each has a warm front, warm sector and cold front and drifts east at about 30 km/h, and a steadily falling barometer means one is coming.",
+    "**Warm fronts soak, cold fronts squall.** A gentle ramp makes broad cloud and hours of steady rain, and a steep nose makes a narrow line of towers and short, heavy downpours.",
+    "**Crossed winds show whether weather will worsen.** With your back to the surface wind the low is on your left, and high clouds crossing from left to right mean the weather is getting worse.",
+    "**Radar sees rain, not cloud.** A broad green shield marks a warm front’s steady rain and a thin red line a cold front’s squalls, while magenta means hail."
   ],
   "footnotes": {
     "coriolis": {

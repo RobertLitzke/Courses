@@ -4,15 +4,10 @@
   "title": "A cache in spare memory",
   "teaches": "Caching in front of a database, hit-rate arithmetic, invalidation, and consistent hashing",
   "summary": [
-    "**A cache trades memory and data freshness for lower latency and reduced database load.** It answers repeated reads from memory so that the database processes only the misses.",
-    "**The database receives (1 − hit rate) of the reads.** Raising the hit rate from 90% to 99% cuts the database load to a tenth, making the hit rate the primary metric to monitor.",
-    "**memcached is an in-memory hash table partitioned by the client.** Servers keep no disk copies, maintain no replicas and never communicate with each other; the client hashes each key to select a server.",
-    "**With cache-aside the application coordinates the cache and the database.** It reads from the cache, queries the database on a miss, and writes the result back to the cache.",
-    "**Delete the cache entry on a write rather than updating it.** Two concurrent writers updating the cache can arrive out of order and leave a stale value in place indefinitely, whereas two deletes leave the entry empty in either order.",
-    "**A time to live bounds how stale an entry can become.** It causes misses on entries that have not changed, and acts as a fallback when invalidations fail.",
-    "**Assigning keys by hash modulo n moves almost every key when n changes.** Growing a cluster from 10 servers to 11 moves about 91% of the keys, turning the next read of each moved key into a miss.",
-    "**Consistent hashing moves only the keys that need to move.** On a ring, adding an eleventh server moves about 1/11 of the keys, which are the ones on the new server's arc.",
-    "**A database provisioned for cache misses depends on the cache.** Once the database is sized only for the miss traffic, a cache failure exposes it to the full read workload."
+    "**Database load is (1 − hit rate) of reads.** Raising the hit rate from 90% to 99% cuts database load to a tenth, so a database sized for misses fails when the cache does.",
+    "**memcached servers know nothing of each other.** They keep no disk copies or replicas, the client hashes each key to pick a server, and with cache-aside the application fills the cache after a miss.",
+    "**Delete cache entries on writes, never update them.** Two concurrent updates can arrive out of order and leave a stale value indefinitely, while two deletes leave the entry empty in either order.",
+    "**Consistent hashing moves only the necessary keys.** Hash modulo n moves about 91% of keys when 10 servers become 11, while a ring moves only the eleventh on the new server's arc."
   ],
   "parts": [
     {

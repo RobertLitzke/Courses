@@ -342,14 +342,10 @@
     }
   ],
   "summary": [
-    "**Sources move things, destinations get moved**: envelopes, LFOs and the key are sources; pitch, cutoff and level are destinations.",
-    "**A modulation matrix** has a square for every source and destination, each with its own amount.",
-    "**One source can go to several places at once**, such as an LFO on pitch and on cutoff together.",
-    "**Amounts can be negative**, moving the destination the opposite way from the source.",
-    "**Key to cutoff at +1 octave is full key tracking**: every note keeps the same tone up the keyboard.",
-    "**A route to the LFO's amount lets one source control another**, as in a vibrato that comes in late.",
-    "**The matrix is the patch cord made invisible**: early synths joined modules with cables, hence 'patch'.",
-    "**On an unfamiliar synth, find the matrix** and ask what each source is and what it can reach."
+    "**Sources move things and destinations get moved.** Envelopes, LFOs and the key are sources, and pitch, cutoff and level are destinations.",
+    "**A modulation matrix sets every route's amount.** It has a square for each source and destination, and an amount can be negative to move the destination the opposite way.",
+    "**Full key tracking keeps the tone even.** Key to cutoff at +1 octave makes every note keep the same tone up the keyboard.",
+    "**One source can control another's amount.** A route to the LFO's amount lets a second source bring vibrato in, for instance late in each note."
   ],
   "footnotes": {
     "pins": {

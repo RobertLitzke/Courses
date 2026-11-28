@@ -166,12 +166,9 @@
     }
   ],
   "summary": [
-    "**A scope draws voltage against time.** A signal is a changing voltage that carries something.",
-    "**Amplitude, period and frequency describe a wave.** Amplitude is the peak; frequency in hertz is one over the period.",
-    "**Real sounds are sines with harmonics.** A guitar pickup makes a few tenths of a volt.",
-    "**A one-battery circuit lifts its signal onto a steady voltage.** Usually half the supply, so the signal can swing both ways.",
-    "**Past its limits a stage clips.** The wave is cut flat; headroom is the room before that happens.",
-    "**Every voltage is a steady part plus a changing part.** When a signal will not pass, check the steady voltages first."
+    "**A scope draws voltage against time.** A signal is a changing voltage that carries something, such as the few tenths of a volt from a guitar pickup.",
+    "**Amplitude, period and frequency describe a wave.** Amplitude is the peak, frequency in hertz is one over the period, and real sounds are sines with harmonics.",
+    "**Signals ride on a steady voltage.** Every voltage is a steady part plus a changing part, so when a signal will not pass, check the steady voltages first."
   ],
   "journal": [],
   "footnotes": {

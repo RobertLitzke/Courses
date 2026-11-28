@@ -61,12 +61,10 @@
     }
   ],
   "summary": [
-    "**Cooling lava records the magnetic field.** Basalt locks in the field’s direction as it cools.",
-    "**The field reverses.** North and south swap at irregular intervals, many times over Earth’s history.",
-    "**New ocean floor forms at mid-ocean ridges.** It spreads away on both sides, carrying the record with it.",
-    "**Reversals make matching stripes.** The sea floor shows symmetrical magnetic stripes on either side of a ridge.",
-    "**Stripe widths give spreading rates.** Matched to the reversal timescale, they show a few centimetres a year.",
-    "**Ocean floor is young.** Nowhere older than about 180 million years in the main basins, so old floor must be destroyed elsewhere."
+    "**Cooling basalt records the magnetic field.** It locks in the field's direction as it cools, and the field reverses at irregular intervals, many times over Earth's history.",
+    "**Spreading ridges make matching magnetic stripes.** New ocean floor forms at mid-ocean ridges and moves away on both sides, so reversals show as symmetrical stripes either side.",
+    "**Stripe widths give spreading rates.** Matched to the reversal timescale, they show sea floor spreading a few centimetres a year.",
+    "**Ocean floor is young.** Nowhere in the main basins is it older than about 180 million years, so old floor must be destroyed elsewhere."
   ],
   "journal": [],
   "footnotes": {"curie": {"kind": "technical", "title": "Curie temperature", "text": "Each magnetic mineral has a **Curie temperature**, named after Pierre Curie, above which heat scrambles its magnetism. For magnetite it is about 580 °C; for iron, 770 °C, which is why the Earth's hot core cannot be a permanent magnet (Deep Earth branch, lesson D4)."}, "cocktail": {"kind": "digression", "title": "Talk for a cocktail party", "text": "One reviewer returned Morley's paper in 1963 with the comment that such speculation 'makes interesting talk at cocktail parties, but it is not the sort of thing that ought to be published under serious scientific aegis.' The idea is now often called the Vine-Matthews-Morley hypothesis."}, "jaramillo": {"kind": "digression", "title": "Jaramillo", "text": "Named after Jaramillo Creek in the Jemez Mountains of New Mexico, where Doell and Dalrymple found the lavas. They announced it in November 1965, just in time for Vine and Pitman to spot it in the sea-floor profiles."}, "magnetometer": {"kind": "digression", "title": "Submarine hunting", "text": "Fluxgate magnetometers had been refined during the Second World War so that aircraft could spot the steel hulls of submerged submarines by the small disturbance they made in the Earth's magnetic field. Adapted in the 1950s to be towed in a waterproof 'fish' several hundred feet behind a ship, far enough astern to escape the magnetic pull of the ship's own hull, they became a staple of postwar oceanography."}}

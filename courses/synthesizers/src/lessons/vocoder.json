@@ -281,12 +281,10 @@
     }
   ],
   "summary": [
-    "**A voice is a buzz through formants**; the lowest two are enough to tell most vowels apart.",
-    "**A vowel engine copies that**: Wave moves the vowel, Timbre the size of the mouth, Shape the breath.",
-    "**Homer Dudley’s Voder (1939)** was played by hand: keys shaped the formants, a pedal set the pitch.",
-    "**A vocoder lets a voice set the bands**: the voice’s band levels shape a synth’s sound.",
-    "**More bands, clearer words**: with too few, every vowel sounds the same.",
-    "**Speech engines store words as formant settings**, as the Speak & Spell did in 1978."
+    "**Two formants identify most vowels.** The lowest two resonant peaks are enough to tell most vowels apart, which is what a vowel engine copies.",
+    "**A vocoder lets a voice shape a synth.** It measures the level in each band of a voice and opens the same bands on the synth, which then speaks.",
+    "**More bands make clearer words.** With too few, each band is so wide that every vowel sounds the same.",
+    "**Speech engines store words as formant settings.** They play the settings back at the note's pitch, as the Speak & Spell did in 1978."
   ],
   "footnotes": {
     "voder": {

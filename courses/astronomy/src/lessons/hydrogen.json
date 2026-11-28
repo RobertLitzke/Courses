@@ -53,11 +53,9 @@
     }
   ],
   "summary": [
-    "**Stars were sorted by their spectra.** The Harvard computers classified hundreds of thousands, and Annie Jump Cannon set the order O, B, A, F, G, K, M.",
+    "**Spectral classes form a temperature scale.** Annie Jump Cannon set the order O, B, A, F, G, K, M, and Cecilia Payne showed in 1925 that it runs from hot to cool.",
     "**Line strength depends on temperature.** An atom absorbs only if its electron sits at the right energy, so heat can strengthen or erase lines.",
-    "**The classes are a temperature scale.** Cecilia Payne showed in 1925 that they run from hot O stars to cool M stars.",
-    "**Stars are mostly hydrogen and helium.** Different lines mean different temperatures, not different ingredients.",
-    "**Weak lines can mislead.** The Sun’s hydrogen lines are weak because it is too cool, not because it lacks hydrogen."
+    "**Stars are mostly hydrogen and helium.** Different lines mean different temperatures, not different ingredients, and the Sun’s hydrogen lines are weak because it is too cool."
   ],
   "journal": [],
   "footnotes": {"leavitt":{"kind":"digression","title":"Henrietta Leavitt","text":"One of them, Henrietta Swan Leavitt, found in 1908 and 1912 that pulsing stars called Cepheids pulse more slowly the brighter they really are. That made them yardsticks, and in the 1920s Edwin Hubble used them to show that other galaxies lie far outside our own."},"mnemonic":{"kind":"digression","title":"More letters","text":"Cooler classes found since the 1990s, L, T and Y, mostly for brown dwarfs (objects too small to fuse hydrogen steadily, not stars), have lengthened the list, and students keep inventing new sentences to fit."}}

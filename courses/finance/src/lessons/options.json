@@ -57,12 +57,10 @@
     }
   ],
   "summary": [
-    "**An option's value at exercise is its spread.** The share price above the strike, and nothing below it.",
-    "**NSOs are wages at exercise.** Exercising in a low-income year lowers the tax.",
-    "**ISOs can turn pay into long-term gain.** Hold two years from grant and one from exercise.",
-    "**The AMT counts the ISO spread.** Exercise in amounts that stay under it, or sell enough to pay it.",
-    "**AMT paid comes back as a credit.** But a falling price can leave a bill larger than the shares.",
-    "**An 83(b) election taxes early-exercised shares now.** Within 30 days, often at a spread of zero."
+    "**NSOs are taxed as wages at exercise.** The taxed amount is the spread, the share price above the strike, so exercising in a low-income year lowers the tax.",
+    "**ISOs can turn pay into long-term gain.** The shares must be held two years from grant and one year from exercise.",
+    "**The AMT counts the ISO spread as income.** AMT paid comes back later as a credit, but a falling share price can leave a bill larger than the shares.",
+    "**An 83(b) election taxes early-exercised shares now.** Filed within 30 days, it often taxes a spread of zero."
   ],
   "footnotes": {
     "credit": { "kind": "technical", "title": "The minimum tax credit", "text": "AMT that arises from deferral items, ISOs above all, carries forward without limit as a credit. Each later year the credit can reduce regular tax down to that year's minimum tax. Selling the ISO shares helps, because their AMT basis is higher than their regular basis, so the sale shows a smaller gain for the AMT." },

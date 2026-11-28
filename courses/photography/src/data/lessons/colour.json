@@ -237,13 +237,10 @@
     }
   ],
   "summary": [
-    "**Light has a colour, given in kelvin.** Candle about 1900 K, noon sun 5500 K, blue shade 8000 K and up; warm is the low number.",
-    "**White balance cancels the colour it thinks the light has.** On auto it pushes everything toward neutral.",
-    "**Fix white balance to keep a mood.** The Daylight preset keeps blue hour blue and sunsets orange.",
-    "**The time of day sets three things at once.** Colour, direction and hardness: low sun is warm and raking, high sun white and hard.",
-    "**Overcast is good light for birds.** Soft and even, with no hard shadows or blown whites.",
-    "**Backlight needs a decision.** Expose for the rim, darkening the rest, or for the face, letting the sky go white.",
-    "**A polariser is the filter software cannot copy.** It darkens blue sky 90° from the sun and cuts glare; turn it, and look."
+    "**Light's colour is measured in kelvin.** A candle is about 1900 K, noon sun 5500 K and blue shade 8000 K or more, so warm light has the low number.",
+    "**White balance cancels the colour it assumes.** Auto pushes every scene toward neutral, so set the Daylight preset to keep blue hour blue and sunsets orange.",
+    "**Time of day sets colour, direction and hardness.** Low sun is warm and raking, high sun is white and hard, and overcast light is soft and even.",
+    "**A polariser does what software cannot copy.** It darkens blue sky at 90° from the sun and cuts glare, so turn it while you look through the camera."
   ],
   "journal": [],
   "footnotes": {

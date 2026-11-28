@@ -226,14 +226,10 @@
     }
   ],
   "summary": [
-    "**Blast radius is the share of a system one failure reaches.** Measure it for every server, request, deployment and administrative command.",
-    "**A poison request can crash an entire shared fleet.** Client retries carry the crashing request from server to server.",
-    "**Cells contain failures.** Run independent copies of the stack, each serving a subset of customers behind a thin router, at the cost of lower capacity pooling.",
-    "**Shuffle sharding assigns each customer a random subset of servers.** With 8 servers and 2 per customer there are 28 combinations, so a customer who shares 1 server with an affected customer still has 1 working server left.",
-    "**A statically stable data plane keeps running without its control plane.** Servers continue operating on their last known configuration without fetching new state.",
-    "**Pre-provision capacity instead of launching servers during an outage.** A service across 3 availability zones that must survive losing 1 zone must run at 1.5 times its peak load at all times.",
-    "**Eliminate dependency loops in recovery tools.** The tools required to fix a system must not depend on that system running; maintain an out-of-band management network.",
-    "**Most outages are triggered by planned changes.** Rate-limit administrative tools, roll out changes in stages, keep cells small enough to restart quickly, and practise cold restarts."
+    "**Cells limit the blast radius of a failure.** Independent copies of the stack each serve a subset of customers behind a thin router, at the cost of pooling less capacity.",
+    "**A statically stable data plane survives control-plane failure.** Servers keep running on their last known configuration, and capacity is provisioned in advance, so three zones that must survive losing one run at 1.5 times peak.",
+    "**Recovery tools must survive the system's failure.** An out-of-band management network keeps the tools reachable when the system they fix is down.",
+    "**Most outages are triggered by planned changes.** Rate-limit administrative tools, roll changes out in stages, keep cells small enough to restart quickly and practise cold restarts."
   ],
   "footnotes": {
     "poison": {

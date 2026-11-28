@@ -14,10 +14,10 @@ describe('the lessons', () => {
     expect(treeProblems(LESSONS, BRANCHES)).toEqual([]);
   });
 
-  it('end with a summary of five to ten points, and a check', () => {
+  it('end with a summary of two to five takeaways, and a check', () => {
     for (const l of WRITTEN) {
-      expect(l.summary.length, l.id).toBeGreaterThanOrEqual(5);
-      expect(l.summary.length, l.id).toBeLessThanOrEqual(10);
+      expect(l.summary.length, l.id).toBeGreaterThanOrEqual(2);
+      expect(l.summary.length, l.id).toBeLessThanOrEqual(5);
       const last = l.parts[l.parts.length - 1];
       expect(last.blocks.some((b) => b.type === 'quiz' && b.id === 'check'), l.id).toBe(true);
     }

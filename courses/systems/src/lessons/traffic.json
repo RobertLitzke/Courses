@@ -256,14 +256,10 @@
     }
   ],
   "summary": [
-    "**Phones act as mobile traffic sensors.** Google Maps began crowdsourcing phone locations in 2009, and Waze built both its road graph and traffic layer from user traces.",
-    "**Define the system requirements upfront.** Published segment speeds must balance low latency, accuracy, user privacy, and spoofing resistance.",
-    "**Data sparsity drives the aggregation design.** Spreading 2 million position reports a second across hundreds of millions of road segments leaves most segments with zero reports in any given minute.",
-    "**Map matching aligns noisy GPS coordinates to the road graph.** A hidden Markov model solved via the Viterbi algorithm finds a drivable sequence of segments, whereas snapping to the nearest road jumps across parallel carriageways.",
-    "**Window duration trades detection latency against stability.** Short windows detect jams within minutes but fluctuate on quiet streets, while long windows smooth out noise at the cost of stale alerts.",
-    "**Medians, thresholds, and historical priors produce robust speed estimates.** Taking the median filters out stopped buses and pedestrians, a minimum-device threshold preserves user privacy, and historical averages provide a fallback on sparse segments.",
-    "**Unforged sensor data can still violate model assumptions.** Weckert's 99 phones reported accurate positions; defending the pipeline requires clustering co-moving devices into a single observer and verifying upstream queue propagation.",
-    "**ETA prediction evaluates segment speeds at future traversal times.** Routers use live speeds for nearby segments and historical forecasts for distant ones, evaluating accuracy by comparing predicted and actual durations on completed trips."
+    "**Most road segments get no reports each minute.** Two million position reports a second spread across hundreds of millions of segments, so speeds come from sparse data.",
+    "**Map matching must follow drivable roads.** A hidden Markov model solved by the Viterbi algorithm finds a drivable sequence of segments, where snapping to the nearest road jumps between parallel carriageways.",
+    "**Medians, thresholds and history steady the speed estimates.** Medians ignore stopped buses and pedestrians, a minimum device count protects privacy, historical averages fill sparse segments, and window length trades speed for stability.",
+    "**Accurate positions can still fake a jam.** Weckert's 99 real phones in a handcart reported true positions, so co-moving devices are clustered into one observer and jams are checked for upstream queues."
   ],
   "footnotes": {
     "loops": {

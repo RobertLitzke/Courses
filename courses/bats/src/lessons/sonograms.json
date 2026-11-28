@@ -6,14 +6,10 @@
   "title": "Reading a sonogram",
   "teaches": "Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls",
   "summary": [
-    "**A heterodyne detector hears a slice.** It plays only the 10 kHz around its dial, so two bats can tick alike while their calls differ.",
-    "**Frequency division counts waves.** It sends out one pulse for every ten waves of the call, so the whole call comes out at a tenth of its pitch, live; it keeps frequency and timing but loses loudness and harmonics.",
-    "**Time expansion records, then slows.** A short recording played back ten times slower keeps every detail of the call, at a tenth of its pitch and ten times its length.",
-    "**A sonogram is a picture of sound.** Time runs across, frequency runs up, and darker means louder.",
-    "**Four measurements describe a call.** Its characteristic frequency, the flattest part; its slope; its duration; and the interval to the next call.",
-    "**Call shape follows the hunting.** Long, shallow, low calls suit open sky; short, steep sweeps suit bats working close to trees and water.",
-    "**Washington's common bats fall into frequency groups.** Hoary near 20 kHz, big brown and silver-haired near 25 to 28, little brown near 40, Yuma and California myotis near 50.",
-    "**Some bats cannot be told apart by call.** Big brown and silver-haired bats are often left together, many surveys leave Yuma and California myotis as one \"50 kHz myotis\", and Townsend's big-eared bat is often too quiet to record."
+    "**Two methods bring the whole call into hearing.** Frequency division plays it live at a tenth of its pitch but loses loudness and harmonics, while time expansion records it and slows it tenfold.",
+    "**A sonogram plots frequency against time.** Darker means louder, and a call is described by its characteristic frequency, its slope, its duration and the interval to the next call.",
+    "**Call shape follows the way a bat hunts.** Long, shallow, low calls suit open sky, and short, steep sweeps suit bats working close to trees and water.",
+    "**Washington's common bats call in frequency groups.** Hoary bats call near 20 kHz, big brown and silver-haired near 25 to 28, little brown near 40, and Yuma and California myotis near 50."
   ],
   "parts": [
     {

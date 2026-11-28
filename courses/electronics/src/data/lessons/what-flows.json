@@ -253,12 +253,9 @@
     }
   ],
   "summary": [
-    "**Current is the same all round a single loop.** Parts turn the energy into light and heat; they do not use up the current.",
-    "**The wire is already full of charge.** Electrons drift slowly, but the push and the energy it carries arrive almost at once.",
-    "**Change one part and the current changes everywhere in the loop.**",
-    "**Measure voltage across, current through.** Voltage is read between two points in parallel with a part; current by putting the meter in series in the loop.",
-    "**Put the meter’s lead back after measuring amps.** An amps-mode meter across a battery is a dead short; if it reads nothing, check its fuse.",
-    "**Ohm’s law: I = V / R.** Work out the resistance you need, then pick the nearest standard E-series value.",
+    "**Current is the same all round a loop.** Parts turn its energy into light and heat without using up the current, so changing one part changes it everywhere.",
+    "**Measure voltage across, current through.** Read voltage in parallel with a part and current in series, and never leave an amps-mode meter across a battery, which is a dead short.",
+    "**Ohm’s law gives I = V / R.** Work out the resistance you need, then pick the nearest standard E-series value.",
     "**Not everything obeys Ohm’s law.** A lamp’s resistance rises as it heats, so its current curve bends."
   ],
   "journal": [],

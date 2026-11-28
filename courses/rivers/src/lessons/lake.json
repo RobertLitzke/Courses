@@ -4,15 +4,10 @@
   "title": "Why the bottom of the lake stays cold",
   "teaches": "Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches",
   "summary": [
-    "**Heat barely moves through still water.** Conduction alone would take centuries to carry the summer's warmth 30 metres down, so a lake warms at depth only when its water is stirred.",
-    "**Fresh water is densest near 4 °C.** Warmer water is lighter and floats; below 4 °C water grows lighter again, so ice and near-freezing water float on top.",
-    "**The warmer the water, the more each degree changes its density.** Between 21 and 22 °C the change is about thirty times what it is between 4 and 5 °C, so a summer lake is layered firmly.",
-    "**A lake in summer has three layers.** A warm, wind-stirred top layer (the epilimnion), a thin layer where the temperature drops fast (the thermocline), and cold, still water below (the hypolimnion).",
-    "**The wind cannot lift heavy water through light.** A summer wind churns the top layer but not the cold water under it, which keeps last winter's temperature, about 7 °C in Lake Washington.",
-    "**Lake Washington mixes once a year, in early winter.** As the top cools to the bottom's temperature, the layers stop resisting, the wind stirs the whole lake, and it stays mixed until spring.",
-    "**Turnover is mixing, not rolling over.** The cooling top layer sinks and is stirred deeper until the lake is one temperature; lakes that freeze mix twice, in spring and autumn.",
-    "**A seiche is a lake sloshing.** Wind piles water at one end; when it drops, the lake swings back and forth at its own natural period, set by its length and depth.",
-    "**The thermocline sloshes too, the opposite way and slower.** Wind tilts it against the surface's tilt by more than a thousand times as much, and it swings back over about two days."
+    "**Fresh water is densest near 4 °C.** Warmer water floats on it, and below 4 °C water grows lighter again, so ice and near-freezing water float on top.",
+    "**A summer lake is firmly layered.** Each degree changes density more in warm water, so a warm, wind-stirred epilimnion floats over the thermocline and a cold hypolimnion that keeps last winter's temperature.",
+    "**Lake Washington mixes once a year.** In early winter the top cools to the bottom's temperature, the layers stop resisting, and the wind stirs the whole lake until spring.",
+    "**A wind-tilted lake sloshes as a seiche.** When the wind drops the lake swings at a period set by its length and depth, while the thermocline swings the opposite way, far more and slower."
   ],
   "parts": [
     {

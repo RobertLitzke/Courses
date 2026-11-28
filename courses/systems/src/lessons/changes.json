@@ -214,13 +214,10 @@
     }
   ],
   "summary": [
-    "**A change starts as an observation that disagrees with the map.** One observation proves little; detectors misread, phones detour, and some reports are vandalism.",
-    "**Count independent evidence.** Observations that share a source count as one, while many independent sources agreeing at once is strong evidence.",
-    "**Calibrate confidence.** Among changes scored at 95%, about 95% should be real, checked on a sample people verify.",
-    "**Tier by risk, not by confidence alone.** Risk is how many people a wrong change would reach and how much it would cost them.",
-    "**Put people where judgement matters most.** Automatic publishing for low risk and high confidence, one reviewer for the middle, two independent reviewers for the most prominent names and roads.",
-    "**Reviewers form a queue.** When candidate change volume exceeds human review capacity, queue depth and latency grow continuously. Automated publishing thresholds and review staffing must be balanced together.",
-    "**Publish through the checks, roll back by source.** Approved changes still pass whole-map checks, and provenance lets every change from one source be reverted at once."
+    "**A change needs independent evidence.** One observation that disagrees with the map proves little, since detectors misread and phones detour, and observations that share a source count as one.",
+    "**Confidence scores must be calibrated.** Among changes scored at 95%, about 95% should be real, checked on a sample that people verify.",
+    "**Review effort follows risk, not confidence alone.** Risk is how many people a wrong change would reach and what it would cost them, so the most prominent names and roads get two independent reviewers.",
+    "**Every change stays reversible by source.** Approved changes still pass whole-map checks, and provenance lets every change from one source be reverted at once."
   ],
   "footnotes": {
     "mapbox": {

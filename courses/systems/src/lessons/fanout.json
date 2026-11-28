@@ -4,14 +4,10 @@
   "title": "Who pays for a tweet?",
   "teaches": "Fan-out on write and on read, the hybrid for accounts with millions of followers, and IDs that sort by time",
   "summary": [
-    "**Optimise for the dominant operation.** When reads outnumber writes sixty to one, precomputing timelines once at write time requires far less total work than assembling them on every read.",
-    "**Fan-out on write maintains a cached list per reader.** The system pushes each new tweet's ID into every follower's Redis list, reducing a timeline read to a single list lookup.",
-    "**Fan-out on read merges timelines on demand.** Writes require only a single insert, but every read must query hundreds of accounts and wait for the slowest response.",
-    "**High-fan-out outliers break write-time designs.** A single tweet from an account with 30 million followers triggers 30 million list inserts and minutes of replication lag.",
-    "**A hybrid design separates normal accounts from outliers.** Ordinary accounts are fanned out on write, while high-follower accounts are merged in when a timeline is read.",
-    "**Only precompute caches for active readers.** Twitter held timelines in RAM only for recently active users and rebuilt timelines on demand for returning users.",
-    "**Snowflake IDs sort by time without per-ID coordination.** Packing 41 bits of milliseconds, 10 bits of worker ID and 12 bits of sequence counter allows each server to allocate up to 4,096 time-ordered IDs per millisecond.",
-    "**Generators must halt if the local clock steps backwards.** Issuing IDs with a previously used millisecond timestamp risks duplicate IDs and breaks chronological ordering."
+    "**Precompute for the dominant operation.** With reads outnumbering writes sixty to one, pushing each tweet into every follower's cached timeline costs far less than assembling timelines on every read.",
+    "**Accounts with huge followings break fan-out on write.** One tweet from an account with 30 million followers means 30 million list inserts and minutes of replication lag.",
+    "**A hybrid fans out only ordinary accounts.** High-follower accounts are merged in when a timeline is read, and only recently active readers keep a cached timeline in memory.",
+    "**Snowflake IDs sort by time without coordination.** Each ID packs 41 bits of milliseconds, 10 bits of worker ID and 12 bits of sequence, and a generator must halt if its clock steps backwards."
   ],
   "parts": [
     {

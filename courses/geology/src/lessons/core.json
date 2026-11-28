@@ -50,12 +50,9 @@
     }
   ],
   "summary": [
-    "**Missing waves revealed the core.** Waves crossing the Earth's centre arrived late, so something slower lies there.",
-    "**Waves curve through the Earth.** They speed up with depth in the mantle and bend back to the surface.",
-    "**The core casts a shadow.** Waves entering it bend inward, leaving a zone from about 104° to 140° with no direct P waves.",
-    "**The core begins about 2,900 km down.**",
-    "**The outer core is liquid.** S waves do not cross it, and tides show it has no rigidity.",
-    "**Churning liquid iron makes the magnetic field.**"
+    "**The core casts a seismic shadow.** Mantle waves curve back to the surface, but waves entering the slower core bend inward, leaving no direct P waves from about 104° to 140°.",
+    "**The core begins about 2,900 km down.** Waves that cross the Earth's centre arrive late, showing slower material below that depth.",
+    "**The outer core is liquid.** S waves, which cannot travel through liquid, do not cross it, and tides show it has no rigidity."
   ],
   "journal": [],
   "footnotes": {"snell":{"kind":"technical","title":"Snell's law","text":"The rule for how much a wave turns at a boundary is **Snell's law**, found for light by Willebrord Snellius in 1621: the sine of the angle from straight down, divided by the speed, is the same on both sides. Seismologists use it in exactly the form opticians do."},"assam":{"kind":"digression","title":"Oldham and the Assam earthquake","text":"Oldham's 1899 report on the Great Assam earthquake of 12 June 1897 was a landmark before he ever looked at the core. In the hills of north-east India he found boulders tossed into the air without disturbing the soil around them, showing the ground had accelerated downward faster than gravity. More importantly for seismology, he was the first to clearly identify on actual seismograms the three separate wave arrivals that theory had predicted: the primary (P) push-pull waves, the secondary (S) shear waves, and the slower surface waves."},"gutenberg":{"kind":"technical","title":"The Gutenberg discontinuity","text":"The sharp boundary between the rocky mantle and the liquid outer core at 2,890 kilometres depth is called the **core-mantle boundary** (CMB) or the **Gutenberg discontinuity**. Of all the boundaries inside the Earth, the change in physical properties here is greater than at any other, even greater than at the surface where rock meets air."},"curie":{"kind":"technical","title":"The Curie temperature","text":"The temperature above which a magnetic material loses its permanent magnetism is called its **Curie temperature** (or Curie point), after Pierre Curie, who showed in 1895 that heat agitates the atoms enough to break up their magnetic alignment. For pure iron at surface pressure it is 770 °C."}}

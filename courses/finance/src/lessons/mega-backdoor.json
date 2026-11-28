@@ -67,11 +67,10 @@
     }
   ],
   "summary": [
-    "**High earners can't fund a Roth IRA directly.** Above $252,000 for a couple in 2026 the direct route closes.",
-    "**The backdoor goes through a traditional IRA.** Contribute without a deduction, then convert.",
-    "**The pro-rata rule spoils it.** Pre-tax IRA money makes most of the conversion taxable; move it into a 401(k) first.",
-    "**The mega backdoor fills the rest of the $72,000 limit.** After-tax 401(k) money converted to Roth at once, where the plan allows.",
-    "**Catch-ups go Roth from 2026.** For anyone 50 or older whose wages from the employer were over $150,000 the year before."
+    "**High earners can't fund a Roth IRA directly.** Above an income limit set each year, the direct contribution route closes.",
+    "**The backdoor Roth goes through a traditional IRA.** Contribute without a deduction, then convert the money to Roth.",
+    "**Pre-tax IRA money spoils the backdoor.** Under the pro-rata rule it makes most of the conversion taxable, so move it into a 401(k) first.",
+    "**The mega backdoor converts after-tax 401(k) money.** Where the plan allows, after-tax contributions fill the rest of the total limit and are converted to Roth at once."
   ],
   "footnotes": {
     "phase": { "kind": "technical", "title": "The phase-out", "text": "Direct Roth IRA contributions shrink between $242,000 and $252,000 of MAGI for a couple in 2026, and between $153,000 and $168,000 for a single person. Within that range a partial contribution is allowed." },

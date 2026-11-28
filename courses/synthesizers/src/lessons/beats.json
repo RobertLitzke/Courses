@@ -380,12 +380,10 @@
     }
   ],
   "summary": [
-    "**Two tones a few hertz apart beat**: the sound swells and fades at the difference between them.",
-    "**Piano tuners listen for beats**, and turn the pin until they stop.",
-    "**A second oscillator, slightly detuned, thickens a sound** like a section of players never quite in tune.",
-    "**Detune is measured in cents**, hundredths of a semitone.",
-    "**Whole intervals make chords**: an octave is 2:1, a fifth 3:2.",
-    "**Simple ratios share harmonics**, so they don't beat; slightly off, they do."
+    "**Two close tones beat at their difference.** Tones a few hertz apart swell and fade at that rate, which is what piano tuners listen for.",
+    "**A slightly detuned oscillator thickens a sound.** It sounds like a section of players never quite in tune, and detune is measured in cents, hundredths of a semitone.",
+    "**Musical intervals are simple frequency ratios.** An octave is 2:1 and a fifth 3:2.",
+    "**Simple ratios share harmonics and don't beat.** Tuned slightly off the ratio, the shared harmonics beat against each other."
   ],
   "footnotes": {
     "supersaw": {

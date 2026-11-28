@@ -4,14 +4,10 @@
   "title": "What a wave knows about the wind",
   "teaches": "Waves carry energy, not water; fetch and duration, chop and swell, wave speed in deep and shallow water, and waves against a current",
   "summary": [
-    "**A wave carries energy, not water.** Each bit of water goes round a small loop as a wave passes and ends up nearly where it started.",
-    "**The motion fades with depth.** Half a wavelength down, the loops are about a twenty-third the size of those at the surface, so the water below a storm is still.",
-    "**In deep water, the period sets the speed.** A wave travels about 1.56 m/s for each second of its period, so long waves outrun short ones.",
-    "**Three things cap a wind's waves.** The fetch (how much open water the wind blows over), the duration, and the point where the waves travel as fast as the wind; whichever comes first sets their size.",
-    "**Chop is young and swell is old.** Chop is short, steep waves still under their wind; swell is long, smooth waves that have left their storm behind.",
-    "**In shallow water, the depth sets the speed.** Where a wave is more than twenty times as long as the water is deep, it travels at √(g × depth), whatever its period.",
-    "**A current running against waves steepens them.** On the ebb, the falling tide, the outflow off Point Wilson shortens incoming waves until they break.",
-    "**A fast boat makes long waves.** The longest waves of its wake travel at the boat's own speed, so their period is as long as ocean swell's, and they come ashore hard."
+    "**A wave carries energy, not water.** Each bit of water goes round a small loop and ends nearly where it started, and half a wavelength down the loops are a twenty-third the size.",
+    "**Fetch, duration or wind speed caps the waves.** Waves stop growing when the wind runs out of open water or time, or when they travel as fast as the wind, whichever comes first.",
+    "**Period or depth sets a wave's speed.** A deep-water wave travels about 1.56 m/s per second of period, and one over twenty times longer than the depth travels at √(g × depth).",
+    "**A current against the waves steepens them.** An opposing current shortens incoming waves until they break, as the ebb does off Point Wilson."
   ],
   "parts": [
     {

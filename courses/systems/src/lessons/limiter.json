@@ -326,16 +326,10 @@
     }
   ],
   "summary": [
-    "**Pin down what the limiter is for.** Enforcing per-key limits, returning clear refusal headers and shedding load by priority belong in the limiter; stopping packet floods, billing customers and revoking stolen keys belong elsewhere.",
-    "**Fixed windows leak at the boundary.** Two bursts on either side of a window reset can pass nearly twice the limit in a 60-second span.",
-    "**A token bucket enforces a sustained rate plus a burst.** It stores two numbers per key, refills lazily, and passes at most b + rT requests over any span T.",
-    "**A sliding log is exact and costly; a sliding counter is cheap and close.** Accuracy within a few per cent is sufficient for rate limiting.",
-    "**Shared counts need one atomic step.** Read, decide and write inside a single Redis Lua script, or concurrent gateways will spend the same token twice.",
-    "**Decide how the limiter fails.** Fail open for general flood protection, fail closed for login rate limiting, and always enforce a short timeout on the store.",
-    "**Refusing must be far cheaper than serving.** Returning HTTP 429 with a Retry-After header at the gateway takes microseconds, while client backoff and jitter prevent retry storms.",
-    "**Rate limits miss slow requests; concurrency limits catch them.** By Little's law, a slower endpoint holds more requests in flight at the same arrival rate.",
-    "**Per-key limits cannot save an overloaded fleet.** Stripe reserved capacity for critical requests and shed test traffic and read requests first.",
-    "**At scale, batch and split.** Lease tokens in batches to handle hot keys, and allocate each geographic region a local share of a global limit."
+    "**Token buckets allow a sustained rate plus bursts.** Each stores two numbers per key, refills lazily and passes at most b + rT requests in any span T, where fixed windows pass nearly twice the limit.",
+    "**Shared counters need one atomic step.** Reading, deciding and writing inside a single Redis Lua script stops concurrent gateways from spending the same token twice.",
+    "**Choose whether the limiter fails open or closed.** Fail open for general flood protection, fail closed for login limits, and always set a short timeout on the store.",
+    "**Per-key limits cannot save an overloaded fleet.** Concurrency limits catch slow requests that rate limits miss, and shedding by priority protects critical work, as Stripe shed test traffic and reads first."
   ],
   "footnotes": {
     "leaky": {

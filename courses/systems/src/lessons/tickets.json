@@ -247,15 +247,10 @@
     }
   ],
   "summary": [
-    "**Most of the system's work is rejecting traffic.** Selling 2 million seats over 4 hours requires only 140 write transactions per second, whereas 14 million users refreshing a page generate millions of read requests per second.",
-    "**Match consistency guarantees to each operation.** The seat map can be served stale from a cache, placing a hold requires strict atomic consistency, payment processing requires idempotency keys, and finalising the sale requires a conditional check on the hold.",
-    "**Unbuffered overload causes goodput to collapse.** When queueing delay exceeds client timeouts, servers spend 100% of their CPU cycles on abandoned requests while client retries amplify the load.",
-    "**A waiting room throttles admission to match backend capacity.** Issue cryptographically signed tokens, serve a static waiting page from a CDN, and regulate admission into the checkout service with a token bucket.",
-    "**Reject invalid traffic at the stateless edge.** Validate invitation codes, token signatures, and per-account rate limits at the edge before requests consume backend database capacity.",
-    "**Prevent double-selling with atomic conditional writes.** Update the seat holder in a single SQL statement only where the seat has no holder or the existing hold has expired.",
-    "**Use self-expiring holds evaluated against the database clock.** Including an expiration timestamp in the conditional write automatically reclaims abandoned seats without requiring background cleanup jobs or distributed locks.",
-    "**Partition seats by event and section.** A group's seats share a shard, and a single owner process per hot section can allocate seats sequentially in memory.",
-    "**The same concurrency patterns apply to any scarce inventory.** Use sharded conditional counters for retail flash sales, per-night counters for hotel rooms, and short-lived expiring holds for ride-hailing driver dispatch."
+    "**Most of a sale is turning traffic away.** Two million seats over 4 hours need about 140 writes a second, while 14 million refreshing users send millions of reads a second.",
+    "**A waiting room matches admission to capacity.** Signed tokens, a static waiting page served from a CDN and a token bucket at checkout stop overload from collapsing goodput.",
+    "**An atomic conditional write prevents double-selling.** One SQL statement claims a seat only if it has no holder or the hold has expired, which also reclaims abandoned holds without cleanup jobs.",
+    "**Match consistency to each operation.** The seat map can be stale from a cache, a hold needs strict atomic consistency, payment needs idempotency keys, and the sale checks the hold."
   ],
   "footnotes": {
     "senate": {

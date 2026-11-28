@@ -216,12 +216,10 @@
     }
   ],
   "summary": [
-    "**The shutter speed is a window of time.** Anything whose image moves across the sensor in that window is recorded as a streak.",
-    "**The smear depends on speed, distance and zoom together.** A flying bird at a long zoom needs 1/1000 s to 1/2000 s.",
-    "**Shake and movement look alike but read differently.** Everything smeared means the camera moved; only the subject smeared means the subject did.",
-    "**The rule of thumb is one over the focal length.** The stabiliser buys three or four stops of it, and does nothing for a moving subject.",
-    "**Panning swaps which thing is sharp.** Swing with the bird at a slow shutter: the bird stays sharp and the background streaks.",
-    "**Long exposures need less light.** Silky water takes a tripod, and in daylight a neutral density filter."
+    "**The shutter speed is a window of time.** Anything whose image crosses the sensor during it records as a streak, so a flying bird at long zoom needs 1/1000 s to 1/2000 s.",
+    "**Shake and subject motion blur differently.** When everything is smeared the camera moved, and when only the subject is smeared the subject did.",
+    "**Handhold at about one over the focal length.** The stabiliser buys three or four stops beyond that rule of thumb but does nothing for a moving subject.",
+    "**Panning swaps which thing is sharp.** Swing with the bird at a slow shutter speed and the bird stays sharp while the background streaks."
   ],
   "journal": [],
   "footnotes": {

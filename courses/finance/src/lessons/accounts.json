@@ -68,13 +68,10 @@
     }
   ],
   "summary": [
-    "**Four wrappers, one investment.** Pre-tax, Roth, HSA and taxable can all hold the same fund; only the timing of tax differs.",
-    "**Equal rates, equal results.** Pre-tax and Roth come out the same when the rate in matches the rate out.",
-    "**The rate in is marginal; the rate out is average.** Withdrawals fill the brackets from the bottom, through the standard deduction.",
-    "**Low-income years favour pre-tax.** A couple can take $32,200 a year tax-free and $100,000 for under 8 percent.",
-    "**Some things favour Roth.** Pensions, large required withdrawals, a surviving spouse filing single, and state taxes later.",
-    "**The HSA beats them all for health costs.** No tax in or out, no payroll tax through work, and reimbursement at any age.",
-    "**Taxable accounts give flexibility.** No age rules, the basis back untaxed, and access to the 0 percent band for gains."
+    "**Account types differ only in when tax falls.** Pre-tax, Roth, HSA and taxable accounts can hold the same fund, and pre-tax and Roth end equal when the rates in and out match.",
+    "**Withdrawals pay an average rate.** Money put in saves tax at its marginal rate, while money taken out fills the brackets from the bottom, starting with the standard deduction.",
+    "**Low-income years ahead favour pre-tax saving.** A couple can withdraw $100,000 a year for under 8 percent, while pensions, large required withdrawals or a survivor filing single favour Roth.",
+    "**The HSA suits health costs best.** Money goes in and comes out untaxed, skips payroll tax through work, and can reimburse old bills at any age."
   ],
   "footnotes": {
     "equal": { "kind": "technical", "title": "Why they match", "text": "Pre-tax: $10,000 × growth × (1 − rate). Roth: $10,000 × (1 − rate) × growth. The same three numbers multiplied in a different order. That holds for the same pay. The limits are a different matter: they count dollars deposited, not pay. A full $24,500 Roth deposit is all after-tax money, while $24,500 pre-tax still owes tax on the way out, so someone who can fill the limit either way shelters more in the Roth." },

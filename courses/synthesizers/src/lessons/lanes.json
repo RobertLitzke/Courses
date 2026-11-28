@@ -238,13 +238,10 @@
     }
   ],
   "summary": [
-    "**A sequence can remember knobs as well as notes**: modulation lanes, motion recording, automation, parameter locks.",
-    "**A lane is one value per step for one knob**, played back as the pattern plays.",
-    "**Lanes are usually recorded** by turning a knob while the sequencer records; about four per sequence is common.",
-    "**Dice works out a new set of variations**: dropped notes, octave jumps, moved accents.",
-    "**Spice sets how much of the variation is heard**, from none to all.",
-    "**A dice roll stays until you roll again**, unlike sample and hold's endless randomness.",
-    "**Probability, conditions and ratchets** are other ways a step can change from bar to bar."
+    "**Sequences can record knob moves, not only notes.** Called modulation lanes, motion recording, automation or parameter locks, they replay the moves as the pattern plays.",
+    "**A lane holds one knob's value per step.** It is usually recorded by turning the knob while the sequencer records, and about four lanes per sequence is common.",
+    "**Controlled randomness varies a pattern and keeps it.** On the MicroFreak, Dice rolls changes such as dropped notes or octave jumps, Spice sets how many are heard, and a roll stays.",
+    "**Probability, conditions and ratchets vary steps too.** They are other ways a step can change from one bar to the next."
   ],
   "footnotes": {
     "p-locks": {

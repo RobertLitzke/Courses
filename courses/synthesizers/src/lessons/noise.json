@@ -368,13 +368,10 @@
     }
   ],
   "summary": [
-    "**Noise is a random signal with no pitch**: its energy is spread over every frequency at once.",
-    "**White noise** has equal energy per hertz, so to the ear, which hears in octaves, most of it is high and it sounds bright.",
-    "**A synth's mixer** sets how much of each oscillator and of the noise goes on to the filter.",
-    "**Low-pass keeps the lows, high-pass the highs, band-pass a band** around the cutoff.",
-    "**A telephone line is a band-pass** of about 300 to 3,400 hertz, which is why voices on it sound thin.",
-    "**A filter's slope** is its steepness in decibels per octave: 24 dB cuts harder than 12 dB.",
-    "**A resonant band-pass on noise whistles**; moved slowly by an LFO, it becomes wind."
+    "**Noise has energy at every frequency.** It is a random signal with no pitch, and white noise sounds bright because the ear hears in octaves and most of it is high.",
+    "**Filters keep one part of the spectrum.** Low-pass keeps the lows, high-pass the highs and band-pass a band around the cutoff, and a 24 dB slope cuts harder than 12 dB.",
+    "**A telephone line is a band-pass filter.** It passes about 300 to 3,400 Hz, which is why voices on it sound thin.",
+    "**A resonant band-pass on noise whistles.** Moved slowly by an LFO, it becomes wind."
   ],
   "footnotes": {
     "pink": {

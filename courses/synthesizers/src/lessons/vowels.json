@@ -366,13 +366,10 @@
     }
   ],
   "summary": [
-    "**A voice is a buzz through a filter**: the vocal folds make a bright buzz and the mouth shapes it.",
-    "**Vowels are two or three resonant peaks, the formants.** The jaw moves the first, the tongue the second.",
-    "**Kratzenstein's prize tubes (1780)** made vowels from a reed and differently shaped resonators.",
-    "**Subtractive synthesis starts bright and takes away.** The filter does the taking.",
-    "**A low-pass filter removes harmonics above its cutoff.** Lower cutoff, darker sound, same pitch.",
-    "**Resonance boosts a narrow peak at the cutoff**, and at the top it whistles.",
-    "**Cutoff darkens; resonance sharpens.** Ask whether a sound got darker or got a peak."
+    "**A voice is a filtered buzz.** The vocal folds make a bright buzz, and the mouth shapes it.",
+    "**Vowels are two or three resonant peaks.** These formants move with the jaw, which shifts the first, and the tongue, which shifts the second.",
+    "**Subtractive synthesis starts bright and takes away.** A low-pass filter removes harmonics above its cutoff, so a lower cutoff gives a darker sound at the same pitch.",
+    "**Resonance boosts a narrow peak at the cutoff.** Turned to the top, it whistles."
   ],
   "footnotes": {
     "kratzenstein": {

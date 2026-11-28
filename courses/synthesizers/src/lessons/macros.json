@@ -362,13 +362,10 @@
     }
   ],
   "summary": [
-    "**An engine is the way a digital oscillator makes its wave**; a switch picks it.",
-    "**Three macro knobs (Wave, Timbre, Shape) serve every engine**, and the engine gives each one its job.",
-    "**With a new engine, turn each knob all the way and back**: the quickest way to learn what it does.",
-    "**Morph slides between saw, square, triangle and sine**; its Shape adds a sub-oscillator an octave down.",
-    "**A wavefolder sends a wave back down when it passes the top**, adding harmonics the harder it is pushed.",
-    "**Moog took harmonics away with a filter; Buchla mostly added them**: the East and West Coast of synthesis.",
-    "**A supersaw is seven saws, slightly detuned**: every harmonic becomes a shimmering cluster."
+    "**Engines are different ways of making a wave.** A switch picks the engine on a digital oscillator, and the same three macro knobs take a new job with each one.",
+    "**A morph engine slides between the basic waves.** It moves through saw, square, triangle and sine, and can add a sub-oscillator an octave down.",
+    "**A wavefolder adds harmonics by folding the wave.** Past the top the wave is sent back down, adding more harmonics the harder it is pushed, the way Buchla's synths added them.",
+    "**A supersaw is seven detuned saws.** Every harmonic becomes a shimmering cluster."
   ],
   "footnotes": {
     "names": {

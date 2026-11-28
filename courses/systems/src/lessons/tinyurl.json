@@ -4,14 +4,10 @@
   "title": "A shorter link, a billion times",
   "teaches": "How to work out a system design on paper by defining requirements, estimating throughput and storage, specifying the API and data model, drawing the architecture, and generating short unique keys",
   "summary": [
-    "**Follow a structured sequence.** Define functional and non-functional requirements, estimate throughput and storage, specify the API and data model, and only then draw the architecture.",
-    "**State what is out of scope.** Explicitly excluding secondary subsystems such as click analytics and spam filtering keeps them from complicating the core architecture.",
-    "**Capacity estimates dictate the architecture.** Generating 100 million links a month produces 40 writes a second and 3 TB of data over five years. A single database handles the writes and storage, while the 4,000 to 10,000 reads a second require an in-memory cache.",
-    "**Optimise the schema for the dominant query.** A single table indexed by the short code as its primary key serves redirects with one lookup, matching a workload where reads outnumber writes a hundred to one.",
-    "**Random keys collide early due to the birthday problem.** Across N possible keys, the chance that any two keys match reaches 50% after roughly 1.2 √N draws, so a keyspace of 3.5 trillion seven-character codes has an even chance of at least one collision after just 2.2 million links.",
-    "**Allocate sequential IDs in blocks to avoid bottlenecks.** Assigning each application server a range of 1,000 counter values preserves collision-free generation while keeping the central counter off the critical write path.",
-    "**Truncated URL hashes still collide and require database checks.** Hashing the destination address also maps every user who shortens the same URL to a single shared record.",
-    "**HTTP 301 versus 302 trades server load against analytics.** A 301 permanent redirect lets browsers cache the destination and bypass the service on repeat clicks, saving bandwidth at the cost of visibility and control."
+    "**Estimates come before the architecture.** 100 million links a month is 40 writes a second and 3 TB over five years, so one database suffices and an in-memory cache takes the reads.",
+    "**Random short codes collide sooner than expected.** By the birthday problem, collisions reach even odds after about 1.2 √N draws, only 2.2 million links among 3.5 trillion seven-character codes.",
+    "**Counters allocated in blocks never collide.** Each application server takes a range of 1,000 counter values, which keeps the central counter off the write path.",
+    "**301 versus 302 trades load against analytics.** A permanent 301 lets browsers cache the destination and skip the service, while a temporary 302 brings every click back to be logged."
   ],
   "parts": [
     {

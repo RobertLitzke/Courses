@@ -70,13 +70,10 @@
     }
   ],
   "summary": [
-    "**Order only matters when money moves.** With no withdrawals, the same returns in any order end in the same place.",
+    "**Order matters only when money moves.** With no withdrawals, the same returns in any order end in the same place.",
     "**Withdrawals after a fall sell low.** The shares sold are not there for the recovery, and the effect compounds.",
-    "**The 1969 retiree shows it.** Thirty years that averaged better than history, and 4 percent ran out in year 28; backwards, it ended with about three times the start.",
-    "**The first decade decides most of it.** Early returns predict the outcome far better than the thirty-year average.",
-    "**1966 was inflation, not a crash.** Prices nearly tripled while shares went sideways, and the rule raised spending every year.",
-    "**Savers face the mirror image.** Bad years early help someone still adding money.",
-    "**Four routes reduce the risk.** Flexible spending, more bonds around the retirement date, a lower start when markets are expensive, and income in the early years."
+    "**The first decade decides most of a retirement.** Early returns predict the outcome far better than the thirty-year average.",
+    "**Four things reduce the risk.** They are flexible spending, more bonds around the retirement date, a lower start when markets are expensive, and income in the early years."
   ],
   "footnotes": {
     "corr": { "kind": "technical", "title": "Correlation", "text": "A number from −1 to 1 for how closely two quantities move together along a straight line. At 1 every dot sits on a rising line; at 0 knowing one tells you nothing about the other. It measures how well a line fits, not how steep it is." },

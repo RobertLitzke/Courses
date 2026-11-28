@@ -369,11 +369,10 @@
     }
   ],
   "summary": [
-    "**Singers wobble on purpose**: about six cycles a second, half a semitone each way, heard as one rich pitch.",
-    "**An LFO is an oscillator too slow to hear** that turns another knob for you.",
-    "**Depth is how far; rate is how fast.**",
-    "**Pitch gives vibrato, cutoff gives wah, level gives tremolo.**",
-    "**A Leslie speaker's spinning horn makes vibrato by the Doppler effect**, and tremolo as it turns towards you and away."
+    "**Singers wobble their pitch on purpose.** About six cycles a second, half a semitone each way, is heard as one rich pitch rather than a wobble.",
+    "**An LFO turns a knob for you.** It is an oscillator too slow to hear, set by its depth, how far it moves, and its rate, how fast.",
+    "**The LFO's destination decides the effect.** An LFO on pitch gives vibrato, on the cutoff gives wah, and on level gives tremolo.",
+    "**A Leslie speaker's vibrato is a Doppler effect.** Its spinning horn also makes tremolo as it turns towards the listener and away."
   ],
   "footnotes": {
     "seashore": {

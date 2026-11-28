@@ -6,14 +6,10 @@
   "title": "Measuring a creek",
   "teaches": "An orange, a stopwatch and a USGS gauge page: discharge measured by hand",
   "summary": [
-    "**Discharge is volume per second.** It is the average speed of the water times the area of the cross-section.",
-    "**An orange times the surface speed.** It floats low, so it moves with the water and the wind barely pushes it.",
-    "**The surface is the fastest water.** The bed holds back the water near it, and the average over the depth is about 0.8 of the surface speed.",
-    "**Measure the cross-section in pieces.** Width with a tape and depths at even steps; adding up panels, each with its own speed, gives a better total than one average.",
-    "**The deep middle carries most of the water.** It is both deeper and faster, so at low flow a third of the width can carry two thirds of the water.",
-    "**A gauge measures stage, not discharge.** Stage is the height of the water above the gauge's own zero, read every fifteen minutes.",
-    "**A rating curve turns stage into discharge.** It is drawn through measurements made by hand, bends upward, and shifts when a flood moves the gravel below the gauge.",
-    "**Big rivers peak late.** A city creek peaks within hours of the heaviest rain; a big river many hours after it, as water from the far parts of its basin arrives."
+    "**The surface is the fastest water.** The bed slows the water near it, so the average over the depth is about 0.8 of the surface speed a float measures.",
+    "**Measuring in panels gives a better discharge.** Each panel has its own depth and speed, and at low flow the deep middle third of the width can carry two thirds of the water.",
+    "**A rating curve turns stage into discharge.** A gauge records the water's height every fifteen minutes, and a curve drawn through hand measurements converts it, shifting when a flood moves the gravel below.",
+    "**Big rivers peak many hours after the rain.** A city creek peaks within hours of the heaviest rain, while a big river waits for water from the far parts of its basin."
   ],
   "parts": [
     {

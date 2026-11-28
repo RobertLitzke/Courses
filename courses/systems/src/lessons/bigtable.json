@@ -5,14 +5,9 @@
   "teaches": "Log-structured storage (memtable, SSTables, compaction, Bloom filters), splitting by key range, and choosing a row key",
   "summary": [
     "**Bigtable is a sorted map.** A value is found by row key, column and timestamp, rows are kept in key order, and only a single row can be changed atomically.",
-    "**Write the queries down before the schema.** The row key decides which rows sit together, so it should be chosen from the reads the table must answer.",
-    "**A log-structured store turns random writes into sequential ones.** Each write is appended to a commit log and put in a sorted table in memory, and a full memtable is written out whole as an immutable SSTable.",
-    "**A read merges the memtable with every SSTable.** Without help, a lookup costs one disk read per file, so files must be merged and skipped.",
-    "**Compaction merges SSTables in the background.** It keeps reads cheap and drops deleted data, at the price of writing the same bytes to disk several times.",
-    "**A Bloom filter answers \"definitely not here\" from memory.** About 10 bits per key give a 1% false-positive rate, so a lookup reads only the file that holds the row.",
-    "**Tables are split by row range into tablets of 100 to 200 MB.** Each tablet is served by one tablet server, so related rows can be scanned together.",
-    "**A row key that starts with the time sends every new write to one tablet.** A prefix such as an entity ID or a hash spreads the writes, at the cost of scans by time.",
-    "**Range partitioning and hash partitioning trade scans for balance.** Ranges keep neighbours together but make hot spots; hashes spread load but scatter every range query."
+    "**Log-structured storage makes every write sequential.** Each write is appended to a commit log and put in a sorted memtable, and a full memtable is written out whole as an immutable SSTable.",
+    "**Compaction and Bloom filters keep reads cheap.** Background compaction merges SSTables, and a Bloom filter of about 10 bits per key skips files without the row at a 1% false-positive rate.",
+    "**Choose the row key from the queries.** Tablets are row ranges, so a key starting with the time sends every new write to one tablet, while a hash or entity prefix spreads them."
   ],
   "parts": [
     {

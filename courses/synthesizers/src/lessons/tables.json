@@ -282,12 +282,10 @@
     }
   ],
   "summary": [
-    "**A wavetable is a stack of single-cycle waves, called frames**; the Wave knob picks a place in it.",
-    "**Between two frames the engine plays a blend**, so turning the knob changes the wave smoothly.",
-    "**A table can move anywhere in the harmonics**, rather than only darker or brighter, so it can sound vocal or hollow.",
-    "**Wolfgang Palm’s PPG Wave of the early 1980s** read its waves from memory and moved between them.",
-    "**The envelope can scan the table** as each note starts: a bloom of colour without a filter sweep.",
-    "**The LFO can swing the place back and forth**, slowly for drift or fast for a wobble."
+    "**A wavetable is a stack of single-cycle waves.** Each wave is a frame, and between two frames the engine plays a blend, so moving through the table changes the wave smoothly.",
+    "**A wavetable can move anywhere in the harmonics.** It is not limited to darker or brighter, so it can sound vocal or hollow.",
+    "**An envelope can scan the table.** Sweeping the frames as each note starts gives a bloom of colour without a filter sweep.",
+    "**An LFO can swing through the table.** Slow swings give drift and fast ones a wobble."
   ],
   "footnotes": {
     "steps": {

@@ -53,11 +53,9 @@
     }
   ],
   "summary": [
-    "**Near things shift against far ones.** Seen from two places, a nearer object moves more: that shift is parallax.",
-    "**A moving Earth should make the stars shift.** For two thousand years no shift was seen, until Bradley found aberration in 1729 and Bessel measured stellar parallax in 1838.",
-    "**Parallax shrinks in step with distance.** Twice as far, half the shift.",
-    "**Look first at the stars that drift fastest.** A large proper motion across the sky suggests a near star.",
-    "**Bessel measured the distance in 1838.** 61 Cygni shifts about a third of a second of arc: 11.4 light-years away.",
+    "**Near things shift against far ones.** Seen from two places, a nearer object moves more, and this parallax shrinks in step with distance.",
+    "**The Earth's motion makes near stars shift.** The shift is so small that none was seen until Bessel measured about a third of a second of arc for 61 Cygni in 1838.",
+    "**Fast-drifting stars are likely to be near.** A large proper motion across the sky suggests a near star, so those are the ones to measure first.",
     "**The stars are light-years away.** A light-year is about 9.5 million million km, and the nearest star is 4.2 light-years off."
   ],
   "journal": [],

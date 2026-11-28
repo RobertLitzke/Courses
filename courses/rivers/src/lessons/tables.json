@@ -6,15 +6,10 @@
   "title": "Reading a tide table and a current table",
   "teaches": "Planning a beach walk at a minus tide and a crossing at slack water",
   "summary": [
-    "**A tide table lists the turns.** Each high and low, with its time and its height in feet above a fixed zero.",
-    "**Zero is the average lower low.** Mean lower low water (MLLW) is the average of each day's lower low over 19 years, so on about half of all days the lower low falls below it.",
-    "**A minus tide is below that average.** On a flat low-tide terrace each foot below zero uncovers a strip of beach many metres wide.",
-    "**Charts use the same zero.** A charted depth plus the table's height gives the depth now; the water is shallower than charted only during minus tides, and then by a few feet at most.",
-    "**The rule of twelfths estimates the height between turns.** In six equal parts of the time the water moves 1, 2, 3, 3, 2 and 1 twelfths of the range.",
-    "**A current table lists slack, maximum flood and maximum ebb.** Speeds are in knots, and one knot is about half a metre a second.",
-    "**Slack in a narrows comes after high water.** At Deception Pass it can be an hour or more late, so a crossing is planned from the current table.",
-    "**Slack in a fast pass is short.** Around the biggest slacks the water runs under a knot for well under an hour; in a slow inlet, for two hours or more.",
-    "**Seattle's daytime minus tides come from late spring to midsummer.** For a fixed hour, pick the day with the lowest water in that hour, not the lowest number in the week."
+    "**Tide heights start from mean lower low water.** MLLW averages each day's lower low over 19 years, so on about half of all days the lower low falls below zero as a minus tide.",
+    "**Charts use the same zero as tide tables.** Charted depth plus the table's height gives the depth now, so water is shallower than charted only at a minus tide, by a few feet at most.",
+    "**The rule of twelfths estimates heights between turns.** In six equal parts of the time between high and low, the water moves 1, 2, 3, 3, 2 and 1 twelfths of the range.",
+    "**Current tables, not tide tables, time slack water.** Slack in a fast pass such as Deception Pass can come an hour or more after high water and lasts well under an hour."
   ],
   "parts": [
     {

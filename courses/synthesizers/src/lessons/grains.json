@@ -258,12 +258,10 @@
     }
   ],
   "summary": [
-    "**Granular synthesis plays a sample as many short, overlapping grains**, each faded in and out.",
-    "**Gabor (1946)**: the shorter a sound, the less exact its pitch; he suggested hearing every sound as a mosaic of tiny quanta.",
-    "**Wave is where the grains come from**; moving it scrubs through the recording at any speed.",
-    "**Grain size decides what you hear**: long grains are bits of the sound, short ones are texture.",
-    "**Shape sets density and scatter**: how thick and how smeared the cloud is.",
-    "**Grains separate pitch from speed**: a sound can be frozen, stretched or pitched without the chipmunk effect."
+    "**Granular synthesis plays sound as overlapping grains.** Each grain is a short piece of a sample, faded in and out, with many playing at once.",
+    "**The shorter a sound, the vaguer its pitch.** Dennis Gabor showed this in 1946 and proposed hearing every sound as a mosaic of tiny acoustic quanta.",
+    "**Grain size decides what you hear.** Grains of a tenth of a second or more sound like pieces of the recording, and grains under about 30 ms merge into texture.",
+    "**Grains separate pitch from speed.** Moving through the recording at any speed, a sound can be frozen, stretched or repitched without the chipmunk effect."
   ],
   "footnotes": {
     "roads": {

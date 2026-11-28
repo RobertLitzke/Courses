@@ -183,13 +183,9 @@
     }
   ],
   "summary": [
-    "**Removing one grain never seems to make a heap stop being a heap.** Yet one grain is not a heap.",
-    "**Eubulides posed the sorites in the 4th century BC.** He is also credited with the liar paradox.",
-    "**Vague words have borderline cases and no sharp line.** Tall, bald, rich, child, heap.",
-    "**Laws draw sharp lines by decision.** Useful for being sharp, and arbitrary for the same reason.",
-    "**Degrees of truth: each grain loses a little truth.** The maths is fuzzy logic.",
-    "**Supervaluation: true on every way of drawing the line.** \"There is a last heap\" comes out true.",
-    "**Epistemicism: there is a sharp line nobody can know.** Williamson's answer, from 1994."
+    "**One grain never seems to unmake a heap.** Yet removing grains one at a time ends at a single grain, which is not a heap.",
+    "**Vague words have borderline cases, not sharp lines.** Tall, bald, rich and child work this way, and laws draw sharp lines by decision, useful and arbitrary for the same reason.",
+    "**Three theories offer answers to vagueness.** Degrees of truth, supervaluation over every acceptable line, and Williamson's epistemicism, which posits a sharp line nobody can know, all have serious defenders."
   ],
   "footnotes": {
     "eubulides": {

@@ -260,13 +260,10 @@
     }
   ],
   "summary": [
-    "**A step sequencer plays a pattern of steps**: each a note or a rest, sixteen to a bar, looped.",
-    "**An accent strikes a step harder**: louder and brighter through the velocity routes.",
-    "**A slide holds a step into the next**, which glides without a new pluck.",
-    "**A tie lengthens a note** across the following step.",
-    "**Swing pushes every second step late**, so the pattern lopes.",
-    "**Acid is a 303-style sequence with high resonance**, its cutoff and envelope turned by hand as it plays.",
-    "**On a strange synth, find Play, Record, Hold and the tempo**: a sequence often loads with the patch."
+    "**A step sequencer loops a pattern of steps.** Each step is a note or a rest, usually sixteen to a bar.",
+    "**An accent strikes a step harder.** Through the velocity routes it makes the step louder and brighter.",
+    "**Slides and ties join steps.** A slide holds a step into the next, which glides without a new pluck, and a tie lengthens a note across the following step.",
+    "**Acid is a 303-style sequence with high resonance.** Its cutoff and envelope are turned by hand as the pattern plays."
   ],
   "footnotes": {
     "moroder": {

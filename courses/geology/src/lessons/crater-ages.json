@@ -281,11 +281,9 @@
     }
   ],
   "summary": [
-    "**Crater counts rank surfaces by age.** The longer a surface has been exposed, the more craters it has.",
-    "**Resurfacing resets the clock.** Lava floods and blankets of ejecta erase old craters, so a count dates the surface’s last renewal.",
-    "**Samples turn counts into years.** Apollo and Luna rocks dated surfaces whose craters had been counted.",
-    "**Impacts were far more common early on.** The rate fell steeply until about 3.8 billion years ago and has been roughly steady for the last 3 billion.",
-    "**The lunar calibration dates other worlds.** The same curve is used for surfaces on Mars, Mercury and beyond."
+    "**Crater counts rank surfaces by age.** Older surfaces have more craters, and lava floods or ejecta erase old ones, so a count dates the surface's last renewal.",
+    "**Dated samples turn counts into years.** Apollo and Luna rocks gave ages for surfaces whose craters had been counted, and the same curve now dates Mars, Mercury and beyond.",
+    "**Impacts were far more common early on.** The rate fell steeply until about 3.8 billion years ago and has been roughly steady for the last 3 billion."
   ],
   "journal": [],
   "footnotes": {

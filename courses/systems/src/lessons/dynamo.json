@@ -4,15 +4,10 @@
   "title": "A shopping cart that never says no",
   "teaches": "Consistent hashing with virtual nodes, replicas along the ring, quorums (N, R, W), hinted handoff, and Merkle-tree repair",
   "summary": [
-    "**Design around the primary availability requirement.** Amazon designed Dynamo so that customers could always add items to their shopping carts, even during server, disk or network failures.",
-    "**Many points per server.** With one point on the ring, a dead server's keys all land on one neighbour; with a hundred points they spread over every server.",
-    "**Replicate each key across N servers.** A key's preference list consists of the first N distinct physical servers encountered walking clockwise from the key's position on the ring.",
-    "**Configure R + W > N for overlapping quorums.** A write waits for W replica acknowledgements and a read waits for R replica responses; when R + W exceeds N, every read quorum shares at least one replica with every strict write quorum.",
-    "**Use partial quorums to reduce tail latency.** Waiting for 2 of 3 replicas prevents the slowest replica from delaying the request, whereas setting R + W to N or less trades read freshness for lower latency and higher availability.",
+    "**Many ring points per server spread the load.** With one point per server a dead server's keys all land on one neighbour, and with a hundred points they spread over every server.",
+    "**Quorums overlap when R + W > N.** Each key lives on the first N distinct servers clockwise on the ring, so a read from R replicas always meets a write acknowledged by W.",
     "**A sloppy quorum keeps writes flowing.** A copy meant for a dead server goes to the next healthy one with a hint, and is handed back when the server returns.",
-    "**Synchronize diverged replicas with Merkle trees.** During background anti-entropy, two replicas compare hash trees from the root downward to isolate and transfer only the specific key ranges that differ.",
-    "**High write availability creates conflicting versions.** Without a leader to serialize operations, two replicas can accept concurrent writes to the same key, requiring the client application to merge divergent versions on read (covered in Lesson 13).",
-    "**The name outlived the design.** DynamoDB (2012) has a leader for each partition; the 2007 design lives on in Cassandra and Riak."
+    "**Merkle trees find the key ranges that differ.** Two replicas compare hash trees from the root downward, so background anti-entropy transfers only the ranges that have diverged."
   ],
   "parts": [
     {

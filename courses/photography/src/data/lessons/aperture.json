@@ -238,13 +238,10 @@
     }
   ],
   "summary": [
-    "**Depth of field is a band of distances.** Points inside it land as discs too small to notice; points outside it look soft.",
-    "**Three settings move it.** A narrower aperture, a more distant subject and a shorter focal length all deepen the band.",
-    "**Framing decides more than the aperture.** Zoom in and step back to keep a subject the same size, and its band barely changes, but the far background gets blurrier and bigger.",
-    "**Small sensors are deep.** On the P950, f/2.8 behaves like f/16 on a full-frame camera, so a soft background takes deliberate work.",
-    "**Up close, the band is millimetres.** For insects and flowers, narrowing the aperture is what gets the whole subject sharp.",
-    "**Diffraction softens everything as you narrow.** On the P950's small pixels it already spreads a point over a few pixels wide open, and more with every stop; the sharpest aperture for a scene is usually wider than f/8.",
-    "**The hyperfocal distance holds a landscape.** Focused there, the picture is sharp from half that distance to the horizon."
+    "**Depth of field is a band of distances.** Points inside it land as discs too small to notice, and points outside it look soft.",
+    "**Aperture, distance and focal length set its depth.** A narrower aperture, a more distant subject and a shorter focal length all deepen the band.",
+    "**A small sensor gives deep depth of field.** On the P950, f/2.8 behaves like f/16 on a full-frame camera, so a soft background takes deliberate work.",
+    "**Diffraction softens the picture as you narrow.** On the P950's small pixels it spreads a point over a few pixels even wide open, so the sharpest aperture is usually wider than f/8."
   ],
   "journal": [],
   "footnotes": {

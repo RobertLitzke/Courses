@@ -4,15 +4,10 @@
   "title": "A disk dies every day",
   "teaches": "Replication and re-replication, leases that pick a primary, checksums, at-least-once appends, and erasure coding",
   "summary": [
-    "**At scale, hardware failure is routine.** Ten thousand disks failing at 3% a year averages nearly one dead disk a day, and a large cluster loses whole racks around twenty times a year.",
-    "**Place replicas in separate failure domains.** Three copies in one rack fail together when the rack's switch or power supply dies, whereas three copies across three racks survive any single rack failure.",
-    "**Repair the most endangered chunks first.** A chunk down to one surviving copy should be re-replicated ahead of chunks that still have two copies.",
-    "**Reconstruct lost data from many machines in parallel.** Because the surviving copies of a dead disk's chunks sit on hundreds of machines across the cluster, those machines can copy the data in parallel and finish the repair in minutes.",
-    "**Verify disk reads with checksums.** GFS stored a 32-bit checksum for every 64 KB block and verified it on every read and during background scans.",
-    "**Use leases so a single primary orders writes.** The master grants a 60-second lease to one replica and waits for the lease to expire before assigning a new primary if the first stops responding.",
-    "**Record append provides at-least-once delivery.** When an append fails on a secondary, the client retries at a new offset, leaving duplicate records on some replicas and padding on others that readers must filter out.",
-    "**Erasure codes trade repair bandwidth for storage capacity.** Reed-Solomon 6+3 stores 1.5 bytes per byte of raw data and tolerates any three losses, half the disk space of three replicas, but reconstructing a lost block requires reading six surviving blocks.",
-    "**Replicate hot data and erasure-code cold data.** Replication keeps reads and repairs cheap for active files, while erasure coding reduces disk count for older, rarely read data."
+    "**At scale, hardware failure is routine.** Ten thousand disks failing at 3% a year average nearly one dead disk a day, and a large cluster loses whole racks about twenty times a year.",
+    "**Replicas belong in separate failure domains.** Three copies in one rack fail together when its switch or power supply dies, while copies in three racks survive any single rack failure.",
+    "**Repair runs in parallel, most endangered first.** A chunk down to one copy is re-replicated before chunks with two, and a dead disk's chunks are copied from hundreds of machines in minutes.",
+    "**Erasure codes trade repair cost for storage.** Reed-Solomon 6+3 stores 1.5 bytes per byte and survives any three losses, but rebuilding a block reads six others, so it suits cold data."
   ],
   "parts": [
     {

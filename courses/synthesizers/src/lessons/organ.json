@@ -256,12 +256,9 @@
     }
   ],
   "summary": [
-    "**Additive synthesis builds a sound from sines**, each at a chosen level, instead of filtering a bright wave.",
-    "**Cahill’s Telharmonium (1906)** made tones with spinning alternators and sent music down New York’s phone lines.",
-    "**Hammond’s organ (1935)** made the idea small: tonewheels and nine drawbars, each a sine at one pitch above or below the note.",
-    "**Drawbars are named in feet**: 8′ is the note, 4′ an octave up; a setting is written as nine digits.",
-    "**An additive engine puts many sines under three knobs**: Wave for brightness, Timbre for the even harmonics and Shape for how many.",
-    "**Odd harmonics alone sound hollow**, like a low clarinet."
+    "**Additive synthesis builds a sound from sines.** Each sine is set to its own level, instead of filtering a bright wave.",
+    "**Hammond drawbars are additive synthesis.** Each of the nine drawbars sets the level of one sine, named in feet, so 8′ is the note and 4′ an octave up.",
+    "**Additive synthesis can set each harmonic alone.** It can thin out the middle or drop the even harmonics, which a filter can't, at the price of many controls."
   ],
   "footnotes": {
     "cahill": {

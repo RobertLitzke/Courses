@@ -402,12 +402,10 @@
     }
   ],
   "summary": [
-    "**The start of a note tells us what made it.** Cut it off and a bell sounds like an oboe, a piano like an organ.",
-    "**Schaeffer (1948) found it by cutting the start off a recorded bell**, the beginning of the music he called musique concrète.",
-    "**An envelope shapes each note in time: attack, decay, sustain, release.**",
-    "**Sustain is a level; the others are times.** A piano has no sustain; an organ has full sustain.",
-    "**Release is the fade after the key comes up.**",
-    "**Sending the envelope to the filter makes notes start bright and darken**, as real instruments do."
+    "**A note's start tells us what made it.** With its start cut off a bell sounds like an oboe, as Pierre Schaeffer found in 1948, and a piano like an organ.",
+    "**An envelope shapes each note in time.** Its four stages are attack, decay, sustain and release, and release is the fade after the key comes up.",
+    "**Sustain is a level, not a time.** Attack, decay and release are times, and a piano has no sustain while an organ has full sustain.",
+    "**An envelope on the filter darkens each note.** Notes then start bright and darken as they go on, as the notes of real instruments do."
   ],
   "footnotes": {
     "cloche": {

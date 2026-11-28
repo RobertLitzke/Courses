@@ -267,13 +267,10 @@
     }
   ],
   "summary": [
-    "**An LFO has a shape**: sine and triangle glide, saw ramps and drops, square jumps between two levels.",
-    "**A square LFO on pitch is a trill**; a saw on pitch is a siren that keeps restarting.",
-    "**Sample and hold** takes a value at each clock tick and holds it until the next.",
-    "**S&H on noise gives a random staircase**; on a resonant filter, the burbling film computer.",
-    "**A synced LFO counts in notes of the beat** and keeps step with the tempo.",
-    "**A retriggered LFO restarts at each note**; a free-running one carries on through them.",
-    "**Smooth random** glides between random values, for slow, aimless movement."
+    "**An LFO's shape decides how it moves.** Sine and triangle glide, a saw ramps and drops, and a square jumps between two levels, so a square on pitch is a trill.",
+    "**Sample and hold makes a random staircase.** It takes a value of noise at each clock tick and holds it, which on a resonant filter gives the burbling film computer.",
+    "**A synced LFO keeps step with the tempo.** Its rate is counted in notes of the beat, so its movement stays in time with the music.",
+    "**A retriggered LFO restarts at each note.** Every note then gets the same movement, while a free-running LFO carries on and catches each note somewhere different."
   ],
   "footnotes": {
     "circuit": {
