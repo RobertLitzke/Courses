@@ -33,9 +33,9 @@ const COMING: BatLesson[] = [
 
 /** The branches: listening in, the Northwest, and bats and people. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'listening', title: 'Listening in', promise: 'A bat detector, and reading the calls it hears', from: 'ultrasound', color: 'var(--violet)', prefix: 'L' },
-  { id: 'northwest', title: 'Northwest bats', promise: 'Dusk over a Seattle lake, and the fifteen species of Washington', from: 'buzz', color: 'var(--teal)', prefix: 'N' },
-  { id: 'people', title: 'Bats and people', promise: 'Bats in the attic, rabies, guano and a bomb', from: 'lives', color: 'var(--rose)', prefix: 'P' },
+  { id: 'listening', title: 'Listening in', promise: 'A bat detector, and reading the calls it hears', from: 'ultrasound', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'L' },
+  { id: 'northwest', title: 'Northwest bats', promise: 'Dusk over a Seattle lake, and the fifteen species of Washington', from: 'buzz', kind: 'local', color: 'var(--b-fir)', prefix: 'N' },
+  { id: 'people', title: 'Bats and people', promise: 'Bats in the attic, rabies, guano and a bomb', from: 'lives', kind: 'people', color: 'var(--b-madder)', prefix: 'P' },
 ];
 
 /** How many lessons the trunk has: "Lesson 3 of 10". */

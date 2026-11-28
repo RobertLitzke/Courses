@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "geology.save",
   "theme": {
-    "bg": "#2a2420",
-    "panel": "#3b322c",
+    "bg": "#4a2618",
+    "panel": "#5a3a2d",
     "text": "#f1e7d4",
     "accent": "#e0a458",
+    "spine": "#a8b86a",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

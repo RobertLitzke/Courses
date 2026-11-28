@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Botany',
       description: 'Short illustrated lessons on how plants work, each opening on an old experiment.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#1b2a1c',
+      theme_color: '#1d4224',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

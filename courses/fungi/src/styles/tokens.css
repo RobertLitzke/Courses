@@ -4,8 +4,8 @@
    cold green of foxfire and the violet of a blewit. */
 
 :root {
-  --bg: #221c26; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #352c3a;
+  --bg: #3e2033; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #4f3445;
   --panel: #f3eee2;
   --panel-2: #e0d8c6;
   --ink: #26221f;

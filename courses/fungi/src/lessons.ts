@@ -43,9 +43,9 @@ const COMING: FungusLesson[] = [
 
 /** The branches: lichens, the Northwest, and looking closely. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'lichens', title: 'More lichens', promise: 'Air quality, dating rocks, and gardens in the treetops', from: 'lichens', color: 'var(--leaf)', prefix: 'L' },
-  { id: 'northwest', title: 'Northwest fungi', promise: 'The autumn flush, Mount St Helens, truffles and owls', from: 'network', color: 'var(--sun-deep)', prefix: 'N' },
-  { id: 'closely', title: 'Looking closely', promise: 'Spore prints, DNA names and how many kinds there are', from: 'groups', color: 'var(--violet)', prefix: 'M' },
+  { id: 'lichens', title: 'More lichens', promise: 'Air quality, dating rocks, and gardens in the treetops', from: 'lichens', kind: 'further', color: 'var(--b-gold)', prefix: 'L' },
+  { id: 'northwest', title: 'Northwest fungi', promise: 'The autumn flush, Mount St Helens, truffles and owls', from: 'network', kind: 'local', color: 'var(--b-fir)', prefix: 'N' },
+  { id: 'closely', title: 'Looking closely', promise: 'Spore prints, DNA names and how many kinds there are', from: 'groups', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'M' },
 ];
 
 const done = Object.values(written);

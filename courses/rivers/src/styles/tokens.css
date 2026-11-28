@@ -4,8 +4,8 @@
    brown of a flood, the gold of a gravel bar and the violet of the tide. */
 
 :root {
-  --bg: #14262e; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #213a44;
+  --bg: #0c3a48; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #224c58;
   --panel: #eef1ec;
   --panel-2: #d7ddd5;
   --ink: #1f2a2e;

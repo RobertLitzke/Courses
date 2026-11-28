@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Systems',
       description: 'Short illustrated lessons on how large computer systems are designed, told through the real ones.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#141b2d',
+      theme_color: '#1c2a40',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

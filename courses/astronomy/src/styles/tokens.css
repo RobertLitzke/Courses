@@ -3,8 +3,8 @@
    colours, from cool red to hot blue-white. */
 
 :root {
-  --bg: #141a2e; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #232b45;
+  --bg: #0c1230; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #222743;
   --panel: #f4efe4;
   --panel-2: #e3dccb;
   --ink: #1f2233;

@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Fungi',
       description: 'Short illustrated lessons on how fungi live, each opening on a real puzzle.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#221c26',
+      theme_color: '#3e2033',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

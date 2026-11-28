@@ -26,7 +26,7 @@ export interface CourseInfo {
   /** Its save's localStorage key, so the catalog can say how far the reader got and review its cards. */
   save: string;
   /** Its colours (from its tokens.css), for its cards in the review of all courses. */
-  theme?: { bg: string; panel?: string; text: string; accent: string; good?: string; bad?: string; display?: string };
+  theme?: { bg: string; panel?: string; text: string; accent: string; spine?: string; good?: string; bad?: string; display?: string };
   /**
    * Its version and stage: "beta" while it is being written and checked
    * (0.x), "released" once Rob blesses it (1.0 and up). Changed only by

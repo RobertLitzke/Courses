@@ -1,5 +1,5 @@
 // The home page's picture (defineCourse `hero`), in the look of the course
-// icon: a navy night with four-point stars, and on the horizon a striped
+// icon: a terracotta dusk with four-point stars, and on the horizon a striped
 // retro sun (the icon's rose, mustard and burnt orange) setting behind the
 // silhouette of a Greek temple, with broken columns and olive trees on the
 // hill to either side. The title sits over the empty sky. Everything that
@@ -13,9 +13,9 @@ const GROUND = 432;
 const CX = W / 2;
 
 const C = {
-  night: '#1a1f45',
-  deep: '#10143a',
-  hill: '#0d1032',
+  night: '#5e2614',
+  deep: '#45190c',
+  hill: '#2a0f07',
   rose: '#cf5f63',
   mustard: '#e0a33a',
   orange: '#d4582a',
@@ -25,7 +25,7 @@ const C = {
 const star = (x: number, y: number, r: number, fill: string) =>
   `<path d="M${x} ${y - r} Q${x} ${y} ${x + r} ${y} Q${x} ${y} ${x} ${y + r} Q${x} ${y} ${x - r} ${y} Q${x} ${y} ${x} ${y - r}Z" fill="${fill}"/>`;
 
-/** The sun: a disc in three warm bands, with the navy gaps of a retro sunset widening towards the horizon. */
+/** The sun: a disc in three warm bands, with the sky showing through the gaps of a retro sunset widening towards the horizon. */
 function sun(): string {
   const r = 168;
   const cy = GROUND + 6;
@@ -91,7 +91,7 @@ export function makeBanner(): SVGSVGElement {
   const hill = `<path d="M0 ${GROUND + 8} C240 ${GROUND - 6} 420 ${GROUND - 2} ${CX - 260} ${GROUND} L${CX + 260} ${GROUND} C1020 ${GROUND - 2} 1200 ${GROUND - 8} ${W} ${GROUND + 6} L${W} ${H} L0 ${H} Z" fill="url(#banner-hill)"/>`;
   const side = `<g fill="${C.hill}">${ruin(CX - 330, 64, false)}${ruin(CX + 312, 92, true)}${olive(CX - 420, 1)}${olive(CX + 420, 1.15)}${olive(150, 0.9)}${olive(1290, 0.8)}${ruin(330, 40, true)}${ruin(1100, 52, false)}</g>`;
   const defs = `<defs>
-    <linearGradient id="banner-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.deep}"/><stop offset="0.75" stop-color="${C.night}"/><stop offset="1" stop-color="#2a2552"/></linearGradient>
+    <linearGradient id="banner-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.deep}"/><stop offset="0.75" stop-color="${C.night}"/><stop offset="1" stop-color="#6e3020"/></linearGradient>
     <linearGradient id="banner-hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.hill}"/><stop offset="0.55" stop-color="${C.hill}"/><stop offset="1" stop-color="${C.night}"/></linearGradient>
     <filter id="banner-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11"/><feColorMatrix type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.1  0 0 0 0 0.05  0 0 0 0.16 0"/></filter>
   </defs>`;

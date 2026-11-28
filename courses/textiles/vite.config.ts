@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Fabric & Form',
       description: 'How cloth is made and how it shaped the world.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#1f3442',
+      theme_color: '#1f2b62',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

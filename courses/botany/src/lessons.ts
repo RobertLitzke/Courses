@@ -21,9 +21,9 @@ const BRANCH_COMING: PlantLesson[] = [
 
 /** The branches: naming plants, crops, and odd plants. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'keys', title: 'Naming and keying plants', promise: 'Names, keys, families and deadly look-alikes', from: 'orchid', color: 'var(--violet)', prefix: 'K' },
-  { id: 'crops', title: 'Crops and breeding', promise: 'Mendel, maize, Palouse wheat and Wenatchee apples', from: 'orchid', color: 'var(--sun-deep)', prefix: 'C' },
-  { id: 'odd', title: 'Odd plants', promise: 'Flytraps, thieves, giants and flowers that make heat', from: 'bending', color: 'var(--rose)', prefix: 'O' },
+  { id: 'keys', title: 'Naming and keying plants', promise: 'Names, keys, families and deadly look-alikes', from: 'orchid', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'K' },
+  { id: 'crops', title: 'Crops and breeding', promise: 'Mendel, maize, Palouse wheat and Wenatchee apples', from: 'orchid', kind: 'people', color: 'var(--b-clay)', prefix: 'C' },
+  { id: 'odd', title: 'Odd plants', promise: 'Flytraps, thieves, giants and flowers that make heat', from: 'bending', kind: 'further', color: 'var(--b-gold)', prefix: 'O' },
 ];
 
 const all = [...Object.values(written), ...TRUNK_COMING, ...BRANCH_COMING].sort((a, b) => a.n - b.n);

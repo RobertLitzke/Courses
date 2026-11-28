@@ -79,14 +79,14 @@ const BRANCH_COMING: AstroLesson[] = [
 
 /** The branches: further than the trunk goes, each read with what the trunk teaches, and one for the sky over Puget Sound. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'sky48', title: 'The sky from home', promise: 'Seasons, phases, tides and aurora at 48° N', from: 'shadows', color: 'var(--ice)', prefix: 'N' },
-  { id: 'scopes', title: 'Telescopes and invisible light', promise: 'Lenses, mirrors and the light the eye can’t see', from: 'colour', color: 'var(--sun)', prefix: 'T' },
-  { id: 'giants', title: 'Gas giants and their moons', promise: 'Volcanic Io, Jupiter’s stripes, Saturn’s rings, Titan’s rain', from: 'sunshine', color: 'var(--sun-deep)', prefix: 'G' },
-  { id: 'exoplanets', title: 'Exoplanets', promise: 'Wobbles, dips and the air of other worlds', from: 'hr', color: 'var(--teal)', prefix: 'X' },
-  { id: 'rocky', title: 'Rocky planets', promise: 'Where planets came from, Venus’s greenhouse, Mars’s canals', from: 'sunshine', color: 'var(--ember)', prefix: 'R' },
-  { id: 'life', title: 'Life and the long view', promise: 'Is anyone out there, and what happens next?', from: 'star-stuff', color: 'var(--leaf)', prefix: 'L' },
-  { id: 'holes', title: 'Black holes and gravitational waves', promise: 'Chirps, Hawking’s glow and a photographed shadow', from: 'dark-stars', color: 'var(--violet)', prefix: 'B' },
-  { id: 'beginnings', title: 'Cosmic beginnings', promise: 'The first three minutes, the first stars, and before', from: 'dark-night', color: 'var(--rose)', prefix: 'C' },
+  { id: 'sky48', title: 'The sky from home', promise: 'Seasons, phases, tides and aurora at 48° N', from: 'shadows', kind: 'local', color: 'var(--b-sound)', prefix: 'N' },
+  { id: 'scopes', title: 'Telescopes and invisible light', promise: 'Lenses, mirrors and the light the eye can’t see', from: 'colour', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'T' },
+  { id: 'giants', title: 'Gas giants and their moons', promise: 'Volcanic Io, Jupiter’s stripes, Saturn’s rings, Titan’s rain', from: 'sunshine', kind: 'further', color: 'var(--b-gold)', prefix: 'G' },
+  { id: 'exoplanets', title: 'Exoplanets', promise: 'Wobbles, dips and the air of other worlds', from: 'hr', kind: 'further', color: 'var(--b-sky)', prefix: 'X' },
+  { id: 'rocky', title: 'Rocky planets', promise: 'Where planets came from, Venus’s greenhouse, Mars’s canals', from: 'sunshine', kind: 'further', color: 'var(--b-ember)', prefix: 'R' },
+  { id: 'life', title: 'Life and the long view', promise: 'Is anyone out there, and what happens next?', from: 'star-stuff', kind: 'further', color: 'var(--b-sand)', prefix: 'L' },
+  { id: 'holes', title: 'Black holes and gravitational waves', promise: 'Chirps, Hawking’s glow and a photographed shadow', from: 'dark-stars', kind: 'further', color: 'var(--b-moon)', prefix: 'B' },
+  { id: 'beginnings', title: 'Cosmic beginnings', promise: 'The first three minutes, the first stars, and before', from: 'dark-night', kind: 'further', color: 'var(--b-ice)', prefix: 'C' },
 ];
 
 const done = new Set(Object.values(written).map((l) => l.id));

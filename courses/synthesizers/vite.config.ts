@@ -27,7 +27,7 @@ export default defineConfig(
       short_name: 'Synthesizers',
       description: 'Short lessons on how a synthesizer builds a sound, on a live synth you play as you read.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#070b1a',
+      theme_color: '#08090f',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

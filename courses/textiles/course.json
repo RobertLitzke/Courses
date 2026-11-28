@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "textiles.save",
   "theme": {
-    "bg": "#1f3442",
-    "panel": "#2b4556",
+    "bg": "#1f2b62",
+    "panel": "#333e70",
     "text": "#f4ead8",
-    "accent": "#e07a6a",
+    "accent": "#e8806e",
+    "spine": "#e8b84a",
     "good": "#3f8f5a",
     "bad": "#b4372f",
     "display": "Georgia, serif"

@@ -72,6 +72,17 @@ in Settings under About (Didactics `release`).
 - Progress is keyed by lesson id, so a version never touches a save.
 - Then `npm run status` (the table shows versions and the bar) and commit.
 
+## Colours
+
+Each course has its own cover colour, accent and spine (`theme` in
+`course.json`, used by the catalog card), and its page colour `--bg` in its
+tokens matches `theme.bg` (Rob, 2026-11-28; the proposal is in the project
+files under `lesson-header/`). Every branch has a `kind` (`local` for the
+Pacific Northwest, `people`, `hands-on`, `further`) and a colour from that
+kind's shades in Didactics' kit.css (`var(--b-fir)` and so on; Didactics
+README, "The lesson tree"). Two branches of a kind in one course take
+different shades; `catalog/test/site.test.ts` checks both.
+
 ## Skills
 
 `.claude/skills/` has `new-lesson`, `new-figure` and `pick-images`. Each is a

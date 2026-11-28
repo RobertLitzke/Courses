@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "botany.save",
   "theme": {
-    "bg": "#1b2a1c",
-    "panel": "#2a3d2a",
+    "bg": "#1d4224",
+    "panel": "#315338",
     "text": "#eef0dc",
-    "accent": "#e48a6e",
+    "accent": "#f0907a",
+    "spine": "#f2cf5b",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

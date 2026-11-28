@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "rivers.save",
   "theme": {
-    "bg": "#14262e",
-    "panel": "#213a44",
+    "bg": "#0c3a48",
+    "panel": "#224c58",
     "text": "#e8eee9",
-    "accent": "#4fb0a8",
+    "accent": "#4fc0b4",
+    "spine": "#e3c58a",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

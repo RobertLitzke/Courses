@@ -22,7 +22,7 @@ export default defineConfig(
       short_name: 'Circuitry',
       description: 'Short interactive lessons on circuits: voltage and current you can watch, parts, debugging boards, guitar pedals and off-grid solar.',
       // Keep in sync with --bg in src/app/styles/tokens.css.
-      theme_color: '#0f2a22',
+      theme_color: '#0a3d2b',
     },
   }),
 );

@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "circuitry.save",
   "theme": {
-    "bg": "#0f2a22",
-    "panel": "#18392e",
+    "bg": "#0a3d2b",
+    "panel": "#204e3e",
     "text": "#e9efe9",
-    "accent": "#f0b23e",
+    "accent": "#e0894a",
+    "spine": "#c9d1d6",
     "good": "#2f8a4f",
     "bad": "#c7362f",
     "display": "system-ui, sans-serif"

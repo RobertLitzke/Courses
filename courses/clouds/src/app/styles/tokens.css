@@ -20,8 +20,8 @@
 }
 
 :root {
-  --bg: #1b172f; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #2e2c53;
+  --bg: #2d2358; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #403767;
   --panel: #f6e7c8;
   --panel-2: #ead3b2;
   --ink: #2a2547;

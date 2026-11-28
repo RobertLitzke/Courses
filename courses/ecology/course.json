@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "ecology.save",
   "theme": {
-    "bg": "#142a33",
-    "panel": "#21404a",
+    "bg": "#2c3a12",
+    "panel": "#3f4c27",
     "text": "#e8ecdd",
-    "accent": "#e3b04b",
+    "accent": "#f08a6a",
+    "spine": "#7fc0b0",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

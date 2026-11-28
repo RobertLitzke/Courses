@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "philosophy.save",
   "theme": {
-    "bg": "#1a1f45",
-    "panel": "#262c5a",
+    "bg": "#5e2614",
+    "panel": "#6c3a29",
     "text": "#f0e8dc",
-    "accent": "#d9824a",
+    "accent": "#f0c27a",
+    "spine": "#16110e",
     "good": "#3f8f5a",
     "bad": "#b4372f",
     "display": "Georgia, serif"

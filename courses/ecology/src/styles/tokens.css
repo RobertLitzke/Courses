@@ -3,8 +3,8 @@
    of a meadow: grass, pollen, lichen and berries. */
 
 :root {
-  --bg: #142a33; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #21404a;
+  --bg: #2c3a12; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #3f4c27;
   --panel: #eef0e4;
   --panel-2: #dde2cc;
   --ink: #1f2a28;

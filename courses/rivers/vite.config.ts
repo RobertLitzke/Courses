@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Rivers',
       description: 'Short illustrated lessons on why the water does what it does, from the rain on a watershed to the tide in the Sound.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#14262e',
+      theme_color: '#0c3a48',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

@@ -8,7 +8,7 @@ const W = 1440;
 const H = 520;
 
 const C = {
-  night: '#141a2e',
+  night: '#0c1230',
   violet: '#8a5a9a',
   cream: '#f3e0c0',
   sand: '#e6c9a0',

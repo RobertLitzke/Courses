@@ -25,7 +25,7 @@ export default defineConfig(
       short_name: 'Dirt',
       description: 'Short illustrated lessons on soil for gardeners: texture, water, air, life, nutrients and how to build it.',
       // Keep in sync with --bg in src/app/styles/tokens.css.
-      theme_color: '#1f2b1c',
+      theme_color: '#3a2a14',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

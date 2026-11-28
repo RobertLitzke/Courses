@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "astronomy.save",
   "theme": {
-    "bg": "#141a2e",
-    "panel": "#232b45",
+    "bg": "#0c1230",
+    "panel": "#222743",
     "text": "#ece6d8",
     "accent": "#e8b75a",
+    "spine": "#9fc3e8",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

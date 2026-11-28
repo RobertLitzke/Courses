@@ -3,8 +3,8 @@
    orange spool as accents. */
 
 :root {
-  --bg: #1f3442; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #2b4556;
+  --bg: #1f2b62; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #333e70;
   --panel: #f3ece0;
   --panel-2: #ddd3c3;
   --ink: #26211d;

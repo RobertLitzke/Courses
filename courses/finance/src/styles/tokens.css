@@ -3,14 +3,14 @@
    red ink and the blue of a bank stamp. */
 
 :root {
-  --bg: #17302a; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #234238;
+  --bg: #3d1526; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #4e2a3a;
   --panel: #eef0e6;
   --panel-2: #dde3d2;
   --ink: #23262e;
   --ink-soft: #5d6370;
   --text: #e9ede4;
-  --muted: #a9b9b0;
+  --muted: #c9b0b8;
   --sun: #e2b45c;
   --sun-deep: #d08a3c;
   --rose: #c75b6a;

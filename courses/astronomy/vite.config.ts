@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Astronomy',
       description: 'Short illustrated lessons on the sky and the stars, each opening on a puzzle.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#141a2e',
+      theme_color: '#0c1230',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

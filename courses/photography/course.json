@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "outofauto.save",
   "theme": {
-    "bg": "#1d2430",
-    "panel": "#2b3340",
+    "bg": "#2c2d31",
+    "panel": "#3f4044",
     "text": "#eceae5",
-    "accent": "#e8a33d",
+    "accent": "#f2a23a",
+    "spine": "#d9534f",
     "good": "#3f7d4a",
     "bad": "#c4543f",
     "display": "Georgia, 'Times New Roman', serif"

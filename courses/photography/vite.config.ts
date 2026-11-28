@@ -25,7 +25,7 @@ export default defineConfig(
       short_name: 'Out of Auto',
       description: 'Short illustrated lessons on photography for nature with a long zoom: exposure, focus, movement, grain, reach and colour.',
       // Keep in sync with --bg in src/app/styles/tokens.css.
-      theme_color: '#1d2430',
+      theme_color: '#2c2d31',
     },
   }),
 );

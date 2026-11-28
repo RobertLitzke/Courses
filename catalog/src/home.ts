@@ -222,7 +222,7 @@ function cover(c: CatalogEntry, read: Read, fav: boolean, onMark: (on: boolean) 
       {
         href: `./${c.folder}/`,
         // Custom properties need a style string: el() assigns style objects by property name.
-        style: t ? `--bg:${t.bg};--a:${t.accent};--t:${t.text};${t.display ? `--d:${t.display}` : ''}` : '',
+        style: t ? `--bg:${t.bg};--a:${t.accent};--t:${t.text};${t.spine ? `--spine:${t.spine};` : ''}${t.display ? `--d:${t.display}` : ''}` : '',
         title: c.release.stage === 'beta' ? `${c.summary}\n\nBeta, version ${c.release.version}: still being written and checked.` : c.summary,
       },
       icon(c),

@@ -15,8 +15,8 @@ const CELL = 18;
 const FELL = 336;
 
 const C = {
-  ground: '#1f3442',
-  warp: ['#2b4a5c', '#33566a', '#284454'],
+  ground: '#1f2b62',
+  warp: ['#2c3a78', '#35448a', '#27336a'],
   weft: ['#d98c95', '#c76f7e', '#e07a6a', '#efb3a4', '#a95471', '#e07a6a', '#d98c95'],
   shuttle: '#d98a3c',
   shuttleDark: '#a8642a',

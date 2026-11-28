@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Bats',
       description: 'Short illustrated lessons on how bats live, each opening on a real puzzle.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#1a1d30',
+      theme_color: '#2b1840',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

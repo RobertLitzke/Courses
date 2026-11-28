@@ -25,7 +25,7 @@ export default defineConfig(
       short_name: 'Geology',
       description: 'Short illustrated lessons on reading rocks, each opening on a puzzle.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#2a2420',
+      theme_color: '#4a2618',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

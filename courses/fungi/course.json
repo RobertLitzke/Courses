@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "fungi.save",
   "theme": {
-    "bg": "#221c26",
-    "panel": "#352c3a",
+    "bg": "#3e2033",
+    "panel": "#4f3445",
     "text": "#f1e9dc",
-    "accent": "#e3a04f",
+    "accent": "#f1d9b0",
+    "spine": "#e8913a",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

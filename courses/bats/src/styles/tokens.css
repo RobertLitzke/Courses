@@ -4,8 +4,8 @@
    teal of the water and the violet of a sonogram's trace. */
 
 :root {
-  --bg: #1a1d30; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #2a2e47;
+  --bg: #2b1840; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #3e2d51;
   --panel: #f1eee6;
   --panel-2: #dcd8cb;
   --ink: #22232b;

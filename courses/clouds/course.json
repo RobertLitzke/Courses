@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "clouds.save",
   "theme": {
-    "bg": "#1b172f",
-    "panel": "#2e2c53",
+    "bg": "#2d2358",
+    "panel": "#403767",
     "text": "#f6e7c8",
     "accent": "#f6b98e",
+    "spine": "#e68999",
     "good": "#3f9b6a",
     "bad": "#c9473f",
     "display": "'Arial Narrow', system-ui, sans-serif"

@@ -53,9 +53,9 @@ const COMING: SystemsLesson[] = [
 
 /** The branches: maps and places, the design studio, and data and evaluation pipelines. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'maps', title: 'Maps and places', promise: 'Map tiles, the nearest car, routes across a continent and traffic from phones', from: 'edge', color: 'var(--teal)', prefix: 'M' },
-  { id: 'studio', title: 'Design studio', promise: 'Whole designs from a blank page, then how a real team did it', from: 'chaos', color: 'var(--sun)', prefix: 'D' },
-  { id: 'data', title: 'Data and evaluation pipelines', promise: 'Whether a new model is better, labels you can trust, one dataset many teams build on, and catching bad data before it ships', from: 'streams', color: 'var(--rose)', prefix: 'P' },
+  { id: 'maps', title: 'Maps and places', promise: 'Map tiles, the nearest car, routes across a continent and traffic from phones', from: 'edge', kind: 'further', color: 'var(--b-sky)', prefix: 'M' },
+  { id: 'studio', title: 'Design studio', promise: 'Whole designs from a blank page, then how a real team did it', from: 'chaos', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'D' },
+  { id: 'data', title: 'Data and evaluation pipelines', promise: 'Whether a new model is better, labels you can trust, one dataset many teams build on, and catching bad data before it ships', from: 'streams', kind: 'further', color: 'var(--b-gold)', prefix: 'P' },
 ];
 
 /** How many lessons the trunk has: "Lesson 3 of 24". */

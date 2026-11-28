@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "bats.save",
   "theme": {
-    "bg": "#1a1d30",
-    "panel": "#2a2e47",
+    "bg": "#2b1840",
+    "panel": "#3e2d51",
     "text": "#ece9f2",
     "accent": "#e8b45a",
+    "spine": "#b48ce0",
     "good": "#3f8f5a",
     "bad": "#c0392b",
     "display": "Georgia, serif"

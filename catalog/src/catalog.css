@@ -294,7 +294,7 @@ html { overflow-x: clip; }
   position: relative; display: flex; flex-direction: column; min-height: 230px; overflow: hidden;
   padding: 18px 16px 14px 24px; border: 2px solid #2a1a10; border-radius: 10px 14px 14px 10px;
   background: var(--bg, #2a2420); color: var(--t, #f1e7d4); text-decoration: none;
-  box-shadow: inset 8px 0 0 rgba(0, 0, 0, 0.28), 3px 3px 0 #2a1a10;
+  box-shadow: inset 8px 0 0 var(--spine, rgba(0, 0, 0, 0.28)), 3px 3px 0 #2a1a10;
   transition: transform 0.15s;
 }
 .cover.bridge:hover { transform: translateY(-4px); }
@@ -305,6 +305,8 @@ html { overflow-x: clip; }
 .cover-text { display: flex; flex-direction: column; margin-top: 14px; }
 .cover-text b { font: 700 1.35rem/1.1 var(--d, var(--serif)); }
 .cover-text i { margin-top: 3px; font-size: 0.92rem; opacity: 0.8; }
+/* A course's subtitle and Beta tag in its accent: with the cover and the spine, its two or three colours. */
+.book .cover-text i { color: color-mix(in oklab, var(--a, currentColor) 55%, var(--t, #f1e7d4)); opacity: 1; }
 .cover-foot { display: grid; gap: 6px; margin-top: auto; padding-top: 14px; font: 0.8rem/1.3 var(--sans); }
 .cover .begins { font: italic 0.88rem/1.3 var(--serif); opacity: 0.85; }
 .cover .bar { display: block; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.16); overflow: hidden; }
@@ -386,6 +388,7 @@ html { overflow-x: clip; }
   font: 700 0.68rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85;
 }
 .cover-text .beta { margin-top: 8px; }
+.book .cover-text .beta { color: var(--a, currentColor); }
 .beta-note { max-width: 62ch; }
 .beta-note .beta { margin-right: 4px; vertical-align: 1px; }
 .course-version { white-space: nowrap; }

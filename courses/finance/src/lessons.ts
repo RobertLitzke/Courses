@@ -51,13 +51,13 @@ const PLAN: MoneyLesson[] = [
 
 /** The branches: two places, then situations, then ways of shaping the plan. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'portugal', title: 'Portugal', promise: 'Residency, two tax systems, health and heirs', from: 'brackets', color: 'var(--ember)', prefix: 'P' },
-  { id: 'washington', title: 'Washington', promise: 'The state’s gains tax, Apple Health, WA Cares and the estate tax', from: 'brackets', color: 'var(--teal)', prefix: 'W' },
-  { id: 'taxable', title: 'Taxable-account craft', promise: 'Asset location, harvesting, giving and heirs', from: 'filling-brackets', color: 'var(--sun)', prefix: 'T' },
-  { id: 'equity', title: 'Equity pay and big-company plans', promise: 'Mega backdoor Roth, RSUs and ESPP, options', from: 'accounts', color: 'var(--violet)', prefix: 'E' },
-  { id: 'couples', title: 'Couples and heirs', promise: 'Filing status, beneficiaries and inherited IRAs', from: 'brackets', color: 'var(--rose)', prefix: 'C' },
-  { id: 'after65', title: 'Health after 65', promise: 'Medicare surcharges and long-term care', from: 'aca', color: 'var(--ice)', prefix: 'H' },
-  { id: 'shapes', title: 'Other shapes', promise: 'Part-time work, coasting, and the house', from: 'flexible-spending', color: 'var(--leaf)', prefix: 'S' },
+  { id: 'portugal', title: 'Portugal', promise: 'Residency, two tax systems, health and heirs', from: 'brackets', kind: 'people', color: 'var(--b-clay)', prefix: 'P' },
+  { id: 'washington', title: 'Washington', promise: 'The state’s gains tax, Apple Health, WA Cares and the estate tax', from: 'brackets', kind: 'local', color: 'var(--b-fir)', prefix: 'W' },
+  { id: 'taxable', title: 'Taxable-account craft', promise: 'Asset location, harvesting, giving and heirs', from: 'filling-brackets', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'T' },
+  { id: 'equity', title: 'Equity pay and big-company plans', promise: 'Mega backdoor Roth, RSUs and ESPP, options', from: 'accounts', kind: 'further', color: 'var(--b-gold)', prefix: 'E' },
+  { id: 'couples', title: 'Couples and heirs', promise: 'Filing status, beneficiaries and inherited IRAs', from: 'brackets', kind: 'people', color: 'var(--b-madder)', prefix: 'C' },
+  { id: 'after65', title: 'Health after 65', promise: 'Medicare surcharges and long-term care', from: 'aca', kind: 'people', color: 'var(--b-plum)', prefix: 'H' },
+  { id: 'shapes', title: 'Other shapes', promise: 'Part-time work, coasting, and the house', from: 'flexible-spending', kind: 'further', color: 'var(--b-sky)', prefix: 'S' },
 ];
 
 const writtenIds = new Set(Object.values(written).map((l) => l.id));

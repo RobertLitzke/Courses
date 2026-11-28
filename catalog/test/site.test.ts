@@ -7,6 +7,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { licenceFrom, paleoartFlags, pictureProblems, type PaleoartList } from 'didactics/pictures';
+import { BRANCH_KINDS, type BranchKind } from 'didactics/tree';
 
 const root = resolve(__dirname, '../..');
 const courses = readdirSync(join(root, 'courses')).filter((c) => existsSync(join(root, 'courses', c, 'course.json')));
@@ -107,3 +108,24 @@ describe('the status table', () => {
     expect(data.courses.filter((c: { outlineOnly?: boolean }) => !c.outlineOnly).map((c: { folder: string }) => c.folder).sort()).toEqual(courses.sort());
   });
 });
+
+describe('branches', () => {
+  it('each have a kind, coloured from its family, with no two of a kind in a course sharing a shade', () => {
+    for (const c of courses) {
+      const file = join(root, 'courses', c, 'src', 'lessons.ts');
+      if (!existsSync(file)) continue;
+      const branches = [...readFileSync(file, 'utf8').matchAll(/\{ id: '([\w-]+)', title: [^\n]*?from: [^\n]*?\}/g)].map((m) => m[0]);
+      const seen = new Set<string>();
+      for (const b of branches) {
+        const id = /id: '([\w-]+)'/.exec(b)![1];
+        const kind = /kind: '([\w-]+)'/.exec(b)?.[1] as BranchKind | undefined;
+        const shade = /color: 'var\(--b-([a-z]+)\)'/.exec(b)?.[1];
+        expect(kind && BRANCH_KINDS[kind], `${c} ${id}: kind`).toBeTruthy();
+        expect(BRANCH_KINDS[kind!].shades, `${c} ${id}: colour`).toContain(shade);
+        expect(seen.has(`${kind}/${shade}`), `${c} ${id}: shade used twice`).toBe(false);
+        seen.add(`${kind}/${shade}`);
+      }
+    }
+  });
+});
+

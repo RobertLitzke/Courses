@@ -24,8 +24,8 @@ const BRANCH_COMING: SynthLesson[] = [
 
 /** The branches: the other kinds of oscillator, and the studio around the synth. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'engines', title: 'Other oscillators', promise: 'Wavetables, organs, plucked strings, talking synths, samples and grains', from: 'macros', color: 'var(--violet)', prefix: 'O' },
-  { id: 'studio', title: 'Around the synth', promise: 'Reverb, and how a room answers a sound', from: 'echo', color: 'var(--rose)', prefix: 'S' },
+  { id: 'engines', title: 'Other oscillators', promise: 'Wavetables, organs, plucked strings, talking synths, samples and grains', from: 'macros', kind: 'further', color: 'var(--b-gold)', prefix: 'O' },
+  { id: 'studio', title: 'Around the synth', promise: 'Reverb, and how a room answers a sound', from: 'echo', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'S' },
 ];
 
 const all = [...Object.values(written), ...TRUNK_COMING, ...BRANCH_COMING].sort((a, b) => a.n - b.n);

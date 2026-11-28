@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "finance.save",
   "theme": {
-    "bg": "#17302a",
-    "panel": "#234238",
+    "bg": "#3d1526",
+    "panel": "#4e2a3a",
     "text": "#e9ede4",
     "accent": "#e2b45c",
+    "spine": "#7fbf9a",
     "good": "#2f8a4f",
     "bad": "#b4372f",
     "display": "Georgia, serif"

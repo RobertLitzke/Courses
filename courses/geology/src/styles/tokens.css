@@ -3,8 +3,8 @@
    of sandstone, red beds and lichen. */
 
 :root {
-  --bg: #2a2420; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #3b322c;
+  --bg: #4a2618; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #5a3a2d;
   --panel: #f1e7d4;
   --panel-2: #e2d3b6;
   --ink: #2b2622;

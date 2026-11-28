@@ -8,10 +8,11 @@
   "icon": "public/icons/icon.svg",
   "save": "synthesizers.save",
   "theme": {
-    "bg": "#070b1a",
-    "panel": "#10182f",
+    "bg": "#08090f",
+    "panel": "#1e1f25",
     "text": "#dbe3ef",
     "accent": "#ff7a1a",
+    "spine": "#e04fa0",
     "good": "#8ff0b0",
     "bad": "#ff5d5d",
     "display": "'Space Grotesk', system-ui, sans-serif"

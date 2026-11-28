@@ -22,7 +22,7 @@ export default defineConfig(
       short_name: 'Money',
       description: 'Illustrated lessons on how a portfolio is built, spent and taxed over a lifetime.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#17302a',
+      theme_color: '#3d1526',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },

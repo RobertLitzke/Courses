@@ -81,10 +81,10 @@ const COMING: TextilesLesson[] = [
 
 /** The branches: the reader's own wardrobe, other structures, cloth traditions, and fashion. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'wardrobe', title: 'Your wardrobe', promise: 'Shrinking, wrinkles, warmth, thread count, stretch and rain', from: 'fibres', color: 'var(--teal)', prefix: 'M' },
-  { id: 'structures', title: 'Other structures', promise: 'Felt, lace, embroidery and the first knitting machine', from: 'structure', color: 'var(--leaf)', prefix: 'K' },
-  { id: 'traditions', title: 'Cloth traditions', promise: 'Kente, Japanese indigo, Navajo weaving, Persian carpets and Kashmir shawls', from: 'africa', color: 'var(--ember)', prefix: 'W' },
-  { id: 'fashion', title: 'Fashion and form', promise: 'Cut and fit, denim, wax prints, the suit, corsets, rationing and why styles change', from: 'structure', color: 'var(--rose)', prefix: 'F' },
+  { id: 'wardrobe', title: 'Your wardrobe', promise: 'Shrinking, wrinkles, warmth, thread count, stretch and rain', from: 'fibres', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'M' },
+  { id: 'structures', title: 'Other structures', promise: 'Felt, lace, embroidery and the first knitting machine', from: 'structure', kind: 'further', color: 'var(--b-gold)', prefix: 'K' },
+  { id: 'traditions', title: 'Cloth traditions', promise: 'Kente, Japanese indigo, Navajo weaving, Persian carpets and Kashmir shawls', from: 'africa', kind: 'people', color: 'var(--b-clay)', prefix: 'W' },
+  { id: 'fashion', title: 'Fashion and form', promise: 'Cut and fit, denim, wax prints, the suit, corsets, rationing and why styles change', from: 'structure', kind: 'people', color: 'var(--b-madder)', prefix: 'F' },
 ];
 
 /** How many lessons the trunk has: "Lesson 3 of 27". */

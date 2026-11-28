@@ -31,7 +31,7 @@ export default defineConfig(
       // had vanished from the phone and refused to install again (2026-10-26).
       id: 'clouds-app',
       // Keep in sync with --bg in src/app/styles/tokens.css.
-      theme_color: '#1b172f',
+      theme_color: '#2d2358',
     },
   }),
 );

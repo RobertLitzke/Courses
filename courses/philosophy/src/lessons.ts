@@ -19,9 +19,9 @@ const COMING: PhilosophyLesson[] = [
 
 /** The branches: philosophy outside Europe, power and politics, and tools and puzzles. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'elsewhere', title: 'Elsewhere', promise: 'Daoism, Indian logic, Nahua thought and Ubuntu', from: 'aristotle', color: 'var(--teal)', prefix: 'E' },
-  { id: 'power', title: 'Power', promise: 'Machiavelli, Rousseau, Marx, free speech and Arendt', from: 'hobbes', color: 'var(--rose)', prefix: 'P' },
-  { id: 'tools', title: 'Tools and puzzles', promise: 'Fallacies, paradoxes, knowledge, science, language and why some philosophy reads as gibberish', from: 'socrates', color: 'var(--violet)', prefix: 'K' },
+  { id: 'elsewhere', title: 'Elsewhere', promise: 'Daoism, Indian logic, Nahua thought and Ubuntu', from: 'aristotle', kind: 'people', color: 'var(--b-clay)', prefix: 'E' },
+  { id: 'power', title: 'Power', promise: 'Machiavelli, Rousseau, Marx, free speech and Arendt', from: 'hobbes', kind: 'people', color: 'var(--b-madder)', prefix: 'P' },
+  { id: 'tools', title: 'Tools and puzzles', promise: 'Fallacies, paradoxes, knowledge, science, language and why some philosophy reads as gibberish', from: 'socrates', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'K' },
 ];
 
 /** How many lessons the trunk has: "Lesson 3 of 25". */

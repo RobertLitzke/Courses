@@ -40,9 +40,9 @@ const COMING: RiverLesson[] = [
 
 /** The branches: Seattle's waterworks, the Columbia, and in the field. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'seattle', title: "Seattle's waterworks", promise: 'The Cedar, the lowered lake, the locks and the straightened Duwamish', from: 'lake', color: 'var(--teal)', prefix: 'S' },
-  { id: 'columbia', title: 'The Columbia', promise: 'Drowned falls, a lost town and the bar at the mouth', from: 'floods', color: 'var(--sun-deep)', prefix: 'C' },
-  { id: 'field', title: 'In the field', promise: 'Tide tables, current tables and measuring a creek', from: 'narrows', color: 'var(--violet)', prefix: 'F' },
+  { id: 'seattle', title: "Seattle's waterworks", promise: 'The Cedar, the lowered lake, the locks and the straightened Duwamish', from: 'lake', kind: 'local', color: 'var(--b-fir)', prefix: 'S' },
+  { id: 'columbia', title: 'The Columbia', promise: 'Drowned falls, a lost town and the bar at the mouth', from: 'floods', kind: 'local', color: 'var(--b-sound)', prefix: 'C' },
+  { id: 'field', title: 'In the field', promise: 'Tide tables, current tables and measuring a creek', from: 'narrows', kind: 'hands-on', color: 'var(--b-violet)', prefix: 'F' },
 ];
 
 /** How many lessons the trunk has: "Lesson 3 of 14". */

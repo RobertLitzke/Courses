@@ -3,8 +3,8 @@
    new leaves and bark. */
 
 :root {
-  --bg: #1b2a1c; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #2a3d2a;
+  --bg: #1d4224; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #315338;
   --panel: #f3efe0;
   --panel-2: #e2dcc4;
   --ink: #23281f;

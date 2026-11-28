@@ -21,12 +21,12 @@ const BRANCH_COMING: EcoLesson[] = [
 
 /** The branches: three that carry the trunk's ideas further, and three on the Pacific Northwest. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'people', title: 'People in the web', promise: 'Poisons, newcomers and a fishery that collapsed', from: 'pyramid', color: 'var(--rose)', prefix: 'H' },
-  { id: 'ants', title: 'Ants and other societies', promise: 'Trails, sterile workers and fungus farms', from: 'acacia', color: 'var(--sun-deep)', prefix: 'N' },
-  { id: 'tidepools', title: 'Tide pools of the Salish Sea', promise: 'Zones, a sea star plague and the otters’ return', from: 'seastar', color: 'var(--teal)', prefix: 'T' },
-  { id: 'helens', title: 'Mount St Helens', promise: 'Life after the 1980 blast', from: 'glacier-bay', color: 'var(--ember)', prefix: 'M' },
-  { id: 'dry', title: 'The dry side', promise: 'Shrub-steppe, cheatgrass and the Palouse', from: 'humboldt', color: 'var(--sun)', prefix: 'S' },
-  { id: 'salmon', title: 'Salmon and Lake Washington', promise: 'Ocean nitrogen in the forest, and a lake that cleared', from: 'curtain', color: 'var(--ice)', prefix: 'W' },
+  { id: 'people', title: 'People in the web', promise: 'Poisons, newcomers and a fishery that collapsed', from: 'pyramid', kind: 'people', color: 'var(--b-madder)', prefix: 'H' },
+  { id: 'ants', title: 'Ants and other societies', promise: 'Trails, sterile workers and fungus farms', from: 'acacia', kind: 'further', color: 'var(--b-gold)', prefix: 'N' },
+  { id: 'tidepools', title: 'Tide pools of the Salish Sea', promise: 'Zones, a sea star plague and the otters’ return', from: 'seastar', kind: 'local', color: 'var(--b-sound)', prefix: 'T' },
+  { id: 'helens', title: 'Mount St Helens', promise: 'Life after the 1980 blast', from: 'glacier-bay', kind: 'local', color: 'var(--b-moss)', prefix: 'M' },
+  { id: 'dry', title: 'The dry side', promise: 'Shrub-steppe, cheatgrass and the Palouse', from: 'humboldt', kind: 'local', color: 'var(--b-lichen)', prefix: 'S' },
+  { id: 'salmon', title: 'Salmon and Lake Washington', promise: 'Ocean nitrogen in the forest, and a lake that cleared', from: 'curtain', kind: 'local', color: 'var(--b-fir)', prefix: 'W' },
 ];
 
 const all = [...Object.values(written), ...TRUNK_COMING, ...BRANCH_COMING].sort((a, b) => a.n - b.n);

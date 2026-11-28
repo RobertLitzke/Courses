@@ -24,7 +24,7 @@ export default defineConfig(
       short_name: 'Philosophy',
       description: 'Philosophy from Socrates to the present, one question a lesson.',
       // Keep in sync with --bg in src/styles/tokens.css.
-      theme_color: '#1a1f45',
+      theme_color: '#5e2614',
       id: '.',
       icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },
