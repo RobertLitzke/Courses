@@ -14,6 +14,7 @@
 // beside the install hint.
 
 import { el, svg } from 'didactics/dom';
+import { effortLine } from 'didactics/effort';
 import type { Bridge, CatalogEntry, CatalogMap, LessonInfo } from '../registry';
 import { installSlip } from './install';
 import { splitIcon } from './split';
@@ -84,6 +85,9 @@ const lessonHref = (c: CatalogEntry, l: LessonInfo) => `./${c.folder}/#/lesson/$
 const lessonsLine = (n: number) => `${n} ${n === 1 ? 'lesson' : 'lessons'}`;
 const lessonNo = (l: LessonInfo) => (l.n > 0 && l.n < 100 ? `lesson ${l.n}` : 'a branch lesson');
 const icon = (c: CatalogEntry) => el('img.ico', { src: c.icon, alt: '' });
+/** "~14 min · 3 labs" for a lesson to start, "~6 min left" from the part a reader is on. */
+const effortTag = (p: Place) =>
+  p.lesson.effort ? el('span.effort', { title: 'Estimated time to read and work the figures, and how many live figures (labs) it has' }, effortLine(p.lesson.effort, p.part ?? undefined)) : null;
 
 /** The parts of a lesson as a row of ticks: those before done, the open one marked. */
 function partTicks(of: number, at: number): HTMLElement {
@@ -116,7 +120,7 @@ function continueCard(p: Place, now: number): HTMLElement {
         p.part === null ? `${c.title} · ${lessonNo(p.lesson)}` : [partTicks(p.lesson.parts, p.part), el('span', {}, `${c.title} · part ${p.part + 1} of ${p.lesson.parts}`)],
       ),
     ),
-    el('a.btn', { href: lessonHref(c, p.lesson) }, p.part === null ? 'Start' : 'Continue'),
+    el('div.desk-side', {}, el('a.btn', { href: lessonHref(c, p.lesson) }, p.part === null ? 'Start' : 'Continue'), effortTag(p)),
   );
 }
 
@@ -127,7 +131,7 @@ function alsoCard(p: Place): HTMLElement {
     {},
     icon(c),
     el('div.desk-text', {}, el('h3', {}, el('a', { href: `./${c.folder}/` }, c.title)), el('p.desk-meta', {}, `${p.part === null ? 'Next' : 'Under way'}: ${p.lesson.title}`)),
-    el('a.btn.ghost', { href: lessonHref(c, p.lesson) }, 'Open'),
+    el('div.desk-side', {}, el('a.btn.ghost', { href: lessonHref(c, p.lesson) }, 'Open'), effortTag(p)),
   );
 }
 
@@ -354,7 +358,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       {},
       el('h1', {}, 'Courses'),
       el('p.home-tag', {}, 'Self-paced workbooks'),
-      el('nav.home-tools', { 'aria-label': 'Other pages' }, el('a.btn.ghost', { href: '#map' }, 'Map'), el('a.btn.ghost', { href: '#review' }, due ? `Review · ${due}` : 'Review')),
+      el('nav.home-tools', { 'aria-label': 'Other pages' }, el('a.btn.ghost', { href: '#map' }, 'Map'), el('a.btn.ghost', { href: '#review' }, due ? `Review · ${due}` : 'Review'), el('a.btn.ghost', { href: '#settings' }, 'Settings')),
     ),
     desk,
     filterBar,
@@ -365,7 +369,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
       'footer.colophon',
       {},
       courses.some((c) => c.release.stage === 'beta') ? el('p.beta-note', {}, el('span.beta', {}, 'Beta'), ' ', BETA_NOTE) : null,
-      el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.'),
+      el('p', {}, 'Each course keeps its own colours, progress and settings; the text size and look are shared, in Settings. The menu in any course leads back here under All courses.'),
       buildLine(),
     ),
   );
@@ -377,7 +381,7 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
  * back through the service worker, so a phone still on an old worker shows the
  * old id), for checking a phone against the latest deploy.
  */
-function buildLine(): HTMLElement {
+export function buildLine(): HTMLElement {
   const build = typeof __SITE_BUILD__ === 'string' ? __SITE_BUILD__ : 'dev';
   const id = el('span.app-id', {}, typeof __APP_ID__ === 'string' ? __APP_ID__ : '?');
   if (typeof fetch === 'function' && typeof location !== 'undefined' && location.protocol.startsWith('http')) {

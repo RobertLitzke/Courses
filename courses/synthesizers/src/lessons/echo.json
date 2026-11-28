@@ -404,12 +404,10 @@
     }
   ],
   "summary": [
-    "**An echo is the same sound arriving later.** Sound travels about 343 metres a second.",
-    "**Under about 50 milliseconds the ear hears one sound**; longer, it hears two.",
-    "**Tape machines made echoes from the gap between their heads.** Sun Records' slapback was one quick echo.",
-    "**Mix sets how loud the echo is; Time sets the gap; Repeats sets how long the trail lasts.**",
-    "**Musicians set echo time in notes of the beat.** A dotted eighth makes eighths gallop.",
-    "**Repeats get duller as well as quieter**, as echoes in air do."
+    "**An echo is the same sound arriving later.** Sound travels about 343 metres a second, so a distant wall returns a delayed copy.",
+    "**Under about 50 ms, echoes fuse.** The ear hears a shorter gap as one sound and a longer one as an echo, like 1950s slapback, a seventh of a second behind.",
+    "**Echo times are set in beats.** Musicians time echoes in notes of the beat, and a dotted-eighth echo makes a line of eighth notes gallop.",
+    "**Repeats get duller as well as quieter.** Each pass through a tape echo loses a little of the top, as echoes in air lose their high pitches."
   ],
   "footnotes": {
     "mersenne": {

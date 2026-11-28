@@ -280,13 +280,10 @@
     }
   ],
   "summary": [
-    "**A synth is a chain**: sources, mixer, filter, amplifier, effects, volume. Panels are laid out in that order.",
-    "**A silent key means one stage is shut.** Walk along the chain from the sources and find the first.",
-    "**A filter can only remove.** A low-pass far below the note, or a high-pass far above it, leaves nothing.",
-    "**A key sends a trigger and a gate**: the trigger starts the envelope, the gate holds it until release.",
-    "**Silent when tapped, heard when held**: that is the envelope, usually a long attack.",
-    "**The init patch** is a plain, audible blank: one saw, open filter, organ envelope.",
-    "**Outside the patch**: check the volume, and the octave, which can drop a sound below a small speaker."
+    "**A silent key means one stage is shut.** Sources, mixer, filter, amplifier, effects and volume run in that order, so walk the chain from the sources to find the first.",
+    "**A filter can only remove.** A low-pass set far below the note, or a high-pass far above it, leaves nothing to hear.",
+    "**A key sends a trigger and a gate.** The trigger starts the envelope and the gate holds it until release, so a note heard only when held has a long attack.",
+    "**Too low an octave can silence small speakers.** Outside the patch, check the volume and the octave, which can drop a sound below what a small speaker plays."
   ],
   "footnotes": {
     "left-to-right": {

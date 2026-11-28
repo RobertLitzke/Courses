@@ -69,13 +69,10 @@
     }
   ],
   "summary": [
-    "**Brackets fill from the bottom.** Each rate applies only to its slice, so a higher bracket never lowers take-home pay.",
-    "**The standard deduction is a 0 percent bracket.** $32,200 for a couple and $16,100 for a single person in 2026.",
-    "**Gains stack on top.** Long-term gains and qualified dividends are taxed at 0, 15 or 20 percent by where they land above ordinary income.",
-    "**A couple can live on $131,100 of gains tax-free.** The deduction plus the 0 percent band to $98,900 of taxable income.",
-    "**The next dollar can cost more than the bracket.** Ordinary income that pushes gains out of the 0 percent band costs its own rate plus 15 percent.",
-    "**Only the gain is income.** Selling shares returns the basis untaxed.",
-    "**The 3.8 percent surtax isn't indexed.** It applies once a couple's total income passes $250,000, $200,000 single, on the investment income or the excess, whichever is smaller."
+    "**Each tax rate applies only to its slice.** Brackets fill from the bottom, so moving into a higher bracket never lowers take-home pay.",
+    "**The standard deduction is a 0 percent bracket.** The first slice of income, the size of the deduction, pays no federal income tax.",
+    "**Long-term gains stack on top of ordinary income.** They and qualified dividends pay 0, 15 or 20 percent by where they land, so a couple can live on over $100,000 of gains tax-free.",
+    "**A gain can raise the next dollar's rate.** Ordinary income that pushes gains out of the 0 percent band costs its own rate plus 15 percent."
   ],
   "footnotes": {
     "payroll": { "kind": "technical", "title": "Payroll tax", "text": "Wages also pay Social Security tax, 6.2 percent on earnings up to $184,500 in 2026, and Medicare tax, 1.45 percent on all of them, with an extra 0.9 percent on wages above $250,000 for a couple. Employers pay a matching share, except on the 0.9 percent. None of it applies to investment income or to withdrawals from retirement accounts." },

@@ -417,12 +417,10 @@
     }
   ],
   "summary": [
-    "**FM is a vibrato so fast it becomes timbre**, found by Chowning at Stanford in 1967.",
-    "**Swinging a carrier's pitch grows sidebands**, spaced by the modulator's frequency; more swing, more sidebands.",
-    "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow, or metallic when the ratio leaves gaps.",
-    "**Other ratios put them between harmonics**: a clang, like a bell, whose tones aren't a harmonic series.",
-    "**The DX7 (1983) made FM the sound of the 1980s**: six sine oscillators per voice and no filter.",
-    "**FM radio is the same mathematics** at a hundred million cycles a second."
+    "**FM is vibrato fast enough to become timbre.** At hundreds of wobbles a second the wobble vanishes and the tone changes colour, as John Chowning found at Stanford in 1967.",
+    "**Swinging a carrier's pitch grows sidebands.** They are spaced by the modulator's frequency, and more swing makes more of them.",
+    "**Whole-number ratios keep sidebands on harmonics.** The result is a pitched note, brassy or hollow, or metallic when the ratio leaves gaps.",
+    "**Other ratios make a bell's clang.** Sidebands between the harmonics give tones that aren't a harmonic series, which is how bells sound."
   ],
   "footnotes": {
     "chowning": {

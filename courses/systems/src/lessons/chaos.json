@@ -143,15 +143,10 @@
     }
   ],
   "summary": [
-    "**A slow dependency is worse than a dead one.** Because threads in use equal arrival rate multiplied by holding time, a call that slows from 30 ms to 3 s can exhaust a thread pool and block unrelated requests.",
-    "**Every call needs a timeout and a fallback.** Set the timeout just above the dependency's 99.9th percentile latency, and return a degraded fallback response when it fires.",
-    "**Retries help with transient faults and hurt during overload.** Retry at one layer only, cap the number of attempts, and enforce a retry budget.",
-    "**Retries multiply down a chain.** Three tries at each of five layers can generate 243 calls at the bottom for a single user request.",
-    "**Back off with jitter.** Exponential backoff spreads retries over time, while random jitter prevents clients that failed together from retrying in synchronised waves.",
-    "**A circuit breaker fails fast.** After failure rates cross a threshold, it skips the dependency for a cooldown period and then tests it with a few calls, giving both services room to recover.",
-    "**A bulkhead caps the resources one dependency can consume.** A separate, bounded thread pool keeps a slow service from exhausting threads needed by other endpoints.",
-    "**Shed load early and by priority.** Rejecting excess requests cheaply is better than queuing work that will time out, and better than pulling slow servers out of load-balancer rotation.",
-    "**Test failure on purpose.** Chaos Monkey and its successors forced fault-handling code to run every day in production while engineers were at their desks."
+    "**Slow dependencies are worse than dead ones.** Threads in use equal arrival rate times holding time, so a call slowing from 30 ms to 3 s can exhaust a pool other requests need.",
+    "**Timeouts, breakers and bulkheads contain a slow dependency.** Time out just above its 99.9th-percentile latency, stop calling it for a cooldown once failures cross a threshold, and give it its own bounded thread pool.",
+    "**Retries help transient faults but worsen overload.** Three tries at each of five layers make 243 calls at the bottom, so retry at one layer only, cap attempts and back off with random jitter.",
+    "**Fault handling must be exercised on purpose.** Chaos Monkey and its successors made fault-handling code run every day in production, while engineers were at their desks to fix what broke."
   ],
   "footnotes": {
     "migration": { "kind": "digression", "title": "Seven years to move", "text": "Netflix's account of the move, published when it finished in January 2016, says the 2008 corruption was the reason, and that it chose to rebuild its services for the cloud rather than move the old ones over as they were." },

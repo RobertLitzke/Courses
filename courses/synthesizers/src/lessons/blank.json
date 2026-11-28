@@ -400,14 +400,10 @@
     }
   ],
   "summary": [
-    "**Start from the init patch**: one saw, an open filter, an organ envelope, nothing moving.",
-    "**Ask five questions in signal order**: source; brightness; start and stop; movement; what's around it.",
-    "**Most sounds need answers to only two or three**: answer the biggest first, then listen.",
-    "**A bass is mostly filter and envelope; a pad is mostly envelope and voices; a bell is mostly its source.**",
-    "**Presets hold whole sounds**; turning a knob marks one as edited.",
-    "**Saving writes over the place you save to**: use an empty one, and a name you'll recognise.",
-    "**A preset taken apart knob by knob** is the quickest way to learn how a sound is made.",
-    "**Music, MIDI and modular patching are outside this course**; other oscillators and reverb are in its branches."
+    "**Start a new sound from the init patch.** It is one saw through an open filter, with an organ envelope and nothing moving.",
+    "**Five questions build a sound in signal order.** They cover the source, brightness, start and stop, movement and surroundings, and most sounds need only the biggest two or three.",
+    "**Most sounds rest on one or two stages.** A bass is mostly filter and envelope, a pad mostly envelope and voices, and a bell mostly its source.",
+    "**Presets hold whole sounds.** Taking one apart knob by knob is the quickest way to learn how a sound is made, and saving writes over the slot saved to."
   ],
   "footnotes": {
     "compare": {

@@ -82,13 +82,10 @@
     }
   ],
   "summary": [
-    "**Hare and lynx numbers rise and fall about every ten years.** The Hudson's Bay Company's fur records show it, with lynx peaks a year or two after hares'.",
-    "**Two stocks that feed each other can cycle.** In Lotka and Volterra's model, prey feed predators and predators eat prey, so both swing, predators behind.",
-    "**A phase plot shows the cycle as a loop.** If the prey are also limited by their own crowding, the loop spirals in and the cycle dies away.",
-    "**Fishing both kinds favours the prey.** Volterra's principle: taking the same share of predator and prey lowers the predators' average and raises the prey's.",
-    "**It explained D'Ancona's fish.** When wartime fishing stopped in the Adriatic, predators made up more of the catch.",
-    "**At Kluane, food and predators worked together.** Fencing out predators doubled the hares, food tripled them, both gave about eleven times as many.",
-    "**Spraying a pest can make it worse.** Killing its predators too leads to pest resurgence."
+    "**Predator and prey that feed each other cycle.** In Lotka and Volterra's model both swing with predators behind, as hare and lynx numbers peak about every ten years, lynx a year or two later.",
+    "**Self-limited prey damp the cycle.** If the prey are also limited by their own crowding, the swings shrink and the cycle dies away.",
+    "**Fishing both kinds favours the prey.** Taking the same share of predator and prey lowers the predators' average and raises the prey's, which is Volterra's principle.",
+    "**Spraying a pest can make it worse.** Killing its predators as well leads to pest resurgence."
   ],
   "journal": [],
   "footnotes": {

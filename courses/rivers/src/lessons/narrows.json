@@ -4,14 +4,10 @@
   "title": "Why Deception Pass runs at eight knots",
   "teaches": "Currents driven by a difference in level, and why slack water comes after high water",
   "summary": [
-    "**A tidal current in a narrows runs downhill.** The water flows from the side where the sea stands higher to the side where it stands lower.",
-    "**The two ends of Deception Pass get their tide by different routes.** The western side gets it straight from the Strait of Juan de Fuca; Skagit Bay gets it late, round Whidbey Island, and through the pass, which can't pass water fast enough to keep it level.",
-    "**A level difference of a little over a metre drives eight knots.** Water falling a height h reaches a speed of about √(2gh), and friction takes about a tenth of it.",
-    "**Slack water comes after high water, not at it.** The current stops when the two levels are equal, which is when the basin behind the gap reaches its own high water.",
-    "**A narrower gap runs faster but carries less.** The basin behind it rises and falls less and later, so the difference across the gap grows.",
-    "**Eight knots comes only with the biggest tides.** Spring tides and the larger of each day's two tides make the biggest difference; on most tides the peak is lower.",
-    "**Admiralty Inlet works differently.** It is wide and deep, so the levels on its two sides stay close, and its current is the volume the whole Sound needs to rise and fall.",
-    "**Tide tables and current tables are separate for a reason.** The time of high water does not tell you when the current turns."
+    "**A tidal current in a narrows runs downhill.** It flows from the higher sea to the lower, as when Skagit Bay lags the Strait because Deception Pass cannot pass water fast enough to keep level.",
+    "**A little over a metre drives eight knots.** Water falling a height h reaches about √(2gh), less a tenth for friction, and only the biggest tides make that difference at Deception Pass.",
+    "**Slack water comes after high water.** The current stops when the levels on both sides are equal, which is when the basin behind the gap reaches its own high water.",
+    "**A narrower gap runs faster but carries less.** The basin behind it rises and falls less and later, so the level difference across the gap grows."
   ],
   "parts": [
     {

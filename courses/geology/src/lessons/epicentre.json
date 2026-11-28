@@ -209,11 +209,9 @@
     }
   ],
   "summary": [
-    "**Earthquakes send two kinds of waves through the Earth.** P waves squeeze and stretch the rock; S waves shake it side to side.",
-    "**P waves are faster.** About 6 km/s in the upper crust against about 3.5 km/s for S waves.",
-    "**S waves cannot cross liquid.**",
-    "**The S-minus-P gap gives the distance.** It grows with distance, about 8 km per second of gap for nearby quakes.",
-    "**Three stations fix the epicentre.** Each gives a circle, and the three meet at the point above where the rock broke.",
+    "**Earthquakes send out P and S waves.** P waves squeeze and stretch rock at about 6 km/s in the upper crust, and S waves shake it sideways at about 3.5 km/s.",
+    "**The S-minus-P gap gives the distance.** The gap grows with distance, by about 8 km for each second of gap for nearby quakes.",
+    "**Three stations fix the epicentre.** Each distance gives a circle around a station, and the three circles meet above the point where the rock broke.",
     "**Magnitude is logarithmic.** Each step is ten times the ground swing and about 32 times the energy."
   ],
   "journal": [],

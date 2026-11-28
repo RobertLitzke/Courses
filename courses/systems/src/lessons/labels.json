@@ -256,14 +256,10 @@
     }
   ],
   "summary": [
-    "**Test sets have wrong answers too.** Even standard benchmarks hold enough wrong labels to change which model ranks first.",
-    "**Keep labels as an append-only record.** Each label event records its source, guideline version and the suggestion shown; the current label is a view derived from the events.",
-    "**Guideline changes cause bad batches.** Version the guideline with every label, and send the sections with most disputes back to their owners.",
-    "**Agreement is not correctness.** Overlap catches individual slips; labellers who share a wrong reading agree on it, and only an expert audit of a random sample measures that.",
-    "**Gold questions measure labellers, not batches.** They must look like ordinary work and be rotated, and they usually miss the ambiguous cases.",
-    "**A model in the loop needs its own checks.** Measure anchoring with deliberately wrong suggestions, and accept unseen model labels only from a calibrated model, checked for each version.",
-    "**Active learning spends the budget well and biases the sample.** Keep a random stream for audits and evaluation.",
-    "**Labelling is a queue with leases and quotas.** Route tasks by qualification and priority, and blur faces and plates before anyone sees the images."
+    "**Even test sets have wrong labels.** Standard benchmarks hold enough wrong labels to change which model ranks first.",
+    "**Labels are an append-only record of events.** Each event records its source, guideline version and the suggestion shown, and the current label is a view derived from the events.",
+    "**Agreement is not correctness.** Overlap catches individual slips, but labellers who share a wrong reading agree on it, and only an expert audit of a random sample measures that.",
+    "**A model in the loop needs checks.** Deliberately wrong suggestions measure anchoring, and since active learning biases the sample, a random stream is kept for audits and evaluation."
   ],
   "footnotes": {
     "cl": {

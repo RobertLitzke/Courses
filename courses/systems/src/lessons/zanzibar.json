@@ -229,15 +229,10 @@
     }
   ],
   "summary": [
-    "**Store permissions as relation tuples.** Express access rules as `object#relation@user`, where the user can be a userset such as `group:eng#member` to represent group and folder inheritance.",
-    "**Derive implied permissions from rewrite rules rather than storing copies.** Namespace rules define how relations derive (an owner is an editor, and a folder viewer can view its files), and Zanzibar evaluates them during a check.",
-    "**Size the storage engine from the tuple count.** Two trillion tuples at roughly 50 bytes each require 100 TB of storage, which Zanzibar distributes across Spanner.",
-    "**The new enemy problem occurs when a revoked user sees newer content.** It happens whenever an access check evaluates against a database snapshot older than a permission change that the new content depended on.",
-    "**A zookie records a Spanner timestamp from when content was modified.** Checks carrying a zookie must evaluate at a snapshot at least as recent as that timestamp, while checks without one can use older, cached snapshots.",
-    "**Require the client to specify its freshness bound.** Reading the latest state requires round trips to Paxos leaders and bypasses caches, so only requests that depend on a recent change should pay that latency cost.",
-    "**Route checks by object ID with consistent hashing to partition the cache.** Each server caches a distinct share of objects rather than duplicating popular ones, at the cost of concentrating traffic for a hot object on a single machine.",
-    "**Add dedicated mechanisms for hot spots and deep group hierarchies.** Coalesce identical in-flight checks in a lock table, spread the hottest objects across all servers, and evaluate deep group nesting with an in-memory flattened set index.",
-    "**Centralising permissions makes the authorization service a critical dependency.** Providing consistent answers across every product requires engineering the shared service for 99.999% availability."
+    "**Permissions are stored as relation tuples.** A tuple reads `object#relation@user`, a user can be a userset such as `group:eng#member`, and rewrite rules derive implied permissions at check time.",
+    "**Stale snapshots cause the new enemy problem.** A revoked user sees new content when the access check reads a snapshot older than the permission change the content depended on.",
+    "**A zookie sets the freshness a check needs.** It records the Spanner timestamp of a content change, so the check uses a snapshot at least that recent while others use cheaper cached snapshots.",
+    "**Centralised permissions become a critical dependency.** Every product relies on the service's answers, so Zanzibar is engineered for 99.999% availability."
   ],
   "footnotes": {
     "burrows": {

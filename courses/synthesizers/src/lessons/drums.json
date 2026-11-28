@@ -300,13 +300,10 @@
     }
   ],
   "summary": [
-    "**The TR-808 (1980) built its drums from circuits**, with no recordings inside.",
-    "**A struck drum's pitch falls**: the skin starts tight and slackens as it settles.",
-    "**An envelope can go to pitch**, as well as to loudness or the filter: each note starts high and falls back.",
-    "**How far it starts sets the punch; how fast it falls sets whether you hear a click or a sweep.**",
-    "**A kick is a low sine with a fast pitch fall** and a decay long enough to boom.",
-    "**A snare is a short tuned tone plus short noise**, the wires' rattle.",
-    "**Small speakers lose a kick's low sine** but keep its falling start."
+    "**A struck drum's pitch falls.** The skin starts tight and slackens as it settles.",
+    "**An envelope can drive pitch, not only loudness.** Each note then starts high and falls back, its starting height setting the punch and its speed a click or a sweep.",
+    "**A kick is a low sine that drops.** Its pitch falls fast, its decay is long enough to boom, and small speakers lose the low sine but keep the falling start.",
+    "**A snare is a tuned tone plus noise.** Both are short, and the burst of noise stands for the rattle of the snare wires."
   ],
   "footnotes": {
     "808": {

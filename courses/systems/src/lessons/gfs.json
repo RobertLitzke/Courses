@@ -4,14 +4,10 @@
   "title": "One master, a thousand disks",
   "teaches": "Splitting metadata from data, big blocks, and why one coordinator can be the right first design",
   "summary": [
-    "**GFS was built for one kind of file.** A few million files of many megabytes to many gigabytes, written by appending and read in long streams, on a thousand cheap machines.",
-    "**Metadata and data take different paths.** One master knows every file's chunks and where they are; the bytes go straight between clients and chunkservers.",
-    "**The master's tables live in memory.** The master holds the file namespace, each file's list of chunks, and each chunk's replica locations in RAM, rebuilding the location map at startup by polling the chunkservers.",
-    "**Big chunks keep the master small and quiet.** At 64 MB a chunk and under 64 bytes each, a petabyte is about 16 million chunks and 1 GB of memory, and a client asks the master once per chunk.",
-    "**Big chunks cost something too.** A small file sits in one chunk on three machines, and if many clients want it at once those three become a hot spot.",
-    "**One coordinator makes global decisions simple.** Placement, re-replication and garbage collection are decided in one place with all the facts, as long as its load and memory stay small.",
-    "**The master's state survives in a replicated log.** Every change to names and chunk lists is written to an operation log copied to other machines before the client is told it is done.",
-    "**Know where the simple design stops.** By 2009 file counts and latency-sensitive users had outgrown one master, and Google replaced GFS with Colossus, which spreads the metadata."
+    "**Metadata and data take different paths.** One master keeps every file's chunk list and replica locations in memory, while the bytes go straight between clients and chunkservers.",
+    "**Big chunks keep the master small.** At 64 MB a chunk, a petabyte needs about 1 GB of master memory, but a small file that many clients want overloads the three machines holding it.",
+    "**One coordinator makes global decisions simple.** Placement, re-replication and garbage collection are decided with all the facts in one place, and an operation log copied to other machines preserves its state.",
+    "**A single master works until load outgrows it.** File counts and latency-sensitive users had outgrown GFS's master by 2009, and Colossus replaced it by spreading the metadata."
   ],
   "parts": [
     {

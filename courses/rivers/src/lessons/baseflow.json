@@ -4,14 +4,10 @@
   "title": "Where August's river comes from",
   "teaches": "Groundwater in the spaces between grains, Darcy's law, baseflow, and gaining and losing streams",
   "summary": [
-    "**Groundwater fills the spaces between grains.** Under western Washington it is almost never an underground lake or river: it sits in the pores of sand and gravel and in cracks in rock.",
-    "**The water table is where the pores fill up.** Above it the ground holds air and some water; below it every pore is full, and a well fills to its level.",
-    "**Darcy's law: flow follows the drop in head.** Double the drop across a layer and the flow doubles; double the thickness and it halves; and each material has its own conductivity, from free-flowing gravel to almost sealed clay.",
-    "**Groundwater is slow.** In sand it creeps a fraction of a metre a day, so water reaching a river may have fallen as rain years before.",
-    "**Baseflow is the river the ground supplies.** A gaining stream is fed through its bed and banks wherever the water table stands above it, and in a dry August that seep is nearly all the river.",
-    "**Snow decides when the ground is refilled.** In 2015 a normal amount of precipitation fell as rain, ran off in winter, and left the aquifers draining from February, so rivers reached record lows by August.",
-    "**A well can turn a gaining creek into a losing one.** Where the water table lies below the bed a stream leaks into the ground, and a well beside a creek tips it that way once it takes more than the baseflow feeding that stretch, which happens sooner as summer goes on.",
-    "**On islands fresh water floats on salt.** For every metre the water table stands above sea level, fresh water reaches about 40 metres below, so overpumping near the shore draws salt water up into wells."
+    "**Groundwater fills the pores between grains.** Under western Washington it sits in sand, gravel and cracked rock rather than underground lakes, and below the water table every pore is full.",
+    "**Groundwater flow follows the drop in head.** By Darcy's law, doubling the drop across a layer doubles the flow, and each material has its own conductivity, from gravel to almost sealed clay.",
+    "**Baseflow is nearly all of an August river.** Groundwater creeps a fraction of a metre a day and seeps into a gaining stream wherever the water table stands above its bed.",
+    "**Pumping beside a creek can reverse its seepage.** A stream leaks into the ground where the water table lies below its bed, which a nearby well causes once it takes more than the baseflow."
   ],
   "parts": [
     {

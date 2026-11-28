@@ -49,12 +49,9 @@
     }
   ],
   "summary": [
-    "**Luminosity is a star’s real output.** It comes from how bright a star looks and how far away it is.",
-    "**Same colour, very different output.** Stars of one colour can differ a thousandfold in luminosity, so the bright ones must be giants.",
-    "**Most stars lie on the main sequence.** Plotted by luminosity against colour, they fall along one diagonal band.",
-    "**Mass sets a star’s place on the main sequence.** Heavier stars are hotter, bigger and much brighter.",
-    "**Giants above, white dwarfs below.** Cool, bright giants can be hundreds of times the Sun’s width; hot, faint white dwarfs are the size of the Earth.",
-    "**Giants and dwarfs are not separate kinds of star.** How a star moves between the main sequence, the giants and the white dwarfs is the subject of later lessons."
+    "**Luminosity is a star’s true output.** It is worked out from how bright the star looks and how far away it is.",
+    "**Most stars lie on the main sequence.** On a plot of luminosity against colour they fall along one diagonal band, where heavier stars are hotter, bigger and much brighter.",
+    "**Off the main sequence lie giants and dwarfs.** Cool, bright giants can be hundreds of times the Sun’s width, and hot, faint white dwarfs are the size of the Earth."
   ],
   "journal": [],
   "footnotes": {"absolute":{"kind":"technical","title":"Absolute magnitude","text":"Astronomers often give luminosity as **absolute magnitude**: how bright a star would look from a standard distance of 10 parsecs (32.6 light-years). The scale runs backwards, as star magnitudes always have, so the brighter the star, the smaller the number; the Sun's is about 4.8."},"zeitschrift":{"kind":"digression","title":"A photography journal","text":"His papers of 1905 and 1907 appeared in the *Zeitschrift für wissenschaftliche Photographie*, a German journal of scientific photography, under the title 'On the radiation of stars'."}}

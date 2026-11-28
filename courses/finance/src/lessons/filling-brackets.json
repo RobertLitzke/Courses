@@ -177,13 +177,10 @@
     }
   ],
   "summary": [
-    "**Low brackets expire every year.** Space left empty in a low-income year can't be used later.",
-    "**Spending taxable first can backfire.** The pre-tax accounts grow untouched into large required withdrawals at 73 or 75.",
-    "**Conversions and 0 percent gains compete.** Mixing them can cost 27 percent inside the 12 percent bracket.",
-    "**0 percent gains are gone for good.** Realising them raises the basis, so those gains never pay tax.",
-    "**Filling the 12 percent bracket usually pays.** The sample couple's lifetime federal tax fell from about $385,000 to $160,000.",
-    "**Filling higher depends on the later rate.** Large pre-tax balances and a likely survivor filing single favour 22 percent.",
-    "**Health credits are part of the price.** Before 65, lost premium credits can eat much of what filling saves."
+    "**Unused low brackets expire every year.** Space left empty can't be used later, while untouched pre-tax accounts grow into large required withdrawals at 73 or 75.",
+    "**Roth conversions and 0 percent gains compete.** Both use the same bracket space, and mixing them can cost 27 percent inside the 12 percent bracket.",
+    "**Filling the 12 percent bracket usually pays.** It can cut a couple's lifetime federal tax by more than half, while filling 22 percent pays only with large pre-tax balances.",
+    "**Before 65, lost health credits count too.** Premium credits lost to higher income can eat much of what filling a bracket saves."
   ],
   "footnotes": {
     "rmd": {

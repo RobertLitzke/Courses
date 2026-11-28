@@ -6,13 +6,10 @@
   "branch": "columbia",
   "needs": ["waves"],
   "summary": [
-    "**The bar is where the river's sand meets the sea.** The Columbia drops its sand where its outflow slows in the ocean, and swell and storms shove it back into a shifting arc of shoals across the mouth.",
-    "**The ebb tide makes the waves worse.** Swell running into the outgoing current is slowed, so its crests crowd closer together and, carrying the same energy forward more slowly, grow taller.",
-    "**A wave breaks when it gets too steep or too tall for the depth.** In deep water that is when its height reaches about a seventh of its length; over a shoal, when its height nears the depth.",
-    "**The same swell can be safe at one hour and breaking at another.** Over a tide the current swings from flood tide to ebb tide, so the bar is kindest near high slack and worst at the height of the ebb.",
-    "**A spring freshet strengthens the ebb.** More river water running out means a stronger current against the swell.",
-    "**The jetties squeezed the ebb into one channel.** The South Jetty (from 1885), the North Jetty (1913 to 1917) and Jetty A (1939) scoured a deeper, steadier channel, and dredges keep it deep.",
-    "**Pilots and lifeboat crews read the bar for a living.** Bar pilots take every large ship across, and the Coast Guard trains its surf crews at Cape Disappointment."
+    "**River sand and ocean swell build the bar.** The Columbia drops its sand where its outflow slows at sea, and swell and storms push it back into a shifting arc of shoals.",
+    "**Steepness or shallow water makes a wave break.** In deep water a wave breaks when its height reaches about a seventh of its length, and over a shoal when its height nears the depth.",
+    "**A spring freshet makes the bar worse.** Swell running into the ebb current slows, so its crests crowd together and grow taller, and more river water means a stronger ebb.",
+    "**The bar is kindest near high slack.** The same swell that crosses safely near high slack water can break across the bar at the height of the ebb."
   ],
   "parts": [
     {

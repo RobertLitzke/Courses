@@ -294,13 +294,10 @@
     }
   ],
   "summary": [
-    "**Monophonic plays one note**; paraphonic plays several pitches through one filter and envelope.",
-    "**On a paraphonic synth the envelope belongs to the whole chord**: a new key re-swells every note.",
-    "**Polyphonic gives each note a whole voice**, with its own filter and envelopes.",
-    "**Voice stealing**: with every voice busy, a new key takes the oldest note's place.",
-    "**Unison stacks every oscillator on one note**, detuned by the spread, for a thick mono sound.",
-    "**Chord memory makes one key play a fixed chord shape**: the house and techno stab.",
-    "**On a strange synth, find the voice mode first** when it won't play the chord you pressed."
+    "**Paraphonic synths share one filter and envelope.** Several pitches play through them, so a new key re-swells every note of the chord.",
+    "**Polyphonic synths give each note a voice.** Each voice has its own filter and envelopes, and with every voice busy, a new key takes the oldest note's place.",
+    "**Unison stacks every oscillator on one note.** Detuned by the spread, they give a thick mono sound.",
+    "**Chord memory plays chords from one key.** Each key plays the same fixed chord shape, the source of the house and techno stab."
   ],
   "footnotes": {
     "poly": {

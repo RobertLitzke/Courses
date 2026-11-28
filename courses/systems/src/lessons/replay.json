@@ -375,16 +375,11 @@
     }
   ],
   "summary": [
-    "**Deterministic replay requires pinning every input.** Replace the system clock with a simulated clock, seed all random number generators, enforce a fixed reduction order for floating-point sums, and pin software builds by cryptographic hash.",
-    "**Tiny numerical differences compound rapidly.** A rounding difference of one part in ten million diverges into an entirely different trajectory after a few collisions, so engineers evaluate builds by aggregated outcome metrics rather than exact paths.",
-    "**Estimate capacity requirements before provisioning hardware.** One million 30-second scenarios equal 347 days of driving; running two builds through a 4-core-second simulator requires roughly 67,000 core-hours per night.",
-    "**Store scheduler state in a small replicated database.** An elected leader inserts scheduled runs and resolves task dependencies, while workers pull ready tasks directly from the store using time-limited leases.",
-    "**Combine at-least-once execution with idempotent outputs.** Expired leases cause duplicate task runs, which remain safe when workers write outputs under input hashes and validate attempt numbers as fencing tokens. Cap retries to prevent poison-pill tasks from exhausting the cluster.",
-    "**Run batch workloads on preemptible spare capacity.** Spare overnight capacity is inexpensive; sizing tasks to 20–30 minutes or checkpointing state minimises preemption waste, while priority quotas prevent resource starvation.",
-    "**Cache results by the hash of their inputs.** Looking up existing simulation outputs in a content-addressed cache eliminates the baseline build run and cuts nightly compute work in half.",
-    "**Aggregate metrics across frozen dataset versions.** Group scenarios by metadata tags, test failure-rate shifts using thresholds adjusted for multiple hypothesis testing, enforce strict crash invariants on every scene, and pin datasets as immutable versions.",
-    "**Log replay cannot react.** Once a new build behaves differently, the recorded world is wrong, so diverging scenarios move to closed-loop simulation with checked behaviour models.",
-    "**A gate must be trusted to be obeyed.** State its rules before the run, re-run a failure once, quarantine flaky scenarios openly, and measure the noise between two trainings of the same model."
+    "**Deterministic replay means pinning every input.** Replay needs a simulated clock, seeded random number generators, a fixed order for floating-point sums and builds pinned by hash.",
+    "**Compare builds by aggregate outcomes, not exact paths.** A rounding difference of one part in ten million grows into a different trajectory after a few collisions.",
+    "**Retried batch work must be idempotent.** Expired leases run some tasks twice, which is safe when each output is written under the hash of its inputs and retries are capped.",
+    "**Log replay cannot react to new behaviour.** Once a build behaves differently the recorded world is wrong, so diverging scenarios move to closed-loop simulation with checked behaviour models.",
+    "**A release gate works only when trusted.** Its rules are stated before the run, a failure is re-run once, flaky scenarios are quarantined openly, and the noise between two trainings is measured."
   ],
   "footnotes": {
     "rnd": {

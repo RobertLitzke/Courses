@@ -240,14 +240,10 @@
     }
   ],
   "summary": [
-    "**Grain is a counting problem.** Photons arrive at random, so a pixel's count of N is out by about the square root of N.",
-    "**ISO amplifies the count.** The sensor catches the same light at every ISO, and the grain is set by how much light that is.",
-    "**Spend the light on sharpness first.** A sharp, grainy picture beats a smooth, blurred one; let the ISO be what it has to be.",
-    "**A still subject lets you slow the shutter.** Braced, with the stabiliser on, every stop slower is a stop less ISO.",
-    "**Shrinking a picture cleans it.** On a phone each dot averages about 36 pixels, which cuts the noise six times.",
-    "**The small sensor runs out first.** It catches about five stops less light than full frame at the same framing.",
-    "**Dusk is a clock.** The light falls about a stop every four minutes after sunset; take the moving shots first.",
-    "**Noise reduction costs detail.** Heavy smoothing turns feathers to wax; go gently, or do it later from RAW."
+    "**Grain comes from counting photons.** Photons arrive at random, so a pixel's count of N is out by about the square root of N.",
+    "**ISO amplifies the count without adding light.** The sensor catches the same light at every ISO, so the grain is set by how much light arrives.",
+    "**Spend the light on sharpness first.** A sharp, grainy picture beats a smooth, blurred one, so let the ISO be what it has to be.",
+    "**The small sensor runs out of light first.** It catches about five stops less light than full frame at the same framing, and after sunset the light falls about a stop every four minutes."
   ],
   "journal": [],
   "footnotes": {

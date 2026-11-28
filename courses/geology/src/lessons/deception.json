@@ -36,7 +36,8 @@
      "options": {
       "photo": "ribbon-chert",
       "aspect": 1.5
-     }
+     },
+     "guide": true
     },
     {
      "type": "key_ideas",
@@ -210,13 +211,10 @@
   }
  ],
  "summary": [
-  "**Deception Pass is ocean floor on land.** Pillow basalt, ribbon chert, serpentinite.",
-  "**Pillows form under water.** Chert forms on the deep seafloor.",
-  "**Together they are an ophiolite.** About 160 million years old on Fidalgo.",
-  "**The West is a patchwork.** Terranes with unrelated histories, bounded by faults.",
-  "**Plates deliver them.** Light pieces jam the trench and weld on; slices are scraped off.",
-  "**Washington grew by additions.** Over the last 200 million years.",
-  "**The Olympics are doing it now.** Seafloor scraped off the Juan de Fuca plate."
+   "**Pillow basalt and ribbon chert mark ocean floor.** Only lava erupting under water forms rounded pillows, and chert builds from radiolarian skeletons settling on the deep seafloor far from land.",
+   "**An ophiolite is ocean floor on land.** A stack of altered mantle, pillow lava and deep-sea chert is a slice of ocean crust and mantle, like the one at Deception Pass.",
+   "**Western North America is a patchwork of terranes.** Blocks with unrelated ages, fossils and histories sit side by side, bounded by faults, and some formed thousands of kilometres away.",
+   "**Continents grow at trenches.** Buoyant island arcs jam the trench and weld on whole, while slices of seafloor scraped off sinking plates pile up, as in the Olympics today."
  ],
  "journal": [],
  "footnotes": {

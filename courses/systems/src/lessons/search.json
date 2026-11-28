@@ -251,15 +251,10 @@
     }
   ],
   "summary": [
-    "**Split the work between batch processing and real-time serving.** Crawling, indexing and building completions run in batches ahead of time so that serving a query or a keystroke is a fast lookup.",
-    "**A billion pages a month is about 400 pages a second.** At 100 KB per page, that equals 40 MB a second of HTML and 100 TB a month of raw pages.",
-    "**A single frontier queue stalls behind the biggest site.** With a one-second politeness delay, having a fifth of all links point to one host limits the whole crawl to five pages a second.",
-    "**A queue per host and a min-heap of ready times keep fetchers busy.** Fetchers always take whichever site may be contacted soonest, while a large site's URLs wait in its own queue.",
-    "**Track seen data with compact structures.** Use a Bloom filter for seen URLs, a simhash fingerprint for near-duplicate pages, and local caches for DNS and `robots.txt`.",
-    "**An inverted index maps words to sorted lists of document IDs.** Build it with MapReduce, partition it by document across shards, and search it by querying every shard and merging the top results.",
-    "**Precompute each prefix's top completions.** A trie with precomputed top lists flattens into a prefix-to-list hash table served from memory, paired with a real-time pipeline for hourly trends.",
-    "**Partition by hash, not by first letter, and cache short prefixes.** First letters have an uneven distribution; hashing spreads prefixes evenly across shards, while an edge cache absorbs the hottest short prefixes.",
-    "**Degrade quietly when optional features fail.** A slow suggestion shard should result in no suggestions for that keystroke, rather than a stalled search box."
+    "**Precompute in batch, serve by lookup.** Crawling, indexing and building completions run ahead of time, so answering a query or a keystroke is a fast lookup.",
+    "**A crawler needs a queue per host.** With a one-second politeness delay a single queue stalls behind the biggest site, so per-host queues and a min-heap of ready times keep fetchers busy.",
+    "**An inverted index maps words to documents.** Each word points to a sorted list of document IDs, and an index partitioned by document is searched by querying every shard and merging top results.",
+    "**Each prefix's top completions are precomputed.** Prefixes are hashed across shards rather than split by first letter, the hottest short prefixes are cached at the edge, and a slow shard returns no suggestions."
   ],
   "footnotes": {
     "varint": {

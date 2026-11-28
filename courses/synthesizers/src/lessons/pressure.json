@@ -299,14 +299,10 @@
     }
   ],
   "summary": [
-    "**Velocity is how fast a key goes down**, sent as a number from 1 to 127 when the note starts.",
-    "**Velocity does nothing until it is routed**: to level for loudness, to the cutoff for brightness.",
-    "**Velocity to the cutoff** is what makes harder notes sound brighter, as on a piano.",
-    "**The velocity curve** decides how a strike becomes a number; set it once for your hands.",
-    "**Pressure, or aftertouch**, is pressing a held key harder, and it changes all through the note.",
-    "**Pressure to the LFO's amount** gives a vibrato the player brings in note by note.",
-    "**The pitch-bend wheel springs back; the mod wheel stays** and usually brings in vibrato.",
-    "**On a strange synth, try the four hand sources first**: velocity, pressure and the two wheels or strips."
+    "**Velocity measures how fast a key goes down.** It is sent once, as a number from 1 to 127, when the note starts.",
+    "**Hand sources do nothing until routed.** Velocity to level makes harder notes louder, and velocity to the cutoff makes them brighter, as on a piano.",
+    "**Pressure changes all through the note.** Pressing a held key harder, called aftertouch, can bring in vibrato note by note when routed to the LFO's amount.",
+    "**The mod wheel stays where it is left.** Unlike the pitch-bend wheel, which springs back, it usually brings in vibrato."
   ],
   "footnotes": {
     "contacts": {

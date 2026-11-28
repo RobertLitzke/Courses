@@ -264,15 +264,10 @@
     }
   ],
   "summary": [
-    "**A web map is a pyramid of square tiles.** Zoom z has 4^z tiles of 256 by 256 pixels, each addressed by zoom, column and row.",
-    "**Each zoom level multiplies the tile count by four.** Zoom 18, at a resolution of about 60 cm per pixel, contains about 69 billion tiles.",
-    "**Pre-render the few low zooms and render the deep zooms on demand.** Most deep tiles cover ocean or unpopulated land that users rarely view.",
-    "**Request popularity is skewed, so caches serve most of the traffic.** Browser caches, CDN edge caches and the tile store serve a rendered tile to all subsequent viewers.",
-    "**Never overwrite a tile at an existing URL.** Embedding a map version in every tile's URL allows caches to retain tiles indefinitely and eliminates cache purges during updates.",
-    "**Switching versions causes a cache cold start.** Every cache misses when URLs change, so engineers release new versions every few days rather than with every edit.",
-    "**Check a version before the pointer moves.** Tile counts, render failures and changes against the last version are checked first; a failed version stays unpublished, and clients keep the last good one.",
-    "**Offline devices take deltas between versions.** A device applies the changed tiles, checks the hash of the result, and switches only if it matches.",
-    "**Vector tiles transmit geometry instead of bitmap images.** The client device renders them in any style or orientation, requiring a rendering engine on every client."
+    "**A web map is a pyramid of tiles.** Zoom z has 4^z tiles of 256 by 256 pixels, so zoom 18, at about 60 cm a pixel, has about 69 billion.",
+    "**Pre-render low zooms, render deep zooms on demand.** Most deep tiles show ocean or empty land that few view, and skewed popularity lets caches serve most of the traffic.",
+    "**Never overwrite a tile at an existing URL.** A map version in each URL lets caches keep tiles indefinitely, but each switch starts every cache cold, so versions ship every few days.",
+    "**Vector tiles send geometry instead of images.** The client renders them in any style or orientation, at the cost of a rendering engine on every device."
   ],
   "footnotes": {
     "ajax": {

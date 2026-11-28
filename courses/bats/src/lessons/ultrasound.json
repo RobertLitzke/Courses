@@ -4,14 +4,10 @@
   "title": "Why so high?",
   "teaches": "Wavelength against the size of an insect, why higher calls find smaller prey but carry less far, and the two shapes of call: sweeps and steady tones",
   "summary": [
-    "**Sound is a wave of squeezed and stretched air.** It travels at about 343 metres a second, and its wavelength is that speed divided by the frequency.",
-    "**Bat calls have short waves.** At 20 kHz a wave is 17 mm long, at 50 kHz 7 mm, and at 100 kHz 3.4 mm.",
-    "**Small targets hardly echo long waves.** Once an insect is much smaller than the wavelength, its echo fades steeply, so a bat hunting midges does best calling high.",
-    "**Air soaks up high sound.** About half a decibel a metre at 20 kHz, three or more at 100 kHz, so a high call does not reach far.",
-    "**Every bat strikes a bargain.** Big brown and hoary bats call low, near 20 to 28 kHz, for long range in open air; Yuma myotis call near 50 kHz for small insects close by.",
-    "**Bats shout.** A call is 120 to 140 decibels at 10 cm from the mouth, as loud as a jet engine nearby, and silent to us.",
-    "**Sweeps measure.** A short sweep down through many frequencies, 1 to 10 ms long, gives sharp timing and detail; every Washington bat uses them.",
-    "**Steady tones catch wingbeats.** A horseshoe bat holds one pitch for 30 to 60 ms, calling most of the time, and hears the flicker of an insect's wings in the echo."
+    "**A call's wavelength is sound speed over frequency.** At about 343 metres a second, a 20 kHz wave is 17 mm long and a 100 kHz wave 3.4 mm.",
+    "**Insects much smaller than the wavelength barely echo.** Once an insect is much smaller than the wavelength its echo fades steeply, so a bat hunting midges does best calling high.",
+    "**Air absorbs high frequencies quickly.** Air takes about 0.5 dB a metre at 20 kHz and 3 dB or more at 100 kHz, so open-air hunters call low for range.",
+    "**Sweeps measure and steady tones catch wingbeats.** A downward sweep of 1 to 10 ms gives sharp timing and detail, while a horseshoe bat's 30 to 60 ms tone hears flickering insect wings."
   ],
   "parts": [
     {

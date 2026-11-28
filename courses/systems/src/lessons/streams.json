@@ -166,16 +166,10 @@
     }
   ],
   "summary": [
-    "**Define correctness requirements before designing the pipeline.** Specify whether windows use event time or processing time, when window outputs trigger, and how the pipeline handles late and duplicate records.",
-    "**Every event carries two timestamps.** Event time records when the action occurred at the source, while processing time records when the server ingested the record; network and batching delays create skew between them.",
-    "**Aggregate billing metrics by event time.** Windowing by processing time turns a temporary network backlog into an artificial traffic spike when the backlog drains.",
-    "**A watermark tracks the progress of event time.** When the watermark timestamp passes a window's end boundary, the pipeline emits the window's count; any record for that window arriving afterwards is classified as late.",
-    "**Watermark delay trades output latency against completeness.** Combining a short watermark delay with window revisions delivers low-latency initial counts that converge to exact totals for arrivals within the allowed lateness threshold.",
-    "**Unreliable networks cannot guarantee exactly-once delivery, so pipelines implement exactly-once effects.** Assign a unique ID to each event at the client source, then deduplicate against a state store or perform idempotent writes.",
-    "**Photon deduplicated clicks across datacentres using a Paxos-replicated IdRegistry.** Active-active pipelines in multiple datacentres processed every click, and the consensus registry ensured only the first joiner to claim a click ID emitted a billing record.",
-    "**Probabilistic sketches bound memory usage for high-cardinality aggregations.** A count-min sketch estimates item frequencies with a bounded overestimation error; HyperLogLog estimates distinct item counts within approximately 2% error using 1.5 KB of memory.",
-    "**Log replay can replace a separate batch pipeline.** When a streaming job uses event-time windows and ID deduplication, replaying historical data from a long-retention log through updated code produces deterministic results.",
-    "**Default to incremental updates with a periodic full rebuild.** The incremental path keeps results fresh; the rebuild, run with the same code and compared with the incremental state, finds the errors that incremental state accumulates."
+    "**Window billing metrics by event time.** Every event has an event time and a processing time, and windowing by processing time turns a draining network backlog into a false traffic spike.",
+    "**A watermark decides when a window is complete.** When it passes a window's end the count is emitted, and a short delay with later revisions gives fast counts that converge to exact totals.",
+    "**Pipelines achieve exactly-once effects, not delivery.** Each event gets a unique ID at the client, and the pipeline deduplicates against a state store or writes idempotently.",
+    "**Sketches bound memory for huge cardinalities.** A count-min sketch overestimates frequencies within a bound, and HyperLogLog counts distinct items within about 2% using 1.5 KB."
   ],
   "footnotes": {
     "photon": { "kind": "technical", "title": "Photon's production metrics", "text": "The SIGMOD 2013 paper reports peak production throughput in the millions of joined events per minute, with an average end-to-end latency from click occurrence to joined billing output of under 10 seconds. Photon's IdRegistry retained click IDs for the preceding N days (typically 3 to 7 days), allowing the system to filter out any duplicate click arriving within that retention window." },

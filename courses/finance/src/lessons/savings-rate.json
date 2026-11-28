@@ -71,13 +71,9 @@
   ],
   "summary": [
     "**The savings rate does two jobs.** It sets how fast savings grow and, through what is left to spend, how large they must become.",
-    "**The target is spending times 25 at 4 percent.** At a 3.5 percent withdrawal rate, better suited to very long retirements, it is about 29 times.",
-    "**Income cancels out.** At the same savings rate, a higher income raises the pile needed as much as it raises the saving, so the date stays put.",
-    "**The curve is steep, then flat.** From 10 to 20 percent saved cuts about fourteen years; from 50 to 60 about four.",
-    "**Returns matter less in a short race.** A high saver's pile is mostly contributions, so a point of return moves the date by a year or two.",
-    "**Use real numbers throughout.** Returns after inflation, targets in today's dollars.",
-    "**Count every kind of saving.** 401(k) deferrals, an employer match and mortgage principal are all part of the rate.",
-    "**The model's gaps matter later.** Health insurance, taxes on withdrawals and the length of retirement all move the target, and the rest of the course is about them."
+    "**Income cancels out.** At the same savings rate, a higher income raises the target as much as the saving, so the date stays put.",
+    "**Early gains in the savings rate count most.** Going from 10 to 20 percent saved cuts about fourteen years, while going from 50 to 60 cuts about four.",
+    "**Returns move the date less than saving does.** A high saver's pile is mostly contributions, so a point of return moves the date by a year or two."
   ],
   "footnotes": {
     "mmm": { "kind": "digression", "title": "Mr. Money Mustache", "text": "Pete Adeney stopped working full time in 2005, at 30, after about ten years as a software engineer, and began the blog in 2011. His table assumed a 5 percent real return and a 4 percent withdrawal rate, and counted from nothing saved. The blog made the idea popular, but the arithmetic is older: retirement planners had used versions of it for decades." },

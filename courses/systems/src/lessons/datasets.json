@@ -246,14 +246,10 @@
     }
   ],
   "summary": [
-    "**A published version never changes.** Two teams that name the same version used the same bytes, which makes rollback, lineage and reproducibility possible.",
-    "**A version is a manifest behind a pointer.** Publishing and rolling back are an atomic compare-and-swap on one pointer in a small replicated catalogue.",
-    "**Conflation needs stable IDs.** An ID registry carries IDs across versions; IDs are never reused, and merges and splits are recorded with replaced-by pointers.",
-    "**Consumers pin versions and read deltas.** Each team moves to a new version when its own checks pass, and checks that its version plus a delta equals the next version.",
-    "**Lineage runs both ways.** Backwards from a wrong value to its inputs and code, and forwards to everything that must be rebuilt.",
-    "**Change by adding, not editing.** New fields get new names, and backfills write new versions of whole partitions.",
-    "**Deletion is the exception to immutability.** A suppression list that every build reads, logged rewrites of retained versions, and deletion notices with forward lineage for copies elsewhere.",
-    "**Incremental builds need a rebuild to check them.** A deterministic rolling rebuild of one region a day, from the same pinned inputs, registry and suppression list, catches errors in carried-over state; bugs in shared code need other checks."
+    "**A published version never changes.** Consumers pin a version and move when their own checks pass, and publishing or rolling back swaps one pointer to a manifest atomically.",
+    "**Conflation needs stable IDs.** An ID registry carries IDs across versions, never reuses them, and records merges and splits with replaced-by pointers.",
+    "**Deletion is the one exception to immutability.** Every build reads a suppression list, retained versions are rewritten with a log entry, and forward lineage finds the copies held elsewhere.",
+    "**Incremental builds need full rebuilds to check them.** A deterministic rolling rebuild of one region a day, from the same pinned inputs, catches errors that carried-over state accumulates."
   ],
   "footnotes": {
     "sio": {

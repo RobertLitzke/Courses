@@ -64,11 +64,9 @@
     }
   ],
   "summary": [
-    "**Planets sometimes run backwards.** Each regularly stops, moves west against the stars for a while, then turns east again: retrograde motion.",
-    "**With the Sun at the centre, loops are overtaking.** The faster inner planet passes the slower outer one, so an outer planet loops when it is opposite the Sun in our sky.",
-    "**Precise data overturned the circle.** Tycho Brahe measured positions to a minute or two of arc without a telescope, and Kepler would not ignore an eight-minute miss.",
-    "**Planets move on ellipses with the Sun at one focus.** That is Kepler’s first rule.",
-    "**Planets move fastest nearest the Sun.** The line from the Sun sweeps out equal areas in equal times.",
+    "**Retrograde loops come from overtaking.** A faster inner planet passes a slower outer one, so an outer planet seen from the Earth runs backwards when it is opposite the Sun.",
+    "**Orbits are ellipses, the Sun at one focus.** Kepler found it because he would not ignore an eight-minute miss in Tycho Brahe’s naked-eye positions.",
+    "**Planets move fastest nearest the Sun.** The line from the Sun to a planet sweeps out equal areas in equal times.",
     "**Farther planets take longer to go round.** The square of the period is in proportion to the cube of the average distance."
   ],
   "journal": [],

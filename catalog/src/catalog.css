@@ -35,10 +35,11 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+/* The reader's text size (didactics/reading) scales everything set in rem. */
+html { -webkit-text-size-adjust: 100%; font-size: calc(100% * var(--reading-scale, 1)); }
 body {
   margin: 0; background: var(--paper); color: var(--ink);
-  font: 17px/1.55 var(--serif);
+  font: 1.0625rem/1.55 var(--serif);
   font-variation-settings: 'SOFT' 50;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
@@ -242,7 +243,7 @@ html { overflow-x: clip; }
 
 .install {
   display: flex; gap: 12px; align-items: center; max-width: 640px; margin: 12px 0 0; padding: 10px 14px;
-  background: #fbf3e4; border: 1.5px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); font-size: 0.95rem;
+  background: var(--card); border: 1.5px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); font-size: 0.95rem;
 }
 .install p { margin: 0; }
 .install .install-how { margin-top: 4px; font: 0.85rem/1.4 var(--sans); color: var(--soft); }
@@ -255,7 +256,7 @@ html { overflow-x: clip; }
 .desk { display: grid; grid-template-columns: 1.7fr 1fr 1fr; gap: 16px; margin-top: 18px; }
 .desk-card {
   display: flex; gap: 14px; align-items: center; min-width: 0; padding: 16px;
-  background: #fbf3e4; border: 1.5px solid var(--rule); border-radius: 14px;
+  background: var(--card); border: 1.5px solid var(--rule); border-radius: 14px;
 }
 .desk-main { border-color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
 .desk-main .ico { width: 64px; height: 64px; border-radius: 14px; }
@@ -264,6 +265,9 @@ html { overflow-x: clip; }
 .desk-card h3 a { color: var(--ink); text-decoration: none; }
 .desk-main .desk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 .desk-meta { margin: 4px 0 0; font: 0.82rem/1.35 var(--sans); color: var(--soft); }
+.desk-card .effort { display: inline-block; padding: 1px 8px; border-radius: 999px; background: #eadbbf; color: var(--ink); font: 500 0.78rem/1.4 var(--sans); letter-spacing: 0; text-transform: none; font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* Under the card's button, so it adds no height; beside it on a phone, where the button runs the card's width. */
+.desk-side { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-left: auto; }
 .ticks { display: inline-flex; gap: 3px; }
 .ticks i { width: 14px; height: 6px; border-radius: 3px; background: #e3d3b8; }
 .ticks i.d { background: var(--head); }
@@ -370,7 +374,8 @@ html { overflow-x: clip; }
   .desk-card { padding: 12px 14px; }
   .desk-main { flex-wrap: wrap; }
   .desk-main .desk-text { flex-basis: calc(100% - 62px); }
-  .desk-main > .btn { width: 100%; }
+  .desk-main > .desk-side { width: 100%; flex-direction: row; }
+  .desk-main .desk-side .btn { flex: 1; }
   .desk-also .ico, .desk-main .ico { width: 48px; height: 48px; border-radius: 11px; }
 }
 
@@ -387,3 +392,44 @@ html { overflow-x: clip; }
 @media (max-width: 720px) {
   .cover-text .beta { margin-top: 4px; }
 }
+
+/* ---------- Settings (settings.ts): what holds for every course ---------- */
+.site-settings h1 { font-size: 2.2rem; font-weight: 900; font-variation-settings: 'SOFT' 100; color: var(--link); margin: 8px 0 4px; }
+.site-settings h2 { font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--head); margin: 30px 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--head); }
+.site-settings section > p { color: var(--soft); margin: 0 0 12px; }
+/* The reading controls (didactics/styles/reading.css) in the catalog's own colours. */
+.site-settings .reading-controls {
+  --bg: var(--card); --text: var(--ink); --muted: var(--soft); --sun: var(--link);
+  --font: var(--serif); --display: var(--sans); --head: var(--serif);
+  max-width: 380px;
+}
+.site-settings .reading-step, .site-settings .reading-looks button { border: 1.5px solid var(--rule); }
+.set-courses { list-style: none; margin: 0; padding: 0; }
+.set-courses li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.set-courses .ico { width: 36px; height: 36px; border-radius: 9px; flex: none; }
+.set-course { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.set-course small { font: 0.78rem var(--sans); color: var(--soft); }
+.site-settings .build { font-size: 0.85rem; color: var(--soft); }
+.site-settings .update-check { padding: 0; border: 0; background: none; font: inherit; color: var(--link); text-decoration: underline; cursor: pointer; }
+@media (max-width: 480px) { .home-tools { flex-wrap: wrap; } }
+
+/* ---------- Night (didactics/reading): the catalog in the dark ----------
+   The catalog is already on paper, so Paper is its own look; Night turns the
+   paper dark and the ink light, keeping the orange, teal and gold. */
+:root { --card: #fbf3e4; }
+[data-look="night"] {
+  --paper: #1c1814; --ink: #eadfcb; --soft: #b5a690; --rule: #4a3f34;
+  --link: #e98a5f; --head: #6cc0b6; --card: #2a241e;
+  color-scheme: dark;
+}
+[data-look="night"] .map { --region: #241f1a; }
+[data-look="night"] .map-bar { background: #3a332b; }
+[data-look="night"] .ticks i { background: #4a3f34; }
+[data-look="night"] .install { background: var(--card); }
+[data-look="night"] .btn { color: #1c1814; }
+[data-look="night"] .btn.ghost { color: var(--ink); }
+[data-look="night"] .btn.ghost:active { background: rgba(255, 255, 255, 0.08); }
+[data-look="night"] .welcome { background: #2a241e; color: var(--ink); }
+[data-look="night"] .desk-review { background: #24524d; }
+[data-look="night"] .cards-stack i { border-color: #1c1814; background: #24524d; }
+[data-look="night"] .cards-stack i:nth-child(3) { background: #eadfcb; color: #24524d; }

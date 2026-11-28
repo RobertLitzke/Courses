@@ -326,15 +326,10 @@
     }
   ],
   "summary": [
-    "**Data is code.** A configuration file or a map edition can break a fleet just like compiled software, and requires the same staged rollout.",
-    "**A data or model release can be wrong without breaking anything.** Its health gate measures accuracy, such as reported map errors or disagreement with a second sensor, with a stop rule and a minimum sample written down before the rollout starts.",
-    "**Shadow mode tests a model on real input before it controls anything.** The car acts on the current model, logs where the new one disagrees, and sends the disagreements for labelling.",
-    "**Stage every change behind a health gate.** Roll out to 1%, 10%, 50%, and finally 100% of the fleet while monitoring health metrics; small stages catch common faults while larger stages catch rare ones.",
-    "**Compare with a control group, count the silent.** Compare updated devices against un-updated devices over the same time window, and count missing heartbeats as failures.",
-    "**Halt automatically.** A bad update can brick a fleet in 78 minutes, which is faster than human operators can spot a trend on a dashboard.",
-    "**Install into a spare slot.** Using A/B partitions and a bootloader with a retry counter allows a device to fall back automatically if an update fails to boot.",
-    "**Split signing trust.** TUF separates keys by role to keep root and targets keys offline, expires stale metadata, and enforces monotonically increasing version numbers; Uptane adds a director repository for multi-controller vehicles.",
-    "**Send differences, on cheap networks, spread out.** Binary deltas, Wi-Fi preference and staggered rollouts reduce bandwidth volume, cellular data costs and peak server load.",
+    "**Configuration and data roll out like code.** A config file or map edition can break a fleet like software, and a wrong model may break nothing visibly, so its gate measures accuracy.",
+    "**Stage every change behind a health gate.** Roll out to 1%, 10%, 50% and 100%, compare against un-updated devices, count missing heartbeats as failures and halt automatically.",
+    "**Devices must fall back from failed updates.** A/B partitions and a bootloader with a retry counter let a device return to its previous version when an update fails to boot.",
+    "**Signing keys are split by role.** TUF keeps root and targets keys offline, expires stale metadata and rejects lower version numbers, and Uptane extends it to vehicles with many controllers.",
     "**Every version in the field must keep working.** Deploy new readers before new writers, never repurpose existing flags, and serve each device only formats its current software supports."
   ],
   "footnotes": {

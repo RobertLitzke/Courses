@@ -4,14 +4,10 @@
   "title": "Who is in charge?",
   "teaches": "Agreement by majority (Paxos and Raft), leader leases, fencing tokens, and keeping the agreeing part small",
   "summary": [
-    "**Two servers monitoring each other cannot safely elect a leader.** When the network link between them fails, each server sees the other stop responding and promotes itself, resulting in split brain.",
-    "**Safe agreement requires a majority quorum.** Because any two majorities of the same group overlap by at least one server, two sides of a network partition cannot both reach a decision.",
-    "**A five-server group tolerates two failures; a three-server group tolerates one.** Committing a write requires a network round trip to a majority of servers, taking less than 1 ms within a datacentre and 30 to 70 ms across a continent.",
-    "**Raft maintains a replicated log managed by at most one leader per term.** A log entry is committed once the leader replicates it to a majority of servers, and voters only elect candidates whose logs are at least as up to date as their own.",
-    "**A partitioned minority cannot commit writes.** An isolated leader on the minority side of a split can append writes to its local log, but cannot commit them, and the cluster overwrites those uncommitted entries once the partition heals.",
-    "**A lease lets a leader act alone for a fixed time.** It must stop when the lease runs out, and nobody else may lead until it has.",
-    "**A paused process cannot detect that its lease has expired.** Storage systems must verify a monotonically increasing fencing token on every write and reject requests carrying older tokens.",
-    "**Restrict consensus to small metadata and infrequent updates.** Use a coordination service to elect leaders and store configuration, keeping consensus rounds off the high-throughput request path."
+    "**Two servers alone cannot elect a leader safely.** When the link between them fails, each sees the other stop responding and promotes itself, which is split brain.",
+    "**A write commits once a majority holds it.** Any two majorities of a group overlap, so a five-server group survives two failures and a partitioned minority cannot commit anything.",
+    "**Leader leases need fencing tokens.** A leader acts alone until its lease expires, but a paused process cannot tell that it has, so storage rejects any write carrying an older fencing token.",
+    "**Keep consensus to small, rarely changing data.** A coordination service elects leaders and stores configuration, which keeps consensus rounds off the high-throughput request path."
   ],
   "parts": [
     {

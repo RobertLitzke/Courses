@@ -124,8 +124,8 @@ describe('lessons', () => {
           } else expect(b.caption, `${s.id} ${b.id}`).toBeTruthy();
         }
       }
-      expect(s.summary.length, s.id).toBeGreaterThanOrEqual(5);
-      expect(s.summary.length, s.id).toBeLessThanOrEqual(10);
+      expect(s.summary.length, s.id).toBeGreaterThanOrEqual(2);
+      expect(s.summary.length, s.id).toBeLessThanOrEqual(5);
     }
   });
 

@@ -17,11 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.3",
+    "version": "0.4",
     "stage": "beta",
-    "date": "2026-11-08",
-    "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes.",
+    "date": "2026-11-28",
+    "note": "Shorter lesson summaries: each lesson now ends with its three or four main takeaways, which also make up the field guide.",
     "history": [
+      {
+        "version": "0.3",
+        "stage": "beta",
+        "date": "2026-11-08",
+        "note": "A copy edit by a second reader: clearer sentences, facts checked, and a few new footnotes."
+      },
       {
         "version": "0.2",
         "stage": "beta",

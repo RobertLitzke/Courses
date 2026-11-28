@@ -181,12 +181,10 @@
     }
   ],
   "summary": [
-    "**Bias a stage halfway.** Set the transistor midway between cutoff and saturation so the signal can swing both ways.",
-    "**Two resistors set the gain.** A common-emitter stage gains about Rc / Re, inverted, almost regardless of the transistor’s β.",
+    "**Bias a stage halfway between cutoff and saturation.** The signal can then swing both ways, which on one battery means biasing at half the supply.",
+    "**Resistor ratios, not the transistor, set the gain.** A common-emitter stage gains about Rc / Re, inverted, almost regardless of β, and a non-inverting op-amp stage with negative feedback gains 1 + Rf / Rg.",
     "**Too big a signal clips.** It hits the supply or saturation, and the bias point decides which side clips first.",
-    "**An emitter follower buffers.** Its voltage gain is about 1, but it gives current gain: high input impedance, low output impedance.",
-    "**Negative feedback sets op-amp gain.** A non-inverting stage gains 1 + Rf / Rg.",
-    "**On one battery, bias everything at half the supply.**"
+    "**An emitter follower buffers a signal.** Its voltage gain is about 1, but its high input impedance and low output impedance give it current gain."
   ],
   "journal": [],
   "footnotes": {

@@ -212,12 +212,10 @@
     }
   ],
   "summary": [
-    "**Series parts share one current and split the voltage.**",
-    "**Parallel parts share one voltage and split the current.**",
+    "**Series parts share current and split voltage.** Parallel parts do the reverse, sharing one voltage and splitting the current.",
     "**Kirchhoff’s two laws keep the books.** Current into a junction equals current out, and the voltages round any loop add to zero.",
-    "**A battery holds its voltage and gives whatever current the load draws.**",
-    "**Across a break, the whole supply voltage appears.** That is how an open circuit shows on a meter.",
-    "**Cells in series add voltage; matched cells in parallel share the current.** Never mix chemistries, sizes, ages or charge levels, or a strong cell will force current into a weak one."
+    "**Across a break, the whole supply voltage appears.** A battery holds its voltage and gives whatever current the load draws, so an open circuit reads the full supply across the gap.",
+    "**Stack cells in series for more voltage.** Matched cells in parallel share the current, but never mix chemistries, sizes, ages or charge levels, or a strong cell forces current into a weak one."
   ],
   "journal": [],
   "footnotes": {

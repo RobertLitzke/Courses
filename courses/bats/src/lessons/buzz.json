@@ -4,13 +4,10 @@
   "title": "The feeding buzz",
   "teaches": "Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay",
   "summary": [
-    "**An echo takes 5.8 ms per metre of distance.** Sound covers about 343 metres a second, and the echo has to go out and come back.",
-    "**A bat calls again once the last echo is home.** Otherwise it cannot tell which call an echo belongs to, so the distance to its target sets the fastest it can call.",
-    "**A hunt has three phases.** Search at 5 to 15 calls a second, approach at 20 to 80, and a terminal buzz at 150 to 200 in the last metre or less.",
-    "**The buzz follows from distance alone.** At 200 calls a second there are 5 ms between calls, which only works with the target less than a metre away.",
-    "**Calls shorten as the target nears.** From 5 to 10 ms while searching to under a millisecond in the buzz, so the bat's own loud call never covers its faint echo.",
-    "**Calling is nearly free in flight.** Each call rides on a breath that the wingbeat pushes out anyway.",
-    "**The brain turns delay into place.** In the mustached bat, cells that fire only to a call and echo a set time apart are laid out in order along the cortex, a map of range."
+    "**An echo returns after 5.8 ms per metre.** Sound travels about 343 metres a second, and the echo has to go out and come back.",
+    "**A bat waits for each echo to return.** Otherwise it cannot tell which call an echo belongs to, so the distance to its target sets the fastest it can call.",
+    "**Calls quicken and shorten as the bat closes.** Rates rise from 5 to 15 calls a second while searching to about 200 in the buzz, and calls shrink below a millisecond to keep echoes clear.",
+    "**The brain maps echo delay as distance.** In the mustached bat, cells tuned to a set delay between call and echo lie in order along the cortex, a map of range."
   ],
   "parts": [
     {

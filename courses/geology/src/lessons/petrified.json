@@ -88,7 +88,8 @@
           "caption": "A polished slice of petrified wood. The growth rings and the outline of the bark survive in quartz.",
           "options": {
             "photo": "petrified-section"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",
@@ -258,11 +259,10 @@
     }
   ],
   "summary": [
-    "**Most living things leave no trace.** Fossils need quick burial away from oxygen, then the right groundwater chemistry.",
-    "**Permineralization fills the pores.** Minerals from groundwater fill the spaces, preserving fine detail.",
-    "**Replacement swaps the material.** The original substance is exchanged for minerals while its shape is kept, as in petrified wood.",
+    "**Fossils need quick burial away from oxygen.** Most living things leave no trace, and those that do also need the right groundwater chemistry.",
+    "**Groundwater minerals fill or replace tissue.** Permineralization fills the pores and keeps fine detail, while replacement exchanges the substance itself but keeps its shape, as in petrified wood.",
     "**Burial conditions decide the kind of fossil.** Carbon films, pyrite, moulds and casts each form under particular conditions.",
-    "**The record is biased.** It favours hard parts and places where sediment was steadily settling."
+    "**The fossil record is biased.** It favours hard parts and places where sediment was steadily settling."
   ],
   "journal": [],
   "footnotes": {

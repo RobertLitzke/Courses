@@ -209,12 +209,10 @@
     }
   ],
   "summary": [
-    "**A voltage divider gives the input × R2 / (R1 + R2).** But only while nothing loads it.",
-    "**Loading a divider pulls its output down.** Lower resistances make it stiffer, at the cost of more current.",
-    "**Every real source is a voltage behind a resistance.** The harder you load it, the more it sags.",
-    "**Measure the inside resistance from the sag, not a short.** Compare the open-circuit voltage with the voltage under a known load; shorting a battery is dangerous.",
-    "**Impedance is how much a source sags or a load pulls.** Low output impedance into high input impedance keeps the voltage.",
-    "**Solar panels behave more like current sources.** They do not fit the voltage-behind-a-resistor model."
+    "**A voltage divider gives the input × R2 / (R1 + R2).** That holds only while nothing loads it, and lower resistances make it stiffer at the cost of more current.",
+    "**A real source is a voltage behind a resistance.** The harder you load it, the more its voltage sags.",
+    "**Measure internal resistance from sag, never shorts.** Compare the open-circuit voltage with the voltage under a known load, because shorting a battery is dangerous.",
+    "**Drive high impedances from low ones.** Impedance is how much a source sags or a load pulls, so a low output impedance into a high input impedance keeps the voltage."
   ],
   "journal": [],
   "footnotes": {

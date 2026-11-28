@@ -239,12 +239,10 @@
     }
   ],
   "summary": [
-    "**A stop is a factor of two.** One stop more on any dial doubles the light; f-numbers go 2.8, 4, 5.6, 8, a stop apart.",
-    "**Many settings give the same exposure.** They differ in what they cost: depth of field, motion blur or grain.",
-    "**The meter assumes mid-grey.** It exposes any scene so that its average comes out grey, so snow goes grey and black fur goes grey too.",
-    "**Exposure compensation corrects the assumption.** Plus for scenes brighter than average (snow, sky), minus for darker ones.",
-    "**The histogram shows where the tones landed.** Reach the right edge for the cleanest picture, but a pile-up against it is detail lost to white.",
-    "**Modes decide who turns which dial.** A: you set the aperture. S: you set the shutter. M: you set everything and the meter only advises."
+    "**A stop doubles or halves the light.** Each dial works in stops, and the f-numbers 2.8, 4, 5.6 and 8 are a stop apart.",
+    "**Equal exposures differ in what they cost.** Many settings give the same exposure but differ in depth of field, motion blur or grain, and the modes A, S and M decide which you set.",
+    "**The meter makes every scene average grey.** Snow and black fur both come out grey, so use exposure compensation, plus for bright scenes and minus for dark ones.",
+    "**The histogram shows where the tones landed.** Reach the right edge for the cleanest picture, but a pile-up against it is detail lost to white."
   ],
   "journal": [],
   "footnotes": {

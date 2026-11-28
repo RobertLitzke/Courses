@@ -69,12 +69,10 @@
     }
   ],
   "summary": [
-    "**The Sun must have shone for billions of years.** Geology and evolution needed far more time than any ordinary fuel could give.",
-    "**Neither burning nor shrinking is enough.** Coal would last thousands of years, gravitational shrinking tens of millions.",
-    "**The Sun turns mass into light.** Four hydrogen nuclei weigh 0.7% more than one helium nucleus, and fusing them releases that mass as energy (E = mc²).",
-    "**Fusion gives the Sun about ten billion years.** It is about four and a half billion years old now.",
-    "**A star is its own thermostat.** Too hot and its core expands and cools; too cool and it is squeezed and heats, keeping it steady on the main sequence.",
-    "**Neutrinos confirmed fusion.** They escape straight from the core; the missing two-thirds had changed type on the way."
+    "**Neither burning nor shrinking can power the Sun.** Coal would last thousands of years and gravitational shrinking tens of millions, but geology and evolution needed billions.",
+    "**The Sun turns mass into light by fusion.** Four hydrogen nuclei weigh 0.7% more than one helium nucleus, and fusing them releases that mass as energy (E = mc²).",
+    "**Fusion powers the Sun for ten billion years.** It is about four and a half billion years old, and neutrinos escaping straight from its core have confirmed the fusion.",
+    "**A star is its own thermostat.** Too hot and its core expands and cools, too cool and it is squeezed and heats, which keeps it steady on the main sequence."
   ],
   "journal": [],
   "footnotes": {"tunnel":{"kind":"technical","title":"Tunnelling","text":"This is **quantum tunnelling**. A particle's position is spread out like a wave, and a little of the wave leaks through a barrier the particle lacks the energy to cross, so there is a small chance of finding it on the far side. In the Sun's core the chance for any one collision is tiny, but there are so many collisions that it is enough."},"flavours":{"kind":"technical","title":"Neutrino flavours","text":"Neutrinos come in three types, or flavours: electron, muon and tau. Fusion makes only electron neutrinos, the only kind Davis's chlorine could catch. Because neutrinos have a tiny mass, a neutrino changes type on the way out through the Sun. Finding that they have mass won the 2015 Nobel Prize in physics."}}

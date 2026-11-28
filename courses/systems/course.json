@@ -17,11 +17,17 @@
     "display": "Georgia, serif"
   },
   "release": {
-    "version": "0.2",
+    "version": "0.3",
     "stage": "beta",
-    "date": "2026-11-17",
-    "note": "A third branch on the data behind machine learning: evaluating models, labelling, versioned datasets, data validation and feature stores. Change detection on maps reworked, scenario questions in the design studio quizzes, additions to six lessons, and a Drills page with eight open design problems.",
+    "date": "2026-11-28",
+    "note": "Shorter lesson summaries: each lesson now ends with its three or four main takeaways, which also make up the field guide.",
     "history": [
+      {
+        "version": "0.2",
+        "stage": "beta",
+        "date": "2026-11-17",
+        "note": "A third branch on the data behind machine learning: evaluating models, labelling, versioned datasets, data validation and feature stores. Change detection on maps reworked, scenario questions in the design studio quizzes, additions to six lessons, and a Drills page with eight open design problems."
+      },
       {
         "version": "0.1",
         "stage": "beta",

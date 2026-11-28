@@ -4,14 +4,10 @@
   "title": "How long is a nanosecond?",
   "teaches": "The latencies every design rests on (memory, disk, network, a trip across an ocean) and estimating in round numbers",
   "summary": [
-    "**Light in a vacuum travels about 30 cm in a nanosecond.** In glass fibre it travels about 20 cm in a nanosecond, so every 100 km of cable adds 1 ms to a round trip.",
-    "**Hardware latencies span nine orders of magnitude.** Reading from the processor's L1 cache takes about 1 ns, a main memory reference takes 100 ns, a datacentre round trip takes about 0.5 ms, a spinning disk seek takes 10 ms, and a round trip from the US to Europe takes 150 ms.",
-    "**Relative ratios matter more than exact latencies.** A main memory reference is about five thousand times faster than a datacentre round trip, which in turn is about twenty times faster than a spinning disk seek; these ratios guide system architecture and change slowly over time.",
-    "**Reading from another server's memory is faster than reading from a local spinning disk.** A network round trip inside a datacentre takes 0.5 ms while a local disk seek takes 10 ms, which is why distributed in-memory caches improve performance.",
-    "**Solid-state drives and faster networks reduced latencies in the middle of the ladder.** Main memory latency, spinning disk seek times, and the speed of light in fibre changed very little between 2009 and 2026.",
-    "**A day has roughly 10⁵ seconds.** Consequently, 1 million events per day equals an average throughput of about 10 events per second, and a year has roughly 3 × 10⁷ seconds.",
-    "**Provision capacity for peak load, not the daily average.** Throughput during the busiest hour typically runs two to ten times the daily average.",
-    "**Estimate throughput and storage before designing the architecture.** A minute of back-of-the-envelope arithmetic often determines whether your system requires a single server or a hundred."
+    "**Latencies span nine orders of magnitude.** L1 cache takes about 1 ns, main memory 100 ns, a datacentre round trip 0.5 ms, a disk seek 10 ms and a transatlantic round trip 150 ms.",
+    "**Light in fibre travels 20 cm a nanosecond.** That is two thirds of its speed in a vacuum, so every 100 km of cable adds 1 ms to a round trip.",
+    "**Another server's memory beats a local disk.** A round trip inside a datacentre is about twenty times faster than a spinning disk seek, which is why distributed in-memory caches work.",
+    "**Estimate in round numbers and size for peaks.** A day has about 10⁵ seconds, so a million events a day average 10 a second, and the busiest hour runs two to ten times that."
   ],
   "parts": [
     {

@@ -9,10 +9,10 @@ describe('the lessons', () => {
     expect(LESSONS.flatMap((l) => lessonShapeProblems(l, l.id))).toEqual([]);
   });
 
-  it('end with a summary of five to ten points', () => {
+  it('end with a summary of two to five takeaways', () => {
     for (const l of LESSONS) {
-      expect(l.summary.length, l.id).toBeGreaterThanOrEqual(5);
-      expect(l.summary.length, l.id).toBeLessThanOrEqual(10);
+      expect(l.summary.length, l.id).toBeGreaterThanOrEqual(2);
+      expect(l.summary.length, l.id).toBeLessThanOrEqual(5);
     }
   });
 

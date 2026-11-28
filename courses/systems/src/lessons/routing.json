@@ -193,13 +193,10 @@
     }
   ],
   "summary": [
-    "**A road network is a weighted graph.** Junctions are nodes, roads are edges, and the weights are driving times.",
-    "**Dijkstra's algorithm settles junctions in order of driving time from the start.** It is exact, but it settles millions of junctions for a long route, taking several seconds per query on a continental network.",
-    "**A* and bidirectional search reduce the search space.** A lower-bound heuristic directs the search toward the destination, and running two half-radius searches covers half the area.",
-    "**Contraction hierarchies precompute shortcuts.** Preprocessing removes junctions in order of importance, and a query climbs the hierarchy from both ends to meet near the top, settling only a few hundred junctions.",
-    "**Edge weights change faster than a contraction hierarchy can be rebuilt.** Live traffic updates arrive every few minutes, whereas preprocessing a continent takes several minutes.",
-    "**Customisable route planning separates topology from weights.** We partition the graph once, recompute each cell's boundary shortcuts in parallel, and update a single jammed cell in milliseconds.",
-    "**A continental routing graph fits in the RAM of a single server.** We replicate the entire graph on each machine and add replicas to handle higher query throughput."
+    "**Dijkstra is exact but too slow for continents.** On a graph of junctions weighted by driving time, it settles millions of junctions for a long route and takes seconds per query.",
+    "**Contraction hierarchies precompute shortcuts.** Preprocessing removes junctions in order of importance, and a query climbs the hierarchy from both ends, settling only a few hundred junctions.",
+    "**Customisable route planning separates topology from weights.** Traffic changes faster than a hierarchy can be rebuilt, so the graph is partitioned once and a jammed cell's shortcuts are recomputed in milliseconds.",
+    "**A continental road graph fits in RAM.** One server's memory holds the whole graph, so more replicas serve more queries."
   ],
   "footnotes": {
     "heap": {

@@ -2,19 +2,331 @@
   {
     "lesson": "socrates",
     "added": "2026-11-27",
-    "what": "the opening paragraph only, rewritten so the reader knows why they would be the one to go to court (Athens had no public prosecutors)",
-    "notes": "Change nothing else in the lesson."
+    "what": "the opening paragraph only, rewritten so the reader knows why they would be the one to go to court (Athens had no public prosecutors); also the summary, cut to 3 or 4 takeaways under the new summary rule",
+    "notes": "Change nothing else in the lesson. The summary may be edited too, keeping its number of points."
   },
   {
     "lesson": "gyges",
     "added": "2026-11-27",
-    "what": "one sentence in 'The ring', on Glaucon's point, reworded",
-    "notes": "Change nothing else in the lesson."
+    "what": "one sentence in 'The ring', on Glaucon's point, reworded; also the summary, cut to 3 or 4 takeaways under the new summary rule",
+    "notes": "Change nothing else in the lesson. The summary may be edited too, keeping its number of points."
   },
   {
     "lesson": "heap",
     "added": "2026-11-27",
-    "what": "the footnote 'Eubulides' other puzzles', rewritten and expanded",
-    "notes": "Change nothing else in the lesson. Keep the citations (Lives 2.108, Letters 49)."
+    "what": "the footnote 'Eubulides' other puzzles', rewritten and expanded; also the summary, cut to 3 or 4 takeaways under the new summary rule",
+    "notes": "Change nothing else in the lesson. Keep the citations (Lives 2.108, Letters 49). The summary may be edited too, keeping its number of points."
+  },
+  {
+    "lesson": "cave",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "aristotle",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "epicurus",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "stoics",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "god",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "faith",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "valladolid",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "descartes",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "hobbes",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "spinoza",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "locke",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "hume",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "kant",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "leap",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "mill",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "nietzsche",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "sartre",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "beauvoir",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "camus",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "rawls",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "singer",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "bat",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "gadfly",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "dao",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "nyaya",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "nahua",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "ubuntu",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "machiavelli",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "rousseau",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "marx",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "speech",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "arendt",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "fallacies",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "zeno",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "gettier",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "science",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "wittgenstein",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "gibberish",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
+  },
+  {
+    "lesson": "future",
+    "added": "2026-11-28",
+    "what": "the summary only, cut to 3 or 4 takeaways under the new summary rule (bold claim of 3 to 8 words, one sentence)",
+    "notes": [
+      "Change nothing else in the lesson. Keep the number of summary points; each lead stays a short claim ending in a full stop inside the bold."
+    ]
   }
 ]

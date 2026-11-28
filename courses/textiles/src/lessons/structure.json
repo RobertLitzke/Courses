@@ -132,7 +132,7 @@
       ]
     }
   ],
-  "summary": ["**Warp and weft.** The warp is stretched on the loom; the weft crosses it one pick at a time.", "**Three moves.** Every loom opens a shed, passes the weft, and beats it in with the reed.", "**Shafts lift many threads at once.** Heddles on shafts decide which warp threads rise for each pick.", "**Warp needs strength.** Warp yarn is harder twisted and sized; weft can be soft.", "**Plain, twill, satin.** Over one under one is firm; stepped floats make a twill's diagonal; scattered long floats make satin shine.", "**Denim is a 3/1 twill.** Blue warp on the face, white weft on the back.", "**Shafts limit patterns.** Four shafts give plain and twills; satin needs five, and large figures need another method.", "**Knits stretch because loops bend.** One yarn in rows of loops (courses) and columns (wales) gives and recovers."],
+  "summary": ["**Weaving crosses weft through a stretched warp.** Shafts lift chosen warp threads to open a shed for each pick, the weft passes through, and the reed beats it in.", "**Plain, twill and satin differ in their floats.** Over one under one is firm, stepped floats give a twill its diagonal, and scattered long floats make satin shine.", "**Shafts limit patterns.** Four shafts give plain weave and twills, satin needs five, and large figures need another method.", "**Knits stretch because loops bend.** One yarn in rows of loops, called courses, and columns, called wales, gives and recovers."],
   "footnotes": {
     "jersey": {
       "kind": "digression",

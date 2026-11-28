@@ -250,14 +250,10 @@
     }
   ],
   "summary": [
-    "**A miss on a hot key triggers a thundering herd.** Every reader that misses during the cache refill latency sends a duplicate query, so a 50 ms refill of a key read 20,000 times a second generates 1,000 concurrent database queries.",
-    "**A thundering herd can create a feedback loop.** When concurrent duplicate queries exceed the database's capacity, they increase the latency of the query that would refill the cache, stretching the miss window from milliseconds to tens of seconds.",
-    "**Retry logic can sustain an outage.** Facebook's 2010 outage was driven by error-handling code that deleted the cached key and re-queried the database whenever a database query failed; only stopping client traffic broke the loop.",
-    "**A lease grants one client the right to refill a key.** Memcache issues a lease token per key at most once every 10 seconds, while other missing clients wait a few milliseconds and retry their cache read.",
-    "**Leases also prevent stale sets.** Deleting a key invalidates any outstanding lease tokens for it, preventing a slow reader from overwriting newer data with a value read before the delete.",
-    "**Generate invalidations from the database commit log.** A daemon tailing the database's binary log sends batched deletes for every committed write, ensuring deletes are delivered even if the web server crashes.",
-    "**A gutter pool absorbs misses from failed cache servers.** Allocating about 1% of cache servers as spares keeps a failed server's hot keys from overloading the database or neighbouring cache servers.",
-    "**Replication lag combined with caching can violate read-your-writes consistency.** Setting a remote marker in the local cache routes misses to the primary region until the local database replica catches up."
+    "**A hot-key miss triggers a thundering herd.** Every reader that misses during the refill queries the database, and that load can stretch the refill from milliseconds to tens of seconds.",
+    "**A lease lets one client refill a key.** Memcache grants a key's lease token at most once every 10 seconds, other clients wait and retry, and a delete voids outstanding tokens to prevent stale sets.",
+    "**Invalidations should come from the commit log.** A daemon tailing the database's binary log sends batched deletes for every committed write, so deletes arrive even if a web server crashes.",
+    "**Replication lag plus caching breaks read-your-writes.** A remote marker in the local cache sends misses to the primary region until the local database replica catches up."
   ],
   "footnotes": {
     "johnson": {

@@ -261,12 +261,10 @@
     }
   ],
   "summary": [
-    "**Reverb is a room’s reflections**: thousands of them, arriving later and quieter, blurring into a tail.",
-    "**Sabine (1895–1900)**: reverberation time grows with a room’s volume and shrinks with what its surfaces soak up.",
-    "**A reverb has three parts**: the sound, a few early reflections, and a darkening tail.",
-    "**Size sets how long it rings; Mix how far away the sound seems.**",
-    "**Plates** (EMT, 1957) are dense and bright at once; **springs** twang, as on surf guitar and dub.",
-    "**Digital reverb convolves the sound with an impulse response**, a room’s answer to one click."
+    "**Reverb is a room's reflections blurring together.** Thousands of reflections arrive later and quieter, first as a few early reflections and then as a darkening tail.",
+    "**Reverberation time grows with a room's volume.** It shrinks with how much the surfaces soak up, as Wallace Sabine found by timing a Harvard lecture hall.",
+    "**Plates and springs fake a room.** A plate is dense and bright at once, while a spring twangs, as on surf guitar and dub.",
+    "**Convolution reverb uses a room's recorded answer.** It convolves the sound with an impulse response, the room's reply to a single click."
   ],
   "footnotes": {
     "law": {

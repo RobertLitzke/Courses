@@ -6,14 +6,10 @@
   "title": "Hearing the unhearable",
   "teaches": "How a heterodyne detector mixes a bat's call down into hearing, how to tune one, and how to build one on a breadboard",
   "summary": [
-    "**A bat's call is loud but too high to hear.** Calls can pass 120 decibels close to the bat's mouth, mostly at 20 to 100 kHz, above the 15 to 20 kHz where human hearing stops.",
-    "**A heterodyne detector multiplies, it does not slow down.** The microphone's signal is multiplied by a tone the detector makes itself, which produces the sum and the difference of the two frequencies.",
-    "**Only the difference reaches the speaker.** A filter passes the difference when it is under about 5 kHz, so you hear a band about 10 kHz wide around the dial, live.",
-    "**An FM sweep crosses that window in a millisecond or two.** It comes out as a tick or a fuller \"tock\", loudest when the dial sits where the call lingers, near its end.",
-    "**A constant-frequency call becomes a steady whistle.** Its pitch is the gap between call and dial, and it falls to nothing at zero beat, when the two agree.",
-    "**The dial tells you roughly which group is calling.** Myotis over water sound best near 40 to 50 kHz, big brown and silver-haired bats near 25 to 28.",
-    "**The idea came from radio.** Reginald Fessenden used it to make inaudible radio waves audible in the early 1900s, and named it heterodyne, \"other force\".",
-    "**A working detector is six blocks.** Microphone, preamplifier, mixer, oscillator, low-pass filter and amplifier, all common parts on a breadboard."
+    "**A heterodyne detector mixes the call down.** It multiplies the microphone's signal by its own tone, giving sum and difference frequencies, and a filter passes only differences under about 5 kHz.",
+    "**A heterodyne detector hears a 10 kHz slice.** Only the band around the dial reaches the speaker, live, so two bats can sound alike while their calls differ.",
+    "**FM sweeps tick and constant tones whistle.** A sweep crosses the window in a millisecond or two and ticks loudest where it lingers, while a constant-frequency call whistles down to zero beat.",
+    "**A working detector needs six blocks.** A microphone, preamplifier, mixer, oscillator, low-pass filter and amplifier, all common parts, make a working detector on a breadboard."
   ],
   "parts": [
     {

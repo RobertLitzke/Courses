@@ -233,15 +233,10 @@
     }
   ],
   "summary": [
-    "**A clock reading is an estimate.** NTP keeps servers within about 1 ms inside a datacentre and tens of milliseconds across the internet, while a faulty or reset clock can drift by seconds or jump backwards.",
-    "**Last-writer-wins with local clocks drops writes.** A clock running 50 ms slow assigns an earlier timestamp to a later write, causing replicas to discard the more recent update.",
-    "**Two-phase commit makes multi-shard transactions atomic.** Participants lock rows and vote during the prepare phase, after which the coordinator logs the commit decision and broadcasts it.",
-    "**Single-coordinator two-phase commit is a blocking protocol.** A participant that has voted yes cannot commit or abort until it receives the coordinator's decision, so a failed coordinator leaves participant locks held indefinitely.",
-    "**Spanner runs two-phase commit across Paxos groups.** Replicating the commit decision across a majority of nodes allows a newly elected leader to complete the commit if the previous leader fails.",
-    "**TrueTime returns a bounded time interval.** GPS receivers and atomic clocks keep the time uncertainty ε to a few milliseconds, averaging about 4 ms in the 2012 paper.",
-    "**Commit wait enforces a global transaction order.** A coordinator assigns a commit timestamp at `TT.now().latest` and delays releasing locks for about 2ε until `TT.now().earliest` passes that timestamp, ensuring subsequent transactions receive higher timestamps.",
-    "**Externally consistent timestamps enable lock-free reads.** A read-only query at a chosen timestamp reads a consistent snapshot from any replica that has applied writes up to that point.",
-    "**Reserve strong consistency for data that requires it.** Financial balances and seat reservations justify tens of milliseconds per write, whereas likes and page-view counts do not."
+    "**A clock reading is only an estimate.** NTP keeps servers within about 1 ms inside a datacentre and tens of milliseconds across the internet, and a faulty or reset clock can jump backwards.",
+    "**Two-phase commit blocks if its coordinator fails.** A participant that voted yes holds its locks until it hears the decision, so Spanner replicates that decision through Paxos and a new leader can finish.",
+    "**Commit wait turns clock uncertainty into order.** TrueTime bounds the uncertainty ε to a few milliseconds, and a commit holds its locks for about 2ε so later transactions get higher timestamps.",
+    "**Reserve strong consistency for data that needs it.** Balances and seat reservations justify tens of milliseconds per write, while likes and page-view counts do not."
   ],
   "footnotes": {
     "hrtimer": {

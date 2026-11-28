@@ -375,12 +375,10 @@
     }
   ],
   "summary": [
-    "**Overdriven amplifiers clip**: the tops of the wave are flattened.",
-    "**Clipping adds harmonics**, where a filter only takes them away.",
-    "**Symmetrical clipping adds odd harmonics; lopsided clipping adds even ones too**, which sound warmer.",
-    "**Drive also compresses**: quiet tails come up, so notes sustain.",
-    "**Clipping two notes makes sum and difference tones**: fine for a fifth, muddy for a third. Hence power chords.",
-    "**Cutoff before the drive thins the grit; tone after it only shaves the top.**"
+    "**Clipping adds harmonics.** An overdriven amplifier flattens the tops of the wave, adding harmonics where a filter can only take them away.",
+    "**Lopsided clipping adds even harmonics.** Symmetrical clipping adds only odd ones, while lopsided clipping adds even ones too, which sound warmer.",
+    "**Drive also compresses.** Quiet tails are brought up, so notes sustain longer.",
+    "**Clipped chords add sum and difference tones.** They suit a fifth but muddy a third, which is why distorted guitars play power chords."
   ],
   "footnotes": {
     "rocket88": {

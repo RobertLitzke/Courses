@@ -4,15 +4,10 @@
   "title": "When the database can't keep up",
   "teaches": "Read replicas and replication lag, reading your own writes, and splitting users across databases",
   "summary": [
-    "**A replica is a copy of a database kept current by replaying its changes.** The primary takes every write and logs it; each replica reads the log and applies the same changes.",
-    "**Replicas scale reads, not writes.** Every replica must apply every write, so as the share of writes grows, each new replica adds less capacity for reads, and past a threshold adds none.",
-    "**Asynchronous replication runs behind.** The primary does not wait for replicas, so a replica's lag is usually milliseconds but can grow to seconds or minutes when it is overloaded.",
-    "**A reader can miss their own write.** Route reads to the primary for a short window after a write, or require the replica to wait until it has applied the write's position in the log.",
-    "**Promoting a replica that is behind loses writes.** With asynchronous replication, whatever the old primary had not yet sent is lost when a replica takes over.",
-    "**Splitting the data scales writes.** Each user's data lives on one of several independent clusters, so each cluster takes only its assigned users' writes.",
-    "**The shard key comes from the queries.** Splitting by user keeps a user's own pages on one cluster and makes queries across many users harder.",
-    "**A directory costs a lookup and buys freedom to move users.** A formula such as user number mod n needs no lookup but moves most users when n changes.",
-    "**Grow each design by ten times on paper.** The fix for today's bottleneck often has a ceiling, and capacity arithmetic shows where it lies."
+    "**Replicas scale reads, not writes.** Every replica applies every write from the primary's log, so as writes grow each new replica adds less read capacity, and past a threshold none.",
+    "**A reader can miss their own write.** Asynchronous lag is usually milliseconds but can reach minutes, so reads go to the primary briefly after a write or wait for the write's log position.",
+    "**Promoting a lagging replica loses writes.** With asynchronous replication, whatever the old primary had not yet sent is gone when a replica takes over.",
+    "**Splitting users across clusters scales writes.** Each cluster takes only its own users' writes, and the shard key comes from the queries, so splitting by user keeps a user's pages together."
   ],
   "parts": [
     {

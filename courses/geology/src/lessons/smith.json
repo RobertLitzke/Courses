@@ -64,11 +64,9 @@
     }
   ],
   "summary": [
-    "**Layers come in the same order across a region.** The sequence repeats from place to place.",
-    "**Each layer has its own fossils.** A characteristic set lets a layer be matched from one outcrop to the next, even where it looks like others.",
-    "**Tilted layers make bands on a map.** Where they meet the ground they run in parallel stripes.",
-    "**Valleys bend those bands into Vs.** The V points the way the beds dip, which reveals their tilt.",
-    "**Geology can be mapped.** William Smith's 1815 map of England, Wales, and part of Scotland was the first geological map of a whole country."
+    "**Layers keep the same order across a region.** Each carries a characteristic set of fossils that matches it from one outcrop to the next, even where the rock looks like another layer's.",
+    "**Tilted layers make parallel bands on a map.** Where tilted beds meet the ground they crop out in stripes that run side by side.",
+    "**Valleys bend those bands into Vs.** The V points the way the beds dip, so a geological map reveals their tilt."
   ],
   "journal": [],
   "footnotes": {"snakestones": {"kind": "digression", "title": "Snakestones", "text": "Ammonites are named after the Egyptian god Ammon, who was shown with coiled ram's horns. At Whitby, on the Yorkshire coast, they were called snakestones: legend said Saint Hilda had turned the district's snakes to stone, and dealers carved snakes' heads onto the fossils to sell to visitors."}, "dip": {"kind": "technical", "title": "Dip and strike", "text": "Geologists record a tilted bed with two measurements. The **dip** is the angle of the bed below horizontal and the direction it slopes toward; the **strike** is the compass direction of a level line drawn on the bed, at right angles to the dip. A bed dipping a few degrees to the east-southeast strikes north-northeast."}, "phillips": {"kind": "digression", "title": "Smith's nephew", "text": "Smith brought up his orphaned nephew, John Phillips, and trained him in the field. Phillips became one of the leading geologists of the next generation, professor at Oxford and president of the Geological Society, and in 1840–41 he divided the fossil record into the Palaeozoic, Mesozoic, and Cainozoic eras, names still in use."}, "brachiopods-crinoids": {"kind": "technical", "title": "Lamp shells and sea lilies", "text": "Lamp shells are **brachiopods**, filter-feeding sea animals with two unequal valves that look superficially like clams. Sea lilies are **crinoids**, relatives of starfish and sea urchins that anchored to the sea floor on long stalks built from stacked calcite rings."}}

@@ -4,14 +4,10 @@
   "title": "Why the slowest machine sets the pace",
   "teaches": "Percentiles, how fanning out to many servers turns rare delays into common ones, and hedged requests",
   "summary": [
-    "**A request that waits for many servers waits for the slowest.** If each of n servers is slow with probability p, the request is slow with probability 1 − (1 − p)ⁿ, which is 63% for 100 servers that are each slow 1% of the time.",
-    "**The tail of one server becomes the middle of a fan-out.** A leaf's 99th-percentile latency becomes roughly the overall query's median latency once a query fans out to 100 leaves.",
-    "**Measure percentiles, not averages.** The mean hides the slow 1% of requests that a fan-out turns into the typical user experience; record histograms instead, because percentiles from different servers cannot be averaged.",
-    "**Slowness has many sources that cannot all be removed.** Queuing, garbage collection, compaction, noisy neighbours and disk maintenance each delay a machine occasionally, and at scale some machine is always delayed.",
-    "**An index split by document queries every shard and receives small responses.** Split by word, a query touches fewer shards but transfers entire posting lists over the network, and a common word overloads its shard.",
-    "**A hedged request sends a second copy after a short wait.** Sent after the 95th-percentile latency, it adds at most 5% to the request load and cuts tail latency significantly.",
-    "**Tied requests cancel the slower copy.** Each request includes the address of the peer server, and whichever server starts work first tells the other to drop its copy, avoiding queueing delay at minimal cost.",
-    "**Hedging worsens an overload.** When high latency is caused by saturation, duplicate requests increase the load further, so clients must cap hedged requests and retries."
+    "**A fan-out request waits for the slowest server.** With n servers each slow with probability p, the request is slow with probability 1 − (1 − p)ⁿ, which is 63% for 100 servers at 1%.",
+    "**One server's tail becomes a fan-out's median.** A leaf's 99th-percentile latency is roughly the median of a query that fans out to 100 leaves, so averages hide what users see.",
+    "**At scale some machine is always slow.** Queueing, garbage collection, compaction, noisy neighbours and disk maintenance each delay a machine occasionally, and they cannot all be removed.",
+    "**Hedged requests cut the tail cheaply.** A copy sent after the 95th-percentile latency adds at most 5% to the load, but under saturation hedges and retries add load and must be capped."
   ],
   "parts": [
     {

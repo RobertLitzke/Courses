@@ -237,13 +237,10 @@
     }
   ],
   "summary": [
-    "**A capacitor stores charge, and its voltage rises as it fills.**",
-    "**RC sets the time.** Through a resistor it reaches 63% in τ = R × C seconds and is nearly full after about 5τ.",
-    "**Capacitors block steady voltages and pass changes.** That is how a coupling capacitor joins two stages that keep their own steady voltages.",
-    "**R then C to ground is a low-pass filter; C then R is a high-pass.** The corner frequency is f = 1 / (2π × R × C); a tone knob moves it.",
-    "**A capacitor across a supply holds it up while a load switches.**",
-    "**Big capacitors stay charged and bite.** Discharge them through a resistor and check with a meter; mind electrolytics’ polarity and voltage rating.",
-    "**A coil resists changes in its current.** Cut it off suddenly and it kicks back with a high-voltage spike."
+    "**RC sets a capacitor’s charging time.** Through a resistor it reaches 63% in τ = R × C seconds and is nearly full after about 5τ.",
+    "**Capacitors block steady voltages and pass changes.** A coupling capacitor joins stages with different steady voltages, and one across a supply holds it up while a load switches.",
+    "**A resistor and capacitor make a filter.** R then C to ground is low-pass, C then R is high-pass, and the corner frequency is f = 1 / (2π × R × C).",
+    "**Big capacitors stay charged and bite.** Discharge them through a resistor and check with a meter before touching, and mind an electrolytic’s polarity and voltage rating."
   ],
   "journal": [],
   "footnotes": {

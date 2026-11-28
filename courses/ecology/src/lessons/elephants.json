@@ -86,13 +86,11 @@
     }
   ],
   "summary": [
-    "**Every population could grow without end.** Even Darwin's slow-breeding elephants would reach millions from one pair within centuries.",
-    "**Growth compounds.** When births are a share of the population, it grows by a fixed percentage and has a fixed doubling time (about 70 ÷ the percent a year).",
-    "**A population is a stock.** Births flow in and deaths flow out; it holds steady only when the two are equal.",
-    "**Crowding brakes growth.** As numbers rise, births fall or deaths rise until they balance at a ceiling, the carrying capacity.",
-    "**The logistic curve is a model.** Carlson's yeast fits it closely; most wild populations less so.",
-    "**Mark and recapture counts what you can't see.** Population ≈ tagged × second catch ÷ tagged in the second catch.",
-    "**Most young die.** In a steady population, only enough survive to replace their parents."
+    "**Unchecked populations grow by compounding.** Births are a share of the population, so numbers rise by a fixed percentage and double in about 70 ÷ the percent a year.",
+    "**A population is a stock.** Births flow in and deaths flow out, and it holds steady only when the two are equal.",
+    "**Crowding brakes growth at a carrying capacity.** As numbers rise, births fall or deaths rise until the two balance at a ceiling.",
+    "**The logistic curve is a model.** Carlson's yeast fits it closely, but most wild populations fit it less well.",
+    "**Mark and recapture counts what you cannot see.** The population is about the number tagged times the second catch, divided by the tagged animals in that catch."
   ],
   "journal": [],
   "footnotes": {

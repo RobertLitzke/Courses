@@ -208,12 +208,10 @@
     }
   ],
   "summary": [
-    "**Focal length is a wedge.** It sets how wide a slice of the world reaches the sensor; zooming throws away the rest and enlarges what is left.",
-    "**Equivalent millimetres compare views.** The P950's real 4.3 to 357 mm give the views of 24 to 2000 mm on a full-frame camera.",
-    "**Compression is where you stand.** How big a far thing looks next to a near one depends only on their distances from you.",
-    "**Step back and zoom in for a big background.** The subject stays the same size and the background grows; a huge moon needs kilometres.",
-    "**Cropping is zooming that costs pixels.** Half the zoom keeps half the pixels across; a screen needs about 1920 across, a print about 3500.",
-    "**The air is part of the lens.** Heat shimmer softens long shots; get closer, and shoot in the cool of the morning."
+    "**Focal length sets the width of the view.** Zooming discards the edges and enlarges the rest, and the P950's real 4.3 to 357 mm match 24 to 2000 mm on full frame.",
+    "**Distance alone sets compression.** How big a far thing looks beside a near one depends only on their distances from you, so a huge moon behind a tree needs kilometres.",
+    "**Cropping is zooming that costs pixels.** Half the zoom keeps half the pixels across, and a screen needs about 1920 across while a print needs about 3500.",
+    "**Heat shimmer softens long shots.** Get closer to cut the air between you and the subject, and shoot in the cool of the morning."
   ],
   "journal": [],
   "footnotes": {

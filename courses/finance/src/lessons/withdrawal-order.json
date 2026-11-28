@@ -67,13 +67,10 @@
     }
   ],
   "summary": [
-    "**Order matters by hundreds of thousands.** The same spending from different accounts can change what's left at 95 by more than $1 million.",
-    "**The textbook order often costs most.** Taxable first leaves the low brackets empty and the pre-tax balance growing.",
-    "**Fill the low brackets with something.** Spending pre-tax money, conversions or both.",
-    "**Required withdrawals start at 73 or 75.** About 4 percent of the balance at 75, rising each year.",
-    "**Social Security can raise the next dollar's rate.** In the torpedo range, 22 percent in the 12 percent bracket and 41 in the 22.",
-    "**Medicare's surcharge looks back two years.** Each tier is a cliff for both spouses.",
-    "**Survivors file single.** Converting while both spouses are alive uses two sets of brackets."
+    "**Withdrawal order can be worth over $1 million.** The same spending drawn from different accounts can change what is left at 95 by more than that.",
+    "**Spending taxable money first often costs most.** It leaves the low brackets empty while the pre-tax balance keeps growing.",
+    "**Fill the low brackets every year.** Spend pre-tax money or convert to Roth, so required withdrawals and a survivor's single brackets later meet a smaller balance.",
+    "**Social Security and Medicare add hidden rates.** In the Social Security torpedo range the next dollar costs 22 percent in the 12 percent bracket, and each Medicare surcharge tier is a cliff."
   ],
   "footnotes": {
     "rmd": { "kind": "technical", "title": "The table", "text": "The Uniform Lifetime Table assumes a beneficiary ten years younger than the owner, so its divisors are longer than a single life expectancy. An owner whose spouse is more than ten years younger and the sole beneficiary uses a different table, with smaller withdrawals." },

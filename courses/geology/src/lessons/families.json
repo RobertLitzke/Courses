@@ -75,7 +75,8 @@
           "caption": "Marble: limestone recrystallised into interlocking grains of calcite.",
           "options": {
             "photo": "marble"
-          }
+          },
+          "guide": true
         },
         {
           "type": "diagram",
@@ -132,7 +133,8 @@
           "caption": "Gneiss, with pale and dark minerals sorted into bands. A little hotter, and the pale bands would start to melt.",
           "options": {
             "photo": "gneiss"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",
@@ -171,7 +173,8 @@
         {
           "type": "diagram",
           "id": "igneous-grid",
-          "caption": "The common igneous rocks, by how fast they cooled (down) and what the melt was made of (across). Each pair in a column is the same melt."
+          "caption": "The common igneous rocks, by how fast they cooled (down) and what the melt was made of (across). Each pair in a column is the same melt.",
+          "guide": true
         },
         {
           "type": "diagram",
@@ -179,7 +182,8 @@
           "caption": "Granite: the coarse, slowly cooled form of a silica-rich melt. Erupted, the same melt makes rhyolite, pumice or obsidian.",
           "options": {
             "photo": "granite"
-          }
+          },
+          "guide": true
         },
         {
           "type": "text",
@@ -318,12 +322,11 @@
     }
   ],
   "summary": [
-    "**Rocks are sorted by how they formed, not by age.** Fossils in Alpine schists and Scottish mud traced into schist ended Werner's scheme of \"Primitive\" rocks; Lyell named metamorphic rocks in 1833.",
-    "**Sedimentary rocks form at the surface.** They are made of pieces of older rock or of what water and living things drop, cemented below about 200 °C, and they record where they were laid down.",
-    "**Metamorphic rocks recrystallise without melting.** From about 200 °C to the start of melting, mud becomes slate, schist and gneiss; sandstone becomes quartzite and limestone marble.",
-    "**Igneous rocks cool from a melt.** They are named by grain size (cooling rate) and silica content; rhyolite and granite, basalt and gabbro are the same melts cooled fast or slowly.",
-    "**The families grade into one another.** Migmatite is part metamorphic, part granite; tuff is volcanic and sedimentary; a rock's name records what it went through.",
-    "**Bowen's order ties them together.** Minerals crystallise from olivine to quartz; removing early crystals makes a melt richer in silica, the last to crystallise melt first, and weathering leaves quartz sand and clay."
+    "**Rocks are classed by how they formed.** Sedimentary rocks are cemented at the surface, metamorphic rocks recrystallise without melting, and igneous rocks cool from a melt.",
+    "**Metamorphism begins at about 200 °C.** Sediment cements into rock below that temperature, while above it mud becomes slate, schist and gneiss, sandstone quartzite and limestone marble.",
+    "**Igneous rocks are named by grain and silica.** Grain size records the cooling rate, so rhyolite and granite are one melt cooled fast or slowly, as are basalt and gabbro.",
+    "**The families grade into one another.** Migmatite is part metamorphic rock and part granite, and tuff is both volcanic and sedimentary.",
+    "**Melts crystallise minerals in a fixed order.** Olivine comes first and quartz last, so removing early crystals leaves a melt richer in silica."
   ],
   "journal": [],
   "footnotes": {

@@ -4,15 +4,10 @@
   "title": "Why one low tide is lower",
   "teaches": "The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight",
   "summary": [
-    "**Seattle's two daily tides are unequal.** Most days have a lower low and a higher low, often several feet apart, and the two highs differ too.",
-    "**The Moon's tilt makes the difference.** The Moon swings up to about 28° north and south of the equator, which tilts the bulges so that Seattle meets deep water on one side of the Earth and shallow on the other.",
-    "**The difference comes and goes every two weeks.** It is biggest when the Moon is furthest north or south and almost gone when it crosses the equator, a cycle separate from springs and neaps.",
-    "**Two steady waves of nearly equal period add to an uneven pattern.** They drift in and out of step, so the sum swells and shrinks over days.",
-    "**The tide is a sum of constituents.** Each is a steady wave: M2 (12.42 h) and S2 (12 h) twice a day; K1 (23.93 h), O1 (25.82 h) and P1 (24.07 h) once a day.",
-    "**The daily waves split the lows.** K1 with O1 carries the Moon's tilt and K1 with P1 the Sun's; at Seattle the daily waves are about as big as the twice-daily ones, which makes its tide mixed.",
-    "**Kelvin measured the tide instead of solving it.** Laplace's equations could not be solved for real seas, so Kelvin took each constituent's size and timing from a port's gauge record and in 1872 designed a machine that added them.",
-    "**Tide tables are still made this way.** Machines did it with pulleys and a wire until the 1960s; computers now add the same waves.",
-    "**Summer's lowest lows come in daylight at Seattle.** The Sun's daily wave keeps to the clock and flips between June and December, so winter's lowest lows come at night."
+    "**The Moon's tilt makes daily tides unequal.** The Moon swings up to about 28° either side of the equator, tilting the bulges, so most days Seattle has a lower low and a higher low.",
+    "**The inequality waxes and wanes every two weeks.** It is largest when the Moon is furthest north or south and almost gone when it crosses the equator, a cycle separate from springs and neaps.",
+    "**Tide predictions add up steady constituent waves.** Each has its own period, such as 12.42 h for M2 and 23.93 h for K1, with its size and timing taken from a port's gauge record.",
+    "**Summer's lowest tides come in daylight at Seattle.** The Sun's daily wave keeps to the clock and flips between June and December, so winter's lowest lows come at night."
   ],
   "parts": [
     {

@@ -302,15 +302,10 @@
     }
   ],
   "summary": [
-    "**Put a durable log between writers and readers.** Each data source writes once and each consumer reads at its own pace, replacing point-to-point pipelines between every pair of systems.",
-    "**A log is append-only and addressed by offset.** Kafka divides a topic into partitions, stores each partition as a directory of segment files on a broker, and deletes whole segments when they expire.",
-    "**Sequential disk I/O is fast.** Appending to a file streams at hundreds of megabytes a second where random writes achieve well under 1 MB/s, and the operating system's page cache serves recent reads from memory.",
-    "**Order holds only within a partition.** Assign each record a key corresponding to the entity that requires ordering (such as an account or user ID), and hash the key to select the partition.",
-    "**Partitions bound consumer parallelism.** Within a consumer group, at most one consumer reads a given partition at a time, so dividing the incoming message rate by a single consumer's throughput gives the minimum number of partitions.",
-    "**Monitor consumer lag.** Lag is the latest partition offset minus the consumer group's committed offset, and it grows whenever consumer throughput falls below producer throughput.",
-    "**A log provides at-least-once delivery.** After a rebalance, the new consumer resumes from the last committed offset, so consumers must handle duplicate messages idempotently.",
-    "**Replay builds new systems from historical data.** A new consumer group can start reading at the oldest retained offset and process the backlog until it catches up.",
-    "**Avoid dual writes.** Writing to a database and publishing to a log as two separate steps leaves the system vulnerable to partial failures if the process crashes in between; use a transactional outbox or change data capture instead."
+    "**A durable log decouples writers from readers.** Each source writes once, each consumer reads at its own pace by offset, and a new consumer group can replay the retained history.",
+    "**Sequential disk I/O is fast.** Appending streams at hundreds of megabytes a second where random writes manage well under 1 MB/s, and the page cache serves recent reads from memory.",
+    "**Order holds only within a partition.** Records are keyed by the entity that needs ordering, and since one consumer in a group reads each partition, the partition count caps parallelism.",
+    "**Consumers must handle duplicate messages.** After a rebalance a consumer resumes from the last committed offset, so delivery is at least once and processing must be idempotent."
   ],
   "footnotes": {
     "name": {

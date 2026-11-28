@@ -199,14 +199,10 @@
     }
   ],
   "summary": [
-    "**Calculate data transfer volumes.** At 5 Mb/s, an hour of video is 2.25 GB, so streaming 100 million hours a day transfers 225 petabytes.",
-    "**Short network paths minimise transfer costs.** Cloud egress is billed per gigabyte and upstream transit is billed by peak throughput, whereas traffic served from inside an ISP's own network avoids external transit fees.",
-    "**A CDN caches content near users.** Edge servers deployed across many networks store popular files, DNS or HTTP routing directs each user to a nearby server, and cache misses fetch from the origin.",
-    "**Content popularity follows a steep distribution with a long tail.** Caching 10% of a catalogue can serve 75% of requests, while each subsequent doubling of cache capacity yields smaller hit-rate gains.",
-    "**Pre-position content during off-peak hours.** Downloading predicted titles into edge caches overnight shifts cache-fill traffic out of the billed evening peak.",
-    "**Centralise the control plane and distribute the data plane.** Netflix executed stateful application logic in the cloud while streaming high-volume video bytes from edge appliances inside ISP networks.",
-    "**Adaptive bitrate streaming prevents playback stalls.** Encoding video into multi-second segments across a ladder of bitrates allows the client player to reduce resolution when throughput drops rather than draining its buffer.",
-    "**Building a dedicated CDN requires massive scale, a predictable catalogue, and cache-friendly files.** Netflix met all three conditions, whereas most services lack at least one and rent commercial CDN capacity instead."
+    "**Shorter network paths cost less.** Cloud egress is billed per gigabyte and transit by peak throughput, while traffic served inside an ISP's own network avoids transit fees.",
+    "**A CDN caches popular content near users.** Popularity has a long tail, so caching 10% of a catalogue can serve 75% of requests, and each further doubling of the cache gains less.",
+    "**Fill caches during off-peak hours.** Downloading predicted titles into edge caches overnight moves cache-fill traffic out of the billed evening peak.",
+    "**Adaptive bitrate prevents playback stalls.** Video is encoded in multi-second segments at a ladder of bitrates, so the player lowers resolution when throughput drops instead of draining its buffer."
   ],
   "footnotes": {
     "sandvine": {

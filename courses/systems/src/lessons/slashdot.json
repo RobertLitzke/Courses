@@ -4,14 +4,10 @@
   "title": "The link that took a website down",
   "teaches": "Request latency, why queueing delay grows sharply as a server nears full utilisation, and Little's law",
   "summary": [
-    "**Network round trips dominate initial web request latency.** A cold HTTPS request requires a DNS lookup, a TCP handshake, and a TLS handshake before the server receives the HTTP request; connection reuse eliminates the handshakes on subsequent requests.",
-    "**Utilisation is the fraction of time a resource is busy.** For a server, utilisation equals the request arrival rate multiplied by the processing time per request, divided by the number of requests the server can process in parallel.",
-    "**Queueing delay grows in proportion to 1 / (1 − utilisation).** Under random arrivals, average total time at a server is double the processing time at 50% utilisation, ten times the processing time at 90% utilisation, and a hundred times at 99% utilisation.",
-    "**Percentiles measure tail latency.** The median (p50) is the latency that half of requests complete within, while the 99th percentile (p99) is the latency that 99% of requests complete within.",
-    "**Little's law relates arrival rate, latency, and concurrency.** In any stable system, the average number of concurrent requests inside the system equals the arrival rate multiplied by the average time each request spends in the system.",
-    "**High utilisation exhausts concurrency limits before CPU capacity.** As queueing delays increase average request duration, more connections remain open concurrently, filling thread pools and socket queues until the server rejects new arrivals.",
-    "**System throughput is limited by the first component to saturate.** Adding capacity to non-bottleneck components does not improve performance; adding web servers will not speed up a saturated database.",
-    "**One well-written machine goes a long way.** Ask whether the load needs more than one before designing for many, and keep headroom at the peak."
+    "**Queueing delay grows as 1/(1 − utilisation).** Under random arrivals, time at a server is twice the processing time at 50% utilisation, ten times at 90% and a hundred times at 99%.",
+    "**Little's law links rate, latency and concurrency.** Requests in a stable system equal arrival rate times time spent, so rising delay fills thread pools and socket queues before the CPU runs out.",
+    "**The first resource to saturate sets throughput.** Capacity added anywhere else does not help, so more web servers will not speed up a saturated database.",
+    "**Size for one machine before many.** One well-written server handles a great deal, so check whether the load needs more before designing for many, and keep headroom at the peak."
   ],
   "parts": [
     {

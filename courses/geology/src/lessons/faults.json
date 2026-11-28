@@ -64,13 +64,10 @@
     }
   ],
   "summary": [
-    "**Faults store motion as bent rock.** The plates move steadily, the fault stays stuck, and the rock beside it bends.",
-    "**An earthquake is the snap back.** When strain beats friction, the fault slips in seconds and the rock springs back: Reid's elastic rebound.",
-    "**GPS sees the bending.** Stations far from a locked fault move with their plates; near it they barely move.",
-    "**Stick-slip sets the rhythm.** Faults that stick hard have rarer, larger earthquakes; some faults creep instead.",
-    "**Size comes from area and slip.** Each step of magnitude is about 32 times more energy.",
-    "**Soft ground amplifies shaking.** Waves slow down and grow in soft clay or fill.",
-    "**Ground and buildings can resonate.** A building that sways at the ground's period, at about 0.1 s per storey, shakes hardest."
+    "**Locked faults store plate motion as bent rock.** The plates move steadily while the fault stays stuck, and GPS stations near a locked fault barely move while distant ones move with their plates.",
+    "**An earthquake releases the stored bending.** When strain beats friction the fault slips and the rock springs back, and faults that stick hard break less often but in larger earthquakes.",
+    "**Earthquake size grows with fault area and slip.** The area of fault that breaks and the distance it slips set how much energy is released.",
+    "**Soft ground amplifies shaking.** Waves slow and grow in soft clay or fill, and a building that sways at the ground's period, about 0.1 s per storey, shakes hardest."
   ],
   "journal": [],
   "footnotes": {"triangulation":{"kind":"technical","title":"Triangulation","text":"Surveyors fixed the positions of hilltop marks by measuring the angles between them with a telescope on a precise circle (a theodolite). If one distance in a network of triangles is known exactly, the angles give all the others. Before satellite positioning this was how countries were mapped, and repeating the angles years later showed which marks had moved."},"parkfield":{"kind":"digression","title":"The Parkfield experiment","text":"The small town of Parkfield, on the San Andreas in central California, had magnitude 6 earthquakes in 1857, 1881, 1901, 1922, 1934 and 1966, roughly every 22 years. In 1985 the US Geological Survey predicted the next one for about 1988, give or take five years, and surrounded the fault with instruments to catch it. It came in 2004, sixteen years late, and gave no clear warning beforehand. The instruments still produced the most detailed record of a fault breaking that had ever been made."},"magnitude":{"kind":"technical","title":"From Richter to moment magnitude","text":"Charles Richter's 1935 scale was based on how far the needle of a particular seismograph swung at a set distance from the earthquake. It stops growing for very large earthquakes, because the waves it measures stop growing too. Moment magnitude, introduced in 1979 by Thomas Hanks and Hiroo Kanamori, is calculated from the seismic moment: the rock's rigidity times the area that slipped times the average slip. It was set up to agree with Richter's scale for moderate earthquakes."}}

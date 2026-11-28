@@ -1,24 +1,29 @@
-// The field guide, in two tabs. Clouds: the ten kinds and the rare sights,
-// as photos to tap for their card. Glossary: every term the lessons use, A to
-// Z (core/glossary.ts). (Until 2026-11-27 a Radio tab held the transcripts of
+// The field guide, in three tabs. Clouds: the ten kinds and the rare sights,
+// as photos to tap for their card. Lessons: the summary of every lesson done,
+// growing as the reader goes, to print (Didactics' field guide, which other
+// courses have as a page of its own). Glossary: every term the lessons use, A
+// to Z (core/glossary.ts). (Until 2026-11-27 a Radio tab held the transcripts of
 // the radio talks, now removed. Until 2026-11 this was the journal, with a Notes tab of lines each
 // finished lesson unlocked; the lesson summaries say the same now.)
 
 import { GENERA, floorInfo, genus, type Genus, type GenusId } from '../../core/clouds';
 import { GLOSSARY, lessonOf } from '../../core/glossary';
-import { lessonName, lessonById } from '../../core/lessons';
+import { BRANCHES, LESSONS, lessonName, lessonById } from '../../core/lessons';
 import { FEATURES, photoFile, photosOf, photosOfFeature, type FeatureId, type Photo } from '../../core/photos';
 import { el, svg, type Child } from 'didactics/dom';
+import { fieldGuideBody } from 'didactics/field-guide';
 import { glossaryView } from 'didactics/glossary';
 import type { View } from 'didactics/router';
 import { sheet } from 'didactics/ui';
 import { asset } from '../asset';
+import { FIGURES } from '../figures';
+import { store } from '../store';
 import { prose } from '../figures/kit';
 import { photoFigure, PHOTOS } from '../photos';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
 
-type Tab = 'clouds' | 'glossary';
+type Tab = 'clouds' | 'lessons' | 'glossary';
 
 const FLOORS: readonly { floor: Genus['floor']; title: string }[] = [
   { floor: 'low', title: 'Low floor' },
@@ -44,11 +49,12 @@ const RARE: readonly { id: FeatureId; name: string; sub: string; title: string; 
 ];
 
 export const guideView: View = (root, nav) => {
-  const tabs: [Tab, string][] = [['clouds', 'Clouds'], ['glossary', 'Glossary']];
+  const tabs: [Tab, string][] = [['clouds', 'Clouds'], ['lessons', 'Lessons'], ['glossary', 'Glossary']];
   const tab = (tabs.find(([t]) => t === nav.params.tab)?.[0] ?? 'clouds') as Tab;
 
+  const lessons = tab === 'lessons' ? fieldGuideBody({ title: 'Clouds', lessons: LESSONS, branches: BRANCHES, store, prose, figures: FIGURES, heading: false }) : null;
   const body =
-    tab === 'glossary' ? glossaryTab() : cloudsTab();
+    lessons ? lessons.node : tab === 'glossary' ? glossaryTab() : cloudsTab();
 
   root.append(
     el('div.page.guide', {},
@@ -58,6 +64,7 @@ export const guideView: View = (root, nav) => {
       body,
     ),
   );
+  return lessons?.close;
 };
 
 /** The old journal's addresses open the guide. */

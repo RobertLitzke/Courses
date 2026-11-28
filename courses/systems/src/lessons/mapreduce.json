@@ -4,14 +4,10 @@
   "title": "Rebuilding the index on machines that fail",
   "teaches": "Map, shuffle and reduce; moving computation to the data; re-executing failed tasks; backup execution for stragglers",
   "summary": [
-    "**The programmer writes two functions to define a job.** Map turns each input record into key-value pairs, the library groups the pairs by key, and reduce turns each key's values into output.",
-    "**The shuffle is the primary network bottleneck.** Each map task writes one file per reduce task to its local disk, and each reduce task fetches its partition over the network from every map task.",
-    "**The master schedules computation on the machines holding the data.** The master starts each map task on a machine that holds a GFS replica of its input chunk, because the root switches of the network have far less bandwidth than the aggregate read throughput of the cluster's local disks.",
-    "**Failed tasks are re-executed from their input.** Map output is stored on the worker's local disk, so a dead worker's finished map tasks must be re-executed; reduce output is stored in GFS and remains available.",
-    "**Re-execution is safe only for deterministic tasks with no external side effects.** A task that sends an email or increments an external counter will repeat that action on every retry and every backup execution.",
-    "**Straggling tasks determine the total latency of a job.** Near the end of each phase, the master schedules backup instances of the remaining in-progress tasks and accepts whichever instance finishes first, trading a few percent of extra compute for lower job latency.",
-    "**Partitioning a job into many small tasks speeds up failure recovery.** A dead or slow worker holds only a small fraction of the total work, and its lost tasks can be re-executed in parallel across the rest of the cluster.",
-    "**Materialising intermediate state to disk simplifies fault tolerance at the cost of I/O latency.** Every stage writes its full output to disk, making iterative jobs that loop over the same data slow; subsequent frameworks like Spark kept intermediate data in memory between stages."
+    "**A MapReduce job is defined by two functions.** Map turns each record into key-value pairs, the library groups the pairs by key in the shuffle, and reduce turns each key's values into output.",
+    "**Move the computation to the data.** Map tasks run on machines holding a replica of their input, because the network's root switches carry far less than the cluster's local disks can read.",
+    "**Failed tasks are re-executed from their input.** Many small tasks let lost work rerun in parallel across the cluster, which is safe only for deterministic tasks with no external side effects.",
+    "**Stragglers set the finishing time of a job.** Near the end of each phase the master runs backup copies of the remaining tasks and takes whichever finishes first, for a few per cent more compute."
   ],
   "parts": [
     {

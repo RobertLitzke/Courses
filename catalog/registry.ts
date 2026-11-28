@@ -5,6 +5,7 @@
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { lessonEffort, type Effort } from 'didactics/effort';
 import { MAP_HEIGHT, MAP_WIDTH, MIN_GAP } from './src/map-size';
 
 /** What a course says about itself, in its course.json. */
@@ -66,6 +67,8 @@ export interface LessonInfo {
   title: string;
   /** How many parts it has. */
   parts: number;
+  /** Estimated minutes for each part and its number of labs (didactics/effort), for the desk's badges. */
+  effort?: Effort;
 }
 
 /** A course as the catalog page gets it. */
@@ -107,7 +110,7 @@ function dataUri(file: string): string {
 function lessonInfo(file: string): LessonInfo[] {
   const l = JSON.parse(readFileSync(file, 'utf8')) as { id?: unknown; n?: unknown; title?: unknown; parts?: unknown; coming?: unknown };
   if (typeof l.id !== 'string' || typeof l.title !== 'string' || l.coming || !Array.isArray(l.parts) || !l.parts.length) return [];
-  return [{ id: l.id, n: typeof l.n === 'number' ? l.n : 0, title: l.title, parts: l.parts.length }];
+  return [{ id: l.id, n: typeof l.n === 'number' ? l.n : 0, title: l.title, parts: l.parts.length, effort: lessonEffort({ parts: l.parts }) }];
 }
 
 /** Every course under `coursesDir`, in catalog order. Throws on a malformed course.json. */

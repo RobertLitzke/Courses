@@ -315,15 +315,10 @@
     }
   ],
   "summary": [
-    "**Hold connections instead of polling.** 150 million phones polling every 5 seconds generate 30 million mostly empty requests a second, whereas an idle held connection costs only kernel memory and a periodic heartbeat.",
-    "**Gateways hold connections and a registry locates them.** The session registry maps each connected user to their current gateway, refreshed by heartbeats and expiring automatically when heartbeats stop.",
-    "**A per-conversation counter establishes a single order.** The conversation's assigned owner process numbers its messages sequentially, ensuring that every member sees the same order and any gap reveals a missing message.",
-    "**Write to durable storage before acknowledging \"sent\".** The first tick guarantees that the message is stored on disk, and a client message ID makes retries idempotent.",
-    "**Offline phones synchronise by sequence number.** The message waits in the database, a push notification wakes the phone, and the client requests all messages after its last recorded sequence number.",
-    "**Partition the database by conversation and time bucket.** Queries fetch the latest messages in a single conversation, and the time bucket bounds the size of each database partition.",
-    "**Store read receipts as pointers.** Maintain one \"read up to n\" pointer per member per conversation rather than writing a receipt row for every message and reader.",
-    "**Protect against reconnection storms.** When a failed gateway drops millions of connections at once, clients must apply randomised backoff (jitter) and surviving gateways must rate-limit new connection handshakes.",
-    "**Message retention policy drives the storage architecture.** WhatsApp deleted messages after delivery and needed no long-term message store, whereas Discord retained all history and had to scale Cassandra and later ScyllaDB."
+    "**Holding connections costs far less than polling.** A gateway holds each idle connection for the price of kernel memory and a heartbeat, and a registry refreshed by heartbeats maps each user to their gateway.",
+    "**A per-conversation sequence number orders messages.** One owner numbers each conversation's messages, so members see one order, a gap reveals a lost message, and an offline phone fetches everything after its last number.",
+    "**Acknowledge \"sent\" only after a durable write.** The first tick means the message is stored on disk, and a client message ID makes retries idempotent.",
+    "**Read receipts are one pointer per member.** A \"read up to n\" pointer for each member of a conversation replaces a receipt row for every message and every reader."
   ],
   "footnotes": {
     "e2e": {

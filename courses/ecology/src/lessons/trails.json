@@ -60,12 +60,9 @@
     }
   ],
   "summary": [
-    "**Wilson found the fire ants' trail chemical in 1959.** Lines drawn with Dufour's gland made workers follow them.",
-    "**The trail fades in about two minutes.** It stays only while ants keep finding food and marking it.",
-    "**A colony finds the shorter path by positive feedback.** Ants on a short branch return sooner and mark it more.",
-    "**A strong old trail can trap a colony.** Evaporation is what lets it switch to a better path.",
-    "**No one is in charge.** Simple rules followed by thousands of workers add up to a colony that seems to decide.",
-    "**Engineers borrowed the idea.** Simulated ants with fading trails solve routing problems."
+    "**Fading trails find a colony the shorter path.** Ants on a short branch return sooner and mark it more, and this positive feedback draws the colony onto it.",
+    "**Evaporation keeps a colony flexible.** A trail fades in about two minutes unless ants keep marking it, so a colony can leave a strong old trail for a better path.",
+    "**No one is in charge of a colony.** Simple rules followed by thousands of workers add up to a colony that seems to decide."
   ],
   "journal": [],
   "footnotes": {

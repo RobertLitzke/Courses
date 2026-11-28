@@ -57,12 +57,10 @@
     }
   ],
   "summary": [
-    "**The mix and the location are two decisions.** The mix says how much of each asset; the location says which account holds it.",
-    "**Shelter the bonds.** Their interest is ordinary income taxed every year.",
-    "**Hold broad share funds in taxable accounts.** Their growth is taxed late and lightly, or not at all.",
-    "**Put the fastest growers in the Roth.** Every dollar of a Roth's growth is the owner's.",
-    "**It is worth about 6 percent of final wealth over 30 years.** More in the lowest and highest brackets, and more when bonds pay well.",
-    "**Change it gently.** Use new money and rebalance inside sheltered accounts."
+    "**Location is a decision separate from the mix.** The mix sets how much of each asset to hold and the location which account holds it, worth about 6 percent of final wealth.",
+    "**Bonds belong in sheltered accounts.** Their interest is ordinary income, taxed every year when held in a taxable account.",
+    "**Broad share funds suit taxable accounts.** Their growth is taxed late and lightly, or not at all.",
+    "**The fastest growers belong in the Roth.** Everything a Roth earns is the owner's, while part of a pre-tax account's growth is future tax."
   ],
   "footnotes": {
     "risk": { "kind": "technical", "title": "A fair comparison", "text": "Part of the gap is risk rather than tax. With the shares in the taxable account, the household owns all of their growth; with them in the IRA, a fifth of it belongs to the future tax. Measured after tax, the placement with shares in the taxable account holds more shares, and so more risk. Studies that adjust for this find the pure tax benefit somewhat smaller, but still positive." },

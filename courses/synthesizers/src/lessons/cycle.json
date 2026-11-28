@@ -272,13 +272,9 @@
     }
   ],
   "summary": [
-    "**A second envelope** lets loudness and brightness, or pitch, have different shapes.",
-    "**Rise is how long it takes to climb**; fall, how long it takes to come back.",
-    "**Once a note** is an ordinary envelope; **Loop** restarts at each note and keeps cycling.",
-    "**Run** ignores the notes: it is a free-running LFO with a separate rise and fall.",
-    "**A slow rise and quick fall, looping, on the cutoff** makes a pad breathe.",
-    "**Equal rise and fall, running free,** is a triangle LFO.",
-    "**On an unfamiliar panel, look for the envelope with a mode switch**: Env, Loop (or Cycle), Run."
+    "**A second envelope lets parts move differently.** Loudness can follow one shape while brightness or pitch follows another, each set by how long it takes to rise and fall.",
+    "**A looping envelope cycles from each note.** It restarts at each key and keeps rising and falling, so a slow rise and quick fall on the cutoff makes a pad breathe.",
+    "**A free-running envelope is an LFO.** It ignores the notes and cycles with separate rise and fall times, and equal times give a triangle LFO."
   ],
   "footnotes": {
     "function": {

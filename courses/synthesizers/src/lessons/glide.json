@@ -232,13 +232,10 @@
     }
   ],
   "summary": [
-    "**Glide, or portamento, slides the pitch** from one note to the next instead of jumping.",
-    "**Short glide softens, long glide swoops**: most useful settings are under a quarter of a second.",
-    "**A monophonic synth plays one note at a time**; the last key pressed wins, and the held key comes back when the new one is lifted.",
-    "**Retrig mode restarts the envelopes** on every key.",
-    "**Legato mode carries on** when a key is pressed over a held one: no new attack, only the pitch moves.",
-    "**In Legato mode only overlapping notes glide**, so the player chooses which notes slide.",
-    "**Crisp notes with the odd slur** is the sound of a lot of electronic bass, and of a sequencer's slide switch."
+    "**Glide slides the pitch between notes.** Also called portamento, it moves smoothly instead of jumping, and most useful settings are under a quarter of a second.",
+    "**A monophonic synth plays one note.** Of the keys held, the last pressed wins, and the held key sounds again when the new one is lifted.",
+    "**Retrigger mode restarts the envelopes on every key.** Legato mode instead carries on when a key is pressed over a held one, so only the pitch moves.",
+    "**In legato mode only overlapping notes glide.** The player chooses which notes slide, which gives the crisp notes and odd slur of much electronic bass."
   ],
   "footnotes": {
     "portamento": {

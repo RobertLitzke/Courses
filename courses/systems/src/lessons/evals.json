@@ -286,14 +286,10 @@
     }
   ],
   "summary": [
-    "**A model can only be tested by examples.** Evaluation plays the part of a test suite, and held-out data are examples the model never trained on.",
-    "**An average hides a slice.** The overall score weights each slice by its share of the data, so a rare slice can regress while the total improves; the gate checks each protected slice on its own.",
-    "**Small slices need oversampling.** The width of a slice's interval depends on its examples in the evaluation set, so protected slices get thousands of examples each, and the overall figure is reweighted to real driving.",
-    "**Compare paired, on the same examples.** Only the examples where two models disagree carry information about which is better, so a paired comparison needs several times fewer examples than two separate scores.",
-    "**Count what broke, and beat the seeds.** Negative flips are new failures even under a net gain, and a gain must exceed the spread from retraining with different random seeds.",
-    "**Split by place and time.** Neighbouring frames are near-copies, so evaluation data are held out by whole areas and weeks, assigned by a stable hash and kept where training jobs cannot read them.",
-    "**Store predictions, compute scores.** A predictions table keyed by model version, evaluation-set version and example makes every slice and measure a query, and every result reproducible.",
-    "**Offline gates come before shadow mode and rollout.** Cheap sets, then replay, then shadow mode on live data, then the staged rollout; a named owner signs off from a stored release report."
+    "**An average hides a regressing slice.** The overall score weights each slice by its share of the data, so the gate checks each protected slice on its own, oversampled to thousands of examples.",
+    "**Compare models paired on the same examples.** Only the examples where they disagree carry information, and a gain counts only if it exceeds the spread from retraining with different random seeds.",
+    "**Hold out evaluation data by place and time.** Neighbouring frames are near-copies, so whole areas and weeks are held out by a stable hash and kept where training jobs cannot read them.",
+    "**Offline gates come before shadow mode.** Cheap evaluation sets run first, then replay, shadow mode on live data and a staged rollout, and a named owner signs off from a stored report."
   ],
   "footnotes": {
     "shades": {
