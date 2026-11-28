@@ -28,5 +28,1175 @@
    }
   },
   "search": "Wikimedia Commons, 'Aral Sea 2014' or Category:Aral Sea satellite images (NASA Terra MODIS, August 2014; public domain)"
+ },
+ {
+  "lesson": "string",
+  "part": "The string revolution",
+  "after": "The textile historian Elizabeth Wayland Barber has argued that string deserves a place bes",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Venus of Lespugue, an ivory figure about 25,000 years old. Below the hips at the back hangs a skirt of twisted strings.",
+   "options": {
+    "photo": "lespugue-venus",
+    "aspect": 1
+   }
+  },
+  "search": "File:Vénus de Lespugue Gravettien Musée de l'Homme 04022018 3.jpg (Musée de l'Homme; a view from the back showing the string skirt). Category:Venus of Lespugue"
+ },
+ {
+  "lesson": "fibres",
+  "part": "A shirt from before the pharaohs",
+  "after": "In 1913 the Egyptologist Flinders Petrie excavated a cemetery at Tarkhan, about 50 km sout",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Tarkhan dress, a linen shirt with pleated sleeves from a cemetery south of Cairo, about 5,000 years old.",
+   "options": {
+    "photo": "tarkhan-dress",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Tarkhan dress (UCL Petrie Museum UC28614B); a full view of the dress"
+ },
+ {
+  "lesson": "fibres",
+  "part": "Four fibres up close",
+  "after": "**Cotton** is a seed hair. Each fibre is a single cell that grows out of the coat of a cot",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "An open cotton boll. Each white tuft is a mass of seed hairs attached to the seeds inside.",
+   "options": {
+    "photo": "cotton-boll",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Cotton bolls; a close photo of one open boll of Gossypium hirsutum"
+ },
+ {
+  "lesson": "spinning",
+  "part": "A sail of 120 square metres",
+  "after": "The Viking Ship Museum in Roskilde, Denmark, builds full-size copies of the ships found su",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Sea Stallion from Glendalough, the Viking Ship Museum's full-size copy of a warship from about 1042, under its square sail.",
+   "options": {
+    "photo": "sea-stallion",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Havhingsten fra Glendalough (ship, 2004); the ship under sail with the sail clearly visible"
+ },
+ {
+  "lesson": "spinning",
+  "part": "The wheel",
+  "after": "The **spinning wheel** turns the spindle with a belt from a large hand-turned wheel, so th",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A woman spinning wool on a great wheel, turning the wheel by hand while she draws out the yarn.",
+   "options": {
+    "photo": "spinning-wheel",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Great wheels or Category:Spinning wheels; a photograph or 19th century painting of a woman at a great wheel (walking wheel); kind painting if a painting"
+ },
+ {
+  "lesson": "structure",
+  "part": "Knitting: one thread in loops",
+  "after": "Knitted cloth has no warp and weft. It is a single yarn formed into rows of loops, each lo",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A knitted cotton sock from Egypt, in blue and white, from about the 11th to 14th century.",
+   "options": {
+    "photo": "egyptian-sock",
+    "aspect": 1
+   }
+  },
+  "search": "File:Islamic sock.jpg (Commons); check it is the knitted blue and white Egyptian sock, else Category:Knitted socks in museums"
+ },
+ {
+  "lesson": "dye",
+  "part": "The indigo vat",
+  "after": "Indigo works the other way round. It does not dissolve in water at all, so it cannot simpl",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Cloth lifted from an indigo vat is yellow-green and turns blue as the dye meets the air.",
+   "options": {
+    "photo": "indigo-vat",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Indigo dyeing; a photo of cloth or yarn coming out of a vat showing green turning to blue"
+ },
+ {
+  "lesson": "dye",
+  "part": "Colour as wealth",
+  "after": "Dyes and mordants were valuable trade goods for most of history. Alum was traded across th",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Dried madder roots, the source of a fast red on wool and cotton.",
+   "options": {
+    "photo": "madder-root",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Rubia tinctorum; a photo of dried or fresh madder roots"
+ },
+ {
+  "lesson": "purple",
+  "part": "Stripes, borders and the whole robe",
+  "after": "Rome used purple to mark rank by degrees. A senator wore a tunic with a broad purple strip",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The emperor Justinian in a purple cloak, in the 6th century mosaic at San Vitale, Ravenna.",
+   "options": {
+    "photo": "justinian-mosaic",
+    "aspect": 1.5
+   }
+  },
+  "search": "File:Mosaic of Justinianus I - Basilica San Vitale (Ravenna).jpg (Commons; kind photo of a mosaic)"
+ },
+ {
+  "lesson": "purple",
+  "part": "Thousands of snails a gram",
+  "after": "**Tyrian purple** came from sea snails of the Murex family, collected along the coasts of ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Shells of the banded dye-murex, Hexaplex trunculus, one of the sea snails that gave Tyrian purple.",
+   "options": {
+    "photo": "murex-shells",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Hexaplex trunculus or Category:Bolinus brandaris; clear photo of shells"
+ },
+ {
+  "lesson": "silk",
+  "part": "Raising silkworms",
+  "after": "Lesson 2 described the fibre: a continuous filament of protein, spun by the caterpillar of",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Silkworm cocoons. Each is wound from a single continuous filament several hundred metres long.",
+   "options": {
+    "photo": "silk-cocoons",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Cocoons of Bombyx mori; a close photo of white or yellow cocoons"
+ },
+ {
+  "lesson": "pattern",
+  "part": "The Han answer: many shafts",
+  "after": "The Laoguanshan looms solved the problem with a large number of **pattern shafts**, each a",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Five Stars armguard from Niya, a Han brocade woven with the words \"five stars rise in the east, auspicious for China\".",
+   "options": {
+    "photo": "five-stars-armguard",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, search 'Five stars rise in the east armguard Niya' (Xinjiang Museum); a photo of the brocade"
+ },
+ {
+  "lesson": "pattern",
+  "part": "The drawloom and the drawboy",
+  "after": "A pattern shaft loom can only hold as many shafts as fit on its frame. The **drawloom** re",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The drawloom in Song Yingxing's Tiangong Kaiwu of 1637, with the drawboy sitting on a tower above the warp.",
+   "options": {
+    "photo": "tiangong-drawloom",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Tiangong Kaiwu; the woodblock print of the drawloom (hua ji); kind illustration"
+ },
+ {
+  "lesson": "words",
+  "part": "Four cities",
+  "after": "**Damascus** gave its name to **damask**, a figured cloth, usually of silk or linen, whose",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Silk damask, in which the pattern shows by the way the light falls on satin floats running two ways.",
+   "options": {
+    "photo": "damask-cloth",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Damask; a close photo of a damask cloth with a visible woven pattern"
+ },
+ {
+  "lesson": "wool",
+  "part": "From wool to cloth",
+  "after": "The high duty on raw wool had a side effect. Cloth exported from England paid far less dut",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Cloth Hall at Ypres in Flanders, built in the 13th century for the trade in woollen cloth (rebuilt after 1918).",
+   "options": {
+    "photo": "ypres-cloth-hall",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Cloth Hall (Ypres); a daytime photo of the whole facade"
+ },
+ {
+  "lesson": "inca",
+  "part": "Records in knots",
+  "after": "Running a system like this needs records: how many households in each district, how much e",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "An Inca khipu, a record of cords and knots.",
+   "options": {
+    "photo": "khipu",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Quipus; a museum photo of a khipu with its knots visible (e.g. Museo Larco)"
+ },
+ {
+  "lesson": "inca",
+  "part": "Tax paid in work",
+  "after": "Inca subjects did not pay taxes in goods or coin. They paid in labour, called *mit'a*: eac",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "An Inca tunic woven in tapestry, with a grid of small squares of pattern called tocapu.",
+   "options": {
+    "photo": "inca-tunic",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Inca textiles; the Dumbarton Oaks 'Tunic with tocapu' if available, else another Inca tapestry tunic in a museum"
+ },
+ {
+  "lesson": "calico",
+  "part": "The world's cotton workshop",
+  "after": "For about two thousand years before 1800, the Indian subcontinent made more cotton cloth, ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A painted and dyed cotton palampore, a large hanging, made on the Coromandel Coast for export in the 18th century.",
+   "options": {
+    "photo": "palampore",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Palampores or Category:Chintz; a museum photo (Met, V&A, Rijksmuseum public domain) of a whole palampore"
+ },
+ {
+  "lesson": "africa",
+  "part": "West Africa's own cloth",
+  "after": "West Africa had large textile industries of its own. Cotton was grown across the savanna f",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Woven cloth from West Africa: a strip-woven cotton cloth.",
+   "options": {
+    "photo": "tellem-textile",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Textiles of Mali or Category:Strip weaving; a museum photo of a West African strip-woven cotton cloth"
+ },
+ {
+  "lesson": "bottleneck",
+  "part": "Machines that draft",
+  "after": "The obvious fix was a machine that spun many threads at once. In 1761 the Society of Arts ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A spinning jenny, the hand-driven machine that spun many threads at once.",
+   "options": {
+    "photo": "spinning-jenny",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Spinning jenny; a photo of a surviving or replica jenny (e.g. Museum of Science and Industry, Manchester, or Wuppertal)"
+ },
+ {
+  "lesson": "bottleneck",
+  "part": "The flying shuttle",
+  "after": "In 1733 John Kay, from near Bury in Lancashire, patented the **flying shuttle**. On a hand",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A flying shuttle, with the metal tips and wheels that let it be knocked across the loom.",
+   "options": {
+    "photo": "flying-shuttle",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Flying shuttles; close photo of one shuttle"
+ },
+ {
+  "lesson": "mill",
+  "part": "The gates at Cromford",
+  "after": "In December 1771 Richard Arkwright advertised in the *Derby Mercury* for workers for his n",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Arkwright's mill at Cromford, Derbyshire, opened in 1771.",
+   "options": {
+    "photo": "cromford-mill",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Cromford Mill; a daytime photo of the mill buildings"
+ },
+ {
+  "lesson": "mill",
+  "part": "The power loom",
+  "after": "Once spinning was mechanised, weaving was the bottleneck again, and for about thirty years",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Rows of power looms in the weaving shed of Queen Street Mill, Burnley, a preserved steam-powered mill.",
+   "options": {
+    "photo": "weaving-shed",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Queen Street Mill; a photo of the rows of looms"
+ },
+ {
+  "lesson": "why-britain",
+  "part": "What happened to Bengal",
+  "after": "Within half a century the trade reversed. British machine-spun yarn became cheaper than In",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A fine Dhaka muslin, the hand-spun cotton of Bengal.",
+   "options": {
+    "photo": "dhaka-muslin",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Dhaka muslin or Category:Jamdani; a museum photo of muslin cloth"
+ },
+ {
+  "lesson": "gin",
+  "part": "The sticky seed",
+  "after": "Lesson 2 described ginning: separating cotton fibre from the seeds it grows on. Indian cot",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "An early cotton gin of Whitney's type, with the wire teeth on its drum.",
+   "options": {
+    "photo": "cotton-gin",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Cotton gins; a photo of an early saw or wire tooth gin in a museum (Eli Whitney Museum or a US history museum)"
+ },
+ {
+  "lesson": "jacquard",
+  "part": "The Jacquard head",
+  "after": "Jacquard, the son of a Lyon master weaver, combined these earlier ideas into a device that",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Jacquard loom, with the chain of punched cards above the loom.",
+   "options": {
+    "photo": "jacquard-loom",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Jacquard looms; a photo showing the card chain (e.g. Museum of Science and Industry, Manchester)"
+ },
+ {
+  "lesson": "jacquard",
+  "part": "A portrait in silk",
+  "after": "In 1839 a Lyon silk firm, Didier, Petit et Cie, wove a portrait of Joseph-Marie Jacquard, ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The portrait of Joseph-Marie Jacquard, woven in silk in 1839 from about 24,000 punched cards.",
+   "options": {
+    "photo": "jacquard-portrait",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Joseph Marie Jacquard; the woven silk portrait (Met or Science Museum, public domain), kind 'scan' or photo of the textile"
+ },
+ {
+  "lesson": "king-cotton",
+  "part": "The cotton famine",
+  "after": "The **Lancashire cotton famine** began in earnest in 1862. Mills went on short time and th",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Lancashire mill workers queue for relief during the cotton famine of 1862 to 1863.",
+   "options": {
+    "photo": "cotton-famine",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Lancashire Cotton Famine; an engraving from the Illustrated London News or a period photo; kind illustration if an engraving"
+ },
+ {
+  "lesson": "mauve",
+  "part": "An Easter experiment",
+  "after": "Over the Easter holiday of 1856, William Henry Perkin, a chemistry student aged 18, was wo",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A silk dress dyed with Perkin's mauve, about 1862.",
+   "options": {
+    "photo": "mauve-dress",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Mauveine; a museum photo of a mauve dress or skein (Science Museum or a costume collection)"
+ },
+ {
+  "lesson": "khadi",
+  "part": "Gandhi in Darwen",
+  "after": "On 26 September 1931 Mohandas Gandhi visited Darwen, a cotton town in Lancashire, during a",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Gandhi with women mill workers at Darwen, Lancashire, on 26 September 1931.",
+   "options": {
+    "photo": "gandhi-darwen",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Mahatma Gandhi in 1931; the photo at Darwen with women weavers (public domain in India); else Gandhi spinning on a charkha"
+ },
+ {
+  "lesson": "khadi",
+  "part": "Why spin?",
+  "after": "Khadi was a small part of India's cloth supply, a few percent at most. Over the 1920s and ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Gandhi spinning on a small wheel, the charkha.",
+   "options": {
+    "photo": "gandhi-charkha",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Mahatma Gandhi with charkha; a photograph, public domain in India"
+ },
+ {
+  "lesson": "toyoda",
+  "part": "Recruits for Tomioka",
+  "after": "In 1872 the Japanese government opened a large silk-reeling mill at Tomioka, a town in the",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Tomioka silk mill, opened in 1872 and now a World Heritage Site.",
+   "options": {
+    "photo": "tomioka-mill",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Tomioka Silk Mill; the brick east cocoon warehouse or a woodblock print of the mill interior (kind illustration)"
+ },
+ {
+  "lesson": "toyoda",
+  "part": "A loom that changed its own shuttle",
+  "after": "Sakichi Toyoda was born in 1867 in a farming village near Nagoya, the son of a carpenter, ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Toyoda Type G automatic loom of 1924.",
+   "options": {
+    "photo": "type-g-loom",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Toyota Commemorative Museum of Industry and Technology; a photo of the Type G loom"
+ },
+ {
+  "lesson": "synthetics",
+  "part": "A queue in Pittsburgh",
+  "after": "In June 1946, about 40,000 people queued along a mile of a Pittsburgh street for a chance ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Nylon stockings advertised in the early 1940s.",
+   "options": {
+    "photo": "nylon-stockings",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Nylon stockings; a public-domain period photo or advertisement; kind illustration if an advert"
+ },
+ {
+  "lesson": "sizes",
+  "part": "The garment district",
+  "after": "Ready-made clothing was made in cities, where it could draw on large numbers of workers pa",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Asch Building after the Triangle fire of 25 March 1911.",
+   "options": {
+    "photo": "triangle-fire",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Triangle Shirtwaist Factory fire; a public-domain photo of the building or the fire"
+ },
+ {
+  "lesson": "sizes",
+  "part": "The sewing machine",
+  "after": "Many inventors tried to make a sewing machine. The design that worked was the **lockstitch",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Singer sewing machine of the 1850s.",
+   "options": {
+    "photo": "singer-machine",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Singer sewing machines; a museum photo of an early Singer machine (Smithsonian, public domain)"
+ },
+ {
+  "lesson": "fast",
+  "part": "Rana Plaza",
+  "after": "On 23 April 2013, large cracks appeared in the walls of Rana Plaza, an eight-storey buildi",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The ruins of Rana Plaza, Savar, after the collapse on 24 April 2013.",
+   "options": {
+    "photo": "rana-plaza",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:2013 Savar building collapse; a CC BY or CC BY-SA photo (e.g. by rijans on Flickr)"
+ },
+ {
+  "lesson": "resources",
+  "part": "Where clothes go",
+  "after": "In rich countries, most discarded clothing is thrown away and burned or buried. Of what is",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Second-hand clothes for sale at Kantamanto market in Accra.",
+   "options": {
+    "photo": "kantamanto",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Kantamanto Market or Category:Second-hand clothes markets in Ghana; else a mitumba market in Kenya or Tanzania"
+ },
+ {
+  "lesson": "label",
+  "part": "Three lines on a label",
+  "after": "Turn an ordinary shirt inside out and look at the small label sewn into a side seam. It mi",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A garment label listing the fibres, the country of origin and the care symbols.",
+   "options": {
+    "photo": "care-label",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Clothing labels or Category:Laundry symbols; a clear photo of a real care label"
+ },
+ {
+  "lesson": "shrink",
+  "part": "Why some wool itches",
+  "after": "Many people say they cannot wear wool because it itches, yet happily wear a merino base la",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Merino sheep, bred for fine fleece.",
+   "options": {
+    "photo": "merino-sheep",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Merino sheep; a clear photo of merino sheep in a field"
+ },
+ {
+  "lesson": "wrinkle",
+  "part": "Wash and wear",
+  "after": "In the 1950s chemists found a way to make cotton behave more like wool. The cloth is soake",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Ruth Benerito at the USDA Southern Regional Research Center.",
+   "options": {
+    "photo": "benerito",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Ruth R. Benerito; a USDA public-domain photo"
+ },
+ {
+  "lesson": "warm",
+  "part": "Down and fleece",
+  "after": "**Down** is the fluffy undercoat of ducks and geese, which lies beneath their outer feathe",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A single down cluster, with fine filaments radiating from its centre.",
+   "options": {
+    "photo": "down-cluster",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Down feathers; a close photo of a down cluster"
+ },
+ {
+  "lesson": "thread-count",
+  "part": "Cloth with a pile",
+  "after": "Some cloths are woven with a third set of threads that stands up from the surface. This **",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Terry towelling seen close up, its loops of cotton standing up from the woven base.",
+   "options": {
+    "photo": "terry-loops",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Terrycloth; a macro photo of towel loops"
+ },
+ {
+  "lesson": "stretch",
+  "part": "Elastane",
+  "after": "Before the 1960s, the only fibre that could stretch to several times its length and spring",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Covered elastane yarn: a core of elastane wrapped in nylon.",
+   "options": {
+    "photo": "elastane-yarn",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Spandex; a macro photo of elastane yarn or a stretch fabric; skip if nothing clear"
+ },
+ {
+  "lesson": "rain",
+  "part": "Rubber, wax and tight weaves",
+  "after": "In 1823 the Scottish chemist **Charles Macintosh** patented a waterproof cloth. He dissolv",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A rubberised mackintosh coat of the 19th century.",
+   "options": {
+    "photo": "macintosh-coat",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Mackintoshes; a museum photo of an early rubberised coat"
+ },
+ {
+  "lesson": "recycled",
+  "part": "Shredding old cloth",
+  "after": "Turning old cloth back into fibre is far older than plastic. In 1813 Benjamin Law, in the ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Rags sorted for shoddy in a Yorkshire mill.",
+   "options": {
+    "photo": "shoddy-mill",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Shoddy or Category:Batley; a period photo of rag sorting or a rag grinding machine; else a modern textile recycling bale photo"
+ },
+ {
+  "lesson": "felt",
+  "part": "Felt on the steppe",
+  "after": "Felt may be older than woven cloth, but wool rots in most soils and very little early felt",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Mongolian ger covered in felt.",
+   "options": {
+    "photo": "ger",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Gers in Mongolia; a clear photo of one ger with its felt cover visible"
+ },
+ {
+  "lesson": "felt",
+  "part": "Felt on the steppe",
+  "after": "Felt may be older than woven cloth, but wool rots in most soils and very little early felt",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The felt swan from Pazyryk, about 2,300 years old, in the Hermitage.",
+   "options": {
+    "photo": "pazyryk-swan",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Pazyryk culture or Category:Hermitage Museum felt swan; photo of the stuffed felt swan"
+ },
+ {
+  "lesson": "lace",
+  "part": "Two moves",
+  "after": "However complex a bobbin lace looks, every stitch in it is built by repeating just two kin",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Bobbin lace in progress on a pillow, with the pins and pairs of bobbins.",
+   "options": {
+    "photo": "bobbin-lace",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Bobbin lace making; a clear photo of a pillow with bobbins and pins"
+ },
+ {
+  "lesson": "lace",
+  "part": "A collar worth a farm",
+  "after": "Portraits from the late 16th and 17th centuries show rich men and women in white ruffs and",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A portrait of about 1620 to 1630 with a falling collar of lace.",
+   "options": {
+    "photo": "lace-portrait",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, a public-domain Dutch or Flemish portrait with a lace collar (e.g. Frans Hals or Van Dyck, Rijksmuseum); kind painting"
+ },
+ {
+  "lesson": "bayeux",
+  "part": "Seventy metres of story",
+  "after": "The Bayeux Tapestry is a strip of linen about 70 metres long and 50 centimetres high that ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A scene from the Bayeux Tapestry, wool stitched on plain linen.",
+   "options": {
+    "photo": "bayeux-scene",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Bayeux Tapestry; a photo of one scene, public domain (the object is medieval), e.g. Harold's oath or the death of Harold"
+ },
+ {
+  "lesson": "bayeux",
+  "part": "English work",
+  "after": "English embroidery was a luxury export for centuries after the conquest. From the 12th to ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Syon Cope, English work of the early 14th century in silk and silver-gilt thread, at the V&A.",
+   "options": {
+    "photo": "syon-cope",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Syon Cope; a museum photo"
+ },
+ {
+  "lesson": "stocking-frame",
+  "part": "A row at a time",
+  "after": "In the 1580s, stockings in England were knitted by hand, one loop at a time on a set of ne",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A hand-operated stocking frame, the machine of William Lee's design.",
+   "options": {
+    "photo": "stocking-frame",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Stocking frames; a photo of a surviving frame (Ruddington Framework Knitters Museum)"
+ },
+ {
+  "lesson": "stocking-frame",
+  "part": "General Ludd",
+  "after": "In March 1811, framework knitters in villages around Nottingham began breaking into worksh",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "\"The Leader of the Luddites\", a print of 1812.",
+   "options": {
+    "photo": "luddite-print",
+    "aspect": 1
+   }
+  },
+  "search": "File:Luddite.jpg or Category:Luddites; the 1812 hand-coloured etching; kind illustration"
+ },
+ {
+  "lesson": "kente",
+  "part": "Kente",
+  "after": "**Kente** is woven by the **Asante** of central Ghana, especially in the weaving town of B",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Kente cloth, strips woven on a narrow loom and sewn edge to edge.",
+   "options": {
+    "photo": "kente-cloth",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Kente cloth; a clear photo of a whole cloth showing the strips"
+ },
+ {
+  "lesson": "kente",
+  "part": "The narrow loom",
+  "after": "Across much of West Africa, from Senegal to Nigeria, men wove on a **narrow-strip loom**: ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A weaver at a narrow strip loom in Ghana, with the warp stretched out in front of the loom.",
+   "options": {
+    "photo": "narrow-loom",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Kente weaving or Category:Bonwire; a photo of a weaver at work"
+ },
+ {
+  "lesson": "aizome",
+  "part": "Many dips",
+  "after": "Each dip in an indigo vat adds only a thin layer of colour, because the cloth takes up onl",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Cloth dyed in a Japanese indigo vat.",
+   "options": {
+    "photo": "aizome-dyeing",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Aizome; a photo of indigo dyeing in Japan or of indigo-dyed cloth"
+ },
+ {
+  "lesson": "aizome",
+  "part": "Boro",
+  "after": "In the cold north of Japan, around Aomori, cotton would not grow, and cotton cloth had to ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A boro garment, patched and darned from indigo cotton.",
+   "options": {
+    "photo": "boro",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Boro (textile); a museum photo"
+ },
+ {
+  "lesson": "navajo",
+  "part": "Blankets worth a horse",
+  "after": "In the first half of the 19th century, a fine striped blanket woven by a Navajo woman coul",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Navajo chief's blanket of the first phase, in stripes of white, brown-black and indigo blue.",
+   "options": {
+    "photo": "chiefs-blanket",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Navajo blankets; a museum photo of a first-phase chief's blanket (public domain)"
+ },
+ {
+  "lesson": "navajo",
+  "part": "The upright loom",
+  "after": "Navajo weavers use an **upright loom**: two posts with crossbars, the warp stretched verti",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Navajo weaver at an upright loom.",
+   "options": {
+    "photo": "navajo-loom",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Navajo weavers; a public-domain period photo (e.g. Library of Congress or NARA)"
+ },
+ {
+  "lesson": "navajo",
+  "part": "Churro sheep",
+  "after": "Sheep came to stay in the American Southwest with Spanish colonists at the end of the 16th",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Navajo-Churro sheep.",
+   "options": {
+    "photo": "churro-sheep",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Navajo-Churro; a clear photo of the sheep"
+ },
+ {
+  "lesson": "carpets",
+  "part": "Millions of knots",
+  "after": "The Ardabil carpet in the Victoria and Albert Museum in London is more than 10 metres long",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Ardabil carpet in the Victoria and Albert Museum, about 10.4 by 5.3 metres.",
+   "options": {
+    "photo": "ardabil-carpet",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Ardabil Carpet; the V&A carpet seen whole"
+ },
+ {
+  "lesson": "carpets",
+  "part": "The oldest carpet",
+  "after": "The oldest surviving knotted carpet was found in 1949 in one of the frozen burial mounds a",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The Pazyryk carpet, knotted about 2,400 years ago, in the Hermitage.",
+   "options": {
+    "photo": "pazyryk-carpet",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Pazyryk carpet; a museum photo"
+ },
+ {
+  "lesson": "paisley",
+  "part": "The shawl craze",
+  "after": "Officers of the East India Company brought Kashmir shawls home as gifts in the later 18th ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Kashmir shawl of the early 19th century, with the buta pattern.",
+   "options": {
+    "photo": "kashmir-shawl",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Kashmir shawls; a museum photo, public domain"
+ },
+ {
+  "lesson": "paisley",
+  "part": "A teardrop with a curl",
+  "after": "The pattern of curved teardrops called paisley appears on ties, bandanas and wallpaper aro",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A Paisley shawl woven in Scotland in the 1850s.",
+   "options": {
+    "photo": "paisley-shawl",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Paisley shawls; a museum photo (Paisley Museum or a public-domain collection)"
+ },
+ {
+  "lesson": "cut",
+  "part": "Cut to fit",
+  "after": "From about the 1330s, men in France, Burgundy and England began wearing short, tight jacke",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The pourpoint of Charles de Blois, a fitted silk jacket of the mid 14th century, in the Musée des Tissus, Lyon.",
+   "options": {
+    "photo": "pourpoint",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Pourpoint of Charles de Blois; a museum photo"
+ },
+ {
+  "lesson": "cut",
+  "part": "Clothes that keep the rectangle",
+  "after": "A woman in classical Greece wore a **peplos**, a single large rectangle of wool folded ove",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A sari, a single length of cloth wrapped and pleated without cutting.",
+   "options": {
+    "photo": "sari",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Saris; a clear photo of a woman wearing a sari, ideally showing the pleats and pallu"
+ },
+ {
+  "lesson": "denim",
+  "part": "The rivet",
+  "after": "In the American West, miners, farmers and labourers wore trousers of denim and of heavy co",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Jacob Davis and Levi Strauss's US patent 139,121 of 20 May 1873 for riveted pockets.",
+   "options": {
+    "photo": "levis-patent",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Levi Strauss & Co.; the patent drawing (US patent 139,121), kind scan"
+ },
+ {
+  "lesson": "denim",
+  "part": "Why denim fades",
+  "after": "The warp is dyed with **indigo**, the dye of lesson 5. In the vat indigo is in a soluble y",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Worn jeans, faded where the cloth rubs at the thighs and knees.",
+   "options": {
+    "photo": "faded-jeans",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Jeans; a photo of faded denim jeans"
+ },
+ {
+  "lesson": "wax-print",
+  "part": "Batik",
+  "after": "On the island of Java, in what is now Indonesia, **batik** was made by drawing patterns on",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Drawing wax onto cotton with a canting in Java.",
+   "options": {
+    "photo": "canting",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:Batik making or Category:Canting; a photo of hand-drawn batik in progress"
+ },
+ {
+  "lesson": "wax-print",
+  "part": "African print from Holland",
+  "after": "Across West and Central Africa, brightly patterned cotton cloth called wax print, or simpl",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Wax-print cloth for sale in a West African market.",
+   "options": {
+    "photo": "wax-print-market",
+    "aspect": 1.5
+   }
+  },
+  "search": "Commons, Category:African wax prints; a photo of stacked wax-print cloth in a market"
+ },
+ {
+  "lesson": "suit",
+  "part": "Brummell",
+  "after": "The name most attached to the change is **George Bryan \"Beau\" Brummell** (1778 to 1840), a",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Beau Brummell in 1805, in a dark coat and white cravat, from a portrait by Robert Dighton.",
+   "options": {
+    "photo": "brummell",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Beau Brummell; the 1805 Robert Dighton portrait, kind painting or illustration"
+ },
+ {
+  "lesson": "suit",
+  "part": "Peacocks",
+  "after": "A gentleman at the court of Versailles in the 1770s wore a coat of silk in pink, pale gree",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A French court suit of the 1770s, embroidered silk coat, waistcoat and breeches.",
+   "options": {
+    "photo": "court-suit",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, a museum photo (Met, LACMA, public domain) of an 18th century embroidered suit (habit à la française)"
+ },
+ {
+  "lesson": "corsets",
+  "part": "Building a corset",
+  "after": "European women wore stiffened bodices, called **stays**, from the 16th century. They flatt",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A corset of the 1880s, showing the boning channels and the front busk.",
+   "options": {
+    "photo": "corset-1880s",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Corsets in museums; a public-domain museum photo (Met or LACMA) of a Victorian corset"
+ },
+ {
+  "lesson": "corsets",
+  "part": "Reform",
+  "after": "From the 1850s dress reformers in Britain and the United States campaigned for looser clot",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A cage crinoline of about 1860: spring-steel hoops linked by tapes.",
+   "options": {
+    "photo": "cage-crinoline",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Crinolines; a museum photo of a cage crinoline"
+ },
+ {
+  "lesson": "utility",
+  "part": "Utility and CC41",
+  "after": "Under the **Utility scheme**, introduced by the Board of Trade in 1941, a large share of t",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "The CC41 label of Utility clothing.",
+   "options": {
+    "photo": "cc41-label",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:Utility clothing or 'CC41'; a photo of the label or logo"
+ },
+ {
+  "lesson": "utility",
+  "part": "After the war",
+  "after": "Clothes rationing in Britain ended in March 1949, and the Utility scheme in 1952. In 1947 ",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "Dior's New Look of 1947: a fitted jacket over a long, full skirt.",
+   "options": {
+    "photo": "new-look",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, Category:New Look (fashion) or Category:Christian Dior Bar suit; a CC licensed photo of the Bar suit in a museum"
+ },
+ {
+  "lesson": "styles",
+  "part": "Dress as rank",
+  "after": "For centuries, rulers tried to fix dress to rank by law. **Sumptuary laws** in medieval an",
+  "block": {
+   "type": "diagram",
+   "id": "photo",
+   "caption": "A ruff and fine clothes of the late 16th century, the kind of dress sumptuary laws restricted.",
+   "options": {
+    "photo": "sumptuary",
+    "aspect": 1
+   }
+  },
+  "search": "Commons, a public-domain portrait of an Elizabethan courtier in a ruff (e.g. National Portrait Gallery); kind painting"
  }
 ]
