@@ -35,10 +35,11 @@ export const homeView: View = (root, nav) => {
             : before.length ? `Better after ${names(before)}`
               : null;
     return el('div.lesson-card', { className: `lesson-card stand-${standing}${state === 'next' ? ' next' : ''}` },
-      el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), state === 'done' || 'coming' in s ? null : effortBadge(save, s), status ? el('p.score', {}, status) : null),
+      el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), status ? el('p.score', {}, status) : null),
       state !== 'coming' ? el('div.lesson-actions', {},
         lessonGo(`#/lesson/${s.id}`, standing),
         markToggle(save, s.id, updateSave, () => nav.replace('/home')),
+        state === 'done' || 'coming' in s ? null : effortBadge(save, s),
       ) : null,
     );
   };
